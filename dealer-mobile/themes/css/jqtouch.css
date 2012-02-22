@@ -1,0 +1,700 @@
+/**
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ * 
+ *     @include background-gradient(#444, 'glossy');
+ * 
+ * You can also use color-stops if you want full control of the gradient:
+ * 
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ * 
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ * 
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ * 
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ * 
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Normalize.css
+ * Opposite approche from CSS reset
+ * 
+ * Based on normalize.css commit 9576d48fc234c5224b1fc4dccba2f5965243843d
+ *
+ * @link http://github.com/necolas/normalize.css
+ */
+/* normalize.css 2011-07-12T10:51 UTC · http://github.com/necolas/normalize.css */
+/* =============================================================================
+   HTML5 element display
+   ========================================================================== */
+/* =============================================================================
+   Base
+   ========================================================================== */
+/* =============================================================================
+   Links
+   ========================================================================== */
+/* =============================================================================
+   Typography
+   ========================================================================== */
+/* =============================================================================
+   Lists
+   ========================================================================== */
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+/* =============================================================================
+   Figures
+   ========================================================================== */
+/* =============================================================================
+   Forms
+   ========================================================================== */
+/* =============================================================================
+   Tables
+   ========================================================================== */
+/**
+ *
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * @class Color
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @todo explain why this is useful
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Glass effect
+ * Use this on image for better effect render
+ * 
+ * Inspired from Simurai's IMDB redisign
+ *
+ * @link http://lab.simurai.com/redesign/imdb
+ * @thanks Simurai @simurai
+ */
+/**
+ * Note IE7/6 doesn't understand pseudo element as ::before and ::after
+ * IE8 need to have :before and not ::before
+ * So use only : and not :: if you want to support IE8
+ * IE9 Webkit Firefox Opera understand ::
+ */
+/**
+ * Scotch tape effect with pure CSS
+ * 
+ * @thanks Nick La @nickla for original concept
+ * @link http://webdesignerwall.com/tutorials/css3-image-styles
+ * 
+ * @author David Kaneda http://www.davidkaneda.com
+ *
+ */
+/**
+ * Note IE7/6 doesn't understand pseudo element as ::before and ::after
+ * IE8 need to have :before and not ::before
+ * So use only : and not :: if you want to support IE8
+ * IE9 Webkit Firefox Opera understand ::
+ */
+/**
+ * Corner folded with pure CSS
+ * 
+ * Known support: Firefox 3.5+, Chrome 4+, Safari 4+, Opera 10+, IE 9+.
+ * IE8 is not supported because it not render properly box-shadow and
+ * pseudo element should be selected with ::element and not :element
+ * 
+ * @thanks Nicolas Gallagher @necolas
+ * @link http://nicolasgallagher.com/pure-css-folded-corner-effect/demo/
+ * @todo Nix in .4
+ */
+/**
+ * Note IE7/6 doesn't understand pseudo element as ::before and ::after
+ * IE8 need to have :before and not ::before
+ * So use only : and not :: if you want to support IE8
+ * IE9 Webkit Firefox Opera understand ::
+ */
+/**
+ * Corner folded with pure CSS
+ * 
+ * Known support: Firefox 3.5+, Chrome 4+, Safari 4+, Opera 10+, IE 9+.
+ * IE8 is not supported because it not render properly box-shadow and
+ * pseudo element should be selected with ::element and not :element
+ * 
+ * @thanks Nicolas Gallagher @necolas
+ * @link http://nicolasgallagher.com/pure-css-folded-corner-effect/demo/
+ */
+/**
+ * Note IE7/6 doesn't understand pseudo element as ::before and ::after
+ * IE8 need to have :before and not ::before
+ * So use only : and not :: if you want to support IE8
+ * IE9 Webkit Firefox Opera understand ::
+ */
+/**
+ * Form element inline mixin
+ * This mixin allow you to have a label inline with your input
+ * It's simply based on inline-block behavior
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Vertical alignement for page
+ * Inspired by http://css-tricks.com/snippets/css/center-div-with-dynamic-height/
+ * 
+ * Usage:
+ * 
+ * SCSS
+ * @include vertical-align-requirement;
+ * .v-align-container { @include vertical-align-container }
+ * .v-align-content-container { @include vertical-align-content-container }
+ * .v-align-content { @include vertical-align-content }
+ * 
+ * HTML
+ * <body>
+ *     <div class="v-align-container">
+ *         <div class="v-align-content-container">
+ *             <div class="v-align-content">
+ *             Your content !
+ *             </div>
+ *         </div> 
+ *     </div>
+ * </body>
+ *
+ * @thanks Chris Coyier @chriscoyier
+ * @autor Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Media Queries Mixins
+ * 
+ * @todo Do we have to take care of print ?
+ * 
+ * @require sass-3.2 (you need eventually to do "sudo gem install sass --pre")
+ * @author Maxime Thirouin <maxime.thirouin@gmail.com>
+ */
+/*
+$media-query-width-big: 1280px;
+$media-query-width-medium: 960px;
+$media-query-width-small: 480px;
+*/
+/**
+ * Drop shadow mixins from Nicolas Gallagher demo
+ * 
+ * @thanks Nicolas Gallagher @necolas, @simurai, @cameronmoll, @matthamm
+ * 
+ * @link http://nicolasgallagher.com/css-drop-shadows-without-images/demo/
+ */
+/**
+ * Drop shadow curled
+ *
+ * @thanks Nicolas Gallagher @necolas
+ * @link http://nicolasgallagher.com/css-drop-shadows-without-images/demo/
+ */
+/**
+ * Drop shadow curved
+ *
+ * @thanks Nicolas Gallagher @necolas
+ * @link http://nicolasgallagher.com/css-drop-shadows-without-images/demo/
+ */
+/**
+ * Drop shadow flying
+ *
+ * @thanks Geoffrey Crofte @geoffrey_crofte
+ * @link http://www.creativejuiz.fr/trytotry/css3-box-shadow-after-before/
+ */
+/**
+ * Drop shadow w/ lifted corners
+ *
+ * @thanks Nicolas Gallagher @necolas
+ * @link http://nicolasgallagher.com/css-drop-shadows-without-images/demo/
+ */
+/**
+ * Drop shadow w/ perspective
+ *
+ * @thanks Nicolas Gallagher @necolas
+ * @link http://nicolasgallagher.com/css-drop-shadows-without-images/demo/
+ */
+/**
+ * Drop shadow raised
+ *
+ * @thanks Nicolas Gallagher @necolas
+ * @link http://nicolasgallagher.com/css-drop-shadows-without-images/demo/
+ */
+/**
+ * Drop shadow rules required for transform on drop shadow
+ * 
+ * /!\ This is required if you want to apply some transform on the element using drop shadow
+ *
+ * @thanks Nicolas Gallagher @necolas
+ * @link http://nicolasgallagher.com/css-drop-shadows-without-images/demo/
+ */
+/**
+ * Shadow along the top edge of the browser viewport
+ * 
+ * @link http://playground.genelocklin.com/depth/
+ */
+/**
+* Shapes !
+* Polygons, ellipses and symbols
+* 
+* @thanks Chris Coyier @chriscoyier
+* @link http://css-tricks.com/examples/ShapesOfCSS/
+* @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+*/
+/**
+ * Shape/Ellipse
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Polygon
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Polygon/Hexagon
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Polygon/Octagon
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Polygon/Parallelogram
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Polygon/Pentagon
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Polygon/Rectangle
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Polygon/Rhombus
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Polygon/Square
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Polygon/Star
+ *
+ * @todo check if setting a z-index by default is a good thing
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Polygon/Trapezoid
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Polygon/Triangle
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Symbol
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Symbol/Diamond
+ *
+ * @todo add height support
+ * 
+ * @author Alexander Futekov
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Symbol/Egg
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Symbol/Heart
+ * 
+ * @author Nicolas Gallagher @necolas
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Symbol/Infinity
+ * 
+ * @author Nicolas Gallagher @necolas
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Symbol/Pacman
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Symbol/Yin-yang
+ *
+ * @author Alexander Futekov
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Micro clearfix hack
+ * 
+ * The clearfix hack is a popular way to clear floats without resorting to using presentational markup. This article presents an update to the clearfix method that further reduces the amount of CSS required.
+ * Known support: Firefox 2+, Safari 2+, Chrome, Opera 9.27+, IE 6+, IE Mac.
+ *
+ * @thanks Nicolas Gallagher @necolas
+ * @link http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+/**
+ * Note IE7/6 doesn't understand pseudo element as ::before and ::after
+ * IE8 need to have :before and not ::before
+ * So use only : and not :: if you want to support IE8
+ * IE9 Webkit Firefox Opera understand ::
+ */
+/**
+ * UI convex effect from one color
+ *
+ * @todo merge with ui-button ?
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * UI Glossy helper
+ *
+ * @deprecated
+ * @todo Remove in 0.4
+ * @see background/gradients
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * UI simple gradient from one color
+ *
+ * @todo merge with ui-button ?
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Shape/Polygon/Triangle
+ *
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
+ */
+/**
+ * Keyboard key touch
+ * A simple stylesheet for rendering beautiful keyboard-style elements.
+
+ * @author Michael Hüneburg http://michaelhue.com/keyscss
+ * @link https://github.com/michaelhue/keyscss (commit 76bb603e921d0145362e0f60eabb79d4f69cbda0)
+ *
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+*/
+/**
+ * Menu dropdown helper
+ *
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+*/
+/**
+ * Ui background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * <hr /> separator style
+ *
+ * @author Chris Coyier @chriscoyier
+ * @link http://jsfiddle.net/chriscoyier/GaEzp/35/
+ *
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Micro clearfix hack
+ * 
+ * The clearfix hack is a popular way to clear floats without resorting to using presentational markup. This article presents an update to the clearfix method that further reduces the amount of CSS required.
+ * Known support: Firefox 2+, Safari 2+, Chrome, Opera 9.27+, IE 6+, IE Mac.
+ *
+ * @thanks Nicolas Gallagher @necolas
+ * @link http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+/**
+ * Note IE7/6 doesn't understand pseudo element as ::before and ::after
+ * IE8 need to have :before and not ::before
+ * So use only : and not :: if you want to support IE8
+ * IE9 Webkit Firefox Opera understand ::
+ */
+/**
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ * 
+ *     @include background-gradient(#444, 'glossy');
+ * 
+ * You can also use color-stops if you want full control of the gradient:
+ * 
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ * 
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ * 
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ * 
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ * 
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * @class Webfont Icon
+ * Great to use with the [Pictos font](http://pictos.drewwilson.com/)
+ * 
+ */
+/**
+ * @cfg {color} $webfont-icon-base-color
+ * The default color of icons when using the {@link #webfont-icon} mixin.
+ * 
+ * Defaults to `white`.
+ */
+/**
+ * @cfg {color} $webfont-icon-default-stroke
+ * The default color to use on the border of icons, when using the {@link #webfont-icon} mixin.
+ * 
+ * Defaults to `null`.
+ */
+/**
+ * @cfg {string} $webfont-icon-default-gradient
+ * The default gradient to use when using the {@link #webfont-icon} mixin.
+ * 
+ * Defaults to `matte`.
+ */
+/* line 41, ../compass-recipes/stylesheets/recipes/_webfont-icon.scss */
+.webfont-icon-base {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-indent: 0;
+  text-shadow: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/**
+ * Includes a character into the specified selector, styled as an icon.
+ * 
+ *     @include webfont-icon('a');
+ * 
+ * @param {color} $color
+ * The color of the icon. Defaults to {@link #$webfont-icon-default-background $webfont-icon-default-background}.
+ * 
+ * @param {measurement} $size
+ * The size of the icon
+ * 
+ * @param {color} $stroke
+ * The color of the border. Defautls to {@link #$webfont-icon-default-border $webfont-icon-default-border}.
+ * 
+ * @param {boolean} $include-staes
+ * True to include states for hover and active. Defaults to `true`.
+ */
+/* line 12, ../scss/jqtouch.scss */
+#jqt {
+  /* Lists */
+}
+/* line 13, ../scss/jqtouch.scss */
+#jqt > * {
+  background-image: url('data:image/png;base64,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'), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7b7c7f), color-stop(30%, #696a6d), color-stop(65%, #555658), color-stop(100%, #464748));
+  background-image: url('data:image/png;base64,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'), -webkit-linear-gradient(top, #7b7c7f, #696a6d 30%, #555658 65%, #464748);
+  background-image: url('data:image/png;base64,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'), linear-gradient(top, #7b7c7f, #696a6d 30%, #555658 65%, #464748);
+}
+/* line 20, ../scss/jqtouch.scss */
+#jqt .toolbar {
+  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 2, color-stop(100%, #181819), color-stop(100%, rgba(11, 11, 12, 0))), -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 2, color-stop(100%, #181819), color-stop(100%, rgba(11, 11, 12, 0))), -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 2, color-stop(100%, rgba(255, 255, 255, 0.1)), color-stop(100%, rgba(255, 255, 255, 0))), -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 2, color-stop(100%, rgba(255, 255, 255, 0.1)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-radial-gradient(#181819 2px, rgba(11, 11, 12, 0) 2px), -webkit-radial-gradient(#181819 2px, rgba(11, 11, 12, 0) 2px), -webkit-radial-gradient(rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0) 2px), -webkit-radial-gradient(rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0) 2px);
+  background-image: radial-gradient(#181819 2px, rgba(11, 11, 12, 0) 2px), radial-gradient(#181819 2px, rgba(11, 11, 12, 0) 2px), radial-gradient(rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0) 2px), radial-gradient(rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0) 2px);
+  background-repeat: repeat;
+  background-position: 0 0, 8px 8px, 0 1px, 8px 9px;
+  background-color: #2f3031;
+  background-size: 16px 16px;
+}
+/* line 29, ../scss/jqtouch.scss */
+#jqt ul li {
+  border-top: 1px solid #48494b;
+  background-image: none;
+  background-color: rgba(85, 86, 88, 0.2);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(123, 124, 127, 0.2)), color-stop(3%, rgba(98, 99, 101, 0.2)), color-stop(100%, rgba(72, 73, 75, 0.2)));
+  background-image: -webkit-linear-gradient(top, rgba(123, 124, 127, 0.2), rgba(98, 99, 101, 0.2) 3%, rgba(72, 73, 75, 0.2));
+  background-image: linear-gradient(top, rgba(123, 124, 127, 0.2), rgba(98, 99, 101, 0.2) 3%, rgba(72, 73, 75, 0.2));
+}
+/* line 33, ../scss/jqtouch.scss */
+#jqt ul li a {
+  color: white;
+  text-shadow: #3c3d3e 0 -1px 0;
+}
+/* line 37, ../scss/jqtouch.scss */
+#jqt ul li .toggle input[type="checkbox"] {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: white url(../img/jqt/on_off.png) 0 0 no-repeat;
+}
+/* line 42, ../scss/jqtouch.scss */
+#jqt ul li input[type='submit'] {
+  background-image: none;
+  background-color: white;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #ffffff), color-stop(100%, #f2f2f2));
+  background-image: -webkit-linear-gradient(top, #ffffff, #ffffff 50%, #ffffff 51%, #f2f2f2);
+  background-image: linear-gradient(top, #ffffff, #ffffff 50%, #ffffff 51%, #f2f2f2);
+  border: 1px outset black;
+}
+/* line 47, ../scss/jqtouch.scss */
+#jqt ul li small.counter {
+  -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0;
+  box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0;
+}
+/* line 54, ../scss/jqtouch.scss */
+#jqt ul.metal li {
+  background-image: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #666;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eeeeee), to(#9c9ea0));
+}
+/* line 60, ../scss/jqtouch.scss */
+#jqt ul.metal li a {
+  text-shadow: #fff 0 1px 0;
+}
+/* line 62, ../scss/jqtouch.scss */
+#jqt ul.metal li a.active {
+  color: #000;
+}
+/* line 65, ../scss/jqtouch.scss */
+#jqt ul.metal li em {
+  color: #444;
+}
+/* line 71, ../scss/jqtouch.scss */
+#jqt ul.edgetoedge li {
+  background-image: none;
+  background-color: #3c3d3e;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #282829), color-stop(100%, #2f3031));
+  background-image: -webkit-linear-gradient(top, #282829, #2f3031);
+  background-image: linear-gradient(top, #282829, #2f3031);
+  border-bottom: 1px solid #1e1e1f;
+  border-top: 1px solid #343536;
+}
+/* line 76, ../scss/jqtouch.scss */
+#jqt ul.edgetoedge li.sep {
+  background-image: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(38, 38, 38, 0.3)), color-stop(30%, rgba(20, 20, 20, 0.3)), color-stop(65%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0.3)));
+  background-image: -webkit-linear-gradient(top, rgba(38, 38, 38, 0.3), rgba(20, 20, 20, 0.3) 30%, rgba(0, 0, 0, 0.3) 65%, rgba(0, 0, 0, 0.3));
+  background-image: linear-gradient(top, rgba(38, 38, 38, 0.3), rgba(20, 20, 20, 0.3) 30%, rgba(0, 0, 0, 0.3) 65%, rgba(0, 0, 0, 0.3));
+  color: #949698;
+  text-shadow: black 0 -1px 0;
+}
+/* line 83, ../scss/jqtouch.scss */
+#jqt .info {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cccccc), to(#aaaaaa), color-stop(0.6, #cccccc));
+  text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
+  color: #444;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}

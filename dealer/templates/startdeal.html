@@ -1,0 +1,66 @@
+
+<div id="start_deal">
+    <div class="noOne set_template block" id="set_template_block">
+		<div class="label">Vælg skabelon</div>
+		<div class="data" >
+        	<div id="btn_select_area">
+                <input type="hidden" value="" id="deal_templates"/>
+                <div class="button blue select_template" id="btn_select_template">Tryk for at vælge</div>
+                <div id="selected_template_area" style="display:none"></div>
+            </div>
+        </div>
+        <div class="clearline"></div>
+	</div>
+    <div id="stage-two" style="display:none">
+    	<div id="time-picker">
+	        <div class="noTwo set_time block" id="set_time_block">
+	            <div class="label">Tid</div>
+	            <div class="data">
+	                    
+	              
+	                <div class="field start_time">
+	                    <div class="sublabel">Starter</div>
+	                    <div class="subdata"><input type="text" placeholder="Tryk for at vælge" value="<% print(getTimeString(0, true,data.timeMinInterval)) %>" name="deal_start_time" id="deal_start_time" class="datepicker"></div>
+	                </div>
+	                <div class="field show_hours">
+	                    <div class="hours" id="deal_hours"><%=data.timeStandard%></div>
+	                    <div class="sublabel">timer</div>
+	                </div>
+	                <div class="field end_time">
+	                    <div class="sublabel">Slutter</div>
+	                    <div class="subdata"><input type="text" placeholder="Tryk for at vælge" 
+	                        value="<%  var time = (new Date()).getTime()+1000*60*60 * data.timeStandard;
+	                            print(getTimeString(time,true,data.timeMinInterval));
+	                        %>" name="deal_end_time" id="deal_end_time" class="datepicker">
+	                    </div>
+	                </div>
+	                    
+	                	<blockquote id="bubble_msg" class="bubble_message msg" style="display: none;">
+	                		<p style="font-size: 18px;">
+	                			En deal baseret på den valgte skabelon er allerede planlagt i tidsrummet.
+	                		</p>
+	                	</blockquote>
+	            </div>
+	            <div class="clearline"></div>
+	       	</div>
+			<!--<div class="noThree set_treasure block" id="set_treasure_block">
+				<div class="label" style="width:auto;">Skattejagt</div>
+				<div class="data" style="float:left;">
+		    		<div class="field treasure">
+		        		<input type="checkbox" id="check_treasure"/> Tilmeld denne deal til vores skattejagt
+		        		
+		        	</div>
+		        	<div class="field read_more">
+		        		<span id="treasure_read_more">Hvad er, og hvordan kan skattejagten hjælpe din forretning?</span>
+		        	</div>
+				</div>
+				<div class="clearline"></div>
+				
+			</div>-->
+		</div>
+		
+        <div class="starter" id="starter_button">
+            <input type="button" value="Planlæg deal" id="btn_submit_start_deal" class="button green start_deal_btn" />
+        </div>
+    </div>
+</div>

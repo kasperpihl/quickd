@@ -1,0 +1,13 @@
+RewriteEngine on
+#User API
+#RewriteRule ^deals/(\d{1,3}\.\d{1,9})([\;\,\:\.]{1})(\d{1,3}\.\d{1,9}) test.php?action=getDeals&lat=$1&long=$3
+#RewriteRule ^deals/([a-fA-F0-9]{32}) test.php?id=$1
+
+
+
+#Shopowner API
+
+RewriteRule ^shopowner/(login|register|logout) api.php?action=$1 [NC,L]
+
+RewriteRule ^shopowner/(deals|templates|shops|feedback|images)/([a-fA-F0-9]{32}) api.php?type=$1 [NC,L]
+RewriteRule ^shopowner/(deals|templates|shops|feedback|images|all) api.php?type=$1 [NC,L]

@@ -1,0 +1,150 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+	<style type="text/css">
+	
+
+
+
+	#add_btn {
+		position: absolute;
+		display: block;
+		left: 7px;
+		top: 6px;
+		cursor: pointer;
+		line-height: 0.8;
+	 color: #D0E0F5;
+	 text-shadow: 0px 1px 1px white;
+	  background-color: #0064cd;
+	  background-repeat: repeat-x;
+	  background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+	  background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+	  background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+	  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+	  background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+	  background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+	  background-image: linear-gradient(top, #049cdb, #0064cd);
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#049cdb', endColorstr='#0064cd', GradientType=0);
+	  /*border-color: #0064cd #0064cd #003f81;
+	  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);*/
+		font-size: 1.2em;
+		font-weight: bold;
+		border: 1px solid #CCC;
+		border-bottom-color: #BBB;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		/*-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+		-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);*/
+		box-shadow: 0 1px 3px #808080;
+		-webkit-transition: 0.1s linear all;
+		-moz-transition: 0.1s linear all;
+		-ms-transition: 0.1s linear all;
+		-o-transition: 0.1s linear all;
+		transition: 0.1s linear all;
+		
+		padding: 5px;
+		padding-top: 2px;
+		padding-bottom: 7px;
+	}
+
+
+
+
+	
+	
+		#wrapper {
+			width: 380px;
+			margin-left: auto;
+			margin-right: auto;
+		}		
+		
+		#window {
+			width: 100%;
+			height: 500px;
+			background: white;
+			border-bottom-left-radius: 8px;
+			border-bottom-right-radius: 8px;
+			border: 1px solid #efefef;
+			border-top: none;
+			box-shadow: 2px 2px 4px #D9D7D7;
+			position: relative;
+		}
+		
+		#topbar {
+			width: 100%;
+			height: 45px;
+			border-top-left-radius: 8px;
+			border-top-right-radius: 8px;
+			position: relative;
+			top: 0px;
+			background: #EDEDED;
+			background: rgb(242,242,242); /* Old browsers */
+			background: -moz-linear-gradient(top,  rgba(242,242,242,1) 0%, rgba(219,219,219,1) 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,242,242,1)), color-stop(100%,rgba(219,219,219,1))); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  rgba(242,242,242,1) 0%,rgba(219,219,219,1) 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  rgba(242,242,242,1) 0%,rgba(219,219,219,1) 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  rgba(242,242,242,1) 0%,rgba(219,219,219,1) 100%); /* IE10+ */
+			background: linear-gradient(top,  rgba(242,242,242,1) 0%,rgba(219,219,219,1) 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#dbdbdb',GradientType=0 ); /* IE6-9 */
+
+
+			border-left: 1px solid #D9D7D7;
+			border-right: 1px solid #D9D7D7;
+			border-top: 1px solid #D9D7D7;
+			border-bottom: 1px solid #C7C7C7;
+			
+			box-shadow: 2px 2px 4px #D9D7D7;
+
+		}
+		
+		#gradient {
+			width: 100%;
+			height: 6px;
+			position: absolute;
+			bottom: 0px;
+			
+background: -moz-linear-gradient(top,  rgba(140,140,140,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(140,140,140,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(140,140,140,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(140,140,140,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(140,140,140,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+background: linear-gradient(top,  rgba(140,140,140,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c8c8c', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+
+		}
+		
+		#topbar_wrapper {
+			width: 100%;
+			height: inherit;
+			display: table;
+		}
+		
+		#topbar_text {
+			display: table-cell;
+			vertical-align: middle;
+			font-family: "PT Sans";
+			font-size: 1.5em;
+			color: #919191;
+			text-align: center;
+			text-shadow: 0px 1px 1px white;		
+		}
+		
+		body {
+			margin-top: 80px;
+			background: url('http://localhost/quickd/dealer/styles/stylesheets/i/background.png') repeat-x;
+			background-color: #f6f6f6;
+		}
+	</style>
+</head>
+<body style="background-color: #f6f6f6;">
+	<div id="wrapper">
+		<div id="topbar"><div id="topbar_wrapper"><div id="topbar_text">Skabeloner</div></div>
+			<button id="add_btn">Opret</button>
+		</div>	
+		<div id="window">
+			
+		</div>
+	</div>
+</body>

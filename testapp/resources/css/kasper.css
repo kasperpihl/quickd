@@ -1,0 +1,20 @@
+.x-contacts .headshot {
+float: left;
+height: 75px;
+width: 75px;
+margin-right: 10px;
+background-size: cover;
+background-position: center center;
+background: #DDD;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.6);
+}
+
+.x-list .x-list-item .x-list-item-label {
+min-height: 5em;
+padding: 0.5em 0.5em;
+}
+.x-list .x-list-item .x-list-item-label .footer{
+	font-size:12px;
+}

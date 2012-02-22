@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>Untitled</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.6.2.min.js'>\x3C/script>")</script>
+</head>
+
+<body>	
+  <div id="container">
+    
+  </div> <!-- eo #container -->
+
+
+  
+
+  <script type="text/javascript">
+  	// Enable logging without breaking dumb browsers. Use log('whatever'), not console.log('whatever').
+  	window.log=function(){log.history=log.history||[];log.history.push(arguments);if(this.console){arguments.callee=arguments.callee.caller;var a=[].slice.call(arguments);(typeof console.log==="object"?log.apply.call(console.log,console,a):console.log.apply(console,a))}};
+	(function(b){function c(){}for(var d="assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,timeStamp,profile,profileEnd,time,timeEnd,trace,warn".split(","),a;a=d.pop();){b[a]=b[a]||c}})((function(){try
+	{console.log();return window.console;}catch(err){return window.console={};}})());
+
+	/*$(function() {
+		$.post('shopowner/deals',function(data){
+			log(data);
+		});
+		log('DOM Ready ...');
+	});*/
+	
+  </script>
+  <script type="text/javascript">
+    	$(function(){
+    		var obj = {data: 'ja',test:"nej tak"};
+    		$.post('http://localhost/api/shopowner/templates/67814b199b715992d82d34c177a12da7',{email:'kasper',password:'spadelam'},function(data){
+    			log(data);
+    		});
+    	});
+    </script>
+</body>
+</html>

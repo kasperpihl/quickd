@@ -1,0 +1,78 @@
+<?php 
+class Session {
+	private $user_id;
+	private $privileges;
+	
+	function __construct(){
+		session_start();
+		$this->check_login();
+	}
+	public function logged_user(){
+		return (isset($this->user_id,$this->privileges) && $this->privileges >= 1) ? $this->user_id : false;
+	}
+	public function logged_dealer(){
+		return (isset($this->user_id,$this->privileges) && $this->privileges >= 3) ? $this->user_id : false;
+	}
+	public function logged_admin(){
+		return (isset($this->user_id,$this->privileges) && $this->privileges >= 5) ? $this->user_id : false;
+	}
+	
+	private function check_login($cookie=false){
+		global $db;
+		unset($this->user_id);
+		unset($this->privileges);
+		if( $user_id = $this->get('user_id')){
+			$this->user_id = $user_id;
+		}
+		if( $privileges = $this->get('privileges')){
+			$this->privileges = $privileges;
+		}
+		if($cookie && isset($_COOKIE['md5string']) && $_COOKIE['md5string']){
+			$md5string = $_COOKIE['md5string'];
+			$array = explode('_-_',$md5string);
+			try{
+				if(!isset($array[1],$array[2])) return;
+				$doc = $db->getDoc($array[1]);
+				if(!property_exists($doc,'md5_password')) return;
+				if($array[2] == md5($doc->md5_password . MD5_STRING))
+					$this->login($type,$array[0]);
+			}
+			catch(Exception $e){
+			
+			}
+		}
+	}
+	public function login($id,$privileges=1,$cookie=false, $password=false){
+		global $dealer;
+			
+		$this->user_id = $_SESSION['user_id'] = $id;
+		$this->privileges = $_SESSION['privileges'] = $privileges;
+		if($cookie){
+			$md5string =  $type . '_-_' . $id . '_-_' . md5($password . MD5_STRING);
+			$expire=time()+60*60*24*30;
+			setcookie('md5string',$md5string,$expire,'/');
+		}
+	}
+	public function unsets($key){
+		unset($_SESSION[$key]);
+	}
+	public function set($key,$value){
+		return $_SESSION[$key] = $value;
+	}
+	public function get($key){
+		if(isset($_SESSION[$key])){ return $_SESSION[$key]; }
+		return false;
+	}
+	public function logout($type="all"){
+		if($type== 'all'){
+			unset($this->user_id,$this->admin_id,$this->dealer_id,$_SESSION['user_id'],$_SESSION['dealer_id'],$_SESSION['admin_id']);
+			
+		}
+		else {
+			$type = $type.'_id';
+			unset($this->$type,$_SESSION[$type]);
+		}
+		
+	}
+}
+?>

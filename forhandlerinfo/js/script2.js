@@ -1,0 +1,3 @@
+/*
+Author: Anders Høedholt - QuickD
+*/

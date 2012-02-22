@@ -1,0 +1,12 @@
+
+
+<div id="dialog-<%= data.cid %>" 
+	class="dialog <% if(data.classes) { print(data.classes); } %>" 
+    style="<% if(data.style) { %><%= data.style %><% } %> <% if(data.width) { %>width: <%= data.width %>px;<% } %> 
+    <% if(data.height) { %>height: <%= data.height %>px;min-height: <%= data.height %>px;<% } %>" >
+		
+        <% if(data.closable) { %><div id="close-<%= data.cid %>" class="close_btn"></div><% } %>   
+    	<div class="content">
+    
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<% var now = (new Date()).getTime(); %>
+<% function printItems(deals, type, tabId) { %>
+	<div class="tab-block" id="deals-<%=type%>" <% if (tabId=="deals-"+type) print("style='display:block'")%>>
+     	<div class="empty-block" <% if(deals && deals.length > 0) print('style="display:none"'); %>><h2>Ingen</h2></div>
+    <% if (deals && _.size(deals) > 0) {
+          _.each(deals, function(deal) {  if (!deal) return; %>
+             <div class="list-item deal-item clearfix" style="height: auto;" id="deal-<%= deal.id %>">
+                <img src="<%= (deal.template.image ? IMG_URL+'thumbnail/'+deal.template.image : './styles/stylesheets/i/no_image_small.png') %>" />
+                <div class="details">
+                    <h2><%= deal.template.title?deal.template.title.trunc(30, true):"Ingen titel" %></h2> 
+                    <span class="time">
+                        <% if(type=='planned') print("Starter"); else print("Startet"); %>: 
+                        <em><% print(getTimeString(deal.start*1000, 'simple')); %></em>
+                    </span>
+                    <span class="time">
+                        <% if(type=='ended') print("Sluttede"); else print("Slutter"); %>: 
+                        <em><% print(getTimeString(deal.end*1000, 'simple')); %></em>
+                    </span>
+                    <% if (type!='planned') { %>
+                      <!--  <span class="hits">
+                           <em>122</em> listevisninger / <em>23</em> dealvisninger
+                        </span> -->
+                    <% } %>
+                </div>
+            </div>
+          
+             
+     <% }); 
+    } %>
+    </div>
+<% } %>
+
+<div class="title">
+	<div style="position: absolute; left: 0px;"><button class="button add" id="btn_deal_back" <% if(data.view=='deal-list') print('style="display:none"') %> >Tilbage</button></div>
+	<h1>Deals</h1>
+</div>
+<div class="body-area tab-area" id="view-deals">
+	<div class="content-wrapper" id="view-deal-list" <% if(data.view=='deal-details') print('style="display:none"') %>>
+        <div class="tab-bar">
+            <div class="tab-link<% if(data.tabId=='deals-planned') print(' selected');%>" id="tab-planned" style="width:33%">Planlagte</div>
+            <div class="tab-link<% if(data.tabId=='deals-current') print(' selected');%>" id="tab-current" style="width:33%">Nuværende</div>
+            <div class="tab-link<% if(data.tabId=='deals-ended') print(' selected');%>" id="tab-ended"   style="width:33%">Tidligere</div>
+        </div>
+        
+        
+            
+       
+            <% printItems(data.planned, 'planned', data.tabId); %>
+            
+            <% printItems(data.current, 'current', data.tabId); %>
+         
+            <% printItems(data.ended, 'ended', data.tabId); %>
+        
+    </div>
+    <div class="content-wrapper view-deal" id="view-deal-details" <% if(data.view=='deal-list') print('style="display:none"') %> >
+    	<% 
+        	var deal = {};
+            if (data.currentDeal) deal = data.currentDeal.toJSON().template;
+            var imgSrc = deal.image ? IMG_URL+'thumbnail/'+deal.image : 'styles/stylesheets/i/no_image_small.png';
+            var discount = deal.orig_price ? Math.round((deal.orig_price-deal.deal_price) / deal.orig_price * 100)+'%' : ''; 
+        %>
+        <h1 id="deal_title"><%=deal.title?deal.title:""%></h1>
+        <img id="deal_image" src="<%=imgSrc%>" />
+        <div class="deal-prices">
+        	<p><span class="label">Normalpris: 	</span><span class="price" id="deal_orig_price"><%=deal.orig_price?deal.orig_price:""%></span></p>
+            <p><span class="label">Rabat: 		</span><span class="price" id="deal_discount"><%=discount%></span></p>
+            <p><span class="label">Tilbudspris: </span><span class="price" id="deal_price"><%=deal.deal_price?deal.deal_price:""%></span></p>
+        </div>
+        <div class="deal-times">
+        	<span id="deal_starting_time"><%=data.currentDeal?getTimeString(data.currentDeal.get('start')*1000, 'simple'):''%></span>
+            <span class="time-seperator"> til </span>
+            <span id="deal_ending_time"><%=data.currentDeal?getTimeString(data.currentDeal.get('end')*1000, 'simple'):''%></span>
+        </div>
+        <div class="description" id="deal_description"><%=deal.description?deal.description:''%></div>
+    </div>
+</div>

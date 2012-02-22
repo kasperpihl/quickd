@@ -1,0 +1,25 @@
+
+<div class="greeting" id="welcome_greeting">
+    <div class="welcome">
+    	<% if(data.name!="") { %>Velkommen, <span class="strong"><%=data.name %>!</span>
+   		<% } else { %>Velkommen til <span class="strong">QuickD!</span><% } %>
+   </div>
+    
+    <div class="helptext" id="text_deal_created">
+    	<div class="howto">Din deal er blevet aktiveret</div>
+    </div>
+    <div class="helptext" id="text_template">
+    	<div class="howto">Du er nu klar til at oprette en deal-skabelon</div>
+    </div>
+    <div class="helptext" id="text_choose_activity">
+    	<div class="howto">Vælg en aktivitet i menuen til venstre for at komme i gang</div>
+    </div>
+    <div class="helptext" id="text_add_shop" <% if (data.text=="text_add_shop") print("style='display:block'") %>>
+	    	
+			<div class="howto">For at komme igang skal du oprette en butik</div>
+	        	<div id="btn_add_shop" class="button green create_shop_btn">Opret butik</div>
+			</div>
+	    
+    </div>
+	 <div class="clearline"></div>
+</div>

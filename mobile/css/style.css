@@ -1,0 +1,113 @@
+/* =============================================================================
+   Primary styles
+   Author: Jens Ahrengot Boddum
+   ========================================================================== */
+/*
+ * HEADER
+ * iPhone style tabbar fixed at the bottom
+ */
+header.ui-bar-a { box-shadow: 0 1px 2px rgba(0,0,0,0.7); }
+
+.quickd-bar {
+	background: rgb(199,231,72);
+	background: -moz-linear-gradient(top, rgba(199,231,72,1) 0%, rgba(93,127,45,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(199,231,72,1)), color-stop(100%,rgba(93,127,45,1)));
+	background: -webkit-linear-gradient(top, rgba(199,231,72,1) 0%,rgba(93,127,45,1) 100%);
+	background: -o-linear-gradient(top, rgba(199,231,72,1) 0%,rgba(93,127,45,1) 100%);
+	background: -ms-linear-gradient(top, rgba(199,231,72,1) 0%,rgba(93,127,45,1) 100%);
+	background: linear-gradient(top, rgba(199,231,72,1) 0%,rgba(93,127,45,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c7e748', endColorstr='#5d7f2d',GradientType=0 );
+	
+	border-top: none;
+	border-bottom: thin solid rgba(0,0,0,0.8);
+}
+
+.quickd-bar .ui-shadow { margin-top: 3px; }
+
+	.quickd-bar .ui-shadow .ui-btn-inner { 
+		line-height: 20px;
+		
+		background: rgb(75,91,56);
+		background: -moz-linear-gradient(top, rgba(75,91,56,1) 0%, rgba(26,43,12,1) 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(75,91,56,1)), color-stop(100%,rgba(26,43,12,1)));
+		background: -webkit-linear-gradient(top, rgba(75,91,56,1) 0%,rgba(26,43,12,1) 100%);
+		background: -o-linear-gradient(top, rgba(75,91,56,1) 0%,rgba(26,43,12,1) 100%);
+		background: -ms-linear-gradient(top, rgba(75,91,56,1) 0%,rgba(26,43,12,1) 100%);
+		background: linear-gradient(top, rgba(75,91,56,1) 0%,rgba(26,43,12,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b5b38', endColorstr='#1a2b0c',GradientType=0 );
+	}
+
+#logo { 
+	width: 102px; height: 29px;
+	background: url(../img/quickd-header-logo.png);
+	margin: 10px auto;
+}
+
+.quickd-bar h1 { line-height: 29px; height: 29px; }
+
+/*
+ * MAIN VIEW
+ * Wraps entire "page"
+ */
+#main {  }
+
+/*
+ * DEALS LIST
+ * List displaying deals. Various sort options.
+ */
+
+/*
+ * FULL SCREEN DEAL
+ * View displayed when a deal list item has been clicked
+ */		
+.padded { padding: 10px; }
+	.deal-graphics { clear: both; position: relative; height: 100px; }
+		.deal-graphics .circle {
+			position: absolute;
+			width: 100px; height: 100px;
+			border-radius: 100px;
+			border: 3px solid red;
+			text-align: center;
+		}
+		
+		.deal-graphics .circle:nth-child(1) { left: 0; border-color: red; }
+		.deal-graphics .circle:nth-child(2) { left: 50%; margin-left: -50px; border-color: green; }
+		.deal-graphics .circle:nth-child(3) { right: 0; border-color: yellow; }
+	
+	.deal-description img { margin: 0 10px 10px 0; }
+	
+	.deal-description { clear: both; }
+
+/*
+ * TABBAR
+ * iPhone style tabbar fixed at the bottom
+ */
+#tabbar { width: 100%; background: black; height: 68px; position: fixed; bottom: 0; }
+ 
+ /* =============================================================================
+   Semantic helper classes
+   ========================================================================== */
+.left { float: left; }
+.right { float: right; }
+
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+
+ /* =============================================================================
+   Non-semantic helper classes
+   ========================================================================== */
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+
+.hidden { display: none; visibility: hidden; }
+
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+.invisible { visibility: hidden; }
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
