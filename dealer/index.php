@@ -1,3 +1,4 @@
+
 <?php require_once('../config.php');
 if(isset($_GET['logout'])){
 	$session->logout();
@@ -33,8 +34,6 @@ if(isset($_GET['logout'])){
 			var historyObj = JSON.parse('<?= $historyObj ?>');
 			<?php if(isset($dealer) && $dealer) { $return = getShopowner();?>
 				shopowner = <?= $return; ?>;
-				
-				if(debug) log('shopowner',shopowner);
 			<? } ?>
 			
 		</script>
