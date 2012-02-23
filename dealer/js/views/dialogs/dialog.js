@@ -1,6 +1,5 @@
 define([
-	'text!templates/component/dialog.html',
-	'helper'
+	'text!templates/component/dialog.html'
 ],function(template){
 	App.views.Dialog = Backbone.View.extend({
 		init:function(options){
