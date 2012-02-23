@@ -1,5 +1,4 @@
-testing
-<?php  die(); require_once('../config.php');
+<?php require_once('../config.php');
 if(isset($_GET['logout'])){
 	$session->logout();
 	redirect(ROOT_URL);
