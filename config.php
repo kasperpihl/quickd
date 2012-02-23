@@ -2,6 +2,7 @@
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
 switch($_SERVER['HTTP_HOST']){
+	case 'jens':
 	case 'localhost':
 		if(strpos($_SERVER['REQUEST_URI'], 'dealer/')) $string = 'dealer/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'testapp/')) $string = 'testapp/';
