@@ -4,6 +4,8 @@ $list-active-color: mix(#043F62, #fff, 0);
 
 //import the sencha touch theme
 @import 'sencha-touch/default/all';
+@import '_reset';
+@import '_mixins';
 
 @include sencha-panel;
 @include sencha-buttons;
@@ -12,6 +14,7 @@ $list-active-color: mix(#043F62, #fff, 0);
 @include sencha-layout;
 @include sencha-form;
 @include sencha-loading-spinner;
+
 
 .left { float: left; }
 .right { float: right; }
@@ -28,19 +31,45 @@ $list-active-color: mix(#043F62, #fff, 0);
 @include sencha-button-ui('sencha', #2E9A3E, matte);
 
 /******************************************************************
+GENERAL STYLES
+******************************************************************/
+#ext-mainview-1 { background: transparent; }
+
+/******************************************************************
 DEALS LIST
 ******************************************************************/
 
 .quickd-deals {
+    background: transparent;
+
     .x-scroll-view {  }
     .x-scroll-container {  }
+    .x-list { background: transparent; }
     .x-list .x-list-item .x-list-item-label { padding: 0; overflow: hidden; } /* wrapping element */
 
     article[id*=deal_] {
     	position: relative;
     
         img.deal_image {  }
-        .deal-content { margin-left: 170px; }
+
+        .deal-content { 
+            margin-left: 90px;
+            padding-top: 6px;
+
+            h1 {
+                font-size: 100%;
+                font-weight: bold;
+                @include text-overflow(ellipsis);
+            }
+
+            h2, > footer {
+                font-size: 76%;
+                line-height: 120%;
+                color: gray;
+            }
+
+            footer { font-style: italic; }
+        }
         
         &:before {
         	display: block;
