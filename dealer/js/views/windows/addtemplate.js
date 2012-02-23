@@ -6,7 +6,7 @@ define([
 	App.views.windows.AddTemplate = App.views.Window.extend({
 		el: '#activity_templates',
 		initialize: function(){
-			_.bindAll(this,'addTemplate','changedModel', 'openSelectImage', 'imageSelected');
+			_.bindAll(this,'addTemplate','changedModel', 'openSelectImage', 'imageSelected', 'categoryChanged');
 			var thisClass = this;
 			this.template = 'addtemplate';
 			this.init(this.options);
@@ -31,6 +31,7 @@ define([
 			_events['click '+windowId+' #btn_select_image, '+windowId+' #image-field']= 'openSelectImage';
 			_events['blur '+windowId+' #orig_price']= 'priceChanged';
 			_events['keyup '+windowId+' #deal_price']= 'priceChanged';
+			_events['click '+windowId+' .category']= 'categoryChanged';
 			return _events;
 		},
 		addTemplate: function(data){
@@ -41,6 +42,8 @@ define([
 				obj.orig_price = convertNumber($('#orig_price').val());
 				obj.deal_price = convertNumber($('#deal_price').val());
 				obj.image = $('#img_src').val();
+				var category = $('.category.selected').attr('id');
+				obj.category = category.substr(4);
 				this.model = new App.models.Template();
 		
 			
@@ -152,6 +155,11 @@ define([
 			}
 			this.imageWasSelected = true;
 			$("#img_src").val(data.imgId);
+		},
+		categoryChanged:function(e) {
+			var id = e.currentTarget.id;
+			$(this.windowId+' .category.selected').removeClass('selected');
+			$(this.windowId+' #'+id).addClass('selected');
 		},
 		cleanUp: function() {
 			if (this.selectorView) this.selectorView.closeDialog(true);

@@ -1563,6 +1563,7 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 		pointer-events: none;
 	}
 	.content-wrapper { @include stretch() }
+	form {padding-bottom: 8px;}
 	
 	.field {
 		padding:10px 10px 10px 10px;
@@ -1665,6 +1666,26 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 		
 		
 		
+	}
+	.categories {
+		padding:0px 4px;
+		.category {
+			float:left;
+			padding:5px;
+			margin:5px;
+			width:110px;
+			text-align:center;
+			@include border-radius(3px);
+			background:#E3E3E3;
+			border:1px solid #727272;
+			color:#727272;
+			cursor: pointer;
+			&:hover { background:#C2C5BA; }
+			&.readonly:hover {background:#E3E3E3; }
+			&.selected, &.selected.readonly:hover {border:1px solid #064604;background:#64A905;color:white;font-weight:bold;}
+
+		}
+
 	}
 	.scroll-list {
 		@include stretch();

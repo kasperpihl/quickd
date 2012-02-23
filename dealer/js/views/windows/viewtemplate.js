@@ -14,6 +14,7 @@ define([
 			var data = {model: this.model.attributes};
 			this.state = 'view';
 			if (data.model.image) this.imageWasSelected = true;
+			log("template",data);
 			this.createWindow(true, data);
 			this.router.bind('imageSelected',this.imageSelected);
 			App.collections.templates.bind('change',this.updateContent);
@@ -29,6 +30,7 @@ define([
 			_events['click '+windowId+' #btn_del_template']= 'delTemplate';
 			_events['blur '+windowId+' #orig_price']= 'priceChanged';
 			_events['keyup '+windowId+' #deal_price']= 'priceChanged';
+			_events['click '+windowId+' .category']= 'categoryChanged';
 			return _events;	
 		},
 		updateContent:function(model,d1){
@@ -110,6 +112,7 @@ define([
 				//Find image
 				var manual = {};
 				if ($('#img_src').val()!="" && $('#img_src').val()!=this.model.attributes.image) manual.image = $('#img_src').val();
+				if ($(this.windowId+' .category.selected')) manual.category = ($(this.windowId+' .category.selected').attr('id')).substr(4);
 				var thisClass = this;
 				this.saveToModel({onChanged:function() {
 					thisClass.router.trigger('templateEdited',{event:'templateEdited'}); 
@@ -181,6 +184,12 @@ define([
 				}, error:function(d,data){
 				}});
 			}
+		},
+		categoryChanged:function(e) {
+			if (this.state!='edit') return;
+			var id = e.currentTarget.id;
+			$(this.windowId+' .category.selected').removeClass('selected');
+			$(this.windowId+' #'+id).addClass('selected');
 		},
 		cleanUp: function() {
 			if (this.selectorView) this.selectorView.closeDialog(true);

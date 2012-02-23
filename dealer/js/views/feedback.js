@@ -1,6 +1,5 @@
 define([
-'text!templates/feedback.html',
-'helper'
+'text!templates/feedback.html'
 ],function(template){
 	App.views.Feedback = Backbone.View.extend({
 		el: '#workspace',
