@@ -260,7 +260,8 @@ try{
 			var deal_price = Math.abs(parseFloat(query.deal_price));
 			if(!testPrice(orig_price,deal_price)) return [null,msg('discount_must_be_25_percent')];
 			obj.title = query.title;
-			if(query.image) obj.image = query.image;
+			if(query.hasOwnProperty('image')) obj.image = query.image;
+			if(query.category && query != 'other') obj.category = query.category;
 			obj.description = query.description;
 			obj.orig_price = orig_price;
 			obj.created_at = timestamp;
