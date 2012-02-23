@@ -261,7 +261,7 @@ try{
 			if(!testPrice(orig_price,deal_price)) return [null,msg('discount_must_be_25_percent')];
 			obj.title = query.title;
 			if(query.hasOwnProperty('image')) obj.image = query.image;
-			if(query.category && query != 'other') obj.category = query.category;
+			if(query.category) obj.category = query.category;
 			obj.description = query.description;
 			obj.orig_price = orig_price;
 			obj.created_at = timestamp;
@@ -280,7 +280,7 @@ try{
 			var app = false;
 			if(query.title != temp.title) app = true;
 			if(query.description != temp.description) app = true;
-			
+			if(query.category) obj.category = query.category;
 			if(query.title) temp.title = query.title;
 			if(query.description) temp.description = query.description; 
 			if(query.orig_price) temp.orig_price = parseFloat(query.orig_price);
