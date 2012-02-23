@@ -39,7 +39,6 @@ Ext.define('QuickD.view.MapShow', {
 
         record: null
     },
-
     updateRecord: function(newRecord) {
         if (newRecord) {           
             var position = new google.maps.LatLng(newRecord.data.lat, newRecord.data.long);

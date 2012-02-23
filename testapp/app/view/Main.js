@@ -19,9 +19,9 @@ Ext.define('QuickD.view.Main', {
             		id:'filterButton',
             		width: '150px',
 		            options: [
-		                { text: 'Alle deals',  value: 'all' },
-		                { text: 'Mad & Drikke', value: 'fooddrink' },
-		                { text: 'Shopping', value: 'shopping' },
+                        { text: 'Alle deals',  value: 'all' },
+                        { text: 'Mad & Drikke', value: 'fooddrink' },
+                        { text: 'Shopping', value: 'shopping' },
 		                { text: 'Oplevelser', value: 'experience' },
 		            ],
 		            align:'right'
@@ -45,8 +45,7 @@ Ext.define('QuickD.view.Main', {
             ]
         },
         items: [
-        	
-        	{xtype:'deallist'} 
+        	   {xtype:'deallist'},
         ]
     },
 
