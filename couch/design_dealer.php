@@ -26,7 +26,7 @@ try{
 		}
 		if(doc) return [null,msg('user_exists')];
 		var timestamp = parseInt(new Date().getTime()/1000);
-		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
+		if(!req.query.hasOwnProperty('json')) return [null,mg$sg('json_must_be_specified')];
 		var query = JSON.parse(req.query.json);
 		if(!query.hasOwnProperty('betacode')) return [null, msg('betacode_must_be_used')];
 		if(!query.hasOwnProperty('email') || !query.hasOwnProperty('password')) return [null, msg('email_and_password_must_be_specified')];
