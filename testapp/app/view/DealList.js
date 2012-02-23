@@ -1,7 +1,7 @@
 function priceIt(price){
 	//price = parseInt(price);
 	//price = parseFloat(price);
-	return price + ',-';
+	return price + 'Dkr';
 }
 Ext.define('QuickD.view.DealList', {
     extend: 'Ext.List',
@@ -21,8 +21,7 @@ Ext.define('QuickD.view.DealList', {
 					'<h1>{title}</h1>',
 					'<h2>{name} <span class="distance"> &ndash; ' + parseInt(Math.random() * 100) + 'm</span></h2>',
 					'<footer class="footer">',
-						'<span class="prices">Spar: {discount}%</span> Pris: ' + priceIt('{deal_price}') + ' / ',
-						' <time>2t42m</time>',
+						'<span class="prices">Spar: {discount}%</span> · Pris: ' + priceIt('{deal_price}') + ' · <time>2t42m</time>',
 					'</footer>',
 				'</section>',
 				'</article>'
