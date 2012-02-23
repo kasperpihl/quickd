@@ -24,7 +24,7 @@ $list-active-color: mix(#043F62, #fff, 0);
 .text-center { text-align: center; }
 
 //blue toolbar
-@include sencha-toolbar-ui('sencha', #06517E, matte);
+@include sencha-toolbar-ui('sencha', #84ab2b, glossy);
 .x-toolbar-sencha .x-title { text-shadow: 0 1px 0 rgba(0,0,0,.8); }
 
 //buttons
@@ -34,6 +34,11 @@ $list-active-color: mix(#043F62, #fff, 0);
 GENERAL STYLES
 ******************************************************************/
 #ext-mainview-1 { background: transparent; }
+
+/******************************************************************
+TOOLBAR STYLES
+******************************************************************/
+
 
 /******************************************************************
 DEALS LIST
@@ -84,8 +89,8 @@ DEALS LIST
         	content: '';
         }
         
-        &.category.fooddrink:before { background: blue; }
-        &.category.shopping:before { background: yellow; }
-        &.category.experience:before { background: red; }
+        &.category.fooddrink:before { background: #5A4B53; }
+        &.category.shopping:before { background: #00A388; }
+        &.category.experience:before { background: #FF6138; }
     }
 }
