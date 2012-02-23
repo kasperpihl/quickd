@@ -1,4 +1,4 @@
-test2
+tes
 <?php  die(); require_once('../config.php');
 if(isset($_GET['logout'])){
 	$session->logout();
