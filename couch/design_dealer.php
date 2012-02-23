@@ -26,7 +26,7 @@ try{
 		}
 		if(doc) return [null,msg('user_exists')];
 		var timestamp = parseInt(new Date().getTime()/1000);
-		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
+		if(!req.query.hasOwnProperty('json')) return [null,mg$sg('json_must_be_specified')];
 		var query = JSON.parse(req.query.json);
 		if(!query.hasOwnProperty('betacode')) return [null, msg('betacode_must_be_used')];
 		if(!query.hasOwnProperty('email') || !query.hasOwnProperty('password')) return [null, msg('email_and_password_must_be_specified')];
@@ -260,7 +260,8 @@ try{
 			var deal_price = Math.abs(parseFloat(query.deal_price));
 			if(!testPrice(orig_price,deal_price)) return [null,msg('discount_must_be_25_percent')];
 			obj.title = query.title;
-			if(query.image) obj.image = query.image;
+			if(query.hasOwnProperty('image')) obj.image = query.image;
+			if(query.category) obj.category = query.category;
 			obj.description = query.description;
 			obj.orig_price = orig_price;
 			obj.created_at = timestamp;
@@ -279,7 +280,7 @@ try{
 			var app = false;
 			if(query.title != temp.title) app = true;
 			if(query.description != temp.description) app = true;
-			
+			if(query.category) obj.category = query.category;
 			if(query.title) temp.title = query.title;
 			if(query.description) temp.description = query.description; 
 			if(query.orig_price) temp.orig_price = parseFloat(query.orig_price);
