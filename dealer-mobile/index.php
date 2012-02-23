@@ -52,6 +52,8 @@ if(isset($dealer) && $dealer){
 		<script>window.jQuery || document.write('<script src="src/lib/jquery-1.7.min.js"><\/script>')</script>
 		<script src="src/lib/jquery.easing.1.3.min.js"></script>
 		<script src="src/lib/royal-slider-8.1.min.js"></script>
+		<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
+        <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
 		<script src="src/script.js"></script>
   		<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js" ></script>
     </head>
