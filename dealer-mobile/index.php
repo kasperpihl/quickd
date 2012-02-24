@@ -50,22 +50,22 @@ if(isset($dealer) && $dealer){
 		
        	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="src/lib/jquery-1.7.min.js"><\/script>')</script>
-		<script src="src/lib/jquery.easing.1.3.min.js"></script>
-		<script src="src/lib/royal-slider-8.1.min.js"></script>
-		<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
-        <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
-        <script src="<?= ROOT_URL ?>js/function.js"></script>
-        <script> var shopowner; var debug = false;	
-       		var ROOT_URL = "<?= ROOT_URL ?>";
-			var IMG_URL = "<?= IMAGES_URL ?>";
-			var LIBS_URL = "<?= LIBS_URL ?>";
-			<?php if(isset($dealer) && $dealer) { $return = getShopowner();?>
-				shopowner = <?= $return; ?>;
+		
+		<?php if(isset($dealer) && $dealer) { $return = getShopowner();?>
+			<script src="src/lib/jquery.easing.1.3.min.js"></script>
+			<script src="src/lib/royal-slider-8.1.min.js"></script>
+			<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
+	        <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
+	        <script src="js/collections/collections.js"></script>
+	        <script> 
+	        	var shopowner; 
+	       		var ROOT_URL = "<?= ROOT_URL ?>";
+				var IMG_URL = "<?= IMAGES_URL ?>";
+				var LIBS_URL = "<?= LIBS_URL ?>";
 				
-				if(debug) log('shopowner',shopowner);
-			<? } ?>
-			
-		</script>
+				shopowner = <?= $return; ?>;
+			</script>
+		<? } ?>
 		<script src="src/script.js"></script>
   		<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js" ></script>
     </head>
