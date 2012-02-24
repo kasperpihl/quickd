@@ -72,7 +72,6 @@ if(isset($dealer) && $dealer){
 				var LIBS_URL = "<?= LIBS_URL ?>";
 				
 				shopowner = <?= $return; ?>;
-				console.log(shopowner);
 			</script>
 		<? } ?>
 		<script src="src/script.js"></script>

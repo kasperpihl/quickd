@@ -2,10 +2,11 @@ App.routers.Controller = Backbone.Router.extend({
 	initialize: function(){	
 		App.collections.templates = new App.collections.Templates();
 		App.collections.deals = new App.collections.Deals();
+		_.bindAll(this,'getChanges','changes');
+		this.getChanges();
 	},
 	test:function(){
 
-		log('hej');
 	},
 	setStuff:function(stuff){
 		_.each(stuff,function(item,i){
@@ -16,12 +17,6 @@ App.routers.Controller = Backbone.Router.extend({
 				App.collections.deals.add(model);
 			}
 			if(document.hasOwnProperty('historySince')) localStorage.setItem('cindex',parseInt(document.historySince));
-			if(document.hasOwnProperty('images')){
-				_.each(document.images,function(image,i){
-					var model = new App.models.Image(image);
-					App.collections.images.add(model);
-				});
-			}
 			if(document.hasOwnProperty('shops')){
 				_.each(document.shops,function(shop,i){
 					var model = new App.models.Shop(shop);
@@ -53,6 +48,16 @@ App.routers.Controller = Backbone.Router.extend({
 	           	setTimeout(thisClass.getChanges,3000);
 	        }
 	   	});			
+	},
+	changes:function(result){
+		log('result from changes',result);
+		result = $.parseJSON(result);
+		if(result.hasOwnProperty('csince')) localStorage.setItem('csince',result.csince);
+		if(result.hasOwnProperty('success') && result.success == 'false') return setTimeout(this.getChanges,3000);
+		if(result.hasOwnProperty('cindex')) localStorage.setItem('cindex',result.cindex);
+
+		setTimeout(this.getChanges,3000);
+		if(!result.data) return;
 	}
 	
 });
