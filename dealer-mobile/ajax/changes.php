@@ -18,5 +18,4 @@ try{
 catch(Exception $e){
 	echo die(json_encode(array('success'=>'false','error'=>'error_database')));
 }
-
 ?>

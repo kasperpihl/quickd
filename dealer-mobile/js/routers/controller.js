@@ -8,7 +8,7 @@ App.routers.Controller = Backbone.Router.extend({
 	test:function(){
 
 	},
-	setStuff:function(stuff){
+	addStuff:function(stuff){
 		_.each(stuff,function(item,i){
 			var document = item.value;
 			
