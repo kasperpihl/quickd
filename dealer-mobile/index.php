@@ -50,13 +50,21 @@ if(isset($dealer) && $dealer){
 		
        	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="src/lib/jquery-1.7.min.js"><\/script>')</script>
-		
 		<?php if(isset($dealer) && $dealer) { $return = getShopowner();?>
+			<script>
+				var App = {
+					collections: {},
+					models: {},
+					routers: {}
+				};
+			</script>
 			<script src="src/lib/jquery.easing.1.3.min.js"></script>
 			<script src="src/lib/royal-slider-8.1.min.js"></script>
 			<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
 	        <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
 	        <script src="js/collections/collections.js"></script>
+	        <script src="js/models/models.js"></script>
+	        <script src="js/routers/controller.js"></script>
 	        <script> 
 	        	var shopowner; 
 	       		var ROOT_URL = "<?= ROOT_URL ?>";
@@ -64,6 +72,7 @@ if(isset($dealer) && $dealer){
 				var LIBS_URL = "<?= LIBS_URL ?>";
 				
 				shopowner = <?= $return; ?>;
+				console.log(shopowner);
 			</script>
 		<? } ?>
 		<script src="src/script.js"></script>

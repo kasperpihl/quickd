@@ -1,4 +1,4 @@
-//time to countdown in seconds, and element ID
+
 // Enable logging without breaking dumb browsers. Use log('whatever'), not console.log('whatever').
 window.log=function(){
 	log.history=log.history || [];
@@ -13,7 +13,8 @@ $(document).bind('mobileinit', function() {
 	$.mobile.ajaxEnabled = false;
 });
 $(document).bind('pageinit', function() {
-	
+	App.routers.controller = new App.routers.Controller();
+	App.routers.controller.test();
 	$('#user,#password').keydown(function(){
     	if($('#user').hasClass('animated shake fail')) $('#user').removeClass('animated shake fail');
     	if($('#password').hasClass('animated shake fail')) $('#password').removeClass('animated shake fail');
@@ -176,6 +177,7 @@ $(document).bind('pageinit', function() {
     	var dealsSlider = new DealsSlider();
     });
 });
+//time to countdown in seconds, and element ID
 var javascript_countdown = function () {
 	var time_left = 10; //number of seconds for countdown
 	var output_element_id = 'countdownTimer';
