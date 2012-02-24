@@ -1,4 +1,5 @@
 <?php
+$anders = 'nice';
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
 switch($_SERVER['HTTP_HOST']){
