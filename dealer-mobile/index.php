@@ -60,6 +60,7 @@ if(isset($dealer) && $dealer){
 			</script>
 			<script src="src/lib/jquery.easing.1.3.min.js"></script>
 			<script src="src/lib/royal-slider-8.1.min.js"></script>
+			<script src="src/countdown.js"></script>
 			<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
 	        <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
 	        <script src="js/collections/collections.js"></script>

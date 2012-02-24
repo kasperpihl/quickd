@@ -1,5 +1,6 @@
 App.routers.Controller = Backbone.Router.extend({
-	initialize: function(){	
+	initialize: function(shopowner){
+		log(shopowner);	
 		App.collections.templates = new App.collections.Templates();
 		App.collections.deals = new App.collections.Deals();
 		_.bindAll(this,'getChanges','changes');
