@@ -54,6 +54,18 @@ if(isset($dealer) && $dealer){
 		<script src="src/lib/royal-slider-8.1.min.js"></script>
 		<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
         <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
+        <script src="<?= ROOT_URL ?>js/function.js"></script>
+        <script> var shopowner; var debug = false;	
+       		var ROOT_URL = "<?= ROOT_URL ?>";
+			var IMG_URL = "<?= IMAGES_URL ?>";
+			var LIBS_URL = "<?= LIBS_URL ?>";
+			<?php if(isset($dealer) && $dealer) { $return = getShopowner();?>
+				shopowner = <?= $return; ?>;
+				
+				if(debug) log('shopowner',shopowner);
+			<? } ?>
+			
+		</script>
 		<script src="src/script.js"></script>
   		<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js" ></script>
     </head>
