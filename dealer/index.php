@@ -20,8 +20,7 @@ if(isset($_GET['logout'])){
 		<link href="<?= ROOT_URL ?>styles/stylesheets/kasperstyle.css" media="all" rel="stylesheet"/>
 		<link href="<?= ROOT_URL ?>styles/stylesheets/tempstyle.css" media="all" rel="stylesheet"/>
 		<link href="<?= ROOT_URL ?>styles/stylesheets/bubbles.css" media="all" rel="stylesheet"/>
-		
-        
+     
         <script src="<?= LIBS_URL ?>jquery/jquery-min.js"></script>
 		<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
         <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
@@ -33,8 +32,6 @@ if(isset($_GET['logout'])){
 			var historyObj = JSON.parse('<?= $historyObj ?>');
 			<?php if(isset($dealer) && $dealer) { $return = getShopowner();?>
 				shopowner = <?= $return; ?>;
-				
-				if(debug) log('shopowner',shopowner);
 			<? } ?>
 			
 		</script>
