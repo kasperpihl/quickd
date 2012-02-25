@@ -3,11 +3,13 @@ App.routers.Controller = Backbone.Router.extend({
 		log(shopowner);	
 		App.collections.templates = new App.collections.Templates();
 		App.collections.deals = new App.collections.Deals();
+		App.collections.shops = new App.collections.Shops();
+		this.addStuff(shopowner.stuff);
 		_.bindAll(this,'getChanges','changes');
 		this.getChanges();
 	},
 	test:function(){
-
+		
 	},
 	addStuff:function(stuff){
 		_.each(stuff,function(item,i){
