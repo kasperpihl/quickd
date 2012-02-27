@@ -43,7 +43,7 @@ $(document).bind('pageinit', function() {
 			console.log('DurationSlider destroyed');
 		}
     };*/
-	/*var DealController = function() {
+	var DealController = function() {
     	var $wrap 			= $('#time'),
     		$slider 		= $('form', $wrap),
     		$time			= $('time', $wrap),
@@ -62,37 +62,7 @@ $(document).bind('pageinit', function() {
     		$wrap.toggleClass('running', toggle);
     		$btn.toggleClass('stop', toggle);
     	}
-    	this.unlock = function(){
-    		locked = false;
-    		$wrap.css('opacity', 1);
-    		$btn.css('opacity', 1);
-    	}
-    	this.lock = function(){
-    		javascript_countdown.stop();
-    		$wrap.css('opacity', 0.3);
-    		$btn.css('opacity', 0.3);
-    		locked = true;
-    	}
-    	this.pressedButton = function(stopped){
-    		if(locked) return false;
-    		if(!stopped) startDeal();
-    		else stopDeal();
-    	}
-    	function startDeal(){
-    		var seconds = sliderControl.getTime();
-    		//log('starting',controller.toggleCountdown);
-    		$.post('ajax/deal.php?type=deals',{action:'start',model:{template_id:activeTemplate,seconds: seconds}},function(data){
-    			log(JSON.stringify(data));
-    			if(data.success == 'true'){
-    				var end = data.data.end;
-    				$deal.attr('started','true');
-    				$deal.attr('endtime',end);
-    				controller.toggleCountdown(true,activeTemplate,end);
-    			}
-    		},'json');
-    	}
-    	function stopDeal(){
-    	}
+    	
     	function showSlider() {
     		$btnText[0].innerHTML = 'Start deal';
     		sliderControl = new DurationSlider();
@@ -103,7 +73,42 @@ $(document).bind('pageinit', function() {
     		$btnText[0].innerHTML = 'Udsolgt';
     		javascript_countdown.start(countdown);
     	}
-    }*/
+
+
+
+
+        this.unlock = function(){
+            locked = false;
+            $wrap.css('opacity', 1);
+            $btn.css('opacity', 1);
+        }
+        this.lock = function(){
+            javascript_countdown.stop();
+            $wrap.css('opacity', 0.3);
+            $btn.css('opacity', 0.3);
+            locked = true;
+        }
+        this.pressedButton = function(stopped){
+            if(locked) return false;
+            if(!stopped) startDeal();
+            else stopDeal();
+        }
+        function startDeal(){
+            var seconds = sliderControl.getTime();
+            //log('starting',controller.toggleCountdown);
+            $.post('ajax/deal.php?type=deals',{action:'start',model:{template_id:activeTemplate,seconds: seconds}},function(data){
+                log(JSON.stringify(data));
+                if(data.success == 'true'){
+                    var end = data.data.end;
+                    $deal.attr('started','true');
+                    $deal.attr('endtime',end);
+                    controller.toggleCountdown(true,activeTemplate,end);
+                }
+            },'json');
+        }
+        function stopDeal(){
+        }
+    }
 	
 	/*// Slider nav for deals
     var DealsSlider = function() {

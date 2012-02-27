@@ -9,6 +9,17 @@ App.models.Deal = Backbone.Model.extend({
 		if (response.success == 'true' && response.data) this.setState(response.data.start, response.data.end);
 		return response.data;
 	},
+	isStarted:function(){
+		var start = this.get("start");
+		var end = this.get("end");
+		if (start && end) {
+			var now = (new Date()).getTime()/1000;
+			if(end < now) return false;
+			if(start > now) return false;
+			return true;
+		}
+		else return false;
+	},
 	setState:function(start, end) {
 		if (!start) start = this.get("start");
 		if (!end)   end = this.get("end");
@@ -35,38 +46,6 @@ App.models.Deal = Backbone.Model.extend({
 				}, timeOut*1000);
 			}
 		}
-	}
-});
-App.models.Image = Backbone.Model.extend({
-	urlRoot: 'api/shopowner/images',
-	parse:function(response){
-		return response.data;
-	},
-	rotate:function(direction,callback){
-		var thisModel = this;
-		$.get(ROOT_URL+'ajax/image.php',{action:'rotate',direction:direction,index:this.get('id')},function(data){
-			if(data.success == 'true'){
-				thisModel.set(data.data);		
-			}
-			else {
-				log('error rotating',data.error);
-				switch(data.error){
-					
-				}
-			}
-		},'json');
-	},
-	editThumb:function(newCoords){
-		log(newCoords);
-	},
-	getUrl: function(folder){
-		return IMG_URL + folder + '/' + this.get('n')+'?'+this.get('rev');
-	}
-});
-App.models.Feedback = Backbone.Model.extend({
-	urlRoot: 'api/shopowner/feedback',
-	parse:function(response){
-		return response.data;
 	}
 });
 App.models.Shop = Backbone.Model.extend({

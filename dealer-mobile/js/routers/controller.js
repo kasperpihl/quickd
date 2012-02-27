@@ -1,12 +1,11 @@
 	App.routers.Controller = Backbone.Router.extend({
 	initialize: function(shopowner){
-		log(shopowner);	
 		App.collections.templates = new App.collections.Templates();
 		App.collections.deals = new App.collections.Deals();
 		App.collections.shops = new App.collections.Shops();
 		this.addStuff(shopowner);
 		_.bindAll(this,'getChanges','changes');
-		this.getChanges();
+		//this.getChanges();
 		App.views.deals = new App.views.Deals({router: this});
 		App.views.controlpanel = new App.views.ControlPanel({router:this});
 	},
@@ -33,6 +32,11 @@
 				});
 			}
 		});
+	},
+	changedToTemplate:function(templateId){
+		log('templateid:',templateId);
+		var startedDeal = App.collections.deals.isStartedDeal(templateId);
+		log(startedDeal);
 	},
 	getChanges: function(){
 		var thisClass = this;
