@@ -54,15 +54,6 @@ App.models.Shop = Backbone.Model.extend({
 		return response.data;
 	}
 });
-App.models.Shopowner = Backbone.Model.extend({
-	urlRoot: 'api/shopowner',
-	getNotifications:function(){
-		
-	},
-	parse:function(response){
-		return response.data;
-	}
-});
 App.models.Template = Backbone.Model.extend({
 	urlRoot: 'api/shopowner/templates',
 	parse: function(response) {

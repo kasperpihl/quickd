@@ -21,10 +21,10 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); h
 		<link rel="apple-touch-startup-image" href="img/start-up-image.png" />
 		
        	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="src/lib/jquery-1.7.min.js"><\/script>')</script>
+		<script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
 		<?php if(isset($dealer) && $dealer) { $return = Shopowner::getStuffForMobile(); ?>
-			<script src="src/lib/jquery.easing.1.3.min.js"></script>
-			<script src="src/lib/royal-slider-8.1.min.js"></script>
+			<script src="<?= LIBS_URL ?>jquery/jquery.easing.1.3.min.js"></script>
+			<script src="<?= LIBS_URL ?>jquery/royal-slider-8.1.min.js"></script>
 			<script src="src/countdown.js"></script>
 			<script>
 				var App = {
