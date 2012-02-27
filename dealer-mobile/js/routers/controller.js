@@ -4,12 +4,13 @@ App.routers.Controller = Backbone.Router.extend({
 		App.collections.templates = new App.collections.Templates();
 		App.collections.deals = new App.collections.Deals();
 		App.collections.shops = new App.collections.Shops();
-		this.addStuff(shopowner.stuff);
+		this.addStuff(shopowner);
 		_.bindAll(this,'getChanges','changes');
 		this.getChanges();
+		App.views.deals = new App.views.Deals();
 	},
 	test:function(){
-		
+
 	},
 	addStuff:function(stuff){
 		_.each(stuff,function(item,i){
@@ -19,17 +20,15 @@ App.routers.Controller = Backbone.Router.extend({
 				var model = new App.models.Deal(document);
 				App.collections.deals.add(model);
 			}
+			if(document.hasOwnProperty('type') && document.type == 'template'){
+				var model = new App.models.Template(document);
+				App.collections.templates.add(model);
+			}
 			if(document.hasOwnProperty('historySince')) localStorage.setItem('cindex',parseInt(document.historySince));
 			if(document.hasOwnProperty('shops')){
 				_.each(document.shops,function(shop,i){
 					var model = new App.models.Shop(shop);
 					App.collections.shops.add(model);
-				});
-			}
-			if(document.hasOwnProperty('templates')){
-				_.each(document.templates,function(template,i){
-					var model = new App.models.Template(template);
-					App.collections.templates.add(model);
 				});
 			}
 		});

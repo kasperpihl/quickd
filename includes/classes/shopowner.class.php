@@ -42,7 +42,24 @@ class Shopowner {
 		catch(Exception $e){ echo json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); }
 	}
 	public static function getShopowner(){
-	
+		
+	}
+	public static function getStuffForMobile(){
+		$results = Shopowner::get('dealsNTemplates');
+		$deals = array();
+		$templates = array();
+		if($results['success'] == 'true'){
+			$results = $results['results'];
+			$test = array_filter($results,function($item){
+				if($item->value->type == 'template') return true;
+				else if($item->value->type == 'deal'){ 
+					$time = (int)$item->value->end;
+					return ($time > time()) ? true : false;
+				}
+			});
+			return json_encode($test);
+		}
+		else return $results;
 	}
 	public static function login($model,$stuff=true){
 		if(!isset($model['email'],$model['password'])) return array('success'=>'false','error'=>'most_include_both_email_and_password');

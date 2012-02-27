@@ -1,33 +1,5 @@
 <? require_once('../config.php'); 
 if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); header('Location: ./'); }
-if(isset($dealer) && $dealer){	
-	$deals = array();
-	$templates = array();
-	$time = time();
-	$results = Shopowner::get('dealsNTemplates');
-	if($results['success'] == 'true'){
-		$results = $results['results'];
-		
-		foreach ($results as $res){
-			$id = $res->key[2];
-			$type = $res->key[1];
-			if($type =='deal'){
-				//print_r($res->value);
-				$start = $res->value->start;
-				$end = $res->value->end;
-				if($start < $time && $end > $time) $deals[$id] = $res->value;				
-			}
-			else if($type == 'template'){
-				if($res->value->approved == 'approved')
-					$templates[$id] = $res->value;
-			}
-			if(!isset($res->value->image)) $res->value->image = 'kasper_1329227488_454.jpg';
-		}
-		foreach($templates as $id => $temp){
-			if(array_key_exists($id,$deals)) unset($templates[$id]);
-		}
-	}
-}
 
 ?>
 <!doctype html>
@@ -50,7 +22,7 @@ if(isset($dealer) && $dealer){
 		
        	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="src/lib/jquery-1.7.min.js"><\/script>')</script>
-		<?php if(isset($dealer) && $dealer) { $return = getShopowner();?>
+		<?php if(isset($dealer) && $dealer) { $return = Shopowner::getStuffForMobile(); ?>
 			<script src="src/lib/jquery.easing.1.3.min.js"></script>
 			<script src="src/lib/royal-slider-8.1.min.js"></script>
 			<script src="src/countdown.js"></script>
@@ -58,7 +30,8 @@ if(isset($dealer) && $dealer){
 				var App = {
 					collections: {},
 					models: {},
-					routers: {}
+					routers: {},
+					views: {}
 				};
 			</script>
 			<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
@@ -66,6 +39,7 @@ if(isset($dealer) && $dealer){
 	        <script src="js/collections/collections.js"></script>
 	        <script src="js/models/models.js"></script>
 	        <script src="js/routers/controller.js"></script>
+	        <script src="js/views/deals.js"></script>
 	        <script> 
 	        	var shopowner; 
 	       		var ROOT_URL = "<?= ROOT_URL ?>";
@@ -116,8 +90,8 @@ if(isset($dealer) && $dealer){
             			
             			<section class="deals">
             				<nav id="deal-slider" class="royalSlider iskin">
-            					<ul class="royalSlidesContainer">
- 									<?php if(!empty($deals)){ foreach ($deals as $id => $deal): ?>
+            					<ul class="royalSlidesContainer" id="rSS">
+ 									<?php /* if(!empty($deals)){ foreach ($deals as $id => $deal): ?>
  									<li class="royalSlide">
             							<article class="deal" id="template-<?= $id ?>" templateId="<?= $id ?>" started="true" endtime="<?= $deal->end ?>">
 							            	<img class="imageItem left" src="<?= IMAGES_URL ?>thumbnail/<?= $deal->image ?>" height="100%" />
@@ -138,7 +112,7 @@ if(isset($dealer) && $dealer){
 							                </div>
 							            </article>
             						</li>
-            						<?php endforeach; ?>
+            						<?php endforeach;*/ ?>
             					</ul>
             				</nav>
             			</section>

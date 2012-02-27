@@ -147,7 +147,4 @@ $(document).bind('pageinit', function() {
     	}).data('royalSlider');
     };
     //javascript_countdown.start(1000,'countdownTimer');
-    $(function(){
-    	var dealsSlider = new DealsSlider();
-    });
 });

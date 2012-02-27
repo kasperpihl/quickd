@@ -1,0 +1,11 @@
+<% _.each(templates,function(template){ %>
+	<li class="royalSlide">
+		<article class="deal" id="template-<%= template.id %>" templateId="<%= template.id %>" started="false" >
+	    	<img class="imageItem left" src="<?= IMAGES_URL ?>thumbnail/" height="100%" />
+	        <div class="slideTextBlock">
+	            <h4><%= template.title %></h4>
+	            <p>Før: <span class="amount"><%= template.orig_price %>,-</span> / Nu: <span class="amount"><%= template.deal_price %>,-</span></p>
+	        </div>
+	    </article>
+	</li>
+<% }); %>
