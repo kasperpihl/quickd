@@ -3,7 +3,7 @@ App.views.Deals = Backbone.View.extend({
 	el: '#rSS',
 	initialize:function(){
 		_.bindAll(this,'render');
-
+		this.router = this.options.router;
 		this.deals = App.collections.deals;
 		this.templates = App.collections.templates;
 		this.render();
@@ -14,13 +14,7 @@ App.views.Deals = Backbone.View.extend({
 		log(data);
 		$.get('templates/deals.html',function(template){
 			$(thisClass.el).html(_.template(template,data));
-			thisClass.dealSlider();
+			thisClass.router.trigger('dealsLoaded');
 		},'html');
-	},
-	dealSlider:function(){
-		/*$(function(){
-	    	var dealsSlider = new DealsSlider();
-	    });*/
-	}
-	
+	}	
 });

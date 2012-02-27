@@ -40,6 +40,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); h
 	        <script src="js/models/models.js"></script>
 	        <script src="js/routers/controller.js"></script>
 	        <script src="js/views/deals.js"></script>
+	        <script src="js/views/controlpanel.js"></script>
 	        <script> 
 	        	var shopowner; 
 	       		var ROOT_URL = "<?= ROOT_URL ?>";
@@ -86,7 +87,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); h
                 </div>
                 <div class="scroll">
                 	
-                	<article data-role="content">
+                	<article data-role="content" id="appContent">
             			
             			<section class="deals">
             				<nav id="deal-slider" class="royalSlider iskin">
@@ -116,17 +117,18 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); h
             					</ul>
             				</nav>
             			</section>
-            			
-            			<section id="time" class="time text-center">
-            				<div id="timewrap">
-	            				<time id="countdownTimer"></time>
-	            				<form>
-								   <input type="range" name="hours-slider" id="hours-slider" value="12" min="4" max="40" data-theme="a"  />
-								</form>
-							</div>
-            			</section>
-            			
-            			<a href="#" data-role="button" class="start-stop-deal" data-theme="a">Start deal!</a>
+            			<section id="controlpanel">
+	            			<section id="time" class="time text-center">
+	            				<div id="timewrap">
+		            				<time id="countdownTimer"></time>
+		            				<form>
+									   <input type="range" name="hours-slider" id="hours-slider" value="12" min="4" max="40" data-theme="a"  />
+									</form>
+								</div>
+	            			</section>
+	            			
+	            			<a href="#" data-role="button" class="start-stop-deal" id="startButton" data-theme="a">Start deal!</a>
+	            		</section>
             		</article>
             		
                 </div>

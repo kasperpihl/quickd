@@ -1,4 +1,4 @@
-App.routers.Controller = Backbone.Router.extend({
+	App.routers.Controller = Backbone.Router.extend({
 	initialize: function(shopowner){
 		log(shopowner);	
 		App.collections.templates = new App.collections.Templates();
@@ -7,7 +7,8 @@ App.routers.Controller = Backbone.Router.extend({
 		this.addStuff(shopowner);
 		_.bindAll(this,'getChanges','changes');
 		this.getChanges();
-		App.views.deals = new App.views.Deals();
+		App.views.deals = new App.views.Deals({router: this});
+		App.views.controlpanel = new App.views.ControlPanel({router:this});
 	},
 	test:function(){
 

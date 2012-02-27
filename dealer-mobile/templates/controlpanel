@@ -1,0 +1,10 @@
+<section id="time" class="time text-center">
+	<div id="timewrap">
+		<time id="countdownTimer"></time>
+		<form>
+		   <input type="range" name="hours-slider" id="hours-slider" value="12" min="4" max="40" data-theme="a"  />
+		</form>
+	</div>
+</section>
+
+<a href="#" data-role="button" class="start-stop-deal" data-theme="a">Start deal!</a>

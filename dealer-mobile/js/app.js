@@ -9,12 +9,12 @@ window.log=function(){
 	}
 };
 $(document).bind('pageinit', function() {
-	App.routers.controller = new App.routers.Controller(shopowner);
+	 App.routers.controller = new App.routers.Controller(shopowner);
 	$('.start-stop-deal').click(function(){
 		var stopped = ($(this).hasClass('stop')) ? true : false;
 		dealController.pressedButton(stopped);
 	});
-	var DurationSlider = function() {
+	/*var DurationSlider = function() {
     	var $slider = $( "#hours-slider" ),
     		$time	= $('#time time'),
     		time    = 5*60*60;
@@ -42,8 +42,8 @@ $(document).bind('pageinit', function() {
 			$slider = null;
 			console.log('DurationSlider destroyed');
 		}
-    };
-	var DealController = function() {
+    };*/
+	/*var DealController = function() {
     	var $wrap 			= $('#time'),
     		$slider 		= $('form', $wrap),
     		$time			= $('time', $wrap),
@@ -103,9 +103,9 @@ $(document).bind('pageinit', function() {
     		$btnText[0].innerHTML = 'Udsolgt';
     		javascript_countdown.start(countdown);
     	}
-    }
+    }*/
 	
-	// Slider nav for deals
+	/*// Slider nav for deals
     var DealsSlider = function() {
     	if($container <= 0) return false;
     	var $container 		= $('#deal-slider'),
@@ -124,7 +124,7 @@ $(document).bind('pageinit', function() {
     		beforeSlideChange:function(){
     			dealController.lock();
     		},
-    		afterSlideChange: function() {
+    		afterSlideChange: function() {“
     			var currSlideNum	= slider.currentSlideId,
     				slideSelector	= '.royalSlide:nth-child(' + (currSlideNum + 1) + ')';
     				$currSlide		= $(slideSelector, $container);
@@ -145,6 +145,6 @@ $(document).bind('pageinit', function() {
     			slider.updateSliderSize();
     		}
     	}).data('royalSlider');
-    };
-    //javascript_countdown.start(1000,'countdownTimer');
+    };*/
+    
 });
