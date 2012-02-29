@@ -1,5 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 **.sass-cache
+=======
+.sass-cache
+.sass-cache/**
+.DS_Store
+>>>>>>> mobile-back
 =======
 .sass-cache
 .sass-cache/**
