@@ -47,7 +47,10 @@ App.routers.Entry = Backbone.Router.extend({
 	},
 	doRegister: function(){
 		var thisClass = this;
+		log($('#register_username'));
 		$.post('api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
+			
+			log('reg',response);
 			if(response.success == 'true'){
 				log("response from register", response);
 				thisClass.model.set(response.data);
@@ -125,6 +128,7 @@ App.routers.Entry = Backbone.Router.extend({
 		});
 	},
 	startDashboard: function(stuff){
+		alert("dashboard started");
 		if(!this.dashReady){
 			setTimeout(this.startDashboard(stuff),200);
 			return;
