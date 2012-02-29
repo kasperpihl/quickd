@@ -7,7 +7,7 @@
 		_.bindAll(this,'getChanges','changes');
 		//this.getChanges();
 		App.views.deals = new App.views.Deals({router: this});
-		App.views.controlpanel = new App.views.ControlPanel({router:this});
+		App.views.controlPanel = new App.views.ControlPanel({router:this});
 	},
 	test:function(){
 
@@ -34,9 +34,10 @@
 		});
 	},
 	changedToTemplate:function(templateId){
-		log('templateid:',templateId);
 		var startedDeal = App.collections.deals.isStartedDeal(templateId);
-		log(startedDeal);
+		startedDeal = startedDeal ? startedDeal : App.collections.templates.get(templateId);
+		App.views.controlPanel.changed(startedDeal.toJSON());
+		//log(startedDeal.toJSON());
 	},
 	getChanges: function(){
 		var thisClass = this;

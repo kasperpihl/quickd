@@ -11,22 +11,33 @@ App.views.ControlPanel = Backbone.View.extend({
 		this.render();
 	},
 	render:function(){
-		this.sliderEl.attr('value', 20).slider('refresh');	
-		
+		this.sliderEl.attr('value', 20).slider('refresh');
 	},
 	events: {
 		'click #startButton': 'clickedButton',
 		'change #hours-slider': 'handleChange'
 	},
-	changed: function(deal){
+	changed: function(object){
+		log(object.type);
+		switch(object.type){
+			case 'deal':
+				$('.ui-btn-text',this.btnEl).html('Udsolgt');
+				$('#time').toggleClass('running',true);
+			break;
+			case 'template':
+				$('.ui-btn-text',this.btnEl).html('Start deal');
+				$('#time').toggleClass('running',false);
+			break;
+		}
+		/*
 		var timestamp = parseInt(new Date().getTime()/1000);
-		$('#time').toggleClass('running',deal);
+		
 		if(deal){
-			$('.ui-btn-text',this.btnEl).html('Start deal');
+			
 		}
 		else{
-			$('.ui-btn-text',this.btnEl).html('Udsolgt');
-		}
+			
+		}*/
 	},
 	handleChange:function(e,ui){
 		var sliderVal 	= e.currentTarget.value,
