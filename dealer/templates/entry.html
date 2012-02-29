@@ -23,23 +23,27 @@
 							      </div>
 						        <div class="login_button" id="login_button"></div>
 					    </div>
-						<div id="registrer" class="login_fields" style="position: absolute; right: -50%; display: none;">
+						<div id="registrer" class="register_fields" style="position: absolute; right: -50%; display: none;">
 							<div style="z-index: 100;"><h1>Registrering</h1></div>
+							E-mail
 						    <div class="field">
-						    	<div class="input-wrapper" style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
-						        	<input name="user" class="above" type="text" id="login_username" class="above" autocomplete="off" hideLabel="E-mail" style="border-radius: 0px;" />
+						    	<div class="input-wrapper">
+						        	<input name="register_user" type="text" id="register_username" autocomplete="off" />
 						        </div>
 						    </div>
+						    Adgangskode
 						    <div class="field">
-						    	<div class="input-wrapper" style="border-top-left-radius: 0px; border-top-right-radius: 0px;">
-						       		<input name="password" type="password" id="login_password" autocomplete="off" hideLabel="Adgangskode"/>
+						    	<div class="input-wrapper">
+						       		<input name="register_password" type="password" id="register_password" autocomplete="off" />
 						       	</div>
 						    </div>
+						    Betanøgle
 						    <div class="field">
-						    	<div class="input-wrapper" style="border-top-left-radius: 0px; border-top-right-radius: 0px;">
-						       		<input name="password" type="password" id="login_password" autocomplete="off" hideLabel="Adgangskode"/>
+						    	<div class="input-wrapper">
+						       		<input name="register_betacode" type="text" id="betacode" autocomplete="off" />
 						       	</div>
-						    </div> 
+						    </div>
+						    <button id="do_register_button">Registrer</button>
 						    <button id="cancel_register_button">Annuller</button>   
 						</div>
 					</div>

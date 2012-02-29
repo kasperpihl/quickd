@@ -10,7 +10,7 @@ define([
 			
 		},
 		events: {
-			'click #login_button, #btn_read_conditions,#btn_forgot_pass,#go_register_button,#cancel_register_button': 'handleClick',			
+			'click #login_button, #btn_read_conditions,#btn_forgot_pass,#go_register_button,#do_register_button,#cancel_register_button': 'handleClick',			
 			'keypress #login_username, #login_password': 'handleKeypress'
 		},
 		render: function(){
@@ -41,6 +41,9 @@ define([
 				break;
 				case 'go_register_button':
 					this.router.openRegisterView();
+				break;
+				case 'do_register_button':
+					this.router.doRegister();
 				break;
 				case 'cancel_register_button':
 					this.router.closeRegisterView();

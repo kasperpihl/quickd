@@ -959,6 +959,34 @@ body {
 				margin-bottom: 10px;
 				color: #4D4D4D;
 			}
+		}
+
+		.register_fields {
+			margin-top: 20px;
+			width: 404px;
+			margin-left: auto;
+			margin-right: auto;
+
+			.field {
+
+				
+			}
+			
+			#shadow-wrapper {
+				position: absolute;
+				@include box-shadow(0px 0px 2px rgba(0, 0, 0, 0.3));
+				border-radius: 19px;
+				width: 404px;
+				border: 1px solid rgba(0, 0, 0, 0.3);
+			}
+			
+			h1 {
+				font-weight: 100;
+				font-size: 20px;
+				margin-bottom: 10px;
+				color: #4D4D4D;
+			}
+
 		}	
 	}
 	
