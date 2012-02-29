@@ -1,33 +1,5 @@
 <? require_once('../config.php'); 
 if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); header('Location: ./'); }
-if(isset($dealer) && $dealer){	
-	$deals = array();
-	$templates = array();
-	$time = time();
-	$results = Shopowner::get('dealsNTemplates');
-	if($results['success'] == 'true'){
-		$results = $results['results'];
-		
-		foreach ($results as $res){
-			$id = $res->key[2];
-			$type = $res->key[1];
-			if($type =='deal'){
-				//print_r($res->value);
-				$start = $res->value->start;
-				$end = $res->value->end;
-				if($start < $time && $end > $time) $deals[$id] = $res->value;				
-			}
-			else if($type == 'template'){
-				if($res->value->approved == 'approved')
-					$templates[$id] = $res->value;
-			}
-			if(!isset($res->value->image)) $res->value->image = 'kasper_1329227488_454.jpg';
-		}
-		foreach($templates as $id => $temp){
-			if(array_key_exists($id,$deals)) unset($templates[$id]);
-		}
-	}
-}
 
 ?>
 <!doctype html>
@@ -49,10 +21,38 @@ if(isset($dealer) && $dealer){
 		<link rel="apple-touch-startup-image" href="img/start-up-image.png" />
 		
        	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="src/lib/jquery-1.7.min.js"><\/script>')</script>
-		<script src="src/lib/jquery.easing.1.3.min.js"></script>
-		<script src="src/lib/royal-slider-8.1.min.js"></script>
-		<script src="src/script.js"></script>
+		<script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
+		<?php if(isset($dealer) && $dealer) { $return = Shopowner::getStuffForMobile(); ?>
+			<script src="<?= LIBS_URL ?>jquery/jquery.easing.1.3.min.js"></script>
+			<script src="<?= LIBS_URL ?>jquery/royal-slider-8.1.min.js"></script>
+			<script src="src/countdown.js"></script>
+			<script>
+				var App = {
+					collections: {},
+					models: {},
+					routers: {},
+					views: {}
+				};
+			</script>
+			<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
+	        <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
+	        <script src="js/collections/collections.js"></script>
+	        <script src="js/models/models.js"></script>
+	        <script src="js/routers/controller.js"></script>
+	        <script src="js/views/deals.js"></script>
+	        <script src="js/views/controlpanel.js"></script>
+	        <script> 
+	        	var shopowner; 
+	       		var ROOT_URL = "<?= ROOT_URL ?>";
+				var IMG_URL = "<?= IMAGES_URL ?>";
+				var LIBS_URL = "<?= LIBS_URL ?>";
+				
+				shopowner = <?= $return; ?>;
+			</script>
+			<script src="js/app.js"></script>
+		<? } else { ?>
+			<script src="src/script.js"></script>
+  		<? } ?>
   		<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js" ></script>
     </head>
     <body>
@@ -87,12 +87,12 @@ if(isset($dealer) && $dealer){
                 </div>
                 <div class="scroll">
                 	
-                	<article data-role="content">
+                	<article data-role="content" id="appContent">
             			
             			<section class="deals">
             				<nav id="deal-slider" class="royalSlider iskin">
-            					<ul class="royalSlidesContainer">
- 									<?php if(!empty($deals)){ foreach ($deals as $id => $deal): ?>
+            					<ul class="royalSlidesContainer" id="rSS">
+ 									<?php /* if(!empty($deals)){ foreach ($deals as $id => $deal): ?>
  									<li class="royalSlide">
             							<article class="deal" id="template-<?= $id ?>" templateId="<?= $id ?>" started="true" endtime="<?= $deal->end ?>">
 							            	<img class="imageItem left" src="<?= IMAGES_URL ?>thumbnail/<?= $deal->image ?>" height="100%" />
@@ -113,21 +113,22 @@ if(isset($dealer) && $dealer){
 							                </div>
 							            </article>
             						</li>
-            						<?php endforeach; ?>
+            						<?php endforeach;*/ ?>
             					</ul>
             				</nav>
             			</section>
-            			
-            			<section id="time" class="time text-center">
-            				<div id="timewrap">
-	            				<time id="countdownTimer"></time>
-	            				<form>
-								   <input type="range" name="hours-slider" id="hours-slider" value="12" min="4" max="40" data-theme="a"  />
-								</form>
-							</div>
-            			</section>
-            			
-            			<a href="#" data-role="button" class="start-stop-deal" data-theme="a">Start deal!</a>
+            			<section id="controlpanel">
+	            			<section id="time" class="time text-center">
+	            				<div id="timewrap">
+		            				<time id="countdownTimer"></time>
+		            				<form>
+									   <input type="range" name="hours-slider" id="hours-slider" value="12" min="4" max="40" data-theme="a"  />
+									</form>
+								</div>
+	            			</section>
+	            			
+	            			<a href="#" data-role="button" class="start-stop-deal" id="startButton" data-theme="a">Start deal!</a>
+	            		</section>
             		</article>
             		
                 </div>
