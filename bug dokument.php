@@ -2,6 +2,8 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
+Databasefejl ved ændring af template
+
 Gennemtest billede-upload
 
 Vis rabat ved oprettelse af templates

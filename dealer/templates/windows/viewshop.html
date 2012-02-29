@@ -30,5 +30,19 @@
 		    <div class="label long">Åbningstider</div>
 		    <div class="data long"><textarea id="<%=data.prefix %>other" name="<%=data.prefix %>other" class="readonly" oldValue="<%= data.attributes.other %>" title="Indtast butikkens åbningstider samt yderligere information, der kunne have interesse for kunden" readonly ><%= data.attributes.other %></textarea></div>
 		</div>
+		<div class="field">
+		    <div class="label long">Åbningstider</div>
+		    <div class="data long opening-times">
+		    	<ul id="weekdays">
+		    		<li>Man</li>
+		    		<li>Tirs</li>
+		    		<li>Ons</li>
+		    		<li>Tors</li>
+		    		<li>Fre</li>
+		    		<li>Lør</li>
+		    		<li>Søn</li>
+		    	</ul>
+		    </div>
+		</div>
 	</div>
 </form>

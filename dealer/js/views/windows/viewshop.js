@@ -13,8 +13,10 @@ define([
 			this.confirmClose=true;
 			this.inputPrefix = 'shop_';
 			this.model = App.collections.shops.models[0];
-			
-			this.createWindow(true,{attributes:this.model.attributes, prefix:this.inputPrefix});
+			var thisClass = this;
+			this.createWindow(true,{attributes:this.model.attributes, prefix:this.inputPrefix}, function() {
+				thisClass.selectable = $('#weekdays').selectable({ disabled: true });
+			});
 			
 		},
 		events: {
@@ -29,17 +31,17 @@ define([
 				this.form.formValidate({
 					submitKey: '#btn_edit_shop',
 					rules: {
-						 shop_name: "required",
-						 shop_phone: "digits",
-						 //shop_website: "url",
-						 shop_email: "email"
-						 
-				   }
+						shop_name: "required",
+						shop_phone: "digits",
+						//shop_website: "url",
+						shop_email: "email"
+			   }
 			   });
 			   
 			   $(this.form).find('input, textarea').focus(function() {
 				  thisClass.lastFocus = $(this); 
 			   });
+			   
 			}
 		  
 		},
@@ -50,12 +52,14 @@ define([
 				$("#btn_cancel_shop").css("display", "block");
 				$(this.windowId).formSetState('edit');
 				this.state = 'edit';
+				if(this.selectable) $('#weekdays').selectable("enable");
 				if (!this.form) this.setValidator();
 				
 				if ($('#'+obj.currentTarget.id).is(':button')) {
 					if (this.lastFocus) this.lastFocus.focus();
 					else this.form.find('input[type=text]:first').focus();
 				} else obj.currentTarget.focus();
+				
 				this.important = true;
 				this.router.trigger('lock',{lock:'window',me: this.cid,activityCid: this.activity.cid,depth:this.depth});
 			}
@@ -66,6 +70,7 @@ define([
 				}, success:function(d,data){
 					$("#btn_edit_shop").html("Rediger").removeClass("blue");
 					$("#btn_cancel_shop").css("display", "none");
+					$('#weekdays').selectable("disable");
 					thisClass.state = 'view';
 				},error:function(d,data){log('error',d,data);} });
 				this.important = false;
