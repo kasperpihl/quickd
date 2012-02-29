@@ -375,18 +375,18 @@ $(function() {
 				button.unwrap();
 				button.val('Rediger');
 				
-				me.find('input[type=text], input[type=password], textarea').each(function(){
+				me.find('input[type=text], input[type=password], textarea, .category').each(function(){
 					$(this).attr('readonly',1).addClass('readonly');
 				});
 				
 			  }, 500);
 		} else if(state=='readonly') {
-			me.find('input[type=text], input[type=password], textarea').each(function(){
+			me.find('input[type=text], input[type=password], textarea, .category').each(function(){
 				$(this).attr('readonly',1).addClass('readonly');
 			});
 			button.val('Rediger');
 		} else if(state=='edit') {
-			me.find('input[type=text], input[type=password], textarea').each(function(){
+			me.find('input[type=text], input[type=password], textarea, .category').each(function(){
 				$(this).removeAttr('readonly').removeClass('readonly');
 			});
 			//me.find('input[type=text]:first').focus();

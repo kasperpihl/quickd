@@ -1,0 +1,9 @@
+@mixin text-overflow($overflow) {
+	-webkit-text-overflow: $overflow;
+	-moz-text-overflow: $overflow;
+	-o-text-overflow: $overflow;
+	-ms-text-overflow: $overflow;
+	text-overflow: $overflow;
+	white-space: nowrap;
+	overflow: hidden;
+}

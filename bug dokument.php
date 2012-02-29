@@ -2,8 +2,7 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
-Drag&drop i safari
-Fallback på image upload. Det virker pt ikke i Safari
+Gennemtest billede-upload
 
 Vis rabat ved oprettelse af templates
 
@@ -33,6 +32,9 @@ Redigering af brugerindstillinger virker ikke.
 	Det skal ske i det man trykker
 	
 =======================================
+
+(rettet jeppe) Drag&drop i safari
+	Fallback på image upload. Det virker pt ikke i Safari
 
 (rettet kasper) Skal vi godkende ændret billede? Og hvis ja skal det laves
 
