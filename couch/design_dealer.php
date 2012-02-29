@@ -26,7 +26,7 @@ try{
 		}
 		if(doc) return [null,msg('user_exists')];
 		var timestamp = parseInt(new Date().getTime()/1000);
-		if(!req.query.hasOwnProperty('json')) return [null,mg$sg('json_must_be_specified')];
+		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
 		var query = JSON.parse(req.query.json);
 		if(!query.hasOwnProperty('betacode')) return [null, msg('betacode_must_be_used')];
 		if(!query.hasOwnProperty('email') || !query.hasOwnProperty('password')) return [null, msg('email_and_password_must_be_specified')];
@@ -430,6 +430,7 @@ try{
 					if (doc.templates.hasOwnProperty(key)) {
 						var obj = {
 							id : key,
+							type: 'template',
 							approved: doc.templates[key].approved,
 							title : doc.templates[key].title,
 							orig_price : doc.templates[key].orig_price,
@@ -438,7 +439,7 @@ try{
 						if(doc.templates[key].hasOwnProperty('image')){
 							if(doc.images.hasOwnProperty(doc.templates[key])) obj.image = doc.images[doc.templates[key].image].n;
 						}
-						emit([doc._id,'template',parseInt(key)],obj);
+						emit([doc._id,parseInt(key)],obj);
 					
 					}
 				}
@@ -450,6 +451,7 @@ try{
 			var end = parseInt(doc.end);
 			var obj = {
 				id: doc._id,
+				type: doc.type,
 				template_id: doc.template.id,
 				orig_price: doc.template.orig_price,
 				deal_price: doc.template.deal_price,
@@ -458,7 +460,7 @@ try{
 				title: doc.template.title
 			}
 			if(doc.template.hasOwnProperty('image')) obj.image = doc.template.image;
-			emit([doc.shopowner_id,'deal',doc.template.id],obj);
+			emit([doc.shopowner_id,doc.template.id],obj);
 		}
 	}");
 	$getCheckDeals = array(

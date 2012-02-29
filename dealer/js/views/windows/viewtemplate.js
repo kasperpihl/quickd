@@ -31,7 +31,7 @@ define([
 			_events['blur '+windowId+' #orig_price']= 'priceChanged';
 			_events['keyup '+windowId+' #deal_price']= 'priceChanged';
 			_events['click '+windowId+' .category']= 'categoryChanged';
-			return _events;	
+			return _events;
 		},
 		updateContent:function(model,d1){
 			if(model != this.model) return;
@@ -46,8 +46,8 @@ define([
 				this.form.formValidate({
 					submitKey: '#btn_edit_template',
 					rules: {
-						 title: {
-							 required: true,
+					title: {
+						required: true,
 							 minlength: 5
 						 },
 						 description: {
@@ -163,9 +163,9 @@ define([
 			this.selectorView.openDialog();
 		},
 		imageSelected:function(data) {
-			if (!data.windowId || data.windowId != this.windowId || !data.imgId || 
+			if (!data.windowId || data.windowId != this.windowId || !data.imgId ||
 					(this.model.get('imgId') && this.model.get('imgId')==data.imgId)) return;
-			//log("imgSelected", data);
+			log("imgSelected", data);
 			var thisClass = this;
 			var src= App.collections.images.getUrl(data.imgId, 'thumbnail');
 			if (!this.imageWasSeleted) {
@@ -178,10 +178,12 @@ define([
 			else {
 				var obj = {image: data.imgId};
 				this.model.save(obj,{success:function(d,data){
+					log("success", d, data);
 					if (data.success == 'true') {
-						thisClass.router.trigger('templateEdited',{event:'templateEdited'}); 
-					} 
+						thisClass.router.trigger('templateEdited',{event:'templateEdited'});
+					}
 				}, error:function(d,data){
+					log("error", d, data);
 				}});
 			}
 		},
