@@ -1,13 +1,15 @@
-	App.routers.Controller = Backbone.Router.extend({
+App.routers.Controller = Backbone.Router.extend({
+	locked: false,
 	initialize: function(shopowner){
 		App.collections.templates = new App.collections.Templates();
 		App.collections.deals = new App.collections.Deals();
 		App.collections.shops = new App.collections.Shops();
 		this.addStuff(shopowner);
-		_.bindAll(this,'getChanges','changes');
+		_.bindAll(this,'getChanges','changes','clickedStartStop');
 		//this.getChanges();
 		App.views.deals = new App.views.Deals({router: this});
-		App.views.controlpanel = new App.views.ControlPanel({router:this});
+		App.utilities.countdown = new App.utilities.Countdown();
+		App.views.controlPanel = new App.views.ControlPanel({router:this});
 	},
 	test:function(){
 
@@ -33,10 +35,32 @@
 			}
 		});
 	},
+	lock:function(){
+		App.views.controlPanel.lockView();
+	},
+	unlock: function(){
+		App.views.controlPanel.unlockView();
+	},
 	changedToTemplate:function(templateId){
-		log('templateid:',templateId);
 		var startedDeal = App.collections.deals.isStartedDeal(templateId);
-		log(startedDeal);
+		startedDeal = startedDeal ? startedDeal : App.collections.templates.get(templateId);
+		this.activeModel = startedDeal;
+		App.views.controlPanel.changed(startedDeal);
+		//log(startedDeal.toJSON());
+	},
+	clickedStartStop:function(time){
+		var obj;
+		switch(this.activeModel.get('type')){
+			case 'template':
+				obj = {action:'start',model:{template_id:this.activeModel.get('id'),seconds: time}};
+				log(obj);
+			break;
+		}
+		/*$.post('ajax/deal.php?type=deals',obj},function(data){
+            log(JSON.stringify(data));
+            if(data.success == 'true'){
+            }
+        },'json');*/
 	},
 	getChanges: function(){
 		var thisClass = this;
@@ -67,4 +91,48 @@
 		if(!result.data) return;
 	}
 	
+});
+App.utilities.Countdown = Backbone.Router.extend({
+	time: 1000,
+	count: false,
+	el: '#time time',
+	show:false,
+	model:false,
+	initialize:function(){
+		_.bindAll(this,'countdown','addLeadingZero','output');
+
+	},
+	setModelAndStart:function(model){
+		this.model = model;
+		this.show = true;
+		this.output();
+		if(!this.count) this.countdown();
+		this.count = true;
+	},
+	stop: function(){
+		this.show = false;
+	},
+	countdown:function(){
+		if(this.show) this.output();
+		setTimeout(this.countdown,1000);
+	},
+	addLeadingZero:function(n){
+		if(n.toString().length < 2) return '0' + n;
+		else return n;
+	},
+	output: function(time_left){
+		var time_left = this.model.getCountdown();
+		var hours, minutes, seconds;
+		seconds = time_left % 60;
+		minutes = Math.floor(time_left / 60) % 60;
+		hours = Math.floor(time_left / 3600);
+ 
+		seconds = this.addLeadingZero( seconds );
+		minutes = this.addLeadingZero( minutes );
+		hours = this.addLeadingZero( hours );
+
+		$(this.el).html(hours + ':' + minutes + ':' + seconds);
+	},
+
+
 });

@@ -9,6 +9,11 @@ App.models.Deal = Backbone.Model.extend({
 		if (response.success == 'true' && response.data) this.setState(response.data.start, response.data.end);
 		return response.data;
 	},
+	getCountdown:function(){
+		var timestamp = parseInt(new Date().getTime()/1000);
+    	var end = parseInt(this.get('end'));
+		return end-timestamp;
+	},
 	isStarted:function(){
 		var start = this.get("start");
 		var end = this.get("end");

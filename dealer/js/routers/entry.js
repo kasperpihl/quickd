@@ -1,6 +1,5 @@
 define([
 'order!views/dialogs/dialog',
-'order!views/dialogs/register',
 'order!views/entry',
 'models/models'
 ],function(){
@@ -13,8 +12,6 @@ App.routers.Entry = Backbone.Router.extend({
 	initialize: function(){	
 		this.dashReady = false;
 		this.entryView = new App.views.Entry({router:this});
-		/*this.loginView = new App.views.dialogs.LoginView({router: this});*/
-		this.registerView = new App.views.dialogs.RegisterView({router:this});
 		this.model = App.models.shopowner = new App.models.Shopowner();
 		this.view;
 		this.box = false;
@@ -47,7 +44,10 @@ App.routers.Entry = Backbone.Router.extend({
 	},
 	doRegister: function(){
 		var thisClass = this;
+		log($('#register_username').val(),'hej');
 		$.post('api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
+			
+			log('reg',response);
 			if(response.success == 'true'){
 				log("response from register", response);
 				thisClass.model.set(response.data);
@@ -125,6 +125,7 @@ App.routers.Entry = Backbone.Router.extend({
 		});
 	},
 	startDashboard: function(stuff){
+		alert("dashboard started");
 		if(!this.dashReady){
 			setTimeout(this.startDashboard(stuff),200);
 			return;
