@@ -35,15 +35,12 @@ define([
 						shop_phone: "digits",
 						//shop_website: "url",
 						shop_email: "email"
-			   }
-			   });
-			   
-			   $(this.form).find('input, textarea').focus(function() {
-				  thisClass.lastFocus = $(this); 
-			   });
-			   
+					}
+				});
+				$(this.form).find('input, textarea').focus(function() {
+					thisClass.lastFocus = $(this);
+				});
 			}
-		  
 		},
 		editShop:function(obj){
 			var thisClass = this;

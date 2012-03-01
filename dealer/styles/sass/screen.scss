@@ -2367,7 +2367,7 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 			@include filter-gradient(#e8e8e8, #c4c4c4, vertical); // IE6-9
 			@include background-image(linear-gradient(top, rgba(232,232,232,1) 0%,rgba(196,196,196,1) 98%));
 			margin-bottom: 0px;
-			height: 90px;
+			//height: 90px;
 			box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);		
 		}
 		&.noTwo { 
@@ -2429,7 +2429,7 @@ div.ui-datepicker {font-size:12px;}
 .template-selector {
 	height:100%;
 	.title {padding:5px;text-align:center;font-size:18px;}
-	.scroll-list { overflow-y:auto;margin:0px;padding:0px;width:100%;height:90%;}
+	.scroll-list { overflow-y:auto;margin:0px;padding:0px;width:100%;height:100%;}
 }
 .template-selector, #selected_template_area {
 	.list-item {

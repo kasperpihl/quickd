@@ -9,7 +9,7 @@ define([
 			this.init(this.options);
 			_.bindAll(this,'updateContent');
 			this.collection = App.collections.templates;
-			//log("templates", this.collection.toJSON());
+			log("templates", this.collection.toJSON());
 			this.createWindow(true, this.collection.toJSON());
 			App.collections.templates.bind('add',this.updateContent);
 			App.collections.templates.bind('change',this.updateContent);

@@ -47,8 +47,15 @@ define([
 	App.collections.Templates = Backbone.Collection.extend({
 		url: 'api/shopowner/templates',
 		parse: function(response) {
-	    	return response.data;
-	  	},
+			return response.data;
+		},
+		getApproved:function() {
+			var approved = [];
+			this.each(function(tpl) {
+				if(tpl.get('approved')==='approved') approved.push(tpl.toJSON());
+			});
+			return approved;
+		},
 		model: App.models.Template
 	});
 });

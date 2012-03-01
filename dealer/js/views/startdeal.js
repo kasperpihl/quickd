@@ -1,6 +1,6 @@
 define([
 'text!templates/startdeal.html',
-'views/dialogs/templateSelector',
+'views/component/templateSelector',
 'order!jquery/jquery-ui',
 'order!jquery/jquery.ui.timepicker.addon',
 'order!jquery/jquery.ui.datepicker-da'
@@ -8,7 +8,7 @@ define([
 	App.views.StartDeal = Backbone.View.extend({
 		el: '#activity_startdeals',
 		initialize:function(){
-			_.bindAll(this,'startDeal','render','updateTemplates', 'selectTemplate', 'updateSelected', 'setVerticalAlign','generateTemplate','handleEvent');
+			_.bindAll(this,'startDeal','render','updateTemplates', 'selectTemplate', 'setTemplateSelected', 'setVerticalAlign','handleEvent');
 			this.templateName = 'startdeal';
 			this.elemId = 'start_deal';
 			this.dealTemplates = {};
@@ -18,10 +18,11 @@ define([
 			this.activity = this.options.activity;		
 			this.timeStandard = 5;
 			this.timeMinInterval = 10;
+			this.templateSelected = null;
 			this.render();
 			this.router.bind('appendWindow',this.handleEvent);
 			this.router.bind('templatesUpdated',this.updateTemplates);
-			this.router.bind('templateSelected',this.updateSelected);
+			this.router.bind('templateSelected',this.setTemplateSelected);
 		},
 		
 		render: function(){
@@ -50,9 +51,9 @@ define([
 					
 					var dateAmr = dateToAmr(dateText);
 					var testStartDate = dateAmr;
-					if (endDateField.val() != '') var testEndDate = dateToAmr(endDateField.val());
+					if (endDateField.val() !== '') var testEndDate = dateToAmr(endDateField.val());
 					else var testEndDate = new Date(0);
-					if (!thisClass.dateSelected || endDateField.val() == '' || testStartDate > testEndDate) {
+					if (!thisClass.dateSelected || endDateField.val() === '' || testStartDate > testEndDate) {
 						var hours = (thisClass.hours ? thisClass.hours : thisClass.timeStandard);
 						var end = testStartDate.getTime() + 1000*60*60*hours;
 						endDateField.val(getTimeString(end, true, thisClass.timeMinInterval));
@@ -91,62 +92,59 @@ define([
 					thisClass.updateHours();
 				}
 			});	
-			this.height = $('#start_deal').height();
+			//this.height = $('#start_deal').height();
 			this.setVerticalAlign();
-			return true;
-		},
-		generateTemplate:function(id){
-			
-			var model = App.collections.templates.get(id);
-			if(model === undefined) return false;
-			var item = {item: model.attributes};
-			if(model.attributes.approved != 'approved') return false;
-			var thisClass = this;
-			require(['text!templates/component/templateSelected.html'],function(template){
-				$('#selected_template_area').html(_.template(template,item));
+			this.selectorView = new App.views.components.TemplateSelectorView({
+				router:this.router, 
+				appendTo: '#select-template-list',
+				expandOnCreate: (this.templateSelected==null),
+				parent: this.cid, 
+				onExpand: function() {
+					if (this.expanded) thisClass.collapse();
+					else thisClass.setVerticalAlign();
+				},
+				onCollapse: this.setVerticalAlign
 			});
 			return true;
 		},
 		handleEvent:function(options){
-			switch(options.window){
-				case 'startWithTemplate':
+			if (options.window && options.window==='startWithTemplate'){
 					var thisClass = this;
-					$(function(){thisClass.updateSelected(options.id)});
-				break;
-				default:
-					return;
-				break;
+					this.templateSelected = options.id;
+					if (this.selectorView) this.selectorView.setSelected(options.id);
 			}
 		},
 		setVerticalAlign:function() {
-			$("#start_deal").css({'position':'absolute','visibility':'hidden','display':'block'});
-			$('#start_deal').verticalAlign(false);
-			$("#start_deal").css({'visibility':'visible'});
+			if (!$('#start_deal').is(':visible')) {
+				$("#start_deal").css({'position':'absolute','visibility':'hidden','display':'block'});
+				$('#start_deal').verticalAlign(false);
+				$("#start_deal").css({'visibility':'visible'});
+			} else {
+				$('#start_deal').verticalAlign(false, {animate: true});
+			}
 		},
 		updateTemplates:function(data) {
 			this.dealTemplates = data;
 		},
-		updateSelected:function(id) {
-			var thisClass = this;
-			if (id) {
-				
-				if(!this.generateTemplate(id)){
-					this.router.navigate(lang.urls.startdeals,{trigger:false});
-					this.resetStarter();
-					return false;
-				} 
-				$('#deal_templates').val(id);
-				$('#btn_select_template').hide();
-				$('#selected_template_area').show();
-				
-				if (!this.expanded) {
+		setTemplateSelected:function(data) {
+			if (data && data.parent === this.cid && data.templateId) {
+				var id = data.templateId;
+				log("setTemplateSelected", id);
+				this.templateSelected = id;
+				this.router.navigate(lang.urls.startdeals+'/'+this.templateSelected);
+				this.expand();
+			}
+		},
+		expand: function() {
+			if (!this.expanded && this.templateSelected) {
+					var thisClass = this;
 					$('#deal_start_time').val(getTimeString(0, true,this.timeMinInterval));
 					var time = (new Date()).getTime()+1000*60*60 * this.timeStandard;
 					$('#deal_end_time').val(getTimeString(time,true,this.timeMinInterval));
 					var set_template = $('#set_template_block');
 					if (!$('#start_deal').is(':visible')) {
 						$('#stage-two').css({position:'relative',top: '0px'}).show();
-						if(!thisClass.height) thisClass.height = $('#start_deal').outerHeight();
+						//if(!thisClass.height) thisClass.height = $('#start_deal').outerHeight();
 					} else {
 						var wrapper = $('<div />').css({overflowY:'hidden',width:'100%'});
 						$('#stage-two').wrap(wrapper)
@@ -154,31 +152,30 @@ define([
 							.animate({ top: 0 }, {duration: 1000, easing:'easeOutExpo', complete: function() {
 								$(this).unwrap();
 							},queue:false});
-						$('#start_deal').verticalAlign(false, {animate:true});
 					}
+					thisClass.setVerticalAlign();
 					this.expanded = true;
 					
-				}
-			} else {
-				if (!$('#start_deal').is(':visible')) {
-					this.resetStarter();
-				} else {
-					$('#deal_templates').val("");
-					$('#btn_select_template').show();
-					$('#selected_template_area').hide();
-					
-					var wrapper = $('<div />').css({overflowY:'hidden',width:'100%'});
-					$('#stage-two').wrap(wrapper)
-						.animate({ top: -$('#stage-two').outerHeight()-20 }, {duration: 1000, easing:'easeOutExpo', complete: function() {
-							if(!thisClass.expanded) $(this).hide();
-							$(this).unwrap();
-						},queue:false});
-						
-					$('#start_deal').verticalAlign(false, {animate:true, meHeight:$('#set_template_block').height()});
-			
-					if (thisClass.selectorView) thisClass.selectorView.resetSelected();
-					this.expanded = false;
-				}
+			}
+		},
+		collapse: function() {
+			if (this.expanded) {
+				var thisClass = this;
+				thisClass.router.navigate(lang.urls.startdeals);
+				$('#deal_templates').val("");
+
+				var wrapper = $('<div />').css({overflowY:'hidden',width:'100%'});
+				$('#stage-two').wrap(wrapper)
+					.animate({ top: -$('#stage-two').outerHeight()-20 }, {duration: 1000, easing:'easeOutExpo', complete: function() {
+						if(!thisClass.expanded) $(this).hide();
+						$(this).unwrap();
+					},queue:false});
+				if (this.selectorView) this.selectorView.resetSelected();	
+				$('#start_deal').verticalAlign(false, {animate:true, meHeight:$('#set_template_block').outerHeight()});
+				//this.setVerticalAlign();
+				this.expanded = false;
+				this.templateSelected=null;
+				
 			}
 		},
 		updateHours:function(setHours) {
@@ -194,12 +191,16 @@ define([
 		},
 		events: {
 			'click #btn_submit_start_deal': 'startDeal',
-			'click #btn_select_area': 'selectTemplate'
+			//'click #btn_select_area': 'selectTemplate'
 		},
 		selectTemplate: function() {
-			if (!this.selectorView) 
-				this.selectorView = new App.views.dialogs.TemplateSelectorView({router:this.router, templates:this.dealTemplates});
-			this.selectorView.openDialog();
+			//if (!this.selectorView) 
+				//this.selectorView = new App.views.dialogs.TemplateSelectorView({router:this.router, templates:this.dealTemplates});
+			//this.selectorView.openDialog();
+			//if (!this.selectorView) 
+				
+			//this.selectorView.openDialog();
+
 		},
 		resetStarter:function(doWait) {
 			//REMEMBER TO RESET!!
