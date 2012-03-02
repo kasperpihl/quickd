@@ -21,21 +21,25 @@ App.routers.Entry = Backbone.Router.extend({
 	dealer:function(){
 		log('dealing');
 	},
+	animateDashboard: function() {
+		$("#body-mask").hide();
+		$("#header-login").animate({top: '-700px', opacity: 1}, 500, 'easeInQuart');
+		$("#footer-login").animate({bottom: '-700px', opacity: 1}, 500, 'easeInQuart');		
+	},
+	animateDoRegister: function() {
+		$("#header-login").animate({height: $(window).height()/2 + 'px', opacity: 1}, 1200, 'easeOutQuart');
+		$("#position_wrapper").animate({marginTop: '-124px'}, 1200, 'easeOutQuart');	
+	},
 	doLogin: function(){
 		var thisClass = this;
 		$.post('api/login',{email:$('#login_username').val(),password:$('#login_password').val()},function(response){
 		 	log('response from login',response);
 			if(response.success == 'true'){
-				thisClass.entryView.r
-				$("#body-mask").hide();
-				$("#header-login").animate({top: '-700px', opacity: 1}, 500, 'easeInQuart');
-				$("#footer-login").animate({bottom: '-700px', opacity: 1}, 500, 'easeInQuart');
-				
-				
-				setTimeout(function() {
+				thisClass.animateDashboard();
+				setTimeout(function(){
 					thisClass.model.set(response.dealer);
-					thisClass.startDashboard(response.stuff);
-				}, 200);
+					thisClass.startDashboard(response.stuff);		
+				},200);
 			}
 			else{
 				thisClass.entryView.shakeDialog();
@@ -45,24 +49,30 @@ App.routers.Entry = Backbone.Router.extend({
 	doRegister: function(){
 		var thisClass = this;
 		log($('#register_username').val(),'hej');
-		$.post('api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
+		//$.post('api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
 			
-			log('reg',response);
-			if(response.success == 'true'){
-				log("response from register", response);
-				thisClass.model.set(response.data);
-				thisClass.startDashboard();
-			}
-			else{
-				if(response.error == 'user_exists') {
-					thisClass.registerView.shakeDialog();
-					alert('Brugeren findes allerede');
-				} else if (response.error == 'wrong_beta'){
-					thisClass.registerView.shakeDialog();
-					alert('Forkert betakode');
-				}
-			}
-		},'json');
+		//	log('reg',response);
+		//	if(response.success == 'true'){
+				//log("response from register", response);
+				thisClass.animateDoRegister();
+				setTimeout(function(){
+					//thisClass.model.set(response.dealer);
+					//thisClass.startDashboard(response.stuff);
+				}, 200);
+
+
+				//thisClass.startDashboard();
+		//	}
+		//	else{
+		//		if(response.error == 'user_exists') {
+		//			thisClass.registerView.shakeDialog();
+		//			alert('Brugeren findes allerede');
+		//		} else if (response.error == 'wrong_beta'){
+		//			thisClass.registerView.shakeDialog();
+		//			alert('Forkert betakode');
+		//		}
+		//	}
+		//},'json');
 		
 	},
 	doResetPass: function() {
@@ -125,7 +135,6 @@ App.routers.Entry = Backbone.Router.extend({
 		});
 	},
 	startDashboard: function(stuff){
-		alert("dashboard started");
 		if(!this.dashReady){
 			setTimeout(this.startDashboard(stuff),200);
 			return;
