@@ -10,7 +10,6 @@ function priceIt(price){
  * @return {string}
  */
 function humanReadableDistance(distance) {
-	distance = 162;
 	var	dist	= parseInt(distance, 10),
 		roundTo	= getRoundToVal(dist),
 		unit	= 'm';
@@ -52,10 +51,8 @@ var myTemplate = new Ext.XTemplate(
 		'</section>',
 	'</article>',
 	{
-		priceIt:function(price){ return priceIt(price); },
-		humanReadableDistance:function(distance){
-			return humanReadableDistance(distance);
-		}
+		priceIt: priceIt,
+		humanReadableDistance: humanReadableDistance 
 	}
 )
 
