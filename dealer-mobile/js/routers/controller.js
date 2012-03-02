@@ -12,7 +12,7 @@ App.routers.Controller = Backbone.Router.extend({
 		App.views.controlPanel = new App.views.ControlPanel({router:this});
 	},
 	test:function(){
-
+		
 	},
 	addStuff:function(stuff){
 		_.each(stuff,function(item,i){

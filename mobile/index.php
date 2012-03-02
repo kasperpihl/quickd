@@ -1,18 +1,23 @@
-<?php require('lib/head.php'); ?>
-<div id="container" data-role="page">
-	
-	<header data-role="header" class="ui-bar-a quickd-bar" data-position="fixed" role="banner">
-		<h1 class="ir" id="logo">QuickD</h1>
-		<a href="sorter-deals.php" title="Sorter oversigt" class="ui-btn-right" data-role="button" data-inline="true" data-rel="dialog" data-transition="flip" data-prefetch>Sorter</a>
-	</header>
-	
-	<div id="main" role="main">
-		<section>
-			
-			<ul data-role="listview" id="deallistview">
-					
-			</ul>
-		</section>
-	</div> <!-- eo #main -->
-	
-<?php require('lib/footer.php'); ?>
+<? require_once('../config.php');?>
+<? //if(!$uagent->DetectTierIphone()) header('Location: http://quickd.dk'); ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <title>QuickD</title>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <!-- Sencha Touch -->
+        <script type="text/javascript" src="touch/builds/sencha-touch-all.js"></script>
+
+        <!-- Styling -->
+        <link rel="stylesheet" href="touch/resources/css/sencha-touch.css" type="text/css" /> 
+      	<link rel="stylesheet" href="resources/css/example.css" type="text/css" />
+        <script> var IMG_URL = "<?= IMAGES_URL ?>";</script>
+        <!-- Application -->
+        <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="app/function.js"></script>
+    </head>
+
+    <body></body>
+</html>

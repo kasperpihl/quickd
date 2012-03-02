@@ -1,0 +1,96 @@
+$base-gradient: matte;
+$list-pressed-color: mix(#08679F, #fff, 10);
+$list-active-color: mix(#043F62, #fff, 0);
+
+//import the sencha touch theme
+@import 'sencha-touch/default/all';
+@import '_reset';
+@import '_mixins';
+
+@include sencha-panel;
+@include sencha-buttons;
+@include sencha-toolbar;
+@include sencha-list;
+@include sencha-layout;
+@include sencha-form;
+@include sencha-loading-spinner;
+
+
+.left { float: left; }
+.right { float: right; }
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+
+//blue toolbar
+@include sencha-toolbar-ui('sencha', #84ab2b, glossy);
+.x-toolbar-sencha .x-title { text-shadow: 0 1px 0 rgba(0,0,0,.8); }
+
+//buttons
+@include sencha-button-ui('sencha', #2E9A3E, matte);
+
+/******************************************************************
+GENERAL STYLES
+******************************************************************/
+#ext-mainview-1 { background: transparent; }
+
+/******************************************************************
+TOOLBAR STYLES
+******************************************************************/
+
+
+/******************************************************************
+DEALS LIST
+******************************************************************/
+
+.quickd-deals {
+    background: #eee;
+
+    .x-scroll-view {  }
+    .x-scroll-container {  }
+    .x-list { background: transparent; }
+    .x-list .x-list-item .x-list-item-label { padding: 0; overflow: hidden; } /* wrapping element */
+
+    .x-list-item-label {
+        @include background-image(linear-gradient(#fff, #ddd));
+    }
+
+    article[id*=deal_] { 
+        position: relative;
+
+        img.deal_image {  }
+
+        .deal-content { 
+            margin-left: 90px;
+            padding-top: 6px;
+
+            h1 {
+                font-size: 100%;
+                font-weight: bold;
+                @include text-overflow(ellipsis);
+            }
+
+            h2, > footer {
+                font-size: 76%;
+                line-height: 120%;
+                color: gray;
+            }
+
+            footer { font-style: italic; }
+        }
+        
+        &:before {
+        	display: block;
+        	position: absolute;
+        	top: 0; left: 0;
+        	width: 4px;
+        	height: 150px;
+        	content: '';
+        }
+        
+        &.category.fooddrink:before { background: #5A4B53; }
+        &.category.shopping:before { background: #00A388; }
+        &.category.experience:before { background: #FF6138; }
+    }
+}
