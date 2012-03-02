@@ -100,7 +100,7 @@ define([
 				expandOnCreate: (this.templateSelected==null),
 				parent: this.cid, 
 				onExpand: function() {
-					if (this.expanded) thisClass.collapse();
+					if (thisClass.expanded) thisClass.collapse();
 					else thisClass.setVerticalAlign();
 				},
 				onCollapse: this.setVerticalAlign
@@ -124,6 +124,7 @@ define([
 			}
 		},
 		updateTemplates:function(data) {
+			log("templates updated");
 			this.dealTemplates = data;
 		},
 		setTemplateSelected:function(data) {
@@ -158,7 +159,7 @@ define([
 					
 			}
 		},
-		collapse: function() {
+		collapse: function(doReset) {
 			if (this.expanded) {
 				var thisClass = this;
 				thisClass.router.navigate(lang.urls.startdeals);
@@ -170,9 +171,9 @@ define([
 						if(!thisClass.expanded) $(this).hide();
 						$(this).unwrap();
 					},queue:false});
-				if (this.selectorView) this.selectorView.resetSelected();	
-				$('#start_deal').verticalAlign(false, {animate:true, meHeight:$('#set_template_block').outerHeight()});
-				//this.setVerticalAlign();
+				if (doReset && this.selectorView) this.selectorView.resetSelected();	
+				//$('#start_deal').verticalAlign(false, {animate:true, meHeight:$('#set_template_block').outerHeight()});
+				this.setVerticalAlign();
 				this.expanded = false;
 				this.templateSelected=null;
 				
@@ -238,7 +239,7 @@ define([
 					.animate({ top: pos }, 800, 'easeInOutSine', function() {
 						if (i == els.length) {
 							
-							var el = $('#selected_template_area');
+							var el = $('#select-template-list');
 							el.css({position:'absolute', zIndex:3, top: el.offset().top, left:el.offset().left, width:el.width()}).appendTo('#content');
 							$('#start_deal').fadeOut(500);
 							el.animate({ left: 0, top: $('#btn_overview').offset().top, opacity:0.2 }, 1000, 'easeInOutSine', function() {
@@ -307,7 +308,7 @@ define([
 			$('#btn_submit_start_deal').val('Planlægger...').addClass('disabled');
 			var obj = {};
 			obj.shop_id = App.collections.shops.at(0).id;
-			obj.template_id = $('#deal_templates').val();
+			obj.template_id = this.templateSelected;
 			obj.start = $('#deal_start_time').val();
 			obj.end = $('#deal_end_time').val();
 			var model = new App.models.Deal();

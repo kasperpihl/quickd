@@ -4,13 +4,12 @@ define([
 	App.views.components.TemplateSelectorView = Backbone.View.extend({
 		el: '#content',
 		initialize:function(){
-			//_.bindAll(this,'handle', 'setHandlers','setContent');
-			log("templateSelector");
+			_.bindAll(this,'handleClick', 'updateContent','expandList', 'collapseList', 'setSelected', 'resetSelected');
 			this.componentId = '#cmp-'+this.cid;
 			this.router = this.options.router;
 			this.created = false;
 			this.expanded = this.options.expandOnCreate ? this.options.expandOnCreate : false;
-			this.height = this.options.height ? this.options.height:400;
+			this.height = this.options.height ? this.options.height:320;
 			this.width = this.options.width ? this.options.width:320;
 			this.appendTo = this.options.appendTo ? this.options.appendTo : this.el;
 			this.parent = this.options.parent ? this.options.parent : this.el;
@@ -26,7 +25,7 @@ define([
 		render:function() {
 			var thisClass = this;
 			var tpl = _.template(template, {data: this});
-			$(tpl).appendTo(this.appendTo);
+			$(this.appendTo).html(tpl);
 			this.created = true;
 		},
 		events: {
@@ -43,16 +42,32 @@ define([
 			this.render();
 		},
 		expandList:function() {
+			var thisClass = this;
+			log("expandList");
 			$('#templateSelector-collapsed').hide();
-			$('#templateSelector-expanded').show();
-			this.expanded = true;
-			if (this.onExpand) this.onExpand();
+			$('#templateSelector-expanded').slideDown('slow');
+			if (thisClass.onExpand) thisClass.onExpand();
+			thisClass.expanded = true;
+			
+			
+			
 		},
 		collapseList:function() {
-			$('#templateSelector-expanded').hide();
-			$('#templateSelector-collapsed').show();
-			this.expanded = false;
-			if (this.onCollapse) this.onCollapse();
+			log("collapseList");
+			if (this.expanded) {
+				var thisClass = this;
+				if ($('#templateSelector-'+this.cid).is(':visible')) {
+					$('#templateSelector-expanded').slideUp(function() {
+						$('#templateSelector-collapsed').fadeIn('fast');
+						if (thisClass.onCollapse) thisClass.onCollapse();
+					});
+				} else {
+					$('#templateSelector-expanded').hide();
+					$('#templateSelector-collapsed').show();
+					if (this.onCollapse) this.onCollapse();
+				}
+				this.expanded = false;
+			}
 		},
 		setSelected:function(id) {
 			this.selected = this.collection.get(id).toJSON();

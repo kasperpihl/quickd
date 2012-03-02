@@ -287,8 +287,8 @@ $(function() {
 		if (options && options.offset) newY += options.offset;
 		//log(me);
 		//log(parent);
-		if (me.attr('id') =='start_deal') log('parent: '+parentHeight+' me: '+meHeight+' newY: '+newY);
-		if (options && options.animate) log("animating!");
+		//if (me.attr('id') =='start_deal') log('parent: '+parentHeight+' me: '+meHeight+' newY: '+newY);
+		//if (options && options.animate) log("animating!");
 		if (options && options.animate) me.css({position:'absolute', top:me.position().top}).animate({ top: newY }, {duration:1000, easing:'easeOutExpo',queue:false});
 		else me.css({position:'absolute',top:newY});
 		if (!noResize) {

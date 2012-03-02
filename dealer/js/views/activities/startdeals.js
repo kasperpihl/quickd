@@ -38,7 +38,7 @@ define([
 			} 
 		},
 		closeAllWindows:function(){
-			App.views.startDeal.collapse();
+			App.views.startDeal.collapse(true);
 		},
 		activateButton:function(){
 			var menuIcon = $(this.menu_icon);
@@ -101,7 +101,6 @@ if(!this.hasOwnProperty('templateIsApproved') || !this.templateIsApproved) messa
 				
 		},
 		onShow:function() {
-			log("3");
 			App.views.startDeal.setVerticalAlign();
 		}
 		
