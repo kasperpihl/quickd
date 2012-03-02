@@ -1,4 +1,4 @@
- q
+
 App.views.ControlPanel = Backbone.View.extend({
 	el: '#appContent',
 	time: 18000,
