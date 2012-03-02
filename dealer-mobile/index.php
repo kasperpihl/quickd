@@ -25,12 +25,12 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); h
 		<?php if(isset($dealer) && $dealer) { $return = Shopowner::getStuffForMobile(); ?>
 			<script src="<?= LIBS_URL ?>jquery/jquery.easing.1.3.min.js"></script>
 			<script src="<?= LIBS_URL ?>jquery/royal-slider-8.1.min.js"></script>
-			<script src="src/countdown.js"></script>
 			<script>
 				var App = {
 					collections: {},
 					models: {},
 					routers: {},
+					utilities: {},
 					views: {}
 				};
 			</script>
@@ -92,28 +92,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); h
             			<section class="deals">
             				<nav id="deal-slider" class="royalSlider iskin">
             					<ul class="royalSlidesContainer" id="rSS">
- 									<?php /* if(!empty($deals)){ foreach ($deals as $id => $deal): ?>
- 									<li class="royalSlide">
-            							<article class="deal" id="template-<?= $id ?>" templateId="<?= $id ?>" started="true" endtime="<?= $deal->end ?>">
-							            	<img class="imageItem left" src="<?= IMAGES_URL ?>thumbnail/<?= $deal->image ?>" height="100%" />
-							                <div class="slideTextBlock">
-							                    <h4><?= $deal->title ?></h4>
-							                    <p>Før: <span class="amount"><?= $deal->orig_price ?>,-</span> / Nu: <span class="amount"><?= $deal->deal_price ?>,-</span></p>
-							                </div>
-							            </article>
-            						</li>
- 									<?php endforeach; }?>
-            						<?php foreach ($templates as $id => $temp): ?>
-            						<li class="royalSlide">
-            							<article class="deal" id="template-<?= $id ?>" templateId="<?= $id ?>" started="false">
-							            	<img class="imageItem left" src="<?= IMAGES_URL ?>thumbnail/<?= $temp->image ?>" height="100%" />
-							                <div class="slideTextBlock">
-							                    <h4><?= $temp->title ?></h4>
-							                    <p>Før: <span class="amount"><?= $temp->orig_price ?>,-</span> / Nu: <span class="amount"><?= $temp->deal_price ?>,-</span></p>
-							                </div>
-							            </article>
-            						</li>
-            						<?php endforeach;*/ ?>
+ 									
             					</ul>
             				</nav>
             			</section>

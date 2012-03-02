@@ -7,7 +7,8 @@ App = {
 		windows: {},
 		startdeals: {},
 		routers: {},
-		dialogs:{}
+		dialogs:{},
+		components: {}
 	},
 	models: {},
 	collections: {},

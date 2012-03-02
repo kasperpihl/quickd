@@ -18,7 +18,7 @@ define([
 			}
 			if (this.options.parent) this.parent = this.options.parent;
 			if (this.options.depth) this.depth = this.options.depth;
-			this.html;
+			this.html="";
 			this.openOnCreate = false;
 			this.router.bind('setFocus', this.setFocus);
 			this.router.bind('lock',this.handleLock);

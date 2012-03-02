@@ -17,27 +17,33 @@ App.views.ControlPanel = Backbone.View.extend({
 		'click #startButton': 'clickedButton',
 		'change #hours-slider': 'handleChange'
 	},
+	lockView: function(){
+		$('#controlpanel').css('opacity', 0.3);
+		App.utilities.countdown.stop();
+	},
+	unlockView:function(){
+		$('#controlpanel').css('opacity', 1);
+	},
 	changed: function(object){
-		log(object.type);
-		switch(object.type){
+		log(object.get('type'));
+		switch(object.get('type')){
 			case 'deal':
 				$('.ui-btn-text',this.btnEl).html('Udsolgt');
-				$('#time').toggleClass('running',true);
+
+				App.utilities.countdown.setModelAndStart(object);
+				var deal = true;
 			break;
 			case 'template':
+				this.sliderEl.attr('value', 20).slider('refresh');
 				$('.ui-btn-text',this.btnEl).html('Start deal');
-				$('#time').toggleClass('running',false);
+				var deal = false;
+				
 			break;
+			default:
+				return;
 		}
-		/*
-		var timestamp = parseInt(new Date().getTime()/1000);
-		
-		if(deal){
-			
-		}
-		else{
-			
-		}*/
+		$('#time').toggleClass('running',deal);
+		this.btnEl.toggleClass('stop',deal);
 	},
 	handleChange:function(e,ui){
 		var sliderVal 	= e.currentTarget.value,
@@ -52,6 +58,6 @@ App.views.ControlPanel = Backbone.View.extend({
 	},
 	
 	clickedButton:function(){
-		log('test');
+		this.router.clickedStartStop(this.time);
 	}
 });

@@ -2,7 +2,7 @@
 App.views.Deals = Backbone.View.extend({
 	el: '#deal-slider',
 	initialize:function(){
-		_.bindAll(this,'render','royalSlider','dealChange','update');
+		_.bindAll(this,'render','royalSlider','dealChange','beforeChange','update');
 		this.router = this.options.router;
 		this.deals = App.collections.deals;
 		this.templates = App.collections.templates;
@@ -20,7 +20,11 @@ App.views.Deals = Backbone.View.extend({
 	update:function(){
 		this.dealSlider.updateSliderSize();
 	},
+	beforeChange: function(){
+		this.router.lock();
+	},
 	dealChange:function(){
+		this.router.unlock();
 		if(this.currentSlide) this.currentSlide.toggleClass('current',false);
 
 		/* Select the chosen deal(slide) */
@@ -44,6 +48,7 @@ App.views.Deals = Backbone.View.extend({
     		autoScaleSliderHeight: 110,
     		dragUsingMouse: false,
     		disableTranslate3d: false,
+    		beforeSlideChange: this.beforeChange,
     		afterSlideChange: this.dealChange,
     		allComplete: this.update
     	}).data('royalSlider');

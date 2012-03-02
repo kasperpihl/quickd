@@ -283,11 +283,12 @@ $(function() {
 		if (options && options.meHeight) var meHeight = options.meHeight;
 		else var meHeight = me.outerHeight();
 		var parentHeight = parent.outerHeight();
-		var newY = (parentHeight/2)-(meHeight/2);
+		var newY = Math.round((parentHeight/2)-(meHeight/2));
 		if (options && options.offset) newY += options.offset;
 		//log(me);
 		//log(parent);
-		//log('parent: '+parentHeight+' me: '+meHeight+' newY: '+newY);
+		if (me.attr('id') =='start_deal') log('parent: '+parentHeight+' me: '+meHeight+' newY: '+newY);
+		if (options && options.animate) log("animating!");
 		if (options && options.animate) me.css({position:'absolute', top:me.position().top}).animate({ top: newY }, {duration:1000, easing:'easeOutExpo',queue:false});
 		else me.css({position:'absolute',top:newY});
 		if (!noResize) {
