@@ -56,7 +56,7 @@ DEALS LIST
         @include background-image(linear-gradient(#fff, #ddd));
     }
 
-    article[id*=deal_] {
+    article[id*=deal_] { 
         position: relative;
 
         img.deal_image {  }

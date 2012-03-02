@@ -3,19 +3,19 @@ Ext.define('QuickD.model.Deal', {
 
     config: {
         fields: [
-        	{name: 'id', type:'string'},
-        	'title',
-        	'description',
-        	'name',
-        	'category',
-        	'distance',
-        	'discount',
-        	'orig_price',
-        	'deal_price',
-        	'lat',
-        	'long',
-        	'image',
-        	'end'
+                {name: 'id', type:'string'},
+                'title',
+                'description',
+                'name',
+                'category',
+                'distance',
+                'discount',
+                'orig_price',
+                'deal_price',
+                'lat',
+                'long',
+                'image',
+                'end'
         ]
     }
 });
