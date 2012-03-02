@@ -7,6 +7,7 @@ Ext.define('QuickD.view.DealList', {
     extend: 'Ext.List',
     xtype: 'deallist',
     config: {
+    	ui: 'round',
         title: '',
         cls: 'quickd-deals',  
 		plugins:[
