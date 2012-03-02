@@ -28,29 +28,29 @@ App.views.ControlPanel = Backbone.View.extend({
 		log(object.get('type'));
 		switch(object.get('type')){
 			case 'deal':
-				$('.ui-btn-text',this.btnEl).html('Udsolgt');
+			$('.ui-btn-text',this.btnEl).html('Udsolgt');
 
-				App.utilities.countdown.setModelAndStart(object);
-				var deal = true;
+			App.utilities.countdown.setModelAndStart(object);
+			deal = true;
 			break;
 			case 'template':
-				this.sliderEl.attr('value', 20).slider('refresh');
-				$('.ui-btn-text',this.btnEl).html('Start deal');
-				var deal = false;
-				
+			this.sliderEl.attr('value', 20).slider('refresh');
+			$('.ui-btn-text',this.btnEl).html('Start deal');
+			var deal = false;
+
 			break;
 			default:
-				return;
+			return;
 		}
 		$('#time').toggleClass('running',deal);
 		this.btnEl.toggleClass('stop',deal);
 	},
 	handleChange:function(e,ui){
-		var sliderVal 	= e.currentTarget.value,
-			hour		= Math.floor(sliderVal / 4),
-			min			= (sliderVal % 4) * 15,
-			hourText	= (hour > 1)? 'timer' : 'time',
-			minText		= (min > 0)? ' og ' + min + ' minutter ' : '';
+		var sliderVal	= e.currentTarget.value,
+		hour		= Math.floor(sliderVal / 4),
+		min			= (sliderVal % 4) * 15,
+		hourText	= (hour > 1)? 'timer' : 'time',
+		minText		= (min > 0)? ' og ' + min + ' minutter ' : '';
 		
 		if (min < 10) min = '0' + min;
 		this.time = (hour*60*60) + (min*60);

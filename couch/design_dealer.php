@@ -452,7 +452,7 @@ try{
 			var obj = {
 				id: doc._id,
 				type: doc.type,
-				template_id: doc.template.id,
+				template_id:u doc.template.id,
 				orig_price: doc.template.orig_price,
 				deal_price: doc.template.deal_price,
 				end: end,

@@ -164,11 +164,28 @@ class Shopowner {
 			$deal->end = $end_time;
 			$makeDeal = json_decode($db->updateDocFullAPI('dealer','startDeal',array('params'=>array('json'=>json_encode($deal)))));
 			if($makeDeal->success != 'true') return $makeDeal;
+			if(property_exists($model, 'mobile') && $model->mobile == 'true'){
+				$dealResult->data = json_encode(self::stripDealToMobile($dealResult->data));
+			}
 			return $dealResult;
 		}
 		catch(Exception $e){
 			echo die(json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage()))); 
 		}
+	}
+	public static function stripDealToMobile($deal){
+		return array(
+			'id' => $deal->_id,
+			'type' => $deal->type,
+			'title' => $deal->template->title,
+			'description' => $deal->template->description,
+			'image' => $deal->template->$image,
+			'template_id' => $deal->template->id,
+			'orig_price' => $deal->template->orig_price,
+			'deal_price' => $deal->template->deal_price,
+			'end' => $deal->end,
+			'start' => $deal->start
+		);
 	}
 	public static function setImage($imagedata){
 		global $db,$dealer;

@@ -17,19 +17,19 @@ App.routers.Controller = Backbone.Router.extend({
 	addStuff:function(stuff){
 		_.each(stuff,function(item,i){
 			var document = item.value;
-			
+			var model;
 			if(document.hasOwnProperty('type') && document.type == 'deal'){
-				var model = new App.models.Deal(document);
+				model = new App.models.Deal(document);
 				App.collections.deals.add(model);
 			}
 			if(document.hasOwnProperty('type') && document.type == 'template'){
-				var model = new App.models.Template(document);
+				model = new App.models.Template(document);
 				App.collections.templates.add(model);
 			}
-			if(document.hasOwnProperty('historySince')) localStorage.setItem('cindex',parseInt(document.historySince));
+			if(document.hasOwnProperty('historySince')) localStorage.setItem('cindex',parseInt(document.historySince,10));
 			if(document.hasOwnProperty('shops')){
 				_.each(document.shops,function(shop,i){
-					var model = new App.models.Shop(shop);
+					model = new App.models.Shop(shop);
 					App.collections.shops.add(model);
 				});
 			}
@@ -52,33 +52,36 @@ App.routers.Controller = Backbone.Router.extend({
 		var obj;
 		switch(this.activeModel.get('type')){
 			case 'template':
-				obj = {action:'start',model:{template_id:this.activeModel.get('id'),seconds: time}};
-				log(obj);
+			obj = {action:'start',model:{template_id:this.activeModel.get('id'),seconds: time}};
+			log(obj);
+			break;
+			case 'deal':
 			break;
 		}
-		/*$.post('ajax/deal.php?type=deals',obj},function(data){
-            log(JSON.stringify(data));
-            if(data.success == 'true'){
-            }
-        },'json');*/
+		$.post('ajax/deal.php?type=deals',obj,function(data){
+			log(JSON.stringify(data));
+			if(data.success == 'true'){
+
+			}
+		},'html');
 	},
 	getChanges: function(){
 		var thisClass = this;
 		var cindex = (localStorage.getItem('cindex') != 'undefined') ? localStorage.getItem('cindex') : 0;
 		var csince = (localStorage.getItem('csince') != 'undefined') ? localStorage.getItem('csince') : 0;
 		$.ajax({
-	        type: "GET",
-	        url: ROOT_URL+"ajax/changes.php",
-	        data: 'cindex='+cindex+'&csince='+csince,
-	        async: true,
-	        cache: false,
-	        timeout:4000,
-	        success: thisClass.changes,
-	        error: function(XMLHttpRequest, textStatus, errorThrown) {
+			type: "GET",
+			url: ROOT_URL+"ajax/changes.php",
+			data: 'cindex='+cindex+'&csince='+csince,
+			async: true,
+			cache: false,
+			timeout:4000,
+			success: thisClass.changes,
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				log('error changes',XMLHttpRequest,textStatus,errorThrown);
-	           	setTimeout(thisClass.getChanges,3000);
-	        }
-	   	});			
+				setTimeout(thisClass.getChanges,3000);
+			}
+		});			
 	},
 	changes:function(result){
 		log('result from changes',result);
@@ -120,19 +123,19 @@ App.utilities.Countdown = Backbone.Router.extend({
 		if(n.toString().length < 2) return '0' + n;
 		else return n;
 	},
-	output: function(time_left){
+	output: function(){
 		var time_left = this.model.getCountdown();
 		var hours, minutes, seconds;
 		seconds = time_left % 60;
 		minutes = Math.floor(time_left / 60) % 60;
 		hours = Math.floor(time_left / 3600);
- 
+
 		seconds = this.addLeadingZero( seconds );
 		minutes = this.addLeadingZero( minutes );
 		hours = this.addLeadingZero( hours );
 
 		$(this.el).html(hours + ':' + minutes + ':' + seconds);
-	},
+	}
 
 
 });
