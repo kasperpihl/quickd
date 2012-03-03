@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
+print_r($root);
 switch($_SERVER['HTTP_HOST']){
 	case 'jens':
 	case 'localhost':
