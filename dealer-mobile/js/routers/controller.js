@@ -88,7 +88,7 @@ App.routers.Controller = Backbone.Router.extend({
 				
 				
 			}
-		},'html');
+		},'json');
 	},
 	getChanges: function(){
 		var thisClass = this;

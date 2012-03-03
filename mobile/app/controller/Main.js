@@ -32,13 +32,13 @@ Ext.define('QuickD.controller.Main', {
         }
     },
     init: function() {
-		Ext.getStore('Deals').on({
+		/*Ext.getStore('Deals').on({
 			updaterecord: this.test,
 			load: this.test,
 			addrecords:this.test,
 			
 			removerecords: this.test
-		});
+		});*/
 		//Ext.doComponentLayout();
         this.location = Ext.create('Ext.util.GeoLocation', {
             autoUpdate: false,
@@ -73,7 +73,7 @@ Ext.define('QuickD.controller.Main', {
     },
    
     test:function(instance,data,options){
-    	//log('res',instance,data,options);
+    	log('res',instance,data,options);
     },
     onLocationUpdate:function(test){
     	log(this.location.getAccuracy());
@@ -146,7 +146,7 @@ Ext.define('QuickD.controller.Main', {
     	log('deal select');
     	if(this.lockDealList) return false;
     	this.lockDealList = true;
-    	//Ext.getStore('Deals').getAt(index);
+
         this.showDeal = Ext.create('QuickD.view.DealShow');
 		this.activeRecord = record;
         // Bind the record onto the show contact view

@@ -1,13 +1,12 @@
 Ext.define('QuickD.view.DealShow', {
-    extend: 'Ext.Container',
+    extend: 'Ext.Panel',
     xtype: 'dealshow',
 	
     config: {
-        title: 'QuickD',
         items: [
             {
                 id: 'content',
-                 tpl: [
+                tpl: [
                     '<div class="x-contacts top">',
                         '<div id="deal_{id}">',
                             '<div class="headshot" style="background-image:url(\''+IMG_URL+'thumbnail/{image}\');"></div>',

@@ -77,7 +77,9 @@ try{
 					var time = parseInt(query.time);
 					if(time > doc.start && time < doc.end){
 						doc.status = 'soldout';
-						return [doc, msg('none',true)];
+						doc.rev = doc.rev +1 ;
+						returnObj = {status:soldout,rev:doc.rev};
+						return [doc, msg(returnObj,true)];
 					}
 					else return [null, msg('cant_sold_out_not_running')];
 				}

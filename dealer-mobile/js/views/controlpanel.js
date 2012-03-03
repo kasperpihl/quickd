@@ -57,7 +57,7 @@ App.views.ControlPanel = Backbone.View.extend({
 	},
 	
 	clickedButton:function(){
-		this.router.clickedStartStop(this.time);
-		//this.router.clickedStartStop(10);
+		//this.router.clickedStartStop(this.time);
+		this.router.clickedStartStop(10);
 	}
 });

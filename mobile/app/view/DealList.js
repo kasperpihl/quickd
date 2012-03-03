@@ -54,20 +54,19 @@ var myTemplate = new Ext.XTemplate(
 		priceIt: priceIt,
 		humanReadableDistance: humanReadableDistance 
 	}
-)
+);
 
 
 Ext.define('QuickD.view.DealList', {
     extend: 'Ext.List',
     xtype: 'deallist',
     config: {
-        title: '',
+        title: 'lalala',
         cls: 'quickd-deals',  
 		plugins:[
 			{ xclass: 'Ext.plugin.PullRefresh' }
 		],
         store: 'Deals',
-        test:function(par){return 'lala'; },
         itemTpl: myTemplate
     }
 });

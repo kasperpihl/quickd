@@ -77,7 +77,7 @@
 			<div class="right-line"></div>
 		</div>
 		
-		<section id="read-more" class="clearfix">
+		<? /* <section id="read-more" class="clearfix">
 			<ul>
 				<li class="selling-point">
 					<img class="left" src="img/box1-img.png" width="125" />
@@ -97,7 +97,7 @@
 					<p>Forestil dig en verden, hvor du aldrig misser et godt tilbud mens det er der. Denne mulighed får du nu med QuickD. Du kan vælge at abonnere på de typer af deals, som du er interesseret i. Hvis du er ude på en shoppingtur, kan du f.eks. modtage informationer om shoppingrelaterede deals i det sekund de bliver tilgængelige. Du kan også abonnere på dine favoritbutikker, hvadenten det er stamcaféen eller den lokale tankstation.</p>
 				</li>
 			</ul>
-		</section>
+		</section>*/ ?>
 		
 	</div>
 	<footer class="textcenter">

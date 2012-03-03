@@ -10,26 +10,8 @@ Ext.application({
 	glossOnIcon: false,
 	launch: function() {
 		Ext.Viewport.add({
-			xclass: 'QuickD.view.Main'
+			xclass: 'QuickD.view.DealList'
 		});
-		this.sortMenu = Ext.Viewport.add({
-			xtype: 'panel',
-			left: 0,
-			top: 0,
-			modal: true,
-			hidden: true,
-			height: 300,
-			width: 300,
-			contentEl: 'content',
-			styleHtmlContent: true,
-			scrollable: true,
-			items: [
-			{
-				docked: 'top',
-				xtype: 'toolbar',
-				title: 'Overlay Title'
-			}
-			]
-		});
+
 	}
 });
