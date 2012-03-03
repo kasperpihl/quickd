@@ -14,8 +14,6 @@ switch($root){
 		$cdnUrl = $root . $arr[0] . 'cdn/';
 		$historyObj = json_encode(array('pushState'=>false,'root'=>$end));
 	break;
-	case 'forhandler.quickd.dk':
-	break;
 	default:
 		$end = '/';
 		$cdnUrl = $_SERVER['SERVER_ADDR'].'/';
