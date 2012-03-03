@@ -4,6 +4,7 @@ $root = $_SERVER['HTTP_HOST'];
 switch($root){
 	case 'jens':
 	case 'localhost':
+		$dbLink = 'quickd:testanders@77.66.53.58';
 		if(strpos($_SERVER['REQUEST_URI'], 'dealer/')) $string = 'dealer/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'testapp/')) $string = 'testapp/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'dealer-mobile/')) $string = 'dealer-mobile/';
@@ -15,6 +16,7 @@ switch($root){
 		$historyObj = json_encode(array('pushState'=>false,'root'=>$end));
 	break;
 	default:
+		$dbLink = 'quickd:ka2jae2n@localhost';
 		$end = '/';
 		$cdnUrl = $_SERVER['SERVER_ADDR'].'/';
 		$historyObj = json_encode(array('pushState'=>false,'root'=>'/'));
@@ -58,7 +60,7 @@ $categories = array(
 	'experience'
 );
 require_once(HOME_DIR.'includes/includes.php');
-$db = new couchClient('http://quickd:testanders@77.66.53.58:5984','quickd');
+$db = new couchClient('http://'.$dbLink.':5984','quickd');
 $db_subscribers = new couchClient('http://quickd:testanders@77.66.53.58:5984', 'quickd_subscribers');
 $db_subscribers_business = new couchClient('http://quickd:testanders@77.66.53.58:5984', 'quickd_subscribers_business');
 $uagent = new uagent_info();
