@@ -1,9 +1,7 @@
 <?php
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
-print_r($_SERVER);
-die();
-switch($_SERVER['HTTP_HOST']){
+switch($root){
 	case 'jens':
 	case 'localhost':
 		if(strpos($_SERVER['REQUEST_URI'], 'dealer/')) $string = 'dealer/';
@@ -20,7 +18,7 @@ switch($_SERVER['HTTP_HOST']){
 	break;
 	default:
 		$end = '/';
-		$cdnUrl = '77.66.53.58/';
+		$cdnUrl = $_SERVER['SERVER_ADDR'].'/';
 		$historyObj = json_encode(array('pushState'=>false,'root'=>'/'));
 	break; 
 }
