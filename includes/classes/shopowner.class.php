@@ -124,6 +124,13 @@ class Shopowner {
 		}
 		
 	}
+	public static function updateDeal($model){
+		global $dealer,$db;
+		//return $model;
+		$model = json_decode($model);
+		$editDeal = json_decode($db->updateDocFullAPI('dealer','startStopDeal',array('doc_id'=>$model->id,'params'=>array('json'=>json_encode($model)))));
+		return $editDeal;
+	}
 	public static function checkDeal($model){
 		global $dealer,$db;
 		$model = json_decode($model);
@@ -162,11 +169,12 @@ class Shopowner {
 			$deal->shopowner_id = $dealer;
 			$deal->start = $start_time;
 			$deal->end = $end_time;
-			$makeDeal = json_decode($db->updateDocFullAPI('dealer','startDeal',array('params'=>array('json'=>json_encode($deal)))));
+			$makeDeal = json_decode($db->updateDocFullAPI('dealer','startStopDeal',array('params'=>array('json'=>json_encode($deal)))));
 			if($makeDeal->success != 'true') return $makeDeal;
 			if(property_exists($model, 'mobile') && $model->mobile == 'true'){
-				$dealResult->data = json_encode(self::stripDealToMobile($dealResult->data));
+				$dealResult->data = self::stripDealToMobile($dealResult->data);
 			}
+			
 			return $dealResult;
 		}
 		catch(Exception $e){
@@ -174,18 +182,19 @@ class Shopowner {
 		}
 	}
 	public static function stripDealToMobile($deal){
-		return array(
-			'id' => $deal->_id,
-			'type' => $deal->type,
+		$res =  array(
+			'id' => (isset($deal->_id) ? $deal->_id : $deal->id),
+			'type' => 'deal',
 			'title' => $deal->template->title,
 			'description' => $deal->template->description,
-			'image' => $deal->template->$image,
 			'template_id' => $deal->template->id,
 			'orig_price' => $deal->template->orig_price,
 			'deal_price' => $deal->template->deal_price,
 			'end' => $deal->end,
 			'start' => $deal->start
 		);
+		if(isset($deal->template->image)) $res['image'] = $deal->template->image;
+		return $res;
 	}
 	public static function setImage($imagedata){
 		global $db,$dealer;

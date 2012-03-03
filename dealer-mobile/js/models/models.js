@@ -10,8 +10,8 @@ App.models.Deal = Backbone.Model.extend({
 		return response.data;
 	},
 	getCountdown:function(){
-		var timestamp = parseInt(new Date().getTime()/1000);
-    	var end = parseInt(this.get('end'));
+		var timestamp = parseInt(new Date().getTime()/1000,10);
+		var end = parseInt(this.get('end'),10);
 		return end-timestamp;
 	},
 	isStarted:function(){
@@ -62,6 +62,6 @@ App.models.Shop = Backbone.Model.extend({
 App.models.Template = Backbone.Model.extend({
 	urlRoot: 'api/shopowner/templates',
 	parse: function(response) {
-    	return response.data;
-  	}
+		return response.data;
+	}
 });

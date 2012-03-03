@@ -1,34 +1,33 @@
 define([
-'collections/collections',
-'models/models',
-'views/dashboard',
-],function(){
-	App.routers.Dashboard = Backbone.Router.extend({
-		routes: {
-			'oversigt':				'openOverview',
-			'oversigt/:path':		'openOverview',
-			'oversigt/:path/:id':	'openOverview',
-			'skabeloner':			'openTemplates',
-			'skabeloner/:path':		'openTemplates',
-			'administration':		'openAdministration',
-			'administration/:path':	'openAdministration',
-			'start':				'openStartDeals',
-			'start/:id':			'openStartDeals',
-			'hjem':					'openHomeView',
-			'*index':				'indexing'
-		},
-		start: function(options){
-			this.route;
-			if(!App.models.shopowner && shopowner) App.models.shopowner = new App.models.Shopowner(shopowner.dealer);
-			_.bindAll(this,'getChanges','changes');
-			App.collections.feedback = new App.collections.Feedback();
-			App.collections.templates = new App.collections.Templates();
-			App.collections.shops = new App.collections.Shops();
-			App.collections.deals = new App.collections.Deals();
-			App.collections.images = new App.collections.Images();
-			if(options.stuff) this.setStuff(options.stuff);
-			App.views.dashboard = new App.views.Dashboard({router:this});
-			this.getChanges();
+	'collections/collections',
+	'models/models',
+	'views/dashboard'
+	],function(){
+		App.routers.Dashboard = Backbone.Router.extend({
+			routes: {
+				'oversigt':				'openOverview',
+				'oversigt/:path':		'openOverview',
+				'oversigt/:path/:id':	'openOverview',
+				'skabeloner':			'openTemplates',
+				'skabeloner/:path':		'openTemplates',
+				'administration':		'openAdministration',
+				'administration/:path':	'openAdministration',
+				'start':				'openStartDeals',
+				'start/:id':			'openStartDeals',
+				'hjem':					'openHomeView',
+				'*index':				'indexing'
+			},
+			start: function(options){
+				if(!App.models.shopowner && shopowner) App.models.shopowner = new App.models.Shopowner(shopowner.dealer);
+				_.bindAll(this,'getChanges','changes');
+				App.collections.feedback = new App.collections.Feedback();
+				App.collections.templates = new App.collections.Templates();
+				App.collections.shops = new App.collections.Shops();
+				App.collections.deals = new App.collections.Deals();
+				App.collections.images = new App.collections.Images();
+				if(options.stuff) this.setStuff(options.stuff);
+				App.views.dashboard = new App.views.Dashboard({router:this});
+				this.getChanges();
 			//setTimeout(this.getChanges,10000);
 		},
 		indexing:function(test){
@@ -102,18 +101,18 @@ define([
 			var cindex = (localStorage.getItem('cindex') != 'undefined') ? localStorage.getItem('cindex') : 0;
 			var csince = (localStorage.getItem('csince') != 'undefined') ? localStorage.getItem('csince') : 0;
 			$.ajax({
-		        type: "GET",
-		        url: ROOT_URL+"ajax/changes.php",
-		        data: 'cindex='+cindex+'&csince='+csince,
-		        async: true,
-		        cache: false,
-		        timeout:4000,
-		        success: thisClass.changes,
-		        error: function(XMLHttpRequest, textStatus, errorThrown) {
+				type: "GET",
+				url: ROOT_URL+"ajax/changes.php",
+				data: 'cindex='+cindex+'&csince='+csince,
+				async: true,
+				cache: false,
+				timeout:4000,
+				success: thisClass.changes,
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
 					log('error changes',XMLHttpRequest,textStatus,errorThrown);
-		           	setTimeout(thisClass.getChanges,3000);
-		        }
-		   	});			
+					setTimeout(thisClass.getChanges,3000);
+				}
+			});			
 		},
 		setStuff:function(stuff){
 			_.each(stuff,function(item,i){
@@ -123,7 +122,7 @@ define([
 					var model = new App.models.Deal(document);
 					App.collections.deals.add(model);
 				}
-				if(document.hasOwnProperty('historySince')) localStorage.setItem('cindex',parseInt(document.historySince));
+				if(document.hasOwnProperty('historySince')) localStorage.setItem('cindex',parseInt(document.historySince,10));
 				if(document.hasOwnProperty('images')){
 					_.each(document.images,function(image,i){
 						var model = new App.models.Image(image);
@@ -149,8 +148,8 @@ define([
 					});
 				}
 			});
-		},
-		changes:function(result){
+},
+changes:function(result){
 			//log('result from changes',result);
 			result = $.parseJSON(result);
 			if(result.hasOwnProperty('csince')) localStorage.setItem('csince',result.csince);
@@ -168,32 +167,22 @@ define([
 					var model,newModel,collection,route;
 					switch(doc.type){
 						case 'template':
-							route = lang.urls.templates + '/' + doc.id;
-							newModel = App.models.Template;
-							collection = App.collections.templates;
-							model = collection.get(doc.id);
+						newModel = App.models.Template;
+						collection = App.collections.templates;
+						model = collection.get(doc.id);
 						break;
 						case 'shop':
-							route = lang.urls.administrationShop;
-							newModel = App.models.Shop;
-							collection = App.collections.shops;
-							model = collection.get(doc.id);
-						break;
-						case 'feedback':
-							route = lang.urls.overviewFeedback + '/' + doc.id;
-							newModel = App.models.Feedback;
-							collection = App.collections.feedback;
-							model = collection.get(doc.id);
+						newModel = App.models.Shop;
+						collection = App.collections.shops;
+						model = collection.get(doc.id);
 						break;
 						case 'deal':
-							route = lang.urls.overviewDeals + '/' + doc.id;
-							newModel = App.models.Deal;
-							collection = App.collections.deals;
-							model = collection.get(doc.id);
+						newModel = App.models.Deal;
+						collection = App.collections.deals;
+						model = collection.get(doc.id);
 						break;
 						default:
-							continue;
-						break;
+						continue;
 					}
 					if(model && (doc.rev > model.get('rev'))){
 						//log('fetched',doc.type,doc.id);
@@ -215,7 +204,7 @@ define([
 			
 		},
 		deals: function(){
-		
+
 		}
 	});
 });

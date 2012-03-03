@@ -25,7 +25,6 @@ App.views.ControlPanel = Backbone.View.extend({
 		$('#controlpanel').css('opacity', 1);
 	},
 	changed: function(object){
-		log(object.get('type'));
 		switch(object.get('type')){
 			case 'deal':
 			$('.ui-btn-text',this.btnEl).html('Udsolgt');
@@ -59,5 +58,6 @@ App.views.ControlPanel = Backbone.View.extend({
 	
 	clickedButton:function(){
 		this.router.clickedStartStop(this.time);
+		//this.router.clickedStartStop(10);
 	}
 });

@@ -38,7 +38,7 @@ try{
 		
 		return [obj,msg({id:req.uuid},true)];
 	}";
-	$startDeal = 
+	$startStopDeal = 
 	"function(doc,req){
 		function msg(message,success){
 			 if(!success) var obj = {success:'false',error:message};
@@ -63,12 +63,26 @@ try{
 			dealObj.type = 'deal';
 			dealObj.start = query.start;
 			dealObj.end = query.end;
+			dealObj.rev = 1;
 			dealObj.shopowner_id = query.shopowner_id;
 			dealObj.template = query.template;
 			if(query.hasOwnProperty('image')) dealObj.template.image = query.image;
 			dealObj.shop = query.shop;
-			
+
 			return [dealObj, msg('none',true)];
+		}
+		else{
+			if(query.hasOwnProperty('status') && query.status == 'soldout'){
+				if(query.hasOwnProperty('time')){
+					var time = parseInt(query.time);
+					if(time > doc.start && time < doc.end){
+						doc.status = 'soldout';
+						return [doc, msg('none',true)];
+					}
+					else return [null, msg('cant_sold_out_not_running')];
+				}
+				else return [null, msg('no_time_specified')];
+			}
 		}
 		return [null,msg('ja tak')];
 	}";
@@ -373,7 +387,7 @@ try{
 	$updates->addEditShop = $addEditShop;
 	$updates->sendFeedback = $sendFeedback;
 	$updates->checkDeal = $checkDeal;
-	$updates->startDeal = $startDeal;
+	$updates->startStopDeal = $startStopDeal;
 	$updates->registerUser = $registerUser;
 	echo 'updates objektet klar<br/>';
 	$doc->updates = $updates;
@@ -401,6 +415,7 @@ try{
 			
 			obj.id = doc._id;
 			obj.type = 'deal';
+			obj.status = doc.status;
 			obj.start = doc.start;
 			obj.end = doc.end;
 			obj.template = doc.template;
@@ -425,7 +440,7 @@ try{
 	"map" =>
 	"function(doc){
 		if ( doc.type && doc.type == \"user\") {
-			if(doc.templates && typeof(doc.templates) == 'object'){
+			if(doc.hasOwnProperty('templates')){
 				for (var key in doc.templates) {
 					if (doc.templates.hasOwnProperty(key)) {
 						var obj = {
@@ -446,13 +461,13 @@ try{
 			}
 		}
 		if ( doc.hasOwnProperty('type') && doc.type == \"deal\") {
-			var timestamp = parseInt(new Date().getTime()/1000);
 			var start = parseInt(doc.start);
 			var end = parseInt(doc.end);
 			var obj = {
 				id: doc._id,
 				type: doc.type,
-				template_id:u doc.template.id,
+				status: doc.status,
+				template_id: doc.template.id,
 				orig_price: doc.template.orig_price,
 				deal_price: doc.template.deal_price,
 				end: end,
