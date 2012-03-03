@@ -1,7 +1,8 @@
 <?php
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
-print_r($root);
+print_r($_SERVER);
+die();
 switch($_SERVER['HTTP_HOST']){
 	case 'jens':
 	case 'localhost':
@@ -14,6 +15,8 @@ switch($_SERVER['HTTP_HOST']){
 		$end = $arr[0].$string;
 		$cdnUrl = $root . $arr[0] . 'cdn/';
 		$historyObj = json_encode(array('pushState'=>false,'root'=>$end));
+	break;
+	case 'forhandler.quickd.dk':
 	break;
 	default:
 		$end = '/';
