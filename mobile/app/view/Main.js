@@ -8,7 +8,7 @@ Ext.define('QuickD.view.Main', {
     ],
     config:{
         fullscreen: 'true',
-        layout: 'card',
+        layout:'card',
         items: [
         {
             ui:'sencha',
@@ -44,8 +44,7 @@ Ext.define('QuickD.view.Main', {
                 id: 'mapButton',
                 hidden:true,
                 text: 'Kort'
-            }
-            ]
+            }]
         },
         {
             xtype:'panel',

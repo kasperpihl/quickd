@@ -65,7 +65,7 @@ Ext.define('QuickD.controller.Main', {
     },
     onLocationUpdate:function(test){
         this.getMain().getAt(0).show();
-        this.getMain().setActiveItem(1);
+        this.getMain().setActiveItem(this.getDealList());
         localStorage.setItem('lat',this.location.getLatitude());
         localStorage.setItem('long',this.location.getLongitude());
         Ext.getStore('Deals').load({
@@ -95,7 +95,7 @@ Ext.define('QuickD.controller.Main', {
                 this.getBackButton().show();
                 this.getFilterButton().hide();
                 this.getMapButton().show();
-                this.getMain().setActiveItem(2);
+                this.getMain().setActiveItem(this.getDealShow());
             break;
         }
     },
