@@ -68,15 +68,16 @@ DEALS LIST
 
         // Shadow
         &:after {
-            $url: $img-path + 'spritemap.png';
+            $url: $img-path + 'shadow.png';
+            $w: 100%;
+            $h: 14px;
             display: block;
             position: absolute;
-            bottom: -14px;
+            bottom: 0 - $h;
             
-            width: 306px;
-            height: 14px;
-            background: url($url) no-repeat 0 -122px;
-            background-size: 100%;
+            width: $w;  height: $h;
+            background: url($url);
+            background-size: 100% $h;
 
             content: '';
         }

@@ -3447,10 +3447,10 @@ DEALS LIST
       display: block;
       position: absolute;
       bottom: -14px;
-      width: 306px;
+      width: 100%;
       height: 14px;
-      background: url("../images/spritemap.png") no-repeat 0 -122px;
-      background-size: 100%;
+      background: url("../images/shadow.png");
+      background-size: 100% 14px;
       content: ''; }
     #quickd-deals .x-list-item .x-list-item-label {
       border: none;
