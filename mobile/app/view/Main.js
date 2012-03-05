@@ -8,7 +8,7 @@ Ext.define('QuickD.view.Main', {
     ],
     config:{
         fullscreen: 'true',
-        layout: 'card',
+        layout:'card',
         items: [
         {
             ui:'sencha',
@@ -20,6 +20,8 @@ Ext.define('QuickD.view.Main', {
             {
                 xtype:'button',
                 ui:'back',
+                id: 'backButton',
+                hidden: true,
                 text:'Tilbage'
             },
             {
@@ -36,6 +38,12 @@ Ext.define('QuickD.view.Main', {
                     { text: 'Oplevelser', value: 'experience' }
                 ],
                 align:'left'
+            },
+            {
+                xtype:'button',
+                id: 'mapButton',
+                hidden:true,
+                text: 'Kort'
             }]
         },
         {
@@ -48,7 +56,6 @@ Ext.define('QuickD.view.Main', {
     },
     applyLayout: function(config) {
       config = config || {};
-
         if (Ext.os.is.Android) {
             config.animation = false;
         }

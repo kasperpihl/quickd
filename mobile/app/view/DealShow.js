@@ -1,18 +1,28 @@
+var showDealTemplate = new Ext.XTemplate(
+    '<div>{title}</div>',
+    {
+        priceIt: priceIt,
+        humanReadableDistance: humanReadableDistance
+    }
+);
 Ext.define('QuickD.view.DealShow', {
     extend: 'Ext.Panel',
+    requires:[
+        'Ext.Map'
+    ],
     xtype: 'dealshow',
-	
     config: {
-        tpl: '<div>2{title}</div>',
-        data: {title:'test'},
+        
+        tpl: showDealTemplate,
         record: null
     },
-
+    
+    loadDeal:function(record){
+        this.setRecord(record);
+    },
     updateRecord: function(newRecord) {
-        log(newRecord);
-      if (newRecord) {
+        if (newRecord) {
             this.setData(newRecord.data);
-         }
-         
+        }
     }
 });
