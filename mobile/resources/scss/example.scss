@@ -61,14 +61,23 @@ DEALS LIST
     .x-list { background: transparent; }
     .x-list .x-list-item .x-list-item-label { padding: 0; overflow: hidden; } /* list item wrapping element */
 
-    .x-list-item .x-list-item-label {
-        border: none;
+    .x-list-item {
+        margin: 10px 7px;
+        background: white;
+        @include border-radius(3px);
+
+        .x-list-item-label {
+            border: none;
+            padding: 0;
+        }
     }
 
-    article[id*=deal_] { 
+
+    article[id*=deal_] {
+        overflow: hidden;
         position: relative;
 
-        img.deal_image {  }
+        img.deal_image { margin-left: 4px; }
 
         .deal-content { 
             margin-left: 90px;
@@ -90,14 +99,19 @@ DEALS LIST
         &:before {
         	display: block;
         	position: absolute;
-        	top: 0; left: 0;
-        	width: 4px;
-        	height: 150px;
-        	content: '';
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            
+            @include border-radius(3px 0 0 3px);
+            
+            content: '';
         }
         
-        &.category.fooddrink:before { background: #5A4B53; }
-        &.category.shopping:before { background: #00A388; }
-        &.category.experience:before { background: #FF6138; }
+        &.category {
+            &.fooddrink:before { background: #5A4B53; }
+            &.shopping:before { background: #00A388; }
+            &.experience:before { background: #FF6138; }
+        }
     }
 }

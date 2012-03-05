@@ -3438,10 +3438,19 @@ DEALS LIST
   #quickd-deals .x-list .x-list-item .x-list-item-label {
     padding: 0;
     overflow: hidden; }
-  #quickd-deals .x-list-item .x-list-item-label {
-    border: none; }
+  #quickd-deals .x-list-item {
+    margin: 10px 7px;
+    background: white;
+    -webkit-border-radius: 3px;
+    border-radius: 3px; }
+    #quickd-deals .x-list-item .x-list-item-label {
+      border: none;
+      padding: 0; }
   #quickd-deals article[id*=deal_] {
+    overflow: hidden;
     position: relative; }
+    #quickd-deals article[id*=deal_] img.deal_image {
+      margin-left: 4px; }
     #quickd-deals article[id*=deal_] .deal-content {
       margin-left: 90px;
       padding-top: 6px; }
@@ -3465,7 +3474,9 @@ DEALS LIST
       top: 0;
       left: 0;
       width: 4px;
-      height: 150px;
+      height: 100%;
+      -webkit-border-radius: 3px 0 0 3px;
+      border-radius: 3px 0 0 3px;
       content: ''; }
     #quickd-deals article[id*=deal_].category.fooddrink:before {
       background: #5A4B53; }
