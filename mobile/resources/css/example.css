@@ -3476,9 +3476,10 @@ TOOLBAR STYLES
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8); }
 
 #quickd-topbar {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dddddd), color-stop(2%, #868686), color-stop(49%, #3c3c3c), color-stop(50%, #2f2f2f), color-stop(100%, #252525));
-  background-image: -webkit-linear-gradient(#dddddd 0%, #868686 2%, #3c3c3c 49%, #2f2f2f 50%, #252525 100%);
-  background-image: linear-gradient(#dddddd 0%, #868686 2%, #3c3c3c 49%, #2f2f2f 50%, #252525 100%); }
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dddddd), color-stop(2%, #868686), color-stop(49%, #3c3c3c), color-stop(50%, #2f2f2f), color-stop(97%, #252525), color-stop(100%, #555555));
+  background-image: -webkit-linear-gradient(#dddddd 0%, #868686 2%, #3c3c3c 49%, #2f2f2f 50%, #252525 97%, #555555 100%);
+  background-image: linear-gradient(#dddddd 0%, #868686 2%, #3c3c3c 49%, #2f2f2f 50%, #252525 97%, #555555 100%);
+  border-bottom: thin solid #333; }
 
 /******************************************************************
 DEALS LIST
