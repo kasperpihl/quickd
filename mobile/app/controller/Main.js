@@ -73,7 +73,20 @@ Ext.define('QuickD.controller.Main', {
         });
     },
     onLocationError:function(error,test1,permDenied,test3,test4){
-        this.getMain().getAt(1).setHtml('error location');
+        //this.getMain().getAt(1).setHtml('error location');
+        this.getMain().getAt(0).show();
+        this.getMain().setActiveItem(1);
+        
+        Ext.getStore('Deals').load({
+            params: {
+                lat: this.location.getLatitude(),
+                long: this.location.getLongitude()
+            },
+            callback: function(records) {
+                log('records',records);
+            },
+            scope: this
+        });
     },
     onDealSelect:function(list, index, node, record){
         log('deal select');
