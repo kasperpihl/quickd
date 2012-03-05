@@ -53,15 +53,24 @@ TOOLBAR STYLES
             border: thin solid black;
 
             @include box-shadow(0 1px 0 rgba(white, 0.24));
-            @include background-image(linear-gradient(red, blue));
+            @include background-image(linear-gradient(#6e6e6e 0%, #828282 5%, #525252 49%, #303030 50%, #191919 100%));
 
             *[class*='-label'] {
-                color: green;
+                font: bold 12px/1 'Helvetica Neue', sans-serif;
+                color: white;
+                text-shadow: 0 -1px 0 black;
+                opacity: 0.95;
+                overflow: visible;
             }
         }
 
-        .x-button:after {
-            display: none;
+        .x-button:after, .x-button:before {
+            background-color: transparent;
+            border-top: thin solid black;
+            border-bottom: thin solid black;
+            border-left: thin solid black;
+
+            @include background-image(linear-gradient(#6e6e6e 0%, #828282 5%, #525252 49%, #303030 50%, #191919 100%));
         }
     }
 }
