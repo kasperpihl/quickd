@@ -106,13 +106,25 @@ DEALS LIST
                 font-style: italic;
                 margin-top: 8px;
 
-                .price {
+                .price, time {
+                    position: relative;
+                    padding-left: 17px;
 
+                    &:not(:first-child) { margin-left: 12px };
+
+                    &:before {
+                        position: absolute;
+                        top: 1px; left: 0;
+                        display: block;
+                        width: 12px; height: 12px;
+                        background: url($img-path + 'spritemap.png');
+                        content: '';
+                    }
                 }
 
-                time {
+                .price:before { background-position-x: 0; }
 
-                }
+                time:before { background-position-x: -23px; }
 
                 .awesome-badge {
                     position: absolute;
@@ -141,16 +153,20 @@ DEALS LIST
         }
 
         &.category.fooddrink {
-            $color: #a25d7a;
+            $color: #c09159;
 
             footer { color: $color; }
+            footer .price:before { background-position-y: -22px; }
+            footer time:before { background-position-y: -23px; }
             &:before { background: $color; }
         }
         
         &.category.shopping {
-            $color: #c09159;
+            $color: #a25d7a;
             
             footer { color: $color; }
+            footer .price:before { background-position-y: -44px; }
+            footer time:before { background-position-y: -45px; }
             &:before { background: $color; }
         }
         
@@ -158,6 +174,8 @@ DEALS LIST
             $color: #5da2a0;
             
             footer { color: $color; }
+            footer .price:before { background-position-y: 0; }
+            footer time:before { background-position-y: -1px; }
             &:before { background: $color; }
         }
     }
