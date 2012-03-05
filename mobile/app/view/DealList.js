@@ -41,7 +41,7 @@ function roundToNearest(val, roundTo) {
 }
 var myTemplate = new Ext.XTemplate(
 	'<article id="deal_{id}" class="category {category}">',
-		'<img src="http://lorempixum.com/150/150/nature/" class="deal_image left" width="75" height="75" />',
+		'<img src="http://lorempixum.com/150/150/nature/" class="deal_image left" width="72" height="72" />',
 		'<section class="deal-content">',
 			'<h1>{title}</h1>',
 			'<h2>{name}</h2>',

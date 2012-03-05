@@ -3443,6 +3443,15 @@ DEALS LIST
     background: white;
     -webkit-border-radius: 3px;
     border-radius: 3px; }
+    #quickd-deals .x-list-item:after {
+      display: block;
+      position: absolute;
+      bottom: -14px;
+      width: 306px;
+      height: 14px;
+      background: url("../images/spritemap.png") no-repeat 0 -122px;
+      background-size: 100%;
+      content: ''; }
     #quickd-deals .x-list-item .x-list-item-label {
       border: none;
       padding: 0; }

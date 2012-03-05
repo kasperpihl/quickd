@@ -66,6 +66,21 @@ DEALS LIST
         background: white;
         @include border-radius(3px);
 
+        // Shadow
+        &:after {
+            $url: $img-path + 'spritemap.png';
+            display: block;
+            position: absolute;
+            bottom: -14px;
+            
+            width: 306px;
+            height: 14px;
+            background: url($url) no-repeat 0 -122px;
+            background-size: 100%;
+
+            content: '';
+        }
+
         .x-list-item-label {
             border: none;
             padding: 0;
@@ -107,7 +122,7 @@ DEALS LIST
             
             content: '';
         }
-        
+
         &.category {
             &.fooddrink:before { background: #5A4B53; }
             &.shopping:before { background: #00A388; }
