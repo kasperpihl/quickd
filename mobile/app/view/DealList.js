@@ -46,11 +46,11 @@ function roundToNearest(val, roundTo) {
  * @return {string}
  */
 function isAwesomeDeal(discount) {
-	return (parseInt(discount, 10) >= 50)? 'awesome' : '';
+	return (parseInt(discount, 10) >= 60)? 'awesome' : '';
 }
 
 var myTemplate = new Ext.XTemplate(
-	'<article id="deal_{id}" class="category {category} {discount:this.iad}">',
+	'<article id="deal_{id}" class="category {category} {discount:this.iad} clearfix">',
 		//'<img src="' + IMG_URL +'thumbnail/{image}" class="deal_image left" width="72" height="72" />',
 		'<img src="http://lorempixum.com/150/150/food/" class="deal_image left" width="72" height="72" />',
 		'<section class="deal-content">',
@@ -58,7 +58,7 @@ var myTemplate = new Ext.XTemplate(
 			'<h2>{name}</h2>',
 			'<footer class="footer">',
 				'<span class="price">{deal_price},-</span> <time>2t42m</time>',
-				'<span class="awesome-badge ir">{discount}%</span>',
+				'<span class="awesome-badge">{discount}%</span>',
 			'</footer>',
 		'</section>',
 	'</article>',

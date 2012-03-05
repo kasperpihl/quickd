@@ -12,6 +12,7 @@ IMPORTS
 @import 'sencha-touch/default/all';
 @import '_reset';
 @import '_mixins';
+@import '_helpers';
 
 // @include sencha-panel;
 // @include sencha-buttons;
@@ -20,16 +21,6 @@ IMPORTS
 // @include sencha-layout;
 // @include sencha-form;
 // @include sencha-loading-spinner;
-
-/******************************************************************
-SEMANTIC HELPER STYLES
-******************************************************************/
-.left { float: left; }
-.right { float: right; }
-
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-.text-center { text-align: center; }
 
 /******************************************************************
 BUTTONS
@@ -90,7 +81,6 @@ DEALS LIST
 
 
     article[id*=deal_] {
-        overflow: hidden;
         position: relative;
 
         img.deal_image { margin-left: 5px; }
@@ -123,6 +113,8 @@ DEALS LIST
             }
         }
         
+        &:not(.awesome) footer .awesome-badge { display: none; }
+
         // Category color code
         &:before {
         	display: block;
