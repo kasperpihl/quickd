@@ -39,6 +39,17 @@ TOOLBAR STYLES
 @include sencha-toolbar-ui('sencha', rgba(black, 0.7), glossy);
 .x-toolbar-sencha .x-title { text-shadow: 0 1px 0 rgba(0,0,0,.8); }
 
+#quickd-topbar {
+    @include background-image(
+        // Color stops are defined from top to bottom..
+        linear-gradient(#ddd 0%, #868686 2%, #3c3c3c 49%, #2f2f2f 50%, #252525 100%)
+    );
+
+    .x-toolbar-inner {
+
+    }
+}
+
 /******************************************************************
 DEALS LIST
 ******************************************************************/

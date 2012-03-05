@@ -12,7 +12,7 @@ Ext.define('QuickD.view.Main', {
         items: [
         {
             ui:'sencha',
-            id: 'topbar',
+            id: 'quickd-topbar',
             hidden: true,
             xtype : 'toolbar',
             docked: 'top',
