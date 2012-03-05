@@ -4,8 +4,6 @@ App.routers.Controller = Backbone.Router.extend({
 		App.collections.templates = new App.collections.Templates();
 		App.collections.deals = new App.collections.Deals();
 		App.collections.shops = new App.collections.Shops();
-		
-		
 		this.addStuff(shopowner);
 		_.bindAll(this,'getChanges','changes','clickedStartStop','changedState');
 		this.getChanges();

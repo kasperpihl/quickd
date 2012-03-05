@@ -1,10 +1,9 @@
 Ext.define('QuickD.view.Main', {
-    extend: 'Ext.Container',
+    extend: 'Ext.Panel',
     xtype: 'mainview',
     requires: [
         'QuickD.view.DealList',
         'QuickD.view.DealShow',
-        'QuickD.view.MapShow',
         'Ext.field.Select'
     ],
     config:{
@@ -46,13 +45,12 @@ Ext.define('QuickD.view.Main', {
         },*/
         {xtype:'deallist'}]
     },
-applyLayout: function(config) {
-  config = config || {};
+    applyLayout: function(config) {
+      config = config || {};
 
-  if (Ext.os.is.Android) {
-    config.animation = false;
-}
-
-return config;
-}
+        if (Ext.os.is.Android) {
+            config.animation = false;
+        }
+        return config;
+    }
 });
