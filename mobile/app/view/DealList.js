@@ -51,7 +51,8 @@ function isAwesomeDeal(discount) {
 
 var myTemplate = new Ext.XTemplate(
 	'<article id="deal_{id}" class="category {category} {discount:this.iad}">',
-		'<img src="http://lorempixum.com/150/150/nature/" class="deal_image left" width="72" height="72" />',
+		//'<img src="' + IMG_URL +'thumbnail/{image}" class="deal_image left" width="72" height="72" />',
+		'<img src="http://lorempixum.com/150/150/food/" class="deal_image left" width="72" height="72" />',
 		'<section class="deal-content">',
 			'<h1>{title}</h1>',
 			'<h2>{name}</h2>',

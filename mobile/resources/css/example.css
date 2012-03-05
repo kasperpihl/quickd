@@ -3470,7 +3470,9 @@ DEALS LIST
         -ms-text-overflow: ellipsis;
         text-overflow: ellipsis;
         white-space: nowrap;
-        overflow: hidden; }
+        overflow: hidden;
+        font: bold 15px/16px "Helvetica Neue", sans-serif;
+        color: #333; }
       #quickd-deals article[id*=deal_] .deal-content h2, #quickd-deals article[id*=deal_] .deal-content > footer {
         font-size: 76%;
         line-height: 120%;

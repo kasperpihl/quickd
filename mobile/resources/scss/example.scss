@@ -101,6 +101,8 @@ DEALS LIST
 
             h1 {
                 @include text-overflow(ellipsis);
+                font: bold 15px/16px 'Helvetica Neue', sans-serif;
+                color: #333;
             }
 
             h2, > footer {
