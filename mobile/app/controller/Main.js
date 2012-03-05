@@ -6,9 +6,12 @@ Ext.define('QuickD.controller.Main', {
     config: {
         refs: {
             main: 'mainview',
+            toolbar: 'toolbar',
             filterButton: '#filterButton',
+            mapButton: '#mapButton',
+            backButton: '#backButton',
             dealList: 'deallist',
-            dealShow: 'dealshow'
+            dealShow: 'mainview > dealshow'
         },
         control: {
             filterButton: {
@@ -17,6 +20,9 @@ Ext.define('QuickD.controller.Main', {
             },
             deallist: {
                 itemtap: 'onDealSelect'
+            },
+            backButton: {
+                tap: 'handleBack'    
             }
         }
     },
@@ -72,13 +78,32 @@ Ext.define('QuickD.controller.Main', {
             scope: this
         });
     },
+    handleBack:function(){
+        log('back');
+        this.getBackButton().hide();
+        this.getMapButton().hide();
+        this.getFilterButton().show();
+        this.getDealList().deselectAll();
+        this.getMain().setActiveItem(1);
+    },
+    changeToView:function(view,options){
+        switch(view){
+            case 'dealshow':
+                this.getDealShow().loadDeal(options.record);
+                //this.getMain().getAt(2).setRecord(record);
+                this.getBackButton().show();
+                this.getFilterButton().hide();
+                this.getMapButton().show();
+                this.getMain().setActiveItem(2);
+            break;
+        }
+    },
     onLocationError:function(error,test1,permDenied,test3,test4){
         this.getMain().getAt(1).setHtml('error location');
     },
     onDealSelect:function(list, index, node, record){
-        log('deal select');
-        this.getMain().getAt(2).setRecord(record);
-        this.getMain().setActiveItem(2);
+        this.changeToView('dealshow',{record:record});
+        
         // Bind the record onto the show contact view
        // this.showDeal.setRecord(record);
     }

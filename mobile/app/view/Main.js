@@ -20,6 +20,8 @@ Ext.define('QuickD.view.Main', {
             {
                 xtype:'button',
                 ui:'back',
+                id: 'backButton',
+                hidden: true,
                 text:'Tilbage'
             },
             {
@@ -36,7 +38,14 @@ Ext.define('QuickD.view.Main', {
                     { text: 'Oplevelser', value: 'experience' }
                 ],
                 align:'left'
-            }]
+            },
+            {
+                xtype:'button',
+                id: 'mapButton',
+                hidden:true,
+                text: 'Kort'
+            }
+            ]
         },
         {
             xtype:'panel',
@@ -46,9 +55,11 @@ Ext.define('QuickD.view.Main', {
         {xtype:'dealshow'}
         ]
     },
+    launch:function(){
+         window.scrollTo(0,1);
+    },
     applyLayout: function(config) {
       config = config || {};
-
         if (Ext.os.is.Android) {
             config.animation = false;
         }

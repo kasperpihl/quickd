@@ -4,9 +4,9 @@ function priceIt(price){
 
 /**
  * Convert metre value to human readable format
- * 
+ *
  * @param  {string/int} distance the distrance in metres
- * 
+ *
  * @return {string}
  */
 function humanReadableDistance(distance) {
@@ -37,7 +37,7 @@ function getRoundToVal(val, ranges) {
 	return false;
 }
 function roundToNearest(val, roundTo) {
-	return Math.round(val / roundTo) * roundTo; // For instance: roundToNearest(65, 100) would return 100. 
+	return Math.round(val / roundTo) * roundTo; // For instance: roundToNearest(65, 100) would return 100.
 }
 var myTemplate = new Ext.XTemplate(
 	'<article id="deal_{id}" class="category {category}">',
@@ -52,7 +52,7 @@ var myTemplate = new Ext.XTemplate(
 	'</article>',
 	{
 		priceIt: priceIt,
-		humanReadableDistance: humanReadableDistance 
+		humanReadableDistance: humanReadableDistance
 	}
 );
 
@@ -62,7 +62,7 @@ Ext.define('QuickD.view.DealList', {
     xtype: 'deallist',
     config: {
         title: 'lalala',
-        cls: 'quickd-deals',  
+        cls: 'quickd-deals',
 		plugins:[
 			{ xclass: 'Ext.plugin.PullRefresh' }
 		],

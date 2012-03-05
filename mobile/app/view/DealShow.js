@@ -3,16 +3,15 @@ Ext.define('QuickD.view.DealShow', {
     xtype: 'dealshow',
 	
     config: {
-        tpl: '<div>2{title}</div>',
-        data: {title:'test'},
+        tpl: '<div>{title}</div>',
         record: null
     },
-
+    loadDeal:function(record){
+        this.setRecord(record);
+    },
     updateRecord: function(newRecord) {
-        log(newRecord);
-      if (newRecord) {
+        if (newRecord) {
             this.setData(newRecord.data);
-         }
-         
+        }
     }
 });
