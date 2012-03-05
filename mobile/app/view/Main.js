@@ -8,7 +8,14 @@ Ext.define('QuickD.view.Main', {
     ],
     config:{
         fullscreen: 'true',
-        layout:'card',
+        layout: {
+            type: 'card',
+            animation:{
+                duration: 300,
+                easing: 'ease-out',
+                type:false
+            }
+        },
         items: [
         {
             ui:'sencha',

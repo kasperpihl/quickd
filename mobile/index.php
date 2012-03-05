@@ -16,6 +16,7 @@
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
+        <script src="<?= LIBS_URL ?>jquery/jquery.color.js"></script>
         <script> var IMG_URL = "<?= IMAGES_URL ?>";</script>
         
         <!-- Application -->
