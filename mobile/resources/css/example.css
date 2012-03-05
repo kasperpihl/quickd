@@ -3528,7 +3528,8 @@ DEALS LIST
         margin-top: 3px; }
       #quickd-deals article[id*=deal_] .deal-content > footer {
         font-style: italic;
-        margin-top: 8px; }
+        margin-top: 8px;
+        font-size: 11px; }
         #quickd-deals article[id*=deal_] .deal-content > footer .price, #quickd-deals article[id*=deal_] .deal-content > footer time {
           position: relative;
           padding-left: 17px; }
