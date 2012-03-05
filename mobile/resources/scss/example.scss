@@ -110,6 +110,15 @@ DEALS LIST
             }
 
             footer { font-style: italic; }
+
+            footer .awesome-badge {
+                position: absolute;
+                top: -3px; right: -3px;
+
+                $url: $img-path + 'spritemap.png';
+                width: 54px; height: 48px;
+                background: url($url) no-repeat -1px -64px;
+            }
         }
         
         // Category color code
