@@ -3,14 +3,14 @@ Ext.application({
 	name: 'QuickD',
 	models: ['Deal'],
 	stores: ['Deals'],
-	views: ['Main','DealList'],
+	views: ['Main'],
 	controllers: ['Main'],
 	icon: 'resources/images/icon.png',
 	phoneStartupScreen: 'resources/images/phone_startup.png',
 	glossOnIcon: false,
 	launch: function() {
 		Ext.Viewport.add({
-			xclass: 'QuickD.view.DealList'
+			xclass: 'QuickD.view.Main'
 		});
 
 	}

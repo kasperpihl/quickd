@@ -8,13 +8,23 @@ Ext.define('QuickD.view.Main', {
     ],
     config:{
         fullscreen: 'true',
+        layout: 'card',
         items: [
-        /*{
+        {
             ui:'sencha',
+            id: 'topbar',
+            hidden: true,
             xtype : 'toolbar',
             docked: 'top',
-            title: 'QuickD',
             items:[
+            {
+                xtype:'button',
+                ui:'back',
+                text:'Tilbage'
+            },
+            {
+                xtype:'spacer'
+            },
             {
                 xtype:'selectfield',
                 id:'filterButton',
@@ -25,25 +35,16 @@ Ext.define('QuickD.view.Main', {
                     { text: 'Shopping', value: 'shopping' },
                     { text: 'Oplevelser', value: 'experience' }
                 ],
-                align:'right'
-            },
-            {
-                xtype:'button',
-                id:'mapButton',
-                align:'right',
-                text: 'Kort',
-                hidden:true  
-            },
-            {
-                xtype:'button',
-                id:'actionButton',
-                iconCls: 'action', 
-                iconMask: true,
-                align:'right',
-                hidden:true  
+                align:'left'
             }]
-        },*/
-        {xtype:'deallist'}]
+        },
+        {
+            xtype:'panel',
+            html: 'splash'
+        },
+        {xtype:'deallist'},
+        {xtype:'dealshow'}
+        ]
     },
     applyLayout: function(config) {
       config = config || {};
