@@ -23,5 +23,5 @@
         <script type="text/javascript" src="app/function.js"></script>
     </head>
 
-    <body onload="setTimeout(function() { if(window.pageYOffset <= 1) window.scrollTo(0, 1) }, 100);"></body>
+    <body></body>
 </html>
