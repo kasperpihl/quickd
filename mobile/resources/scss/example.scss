@@ -93,7 +93,7 @@ DEALS LIST
         overflow: hidden;
         position: relative;
 
-        img.deal_image { margin-left: 4px; }
+        img.deal_image { margin-left: 5px; }
 
         .deal-content { 
             margin-left: 90px;
@@ -112,11 +112,12 @@ DEALS LIST
             footer { font-style: italic; }
         }
         
+        // Category color code
         &:before {
         	display: block;
         	position: absolute;
             top: 0; left: 0;
-            width: 4px;
+            width: 5px;
             height: 100%;
             
             @include border-radius(3px 0 0 3px);

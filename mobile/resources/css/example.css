@@ -3459,7 +3459,7 @@ DEALS LIST
     overflow: hidden;
     position: relative; }
     #quickd-deals article[id*=deal_] img.deal_image {
-      margin-left: 4px; }
+      margin-left: 5px; }
     #quickd-deals article[id*=deal_] .deal-content {
       margin-left: 90px;
       padding-top: 6px; }
@@ -3482,7 +3482,7 @@ DEALS LIST
       position: absolute;
       top: 0;
       left: 0;
-      width: 4px;
+      width: 5px;
       height: 100%;
       -webkit-border-radius: 3px 0 0 3px;
       border-radius: 3px 0 0 3px;
