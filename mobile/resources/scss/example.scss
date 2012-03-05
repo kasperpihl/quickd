@@ -133,6 +133,19 @@ DEALS LIST
                     $url: $img-path + 'spritemap.png';
                     width: 54px; height: 48px;
                     background: url($url) no-repeat -1px -64px;
+
+                    .value {
+                        display: block;
+                        margin: 12px 0 0 24px;
+                        font: bold 12px/1 'Helvetica Neue', sans-serif;
+                        text-shadow: 0 1px 0 rgba(white, 0.45), 0 0 7px rgba(#fef0a9, 0.33);
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        color: #292929;
+
+
+                        @include transform(rotate(45deg));
+                    }
                 }
             }
         }
