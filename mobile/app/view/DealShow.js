@@ -1,17 +1,45 @@
+var showDealTemplate = new Ext.XTemplate(
+    '<div>{title}</div>',
+    {
+        priceIt: priceIt,
+        humanReadableDistance: humanReadableDistance
+    }
+);
 Ext.define('QuickD.view.DealShow', {
     extend: 'Ext.Panel',
+    requires:[
+        'Ext.Map'
+    ],
     xtype: 'dealshow',
-	
-    config: {
-        tpl: '<div>{title}</div>',
-        record: null
+	items: [{
+        id:'content',
+        config: {
+            
+            tpl: showDealTemplate,
+            record: null
+        }
     },
+    {
+        xtype: 'map',
+        zoomControl: false,
+        panControl: false,
+        rotateControl: false,
+        streetViewControl: false,
+        mapTypeControl: false,
+        zoom: 13,
+        mapTypeId : google.maps.MapTypeId.ROADMAP,
+        navigationControl: true,
+        navigationControlOptions: {
+            style: google.maps.NavigationControlStyle.DEFAULT
+        }
+    }],
+    
     loadDeal:function(record){
         this.setRecord(record);
     },
     updateRecord: function(newRecord) {
         if (newRecord) {
-            this.setData(newRecord.data);
+            this.getAt().setData(newRecord.data);
         }
     }
 });

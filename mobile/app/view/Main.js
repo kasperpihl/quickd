@@ -55,9 +55,6 @@ Ext.define('QuickD.view.Main', {
         {xtype:'dealshow'}
         ]
     },
-    launch:function(){
-         window.scrollTo(0,1);
-    },
     applyLayout: function(config) {
       config = config || {};
         if (Ext.os.is.Android) {

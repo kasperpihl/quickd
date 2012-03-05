@@ -19,7 +19,8 @@ Ext.define('QuickD.controller.Main', {
                 scope:this
             },
             deallist: {
-                itemtap: 'onDealSelect'
+                itemtap: 'onDealSelect',
+                refresh: 'test'
             },
             backButton: {
                 tap: 'handleBack'    
@@ -58,9 +59,9 @@ Ext.define('QuickD.controller.Main', {
         }
 
     },
-
     test:function(instance,data,options){
-        log('updater',instance,data,options);
+       log('refresh');
+       // log('updater',instance,data,options);
     },
     onLocationUpdate:function(test){
         this.getMain().getAt(0).show();

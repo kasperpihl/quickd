@@ -55,7 +55,14 @@ var myTemplate = new Ext.XTemplate(
 		humanReadableDistance: humanReadableDistance
 	}
 );
-
+Ext.define('QuickD.view.DealListView',{
+	extend: 'Ext.Panel',
+	xtype:'deallistview',
+	height:'200',
+	config:{
+		items:[{xtype:'deallist'}]
+	}
+});
 
 Ext.define('QuickD.view.DealList', {
     extend: 'Ext.List',
