@@ -3480,6 +3480,18 @@ TOOLBAR STYLES
   background-image: -webkit-linear-gradient(#dddddd 0%, #868686 2%, #3c3c3c 49%, #2f2f2f 50%, #252525 97%, #555555 100%);
   background-image: linear-gradient(#dddddd 0%, #868686 2%, #3c3c3c 49%, #2f2f2f 50%, #252525 97%, #555555 100%);
   border-bottom: thin solid #333; }
+  #quickd-topbar .x-toolbar-inner .x-button, #quickd-topbar .x-toolbar-inner .x-button-back, #quickd-topbar .x-toolbar-inner .x-component-outer {
+    background-color: transparent;
+    border: thin solid black;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.24);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.24);
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff0000), color-stop(100%, #0000ff));
+    background-image: -webkit-linear-gradient(#ff0000, #0000ff);
+    background-image: linear-gradient(#ff0000, #0000ff); }
+    #quickd-topbar .x-toolbar-inner .x-button *[class*='-label'], #quickd-topbar .x-toolbar-inner .x-button-back *[class*='-label'], #quickd-topbar .x-toolbar-inner .x-component-outer *[class*='-label'] {
+      color: green; }
+  #quickd-topbar .x-toolbar-inner .x-button:after {
+    display: none; }
 
 /******************************************************************
 DEALS LIST

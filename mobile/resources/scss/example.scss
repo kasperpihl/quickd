@@ -48,7 +48,21 @@ TOOLBAR STYLES
     border-bottom: thin solid #333;
 
     .x-toolbar-inner {
+        .x-button, .x-button-back, .x-component-outer {
+            background-color: transparent;
+            border: thin solid black;
 
+            @include box-shadow(0 1px 0 rgba(white, 0.24));
+            @include background-image(linear-gradient(red, blue));
+
+            *[class*='-label'] {
+                color: green;
+            }
+        }
+
+        .x-button:after {
+            display: none;
+        }
     }
 }
 
