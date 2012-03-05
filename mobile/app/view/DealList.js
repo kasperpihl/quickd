@@ -44,7 +44,7 @@ var myTemplate = new Ext.XTemplate(
 		'<img src="http://lorempixum.com/150/150/nature/" class="deal_image left" width="75" height="75" />',
 		'<section class="deal-content">',
 			'<h1>{title}</h1>',
-			'<h2>{name} <span class="distance"> &ndash; ca. {distance:this.humanReadableDistance}</span></h2>',
+			'<h2>{name}</h2>',
 			'<footer class="footer">',
 				'<span class="prices">Spar: {discount}%</span> · Pris: {deal_price:this.priceIt} · <time>2t42m</time>',
 			'</footer>',
@@ -62,7 +62,7 @@ Ext.define('QuickD.view.DealList', {
     xtype: 'deallist',
     config: {
         title: 'lalala',
-        cls: 'quickd-deals',  
+        id: 'quickd-deals',  
 		plugins:[
 			{ xclass: 'Ext.plugin.PullRefresh' }
 		],

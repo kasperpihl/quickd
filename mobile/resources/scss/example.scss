@@ -1,21 +1,29 @@
+/******************************************************************
+VARIABLES
+******************************************************************/
 $base-gradient: matte;
 $list-pressed-color: mix(#08679F, #fff, 10);
 $list-active-color: mix(#043F62, #fff, 0);
+$img-path: '../images/';
 
-//import the sencha touch theme
+/******************************************************************
+IMPORTS
+******************************************************************/
 @import 'sencha-touch/default/all';
 @import '_reset';
 @import '_mixins';
 
-@include sencha-panel;
-@include sencha-buttons;
+// @include sencha-panel;
+// @include sencha-buttons;
 @include sencha-toolbar;
-@include sencha-list;
-@include sencha-layout;
-@include sencha-form;
-@include sencha-loading-spinner;
+// @include sencha-list;
+// @include sencha-layout;
+// @include sencha-form;
+// @include sencha-loading-spinner;
 
-
+/******************************************************************
+SEMANTIC HELPER STYLES
+******************************************************************/
 .left { float: left; }
 .right { float: right; }
 
@@ -23,11 +31,9 @@ $list-active-color: mix(#043F62, #fff, 0);
 .text-right { text-align: right; }
 .text-center { text-align: center; }
 
-//blue toolbar
-@include sencha-toolbar-ui('sencha', #84ab2b, glossy);
-.x-toolbar-sencha .x-title { text-shadow: 0 1px 0 rgba(0,0,0,.8); }
-
-//buttons
+/******************************************************************
+BUTTONS
+******************************************************************/
 @include sencha-button-ui('sencha', #2E9A3E, matte);
 
 /******************************************************************
@@ -40,22 +46,23 @@ body { min-height: 580px; }
 /******************************************************************
 TOOLBAR STYLES
 ******************************************************************/
-
+@include sencha-toolbar-ui('sencha', #84ab2b, glossy);
+.x-toolbar-sencha .x-title { text-shadow: 0 1px 0 rgba(0,0,0,.8); }
 
 /******************************************************************
 DEALS LIST
 ******************************************************************/
 
-.quickd-deals {
-    background: #eee;
+#quickd-deals {
+    background: url($img-path + 'bg-pattern.png');
 
     .x-scroll-view {  }
     .x-scroll-container {  }
     .x-list { background: transparent; }
-    .x-list .x-list-item .x-list-item-label { padding: 0; overflow: hidden; } /* wrapping element */
+    .x-list .x-list-item .x-list-item-label { padding: 0; overflow: hidden; } /* list item wrapping element */
 
-    .x-list-item-label {
-        @include background-image(linear-gradient(#fff, #ddd));
+    .x-list-item .x-list-item-label {
+        border: none;
     }
 
     article[id*=deal_] { 
@@ -68,8 +75,6 @@ DEALS LIST
             padding-top: 6px;
 
             h1 {
-                font-size: 100%;
-                font-weight: bold;
                 @include text-overflow(ellipsis);
             }
 

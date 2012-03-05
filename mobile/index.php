@@ -13,9 +13,11 @@
         <!-- Styling -->
         <link rel="stylesheet" href="touch/resources/css/sencha-touch.css" type="text/css" /> 
       	<link rel="stylesheet" href="resources/css/example.css" type="text/css" />
+        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
         <script> var IMG_URL = "<?= IMAGES_URL ?>";</script>
+        
         <!-- Application -->
         <script type="text/javascript" src="app.js"></script>
         <script type="text/javascript" src="app/function.js"></script>
