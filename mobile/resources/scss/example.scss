@@ -26,7 +26,7 @@ IMPORTS
 /******************************************************************
 BUTTONS
 ******************************************************************/
-@include sencha-button-ui('sencha', #2E9A3E, matte);
+@include sencha-button-ui('sencha', #2E9A3E, glossy);
 
 /******************************************************************
 GENERAL STYLES
@@ -36,7 +36,7 @@ GENERAL STYLES
 /******************************************************************
 TOOLBAR STYLES
 ******************************************************************/
-@include sencha-toolbar-ui('sencha', #84ab2b, glossy);
+@include sencha-toolbar-ui('sencha', rgba(black, 0.7), glossy);
 .x-toolbar-sencha .x-title { text-shadow: 0 1px 0 rgba(0,0,0,.8); }
 
 /******************************************************************
