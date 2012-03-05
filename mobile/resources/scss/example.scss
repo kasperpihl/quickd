@@ -5,6 +5,7 @@ $base-gradient: matte;
 $list-pressed-color: mix(#08679F, #fff, 10);
 $list-active-color: mix(#043F62, #fff, 0);
 $img-path: '../images/';
+$ff: 'Helvetica Neue', sans-serif;
 
 /******************************************************************
 IMPORTS
@@ -84,30 +85,43 @@ DEALS LIST
         img.deal_image { margin-left: 5px; }
 
         .deal-content { 
-            margin-left: 90px;
-            padding-top: 6px;
+            margin-left: 84px;
+            padding-top: 7px;
 
             h1 {
-                @include text-overflow(ellipsis);
-                font: bold 15px/16px 'Helvetica Neue', sans-serif;
+                width: 90%;
+                font: bold 15px/16px $ff;
                 color: #333;
+                @include text-overflow(ellipsis);
             }
 
             h2, > footer {
-                font-size: 76%;
-                line-height: 120%;
-                color: gray;
+                font: normal italic 13px/16px $ff;
+                color: #a5a5a5;
             }
 
-            footer { font-style: italic; }
+            h2 { margin-top: 3px; }
 
-            footer .awesome-badge {
-                position: absolute;
-                top: -3px; right: -3px;
+            > footer {
+                font-style: italic;
+                margin-top: 8px;
 
-                $url: $img-path + 'spritemap.png';
-                width: 54px; height: 48px;
-                background: url($url) no-repeat -1px -64px;
+                .price {
+
+                }
+
+                time {
+
+                }
+
+                .awesome-badge {
+                    position: absolute;
+                    top: -3px; right: -3px;
+
+                    $url: $img-path + 'spritemap.png';
+                    width: 54px; height: 48px;
+                    background: url($url) no-repeat -1px -64px;
+                }
             }
         }
         
@@ -126,10 +140,25 @@ DEALS LIST
             content: '';
         }
 
-        &.category {
-            &.fooddrink:before { background: #5A4B53; }
-            &.shopping:before { background: #00A388; }
-            &.experience:before { background: #FF6138; }
+        &.category.fooddrink {
+            $color: #a25d7a;
+
+            footer { color: $color; }
+            &:before { background: $color; }
+        }
+        
+        &.category.shopping {
+            $color: #c09159;
+            
+            footer { color: $color; }
+            &:before { background: $color; }
+        }
+        
+        &.category.experience {
+            $color: #5da2a0;
+            
+            footer { color: $color; }
+            &:before { background: $color; }
         }
     }
 }

@@ -3508,31 +3508,34 @@ DEALS LIST
     #quickd-deals article[id*=deal_] img.deal_image {
       margin-left: 5px; }
     #quickd-deals article[id*=deal_] .deal-content {
-      margin-left: 90px;
-      padding-top: 6px; }
+      margin-left: 84px;
+      padding-top: 7px; }
       #quickd-deals article[id*=deal_] .deal-content h1 {
+        width: 90%;
+        font: bold 15px/16px "Helvetica Neue", sans-serif;
+        color: #333;
         -webkit-text-overflow: ellipsis;
         -moz-text-overflow: ellipsis;
         -o-text-overflow: ellipsis;
         -ms-text-overflow: ellipsis;
         text-overflow: ellipsis;
         white-space: nowrap;
-        overflow: hidden;
-        font: bold 15px/16px "Helvetica Neue", sans-serif;
-        color: #333; }
+        overflow: hidden; }
       #quickd-deals article[id*=deal_] .deal-content h2, #quickd-deals article[id*=deal_] .deal-content > footer {
-        font-size: 76%;
-        line-height: 120%;
-        color: gray; }
-      #quickd-deals article[id*=deal_] .deal-content footer {
-        font-style: italic; }
-      #quickd-deals article[id*=deal_] .deal-content footer .awesome-badge {
-        position: absolute;
-        top: -3px;
-        right: -3px;
-        width: 54px;
-        height: 48px;
-        background: url("../images/spritemap.png") no-repeat -1px -64px; }
+        font: normal italic 13px/16px "Helvetica Neue", sans-serif;
+        color: #a5a5a5; }
+      #quickd-deals article[id*=deal_] .deal-content h2 {
+        margin-top: 3px; }
+      #quickd-deals article[id*=deal_] .deal-content > footer {
+        font-style: italic;
+        margin-top: 8px; }
+        #quickd-deals article[id*=deal_] .deal-content > footer .awesome-badge {
+          position: absolute;
+          top: -3px;
+          right: -3px;
+          width: 54px;
+          height: 48px;
+          background: url("../images/spritemap.png") no-repeat -1px -64px; }
     #quickd-deals article[id*=deal_]:not(.awesome) footer .awesome-badge {
       display: none; }
     #quickd-deals article[id*=deal_]:before {
@@ -3545,9 +3548,15 @@ DEALS LIST
       -webkit-border-radius: 3px 0 0 3px;
       border-radius: 3px 0 0 3px;
       content: ''; }
+    #quickd-deals article[id*=deal_].category.fooddrink footer {
+      color: #a25d7a; }
     #quickd-deals article[id*=deal_].category.fooddrink:before {
-      background: #5A4B53; }
+      background: #a25d7a; }
+    #quickd-deals article[id*=deal_].category.shopping footer {
+      color: #c09159; }
     #quickd-deals article[id*=deal_].category.shopping:before {
-      background: #00A388; }
+      background: #c09159; }
+    #quickd-deals article[id*=deal_].category.experience footer {
+      color: #5da2a0; }
     #quickd-deals article[id*=deal_].category.experience:before {
-      background: #FF6138; }
+      background: #5da2a0; }
