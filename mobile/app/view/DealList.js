@@ -36,22 +36,35 @@ function getRoundToVal(val, ranges) {
 
 	return false;
 }
+
 function roundToNearest(val, roundTo) {
 	return Math.round(val / roundTo) * roundTo; // For instance: roundToNearest(65, 100) would return 100.
 }
+
+/**
+ * Returns 'awesome' if discount is greater than 50%. Otherwise ''
+ * @return {string}
+ */
+function isAwesomeDeal(discount) {
+	return (parseInt(discount, 10) >= 60)? 'awesome' : '';
+}
+
 var myTemplate = new Ext.XTemplate(
-	'<article id="deal_{id}" class="category {category}">',
-		'<img src="http://lorempixum.com/150/150/nature/" class="deal_image left" width="75" height="75" />',
+	'<article id="deal_{id}" class="category {category} {discount:this.iad} clearfix">',
+		//'<img src="' + IMG_URL +'thumbnail/{image}" class="deal_image left" width="72" height="72" />',
+		'<img src="http://lorempixum.com/150/150/food/" class="deal_image left" width="72" height="72" />',
 		'<section class="deal-content">',
 			'<h1>{title}</h1>',
-			'<h2>{name} <span class="distance"> &ndash; ca. {distance:this.humanReadableDistance}</span></h2>',
+			'<h2>{name}</h2>',
 			'<footer class="footer">',
-				'<span class="prices">Spar: {discount}%</span> · Pris: {deal_price:this.priceIt} · <time>2t42m</time>',
+				'<span class="price">{deal_price},-</span> <time>2t42m</time>',
+				'<span class="awesome-badge"><span class="value">{discount}%</span></span>',
 			'</footer>',
 		'</section>',
 	'</article>',
 	{
 		priceIt: priceIt,
+		iad: isAwesomeDeal,
 		humanReadableDistance: humanReadableDistance
 	}
 );
@@ -69,7 +82,7 @@ Ext.define('QuickD.view.DealList', {
     xtype: 'deallist',
     config: {
         title: 'lalala',
-        cls: 'quickd-deals',
+        id: 'quickd-deals',
 		plugins:[
 			{ xclass: 'Ext.plugin.PullRefresh' }
 		],
