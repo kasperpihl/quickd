@@ -3511,7 +3511,7 @@ DEALS LIST
       margin-left: 84px;
       padding-top: 7px; }
       #quickd-deals article[id*=deal_] .deal-content h1 {
-        width: 90%;
+        width: 85%;
         font: bold 15px/16px "Helvetica Neue", sans-serif;
         color: #333;
         -webkit-text-overflow: ellipsis;
