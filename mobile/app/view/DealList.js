@@ -22,6 +22,9 @@ function humanReadableDistance(distance) {
 
 	return dist + unit;
 }
+function getTimeLeft(){
+	
+}
 
 function getRoundToVal(val, ranges) {
 	var dist = parseInt(val, 10);

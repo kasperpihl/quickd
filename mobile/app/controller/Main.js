@@ -90,18 +90,25 @@ Ext.define('QuickD.controller.Main', {
     changeToView:function(view,options){
         switch(view){
             case 'dealshow':
-                $('#quickd-deals').animate({backgroundColor:'black'},{
-                    /*complete:function(){
-                        log('test');
-                    },*/
-                    duration: 400
-                });
-                /*this.getDealShow().loadDeal(options.record);
-                //this.getMain().getAt(2).setRecord(record);
                 this.getBackButton().show();
                 this.getFilterButton().hide();
                 this.getMapButton().show();
-                this.getMain().setActiveItem(this.getDealShow());*/
+
+
+                this.getDealShow().loadDeal(options.record);
+                //this.getDealShow().show();
+                Ext.Anim.run({
+                    element: this.getDealShow().element,
+                    from:{
+                        opacity: 0
+                    },
+                    to:{
+                        opacity:1
+                    }
+                });
+                //this.getMain().getAt(2).setRecord(record);
+                
+                //this.getMain().setActiveItem(this.getDealShow());
             break;
         }
     },

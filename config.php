@@ -6,8 +6,9 @@ switch($root){
 	case 'localhost':
 		$dbLink = 'quickd:testanders@77.66.53.58';
 		if(strpos($_SERVER['REQUEST_URI'], 'dealer/')) $string = 'dealer/';
-		else if(strpos($_SERVER['REQUEST_URI'], 'mobile/')) $string = 'mobile/';
+		
 		else if(strpos($_SERVER['REQUEST_URI'], 'dealer-mobile/')) $string = 'dealer-mobile/';
+		else if(strpos($_SERVER['REQUEST_URI'], 'mobile/')) $string = 'mobile/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'admin/')) $string = 'admin/';
 		else $string = 'dealer/';
 		$arr = explode($string,$_SERVER['REQUEST_URI']);
