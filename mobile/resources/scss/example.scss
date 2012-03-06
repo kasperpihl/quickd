@@ -76,6 +76,48 @@ TOOLBAR STYLES
 }
 
 /******************************************************************
+PULL REFRESH
+******************************************************************/
+#fedt-mand-spa {
+
+
+    .x-list-pullrefresh {
+        .x-list-pullrefresh-arrow {
+            $url: $img-path + 'refresh-arrow.png';
+            $w: 24px; $h: 26px;
+
+            width: $w; height: $h;
+            background: url($url);
+            background-size: 100%;
+
+            @include transform(rotation(0deg));
+            @include transition(all 0.7s ease-in-out);
+        }
+    }
+    
+    .x-list-pullrefresh-release {
+        .x-list-pullrefresh-arrow {
+            -webkit-animation: spin-that-shit 0.85s infinite linear;
+        }
+
+        &.x-list-pullrefresh-loading {
+            .x-list-pullrefresh-arrow {
+               -webkit-animation: spin-that-shit 0.3s infinite linear;
+            }
+        }
+    }
+
+    // Hide junk
+
+    .x-list-pullrefresh-wrap, .x-loading-spinner { display: none; }
+}
+
+@-webkit-keyframes spin-that-shit {
+    0%   { @include transform(rotate(0deg)); }
+    100% { @include transform(rotate(360deg)); }
+}
+
+/******************************************************************
 DEALS LIST
 ******************************************************************/
 

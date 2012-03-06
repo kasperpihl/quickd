@@ -87,7 +87,7 @@ Ext.define('QuickD.view.DealList', {
         title: 'lalala',
         id: 'quickd-deals',
 		plugins:[
-			{ xclass: 'Ext.plugin.PullRefresh' }
+			{ xclass: 'Ext.plugin.PullRefresh', id: 'fedt-mand-spa', pullRefreshText: 'Træk for satan!' }
 		],
         store: 'Deals',
         itemTpl: myTemplate

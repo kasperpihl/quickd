@@ -3504,6 +3504,34 @@ TOOLBAR STYLES
     background-image: linear-gradient(#6e6e6e 0%, #828282 5%, #525252 49%, #303030 50%, #191919 100%); }
 
 /******************************************************************
+PULL REFRESH
+******************************************************************/
+#fedt-mand-spa .x-list-pullrefresh .x-list-pullrefresh-arrow {
+  width: 24px;
+  height: 26px;
+  background: url("../images/refresh-arrow.png");
+  background-size: 100%;
+  -webkit-transform: rotation(0deg);
+  transform: rotation(0deg);
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out; }
+#fedt-mand-spa .x-list-pullrefresh-release .x-list-pullrefresh-arrow {
+  -webkit-animation: spin-that-shit 0.85s infinite linear; }
+#fedt-mand-spa .x-list-pullrefresh-release.x-list-pullrefresh-loading .x-list-pullrefresh-arrow {
+  -webkit-animation: spin-that-shit 0.3s infinite linear; }
+#fedt-mand-spa .x-list-pullrefresh-wrap, #fedt-mand-spa .x-loading-spinner {
+  display: none; }
+
+@-webkit-keyframes spin-that-shit {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+/******************************************************************
 DEALS LIST
 ******************************************************************/
 #quickd-deals {
