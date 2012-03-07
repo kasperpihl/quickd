@@ -59,7 +59,7 @@ class Shopowner {
 			  $model->privileges = 1;
 			  $model->fb_info = $fb_info;
 		    
-		    if ($email&&$user=self:checkEmail($email)) {
+		    if ($email&&$user=self::checkEmail($email)) {
 		    	//user already exists;
 		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->_id, 'params'=>array('json'=>json_encode($model)))));
 		    } else {
