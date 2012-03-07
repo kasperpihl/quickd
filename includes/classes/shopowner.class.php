@@ -47,7 +47,7 @@ class Shopowner {
 		    $fb_info = new stdClass();
 			  $fb_info->id = intval($user_profile->id);
 			  $values = array('name', 'gender', 'locale');
-			  for ($values as $key) {
+			  foreach ($values as $key) {
 			    if (isset($user_profile->$key)&& !empty($user_profile->$key)) $fb_info->$key = $user_profile->$key;
 			  }
 			  if ($user_profile->location) {
