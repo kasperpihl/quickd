@@ -58,7 +58,6 @@ class Shopowner {
 			  $model->email = $email;
 			  $model->privileges = 1;
 			  $model->fb_info = $fb_info;
-
 		    
 		    if ($email&&$user=self:checkEmail($email)) {
 		    	//user already exists;
