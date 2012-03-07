@@ -30,12 +30,13 @@ Ext.define('QuickD.view.DealShow', {
             id: 'quickd-deal-slider',
             height:200,
             indicator: false,
+
             defaults:{
                 cls: 'quickd-deal-background',
                 tpl: showDealBackground
             },
             items:[
-        
+
             ]
         },
         {
@@ -46,7 +47,8 @@ Ext.define('QuickD.view.DealShow', {
     },
     
     loadDeal:function(record,list){
-        this.down('#quickd-deal-slider').setItems(list.getItems().items);
+        log('logging data',record.data);
+        //this.down('#quickd-deal-slider').setItems(list.getItems().items);
         this.down('#quickd-deal-content').setData(record.data);
     }
     /*updateRecord: function(newRecord) {
