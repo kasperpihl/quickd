@@ -41,7 +41,7 @@ class Shopowner {
 		  try {
 		    // Proceed knowing you have a logged in user who's authenticated.
 
-		    $user_profile = json_decode($facebook->api('/me'));
+		    $user_profile = (object) $facebook->api('/me');
 		    $email = $user_profile->email;
 
 		    // Getting facebook info
