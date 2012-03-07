@@ -51,8 +51,8 @@ class Shopowner {
 			  foreach ($values as $key) {
 			    if (isset($user_profile->$key)&& !empty($user_profile->$key)) $fb_info->$key = $user_profile->$key;
 			  }
-			  if ($user_profile->location) {
-			  	$location = $facebook->api('/'.$user_profile->location->id);
+			  if (isset($user_profile->location, $user_profile->location->id)) {
+			  	$location = (object) $facebook->api('/'.$user_profile->location->id);
 			  	$fb_info->city = $location->location;
 			  }
 			  $model = new stdClass();
@@ -74,7 +74,7 @@ class Shopowner {
 				return $result;
 		    
 		  } catch (FacebookApiException $e) {
-		    return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','e'=>$e->getMessage()));
+		    return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','e'=>$e->getMessage(),'data'=>$user_profile));
 		  }
 		} else {
 			return json_encode(array('success'=>'false','error'=>'facebook_not_logged_in','function'=>'fb_connect'));

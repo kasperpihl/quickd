@@ -62,7 +62,7 @@ $(function() {
                     //Successfully logged in!!
                     alert("Du er motherfucking logget ind nu!");
                 }
-            }, 'html');
+            }, 'json');
             
         });
       } else {
