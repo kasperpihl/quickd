@@ -10,7 +10,7 @@ Ext.define('QuickD.controller.Main', {
             filterButton: '#filterButton',
             mapButton: '#mapButton',
             backButton: '#backButton',
-            dealList: 'deallist',
+            dealList: 'mainview > deallist',
             dealShow: 'mainview > dealshow',
             mapShow: 'mainview > mapshow'
         },
@@ -23,8 +23,7 @@ Ext.define('QuickD.controller.Main', {
                 tap: 'handleMap'
             },
             deallist: {
-                itemtap: 'onDealSelect',
-                refresh: 'test'
+                itemtap: 'onDealSelect'
             },
             backButton: {
                 tap: 'handleBack'    
@@ -32,6 +31,7 @@ Ext.define('QuickD.controller.Main', {
         }
     },
     init: function() {
+        Ext.getStore('Deals').addListener('refresh',this.updatedStore,this);
         this.location = Ext.create('Ext.util.GeoLocation', {
             autoUpdate: false,
             listeners: {
@@ -41,6 +41,10 @@ Ext.define('QuickD.controller.Main', {
             }
         });
         this.location.updateLocation();
+
+    },
+    launch:function(){
+        
     },
     filterChange:function(instance,data,options){
         if(data && data.hasOwnProperty('data')){    		
@@ -63,8 +67,9 @@ Ext.define('QuickD.controller.Main', {
         }
 
     },
-    test:function(instance,data,options){
-       log('refresh');
+    updatedStore:function(instance,data,options){
+        log(instance.getData());
+       //log('refresh',instance,data,options);
        // log('updater',instance,data,options);
     },
     onLocationUpdate:function(test){
@@ -77,9 +82,6 @@ Ext.define('QuickD.controller.Main', {
                 lat: this.location.getLatitude(),
                 long: this.location.getLongitude()
             },
-            callback: function(records) {
-                log('records',records);
-            },
             scope: this
         });
     },
@@ -87,7 +89,6 @@ Ext.define('QuickD.controller.Main', {
         this.changeToView('mapshow');
     },
     handleBack:function(){
-        log('back');
         this.getBackButton().hide();
         this.getMapButton().hide();
         this.getFilterButton().show();
@@ -111,7 +112,7 @@ Ext.define('QuickD.controller.Main', {
                     $(this).toggleClass('animateDown',(options.index < i));
                     i++;
                 });
-                this.getDealShow().loadDeal(options.record);
+                this.getDealShow().loadDeal(options.record,options.list);
                 var thisClass = this;
                 $('#testing').fadeIn(function(){
                     thisClass.getMain().setActiveItem(thisClass.getDealShow());
@@ -124,8 +125,8 @@ Ext.define('QuickD.controller.Main', {
         }
     },
     onLocationError:function(error,test1,permDenied,test3,test4){
-        //this.getMain().getAt(1).setHtml('error location');
-        this.getMain().getAt(0).show();
+        this.getMain().getAt(1).setHtml('error location');
+        /*this.getMain().getAt(0).show();
         this.getMain().setActiveItem(1);
         
         Ext.getStore('Deals').load({
@@ -137,10 +138,10 @@ Ext.define('QuickD.controller.Main', {
                 log('records',records);
             },
             scope: this
-        });
+        });*/
     },
     onDealSelect:function(list, index, node, record){
-        this.changeToView('dealshow',{record:record,index: index});
+        this.changeToView('dealshow',{record:record,list:list,index: index});
         return false;
         // Bind the record onto the show contact view
        // this.showDeal.setRecord(record);
