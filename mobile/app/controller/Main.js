@@ -111,7 +111,7 @@ Ext.define('QuickD.controller.Main', {
                     $(this).toggleClass('animateDown',(options.index < i));
                     i++;
                 });
-                this.getDealShow().loadDeal(options.record);
+                this.getDealShow().loadDeal(options.record,options.list);
                 var thisClass = this;
                 $('#testing').fadeIn(function(){
                     thisClass.getMain().setActiveItem(thisClass.getDealShow());
@@ -140,7 +140,7 @@ Ext.define('QuickD.controller.Main', {
         });
     },
     onDealSelect:function(list, index, node, record){
-        this.changeToView('dealshow',{record:record,index: index});
+        this.changeToView('dealshow',{record:record,list:list,index: index});
         return false;
         // Bind the record onto the show contact view
        // this.showDeal.setRecord(record);
