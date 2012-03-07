@@ -60,6 +60,11 @@ $(function() {
                 console.log('Location');
                 console.log(res);
             })
+            FB.api('/203907689684007/likes',  function(res) {
+                console.log('Likes?');
+                console.log(res);
+            })
+            
             /*$.post("register.php", { email: response.email, fb_id: response.id, name: response.name, gender: response.gender, lang: response.locale }, function(data) {
                 if (data.success == true) {
                     
@@ -69,7 +74,7 @@ $(function() {
       } else {
 
       }
-    }, {scope: 'email'});
+    }, {scope: 'email, user_likes'});
 }
 
 
