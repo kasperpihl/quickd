@@ -53,7 +53,7 @@ function isAwesomeDeal(discount) {
 }
 
 var myTemplate = new Ext.XTemplate(
-	'<article id="deal_{id}" class="category {category} {discount:this.iad} clearfix">',
+	'<article id="deal_{id}" style="z-index: 5;" class="category {category} {discount:this.iad} clearfix">',
 		//'<img src="' + IMG_URL +'thumbnail/{image}" class="deal_image left" width="72" height="72" />',
 		'<img src="http://lorempixum.com/150/150/food/" class="deal_image left" width="72" height="72" />',
 		'<section class="deal-content">',
@@ -83,7 +83,9 @@ Ext.define('QuickD.view.DealListView',{
 Ext.define('QuickD.view.DealList', {
     extend: 'Ext.List',
     xtype: 'deallist',
+    
     config: {
+    	zIndex:1,
         title: 'lalala',
         id: 'quickd-deals',
 		plugins:[

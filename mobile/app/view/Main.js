@@ -4,6 +4,7 @@ Ext.define('QuickD.view.Main', {
     requires: [
         'QuickD.view.DealList',
         'QuickD.view.DealShow',
+        'QuickD.view.MapShow',
         'Ext.field.Select'
     ],
     config:{
@@ -58,7 +59,8 @@ Ext.define('QuickD.view.Main', {
             html: 'splash'
         },
         {xtype:'deallist'},
-        {xtype:'dealshow'}
+        {xtype:'dealshow'},
+        {xtype:'mapshow'}
         ]
     },
     applyLayout: function(config) {

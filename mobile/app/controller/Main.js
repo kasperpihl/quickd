@@ -11,12 +11,16 @@ Ext.define('QuickD.controller.Main', {
             mapButton: '#mapButton',
             backButton: '#backButton',
             dealList: 'deallist',
-            dealShow: 'mainview > dealshow'
+            dealShow: 'mainview > dealshow',
+            mapShow: 'mainview > mapshow'
         },
         control: {
             filterButton: {
                 change: 'filterChange',
                 scope:this
+            },
+            mapButton: {
+                tap: 'handleMap'
             },
             deallist: {
                 itemtap: 'onDealSelect',
@@ -79,6 +83,9 @@ Ext.define('QuickD.controller.Main', {
             scope: this
         });
     },
+    handleMap: function(){
+        this.changeToView('mapshow');
+    },
     handleBack:function(){
         log('back');
         this.getBackButton().hide();
@@ -90,25 +97,29 @@ Ext.define('QuickD.controller.Main', {
     changeToView:function(view,options){
         switch(view){
             case 'dealshow':
+                log(this.getApplication().getHistory());
                 this.getBackButton().show();
                 this.getFilterButton().hide();
                 this.getMapButton().show();
-
-
-                this.getDealShow().loadDeal(options.record);
-                //this.getDealShow().show();
-                Ext.Anim.run({
-                    element: this.getDealShow().element,
-                    from:{
-                        opacity: 0
-                    },
-                    to:{
-                        opacity:1
-                    }
+                /* This class should have z-index 5. Making the deals lay over the fading in background*/
+                $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner').css('zIndex',5);
+                /* Quickd N'dirty solution. Appending div  */
+                $('#quickd-deals .x-scroll-container').append('<div id="testing" style="z-index:3; background:black; position: absolute; top: 0; left:0;min-width:100%; min-height:100%; display:none;"></div>');
+                var i = 0;
+                $('#quickd-deals .x-list-container div.x-list-item').each(function(){
+                    $(this).toggleClass('animateUp',(options.index >= i));
+                    $(this).toggleClass('animateDown',(options.index < i));
+                    i++;
                 });
-                //this.getMain().getAt(2).setRecord(record);
-                
-                //this.getMain().setActiveItem(this.getDealShow());
+                this.getDealShow().loadDeal(options.record);
+                var thisClass = this;
+                $('#testing').fadeIn(function(){
+                    thisClass.getMain().setActiveItem(thisClass.getDealShow());
+                    $('#testing').remove();
+                });
+            break;
+            case 'mapshow':
+                this.getMain().setActiveItem(this.getMapShow());
             break;
         }
     },
@@ -129,8 +140,8 @@ Ext.define('QuickD.controller.Main', {
         });
     },
     onDealSelect:function(list, index, node, record){
-        this.changeToView('dealshow',{record:record});
-        
+        this.changeToView('dealshow',{record:record,index: index});
+        return false;
         // Bind the record onto the show contact view
        // this.showDeal.setRecord(record);
     }

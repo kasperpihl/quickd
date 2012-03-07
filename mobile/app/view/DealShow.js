@@ -1,5 +1,6 @@
 var showDealTemplate = new Ext.XTemplate(
-    '<div>{title}</div>',
+    '<div id="quickd-deal-background">{title}',
+    '</div>',
     {
         priceIt: priceIt,
         humanReadableDistance: humanReadableDistance
@@ -12,13 +13,14 @@ Ext.define('QuickD.view.DealShow', {
     ],
     xtype: 'dealshow',
     config: {
-        
+        height:'100%',
+        zIndex: 3,
         tpl: showDealTemplate,
         record: null
     },
     
     loadDeal:function(record){
-        this.setRecord(record);
+        this.setData(record.data);
     },
     updateRecord: function(newRecord) {
         if (newRecord) {

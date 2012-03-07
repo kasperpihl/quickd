@@ -30,7 +30,7 @@ Ext.define('QuickD.view.MapShow', {
          {
            xtype: 'button',
            ui: 'confirm',
-           text: 'Få rutevejledning hertil',   
+           text: 'Få rutevejledning hertil',
            centered:true
        }
        ]
@@ -40,7 +40,7 @@ Ext.define('QuickD.view.MapShow', {
    record: null
 },
 updateRecord: function(newRecord) {
-    if (newRecord) {           
+    if (newRecord) {
         var position = new google.maps.LatLng(newRecord.data.lat, newRecord.data.long);
         var map = this.down('map');
         map.setMapCenter(position);
