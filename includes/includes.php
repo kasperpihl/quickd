@@ -8,6 +8,9 @@ require_once('libs/couchlib/couchClient.php');
 require_once('libs/couchlib/couchDocument.php');
 require_once('libs/couchlib/couchReplicator.php');
 
+/* Include the facebook library */
+require_once('libs/facebook/facebook.php');
+
 /* Include functions */
 require_once('functions/functions.php');
 

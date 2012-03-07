@@ -56,25 +56,27 @@ $(function() {
         FB.api('/me', function(response) {
             console.log("Facebook login");
             console.log(response);
-            FB.api('/'+response.location.id, function(res) {
-                console.log('Location');
-                console.log(res);
-            })
-            FB.api('/203907689684007/likes', 'post', {}, function(res) {
-                console.log('Likes?');
-                console.log(res);
-            })
-            
-            /*$.post("register.php", { email: response.email, fb_id: response.id, name: response.name, gender: response.gender, lang: response.locale }, function(data) {
-                if (data.success == true) {
-                    
-                }
-            });*/
+            var sendRequest = function(data) {
+                $.post("register.php", , function(data) {
+                    if (data.success == true) {
+                        //Successfully logged in!!
+                        alert("Du er motherfucking logget ind nu!");
+                    }
+                });
+            }
+            var fb_data = { action: 'doSignup', email: response.email, fb_id: response.id, name: response.name, gender: response.gender, lang: response.locale };
+            if (response.location) {
+                FB.api('/'+response.location.id, function(res) {
+                    fb_data.lng = res.location.longtitude;
+                    fb_data.lat = res.location.latitude;
+                    sendRequest(fb_data);
+                });
+            } else sendRequest(fb_data);
         });
       } else {
 
       }
-    }, {scope: 'email, user_likes'});
+    }, {scope: 'email'});
 }
 
 

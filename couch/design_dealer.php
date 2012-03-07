@@ -28,12 +28,38 @@ try{
 		var timestamp = parseInt(new Date().getTime()/1000);
 		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
 		var query = JSON.parse(req.query.json);
-		if(!query.hasOwnProperty('betacode')) return [null, msg('betacode_must_be_used')];
 		if(!query.hasOwnProperty('email') || !query.hasOwnProperty('password')) return [null, msg('email_and_password_must_be_specified')];
 		if(!query.hasOwnProperty('hours')) return [null,msg('hours_must_be_specified')];
 		if(!query.hasOwnProperty('privileges')) return [null, msg('privileges_must_be_specified')];
 		var historyArray = new Array();
 		historyArray.push({timestamp: timestamp,action:'created',type:'user','priority':2});
+		var obj = {_id: req.uuid, type:'user', user: {betacode: query.betacode, privileges: parseInt(query.privileges), hours: parseInt(query.hours), email:query.email, md5_password: query.password},history:historyArray};
+		
+		return [obj,msg({id:req.uuid},true)];
+	}";
+	$updateFbInfo = 
+	"function(doc,req){
+		function msg(message,success){
+			 if(!success) var obj = {success:'false',error:message};
+			 else var obj = {success:'true',data:message};
+			 
+			 return JSON.stringify(obj);
+		}
+		var timestamp = parseInt(new Date().getTime()/1000);
+		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
+		var query = JSON.parse(req.query.json);
+		if(!query.hasOwnProperty('fb_info')) return [null, msg('fb_details_not_specified')];
+		if (doc) {
+			doc.fb_info = query.fb_info;
+			var obj = doc;
+		} else {
+			
+			if(!query.hasOwnProperty('email')) return [null, msg('email_must_be_specified')];
+			if(!query.hasOwnProperty('privileges')) query.privileges=1;
+			var historyArray = new Array();
+			historyArray.push({timestamp: timestamp,action:'created',type:'user','priority':2});
+			var obj = {_id: req.uuid, type:'user', user: {email:query.email, privileges: parseInt(query.privileges), fb_info: query.fb_info},history:historyArray};
+		}
 		var obj = {_id: req.uuid, type:'user', user: {betacode: query.betacode, privileges: parseInt(query.privileges), hours: parseInt(query.hours), email:query.email, md5_password: query.password},history:historyArray};
 		
 		return [obj,msg({id:req.uuid},true)];
@@ -391,6 +417,7 @@ try{
 	$updates->checkDeal = $checkDeal;
 	$updates->startStopDeal = $startStopDeal;
 	$updates->registerUser = $registerUser;
+	$updates->updateFbInfo = $updateFbInfo;
 	echo 'updates objektet klar<br/>';
 	$doc->updates = $updates;
 	echo 'updates sat <br/>';
