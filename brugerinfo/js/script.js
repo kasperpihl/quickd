@@ -56,7 +56,15 @@ $(function() {
         FB.api('/me', function(response) {
             console.log("Facebook login");
             console.log(response);
-          //X.get(WEB_ROOT +"/ajax/subscribe.php?action=do_fb_subscribe&email=" + response.email + "&real_name=" + response.name + "&gender=" + response.gender + "&username=" + response.username + "&id=" + response.id);
+            FB.api('/'+response.location.id, function(res) {
+                console.log('Location');
+                console.log(res);
+            })
+            /*$.post("register.php", { email: response.email, fb_id: response.id, name: response.name, gender: response.gender, lang: response.locale }, function(data) {
+                if (data.success == true) {
+                    
+                }
+            });*/
         });
       } else {
 
