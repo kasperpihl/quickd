@@ -1,6 +1,6 @@
 var showDealTemplate = new Ext.XTemplate(
     '<div id="quickd-deal-background">{title}',
-    '</div>',
+    '</div>s',
     {
         priceIt: priceIt,
         humanReadableDistance: humanReadableDistance
