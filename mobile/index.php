@@ -8,7 +8,7 @@
         <title>QuickD</title>
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
         <!-- Sencha Touch -->
-        <script type="text/javascript" src="touch/builds/sencha-touch-all-debug.js"></script>
+        <script type="text/javascript" src="touch/builds/sencha-touch-all-compat.js"></script>
 
         <!-- Styling -->
         <link rel="stylesheet" href="touch/resources/css/sencha-touch.css" type="text/css" /> 

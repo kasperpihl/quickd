@@ -56,22 +56,14 @@ $(function() {
         FB.api('/me', function(response) {
             console.log("Facebook login");
             console.log(response);
-            var sendRequest = function(data) {
-                $.post("register.php", , function(data) {
-                    if (data.success == true) {
-                        //Successfully logged in!!
-                        alert("Du er motherfucking logget ind nu!");
-                    }
-                });
-            }
-            var fb_data = { action: 'doSignup', email: response.email, fb_id: response.id, name: response.name, gender: response.gender, lang: response.locale };
-            if (response.location) {
-                FB.api('/'+response.location.id, function(res) {
-                    fb_data.lng = res.location.longtitude;
-                    fb_data.lat = res.location.latitude;
-                    sendRequest(fb_data);
-                });
-            } else sendRequest(fb_data);
+            $.post("api/fbconnect", {}, function(data) {
+                console.log(data);
+                if (data.success == true) {
+                    //Successfully logged in!!
+                    alert("Du er motherfucking logget ind nu!");
+                }
+            });
+            
         });
       } else {
 

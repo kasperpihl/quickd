@@ -4,6 +4,7 @@ Ext.define('QuickD.store.Deals', {
     config: {
         model: 'QuickD.model.Deal',
         sorters: 'id',
+        id: 'dealStore',
         autoLoad:false,
         proxy: {
             type: 'ajax',

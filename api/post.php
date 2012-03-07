@@ -21,6 +21,9 @@ else if($action){
 		case 'login':
 			$result = Shopowner::login($model);
 		break;
+		case 'fbconnect':
+			$result = Shopowner::fb_connect();
+		break;
 	}
 }
 echo json_encode($result);
