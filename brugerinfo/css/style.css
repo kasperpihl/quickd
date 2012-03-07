@@ -38,12 +38,18 @@ body {
   line-height: 1.231;
 }
 
-#bgImage {position:absolute;top:0px;left:0px;width:100%; height: 100%; background-image: url('../img/bg3.jpg'); background-size: cover; z-index: 1;}
+#bgImage {position:absolute;top:0px;left:0px;width:100%; height: 100%; background-image: url('../img/bg4.png'); background-size: cover; z-index: 1; box-shadow: 0 0 10px black;}
 
 #read-more {
   position: absolute;
   top: 100%;
-  min-height: 100%;
+  margin-top: 18px;
+  min-height: 102%;
+  font-family: "Helvetica";
+  font-weight: 100;
+  width: 100%;
+  text-align: center;
+  font-size: 4em;
 }
 
 #main {
@@ -54,20 +60,48 @@ body {
   height: 100%;
 }
 
+#beta {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  z-index: 3;
+}
+
 #phone {
-  background-image: url('../img/phone.png');
-  background-size: 100%;
-  background-repeat: no-repeat;
   position: absolute;
   bottom: 0%;
-  right: 20%;
-  width: 40%;
-  height: 90%;
+  right: 14%;
   z-index: 3;
 }
 
 #logo {
   margin: 40px;
+}
+
+#signup {
+  margin-left: 40px;
+  margin-top: 5%;
+  width: 290px;
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px black;
+
+  /* background */
+  background: rgb(246,246,246); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(246,246,246,1) 0%, rgba(188,187,187,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(246,246,246,1)), color-stop(100%,rgba(188,187,187,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(246,246,246,1) 0%,rgba(188,187,187,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(246,246,246,1) 0%,rgba(188,187,187,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(246,246,246,1) 0%,rgba(188,187,187,1) 100%); /* IE10+ */
+  background: linear-gradient(top,  rgba(246,246,246,1) 0%,rgba(188,187,187,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#bcbbbb',GradientType=0 ); /* IE6-9 */
+}
+
+#signup h1 {
+  color: black;
+  font-weight: 100;
+  font-family: "Helvetica";
+  padding: 10px;
 }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
@@ -134,7 +168,7 @@ sub { bottom: -0.25em; }
    Lists
    ========================================================================== */
 
-ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; list-style-type: none; }
 dd { margin: 0 0 0 40px; }
 nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
 
