@@ -40,6 +40,7 @@ class Shopowner {
 		if ($user) {
 		  try {
 		    // Proceed knowing you have a logged in user who's authenticated.
+
 		    $user_profile = json_decode($facebook->api('/me'));
 		    $email = $user_profile->email;
 
