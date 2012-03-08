@@ -50,17 +50,18 @@ class Shopowner {
 		    	
 		    	$user = (object) json_decode(self::checkEmail($email));
 		    	
-		    	if($user&&$user->success=='true') {
+		    	if($user&&$user->success=='true'&&isset($user->data,$user->data->value,$user->data->value->fb_info)) {
 		    		//user already exists;
-		    		$u = $user->data;
-		    		if (isset($u->fb_info) && isset($u->updateTime) && $u->updateTime >= time()-7*24*60*60)
-		    			return  json_encode(array('success'=>'true', 'id'=>$u->id, 'updated'=>'no'));
+		    		$fb = $user->data->value->fb_info;
+		    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60)
+		    			return  json_encode(array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no'));
 		    	} else $user = false;
 		    }
 		    
 		    // Getting facebook info
 		    $fb_info = new stdClass();
 			  $fb_info->id = intval($user_profile->id);
+			  $fb_info->lastUpdate = time();
 			  $values = array('name', 'gender', 'locale');
 			  foreach ($values as $key) {
 			    if (isset($user_profile->$key)&& !empty($user_profile->$key)) $fb_info->$key = $user_profile->$key;
