@@ -62,8 +62,8 @@ class Shopowner {
 			  print_r($model);
 			  print_r($email);
 		    //return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>$model));
-		    $user=self::checkEmail($email);
-		    if ($email&&$user) {
+		    $user=(object) json_decode(self::checkEmail($email));
+		    if ($email&&$user&&$user->success=='true') {
 		    	//user already exists;
 		    	return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>array('model'=>$model,'user'=>$user)));
 		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->_id, 'params'=>array('json'=>$model))));
@@ -91,10 +91,10 @@ class Shopowner {
 	public static function checkEmail($email){
 		global $db;
 		try{
-			$user = $db->key($email)->getView('dealer','getUsersByMail');
+			$user = $db->key($email)->limit(1)->getView('dealer','getUsersByMail');
 			$user = $user->rows;
 			if (empty($user)) return null;
-			else return $user;
+			else return $user[0];
 		}
 		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'checkEmail', 'e'=>$e->getMessage())); }
 	}
