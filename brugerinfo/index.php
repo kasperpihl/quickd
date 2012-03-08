@@ -67,7 +67,7 @@
         <div id="signup">
           <h1>Skriv dig op</h1>
           <p id="start_text" style="display:<?=$registred?'none':'block'?>"><strong>Den 20. april</strong> åbner vi for en begrænset beta-test i Aarhus. Få en invitation ved at registrere dig med Facebook:</p>
-          <p id="response_text" style="display:<?=$registred?'block':'none'?>">Tak for din registrering!<br />Du vil modtage en invitation til lanceringen <strong>20. april</strong></p>
+          <p id="response_text" style="display:<?=$registred?'block':'none'?>">Tak for din registrering!<br />Du vil modtage en invitation til lanceringen <br /><strong>20. april</strong></p>
 
           <?php if (!$registred) {   ?>
             <div id="btn_fb_signup"><img src="img/facebook.png"></div>

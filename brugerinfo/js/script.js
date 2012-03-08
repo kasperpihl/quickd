@@ -37,7 +37,8 @@ $(function() {
 
   window.fbAsyncInit = function() {
       FB.init({
-        appId      : '286675801401479',
+        //appId      : '286675801401479',
+        appId      : '204528172925343',
         status     : true, 
         cookie     : true,
         xfbml      : true,
