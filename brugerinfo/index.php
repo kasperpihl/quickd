@@ -1,4 +1,11 @@
-<?php require_once('../config.php'); ?>
+<?php 
+  require_once('../config.php'); 
+  $registred = false;
+  if (!$session->logged_user()) {
+    $fb = json_decode(Shopowner::fb_connect());
+    if (isset($fb->success)&&$fb->success==='true') $registred = true;
+  } else $registred = true;
+?>
 <!doctype html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
@@ -19,6 +26,13 @@
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <meta property="og:title" content="QuickD - Instant deals around you" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://www.quickd.dk" />
+  <meta property="og:image" content="<?=ROOT_URL?>img/logo_medium.jpg" />
+  <meta property="og:site_name" content="QuickD" />
+  <meta property="fb:admins" content="508608046" />
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
@@ -52,11 +66,16 @@
         </div>
         <div id="signup">
           <h1>Skriv dig op</h1>
-          <p><strong>Den 20. april</strong> åbner vi for en begrænset beta-test i Aarhus. Få en invitation ved at registrere dig med Facebook:</p>
-          <?php $fb = json_decode(Shopowner::fb_connect());
-            if ($session->logged_user() || (isset($fb->success)&&$fb->success==='true')) echo "Logget ind!"
-           ?>
-          <img id="btn_fb_signup" src="img/facebook.png">
+          <p id="start_text" style="display:<?=$registred?'none':'block'?>"><strong>Den 20. april</strong> åbner vi for en begrænset beta-test i Aarhus. Få en invitation ved at registrere dig med Facebook:</p>
+          <p id="response_text" style="display:<?=$registred?'block':'none'?>">Tak for din registrering!<br />Du vil modtage en invitation til lanceringen <strong>20. april</strong></p>
+
+          <?php if (!$registred) {   ?>
+            <div id="btn_fb_signup"><img src="img/facebook.png"></div>
+          <?php } ?>
+          <div id="btn_fb_like" style="display:<?=$registred?'block':'none'?>">
+            <div class="fb-like" data-href="http://www.quickd.dk" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false"></div>
+          </div>
+            
           <a href="#read-more"><img src="img/read-more-btn.png"></a>
         </div>
       </div>

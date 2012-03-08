@@ -136,6 +136,21 @@ body {
   font-size: 1.1em;
 }
 
+#btn_fb_signup {
+  width:170px;
+  height:23px;
+  cursor: pointer;
+  float:left;
+  background:url('../img/loader2.gif') center center no-repeat;
+}
+#registration_response {
+  float:left;
+  width:170px;
+  text-align:center;
+  padding:3px;
+  font-weight:bold;
+}
+
 #read-more-btn {
   position: absolute;
   bottom: 40px;
