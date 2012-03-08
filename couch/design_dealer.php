@@ -60,7 +60,6 @@ try{
 			historyArray.push({timestamp: timestamp,action:'created',type:'user','priority':2});
 			var obj = {_id: req.uuid, type:'user', user: {email:query.email, privileges: parseInt(query.privileges), fb_info: query.fb_info},history:historyArray};
 		}
-		var obj = {_id: req.uuid, type:'user', user: {betacode: query.betacode, privileges: parseInt(query.privileges), hours: parseInt(query.hours), email:query.email, md5_password: query.password},history:historyArray};
 		
 		return [obj,msg({id:req.uuid},true)];
 	}";
