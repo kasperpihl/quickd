@@ -14,7 +14,7 @@ Class Mail{
 	}
 	private static function sendMail($to,$subject,$message){
 		$headers = 
-			'MIME-Version: 1.0' ."\n"
+			'MIME-Version: 1.0' ."\n".
 			'From: QuickD-teamet <' .self::$sender . ">". "\n" . 
 			'Reply-To: '.self::$sender . "\n" .
     		'X-Mailer: PHP/' . phpversion();
