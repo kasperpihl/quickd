@@ -46,6 +46,7 @@ $(function() {
     };
 
     //Register button click
+    $('#btn_fb_signup').unbind('click');
     $('#btn_fb_signup').click(function() { doFBSubscribe();  });
 }(document, 'script', 'facebook-jssdk'));
 
@@ -77,7 +78,7 @@ $(function() {
                 $('#btn_fb_signup').hide();
                 $('#btn_fb_like').css('visibility', 'visible');
             }
-        }, 'json');
+        }, 'html');
             
         
       } else {

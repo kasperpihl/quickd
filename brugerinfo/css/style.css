@@ -138,11 +138,33 @@ body {
 
 #btn_fb_signup {
   width:170px;
-  height:23px;
   margin-right:5px;
   cursor: pointer;
   float:left;
   text-align:center;
+
+  background: #29447E url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);
+  background-repeat: no-repeat;
+  background-position: left -188px;
+  font-size: 11px;
+  line-height: 14px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 0 0 1px;
+  text-decoration: none;
+  outline: none;
+}
+#btn_fb_signup .fb_btn_text {
+  background: #5F78AB url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);
+  border-top: solid 1px #879AC0;
+  border-bottom: solid 1px #1A356E;
+  color: white;
+  display: block;
+  font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+  font-weight: bold;
+  padding: 2px 6px 3px 6px;
+  margin: 1px 1px 0 21px;
+  text-shadow: none;
 }
 @-webkit-keyframes webkit-spin-that-shit {
     0%   { -webkit-transform: rotate(0deg);   }
@@ -169,7 +191,7 @@ body {
   margin-right:5px;
   padding:1px 0px;
 }
-
+#read-more-green img {height:22px;}
 #read-more-btn {
   position: absolute;
   bottom: 40px;

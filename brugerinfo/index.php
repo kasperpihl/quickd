@@ -83,13 +83,14 @@
             <p id="response_text" style="display:<?=$registred?'block':'none'?>">Tak for din registrering!<br />Du vil modtage en invitation til beta-testen  ved lanceringen <strong>den 20. april</strong>.</p>
           </div>
           <?php if (!$registred) {   ?>
-            <div id="btn_fb_signup"><img src="img/facebook.png"></div>
+            <!--<div id="btn_fb_signup"><img src="img/facebook.png"></div>-->
+            <div id="btn_fb_signup"><span class="fb_btn_text">Forbind med Facebook</span></div>
           <?php } ?>
           <div id="btn_fb_like" style="visibility:<?=$registred?'visible':'hidden'?>">
             <div class="fb-like" data-href="http://www.facebook.com/pages/QuickD/203907689684007" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false"></div>
           </div>
             
-          <a href="#read-more"><img src="img/read-more-btn.png"></a>
+          <a href="#read-more" id="read-more-green"><img src="img/read-more-btn.png"></a>
         </div>
       </div>
       <div id="read-more-btn"><a href="#read-more"><img src="img/scroll-down.png"></a></div>
