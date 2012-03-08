@@ -59,17 +59,17 @@ class Shopowner {
 			  $model->email = $email;
 			  $model->privileges = 1;
 			  $model->fb_info = $fb_info;
-			  print_r($model);
-			  print_r($email);
+			  //print_r($model);
+			  //print_r($email);
 		    //return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>$model));
 		    $user=(object) json_decode(self::checkEmail($email));
 		    if ($email&&$user&&$user->success=='true') {
 		    	//user already exists;
-		    	return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>array('model'=>$model,'user'=>$user)));
-		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->_id, 'params'=>array('json'=>$model))));
+		    	//return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>array('model'=>$model,'user'=>$user)));
+		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->_id, 'params'=>array('json'=>json_encode($model)))));
 		    } else {
 		    	//new user
-		    	return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>array('model'=>$model)));
+		    	//return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>array('model'=>$model)));
 		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('params'=>array('json'=>json_encode($model)))));
 		    }
 		    /*if($result && $result->success == 'true'){
