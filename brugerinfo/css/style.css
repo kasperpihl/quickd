@@ -143,12 +143,10 @@ body {
   float:left;
   background:url('../img/loader2.gif') center center no-repeat;
 }
-#registration_response {
+#btn_fb_like {
   float:left;
   width:170px;
-  text-align:center;
-  padding:3px;
-  font-weight:bold;
+  padding:1px 0px;
 }
 
 #read-more-btn {
