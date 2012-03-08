@@ -1,9 +1,12 @@
 <?php 
 Class Mail{
 	protected static $sender = 'mail@quickd.dk';
-	public static function sendBetaConfirmation($mail){
+	public static function sendBetaConfirmation($mail, $name=false){
 		$subject = 'Registrering til beta-lancering af QuickD';
+		if ($name) $greet = "Hej ".$name."\n\n";
+		else $greet = "";
 		$message = 
+			$greet .
 			'Tusind tak for din interesse i QuickD.'. "\n\n" .
 			'Du er nu skrevet op til beta-testen i Aarhus og vi sender dig en invitation på åbningsdagen d. 20. april.'."\n\n".
 			'Hvis du har nogle spørgsmål, er du meget velkommen til at besvare denne mail.'. "\n\n".
