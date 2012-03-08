@@ -144,6 +144,10 @@ body {
 }
 #registration_response {
   float:left;
+  width:170px;
+  text-align:center;
+  padding:5px;
+  font-weight:bold;
 }
 
 #read-more-btn {

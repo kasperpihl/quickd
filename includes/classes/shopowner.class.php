@@ -43,7 +43,18 @@ class Shopowner {
 
 		    $user_profile = (object) $facebook->api('/me');
 		    $email = $user_profile->email;
-
+		    //User exist?
+		    
+		    if ($email) {
+		    	//user already exists;
+		    	$user = self::checkEmail($email);
+		    	
+		    	if($user&&$user->success=='true') {
+		    		if (isset($u->fb_info) && isset($u->updateTime) && $u->updateTime >= time()-7*24*60*60)
+		    			return  json_encode(array('success'=>'true', 'id'=>$u->id, 'updated'=>'no'));
+		    	} else $user = false;
+		    }
+		    
 		    // Getting facebook info
 		    $fb_info = new stdClass();
 			  $fb_info->id = intval($user_profile->id);
@@ -60,13 +71,10 @@ class Shopowner {
 			  $model->privileges = 1;
 			  $model->fb_info = $fb_info;
 			  
-		    $user=self::checkEmail($email);
-		    if ($email&&$user&&$user->success=='true') {
+		    
+		    if ($user) {
 		    	//user already exists;
-		    	$u = $user->data;
-		    	if(!isset($u->fb_info) || !isset($u->updateTime) || $u->updateTime < time()-7*24*60*60)
-		    		$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$u->id, 'params'=>array('json'=>json_encode($model)))));
-		    	else $result = array('success'=>'true', 'id'=>$u->id, 'updated'=>'no');
+		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->data->id, 'params'=>array('json'=>json_encode($model)))));
 		    } else {
 		    	//new user
 		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('params'=>array('json'=>json_encode($model)))));
