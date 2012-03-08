@@ -1,6 +1,6 @@
 <?php
 require_once('../config.php');
-print_r('test7');
+print_r('test8');
 /*$result = array();
 $array = array('Denis','Anders','Kasper','Kristjan');
 for ($i = 0; $i < 10000 ; $i++){
