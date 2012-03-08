@@ -131,7 +131,7 @@ body {
 
   text-shadow: 0px 1px 1px white;
 }
-
+#signup .text-area {height:70px;}
 #signup p {
   font-size: 1.1em;
 }

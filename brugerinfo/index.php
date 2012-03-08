@@ -78,13 +78,14 @@
         </div>
         <div id="signup">
           <h1>Skriv dig op</h1>
-          <p id="start_text" style="display:<?=$registred?'none':'block'?>"><strong>Den 20. april</strong> åbner vi for en begrænset beta-test i Aarhus. Få en invitation ved at registrere dig med Facebook:</p>
-          <p id="response_text" style="display:<?=$registred?'block':'none'?>">Tak for din registrering!<br />Du vil modtage en invitation til beta-testen  ved lanceringen <strong>den 20. april</strong>.</p>
-
+          <div class="text-area">
+            <p id="start_text" style="display:<?=$registred?'none':'block'?>"><strong>Den 20. april</strong> åbner vi for en begrænset beta-test i Aarhus. Få en invitation ved at registrere dig med Facebook:</p>
+            <p id="response_text" style="display:<?=$registred?'block':'none'?>">Tak for din registrering!<br />Du vil modtage en invitation til beta-testen  ved lanceringen <strong>den 20. april</strong>.</p>
+          </div>
           <?php if (!$registred) {   ?>
             <div id="btn_fb_signup"><img src="img/facebook.png"></div>
           <?php } ?>
-          <div id="btn_fb_like" style="display:<?=$registred?'block':'none'?>">
+          <div id="btn_fb_like" style="visibility:<?=$registred?'visible':'hidden'?>">
             <div class="fb-like" data-href="http://www.facebook.com/pages/QuickD/203907689684007" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false"></div>
           </div>
             
