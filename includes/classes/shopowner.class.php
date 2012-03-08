@@ -53,6 +53,8 @@ class Shopowner {
 		    	if($user&&$user->success=='true') {
 		    		//user already exists;
 		    		$u = $user->data;
+		    		print_r($u);
+		    		echo "  Time: ".time();
 		    		if (isset($u->fb_info) && isset($u->fb_info->updateTime) && $u->fb_info->updateTime >= time()-7*24*60*60)
 		    			return  json_encode(array('success'=>'true', 'id'=>$u->id, 'updated'=>'no'));
 		    	} else $user = false;

@@ -65,7 +65,7 @@ $(function() {
     FB.login(function(response) {
       if (response.authResponse) {
         $('#btn_fb_signup').html(spinner);
-        $('#start_text').fadeOut();
+        $('#start_text').fadeOut('slow');
         
         $.post("api/fbconnect", {}, function(data) {
             data = JSON.parse(data);
