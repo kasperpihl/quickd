@@ -6,7 +6,7 @@ class Shopowner {
 			$email = isset($model['email']) ? strtolower($model['email']) : '';
 			$password = isset($model['password']) ? $model['password'] : '';
 			if(strlen($password) < 6) return array('success'=>'false','error'=>'password_must_be_6_long');
-			if(!$email || self::checkEmail($email)) return array('success'=>'false','error'=>'user_exists');
+			if(!$email || self::checkEmail($email)->success=='true') return array('success'=>'false','error'=>'user_exists');
 			$update = 'registerUser';
 			if(BETA_MODE){
 				if(!isset($model['betacode'])) return array('success'=>'false','error'=>'betacode_must_be_included');
@@ -68,7 +68,7 @@ class Shopowner {
 		    	//user already exists;
 		    	//return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>array('model'=>$model,'user'=>$user)));
 		    	
-		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->_id, 'params'=>array('json'=>json_encode($model)))));
+		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->data->id, 'params'=>array('json'=>json_encode($model)))));
 		    } else {
 		    	//new user
 		    	//return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>array('model'=>$model)));
@@ -95,10 +95,10 @@ class Shopowner {
 		try{
 			$user = $db->key($email)->limit(1)->getView('dealer','getUsersByMail');
 			$user = $user->rows;
-			if (empty($user)) return null;
-			else return $user[0];
+			if (empty($user)) return (object) array('success'=>'false','error'=>'no_user','function'=>'checkEmail');
+			else return (object) array('success'=>'true','data'=>$user[0]);
 		}
-		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'checkEmail', 'e'=>$e->getMessage())); }
+		catch(Exception $e){ return (object) array('success'=>'false','error'=>'database_error','function'=>'checkEmail', 'e'=>$e->getMessage()); }
 	}
 	public static function getShopowner(){
 		
