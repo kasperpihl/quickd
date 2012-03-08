@@ -2,7 +2,7 @@
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
 switch($root){
-	case 'jens':
+	case 'test.quickd.dk':
 	case 'localhost':
 		$dbLink = 'quickd:testanders@77.66.53.58';
 		if(strpos($_SERVER['REQUEST_URI'], 'dealer/')) $string = 'dealer/';
