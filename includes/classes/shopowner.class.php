@@ -45,18 +45,18 @@ class Shopowner {
 		    $user_profile = (object) $facebook->api('/me');
 		    $email = $user_profile->email;
 		    //User exist?
+		    if (!$email) return json_encode(array('success'=>'false','error'=>'no_fb_email','function'=>'fb_connect','data'=>$user_profile));
 		    
-		    if ($email) {
-		    	
-		    	$user = (object) json_decode(self::checkEmail($email));
-		    	
-		    	if($user&&$user->success=='true'&&isset($user->data,$user->data->value,$user->data->value->fb_info)) {
-		    		//user already exists;
-		    		$fb = $user->data->value->fb_info;
-		    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60)
-		    			return  json_encode(array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no'));
-		    	} else $user = false;
-		    }
+		    //User exists?
+	    	$user = (object) json_decode(self::checkEmail($email));
+	    	
+	    	if($user&&$user->success=='true'&&isset($user->data,$user->data->value,$user->data->value->fb_info)) {
+	    		//Fb user already exists
+	    		$fb = $user->data->value->fb_info;
+	    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60)
+	    			return  json_encode(array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no'));
+	    	} else $user = false;
+		    
 		    
 		    // Getting facebook info
 		    $fb_info = new stdClass();
@@ -82,6 +82,10 @@ class Shopowner {
 		    } else {
 		    	//new user
 		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('params'=>array('json'=>json_encode($model)))));
+		    	//Send mail
+		    	if (isset($user_profile->first_name)) $name = $user_profile->first_name;
+		    	else $name = false;
+		    	Mail::sendBetaConfirmation($email, $name);
 		    }
 		    if($result && $result->success == 'true'){
 					$result->data->email = $email;

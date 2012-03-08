@@ -25,7 +25,7 @@
   <meta name="author" content="">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=750, user-scalable=1">
 
   <meta property="og:title" content="QuickD" />
   <meta property="og:description" content="En ny måde at handle på - snart i din by."/>
