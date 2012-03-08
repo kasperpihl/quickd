@@ -61,6 +61,7 @@ $(function() {
 }(document));*/
 
  function doFBSubscribe() {
+    var spinner = $('<img />').attr('src','img/loader.png').addClass('spinning-loader');
     FB.login(function(response) {
       if (response.authResponse) {
         $('#btn_fb_signup').html(spinner);
@@ -83,6 +84,7 @@ $(function() {
 
       }
     }, {scope: 'email'});
+*/
 }
 
 
