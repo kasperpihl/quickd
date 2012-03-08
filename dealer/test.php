@@ -43,7 +43,9 @@ echo (360 + (0 % 360)) % 360;
 
 */
 
-Mail::sendBetaConfirmation('kasper@tornoe.org');
-Mail::sendBetaConfirmation('kasperpihl@me.com');
+Mail::sendBetaConfirmation('jstougaard@gmail.com');
+Mail::sendBetaConfirmation('anders@hoedholt.com');
+Mail::sendBetaConfirmation('anders@hoedholt.me');
+Mail::sendBetaConfirmation('andershoedholt@me.com');
 ?>
 
