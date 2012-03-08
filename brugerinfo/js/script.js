@@ -77,7 +77,7 @@ $(function() {
                 $('#btn_fb_signup').hide();
                 $('#btn_fb_like').css('visibility', 'visible');
             }
-        }, 'json');
+        }, 'html');
             
         
       } else {
