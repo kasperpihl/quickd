@@ -14,7 +14,7 @@ Class Mail{
 	}
 	private static function sendMail($to,$subject,$message){
 		$headers = 
-			'From: QuickD-teamet ' .self::$sender . "\r\n" . 
+			'From: QuickD-teamet <' .self::$sender . ">\r\n" . 
 			'Reply-To: '.self::$sender . "\r\n" .
     		'X-Mailer: PHP/' . phpversion();
 		mail($to,$subject,$message,$headers);
