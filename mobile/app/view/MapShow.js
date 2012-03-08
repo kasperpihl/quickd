@@ -1,7 +1,7 @@
 Ext.define('QuickD.view.MapShow', {
     extend: 'Ext.Panel',
     requires:[
-    'Ext.Map'
+        'Ext.Map'
     ],
     xtype: 'mapshow',
     config: {

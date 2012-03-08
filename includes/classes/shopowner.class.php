@@ -32,14 +32,71 @@ class Shopowner {
 		catch(Exception $e){
 			echo json_encode(array('success'=>'false','error'=>'database_error','function'=>'shopowner_register','e'=>$e->getMessage())); }
 	}
+
+	public static function fb_connect() {
+		global $db,$session,$facebook;
+		// Get User ID
+		$user = $facebook->getUser();
+		if ($user) {
+		  try {
+		    // Proceed knowing you have a logged in user who's authenticated.
+
+		    $user_profile = (object) $facebook->api('/me');
+		    $email = $user_profile->email;
+
+		    // Getting facebook info
+		    $fb_info = new stdClass();
+			  $fb_info->id = intval($user_profile->id);
+			  $values = array('name', 'gender', 'locale');
+			  foreach ($values as $key) {
+			    if (isset($user_profile->$key)&& !empty($user_profile->$key)) $fb_info->$key = $user_profile->$key;
+			  }
+			  if (isset($user_profile->location, $user_profile->location->id)) {
+			  	$location = (object) $facebook->api('/'.$user_profile->location->id);
+			  	$fb_info->city = $location->location;
+			  }
+			  $model = new stdClass();
+			  $model->email = $email;
+			  $model->privileges = 1;
+			  $model->fb_info = $fb_info;
+			  //print_r($model);
+			  //print_r($email);
+		    //return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>$model));
+		    $user=(object) json_decode(self::checkEmail($email));
+		    if ($email&&$user&&$user->success=='true') {
+		    	//user already exists;
+		    	//return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>array('model'=>$model,'user'=>$user)));
+		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->_id, 'params'=>array('json'=>json_encode($model)))));
+		    } else {
+		    	//new user
+		    	//return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>array('model'=>$model)));
+		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('params'=>array('json'=>json_encode($model)))));
+		    }
+		    if($result && $result->success == 'true'){
+					$result->data->email = $email;
+					$session->login($result->data->id,$model->privileges);
+				}
+				return $result;
+		    
+		  } catch (FacebookApiException $e) {
+		    return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','e'=>$e->getMessage(),'data'=>$user_profile));
+		  } catch(Exception $e){
+				return json_encode(array('success'=>'false','error'=>'database_error','function'=>'fb_connect','e'=>$e->getMessage(), 'data'=>$model)); 
+			}
+		} else {
+			return json_encode(array('success'=>'false','error'=>'facebook_not_logged_in','function'=>'fb_connect'));
+		}
+	}
+
 	public static function checkEmail($email){
 		global $db;
 		try{
-			$user = $db->key($email)->getView('dealer','getUsersByMail');
+			$user = $db->key($email)->limit(1)->getView('dealer','getUsersByMail');
 			$user = $user->rows;
-			return !empty($user);
+			if (empty($user)) return null;
+			else return $user[0];
 		}
-		catch(Exception $e){ echo json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); }
+		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'checkEmail', 'e'=>$e->getMessage())); }
 	}
 	public static function getShopowner(){
 		

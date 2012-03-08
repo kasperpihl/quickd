@@ -66,6 +66,10 @@ $db_subscribers = new couchClient('http://quickd:testanders@77.66.53.58:5984', '
 $db_subscribers_business = new couchClient('http://quickd:testanders@77.66.53.58:5984', 'quickd_subscribers_business');
 $uagent = new uagent_info();
 $session = new Session();
+$facebook = new Facebook(array(
+  'appId'  => '286675801401479',
+  'secret' => 'a7878832e840ac3a4cdb52c373db19e1',
+));
 //$session->logout();
 $dealer = $session->logged_dealer();
 $admin = $session->logged_admin();

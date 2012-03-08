@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteRule ^api/(login|register|fbconnect|logout) ajax.php?action=$1 [NC,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !index
+RewriteRule (.*) index.php [NC,L]

@@ -1,6 +1,14 @@
 var showDealTemplate = new Ext.XTemplate(
     '<div id="quickd-deal-background">{title}',
-    '</div>s',
+    '</div>',
+    {
+        priceIt: priceIt,
+        humanReadableDistance: humanReadableDistance
+    }
+);
+var showDealBackground = new Ext.XTemplate(
+    
+    '<span class="orig_price">{orig_price}</span><span class="deal_price">{deal_price}</span>',
     {
         priceIt: priceIt,
         humanReadableDistance: humanReadableDistance
@@ -8,23 +16,44 @@ var showDealTemplate = new Ext.XTemplate(
 );
 Ext.define('QuickD.view.DealShow', {
     extend: 'Ext.Panel',
-    requires:[
-        'Ext.Map'
-    ],
     xtype: 'dealshow',
+    requires:[
+        'Ext.Carousel'
+    ],
     config: {
-        height:'100%',
-        zIndex: 3,
-        tpl: showDealTemplate,
-        record: null
+        layout:'vbox',
+        defaults:{
+            flex:1
+        },
+        items: [{
+            xtype: 'carousel',
+            id: 'quickd-deal-slider',
+            height:200,
+            indicator: false,
+
+            defaults:{
+                cls: 'quickd-deal-background',
+                tpl: showDealBackground
+            },
+            items:[
+
+            ]
+        },
+        {
+            xtype: 'panel',
+            id: 'quickd-deal-content',
+            tpl: showDealTemplate
+        }]
     },
     
-    loadDeal:function(record){
-        this.setData(record.data);
-    },
-    updateRecord: function(newRecord) {
+    loadDeal:function(record,list){
+        log('logging data',record.data);
+        //this.down('#quickd-deal-slider').setItems(list.getItems().items);
+        this.down('#quickd-deal-content').setData(record.data);
+    }
+    /*updateRecord: function(newRecord) {
         if (newRecord) {
             this.setData(newRecord.data);
         }
-    }
+    }*/
 });
