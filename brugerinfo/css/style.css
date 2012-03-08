@@ -139,6 +139,7 @@ body {
 #btn_fb_signup {
   width:170px;
   height:23px;
+  cursor: pointer;
   float:left;
   background:url('../img/loader2.gif') center center no-repeat;
 }
