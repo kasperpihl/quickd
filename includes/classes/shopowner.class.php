@@ -52,7 +52,7 @@ class Shopowner {
 		    	
 		    	if($user&&$user->success=='true') {
 		    		//user already exists;
-		    		$u = $user->data;
+		    		$u = $user->data->value;
 		    		print_r($u);
 		    		echo "True: ".is_object($u);
 		    		if (isset($u->fb_info)) echo "fb_info here";
