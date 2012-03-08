@@ -20,14 +20,15 @@
        More info: h5bp.com/b/378 -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title></title>
+  <title>QuickD</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <meta property="og:title" content="QuickD - Instant deals around you" />
+  <meta property="og:title" content="QuickD" />
+  <meta property="og:description" content="beskrivelse"/>
   <meta property="og:type" content="website" />
   <meta property="og:url" content="http://www.quickd.dk" />
   <meta property="og:image" content="<?=ROOT_URL?>img/logo_medium.jpg" />
