@@ -51,13 +51,14 @@ $(function() {
 }(document));
 
  function doFBSubscribe() {
-    $('#btn_fb_signup img').fadeOut('fast');
     FB.login(function(response) {
       if (response.authResponse) {
+        $('#btn_fb_signup img').fadeOut('fast');
         FB.api('/me', function(response) {
             console.log("Facebook login");
             console.log(response);
             $.post("api/fbconnect", {}, function(data) {
+                data = JSON.parse(data);
                 console.log(data);
                 if (data.success == true) {
                     //Successfully logged in!!
