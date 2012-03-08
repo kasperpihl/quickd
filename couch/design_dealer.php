@@ -45,13 +45,11 @@ try{
 			 
 			 return JSON.stringify(obj);
 		}
-		var timestamp = parseInt(new Date().getTime()/1000);
 		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
 		var query = JSON.parse(req.query.json);
 		if(!query.hasOwnProperty('fb_info')) return [null, msg('fb_details_not_specified')];
-		query.fb_info.updateTime = timestamp;
 		if (doc) {
-			doc.fb_info = query.fb_info;
+			doc.user.fb_info = query.fb_info;
 		} else {
 			if(!query.hasOwnProperty('email')) return [null, msg('email_must_be_specified')];
 			if(!query.hasOwnProperty('privileges')) query.privileges=1;
