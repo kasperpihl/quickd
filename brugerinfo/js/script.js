@@ -60,7 +60,7 @@ $(function() {
             $.post("api/fbconnect", {}, function(data) {
                 data = JSON.parse(data);
                 console.log(data);
-                if (data.success == true) {
+                if (data.success == 'true') {
                     //Successfully logged in!!
                     $('#btn_fb_signup').hide();
                     $('#registration_response').show();
