@@ -50,11 +50,11 @@ class Shopowner {
 		    	
 		    	$user = (object) json_decode(self::checkEmail($email));
 		    	
-		    	if($user&&$user->success=='true') {
+		    	if($user&&$user->success=='true'&&isset($user->data,$user->data->value,$user->data->value->fb_info)) {
 		    		//user already exists;
-		    		$u = $user->data->value;
-		    		if (isset($u->fb_info) && isset($u->fb_info->lastUpdate) && $u->fb_info->lastUpdate >= time()-7*24*60*60)
-		    			return  json_encode(array('success'=>'true', 'id'=>$u->id, 'updated'=>'no'));
+		    		$fb = $user->data->value->fb_info;
+		    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60)
+		    			return  json_encode(array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no'));
 		    	} else $user = false;
 		    }
 		    
