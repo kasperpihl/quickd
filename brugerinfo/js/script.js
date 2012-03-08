@@ -62,9 +62,10 @@ $(function() {
 }(document));*/
 
  function doFBSubscribe() {
+    var spinner = $('<img />').src('img/loader.png').class('spinning-loader');
     FB.login(function(response) {
       if (response.authResponse) {
-        $('#btn_fb_signup img').fadeOut('fast');
+        $('#btn_fb_signup').html(spinner);
         
         $.post("api/fbconnect", {}, function(data) {
             data = JSON.parse(data);

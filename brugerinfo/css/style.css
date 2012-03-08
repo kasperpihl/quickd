@@ -139,13 +139,34 @@ body {
 #btn_fb_signup {
   width:170px;
   height:23px;
+  margin-right:5px;
   cursor: pointer;
   float:left;
-  background:url('../img/loader2.gif') center center no-repeat;
+  text-align:center;
+}
+@-webkit-keyframes webkit-spin-that-shit {
+    0%   { -webkit-transform: rotate(0deg);   }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes moz-spin-that-shit {
+    0%   { -moz-transform: rotate(0deg);   }
+    100% { -moz-transform: rotate(360deg); }
+}
+@-ms-keyframes ms-spin-that-shit {
+    0%   { -ms-transform: rotate(0deg);   }
+    100% { -ms-transform: rotate(360deg); }
+}
+.spinning-loader {  
+  height:20px;
+  margin:1px auto;
+  -webkit-animation: webkit-spin-that-shit 0.85s infinite linear;
+  -moz-animation: moz-spin-that-shit 0.85s infinite linear;
+  -ms-animation: ms-spin-that-shit 0.85s infinite linear;
 }
 #btn_fb_like {
   float:left;
   width:170px;
+  margin-right:5px;
   padding:1px 0px;
 }
 
