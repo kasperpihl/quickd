@@ -37,14 +37,15 @@ body {
   font-size: 13px;
   line-height: 1.231;
   font-family: "Helvetica";
+  background-color: #EAEAEA;
 }
 
-#bgImage {position:absolute;top:0px;left:0px;width:100%; height: 100%; background-image: url('../img/bg4.png'); background-size: cover; z-index: 1; box-shadow: 0 0 10px black;}
+#bgImage {position:absolute;top:0px;left:0px;width:100%; height: 100%; background-image: url('../img/bg4.png'); background-size: cover; z-index: 1; box-shadow: 0 0 10px black; background-position: left bottom;}
 
 #read-more {
   position: absolute;
   top: 100%;
-  margin-top: 18px;
+  margin-top: 35px;
   min-height: 102%;
   font-family: "Helvetica";
   font-weight: 100;
@@ -79,12 +80,16 @@ body {
   margin: 40px;
 }
 
-#signup {
+#container_left {
   position: absolute;
-  bottom: 35px;
+  bottom: 20%;
   left: 0px;
   margin-left: 40px;
-  width: 320px;
+}
+
+#signup {
+  position: relative;
+  width: 295px;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.6);
@@ -100,6 +105,23 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#bcbbbb',GradientType=0 ); /* IE6-9 */
 }
 
+#intro h1 {
+  color: white;
+  font-weight: 600;
+  margin: 0px;
+  font-size: 2.5;
+  text-shadow: rgba(0, 0, 0, 0.8) 0 2px;
+}
+
+#intro h2 {
+  color: white;
+  font-weight: 100;
+  font-size: 2em;
+  margin: 0px;
+  margin-bottom: 25px;
+  text-shadow: rgba(0, 0, 0, 0.8) 0 1px;
+}
+
 #signup h1 {
   color: black;
   font-weight: 100;
@@ -107,7 +129,7 @@ body {
   margin-top: 0px;
   margin-bottom: 10px;
 
-  text-shadow: 0 1px 1px white;
+  text-shadow: 0px 1px 1px white;
 }
 
 #signup p {
@@ -116,11 +138,67 @@ body {
 
 #read-more-btn {
   position: absolute;
-  bottom: 35px;
-  left: 300px;
+  bottom: 40px;
+  right: 50px;
+  padding: 0px;
+  width: 56px;
+  height: 57px;
+  border-radius: 5px;
+}
+
+#scroll-up-btn {
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
+  padding: 0px;
   width: 50px;
-  height: 100px;
-  background-color: orange;
+  height: 51px;
+}
+
+#features {
+  width: 680px;
+  height: 500px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#features article{
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  text-align: left;
+  display: block;
+  clear: both;
+}
+
+#features article h1 {
+  font-size: 20px;
+}
+
+#features article p {
+  font-size: 13px;
+  text-align: justify;
+}
+
+#features aside .left {
+  float: left;
+}
+
+#features aside .right {
+  float: right;
+}
+
+section .left {
+  float: left;
+  margin-right: 10px;
+  width: 320px;
+}
+
+section .right {
+  float: right;
+  margin-left: 10px;
+  width: 320px;
 }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
