@@ -62,7 +62,7 @@ class Shopowner {
 			  //print_r($model);
 			  //print_r($email);
 		    //return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>$model));
-		    $user=(object) json_decode(self::checkEmail($email));
+		    $user=self::checkEmail($email);
 		    print_r($user);
 		    if ($email&&$user&&$user->success=='true') {
 		    	//user already exists;
