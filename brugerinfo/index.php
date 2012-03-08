@@ -86,7 +86,7 @@
             <!--<div id="btn_fb_signup"><img src="img/facebook.png"></div>-->
             <div id="btn_fb_signup"><div class="fb-bg"><span class="fb_btn_text">Forbind med Facebook</span></div></div>
           <?php } ?>
-          <div id="btn_fb_like" style="visibility:<?=$registred?'visible':'hidden'?>">
+          <div id="btn_fb_like" style="display:<?=$registred?'block':'none'?>">
             <div class="fb-like" data-href="http://www.facebook.com/pages/QuickD/203907689684007" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false"></div>
           </div>
             
@@ -128,6 +128,8 @@
                 </p>
               </section>
               <aside class="right"><img src="img/deal-at-shop.png"></aside>
+            </article>
+            <div style="clear:both"/>
           </section>
           <div id="scroll-up-btn"><a href="#top"><img src="img/scroll-up.png"></a></div>
           <div id="copyright">Copyright &copy; 2011-2012 QuickD. All rights reserved.</div>
