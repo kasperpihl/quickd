@@ -6,7 +6,7 @@ class Shopowner {
 			$email = isset($model['email']) ? strtolower($model['email']) : '';
 			$password = isset($model['password']) ? $model['password'] : '';
 			if(strlen($password) < 6) return array('success'=>'false','error'=>'password_must_be_6_long');
-			if(!$email || self::checkEmail($email)) return array('success'=>'false','error'=>'user_exists');
+			if(!$email || self::checkEmail($email)->success=='true') return array('success'=>'false','error'=>'user_exists');
 			$update = 'registerUser';
 			if(BETA_MODE){
 				if(!isset($model['betacode'])) return array('success'=>'false','error'=>'betacode_must_be_included');
@@ -59,20 +59,23 @@ class Shopowner {
 			  $model->email = $email;
 			  $model->privileges = 1;
 			  $model->fb_info = $fb_info;
-		    //return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>$model));
-		    if ($email&&$user=self::checkEmail($email)) {
+			  
+		    $user=self::checkEmail($email);
+		    if ($email&&$user&&$user->success=='true') {
 		    	//user already exists;
-		    	return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>array('model'=>$model,'user'=>$user)));
-		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->_id, 'params'=>array('json'=>$model))));
+		    	$u = $user->data;
+		    	if(!isset($u->fb_info) || !isset($u->updateTime) || $u->updateTime < time()-7*24*60*60)
+		    		$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$u->id, 'params'=>array('json'=>json_encode($model)))));
+		    	else $result = array('success'=>'true', 'id'=>$u->id, 'updated'=>'no');
 		    } else {
 		    	//new user
-		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('params'=>array('json'=>$model))));
+		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('params'=>array('json'=>json_encode($model)))));
 		    }
-		    /*if($result && $result->success == 'true'){
+		    if($result && $result->success == 'true'){
 					$result->data->email = $email;
 					$session->login($result->data->id,$model->privileges);
-				}*/
-				return $result;
+				}
+				return json_encode($result);
 		    
 		  } catch (FacebookApiException $e) {
 		    return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','e'=>$e->getMessage(),'data'=>$user_profile));
@@ -87,12 +90,12 @@ class Shopowner {
 	public static function checkEmail($email){
 		global $db;
 		try{
-			$user = $db->key($email)->getView('dealer','getUsersByMail');
+			$user = $db->key($email)->limit(1)->getView('dealer','getUsersByMail');
 			$user = $user->rows;
-			if (empty($user)) return null;
-			else return $user;
+			if (empty($user)) return (object) array('success'=>'false','error'=>'no_user','function'=>'checkEmail');
+			else return (object) array('success'=>'true','data'=>$user[0]);
 		}
-		catch(Exception $e){ echo json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); }
+		catch(Exception $e){ return (object) array('success'=>'false','error'=>'database_error','function'=>'checkEmail', 'e'=>$e->getMessage()); }
 	}
 	public static function getShopowner(){
 		
