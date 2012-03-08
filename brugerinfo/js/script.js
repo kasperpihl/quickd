@@ -62,7 +62,7 @@ $(function() {
 }(document));*/
 
  function doFBSubscribe() {
-    var spinner = $('<img />').src('img/loader.png').class('spinning-loader');
+    var spinner = $('<img />').attr('src','img/loader.png').addClass('spinning-loader');
     FB.login(function(response) {
       if (response.authResponse) {
         $('#btn_fb_signup').html(spinner);
