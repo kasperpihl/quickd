@@ -72,10 +72,10 @@ class Shopowner {
 		    	//return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>array('model'=>$model)));
 		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('params'=>array('json'=>json_encode($model)))));
 		    }
-		    /*if($result && $result->success == 'true'){
+		    if($result && $result->success == 'true'){
 					$result->data->email = $email;
 					$session->login($result->data->id,$model->privileges);
-				}*/
+				}
 				return $result;
 		    
 		  } catch (FacebookApiException $e) {
