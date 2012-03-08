@@ -29,7 +29,7 @@
 
   <meta property="og:title" content="QuickD - Instant deals around you" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="http://www.quickd.dk" />
+  <meta property="og:url" content="<?=ROOT_URL?>" />
   <meta property="og:image" content="<?=ROOT_URL?>img/logo_medium.jpg" />
   <meta property="og:site_name" content="QuickD" />
   <meta property="fb:admins" content="508608046" />
