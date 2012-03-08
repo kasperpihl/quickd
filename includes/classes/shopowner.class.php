@@ -63,10 +63,11 @@ class Shopowner {
 			  //print_r($email);
 		    //return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>$model));
 		    $user=(object) json_decode(self::checkEmail($email));
+		    print_r($user);
 		    if ($email&&$user&&$user->success=='true') {
 		    	//user already exists;
 		    	//return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>array('model'=>$model,'user'=>$user)));
-		    	print_r($user);
+		    	
 		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->_id, 'params'=>array('json'=>json_encode($model)))));
 		    } else {
 		    	//new user
