@@ -51,6 +51,7 @@ $(function() {
 }(document));
 
  function doFBSubscribe() {
+    $('#btn_fb_signup img').fadeOut('fast');
     FB.login(function(response) {
       if (response.authResponse) {
         FB.api('/me', function(response) {
@@ -60,9 +61,10 @@ $(function() {
                 console.log(data);
                 if (data.success == true) {
                     //Successfully logged in!!
-                    alert("Du er motherfucking logget ind nu!");
+                    $('#btn_fb_signup').hide();
+                    $('#registration_response').show();
                 }
-            }, 'html');
+            }, 'json');
             
         });
       } else {

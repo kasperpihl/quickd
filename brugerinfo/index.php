@@ -53,10 +53,18 @@
         <div id="signup">
           <h1>Skriv dig op</h1>
           <p><strong>Den 20. april</strong> åbner vi for en begrænset beta-test i Aarhus. Få en invitation ved at registrere dig med Facebook:</p>
-          <?php $fb = json_decode(Shopowner::fb_connect());
-            if ($session->logged_user() || (isset($fb->success)&&$fb->success==='true')) echo "Logget ind!"
-           ?>
-          <img id="btn_fb_signup" src="img/facebook.png">
+          <?php 
+            $registred = false;
+            if (!$session->logged_user()) {
+              $fb = json_decode(Shopowner::fb_connect());
+              if (isset($fb->success)&&$fb->success==='true') $registred = true;
+            } else $registred = true;
+
+
+            if (!$registred) {   ?>
+              <div id="btn_fb_signup"><img src="img/facebook.png"></div>
+            <?php } ?>
+            <div id="registration_response" style="display:<?=$registred?'block':'none'?>">Tak for registreringen!</div>
           <a href="#read-more"><img src="img/read-more-btn.png"></a>
         </div>
       </div>
