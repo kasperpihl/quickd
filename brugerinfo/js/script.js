@@ -17,14 +17,6 @@ $(function() {
         */
         event.preventDefault();
     });
-
-    
-    
-    
-    
-
-   
-
 });
 
 //Facebook like
@@ -54,10 +46,7 @@ $(function() {
     var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
     js = d.createElement('script'); js.id = id; js.async = true;
     js.src = "//connect.facebook.net/en_US/all.js";
-    d.getElementsByTagName('head')[0].appendChild(js);
-
-
-    
+    d.getElementsByTagName('head')[0].appendChild(js);    
 }(document));*/
 
  function doFBSubscribe() {
@@ -87,12 +76,53 @@ $(function() {
     }, {scope: 'email'});
 }
 
+/**
+ * Background scaler plugin
+ * Author: Jens Ahrengot Boddum
+ */
 
+// Cross-browser polyfill for Object.create
+if (typeof Object.create !== 'function') {
+  Object.create = function(obj) {
+    function F() {}
+    F.prototype = obj;
+    return F();
+  };
+}
 
+(function($, window, document, undefined) {
+  var ScalingBackground = {
+    init:function(options, el) {
+      var self = this;
+      self.$el = $(el);
+      self.url = (typeof options === 'string') ? options : options.imgURL;
+      self.options = $.extend({}, $.fn.scalingbackground.options, options);
 
+      this.addBackground();
+    },
+    addBackground: function() {
+      console.log('adding background');
+      $('body').prepend('<div><img class="scalingbackground" src="' + this.options.imgURL + '" /></div>');
+    },
+    handleResize: function(e) {
 
+    }
+  };
 
+  $.fn.scalingbackground = function(options) {
+    return this.each(function() {
+      var bg = Object.create(ScalingBackground);
+      bg.init(options, this);
+    });
+  };
 
+  $.fn.scalingbackground.options = {
+    imgURL: 'no image found'
+  };
+
+})(jQuery, window, document);
+
+// $(document.body).scalingbackground('http://lorempixum.com/1280/800/nature/1');
 
 
 
