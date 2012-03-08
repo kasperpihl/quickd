@@ -30,7 +30,7 @@
   <meta property="og:title" content="QuickD" />
   <meta property="og:description" content="En ny måde at handle på - snart i din by."/>
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="http://www.facebook.com/pages/QuickD/203907689684007" />
+  <meta property="og:url" content="http://www.quickd.dk" />
   <meta property="og:image" content="<?=ROOT_URL?>img/logo_medium.jpg" />
   <meta property="og:site_name" content="QuickD" />
   <meta property="fb:admins" content="508608046" />
@@ -48,6 +48,12 @@
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
        For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
+  <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
 </head>
 
 <body>
@@ -74,7 +80,7 @@
             <div id="btn_fb_signup"><img src="img/facebook.png"></div>
           <?php } ?>
           <div id="btn_fb_like" style="display:<?=$registred?'block':'none'?>">
-            <div class="fb-like" data-href="http://www.quickd.dk" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false"></div>
+            <div class="fb-like" data-href="http://www.facebook.com/pages/QuickD/203907689684007" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false"></div>
           </div>
             
           <a href="#read-more"><img src="img/read-more-btn.png"></a>
