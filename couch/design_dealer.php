@@ -51,17 +51,15 @@ try{
 		if(!query.hasOwnProperty('fb_info')) return [null, msg('fb_details_not_specified')];
 		if (doc) {
 			doc.fb_info = query.fb_info;
-			var obj = doc;
 		} else {
-			
 			if(!query.hasOwnProperty('email')) return [null, msg('email_must_be_specified')];
 			if(!query.hasOwnProperty('privileges')) query.privileges=1;
 			var historyArray = new Array();
 			historyArray.push({timestamp: timestamp,action:'created',type:'user','priority':2});
-			var obj = {_id: req.uuid, type:'user', user: {email:query.email, privileges: parseInt(query.privileges), fb_info: query.fb_info},history:historyArray};
+			var doc = {_id: req.uuid, type:'user', user: {email:query.email, privileges: parseInt(query.privileges), fb_info: query.fb_info},history:historyArray};
 		}
 		
-		return [obj,msg({id:req.uuid},true)];
+		return [doc,msg({id:req.uuid},true)];
 	}";
 	$startStopDeal = 
 	"function(doc,req){
