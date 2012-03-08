@@ -1,3 +1,4 @@
+<?php require_once('../config.php'); ?>
 <!doctype html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
@@ -52,6 +53,7 @@
         <div id="signup">
           <h1>Skriv dig op</h1>
           <p><strong>Den 20. april</strong> åbner vi for en begrænset beta-test i Aarhus. Få en invitation ved at registrere dig med Facebook:</p>
+          <?php print_r(Shopowner::fb_connect()) ?>
           <img id="btn_fb_signup" src="img/facebook.png">
           <a href="#read-more"><img src="img/read-more-btn.png"></a>
         </div>
