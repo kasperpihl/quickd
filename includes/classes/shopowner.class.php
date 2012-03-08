@@ -76,7 +76,8 @@ class Shopowner {
 		  } catch (FacebookApiException $e) {
 		    return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','e'=>$e->getMessage(),'data'=>$user_profile));
 		  } catch(Exception $e){
-				return json_encode(array('success'=>'false','error'=>'database_error','function'=>'fb_connect','e'=>$e->getMessage())); }
+				return json_encode(array('success'=>'false','error'=>'database_error','function'=>'fb_connect','e'=>$e->getMessage())); 
+			}
 		} else {
 			return json_encode(array('success'=>'false','error'=>'facebook_not_logged_in','function'=>'fb_connect'));
 		}
