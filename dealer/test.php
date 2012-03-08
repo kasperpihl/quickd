@@ -1,7 +1,7 @@
 <?php
-require_once('../config.php');
+/*require_once('../config.php');
 echo phpinfo(); die();
-/*$result = array();
+$result = array();
 $array = array('Denis','Anders','Kasper','Kristjan');
 for ($i = 0; $i < 10000 ; $i++){
 	$different = false;
@@ -28,13 +28,14 @@ foreach($result as $index => $value){
 }
 print_r($result);
 print_r($winner . ': '.$max);
-
-echo mail("andershoedholt@gmail.com","andershoedholt@gmail.com","andershoedholt@gmail.com"); 
+*/
+/*echo mail("andershoedholt@gmail.com","andershoedholt@gmail.com","andershoedholt@gmail.com"); 
+echo mail('jstougaard@gmail.com','jstougaard@gmail.com','jstougaard@gmail.com');
 echo mail("anders@hoedholt.com","anders@hoedholt.com","anders@hoedholt.com");
 echo mail("anders@hoedholt.me","anders@hoedholt.me","anders@hoedholt.me");
 echo mail("hoedholt@me.com","hoedholt@me.com","hoedholt@me.com");
-echo mail('kasperpihl@me.com','kasperpihl@me.com','kasperpihl@me.com');
-echo mail('kasper@tornoe.org','tornoe@tornoe.org','tornoe@tornoe.org');
+echo mail('kasperpihl@me.com','kasperpihl@me.com','kasperpihl@me.com');*/
+echo mail('kasper@tornoe.org','kasper@tornoe.org','kasper@tornoe.org');
 /*
 //echo mail('jstougaard@gmail.com','jstougaard@gmail.com','jstougaard@gmail.com');
 //$update = 'testUpdate';
