@@ -69,7 +69,7 @@ $(function() {
         
         $.post("api/fbconnect", {}, function(data) {
             data = JSON.parse(data);
-            console.log(data);
+            //console.log(data);
             if (data.success == 'true') {
                 //Successfully logged in!!
                 $('#start_text').fadeOut('fast');
