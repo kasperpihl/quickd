@@ -53,7 +53,10 @@ class Shopowner {
 		    	if($user&&$user->success=='true') {
 		    		//user already exists;
 		    		$u = $user->data;
-		    		if (isset($u->fb_info) && isset($u->fb_info->updateTime) && $u->fb_info->updateTime >= time()-7*24*60*60)
+		    		print_r($u);
+		    		echo "  Time: ".time();
+		    		die();
+		    		if (isset($u->fb_info) && isset($u->fb_info->lastUpdate) && $u->fb_info->lastUpdate >= time()-7*24*60*60)
 		    			return  json_encode(array('success'=>'true', 'id'=>$u->id, 'updated'=>'no'));
 		    	} else $user = false;
 		    }
@@ -61,6 +64,7 @@ class Shopowner {
 		    // Getting facebook info
 		    $fb_info = new stdClass();
 			  $fb_info->id = intval($user_profile->id);
+			  $fb_info->lastUpdate = time();
 			  $values = array('name', 'gender', 'locale');
 			  foreach ($values as $key) {
 			    if (isset($user_profile->$key)&& !empty($user_profile->$key)) $fb_info->$key = $user_profile->$key;

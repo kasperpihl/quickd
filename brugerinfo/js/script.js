@@ -65,19 +65,19 @@ $(function() {
     FB.login(function(response) {
       if (response.authResponse) {
         $('#btn_fb_signup').html(spinner);
-        $('#start_text').fadeOut();
+        $('#start_text').fadeOut('slow');
         
         $.post("api/fbconnect", {}, function(data) {
-            data = JSON.parse(data);
+            //data = JSON.parse(data);
             console.log(data);
-            if (data.success == 'true') {
+            /*if (data.success == 'true') {
                 //Successfully logged in!!
                 $('#start_text').fadeOut('fast');
                 $('#response_text').fadeIn('fast');
                 $('#btn_fb_signup').hide();
                 $('#btn_fb_like').css('visibility', 'visible');
-            }
-        }, 'json');
+            }*/
+        }, 'html');
             
         
       } else {
