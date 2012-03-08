@@ -54,6 +54,7 @@ try{
 			if(!query.hasOwnProperty('email')) return [null, msg('email_must_be_specified')];
 			if(!query.hasOwnProperty('privileges')) query.privileges=1;
 			var historyArray = new Array();
+			var timestamp = parseInt(new Date().getTime()/1000);
 			historyArray.push({timestamp: timestamp,action:'created',type:'user','priority':2});
 			var doc = {_id: req.uuid, type:'user', user: {email:query.email, privileges: parseInt(query.privileges), fb_info: query.fb_info},history:historyArray};
 		}
