@@ -56,7 +56,7 @@ Ext.define('QuickD.view.DealShow', {
             slider.add({}).setData(records[key].data);
         }
     },
-    loadDeal:function(record,list){
+    loadDeal:function(record){
         log('logging data',record.getData());
         //this.down('#quickd-deal-slider').setItems(list.getItems().items);
         this.down('#quickd-deal-content').setData(record.getData());

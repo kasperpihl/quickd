@@ -20,7 +20,4 @@ Class Mail{
 		mail($to,$subject,$message,$headers);
 	}
 }
-
-Mail::sendBetaConfirmation('kasper@tornoe.org');
-Mail::sendBetaConfirmation('kasperpihl@me.com');
 ?>
