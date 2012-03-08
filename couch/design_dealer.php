@@ -48,7 +48,7 @@ try{
 		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
 		var query = JSON.parse(req.query.json);
 		if(!query.hasOwnProperty('fb_info')) return [null, msg('fb_details_not_specified')];
-		if (doc) {
+		if (doc && doc.hasOwnProperty('user')) {
 			doc.user.fb_info = query.fb_info;
 		} else {
 			if(!query.hasOwnProperty('email')) return [null, msg('email_must_be_specified')];
