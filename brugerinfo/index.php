@@ -84,7 +84,7 @@
           </div>
           <?php if (!$registred) {   ?>
             <!--<div id="btn_fb_signup"><img src="img/facebook.png"></div>-->
-            <div id="btn_fb_signup"><span class="fb_btn_text">Forbind med Facebook</span></div>
+            <div id="btn_fb_signup"><div class="fb-bg"><span class="fb_btn_text">Forbind med Facebook</span></div></div>
           <?php } ?>
           <div id="btn_fb_like" style="visibility:<?=$registred?'visible':'hidden'?>">
             <div class="fb-like" data-href="http://www.facebook.com/pages/QuickD/203907689684007" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false"></div>

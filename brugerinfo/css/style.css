@@ -142,7 +142,8 @@ body {
   cursor: pointer;
   float:left;
   text-align:center;
-
+}
+#btn_fb_signup .fb-bg {
   background: #29447E url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);
   background-repeat: no-repeat;
   background-position: left -188px;
