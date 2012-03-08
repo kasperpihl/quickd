@@ -1,5 +1,6 @@
 <?php
 require_once('../config.php');
+print_r('test');
 /*$result = array();
 $array = array('Denis','Anders','Kasper','Kristjan');
 for ($i = 0; $i < 10000 ; $i++){
@@ -42,10 +43,5 @@ print_r($db->updateDocFullAPI('dealer','addEditImage',array('doc_id'=>$dealer,'p
 echo (360 + (0 % 360)) % 360;
 
 */
-
-Mail::sendBetaConfirmation('jstougaard@gmail.com');
-Mail::sendBetaConfirmation('anders@hoedholt.com');
-Mail::sendBetaConfirmation('anders@hoedholt.me');
-Mail::sendBetaConfirmation('andershoedholt@me.com');
 ?>
 
