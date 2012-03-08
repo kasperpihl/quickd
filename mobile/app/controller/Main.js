@@ -12,6 +12,7 @@ Ext.define('QuickD.controller.Main', {
             backButton: '#backButton',
             dealList: 'mainview > deallist',
             dealShow: 'mainview > dealshow',
+            dealShowSlider: 'mainview > dealshow > carousel',
             mapShow: 'mainview > mapshow'
         },
         control: {
@@ -26,9 +27,15 @@ Ext.define('QuickD.controller.Main', {
                 itemtap: 'onDealSelect'
             },
             backButton: {
-                tap: 'handleBack'    
+                tap: 'handleBack'
+            },
+            dealShowSlider:{
+                activeitemchange: 'test'
             }
         }
+    },
+    test:function(container,newItem,oldItem){
+        this.getDealShow().loadDeal(newItem);
     },
     init: function() {
         Ext.getStore('Deals').addListener('refresh',this.updatedStore,this);
@@ -47,7 +54,7 @@ Ext.define('QuickD.controller.Main', {
         
     },
     filterChange:function(instance,data,options){
-        if(data && data.hasOwnProperty('data')){    		
+        if(data && data.hasOwnProperty('data')){
             var id = data.data.value;
             if(id != this.filter){
                 this.filter = id;
@@ -68,11 +75,14 @@ Ext.define('QuickD.controller.Main', {
 
     },
     updatedStore:function(instance,data,options){
-        log(instance.getData());
+        this.getDealShow().setSlider(instance.getData().items);
+        /*.each(function(item){
+            log(item)
+        });*/
        //log('refresh',instance,data,options);
        // log('updater',instance,data,options);
     },
-    onLocationUpdate:function(test){
+    onLocationUpdate:function(){
         this.getMain().getAt(0).show();
         this.getMain().setActiveItem(this.getDealList());
         localStorage.setItem('lat',this.location.getLatitude());

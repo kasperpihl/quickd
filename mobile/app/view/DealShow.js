@@ -28,12 +28,15 @@ Ext.define('QuickD.view.DealShow', {
         items: [{
             xtype: 'carousel',
             id: 'quickd-deal-slider',
-            height:200,
+            config:{
+                height:100
+            },
             indicator: false,
 
             defaults:{
                 cls: 'quickd-deal-background',
-                tpl: showDealBackground
+                tpl: showDealBackground,
+                record:null
             },
             items:[
 
@@ -45,11 +48,18 @@ Ext.define('QuickD.view.DealShow', {
             tpl: showDealTemplate
         }]
     },
-    
+    setSlider:function(records){
+        var array = [];
+        var slider = this.down('#quickd-deal-slider');
+        slider.removeAll(true,true);
+        for(var key in records){
+            slider.add({}).setData(records[key].data);
+        }
+    },
     loadDeal:function(record,list){
-        log('logging data',record.data);
+        log('logging data',record.getData());
         //this.down('#quickd-deal-slider').setItems(list.getItems().items);
-        this.down('#quickd-deal-content').setData(record.data);
+        this.down('#quickd-deal-content').setData(record.getData());
     }
     /*updateRecord: function(newRecord) {
         if (newRecord) {

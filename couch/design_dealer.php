@@ -49,20 +49,18 @@ try{
 		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
 		var query = JSON.parse(req.query.json);
 		if(!query.hasOwnProperty('fb_info')) return [null, msg('fb_details_not_specified')];
+		query.fb_info.updateTime = timestamp;
 		if (doc) {
 			doc.fb_info = query.fb_info;
-			var obj = doc;
 		} else {
-			
 			if(!query.hasOwnProperty('email')) return [null, msg('email_must_be_specified')];
 			if(!query.hasOwnProperty('privileges')) query.privileges=1;
 			var historyArray = new Array();
 			historyArray.push({timestamp: timestamp,action:'created',type:'user','priority':2});
-			var obj = {_id: req.uuid, type:'user', user: {email:query.email, privileges: parseInt(query.privileges), fb_info: query.fb_info},history:historyArray};
+			var doc = {_id: req.uuid, type:'user', user: {email:query.email, privileges: parseInt(query.privileges), fb_info: query.fb_info},history:historyArray};
 		}
-		var obj = {_id: req.uuid, type:'user', user: {betacode: query.betacode, privileges: parseInt(query.privileges), hours: parseInt(query.hours), email:query.email, md5_password: query.password},history:historyArray};
 		
-		return [obj,msg({id:req.uuid},true)];
+		return [doc,msg({id:req.uuid},true)];
 	}";
 	$startStopDeal = 
 	"function(doc,req){
@@ -322,7 +320,7 @@ try{
 			var app = false;
 			if(query.title != temp.title) app = true;
 			if(query.description != temp.description) app = true;
-			if(query.category) obj.category = query.category;
+			if(query.category) temp.category = query.category;
 			if(query.title) temp.title = query.title;
 			if(query.description) temp.description = query.description; 
 			if(query.orig_price) temp.orig_price = parseFloat(query.orig_price);

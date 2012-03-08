@@ -4,8 +4,6 @@ Bugs:
 
 Slet template
 
-Databasefejl ved ændring af template
-
 Gennemtest billede-upload
 
 Vis rabat ved oprettelse af templates
@@ -36,6 +34,8 @@ Redigering af brugerindstillinger virker ikke.
 	Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Databasefejl ved ændring af template
 
 (rettet jeppe) Drag&drop i safari
 	Fallback på image upload. Det virker pt ikke i Safari
