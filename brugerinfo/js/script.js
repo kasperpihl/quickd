@@ -69,7 +69,7 @@ $(function() {
         $('#start_text').fadeOut('slow');
         
         $.post("api/fbconnect", {}, function(data) {
-            //data = JSON.parse(data);
+            data = JSON.parse(data);
             console.log(data);
             if (data.success == 'true') {
                 //Successfully logged in!!
@@ -78,7 +78,7 @@ $(function() {
                 $('#btn_fb_signup').hide();
                 $('#btn_fb_like').css('visibility', 'visible');
             }
-        }, 'html');
+        }, 'json');
             
         
       } else {
