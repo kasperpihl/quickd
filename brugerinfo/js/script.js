@@ -31,7 +31,7 @@ $(function() {
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/da_DK/all.js";
   fjs.parentNode.insertBefore(js, fjs);
 
@@ -65,6 +65,7 @@ $(function() {
     FB.login(function(response) {
       if (response.authResponse) {
         $('#btn_fb_signup').html(spinner);
+        $('#start_text').fadeOut();
         
         $.post("api/fbconnect", {}, function(data) {
             data = JSON.parse(data);
@@ -74,7 +75,7 @@ $(function() {
                 $('#start_text').fadeOut('fast');
                 $('#response_text').fadeIn('fast');
                 $('#btn_fb_signup').hide();
-                $('#btn_fb_like').show();
+                $('#btn_fb_like').css('visibility', 'visible');
             }
         }, 'json');
             
