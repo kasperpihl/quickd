@@ -62,15 +62,15 @@ class Shopowner {
 		    //return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','data'=>$model));
 		    if ($email&&$user=self::checkEmail($email)) {
 		    	//user already exists;
-		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->_id, 'params'=>array('json'=>json_encode($model)))));
+		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->_id, 'params'=>array('json'=>$model))));
 		    } else {
 		    	//new user
-		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('params'=>array('json'=>json_encode($model)))));
+		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('params'=>array('json'=>$model))));
 		    }
-		    if($result && $result->success == 'true'){
+		    /*if($result && $result->success == 'true'){
 					$result->data->email = $email;
 					$session->login($result->data->id,$model->privileges);
-				}
+				}*/
 				return $result;
 		    
 		  } catch (FacebookApiException $e) {
