@@ -28,9 +28,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <meta property="og:title" content="QuickD" />
-  <meta property="og:description" content="beskrivelse"/>
+  <meta property="og:description" content="En ny måde at handle på - snart i din by."/>
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="http://www.quickd.dk" />
+  <meta property="og:url" content="http://www.facebook.com/pages/QuickD/203907689684007" />
   <meta property="og:image" content="<?=ROOT_URL?>img/logo_medium.jpg" />
   <meta property="og:site_name" content="QuickD" />
   <meta property="fb:admins" content="508608046" />
