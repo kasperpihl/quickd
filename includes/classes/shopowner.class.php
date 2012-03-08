@@ -73,7 +73,7 @@ class Shopowner {
 			  
 		    
 		    if ($user) {
-		    	//user already exists;
+		    	//updating user;
 		    	$result = json_decode($db->updateDocFullAPI('dealer','updateFbInfo',array('doc_id'=>$user->data->id, 'params'=>array('json'=>json_encode($model)))));
 		    } else {
 		    	//new user

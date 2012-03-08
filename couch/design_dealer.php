@@ -320,7 +320,7 @@ try{
 			var app = false;
 			if(query.title != temp.title) app = true;
 			if(query.description != temp.description) app = true;
-			if(query.category) obj.category = query.category;
+			if(query.category) temp.category = query.category;
 			if(query.title) temp.title = query.title;
 			if(query.description) temp.description = query.description; 
 			if(query.orig_price) temp.orig_price = parseFloat(query.orig_price);
