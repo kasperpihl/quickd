@@ -6,7 +6,7 @@ class Shopowner {
 			$email = isset($model['email']) ? strtolower($model['email']) : '';
 			$password = isset($model['password']) ? $model['password'] : '';
 			if(strlen($password) < 6) return array('success'=>'false','error'=>'password_must_be_6_long');
-			if(!$email || self::checkEmail($email)->success=='true') return array('success'=>'false','error'=>'user_exists');
+			if(!$email || json_decode(self::checkEmail($email))->success=='true') return array('success'=>'false','error'=>'user_exists');
 			$update = 'registerUser';
 			if(BETA_MODE){
 				if(!isset($model['betacode'])) return array('success'=>'false','error'=>'betacode_must_be_included');
@@ -35,6 +35,7 @@ class Shopowner {
 
 	public static function fb_connect() {
 		global $db,$session,$facebook;
+
 		// Get User ID
 		$user = $facebook->getUser();
 		if ($user) {
@@ -46,10 +47,12 @@ class Shopowner {
 		    //User exist?
 		    
 		    if ($email) {
-		    	//user already exists;
-		    	$user = self::checkEmail($email);
+		    	
+		    	$user = (object) json_decode(self::checkEmail($email));
 		    	
 		    	if($user&&$user->success=='true') {
+		    		//user already exists;
+		    		$u = $user->data;
 		    		if (isset($u->fb_info) && isset($u->updateTime) && $u->updateTime >= time()-7*24*60*60)
 		    			return  json_encode(array('success'=>'true', 'id'=>$u->id, 'updated'=>'no'));
 		    	} else $user = false;
@@ -100,10 +103,10 @@ class Shopowner {
 		try{
 			$user = $db->key($email)->limit(1)->getView('dealer','getUsersByMail');
 			$user = $user->rows;
-			if (empty($user)) return (object) array('success'=>'false','error'=>'no_user','function'=>'checkEmail');
-			else return (object) array('success'=>'true','data'=>$user[0]);
+			if (empty($user)) return  json_encode(array('success'=>'false','error'=>'no_user','function'=>'checkEmail'));
+			else return json_encode(array('success'=>'true','data'=>$user[0]));
 		}
-		catch(Exception $e){ return (object) array('success'=>'false','error'=>'database_error','function'=>'checkEmail', 'e'=>$e->getMessage()); }
+		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'checkEmail', 'e'=>$e->getMessage())); }
 	}
 	public static function getShopowner(){
 		
