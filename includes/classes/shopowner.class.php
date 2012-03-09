@@ -54,7 +54,7 @@ class Shopowner {
 	    		//Fb user already exists
 	    		$fb = $user->data->value->fb_info;
 	    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60)
-	    			return  json_encode(array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no'));
+	    			//return  json_encode(array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no'));
 	    	} else $user = false;
 		    
 		    
@@ -66,9 +66,14 @@ class Shopowner {
 			  foreach ($values as $key) {
 			    if (isset($user_profile->$key)&& !empty($user_profile->$key)) $fb_info->$key = $user_profile->$key;
 			  }
+			  print_r($user_profile);
 			  if (isset($user_profile->location, $user_profile->location->id)) {
 			  	$location = (object) $facebook->api('/'.$user_profile->location->id);
-			  	$fb_info->city = $location->location;
+			  	echo "\n------\n";
+			  	print_r($location);
+			  	$fb_info->city->name = $location->name;
+			  	$fb_info->city->lat = floatval($location->location->latitude);
+			  	$fb_info->city->lng = floatval($location->location->longitude);
 			  }
 			  $model = new stdClass();
 			  $model->email = $email;
