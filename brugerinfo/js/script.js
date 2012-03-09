@@ -103,13 +103,14 @@ $(function() {
       if (response.authResponse) {
         $('#btn_fb_signup').html(spinner);
         $('#start_text').fadeOut('slow');
+        var f = $('#btn_fb_like').find('iframe');
+        if (f) f.attr('src', f.attr('src'));
         
         $.post("api/fbconnect", {}, function(data) {
             data = JSON.parse(data);
             //console.log(data);
             if (data.success == 'true') {
                 //Successfully logged in!!
-                $('#start_text').fadeOut('fast');
                 $('#response_text').fadeIn('fast');
                 $('#btn_fb_signup').hide();
                 $('#btn_fb_like').show();
