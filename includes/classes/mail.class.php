@@ -8,7 +8,7 @@ Class Mail{
 		$message = 
 			$greet .
 			'Tusind tak for din interesse i QuickD.'. "\n\n" .
-			'Du er nu skrevet op til beta-testen i Aarhus og vi sender dig en invitation på åbningsdagen d. 20. april.'."\n\n".
+			'Du er nu skrevet op til beta-testen i Aarhus, og vi sender dig en invitation på åbningsdagen d. 20. april.'."\n\n".
 			'Hvis du har nogle spørgsmål, er du meget velkommen til at besvare denne mail.'. "\n\n".
 			'Vi glæder os helt vildt til at kunne lancere for dig!'."\n\n".
 			'De bedste hilsner,'."\n".

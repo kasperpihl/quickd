@@ -45,7 +45,7 @@ class Shopowner {
 		// Get User ID
 		$user = $facebook->getUser();
 		if ($user) {
-		  try {
+			try {
 		    // Proceed knowing you have a logged in user who's authenticated.
 
 		    $user_profile = (object) $facebook->api('/me');
