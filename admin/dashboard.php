@@ -3,4 +3,5 @@
 	
 ?>
 <a href="approve.php">Godkend sager</a><br/>
-<a href="feedback.php">Feedback</a>
+<a href="feedback.php">Feedback</a><br/>
+<a href="statistics.php">Statistik</a>
