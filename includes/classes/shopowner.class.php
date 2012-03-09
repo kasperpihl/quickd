@@ -53,7 +53,7 @@ class Shopowner {
 	    	if($user&&$user->success=='true'&&isset($user->data,$user->data->value,$user->data->value->fb_info)) {
 	    		//Fb user already exists
 	    		$fb = $user->data->value->fb_info;
-	    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60)
+	    		//if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60)
 	    			//return  json_encode(array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no'));
 	    	} else $user = false;
 		    
