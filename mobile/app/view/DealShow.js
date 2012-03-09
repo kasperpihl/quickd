@@ -22,7 +22,7 @@ var showDealSliderObj = new Ext.XTemplate(
             '</div>',
             '<div class="infoBox">',
                 '<div class="title">AFSTAND</div>',
-                '<span class="distance">{distance:this.humanReadableDistance}</span>',
+                '<div class="information">{distance:this.humanReadableDistance}</div>',
             '</div>',
         '</div>',
     '</div>',
@@ -71,7 +71,7 @@ Ext.define('QuickD.view.DealShow', {
         }
     },
     loadDeal:function(record){
-        log('logging data',record.getData());
+        //log('logging data',record.getData().end);
         //this.down('#quickd-deal-slider').setItems(list.getItems().items);
         this.down('#quickd-deal-content').setData(record.getData());
     }

@@ -7,14 +7,13 @@
 }
 #quickd-deal-slider{
 	height:170px;
+	width:100%;
 }
 #quickd-deal-slider .dealBackground .leftPanel{
 	float:left;
-	height:170px;
 }
 #quickd-deal-slider .dealBackground .rightPanel{
 	float:left;
-	height:170px;
 }
 #quickd-deal-slider .dealBackground .rightPanel .infoBox{
 	padding: 5px 0 0 5px;
@@ -23,7 +22,7 @@
 	
 }
 #quickd-deal-slider .dealBackground .rightPanel .information{
-	
+	color: #9C9C9C;
 }
 #quickd-deal-content{
 	background:black;
