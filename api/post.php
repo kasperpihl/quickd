@@ -16,10 +16,13 @@ if($type){
 else if($action){
 	switch($action){
 		case 'register':
-			$result = Shopowner::register($model);
+			$result = Shopowner::register($model, 'dealer');
 		break;
 		case 'login':
 			$result = Shopowner::login($model);
+		break;
+		case 'subscribe':
+			$result = Shopowner::register($model, 'user');
 		break;
 		case 'fbconnect':
 			$result = Shopowner::fb_connect();

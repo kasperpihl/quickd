@@ -2,8 +2,8 @@
   require_once('../config.php'); 
   $registred = false;
   if (!$session->logged_user()) {
-    $fb = json_decode(Shopowner::fb_connect());
-    if (isset($fb->success)&&$fb->success==='true') $registred = true;
+    $fb = Shopowner::fb_connect();
+    if (isset($fb['success'])&&$fb['success']==='true') $registred = true;
   } else $registred = true;
 ?>
 <!doctype html>
@@ -48,17 +48,6 @@
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
        For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-29803533-1']);
-    _gaq.push(['_setDomainName', 'quickd.dk']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
 </head>
 
 <body>
@@ -79,8 +68,13 @@
         <div id="signup">
           <h1>Skriv dig op</h1>
           <div class="text-area">
-            <p id="start_text" style="display:<?=$registred?'none':'block'?>"><strong>20. april</strong> åbner vi for en begrænset beta-test i Aarhus. Få en invitation ved at registrere dig med Facebook:</p>
-            <p id="response_text" style="display:<?=$registred?'block':'none'?>">Tak for din registrering!<br />Du vil modtage en invitation til beta-testen  ved lanceringen <strong>den 20. april</strong>.</p>
+            <p id="start_text" style="display:<?=$registred?'none':'block'?>">
+              <strong>20. april</strong> åbner vi for en begrænset beta-test i Aarhus. Få en invitation ved at registrere dig.<br />
+              <a href="#read-more" id="read-more-text" class="scroll">Læs mere her</a>
+            </p>
+            <p id="response_text" style="display:<?=$registred?'block':'none'?>">
+              Tak for din registrering!<br />Du vil modtage en invitation til beta-testen  ved lanceringen <strong>den 20. april</strong>.
+            </p>
           </div>
           <?php if (!$registred) {   ?>
             <!--<div id="btn_fb_signup"><img src="img/facebook.png"></div>-->
@@ -89,11 +83,20 @@
           <div id="btn_fb_like" style="display:<?=$registred?'block':'none'?>">
             <div class="fb-like" data-href="http://www.facebook.com/pages/QuickD/203907689684007" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false"></div>
           </div>
+
+          <div id="btn_show_email" style="display:<?=$registred?'none':'block'?>">Brug Email</div>
+          <!--<a href="#read-more" id="read-more-green" class="scroll"><img src="img/read-more-btn.png"></a>-->
+          <div id="email_signup_area">
             
-          <a href="#read-more" id="read-more-green"><img src="img/read-more-btn.png"></a>
+            <div id="email_fields" style="display:none">
+              <input type="text" name="email" id="email" placeholder="E-mail" />
+              <div id="btn_email_signup"></div>
+            </div>
+          </div>
+          <div style="clear:both"></div>
         </div>
       </div>
-      <div id="read-more-btn"><a href="#read-more"><img src="img/scroll-down.png"></a></div>
+      <div id="read-more-btn"><a href="#read-more" class="scroll"><img src="img/scroll-down-long.png"></a></div>
       <ul class="nav" style="position: absolute; bottom: 20px;">
         <!--<li><a href="#read-more"><img src="img/read-more-btn.png"></a></li>-->
       </ul>
@@ -131,7 +134,7 @@
             </article>
             <div style="clear:both"/>
           </section>
-          <div id="scroll-up-btn"><a href="#top"><img src="img/scroll-up.png"></a></div>
+          <div id="scroll-up-btn"><a href="#top" class="scroll"><img src="img/scroll-up.png"></a></div>
           <div id="copyright">Copyright &copy; 2011-2012 QuickD. All rights reserved.</div>
         </div>
     </footer>
@@ -154,7 +157,7 @@
 	
   <!-- Change UA-XXXXX-X to be your site's ID -->
   <script>
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+    window._gaq = [['_setAccount','UA-29803533-1'],['_trackPageview'],['_trackPageLoadTime']];
     Modernizr.load({
       load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
     });

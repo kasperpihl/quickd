@@ -1,28 +1,34 @@
-<?
+<?php
 class Shopowner {
-	public static function register($model){
+	public static function register($model, $type='user'){
 		global $db,$session;
 		try{
 			$email = isset($model['email']) ? strtolower($model['email']) : '';
-			$password = isset($model['password']) ? $model['password'] : '';
-			if(strlen($password) < 6) return array('success'=>'false','error'=>'password_must_be_6_long');
-			if(!$email || json_decode(self::checkEmail($email))->success=='true') return array('success'=>'false','error'=>'user_exists');
+			if (!isValidEmail($email)) return array('success'=>'false','error'=>'email_not_valid');
+			$password = isset($model['password']) ? $model['password'] : null;
+			if(($password && strlen($password) < 6) || (!$password && $type=='dealer')) return array('success'=>'false','error'=>'password_must_be_6_long');
+			$user = (object) json_decode(self::checkEmail($email));
+			if(!$email || $user->success=='true') return array('success'=>'false','error'=>'user_exists');
 			$update = 'registerUser';
-			if(BETA_MODE){
-				if(!isset($model['betacode'])) return array('success'=>'false','error'=>'betacode_must_be_included');
-				$betakoder = $db->getDoc('configuration');
-				$betakoder = $betakoder->betakoder;
-				
-				if(!property_exists($betakoder,$model['betacode'])) return array('success'=>'false','error'=>'wrong_betacode');
-				$model['name'] = $betakoder->$model['betacode'];
+			if ($type=='dealer') {
+				if(BETA_MODE&&$type=='dealer'){
+					if(!isset($model['betacode'])) return array('success'=>'false','error'=>'betacode_must_be_included');
+					$betakoder = $db->getDoc('configuration');
+					$betakoder = $betakoder->betakoder;
+					
+					if(!property_exists($betakoder,$model['betacode'])) return array('success'=>'false','error'=>'wrong_betacode');
+					$model['name'] = $betakoder->$model['betacode'];
+				}
+				$model['hours'] = 25;
+				$model['privileges'] = 3;
+			} else {
+				$model['privileges'] = 1;
 			}
-			$model['hours'] = 25;
-			$model['privileges'] = 3;
-			$model['password'] = md5(MD5_STRING.$model['password']);
+			$model['password'] = $password?md5(MD5_STRING.$model['password']):'null';
 			$result = json_decode($db->updateDocFullAPI('dealer',$update,array('params'=>array('json'=>json_encode($model)))));
 			
 			if($result->success == 'true'){
-				$result->data->hours = $model['hours'];
+				if ($type=='dealer') $result->data->hours = $model['hours'];
 				$result->data->email = $model['email'];
 				$session->login($result->data->id,$model['privileges']);
 			}
@@ -30,7 +36,7 @@ class Shopowner {
 			return $result;
 		}
 		catch(Exception $e){
-			echo json_encode(array('success'=>'false','error'=>'database_error','function'=>'shopowner_register','e'=>$e->getMessage())); }
+			return array('success'=>'false','error'=>'database_error','function'=>'shopowner_register','e'=>$e->getMessage()); }
 	}
 
 	public static function fb_connect() {
@@ -45,8 +51,8 @@ class Shopowner {
 		    $user_profile = (object) $facebook->api('/me');
 		    $email = $user_profile->email;
 		    //User exist?
-		    if (!$email) return json_encode(array('success'=>'false','error'=>'no_fb_email','function'=>'fb_connect','data'=>$user_profile));
-		    
+		    if (!$email) return array('success'=>'false','error'=>'no_fb_email','function'=>'fb_connect','data'=>$user_profile);
+
 		    //User exists?
 	    	$user = (object) json_decode(self::checkEmail($email));
 	    	
@@ -54,10 +60,9 @@ class Shopowner {
 	    		//Fb user already exists
 	    		$fb = $user->data->value->fb_info;
 	    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60)
-	    			return  json_encode(array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no'));
+	    			return  array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no');
 	    	} else $user = false;
-		    
-		    
+
 		    // Getting facebook info
 		    $fb_info = new stdClass();
 			  $fb_info->id = intval($user_profile->id);
@@ -74,6 +79,7 @@ class Shopowner {
 			  }
 			  $model = new stdClass();
 			  $model->email = $email;
+			  $model->password = 'null';
 			  $model->privileges = 1;
 			  $model->fb_info = $fb_info;
 			  
@@ -93,15 +99,15 @@ class Shopowner {
 					$result->data->email = $email;
 					$session->login($result->data->id,$model->privileges);
 				}
-				return json_encode($result);
+				return $result;
 		    
 		  } catch (FacebookApiException $e) {
-		    return json_encode(array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','e'=>$e->getMessage(),'data'=>$user_profile));
+		    return array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','e'=>$e->getMessage(),'data'=>$user_profile);
 		  } catch(Exception $e){
-				return json_encode(array('success'=>'false','error'=>'database_error','function'=>'fb_connect','e'=>$e->getMessage(), 'data'=>$model)); 
+				return array('success'=>'false','error'=>'database_error','function'=>'fb_connect','e'=>$e->getMessage(), 'data'=>$model); 
 			}
 		} else {
-			return json_encode(array('success'=>'false','error'=>'facebook_not_logged_in','function'=>'fb_connect'));
+			return array('success'=>'false','error'=>'facebook_not_logged_in','function'=>'fb_connect');
 		}
 	}
 
@@ -146,6 +152,7 @@ class Shopowner {
 			if(empty($dealer)) return array('success'=>'false','error'=>'username_not_exist');
 			$id = $dealer[0]->id;
 			$dealer = $dealer[0]->value;
+			if (!isset($dealer->md5_password)||empty($dealer->md5_password) || $dealer->md5_password=='null' || $dealer->md5_password=='undefined') return array('success'=>'false','error'=>'pass_not_set');
 			if(md5(MD5_STRING.$password) != $dealer->md5_password) return array('success'=>'false','error'=>'wrong_pass');
 			unset($dealer->md5_password);
 			$session->login($id,$dealer->privileges);
@@ -157,7 +164,7 @@ class Shopowner {
 			
 			return array('success'=>'true','dealer'=>$dealer,'stuff'=>$ownerStuff);		
 		}
-		catch(Exception $e){ echo die(json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage()))); }
+		catch(Exception $e){ return array('success'=>'false','error'=>'database_error','e'=>$e->getMessage()); }
 	}
 	public static function save($type,$model){
 		global $db,$session;

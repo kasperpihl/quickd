@@ -47,7 +47,7 @@ var hijackScroll = function(e) {
 };
 
 $(function() {
-    $('a').bind('click',function(event){
+    $('a.scroll').bind('click',function(event){
         var $anchor = $(this);
         
         disable_scroll();
@@ -66,8 +66,48 @@ $(function() {
 
 
 
+/**
+ * Signup
+ * Author: Jeppe Stougaard
+ */
+//Button clicks
+$(function() {
+  //Register fb button click
+  $('#btn_fb_signup').click(function() { doFBSubscribe();  });
 
-//Facebook like
+  //Show email
+  $('#btn_show_email').click(function() {
+    var field = $('#email_fields');
+    if (field.is(':visible')) field.slideUp();
+    else field.slideDown(function() { $(this).find('input').focus(); });
+  });
+  $('#btn_email_signup').click(doEmailSignup);
+  $('#email').keypress(function(e) {
+    if(e.keyCode == 13) doEmailSignup();
+  });
+});
+
+//Signup with email
+function doEmailSignup() {
+  var email = $('#email').val();
+  $('#email_fields').find('.error').remove();
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  if(email=='') {
+  } else if (!emailReg.test(email)) {
+    $("#email").after('<span class="error">Indtast venligst en gyldig email.</span>');
+  } else {
+    $.post("api/subscribe", {email: email}, function(data) {
+        console.log(data);
+        if (data.success == 'true'||(data.success=='false'&& data.error == 'user_exists') ) {
+            //Successfully logged in!!
+            showResponse();
+        }
+    }, 'json');
+  }
+
+}
+
+//FB Initialize
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -84,20 +124,10 @@ $(function() {
         oauth      : true
       });
     };
-
-    //Register button click
-    $('#btn_fb_signup').click(function() { doFBSubscribe();  });
 }(document, 'script', 'facebook-jssdk'));
 
-//Facebook signup
-/*(function(d){
-    var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-    js = d.createElement('script'); js.id = id; js.async = true;
-    js.src = "//connect.facebook.net/en_US/all.js";
-    d.getElementsByTagName('head')[0].appendChild(js);    
-}(document));*/
-
- function doFBSubscribe() {
+//Signup with Facebook
+function doFBSubscribe() {
     var spinner = $('<img />').attr('src','img/loader.png').addClass('spinning-loader');
     FB.login(function(response) {
       if (response.authResponse) {
@@ -107,22 +137,26 @@ $(function() {
         if (f) f.attr('src', f.attr('src'));
         
         $.post("api/fbconnect", {}, function(data) {
-            data = JSON.parse(data);
             //console.log(data);
             if (data.success == 'true') {
                 //Successfully logged in!!
-                $('#response_text').fadeIn('fast');
-                $('#btn_fb_signup').hide();
-                $('#btn_fb_like').show();
-                FB.XFBML.parse(); 
+                showResponse();
             }
         }, 'json');
-            
         
       } else {
 
       }
     }, {scope: 'email'});
+}
+
+function showResponse() {
+  if ($('#start_text').is(':visible')) $('#start_text').hide();
+  $('#response_text').fadeIn('slow');
+  $('#btn_show_email').hide();
+  $('#btn_fb_signup').hide();
+  $('#btn_fb_like').show();
+  $('#email_signup_area').slideUp();
 }
 
 /**

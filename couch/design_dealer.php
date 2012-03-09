@@ -29,11 +29,20 @@ try{
 		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
 		var query = JSON.parse(req.query.json);
 		if(!query.hasOwnProperty('email') || !query.hasOwnProperty('password')) return [null, msg('email_and_password_must_be_specified')];
-		if(!query.hasOwnProperty('hours')) return [null,msg('hours_must_be_specified')];
 		if(!query.hasOwnProperty('privileges')) return [null, msg('privileges_must_be_specified')];
+		var privileges = parseInt(query.privileges);
+		if(privileges>=3 && !query.hasOwnProperty('hours')) return [null,msg('hours_must_be_specified')];
+		
 		var historyArray = new Array();
 		historyArray.push({timestamp: timestamp,action:'created',type:'user','priority':2});
-		var obj = {_id: req.uuid, type:'user', user: {betacode: query.betacode, privileges: parseInt(query.privileges), hours: parseInt(query.hours), email:query.email, md5_password: query.password},history:historyArray};
+		var user = {
+			email: query.email,
+			md5_password: query.password,
+			privileges: privileges
+		};
+		if(query.hasOwnProperty('betacode')) user.betacode = query.betacode;
+		if(query.hasOwnProperty('hours')) user.hours = query.hours;
+		var obj = {_id: req.uuid, type:'user', user: user, history:historyArray};
 		
 		return [obj,msg({id:req.uuid},true)];
 	}";
