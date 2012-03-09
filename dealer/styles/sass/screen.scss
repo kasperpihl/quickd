@@ -415,6 +415,16 @@ background-color: rgb(94,150,27); // Old browsers
 		&.small {
 			@include border-radius(3px);
 		}
+		&.loading {position:relative;}
+		&.loading:before {
+			content:url(i/loader_green.gif);
+			display:block;
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin: 0 - image-width('loader_green.gif') / 2;
+			z-index:1;
+		}
 	}
 	&.grey {
 		@include grey-button;
@@ -2005,7 +2015,7 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 		padding:10px;
 		border-top:1px solid #dfdfdf;
 	}
-	#btn_select_img { float:right;}
+
 	#btn_goto_upload { float:left; }
 	h1 { text-align:center;padding:90px;font-size:150%;color:#999;line-height:180%}
 	
@@ -2065,6 +2075,7 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 			
 				#btn_rotate_left {float:left;}
 				#btn_rotate_right {float:right;}
+				#btn_select_img {width:100px;margin:5px auto;}
 			}
 			
 		}
@@ -2083,15 +2094,7 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 					width:50px;
 					//opacity:0;
 					z-index:310;
-					&.loading:before {
-						content:url(i/loader_green.gif);
-						display:block;
-						position:absolute;
-						top:50%;
-						left:50%;
-						margin: 0 - image-width('loader_green.gif') / 2;
-						z-index:1;
-					}
+					
 				}
 			}
 		}

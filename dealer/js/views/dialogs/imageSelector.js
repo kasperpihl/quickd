@@ -172,8 +172,16 @@ define([
 			$("#dialog-"+this.cid+' #uploader-field-'+this.cid).trigger('click',true);
 		},
 		handleClick:function(event) {
-			if (this.view = 'edit' && this.currentModel) this.selectImg(this.currentModel.get('id'));
-			else {
+			if (this.view = 'edit' && this.currentModel) {
+				if (this.thumbEdited) {
+					var thisClass = this;
+					$('#btn_select_img').html('&nbsp').addClass('loading');
+					this.saveThumb(function() {
+						$('#btn_select_img').removeClass('loading');
+						thisClass.selectImg(thisClass.currentModel.get('id'));
+					});
+				} else this.selectImg(this.currentModel.get('id'));
+			} else {
 				var id = event.currentTarget.id;
 				var imgId = id.substr(4);
 				var img = this.collection.get(imgId);
@@ -184,6 +192,7 @@ define([
 			$(this.dialogId+' .selected').removeClass('selected');
 			$(this.dialogId+' #img_'+id).addClass('selected');
 			this.router.trigger('imageSelected', {imgId: id, windowId:this.parentWindow});
+			if (this.view = 'edit') this.goGallery();
 			this.closeDialog();
 		},
 		doRotation:function(event){
@@ -212,9 +221,10 @@ define([
 			}
 		},
 		jcropOnSelect:function(coords) {
-			if (!this.showEditButton) {
+			if (!this.thumbEdited) {
 				$('#btn_edit_save').fadeIn();
-				this.showEditButton = true;
+				$('#btn_select_img').html('Gem og vælg');
+				this.thumbEdited = true;
 			}
 			this.updateThumb(coords);
 		},
@@ -222,7 +232,7 @@ define([
 		{
 			if (this.currentModel) {
 				if (!coords) coords = this.currentModel.get("t");
-				if (this.showEditButton) {
+				if (this.thumbEdited) {
 					var btn = $('#btn_edit_save');
 					var top = coords.y2 - btn.outerHeight() -10;
 					var left = coords.x2 - btn.outerWidth() -10;
@@ -243,8 +253,8 @@ define([
 				});
 			}
 		},
-		saveThumb: function() {
-			if (!this.currentModel) return;
+		saveThumb: function(onSave) {
+			if (!this.currentModel||!this.thumbEdited) return;
 			$('#btn_edit_save').html('&nbsp').addClass('loading');
 			var thisClass = this;
 			var obj = {};
@@ -258,11 +268,11 @@ define([
 			if (!_.isEqual(obj,this.currentModel.get('t'))) {
 				this.currentModel.save({t:obj}, {success: function(d, data) {
 					if (data.success=='true') {
-						//log("success", data, d);
-						//thisClass.goGallery();
 						$('#btn_edit_save').fadeOut(function() { $(this).removeClass('loading').html('Gem') });
-						thisClass.showEditButton = false;
-						//if (data.data.id) thisClass.selectImg(data.data.id);
+						$('#btn_select_img').html('Vælg billede');
+						log(onSave);
+						if (onSave&&$.isFunction(onSave)) onSave();
+						thisClass.thumbEdited = false;
 						
 					} else log("error", data, d);
 				}, error: function(d, data) {
@@ -270,9 +280,9 @@ define([
 				}});
 			} else {
 				$('#btn_edit_save').fadeOut(function() { $(this).removeClass('loading').html('Gem') });
-				this.showEditButton = false;
-				//thisClass.selectImg(this.currentModel.get('id'));
-				//thisClass.goGallery();
+				$('#btn_select_img').html('Vælg billede');
+				if (onSave&&$.isFunction(onSave)) onSave();
+				this.thumbEdited = false;
 			}
 		},
 		goEdit: function(obj) {
