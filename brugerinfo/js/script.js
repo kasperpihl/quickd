@@ -77,6 +77,7 @@ $(function() {
 
   //Show email
   $('#btn_show_email').click(function() {
+    $(this).hide();
     var field = $('#email_fields');
     if (field.is(':visible')) field.slideUp(100);
     else field.slideDown(100, function() { $(this).find('input').focus(); });

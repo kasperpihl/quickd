@@ -1,5 +1,5 @@
-Backbone.emulateJSON = true;
-Backbone.emulateHTTP = true;
+//Backbone.emulateJSON = true;
+//Backbone.emulateHTTP = true;
 App = {
 	views: {
 		dashboard: {},

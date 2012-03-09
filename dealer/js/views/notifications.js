@@ -35,7 +35,8 @@ var lang = {
 		},
 		template: {
 			created:		'Din skabelon er blevet tilføjet og afventer nu godkendelse. Vi skynder os!',
-			edited: 	'Din skabelon er blevet ændret og afventer nu igen godkendelse fra os',
+			edited: 	  'Din skabelon er blevet ændret og afventer nu igen godkendelse fra os',
+			deleted: 	  'Din skabelon er blevet slettet',
 			approved: 	'Din skabelon er blevet godkendt! God fornøjelse',
 			declined: 	'Din skabelon er desværre blevet afvist. Skynd dig ind og se hvorfor'
 		}
@@ -76,6 +77,9 @@ define([
 				case 'templateEdited':
 					message = lang.notifications.template.edited;
 				break;
+				case 'templateDeleted':
+					message = lang.notifications.template.deleted;
+				break;
 				case 'settingsEdited':
 					message = lang.notifications.account.edited;
 				break;
@@ -106,6 +110,7 @@ define([
 			this.router.navigate(route,{trigger:true});
 		},
 		notify:function(type,message,route){
+			if (!message) return;
 			var duration,sticky;
 			if(type == 'fast') duration = 5000;
 			else if(type == 'slow') duration = 30000;

@@ -272,7 +272,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7cad4c', end
   position:relative;
 }
 #email_fields input {
-  width:236px;
+  width:240px;
   margin-top:5px;
   margin-left: -5px;
   padding: 6px 8px; 
@@ -296,7 +296,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7cad4c', end
 #btn_email_signup {
   position:absolute;
   top:7px;
-  right:40px;
+  right:36px;
   width:25px;
   height:25px;
   cursor: pointer;
