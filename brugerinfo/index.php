@@ -69,23 +69,22 @@
           <h1>Skriv dig op</h1>
           <div class="text-area">
             <p id="start_text" style="display:<?=$registred?'none':'block'?>">
-              <strong>20. april</strong> åbner vi for en begrænset beta-test i Aarhus. Få en invitation ved at registrere dig.<br />
-              <a href="#read-more" id="read-more-text" class="scroll">Læs mere her</a>
+              <strong>20. april</strong> åbner vi for en begrænset beta-test i Aarhus. Få en invitation ved at registrere dig med Facebook:
             </p>
             <p id="response_text" style="display:<?=$registred?'block':'none'?>">
               Tak for din registrering!<br />Du vil modtage en invitation til beta-testen  ved lanceringen <strong>den 20. april</strong>.
             </p>
           </div>
           <?php if (!$registred) {   ?>
-            <!--<div id="btn_fb_signup"><img src="img/facebook.png"></div>-->
-            <div id="btn_fb_signup"><div class="fb-bg"><span class="fb_btn_text">Forbind med Facebook</span></div></div>
+            <div id="btn_fb_signup"><div class="fb-bg"><span class="fb_btn_text">Registrer med Facebook</span></div></div>
           <?php } ?>
           <div id="btn_fb_like" style="display:<?=$registred?'block':'none'?>">
             <div class="fb-like" data-href="http://www.facebook.com/pages/QuickD/203907689684007" data-send="false" data-layout="button_count" data-width="170" data-show-faces="false"></div>
           </div>
 
-          <div id="btn_show_email" style="display:<?=$registred?'none':'block'?>">Brug Email</div>
-          <!--<a href="#read-more" id="read-more-green" class="scroll"><img src="img/read-more-btn.png"></a>-->
+
+          <a href="#read-more" id="read-more-green" class="scroll"><img src="img/read-more-btn.png"></a>
+          <div id="btn_show_email">Brug e-mail i stedet</div>
           <div id="email_signup_area">
             
             <div id="email_fields" style="display:none">
@@ -96,11 +95,7 @@
           <div style="clear:both"></div>
         </div>
       </div>
-      <div id="read-more-btn"><a href="#read-more" class="scroll"><img src="img/scroll-down-long.png"></a></div>
-      <ul class="nav" style="position: absolute; bottom: 20px;">
-        <!--<li><a href="#read-more"><img src="img/read-more-btn.png"></a></li>-->
-      </ul>
-      <!--<img src="img/phone2.png" style="width: 50%;" id="phone">-->
+      <div id="read-more-btn"><a href="#read-more" class="scroll"><img src="img/scroll-down.png"></a></div>
     </div>
     <footer>
         <div id="read-more">

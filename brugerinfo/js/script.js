@@ -78,8 +78,8 @@ $(function() {
   //Show email
   $('#btn_show_email').click(function() {
     var field = $('#email_fields');
-    if (field.is(':visible')) field.slideUp();
-    else field.slideDown(function() { $(this).find('input').focus(); });
+    if (field.is(':visible')) field.slideUp(100);
+    else field.slideDown(100, function() { $(this).find('input').focus(); });
   });
   $('#btn_email_signup').click(doEmailSignup);
   $('#email').keypress(function(e) {
