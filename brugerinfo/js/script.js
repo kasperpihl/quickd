@@ -105,8 +105,8 @@ $(function() {
         $('#start_text').fadeOut('slow');
         
         $.post("api/fbconnect", {}, function(data) {
-            //data = JSON.parse(data);
-            console.log(data);
+            data = JSON.parse(data);
+            //console.log(data);
             if (data.success == 'true') {
                 //Successfully logged in!!
                 $('#start_text').fadeOut('fast');
@@ -115,7 +115,7 @@ $(function() {
                 $('#btn_fb_like').show();
                 FB.XFBML.parse(); 
             }
-        }, 'html');
+        }, 'json');
             
         
       } else {
