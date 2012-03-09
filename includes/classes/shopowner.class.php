@@ -67,13 +67,13 @@ class Shopowner {
 			    if (isset($user_profile->$key)&& !empty($user_profile->$key)) $fb_info->$key = $user_profile->$key;
 			  }
 			  print_r($user_profile);
-			  if (isset($user_profile->location, $user_profile->location->id)) {
-			  	$location = (object) $facebook->api('/'.$user_profile->location->id);
+			  if (isset($user_profile->location, $user_profile->location['id'])) {
+			  	$location = (object) $facebook->api('/'.$user_profile->location['id']);
 			  	echo "\n------\n";
 			  	print_r($location);
 			  	$fb_info->city->name = $location->name;
-			  	$fb_info->city->lat = floatval($location->location->latitude);
-			  	$fb_info->city->lng = floatval($location->location->longitude);
+			  	$fb_info->city->lat = floatval($location->location['latitude']);
+			  	$fb_info->city->lng = floatval($location->location['longitude']);
 			  }
 			  $model = new stdClass();
 			  $model->email = $email;
