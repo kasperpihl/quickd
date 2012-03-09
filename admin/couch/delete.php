@@ -1,4 +1,4 @@
-<?php require_once('../config.php');
+<?php require_once('../../config.php');
 require_admin();
 $array = $db->getView('dealer','cleanDeals');
 $ret = array();
