@@ -6,9 +6,26 @@ var showDealTemplate = new Ext.XTemplate(
         humanReadableDistance: humanReadableDistance
     }
 );
-var showDealBackground = new Ext.XTemplate(
-    
-    '<span class="orig_price">{orig_price}</span><span class="deal_price">{deal_price}</span>',
+var showDealSliderObj = new Ext.XTemplate(
+    '<div class="dealBackground">',
+        '<div class="leftPanel">',
+            '<img src="http://lorempixum.com/170/170/food/" />',
+        '</div>',
+        '<div class="rightPanel">',
+            '<div class="infoBox">',
+                '<div class="title">PRIS</div>',
+                '<div class="information"> <span class="linethrough">{orig_price},-</span> {deal_price},-</div>',
+            '</div>',
+            '<div class="infoBox">',
+                '<div class="title">DU SPARER</div>',
+                '<div class="information">{discount}%</div>',
+            '</div>',
+            '<div class="infoBox">',
+                '<div class="title">AFSTAND</div>',
+                '<span class="distance">{distance:this.humanReadableDistance}</span>',
+            '</div>',
+        '</div>',
+    '</div>',
     {
         priceIt: priceIt,
         humanReadableDistance: humanReadableDistance
@@ -23,19 +40,15 @@ Ext.define('QuickD.view.DealShow', {
     config: {
         layout:'vbox',
         defaults:{
-            flex:1
         },
         items: [{
             xtype: 'carousel',
             id: 'quickd-deal-slider',
-            config:{
-                height:100
-            },
-            indicator: false,
 
+            indicator: false,
             defaults:{
                 cls: 'quickd-deal-background',
-                tpl: showDealBackground,
+                tpl: showDealSliderObj,
                 record:null
             },
             items:[
@@ -45,7 +58,8 @@ Ext.define('QuickD.view.DealShow', {
         {
             xtype: 'panel',
             id: 'quickd-deal-content',
-            tpl: showDealTemplate
+            tpl: showDealTemplate,
+            flex:2
         }]
     },
     setSlider:function(records){
