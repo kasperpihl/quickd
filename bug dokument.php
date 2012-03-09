@@ -2,7 +2,11 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
-Slet template
+Slet template 
+
+Slet planlagte deals
+
+Meld planlagte deals udsolgt
 
 Gennemtest billede-upload
 
