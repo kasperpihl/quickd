@@ -2,6 +2,8 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
+Mulighed for at vælge udsolgt deal skal laves
+
 Slet template
 
 Gennemtest billede-upload
