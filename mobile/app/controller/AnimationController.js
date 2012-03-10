@@ -4,9 +4,10 @@ Ext.define('QuickD.controller.AnimationController', {
     requires: [],
     config: { },
     init: function(){
-        
+        this.defaultInSpeed = 300;
+        this.defaultOutSpeed = 250;
     },
-    dealsListIn: function(deals, onComplete) {
+    dealsListIn: function($deals) {
         var dfr = new jQuery.deferred();
         
         // animate out
@@ -19,26 +20,40 @@ Ext.define('QuickD.controller.AnimationController', {
 
         return dfr.promise();
     },
-    dealsListOut: function(deals, duration, onComplete) {
-        var dfr = new $.Deferred();
+    dealsListOut: function($deals, duration) {
+        var dfr = new $.Deferred(),
+            h   = $(window).height();
 
-        setTimeout(function() {
-            dfr.resolve();
-        }, duration||1000);
+        $deals.each(function(i) {
+            log('begin animation ...');
+
+            $(this)
+                .delay((i + 1) * 300)
+                .animate(
+                    {
+                        'opacity': 0,
+                        'margin-top': 0 - h
+                    },
+                    duration || this.defaultOutSpeed,
+                    function() {
+                        log('animating ' + i);
+                    }
+                );
+        }).promise().done(dfr.resolve);
 
         return dfr.promise();
     },
-    singleDealIn: function(deal, duration, onComplete) {
+    singleDealIn: function(deal, duration) {
         var dfr = new $.Deferred();
 
         return dfr.promise();
     },
-    singleDealOut: function(deal, duration, onComplete) {
+    singleDealOut: function(deal, duration) {
         var dfr = new $.Deferred();
 
         return dfr.promise();
     },
-    singleDealSwitch: function(deal1, deal2, duration, onComplete) {
+    singleDealSwitch: function(deal1, deal2, duration) {
         var dfr = new $.Deferred();
 
         return dfr.promise();
@@ -46,4 +61,16 @@ Ext.define('QuickD.controller.AnimationController', {
     killAll: function(forceComplete) {
 
     }
+});
+
+
+/* This class should have z-index 5. Making the deals lay over the fading in background*/
+$('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner').css('zIndex',5);
+/* Quickd N'dirty solution. Appending div  */
+$('#quickd-deals .x-scroll-container').append('<div id="testing" style="z-index:3; background:black; position: absolute; top: 0; left:0;min-width:100%; min-height:100%; display:none;"></div>');
+var i = 0;
+$('#quickd-deals .x-list-container div.x-list-item').each(function(){
+    $(this).toggleClass('animateUp',(options.index >= i));
+    $(this).toggleClass('animateDown',(options.index < i));
+    i++;
 });
