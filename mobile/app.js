@@ -4,7 +4,7 @@ Ext.application({
 	models: ['Deal'],
 	stores: ['Deals'],
 	views: ['Main'],
-	controllers: ['Main'],
+	controllers: ['Main','SortController'],
 	icon: 'resources/images/icon.png',
 	phoneStartupScreen: 'resources/images/phone_startup.png',
 	glossOnIcon: false,

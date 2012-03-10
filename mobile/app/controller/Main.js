@@ -6,36 +6,40 @@ Ext.define('QuickD.controller.Main', {
     config: {
         refs: {
             main: 'mainview',
-            toolbar: 'toolbar',
-            filterButton: '#filterButton',
-            mapButton: '#mapButton',
-            backButton: '#backButton',
+            dealListToolbar: 'deallist > toolbar',
+            buttons: 'toolbar > button',
             dealList: 'mainview > deallist',
             dealShow: 'mainview > dealshow',
+            dealSort: 'mainview > dealsort',
             dealShowSlider: 'mainview > dealshow > carousel',
             mapShow: 'mainview > mapshow'
         },
         control: {
-            filterButton: {
-                change: 'filterChange',
-                scope:this
-            },
-            mapButton: {
-                tap: 'handleMap'
+            buttons:{
+                tap: 'buttonHandler'
             },
             deallist: {
                 itemtap: 'onDealSelect'
-            },
-            backButton: {
-                tap: 'handleBack'
             },
             dealShowSlider:{
                 activeitemchange: 'test'
             }
         }
     },
+    buttonHandler:function(t,t2,t3){
+        var id = t.getId();
+        switch (id){
+            case 'sortButton':
+                this.changeToView('dealsort');
+            break;
+            case 'backFromSortButton':
+                this.changeToView('deallist');
+            break;
+        }
+    },
     test:function(container,newItem,oldItem){
-        this.getDealShow().loadDeal(newItem);
+        //log(this.getMain().setShowAnimation('flip'));
+        //this.getDealShow().loadDeal(newItem);
     },
     init: function() {
         Ext.getStore('Deals').addListener('refresh',this.updatedStore,this);
@@ -106,12 +110,15 @@ Ext.define('QuickD.controller.Main', {
         this.getMain().setActiveItem(1);
     },
     changeToView:function(view,options){
+        var main = this.getMain();
         switch(view){
+            case 'dealsort':
+                main.animateActiveItem(this.getDealSort(),'flip');
+            break;
             case 'dealshow':
-                log(this.getApplication().getHistory());
-                this.getBackButton().show();
-                this.getFilterButton().hide();
-                this.getMapButton().show();
+                //log(this.getApplication().getHistory());
+                var test = this.getDealListToolbar().query('#sortButton')[0];
+                test.hide();
                 /* This class should have z-index 5. Making the deals lay over the fading in background*/
                 $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner').css('zIndex',5);
                 /* Quickd N'dirty solution. Appending div  */
@@ -128,6 +135,9 @@ Ext.define('QuickD.controller.Main', {
                     thisClass.getMain().setActiveItem(thisClass.getDealShow());
                     $('#testing').remove();
                 });
+            break;
+            case 'deallist':
+                main.animateActiveItem(this.getDealList(),'flip');
             break;
             case 'mapshow':
                 this.getMain().setActiveItem(this.getMapShow());
