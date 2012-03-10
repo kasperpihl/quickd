@@ -151,14 +151,11 @@ define([
 			calcDiscount(orig, deal, '#discount-amount');
 		},
 		delTemplate:function(){
-			log(this.model);
 			this.model.destroy({data:this.model.id, success:function(model, response) {
 				log("destroyed", model, response);
 			}, error:function(model, response) { log("error destroy: ", model, response); }});
 			this.router.trigger('templateEdited',{event:'templateDeleted'});
-			this.activity.closeWindow(this);
-			
-			return false;
+			this.activity.closeWindow(this, false, true);
 		},
 		openSelectImage:function() {
 			if (!this.selectorView)
