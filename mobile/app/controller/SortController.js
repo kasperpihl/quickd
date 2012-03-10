@@ -4,31 +4,37 @@ Ext.define('QuickD.controller.SortController', {
     config: {
         refs: {
             main: 'mainview',
-            dealSort: 'dealsort checkboxfield',
+            dealSortChecks: 'dealsort checkboxfield',
             updateButton: 'dealsort #backFromSortButton'
         },
         control: {
-            dealSort: {
+            dealSortChecks: {
                 check: 'checkboxHandler',
                 uncheck: 'checkboxHandler'
-            },
-            updateButton:{
-                tap: 'buttonHandler'
             }
         }
     },
     checkboxHandler:function(f,t2,t3,e){
-        var event = e.info.eventName;
+        //var event = e.info.eventName;
         var field = f.getName();
-        log('checkboxHandler',field,event);
+        var checked = f.getChecked();
+        log('checkboxHandler',field,event,checked);
     },
     init: function() {
-        
+        this.unchangedStateObj = {};
+        this.changedStateObj = {};
         this.changedSorting = false;
         log('init SortController');
     },
     launch:function(){
-        var test = this.getDealSort();
-        log('testing',test);
+        var checkBoxes = Ext.ComponentQuery.query('dealsort checkboxfield');
+        for(var i = 0 ; i < checkBoxes.length ; i++){
+            var checked = checkBoxes[i].getChecked();
+            var name = checkBoxes[i].getName();
+            this.changedStateObj[name] = this.unchangedStateObj[name] = checked;
+
+            //log(checkBoxes[i].getName(),checkBoxes[i].getChecked());
+        }
+        log(this.unchangedStateObj,this.changedStateObj);
     }
 });
