@@ -21,24 +21,26 @@ Ext.define('QuickD.controller.AnimationController', {
         return dfr.promise();
     },
     dealsListOut: function($deals, duration) {
-        var dfr = new $.Deferred(),
-            h   = $(window).height();
+        var dfr     = new $.Deferred(),
+            h       = $(window).height(),
+            self    = this;
+
+        self.duration = duration || this.defaultOutSpeed;
 
         $deals.each(function(i) {
-            log('begin animation ...');
-
+            log('begin animation - Duration: ' + self.duration);
             $(this)
                 .delay((i + 1) * 300)
                 .animate(
-                    {
-                        'opacity': 0,
-                        'margin-top': 0 - h
+                    { 
+                        'opacity': 0 
                     },
-                    duration || this.defaultOutSpeed,
+                    self.duration,
                     function() {
-                        log('animating ' + i);
+                        log('Animation complete for  ' + i);
                     }
                 );
+                
         }).promise().done(dfr.resolve);
 
         return dfr.promise();

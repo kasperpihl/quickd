@@ -123,9 +123,6 @@ Ext.define('QuickD.controller.Main', {
                 main.animateActiveItem(this.getDealSort(),'flip');
             break;
             case 'dealshow':
-                main.animateActiveItem(this.getDealList(),'flip');
-            break;
-            case 'deallist':
                 var $deals      = $('#quickd-deals .x-list-container div.x-list-item'),
                     self        = this,
                     dealsOut    = this.animationController.dealsListOut($deals),
@@ -137,6 +134,9 @@ Ext.define('QuickD.controller.Main', {
                 $.when(dealsOut, bgIn).done(function() {
                     self.getMain().setActiveItem(self.getDealShow());
                 });
+            break;
+            case 'deallist':
+                main.animateActiveItem(this.getDealList(),'flip');
             break;
             case 'mapshow':
                 this.getMain().setActiveItem(this.getMapShow());
