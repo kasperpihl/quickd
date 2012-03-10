@@ -270,7 +270,6 @@ define([
 					if (data.success=='true') {
 						$('#btn_edit_save').fadeOut(function() { $(this).removeClass('loading').html('Gem') });
 						$('#btn_select_img').html('Vælg billede');
-						log(onSave);
 						if (onSave&&$.isFunction(onSave)) onSave();
 						thisClass.thumbEdited = false;
 						
