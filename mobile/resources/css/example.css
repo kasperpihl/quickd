@@ -3659,8 +3659,23 @@ SINGLE DEAL
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: black; }
+  height: 100%; }
+
+#deal-bg, #quickd-single .x-body > .x-inner {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #222222), color-stop(100%, #0c0c0c));
+  background-image: -webkit-linear-gradient(#222222, #0c0c0c);
+  background-image: linear-gradient(#222222, #0c0c0c);
+  color: white; }
+
+#quickd-single .x-body > .x-inner #quickd-deal-slider {
+  height: 170px;
+  width: 100%; }
+  #quickd-single .x-body > .x-inner #quickd-deal-slider .infoBox {
+    padding: 5px 0 0 5px; }
+  #quickd-single .x-body > .x-inner #quickd-deal-slider .information {
+    color: #9C9C9C; }
+#quickd-single .x-body > .x-inner .quickd-deal-background .rightPanel {
+  margin-left: 7px; }
 
 /******************************************************************
 DEALS LIST
