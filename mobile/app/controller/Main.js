@@ -1,7 +1,8 @@
 Ext.define('QuickD.controller.Main', {
     extend: 'Ext.app.Controller',
     requires: [
-        'Ext.util.GeoLocation'
+        'Ext.util.GeoLocation',
+        'QuickD.controller.AnimationController'
     ],
     config: {
         refs: {
@@ -38,7 +39,10 @@ Ext.define('QuickD.controller.Main', {
         this.getDealShow().loadDeal(newItem);
     },
     init: function() {
-        Ext.getStore('Deals').addListener('refresh',this.updatedStore,this);
+        Ext.getStore('Deals').addListener('refresh', this.updatedStore, this);
+
+        this.animationController = this.getApplication().getController('AnimationController');
+        
         this.location = Ext.create('Ext.util.GeoLocation', {
             autoUpdate: false,
             listeners: {
@@ -51,7 +55,6 @@ Ext.define('QuickD.controller.Main', {
 
     },
     launch:function(){
-        
     },
     filterChange:function(instance,data,options){
         if(data && data.hasOwnProperty('data')){
@@ -76,11 +79,6 @@ Ext.define('QuickD.controller.Main', {
     },
     updatedStore:function(instance,data,options){
         this.getDealShow().setSlider(instance.getData().items);
-        /*.each(function(item){
-            log(item)
-        });*/
-       //log('refresh',instance,data,options);
-       // log('updater',instance,data,options);
     },
     onLocationUpdate:function(){
         this.getMain().getAt(0).show();
@@ -112,20 +110,22 @@ Ext.define('QuickD.controller.Main', {
                 this.getBackButton().show();
                 this.getFilterButton().hide();
                 this.getMapButton().show();
-                /* This class should have z-index 5. Making the deals lay over the fading in background*/
-                $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner').css('zIndex',5);
-                /* Quickd N'dirty solution. Appending div  */
-                $('#quickd-deals .x-scroll-container').append('<div id="testing" style="z-index:3; background:black; position: absolute; top: 0; left:0;min-width:100%; min-height:100%; display:none;"></div>');
-                var i = 0;
-                $('#quickd-deals .x-list-container div.x-list-item').each(function(){
-                    $(this).toggleClass('animateUp',(options.index >= i));
-                    $(this).toggleClass('animateDown',(options.index < i));
-                    i++;
+                
+                // animate list out
+                
+                log('dealsListOut begin.');
+                this.animationController.dealsListOut(null, 800).done(function() {
+                    log('dealsListOut complete.');
                 });
-                this.getDealShow().loadDeal(options.record,options.list);
+
+                this.getDealShow().loadDeal(options.record,options.list); // ikke asynkron
+                
+                // fade black bg
                 var thisClass = this;
                 $('#testing').fadeIn(function(){
+                    // switch view
                     thisClass.getMain().setActiveItem(thisClass.getDealShow());
+                    // animate single deal in
                     $('#testing').remove();
                 });
             break;
