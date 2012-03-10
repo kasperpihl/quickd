@@ -9,10 +9,10 @@ Ext.define('QuickD.store.Deals', {
         proxy: {
             type: 'ajax',
             url: 'ajax/getDeals.php',
-            extraParams: {
-            	lat: localStorage.getItem('lat'),
-            	long: localStorage.getItem('long')
-            }
-        }
-    }
+            extraParams: {
+               lat: localStorage.getItem('lat'),
+               long: localStorage.getItem('long')
+           }
+       }
+   }
 });
