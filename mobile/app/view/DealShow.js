@@ -8,10 +8,10 @@ var showDealTemplate = new Ext.XTemplate(
 );
 var showDealSliderObj = new Ext.XTemplate(
     '<div class="dealBackground">',
-        '<div class="leftPanel">',
+        '<div class="leftPanel left">',
             '<img src="http://lorempixum.com/170/170/food/" />',
         '</div>',
-        '<div class="rightPanel">',
+        '<div class="rightPanel left">',
             '<div class="infoBox">',
                 '<div class="title">PRIS</div>',
                 '<div class="information"> <span class="linethrough">{orig_price},-</span> {deal_price},-</div>',
@@ -39,6 +39,7 @@ Ext.define('QuickD.view.DealShow', {
     ],
     config: {
         layout:'vbox',
+        id: 'quickd-single',
         defaults:{
         },
         items: [
