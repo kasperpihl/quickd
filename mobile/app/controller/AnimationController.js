@@ -25,20 +25,16 @@ Ext.define('QuickD.controller.AnimationController', {
             h       = $(window).height(),
             self    = this;
 
-        self.duration = duration || this.defaultOutSpeed;
-
         $deals.each(function(i) {
-            log('begin animation - Duration: ' + self.duration);
+
+            // TODO: (maybe) Do this with CSS animations instead.
             $(this)
                 .delay((i + 1) * 300)
                 .animate(
                     { 
                         'opacity': 0 
                     },
-                    self.duration,
-                    function() {
-                        log('Animation complete for  ' + i);
-                    }
+                    duration || self.defaultOutSpeed
                 );
                 
         }).promise().done(dfr.resolve);
