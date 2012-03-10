@@ -31,10 +31,13 @@ Ext.define('QuickD.controller.Main', {
         var id = t.getId();
         switch (id){
             case 'sortButton':
+                this.sortController.setState();
                 this.changeToView('dealsort');
             break;
             case 'backFromSortButton':
-                this.changeToView('deallist');
+                var controller = this.getApplication().getController('SortController');
+                controller.filterChange();
+                this.changeToView('dealshow');
             break;
             case 'backFromShowButton':
                 this.changeToView('deallist');
@@ -62,6 +65,7 @@ Ext.define('QuickD.controller.Main', {
 
     },
     launch:function(){
+        this.sortController = this.getApplication().getController('SortController');
         this.$container = $('#quickd-deals .x-scroll-container');
         this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
       
@@ -69,27 +73,7 @@ Ext.define('QuickD.controller.Main', {
         this.$container.append($('<div id="deals-bg"></div>'));
         this.$dealsBg = this.$container.find('#deals-bg');
     },
-    filterChange:function(instance,data,options){
-        if(data && data.hasOwnProperty('data')){
-            var id = data.data.value;
-            if(id != this.filter){
-                this.filter = id;
-                var store = Ext.getStore('Deals');
-                switch(id){
-                    case 'shopping':
-                    case 'fooddrink':
-                    case 'experience':
-                        store.clearFilter();
-                        store.filter('category',id);
-                    break;
-                    case 'all':
-                        store.clearFilter();
-                    break;
-                }
-            }
-        }
-
-    },
+    
     updatedStore:function(instance,data,options){
         this.getDealShow().setSlider(instance.getData().items);
     },
@@ -110,9 +94,6 @@ Ext.define('QuickD.controller.Main', {
         this.changeToView('mapshow');
     },
     handleBack:function(){
-        this.getBackButton().hide();
-        this.getMapButton().hide();
-        this.getFilterButton().show();
         this.getDealList().deselectAll();
         this.getMain().setActiveItem(1);
     },
