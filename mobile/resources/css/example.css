@@ -3672,8 +3672,12 @@ SINGLE DEAL
   width: 100%; }
   #quickd-single .x-body > .x-inner #quickd-deal-slider .infoBox {
     padding: 5px 0 0 5px; }
+  #quickd-single .x-body > .x-inner #quickd-deal-slider .linethrough {
+    text-decoration: line-through; }
+  #quickd-single .x-body > .x-inner #quickd-deal-slider .title {
+    font-weight: bold; }
   #quickd-single .x-body > .x-inner #quickd-deal-slider .information {
-    color: #9C9C9C; }
+    color: #808080; }
 #quickd-single .x-body > .x-inner .quickd-deal-background .rightPanel {
   margin-left: 7px; }
 

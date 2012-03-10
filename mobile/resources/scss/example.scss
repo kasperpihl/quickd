@@ -139,7 +139,10 @@ SINGLE DEAL
             height:170px; width:100%;
 
             .infoBox { padding: 5px 0 0 5px; }
-            .information{ color: #9C9C9C; }
+            
+            .linethrough { text-decoration: line-through; }
+            .title { font-weight: bold; }
+            .information{ color: #808080; }
         }
 
         .quickd-deal-background {
