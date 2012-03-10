@@ -1,4 +1,17 @@
 <? 
+$msgFunc = 
+"function msg(message,success){
+	 if(!success) var obj = {success:'false',error:message};
+	 else var obj = {success:'true',data:message};
+	 
+	 return JSON.stringify(obj);
+}";
+$addHistoryFunc=
+"function addHistory(id,timestamp,action,rev,priority){
+	if(!doc.hasOwnProperty('history')) doc.history = new Array();
+	var historyObj = {id:id,timestamp: timestamp,action:action,type:'feedback',rev:rev,priority:priority};
+	doc.history.push(historyObj);
+}";
 if(!isset($db)) echo die('cant call this directly - use update.php');
 try{
 	$doc = couchDocument::getInstance($db,"_design/dealer");
@@ -18,12 +31,7 @@ try{
 	$updates = new stdClass();
 	$registerUser =
 	"function(doc,req){
-		function msg(message,success){
-			 if(!success) var obj = {success:'false',error:message};
-			 else var obj = {success:'true',data:message};
-			 
-			 return JSON.stringify(obj);
-		}
+		".$msgFunc."
 		if(doc) return [null,msg('user_exists')];
 		var timestamp = parseInt(new Date().getTime()/1000);
 		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
@@ -46,14 +54,13 @@ try{
 		
 		return [obj,msg({id:req.uuid},true)];
 	}";
+	$requestNewPassword =
+	"function(doc,req){
+		".$msgFunc."
+	}";
 	$updateFbInfo = 
 	"function(doc,req){
-		function msg(message,success){
-			 if(!success) var obj = {success:'false',error:message};
-			 else var obj = {success:'true',data:message};
-			 
-			 return JSON.stringify(obj);
-		}
+		".$msgFunc."
 		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
 		var query = JSON.parse(req.query.json);
 		if(!query.hasOwnProperty('fb_info')) return [null, msg('fb_details_not_specified')];
@@ -72,11 +79,7 @@ try{
 	}";
 	$startStopDeal = 
 	"function(doc,req){
-		function msg(message,success){
-			 if(!success) var obj = {success:'false',error:message};
-			 else var obj = {success:'true',data:message}; 
-			 return JSON.stringify(obj);
-		}
+		".$msgFunc."
 		if(!req.query.json) return [null,msg('json_must_be_specified')];
 		var timestamp = parseInt(new Date().getTime()/1000);
 		var query = JSON.parse(req.query.json);
@@ -122,11 +125,7 @@ try{
 	}";
 	$checkDeal = 
 	"function(doc,req){
-		function msg(message,success){
-			 if(!success) var obj = {success:'false',error:message};
-			 else var obj = {success:'true',data:message}; 
-			 return JSON.stringify(obj);
-		}
+		".$msgFunc."
 		function addHistory(id,timestamp){
 			if(!doc.hasOwnProperty('history')) doc.history = new Array();
 			var historyObj = {id:id, timestamp:timestamp, action:'planned', type:'deal', rev:1,priority:1};
@@ -160,11 +159,7 @@ try{
 	}";
 	$sendFeedback = 
 	"function(doc,req){
-		function msg(message,success){
-			 if(!success) var obj = {success:'false',error:message};
-			 else var obj = {success:'true',data:message}; 
-			 return JSON.stringify(obj);
-		}
+		".$msgFunc."
 		function addHistory(id,timestamp,action,rev,priority){
 		
 			if(!doc.hasOwnProperty('history')) doc.history = new Array();
@@ -187,12 +182,7 @@ try{
 	}";
 	$addEditShop = 
 	"function(doc,req){
-		function msg(message,success){
-			 if(!success) var obj = {success:'false',error:message};
-			 else var obj = {success:'true',data:message};
-			 
-			 return JSON.stringify(obj);
-		}
+		".$msgFunc."
 		function addHistory(id,timestamp,action,rev){
 		
 			if(!doc.hasOwnProperty('history')) doc.history = new Array();
@@ -263,12 +253,7 @@ try{
 	}";
 	$addEditTemplate = 
 	"function(doc,req){
-		function msg(message,success){
-			 if(!success) var obj = {success:'false',error:message};
-			 else var obj = {success:'true',data:message};
-			 
-			 return JSON.stringify(obj);
-		}
+		".$msgFunc."
 		function addHistory(id,timestamp,action,rev,priority){
 		
 			if(!doc.hasOwnProperty('history')) doc.history = new Array();
@@ -388,12 +373,7 @@ try{
 	}";
 	$addEditImage =
 	"function(doc,req) {
-		function msg(message,success){
-			 if(!success) var obj = {success:'false',error:message};
-			 else var obj = {success:'true',data:message};
-			 
-			 return JSON.stringify(obj);
-		}
+		".$msgFunc."
 		if(!req.query.json) return [null,msg('json_must_be_specified')];
 		if(!doc) return [null,msg('no_user')];
 		if(doc.type != 'user') return [null,msg('request_is_not_a_user')];
