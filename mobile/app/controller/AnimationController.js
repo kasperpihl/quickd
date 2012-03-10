@@ -4,19 +4,26 @@ Ext.define('QuickD.controller.AnimationController', {
     requires: [],
     config: { },
     init: function(){
-        this.defaultInSpeed = 300;
-        this.defaultOutSpeed = 250;
+        this.defaultInSpeed = 200;
+        this.defaultOutSpeed = 150;
     },
-    dealsListIn: function($deals) {
-        var dfr = new jQuery.deferred();
+    dealsListIn: function($deals, duration) {
+        var dfr     = new $.Deferred(),
+            h       = $(window).height(),
+            self    = this;
         
-        // animate out
-        $('#quickd-deals .x-list-container div.x-list-item').each(function(){
-            $(this).toggleClass('animateUp',(options.index >= i));
-            $(this).toggleClass('animateDown',(options.index < i));
-            i++;
-            dfr.resolve();
-        });
+        $deals.each(function(i) {
+            $(this)
+                .stop(true, true)
+                .delay((i + 1) * 75)
+                .animate(
+                    { 
+                        'opacity': 1
+                    },
+                    duration || self.defaultInSpeed
+                );
+                
+        }).promise().done(dfr.resolve);
 
         return dfr.promise();
     },
@@ -26,13 +33,12 @@ Ext.define('QuickD.controller.AnimationController', {
             self    = this;
 
         $deals.each(function(i) {
-
-            // TODO: (maybe) Do this with CSS animations instead.
             $(this)
-                .delay((i + 1) * 300)
+                .stop(true, true)
+                .delay((i + 1) * 75)
                 .animate(
                     { 
-                        'opacity': 0 
+                        'opacity': 0
                     },
                     duration || self.defaultOutSpeed
                 );
