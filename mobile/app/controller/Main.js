@@ -37,7 +37,8 @@ Ext.define('QuickD.controller.Main', {
             case 'backFromSortButton':
                 var controller = this.getApplication().getController('SortController');
                 controller.filterChange();
-                this.changeToView('dealshow');
+                this.getMain().animateActiveItem(this.getDealList(), 'flip');
+                //this.changeToView('dealshow');
             break;
             case 'backFromShowButton':
                 this.changeToView('deallist');

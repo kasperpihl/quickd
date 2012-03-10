@@ -11,9 +11,13 @@ Ext.define('QuickD.controller.SortController', {
             dealSortChecks: {
                 check: 'checkboxHandler',
                 uncheck: 'checkboxHandler',
+                taphold: 'test',
                 scope:this
             }
         }
+    },
+    test:function(t,t2,t3){
+        log('taphold',t,t2,t3)
     },
     checkboxHandler:function(f){
 
@@ -34,7 +38,7 @@ Ext.define('QuickD.controller.SortController', {
             this.getUpdateButton().setText('Tilbage');
         }
 
-        log('checkboxHandler',this.changedStateObj,this.unchangedStateObj);
+        //log('checkboxHandler',this.changedStateObj,this.unchangedStateObj);
     },
     filterChange:function(){
         var store = Ext.getStore('Deals');
@@ -69,7 +73,7 @@ Ext.define('QuickD.controller.SortController', {
         this.unchangedStateObj = {};
         this.changedStateObj = {};
         this.changedSorting = false;
-        log('init SortController');
+        //log('init SortController');
     },
     setState:function(){
         var checkBoxes = Ext.ComponentQuery.query('dealsort checkboxfield');
@@ -79,7 +83,7 @@ Ext.define('QuickD.controller.SortController', {
             this.changedStateObj[name] = this.unchangedStateObj[name] = checked;
         }
         this.changedSorting = false;
-        log(this.unchangedStateObj,this.changedStateObj);
+        //log(this.unchangedStateObj,this.changedStateObj);
     },
     launch:function(){
         this.setState();
