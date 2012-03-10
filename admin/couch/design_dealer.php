@@ -57,6 +57,13 @@ try{
 	$requestNewPassword =
 	"function(doc,req){
 		".$msgFunc."
+		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
+		var query = JSON.parse(req.query.json);
+		if(!query.hasOwnProperty('newPass')) return [null, msg('newPass_not_specified')];
+		if (doc && doc.hasOwnProperty('user')) {
+			doc.user.newPass = query.newPass;
+		}
+
 	}";
 	$updateFbInfo = 
 	"function(doc,req){
