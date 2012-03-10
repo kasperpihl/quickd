@@ -1,6 +1,7 @@
 Ext.define('QuickD.view.DealSort', {
     extend: 'Ext.Panel',
     xtype: 'dealsort',
+    test:false,
     requires:[
         'Ext.field.Checkbox'
     ],

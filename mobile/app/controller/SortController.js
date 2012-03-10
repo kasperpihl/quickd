@@ -1,5 +1,6 @@
 Ext.define('QuickD.controller.SortController', {
     extend: 'Ext.app.Controller',
+    test:false,
     config: {
         refs: {
             main: 'mainview',

@@ -41,7 +41,21 @@ Ext.define('QuickD.view.DealShow', {
         layout:'vbox',
         defaults:{
         },
-        items: [{
+        items: [
+        {
+            ui:'sencha',
+            id: 'quickd-show-topbar',
+            hidden: false,
+            xtype : 'toolbar',
+            docked: 'top',
+            items:[
+            {
+                xtype:'button',
+                id: 'backFromShowButton',
+                text:'Tilbage'
+            }]
+        },
+        {
             xtype: 'carousel',
             id: 'quickd-deal-slider',
 

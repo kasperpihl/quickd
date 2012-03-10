@@ -35,6 +35,9 @@ Ext.define('QuickD.controller.Main', {
             case 'backFromSortButton':
                 this.changeToView('deallist');
             break;
+            case 'backFromShowButton':
+                this.changeToView('deallist');
+            break;
         }
     },
     test:function(container,newItem,oldItem){
