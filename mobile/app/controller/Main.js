@@ -59,6 +59,12 @@ Ext.define('QuickD.controller.Main', {
 
     },
     launch:function(){
+        this.$container = $('#quickd-deals .x-scroll-container');
+        this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
+      
+        // Add deals bg
+        this.$container.append($('<div id="deals-bg"></div>'));
+        this.$dealsBg = this.$container.find('#deals-bg');
     },
     filterChange:function(instance,data,options){
         if(data && data.hasOwnProperty('data')){
@@ -114,15 +120,35 @@ Ext.define('QuickD.controller.Main', {
                 main.animateActiveItem(this.getDealSort(),'flip');
             break;
             case 'dealshow':
-            
+                main.animateActiveItem(this.getDealList(),'flip');
             break;
             case 'deallist':
-                main.animateActiveItem(this.getDealList(),'flip');
+                var $deals      = $('#quickd-deals .x-list-container div.x-list-item'),
+                    self        = this,
+                    dealsOut    = this.animationController.dealsListOut($deals),
+                    bgIn        = this.showSingleBackground();
+                
+                // Fetch data for selected deal.
+                this.getDealShow().loadDeal(options.record,options.list); // ingen server load, så dataen er der med det samme.
+                
+                $.when(dealsOut, bgIn).done(function() {
+                    self.getMain().setActiveItem(self.getDealShow());
+                });
             break;
             case 'mapshow':
                 this.getMain().setActiveItem(this.getMapShow());
             break;
         }
+    },
+    showSingleBackground: function(duration) {
+        var drf = new $.Deferred();
+        this.$dealsBg.fadeIn(duration || 250, drf.resolve);
+        return drf.promise();
+    }, 
+    hideSingleBackground: function(duration) {
+        var drf = new $.Deferred();
+        this.$dealsBg.fadeOut(duration || 150, drf.resolve);
+        return drf.promise();
     },
     onLocationError:function(error,test1,permDenied,test3,test4){
         this.getMain().getAt(1).setHtml('error location');
