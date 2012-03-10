@@ -14,7 +14,7 @@ define([
 			var data = {model: this.model.attributes};
 			this.state = 'view';
 			if (data.model.image) this.imageWasSelected = true;
-			log("template",data);
+			//log("template",data);
 			this.createWindow(true, data);
 			this.router.bind('imageSelected',this.imageSelected);
 			App.collections.templates.bind('change',this.updateContent);
@@ -152,10 +152,11 @@ define([
 		},
 		delTemplate:function(){
 			this.model.destroy({data:this.model.id, success:function(model, response) {
-				log("destroyed", model, response);
-			}, error:function(model, response) { log("error destroy: ", model, response); }});
-			this.router.trigger('templateEdited',{event:'templateDeleted'});
+				log("deleted", model, response);
+				this.router.trigger('templateEdited',{event:'templateDeleted'});
+			}, error:function(model, response) { log("error delete: ", model, response); }});
 			this.activity.closeWindow(this, false, true);
+			return false;
 		},
 		openSelectImage:function() {
 			if (!this.selectorView)

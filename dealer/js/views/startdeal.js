@@ -124,7 +124,6 @@ define([
 			}
 		},
 		updateTemplates:function(data) {
-			log("templates updated");
 			this.dealTemplates = data;
 		},
 		setTemplateSelected:function(data) {
