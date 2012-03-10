@@ -1,6 +1,7 @@
 <?php
 require_once('../config.php');
-print_r('test12');
+$test = Shopowner::NewPassword('kasper@tornoe.org');
+print_r($test);
 /*$result = array();
 $array = array('Denis','Anders','Kasper','Kristjan');
 for ($i = 0; $i < 10000 ; $i++){

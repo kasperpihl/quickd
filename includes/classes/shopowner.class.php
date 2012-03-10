@@ -121,17 +121,20 @@ class Shopowner {
 		}
 		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'checkEmail', 'e'=>$e->getMessage())); }
 	}
-	public static function requestNewPassword($email){
+	public static function requestNewPassword($email,$type='user'){
 		global $db;
 		try{
 			$user = self::checkEmail($email);
 			$user = json_decode($user);
-			if($user->success != 'true') return $user;
+			if($user->success != 'true') return json_encode($user);
 			$user = $user->data;
+			$doc_id = $user->id;
 			$endtime = time() + (60*60*24);
 			$url = md5(MD5_STRING.$user->id.$endtime);
-			$newPass = array('endtime'=>$endtime, 'url'=>$url);
-			print_r($newPass);
+			$model = array('newPass'=>array('endtime'=>$endtime, 'url'=>$url));
+			$result = json_decode($db->updateDocFullAPI('dealer','requestNewPassword',array('doc_id'=>$doc_id,'params'=>array('json'=>json_encode($model)))));
+			if($result->success != 'true') return json_encode($result);
+			Mail::sendNewPasswordForDealer($email,$url);
 
 		}
 		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'requestNewPassword', 'e'=>$e->getMessage())); }

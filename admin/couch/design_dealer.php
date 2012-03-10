@@ -29,7 +29,7 @@ try{
 	echo 'filters sat <br/>';
 	
 	$updates = new stdClass();
-	$registerUser =
+	$updates->registerUser =
 	"function(doc,req){
 		".$msgFunc."
 		if(doc) return [null,msg('user_exists')];
@@ -54,7 +54,7 @@ try{
 		
 		return [obj,msg({id:req.uuid},true)];
 	}";
-	$requestNewPassword =
+	$updates->requestNewPassword =
 	"function(doc,req){
 		".$msgFunc."
 		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
@@ -62,10 +62,11 @@ try{
 		if(!query.hasOwnProperty('newPass')) return [null, msg('newPass_not_specified')];
 		if (doc && doc.hasOwnProperty('user')) {
 			doc.user.newPass = query.newPass;
+			return [doc,msg('',true)];
 		}
-
+		else return [null,msg('no_user_found')];
 	}";
-	$updateFbInfo = 
+	$updates->updateFbInfo = 
 	"function(doc,req){
 		".$msgFunc."
 		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
@@ -84,7 +85,7 @@ try{
 		
 		return [doc,msg({id:req.uuid},true)];
 	}";
-	$startStopDeal = 
+	$updates->startStopDeal = 
 	"function(doc,req){
 		".$msgFunc."
 		if(!req.query.json) return [null,msg('json_must_be_specified')];
@@ -130,7 +131,7 @@ try{
 		}
 		return [null,msg('ja tak')];
 	}";
-	$checkDeal = 
+	$updates->checkDeal = 
 	"function(doc,req){
 		".$msgFunc."
 		function addHistory(id,timestamp){
@@ -164,7 +165,7 @@ try{
 		}
 		return [doc,msg(returnObj,true)];
 	}";
-	$sendFeedback = 
+	$updates->sendFeedback = 
 	"function(doc,req){
 		".$msgFunc."
 		function addHistory(id,timestamp,action,rev,priority){
@@ -187,7 +188,7 @@ try{
 		return [doc,msg({id:index,rev:index},true)];
 		
 	}";
-	$addEditShop = 
+	$updates->addEditShop = 
 	"function(doc,req){
 		".$msgFunc."
 		function addHistory(id,timestamp,action,rev){
@@ -258,7 +259,7 @@ try{
 		
 		
 	}";
-	$addEditTemplate = 
+	$updates->addEditTemplate = 
 	"function(doc,req){
 		".$msgFunc."
 		function addHistory(id,timestamp,action,rev,priority){
@@ -347,14 +348,9 @@ try{
 		
 		
 	}";
-	$delTemplate = 
+	$updates->delTemplate = 
 	"function(doc,req){
-		function msg(message,success){
-			 if(!success) var obj = {success:'false',error:message, data: req};
-			 else var obj = {success:'true',data:message};
-			 
-			 return JSON.stringify(obj);
-		}
+		".$msgFunc."
 		function addHistory(id,timestamp,action,rev,priority){
 			if(!doc.hasOwnProperty('history')) doc.history = new Array();
 			var historyObj = {id:id,timestamp: timestamp,action:action,type:'template',rev:rev,priority:priority};
@@ -378,7 +374,7 @@ try{
 		
 		
 	}";
-	$addEditImage =
+	$updates->addEditImage =
 	"function(doc,req) {
 		".$msgFunc."
 		if(!req.query.json) return [null,msg('json_must_be_specified')];
@@ -434,15 +430,6 @@ try{
 		
 		return [doc,msg(doc.images[index],true)];
 	}";
-	$updates->addEditTemplate = $addEditTemplate;
-	$updates->delTemplate = $delTemplate;
-	$updates->addEditImage = $addEditImage;
-	$updates->addEditShop = $addEditShop;
-	$updates->sendFeedback = $sendFeedback;
-	$updates->checkDeal = $checkDeal;
-	$updates->startStopDeal = $startStopDeal;
-	$updates->registerUser = $registerUser;
-	$updates->updateFbInfo = $updateFbInfo;
 	echo 'updates objektet klar<br/>';
 	$doc->updates = $updates;
 	echo 'updates sat <br/>';
@@ -575,6 +562,18 @@ try{
 			}
 		}
 	}";
+	$views->getResetPass = 
+	array(
+	"map" =>
+	"function (doc) {
+		if ( doc.type && doc.type == \"user\") {
+			if(doc.hasOwnProperty('user')){
+				if(doc.user.newPass){
+					emit(doc.user.newPass.endtime,doc.user.newPass.url);
+				}
+			}
+		}
+	}");
 	$cleanDeals = 
 	array(
 	"map" =>

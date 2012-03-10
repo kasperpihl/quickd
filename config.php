@@ -31,6 +31,7 @@ define('MAX_DIST',25000);
 define('STD_IMAGE','hej');
 define("DS",DIRECTORY_SEPARATOR);
 define('ROOT_URL','http://'.$root.$end);
+define('DEALER_RESET_URL',ROOT_URL.'reset/');
 define("HOME_DIR",dirname(__FILE__).DS);
 define("API_DIR",HOME_DIR.'api'.DS);
 define("CDN_DIR",HOME_DIR.'cdn'.DS);

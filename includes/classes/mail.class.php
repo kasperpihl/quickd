@@ -15,6 +15,20 @@ Class Mail{
 			'QuickD-teamet';
 		self::sendMail($mail,$subject,$message);
 	}
+	public static function sendNewPasswordForDealer($mail, $url,$name = false){
+		$subject = 'Glemt adgangskode til QuickD Forhandler';
+		if ($name) $greet = "Hej ".$name."\n\n";
+		else $greet = "";
+		$message = 
+			$greet.
+			'I har anmodet om en ny adgangskode til forhandler.quickd.dk.\n'.
+			'Følg venligst nedenstående link inden for 24 timer for at komme videre:\n\n'.
+			DEALER_RESET_URL.$url."\n\n".
+			'Har I spørgsmål, kan I ringe til os på tlf. 30 911 911.\n\n'.
+			'De bedste hilsner,'."\n".
+			'QuickD-teamet';
+		self::sendMail($mail,$subject,$message);
+	}
 	private static function sendMail($to,$subject,$message){
 		$headers = 
 			'MIME-Version: 1.0' ."\n".
