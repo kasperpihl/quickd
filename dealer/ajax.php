@@ -1,7 +1,5 @@
 <?php
 require_once('../config.php');
-echo json_encode(array('success'=>'false','error'=>'testing', 'data'=>array('method'=>$_SERVER['REQUEST_METHOD'], 'post'=>$_POST, 'get'=>$_GET)));
-die();
 $result = array('success'=>'false','error'=>'no_action_match');
 switch($_SERVER['REQUEST_METHOD']){
 	case 'GET':

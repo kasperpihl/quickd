@@ -347,6 +347,37 @@ try{
 		
 		
 	}";
+	$delTemplate = 
+	"function(doc,req){
+		function msg(message,success){
+			 if(!success) var obj = {success:'false',error:message, data: req};
+			 else var obj = {success:'true',data:message};
+			 
+			 return JSON.stringify(obj);
+		}
+		function addHistory(id,timestamp,action,rev,priority){
+			if(!doc.hasOwnProperty('history')) doc.history = new Array();
+			var historyObj = {id:id,timestamp: timestamp,action:action,type:'template',rev:rev,priority:priority};
+			doc.history.push(historyObj);
+		}
+		var timestamp = parseInt(new Date().getTime()/1000);
+		if(!req.query.json) return [null,msg('json_must_be_specified')];
+		if(!doc) return [null, msg('user_not_exist')];
+		if(!doc.type || doc.type != 'user') return [null, msg('request_is_not_a_user')];
+		var query = JSON.parse(req.query.json);
+		if(!query.id) return [null, msg('no_id_defined')];
+		if(!doc.templates) return [null, msg('user_has_no_templates')];
+		if(!doc.templates.hasOwnProperty(query.id)) return [null, msg('template_doesnt_exist')];
+		
+		var rev = parseInt(doc.templates[query.id].rev) +1;
+		delete doc.templates[query.id];
+		
+		addHistory(query.id,timestamp,'deleted',rev,1);
+		
+		return [doc,msg('template_deleted',true)];
+		
+		
+	}";
 	$addEditImage =
 	"function(doc,req) {
 		".$msgFunc."
@@ -404,6 +435,7 @@ try{
 		return [doc,msg(doc.images[index],true)];
 	}";
 	$updates->addEditTemplate = $addEditTemplate;
+	$updates->delTemplate = $delTemplate;
 	$updates->addEditImage = $addEditImage;
 	$updates->addEditShop = $addEditShop;
 	$updates->sendFeedback = $sendFeedback;

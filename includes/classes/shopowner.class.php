@@ -220,6 +220,40 @@ class Shopowner {
 		}
 		
 	}
+	public static function delete($type,$id){
+		global $db,$session;
+		if(!$session->logged_dealer()) return array('success'=>'false','error'=>'not_logged_in');
+		$shopowner = $session->logged_dealer();
+		$doc_id = $shopowner;
+		switch($type){
+			case 'templates':
+				$update = 'delTemplate';
+			break;
+			/*case 'deals':
+				$update = 'delDeal';
+			break;
+			case 'images':
+				$update = 'delImage';
+				$response = Shopowner::updateImage($model);
+				if ($response && isset($response['success']) && ($response['success']===true||$response['success']=='true') ) 
+					$model = json_encode($response['data']);
+				else if ($response) return $response;
+			break;*/
+				
+		}
+		if(isset($update) && $update){
+			try{
+				$json = json_encode(array('id'=>$id));
+				$result = $db->updateDocFullAPI('dealer',$update,array('doc_id'=>$doc_id,'params'=>array('json'=>$json)));
+				return json_decode($result);
+			}
+			catch(Exception $e){
+				echo json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); 
+			}
+			
+		}
+		
+	}
 	public static function updateDeal($model){
 		global $dealer,$db;
 		//return $model;
