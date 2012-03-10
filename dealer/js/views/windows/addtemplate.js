@@ -52,7 +52,7 @@ define([
 			} else if(this.form)  this.form.submit();
 		},
 		changedModel: function(data,d){
-			
+			log("added", data, d);
 			this.collection.add(this.model);
 			App.views.notifications.notify('fast',lang.notifications.template.created);
 			this.confirmClose=false;
