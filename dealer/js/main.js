@@ -1,4 +1,4 @@
-//Backbone.emulateJSON = true;
+Backbone.emulateJSON = true;
 //Backbone.emulateHTTP = true;
 App = {
 	views: {
