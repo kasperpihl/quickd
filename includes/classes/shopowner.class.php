@@ -121,6 +121,21 @@ class Shopowner {
 		}
 		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'checkEmail', 'e'=>$e->getMessage())); }
 	}
+	public static function requestNewPassword($email){
+		global $db;
+		try{
+			$user = self::checkEmail($email);
+			$user = json_decode($user);
+			if($user->success != 'true') return $user;
+			$user = $user->data;
+			$endtime = time() + (60*60*24);
+			$url = md5(MD5_STRING.$user->id.$endtime);
+			$newPass = array('endtime'=>$endtime, 'url'=>$url);
+			print_r($newPass);
+
+		}
+		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'requestNewPassword', 'e'=>$e->getMessage())); }
+	}
 	public static function getShopowner(){
 		
 	}
