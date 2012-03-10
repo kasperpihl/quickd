@@ -70,8 +70,8 @@ Ext.define('QuickD.controller.Main', {
         this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
       
         // Add deals bg
-        this.$container.append($('<div id="deals-bg"></div>'));
-        this.$dealsBg = this.$container.find('#deals-bg');
+        this.$container.append($('<div id="deal-bg"></div>'));
+        this.$dealsBg = this.$container.find('#deal-bg').hide();
     },
     
     updatedStore:function(instance,data,options){
@@ -98,19 +98,17 @@ Ext.define('QuickD.controller.Main', {
         this.getMain().setActiveItem(1);
     },
     changeToView:function(view,options){
-        var main = this.getMain();
+        var main    = this.getMain(),
+            $deals  = $('#quickd-deals .x-list-container div.x-list-item'),
+            self    = this;
+
         switch(view){
             case 'dealsort':
-                main.animateActiveItem(this.getDealSort(),'flip');
+                main.animateActiveItem(this.getDealSort(), 'flip');
             break;
             case 'dealshow':
-                main.animateActiveItem(this.getDealList(),'flip');
-            break;
-            case 'deallist':
-                var $deals      = $('#quickd-deals .x-list-container div.x-list-item'),
-                    self        = this,
-                    dealsOut    = this.animationController.dealsListOut($deals),
-                    bgIn        = this.showSingleBackground();
+                var dealsOut    = this.animationController.dealsListOut($deals),
+                    bgIn        = this.showSingleBackground(300);
                 
                 // Fetch data for selected deal.
                 this.getDealShow().loadDeal(options.record,options.list); // ingen server load, så dataen er der med det samme.
@@ -119,19 +117,30 @@ Ext.define('QuickD.controller.Main', {
                     self.getMain().setActiveItem(self.getDealShow());
                 });
             break;
+            case 'deallist':
+                main.setActiveItem(this.getDealList());
+                
+                setTimeout(function() {
+                    log('hideSingleBackground begin');
+                    self.hideSingleBackground().done(function() {
+                        log('hideSingleBackground done');
+                        self.animationController.dealsListIn($deals);
+                    });
+                }, 100);
+            break;
             case 'mapshow':
                 this.getMain().setActiveItem(this.getMapShow());
             break;
         }
     },
-    showSingleBackground: function(duration) {
+    showSingleBackground: function(delay, duration) {
         var drf = new $.Deferred();
-        this.$dealsBg.fadeIn(duration || 250, drf.resolve);
+        this.$dealsBg.delay(delay).fadeIn(duration || 250, drf.resolve);
         return drf.promise();
     }, 
-    hideSingleBackground: function(duration) {
+    hideSingleBackground: function(delay, duration) {
         var drf = new $.Deferred();
-        this.$dealsBg.fadeOut(duration || 150, drf.resolve);
+        this.$dealsBg.delay(delay).fadeOut(duration || 200, drf.resolve);
         return drf.promise();
     },
     onLocationError:function(error,test1,permDenied,test3,test4){
