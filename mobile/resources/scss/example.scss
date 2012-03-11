@@ -124,8 +124,36 @@ SINGLE DEAL
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
+}
 
-    background: black;
+#deal-bg, #quickd-single .x-body > .x-inner {
+    @include background-image(linear-gradient(#222, #0c0c0c));
+    color: white;
+}
+
+#quickd-single {
+    .x-body > .x-inner {
+        // carousel and info wrapper
+
+        #quickd-deal-slider{
+            height:170px; width:100%;
+
+            .infoBox { padding: 5px 0 0 5px; }
+            
+            .linethrough { text-decoration: line-through; }
+            .title { font-weight: bold; }
+            .information{ color: #808080; }
+        }
+
+        .quickd-deal-background {
+            .rightPanel { margin-left: 7px; }
+        }
+    }
+
+}
+
+#quickd-deal-content {
+
 }
 
 /******************************************************************

@@ -1,6 +1,30 @@
 var showDealTemplate = new Ext.XTemplate(
-    '<div id="quickd-deal-background">{title}',
-    '</div>',
+    '<article id="deal-{id}-info" class="{category}">',
+        '<header><h1>{title}</h1></header>',
+        '<section class="desc">{description}</section>',
+        '<section class="venue">',
+            '<h2>{name}</h2>',
+            '<img class="venue-thumb" src="http://lorempixum.com/640/320/nightlife/ width="100%" />',
+            '<p><strong>Om stedet:</strong> Som gæst i Templet, vil du føle dig fortryllet af den ophøjede stemning, der tager dig ud af den rutineprægede hverdag og ind i en verden af magi og mystik.',
+            ' På disse sider kan du læse mere om hvad der foregår Tantra Templet, se billeder der giver en idé om atmosfæren og læse hvad andre gæster har oplevet her.</p>',
+        '</section>',
+        '<footer class="venue-meta">',
+            '<section class="hours">',
+                '<ul>',
+                    '<li><span class="day">Man-Torsdag</span><span class="time">09.00 &ndash; 17.30</span></li>',
+                    '<li><span class="day">Fredag</span><span class="time">09.00 &ndash; 20.00</span></li>',
+                    '<li><span class="day">Lørdag</span><span class="time">11.00 &ndash; 17.30</span></li>',
+                    '<li><span class="day">Søndag</span><span class="time">Lukket.</span></li>',
+                '</ul>',
+            '</section>',
+            '<section class="location">',
+                '<p>Frederiksgade 42, 8000 Aarhus C.</p>',
+            '</section>',
+            '<section class="feedback">',
+                '<p>9 anmeldelser</p>',
+            '</section>',
+        '</footer>',
+    '</article>',
     {
         priceIt: priceIt,
         humanReadableDistance: humanReadableDistance
@@ -8,20 +32,20 @@ var showDealTemplate = new Ext.XTemplate(
 );
 var showDealSliderObj = new Ext.XTemplate(
     '<div class="dealBackground">',
-        '<div class="leftPanel">',
-            '<img src="http://lorempixum.com/170/170/food/" />',
+        '<div class="leftPanel left">',
+            '<img src="http://lorempixum.com/185/185/food/" width="185" height="185" />',
         '</div>',
-        '<div class="rightPanel">',
+        '<div class="rightPanel left">',
             '<div class="infoBox">',
-                '<div class="title">PRIS</div>',
+                '<div class="title">Pris</div>',
                 '<div class="information"> <span class="linethrough">{orig_price},-</span> {deal_price},-</div>',
             '</div>',
             '<div class="infoBox">',
-                '<div class="title">DU SPARER</div>',
+                '<div class="title">Du sparer</div>',
                 '<div class="information">{discount}%</div>',
             '</div>',
             '<div class="infoBox">',
-                '<div class="title">AFSTAND</div>',
+                '<div class="title">Afstand</div>',
                 '<div class="information">{distance:this.humanReadableDistance}</div>',
             '</div>',
         '</div>',
@@ -39,6 +63,7 @@ Ext.define('QuickD.view.DealShow', {
     ],
     config: {
         layout:'vbox',
+        id: 'quickd-single',
         defaults:{
         },
         items: [
@@ -81,6 +106,12 @@ Ext.define('QuickD.view.DealShow', {
             xtype: 'panel',
             id: 'quickd-deal-content',
             tpl: showDealTemplate,
+            config: {
+                scrollable: {
+                                direction: 'vertical',
+                                directionLock: true
+                            }
+            },
             flex:2
         }]
     },
