@@ -62,7 +62,6 @@ Ext.define('QuickD.view.DealShow', {
         'Ext.Carousel'
     ],
     config: {
-        layout:'vbox',
         id: 'quickd-single',
         defaults:{
         },
@@ -107,12 +106,7 @@ Ext.define('QuickD.view.DealShow', {
             id: 'quickd-deal-content',
             tpl: showDealTemplate,
             config: {
-                scrollable: {
-                                direction: 'vertical',
-                                directionLock: true
-                            }
-            },
-            flex:2
+            }
         }]
     },
     setSlider:function(records){
