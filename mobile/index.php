@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
         <title>QuickD</title>
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
         <!-- Sencha Touch -->
         <script type="text/javascript" src="touch/builds/sencha-touch-all-compat.js"></script>
 

@@ -7,9 +7,30 @@ Ext.define('QuickD.view.MapShow', {
     config: {
 	layout: 'fit',
         items: [
+        {  
+            ui:'sencha',
+            id: 'quickd-map-topbar',
+            hidden: false,
+            xtype : 'toolbar',
+            title: 'Kort',
+            docked: 'top',
+            items:[
+            {
+                xtype:'button',
+                id: 'backFromMapButton',
+                text:'Tilbage'
+            },
+            {xtype:'spacer'},
+            {
+                xtype: 'button',
+                ui: 'confirm',
+                text: 'Find vej',
+            }]
+        },
         {
             xtype: 'map',
-            zoomControl: false,
+            disableDefaultUI: true
+            /*zoomControl: false,
             panControl: false,
             rotateControl: false,
             streetViewControl: false,
@@ -19,22 +40,9 @@ Ext.define('QuickD.view.MapShow', {
             navigationControl: true,
             navigationControlOptions: {
                 style: google.maps.NavigationControlStyle.DEFAULT
-            }
+            }*/
 
-        },
-        {
-         xtype: 'toolbar',
-         ui: 'sencha',
-         docked: 'bottom',
-         items: [
-         {
-           xtype: 'button',
-           ui: 'confirm',
-           text: 'Få rutevejledning hertil',
-           centered:true
-       }
-       ]
-   }
+        }
    ],
 
    record: null

@@ -52,7 +52,15 @@ Ext.define('QuickD.view.DealShow', {
             {
                 xtype:'button',
                 id: 'backFromShowButton',
-                text:'Tilbage'
+                text:'Deals'
+            },
+            {
+                xtype: 'spacer'
+            },
+            {
+                xtype:'button',
+                id:'mapButton',
+                text:'Kort'
             }]
         },
         {

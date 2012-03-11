@@ -11,13 +11,12 @@ Ext.define('QuickD.controller.SortController', {
             dealSortChecks: {
                 check: 'checkboxHandler',
                 uncheck: 'checkboxHandler',
-                taphold: 'test',
                 scope:this
             }
         }
     },
     test:function(t,t2,t3){
-        log('taphold',t,t2,t3)
+        log('testfunc',t,t2,t3)
     },
     checkboxHandler:function(f){
 
@@ -82,6 +81,7 @@ Ext.define('QuickD.controller.SortController', {
             var name = checkBoxes[i].getName();
             this.changedStateObj[name] = this.unchangedStateObj[name] = checked;
         }
+        this.getUpdateButton().setText('Tilbage');
         this.changedSorting = false;
         //log(this.unchangedStateObj,this.changedStateObj);
     },
