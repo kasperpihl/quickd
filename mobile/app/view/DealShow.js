@@ -98,6 +98,12 @@ Ext.define('QuickD.view.DealShow', {
             xtype: 'panel',
             id: 'quickd-deal-content',
             tpl: showDealTemplate,
+            config: {
+                scrollable: {
+                                direction: 'vertical',
+                                directionLock: true
+                            }
+            },
             flex:2
         }]
     },
