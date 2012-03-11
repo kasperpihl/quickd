@@ -569,7 +569,7 @@ try{
 		if ( doc.type && doc.type == \"user\") {
 			if(doc.hasOwnProperty('user')){
 				if(doc.user.newPass){
-					emit(doc.user.newPass.endtime,doc.user.newPass.url);
+					emit([doc.user.newPass.url,doc.user.newPass.endtime],[doc._id,doc.user]);
 				}
 			}
 		}

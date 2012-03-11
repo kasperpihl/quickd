@@ -1,6 +1,7 @@
 <?php
 require_once('../config.php');
-$test = Shopowner::NewPassword('kasper@tornoe.org');
+
+//$test = Shopowner::requestNewPassword('kasper@tornoe.org','dealer');
 print_r($test);
 /*$result = array();
 $array = array('Denis','Anders','Kasper','Kristjan');

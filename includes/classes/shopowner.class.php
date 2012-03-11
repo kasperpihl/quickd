@@ -134,10 +134,21 @@ class Shopowner {
 			$model = array('newPass'=>array('endtime'=>$endtime, 'url'=>$url));
 			$result = json_decode($db->updateDocFullAPI('dealer','requestNewPassword',array('doc_id'=>$doc_id,'params'=>array('json'=>json_encode($model)))));
 			if($result->success != 'true') return json_encode($result);
-			Mail::sendNewPasswordForDealer($email,$url);
+			switch($type){
+				case 'dealer':
+					Mail::sendNewPasswordForDealer($email,$url);
+				break;
+				case 'user':
+					Mail::sendNewPasswordForUser($email,$url);
+				break;
+			}
+			
 
 		}
 		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'requestNewPassword', 'e'=>$e->getMessage())); }
+	}
+	public static function resetPassword($id){
+
 	}
 	public static function getShopowner(){
 		
