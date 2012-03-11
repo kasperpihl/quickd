@@ -19,7 +19,6 @@ var myTemplate = new Ext.XTemplate(
 );
 Ext.define('QuickD.view.DealListView',{
 	extend: 'Ext.Panel',
-	xtype:'deallistview',
 	config:{
 		height:'200',
 		items:[{xtype:'deallist'}]

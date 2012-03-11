@@ -58,13 +58,14 @@ var showDealSliderObj = new Ext.XTemplate(
 Ext.define('QuickD.view.DealShow', {
     extend: 'Ext.Panel',
     xtype: 'dealshow',
+    
     requires:[
         'Ext.Carousel'
     ],
     config: {
+        fullscreen:true,
+        layout:'vbox',
         id: 'quickd-single',
-        defaults:{
-        },
         items: [
         {
             ui:'sencha',
@@ -90,9 +91,13 @@ Ext.define('QuickD.view.DealShow', {
         {
             xtype: 'carousel',
             id: 'quickd-deal-slider',
-
+            config:{
+                height:170,
+                flex:1
+            },
             indicator: false,
             defaults:{
+                
                 cls: 'quickd-deal-background',
                 tpl: showDealSliderObj,
                 record:null
@@ -106,6 +111,8 @@ Ext.define('QuickD.view.DealShow', {
             id: 'quickd-deal-content',
             tpl: showDealTemplate,
             config: {
+                flex:1,
+                scrollable: true,
             }
         }]
     },

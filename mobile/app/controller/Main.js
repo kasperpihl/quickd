@@ -73,6 +73,9 @@ Ext.define('QuickD.controller.Main', {
     },
     launch:function(){
         this.sortController = this.getApplication().getController('SortController');
+        var test = this.getDealShow().query('#quickd-deal-content')[0].element;
+        log(test);
+        test.on('horizontalswipe',function(){ log('test'); });
         this.$container = $('#quickd-deals .x-scroll-container');
         this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
       
