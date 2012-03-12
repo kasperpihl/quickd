@@ -8,7 +8,7 @@ Ext.define('QuickD.view.Main', {
         'QuickD.view.MapShow'
     ],
     config:{
-        fullscreen: 'true',
+        fullscreen: true,
         layout: 'card',
         items: [
         {
