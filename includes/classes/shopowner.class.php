@@ -147,7 +147,21 @@ class Shopowner {
 		}
 		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'requestNewPassword', 'e'=>$e->getMessage())); }
 	}
-	public static function resetPassword($id){
+	public static function resetPassword($doc_id,$newPass){
+		global $db;
+		try{
+
+			$newPass = md5(MD5_STRING.$newPass);
+			$model = array('md5_password'=>$newPass);
+			$result = json_decode($db->updateDocFullAPI('dealer','editUser',array('doc_id'=>$doc_id,'params'=>array('json'=>json_encode($model)))));
+			print_r($result);
+			if($result->success != 'true') return json_encode($result);
+			
+		}
+		catch(Exception $e){
+			return array('success'=>'false','error'=>'database_error','e'=>$e->getMessage()); 
+	
+		}
 
 	}
 	public static function getShopowner(){

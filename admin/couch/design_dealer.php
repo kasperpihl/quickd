@@ -6,6 +6,9 @@ $msgFunc =
 	 
 	 return JSON.stringify(obj);
 }";
+$requireJSON = 
+"if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
+var query = JSON.parse(req.query.json);";
 $addHistoryFunc=
 "function addHistory(id,timestamp,action,rev,priority){
 	if(!doc.hasOwnProperty('history')) doc.history = new Array();
@@ -66,11 +69,27 @@ try{
 		}
 		else return [null,msg('no_user_found')];
 	}";
+	$updates->editUser =
+	"function(doc,req){
+		".$msgFunc."
+		".$addHistoryFunc."
+		".$requireJSON."
+		if (doc && doc.hasOwnProperty('user')) {
+			var user = doc.user;
+			
+			if(query.hasOwnProperty('md5_password')){
+				user.md5_password = query.md5_password;
+				if(user.hasOwnProperty('newPass')) delete user.newPass;
+			} 
+			return [doc,msg('',true)];
+		}
+		else return [null,msg('no_user_found')];
+	}
+	";
 	$updates->updateFbInfo = 
 	"function(doc,req){
 		".$msgFunc."
-		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
-		var query = JSON.parse(req.query.json);
+		".$requireJSON."
 		if(!query.hasOwnProperty('fb_info')) return [null, msg('fb_details_not_specified')];
 		if (doc && doc.hasOwnProperty('user')) {
 			doc.user.fb_info = query.fb_info;
@@ -569,7 +588,7 @@ try{
 		if ( doc.type && doc.type == \"user\") {
 			if(doc.hasOwnProperty('user')){
 				if(doc.user.newPass){
-					emit([doc.user.newPass.url,doc.user.newPass.endtime],[doc._id,doc.user]);
+					emit(doc.user.newPass.url,[doc._id,doc.user]);
 				}
 			}
 		}
