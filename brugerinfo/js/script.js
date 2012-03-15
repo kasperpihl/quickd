@@ -134,6 +134,7 @@ function doFBSubscribe() {
     var spinner = $('<img />').attr('src','img/loader.png').addClass('spinning-loader');
     FB.login(function(response) {
       if (response.authResponse) {
+        $('#btn_fb_signup').width($('#btn_fb_signup').outerWidth());
         $('#btn_fb_signup').html(spinner);
         $('#start_text').fadeOut('slow');
         var f = $('#btn_fb_like').find('iframe');
@@ -157,6 +158,7 @@ function showResponse() {
   if ($('#start_text').is(':visible')) $('#start_text').hide();
   $('#response_text').fadeIn('slow');
   $('#btn_show_email').hide();
+  $('#btn_fb_like').width($('#btn_fb_signup').width());
   $('#btn_fb_signup').hide();
   $('#btn_fb_like').show();
   $('#email_signup_area').slideUp();

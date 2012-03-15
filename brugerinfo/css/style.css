@@ -151,8 +151,6 @@ html.backgroundsize #bgImage {
 }
 
 #btn_fb_signup {
-  width:173px;
-  margin-right:5px;
   cursor: pointer;
   float:left;
   text-align:center;
@@ -209,6 +207,7 @@ html.backgroundsize #bgImage {
 }
 #read-more-text { color:#3D595F;text-decoration:none;}
 #read-more-text:hover { color:#4B6F76;  }
+#read-more-green {margin-left:5px;}
 #read-more-green img {height:22px;}
 #read-more-btn {
   position: absolute;
