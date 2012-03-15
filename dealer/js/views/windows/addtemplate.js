@@ -35,7 +35,6 @@ define([
 			return _events;
 		},
 		addTemplate: function(data){
-			log("Hvaa?");
 			if (this.form && this.form.valid()) {
 				var obj = {};
 				obj.title = $('#title').val();
@@ -46,7 +45,6 @@ define([
 				var category = $('.category.selected').attr('id');
 				obj.category = category.substr(4);
 				this.model = new App.models.Template();
-				log("New?", this.model.isNew(), obj);
 			
 				this.model.save(obj,{success:this.changedModel,error:this.changedModel,wait:true});
 					
