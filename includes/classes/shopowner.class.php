@@ -29,8 +29,9 @@ class Shopowner {
 			
 			if($result->success == 'true'){
 				if ($type=='dealer') $result->data->hours = $model['hours'];
-				$result->data->email = $model['email'];
+				$result->data->email = $email;
 				$session->login($result->data->id,$model['privileges']);
+				Mail::sendBetaConfirmation($email);
 			}
 			
 			return $result;
