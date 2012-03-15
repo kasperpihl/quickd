@@ -47,6 +47,7 @@ body {
   background: url('../img/cover.jpg') center center;
   z-index: 1; 
   box-shadow: 0 0 10px black; 
+  min-height: 444px;
 }
 
 html.backgroundsize #bgImage {
