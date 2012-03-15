@@ -1,6 +1,6 @@
 <?php
 class Shopowner {
-	public static function register($model, $type='user'){
+	public static function register($model, $type='subscribe'){
 		global $db,$session;
 		try{
 			$email = isset($model['email']) ? strtolower($model['email']) : '';
@@ -8,7 +8,13 @@ class Shopowner {
 			$password = isset($model['password']) ? $model['password'] : null;
 			if(($password && strlen($password) < 6) || (!$password && $type=='dealer')) return array('success'=>'false','error'=>'password_must_be_6_long');
 			$user = (object) json_decode(self::checkEmail($email));
-			if(!$email || $user->success=='true') return array('success'=>'false','error'=>'user_exists');
+			if(!$email || $user->success=='true') {
+				if ($type==='subscribe') {
+					$session->login($user->data->id,$user->data->value->privileges);
+					return array('success'=>'true', 'data'=>$user);
+				}
+				return array('success'=>'false','error'=>'user_exists', 'data'=>$user);
+			}
 			$update = 'registerUser';
 			if ($type==='dealer') {
 				if(BETA_MODE&&$type=='dealer'){
@@ -60,8 +66,11 @@ class Shopowner {
 	    	if($user&&$user->success=='true'&&isset($user->data,$user->data->value,$user->data->value->fb_info)) {
 	    		//Fb user already exists
 	    		$fb = $user->data->value->fb_info;
-	    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60)
+	    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60) {
+	    			$session->login($user->data->id,$user->data->value->privileges);
 	    			return  array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no');
+	    		}
+	    			
 	    	} else $user = false;
 
 		    // Getting facebook info
