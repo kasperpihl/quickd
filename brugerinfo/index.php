@@ -84,14 +84,16 @@
 
 
           <a href="#read-more" id="read-more-green" class="scroll"><img src="img/read-more-btn.png"></a>
-          <div id="btn_show_email" style="display:<?=$registred?'none':'block'?>">Brug e-mail i stedet</div>
-          <div id="email_signup_area">
-            
-            <div id="email_fields" style="display:none">
-              <input type="text" name="email" id="email" placeholder="E-mail" />
-              <div id="btn_email_signup"></div>
+          <?php if (!$registred) {   ?>
+            <div id="btn_show_email">Brug e-mail i stedet</div>
+            <div id="email_signup_area">
+              
+              <div id="email_fields" style="display:none">
+                <input type="text" name="email" id="email" placeholder="E-mail" />
+                <div id="btn_email_signup"></div>
+              </div>
             </div>
-          </div>
+          <?php } ?>
           <div style="clear:both"></div>
         </div>
       </div>
