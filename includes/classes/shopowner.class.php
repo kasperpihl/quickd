@@ -4,13 +4,13 @@ class Shopowner {
 		global $db,$session;
 		try{
 			$email = isset($model['email']) ? strtolower($model['email']) : '';
-			if (!isValidEmail($email)) return array('success'=>'false','error'=>'email_not_valid');
+			if (!isValidEmail($email)) return array('success'=>'false','error'=>'email_not_valid', 'data'=>$model);
 			$password = isset($model['password']) ? $model['password'] : null;
 			if(($password && strlen($password) < 6) || (!$password && $type=='dealer')) return array('success'=>'false','error'=>'password_must_be_6_long');
 			$user = (object) json_decode(self::checkEmail($email));
 			if(!$email || $user->success=='true') return array('success'=>'false','error'=>'user_exists');
 			$update = 'registerUser';
-			if ($type=='dealer') {
+			if ($type==='dealer') {
 				if(BETA_MODE&&$type=='dealer'){
 					if(!isset($model['betacode'])) return array('success'=>'false','error'=>'betacode_must_be_included');
 					$betakoder = $db->getDoc('configuration');
