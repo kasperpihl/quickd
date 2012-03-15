@@ -23,7 +23,7 @@ else if($action){
 			$result = Shopowner::login($model);
 		break;
 		case 'subscribe':
-			$result = Shopowner::register($model, 'user');
+			$result = Shopowner::register($model, 'subscribe');
 		break;
 		case 'fbconnect':
 			$result = Shopowner::fb_connect();
