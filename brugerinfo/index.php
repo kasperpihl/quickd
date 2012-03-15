@@ -113,7 +113,7 @@
               <section class="right">
                 <h1>Vi sørger for super skarpe deals til dig.</h1>
                 <p>
-                  På QuickD kan forretningerne selv starte tilbud når de har lyst - direkte fra butikken. Men vi går ikke på kompromis med kvaliteten. Vi godkender alle tilbud og kræver at de minimum er nedsat med 25% fra originalprisen. 
+                  På QuickD kan forretningerne selv starte tilbud når de har lyst - direkte fra butikken. Men vi går ikke på kompromis med kvaliteten. Vi godkender alle tilbud og kræver, at de minimum er nedsat med 25% fra originalprisen. 
                 </p>
               </section>
               <aside class="left"><img src="img/deal-single.png"></aside>
