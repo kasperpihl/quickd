@@ -1,7 +1,7 @@
 <? 
 $msgFunc = 
-"function msg(message,success,req){
-	 if(!success) var obj = {success:'false',error:message, req:req};
+"function msg(message,success,data){
+	 if(!success) var obj = {success:'false',error:message,data:data};
 	 else var obj = {success:'true',data:message};
 	 
 	 return JSON.stringify(obj);
@@ -42,7 +42,7 @@ try{
 		if(!query.hasOwnProperty('email') || !query.hasOwnProperty('password')) return [null, msg('email_and_password_must_be_specified')];
 		if(!query.hasOwnProperty('privileges')) return [null, msg('privileges_must_be_specified')];
 		var privileges = parseInt(query.privileges);
-		if(privileges>=3 && !query.hasOwnProperty('hours')) return [null,msg('hours_must_be_specified')];
+		if(privileges>=3 && !query.hasOwnProperty('hours')) return [null,msg('hours_must_be_specified',0,query)];
 		
 		var historyArray = new Array();
 		historyArray.push({timestamp: timestamp,action:'created',type:'user','priority':2});
