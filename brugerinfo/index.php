@@ -84,7 +84,7 @@
 
 
           <a href="#read-more" id="read-more-green" class="scroll"><img src="img/read-more-btn.png"></a>
-         <!-- <div id="btn_show_email">Brug e-mail i stedet</div> -->
+         <div id="btn_show_email">Brug e-mail i stedet</div>
           <div id="email_signup_area">
             
             <div id="email_fields" style="display:none">

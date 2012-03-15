@@ -1,7 +1,7 @@
 <? 
 $msgFunc = 
-"function msg(message,success){
-	 if(!success) var obj = {success:'false',error:message};
+"function msg(message,success,req){
+	 if(!success) var obj = {success:'false',error:message, req:req};
 	 else var obj = {success:'true',data:message};
 	 
 	 return JSON.stringify(obj);
@@ -292,7 +292,7 @@ try{
 			return true;
 		}
 		var timestamp = parseInt(new Date().getTime()/1000);
-		if(!req.query.json) return [null,msg('json_must_be_specified')];
+		if(!req.query.json) return [null,msg('json_must_be_specified', 0, req)];
 		if(!doc) return [null, msg('user_not_exist')];
 		if(!doc.type || doc.type != 'user') return [null, msg('request_is_not_a_user')];
 		var query = JSON.parse(req.query.json);
