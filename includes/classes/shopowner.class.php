@@ -10,7 +10,7 @@ class Shopowner {
 			$user = (object) json_decode(self::checkEmail($email));
 			if(!$email || $user->success=='true') return array('success'=>'false','error'=>'user_exists');
 			$update = 'registerUser';
-			if ($type=='dealer') {
+			if ($type==='dealer') {
 				if(BETA_MODE&&$type=='dealer'){
 					if(!isset($model['betacode'])) return array('success'=>'false','error'=>'betacode_must_be_included');
 					$betakoder = $db->getDoc('configuration');
