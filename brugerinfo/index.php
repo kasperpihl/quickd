@@ -103,26 +103,26 @@
           <section id="features">
             <article>
               <section class="left">
-                <h1>Opdag deals omkring dig.</h1>
+                <h1>Opdag fantastiske tilbud omkring dig.</h1>
                 <p>
-                  Med QuickD går du aldrig glip af et godt tilbud. En brunch på favoritcaféen, en klipning hos din lokale frisør eller en tur i biografen - vi sørger altid for at vise relevante deals, der er tæt på netop dig. Og i det sekund din favoritforretning starter en ny deal, bliver den automatisk tilgængelig på din smartphone.</p>
+                  Med QuickD går du aldrig glip af et godt tilbud. En brunch på favoritcaféen, en klipning hos din lokale frisør eller en tur i biografen - vi sørger altid for at vise relevante tilbud omkring dig, når du har lyst til spændende oplevelser.</p>
               </section>
               <aside class="right"><img src="img/deal-list.png"></aside>
             </article>
             <article>
               <section class="right">
-                <h1>Kvalitetskontrol.</h1>
+                <h1>Vi sørger for super skarpe deals til dig.</h1>
                 <p>
-                  En vigtig del af QuickD er, at forretningerne kan starte deals når de har lyst - direkte fra butikken. Dette går dog ikke ud over kvaliteten. Vi sørger for at forhåndsgodkende de skabeloner, som tilbuddene bygger på. Samtidig kræver vi, at hver deal er nedsat med minimum 25% fra original-prisen. Det betyder, at du altid opnår den bedst mulige besparelse.
+                  På QuickD kan forretningerne selv starte tilbud når de har lyst - direkte fra butikken. Men vi går ikke på kompromis med kvaliteten. Vi godkender alle tilbud og kræver at de minimum er nedsat med 25% fra originalprisen. 
                 </p>
               </section>
               <aside class="left"><img src="img/deal-single.png"></aside>
             </article>
             <article>
               <section class="left">
-                <h1>Besøg forretningen.</h1>
+                <h1>Så nemt er det.</h1>
                 <p>
-                  Når du har fundet en deal du er interesseret i, er det bare at besøge butikken og vise dem tilbuddet på din smartphone. Du betaler direkte hos dem - vi formidler ikke betalingen. Fordel-agtigt for både dig og forretningen.
+                  Når du har fundet et godt tilbud, er det nemt at gøre brug af det. Alt du skal gøre er at gå ned til butikken og vise dem din telefon med QuickD. Betalingen foregår direkte hos forretningen - nemt, ik’?
                 </p>
               </section>
               <aside class="right"><img src="img/deal-at-shop.png"></aside>
