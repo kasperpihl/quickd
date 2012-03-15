@@ -64,7 +64,8 @@ Ext.define('QuickD.view.DealShow', {
     ],
     config: {
         fullscreen:true,
-        layout:'vbox',
+        layout: 'fit',
+        
         id: 'quickd-single',
         items: [
         {
@@ -92,8 +93,7 @@ Ext.define('QuickD.view.DealShow', {
             xtype: 'carousel',
             id: 'quickd-deal-slider',
             config:{
-                height:170,
-                flex:1
+                height:'170px',
             },
             indicator: false,
             defaults:{
@@ -111,8 +111,7 @@ Ext.define('QuickD.view.DealShow', {
             id: 'quickd-deal-content',
             tpl: showDealTemplate,
             config: {
-                flex:1,
-                scrollable: true,
+                           
             }
         }]
     },
