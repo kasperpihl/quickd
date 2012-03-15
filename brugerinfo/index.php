@@ -84,7 +84,7 @@
 
 
           <a href="#read-more" id="read-more-green" class="scroll"><img src="img/read-more-btn.png"></a>
-         <!-- <div id="btn_show_email">Brug e-mail i stedet</div> -->
+         <div id="btn_show_email">Brug e-mail i stedet</div>
           <div id="email_signup_area">
             
             <div id="email_fields" style="display:none">
@@ -105,7 +105,7 @@
               <section class="left">
                 <h1>Opdag fantastiske tilbud omkring dig.</h1>
                 <p>
-                  Med QuickD går du aldrig glip af et godt tilbud. En brunch på favoritcaféen, en klipning hos din lokale frisør eller en tur i biografen - vi sørger altid for at vise relevante tilbud omkring dig, når du har lyst til spændende oplevelser.</p>
+                  Med QuickD går du aldrig glip af et godt tilbud. En brunch på favoritcaféen, en klipning hos din lokale frisør eller en tur i biografen - vi sørger altid for at vise <strong>relevante tilbud omkring dig</strong>, når du har lyst til spændende oplevelser.</p>
               </section>
               <aside class="right"><img src="img/deal-list.png"></aside>
             </article>
@@ -113,7 +113,7 @@
               <section class="right">
                 <h1>Vi sørger for super skarpe deals til dig.</h1>
                 <p>
-                  På QuickD kan forretningerne selv starte tilbud når de har lyst - direkte fra butikken. Men vi går ikke på kompromis med kvaliteten. Vi godkender alle tilbud og kræver, at de minimum er nedsat med 25% fra originalprisen. 
+                  På QuickD kan forretningerne selv starte tilbud når de har lyst - direkte fra butikken. <strong>Vi går ikke på kompromis med kvaliteten</strong>. Vi godkender alle tilbud og kræver at de minimum er nedsat med 25% fra originalprisen.
                 </p>
               </section>
               <aside class="left"><img src="img/deal-single.png"></aside>
@@ -122,7 +122,7 @@
               <section class="left">
                 <h1>Så nemt er det.</h1>
                 <p>
-                  Når du har fundet et godt tilbud, er det nemt at gøre brug af det. Alt du skal gøre er at gå ned til butikken og vise dem din telefon med QuickD. Betalingen foregår direkte hos forretningen - nemt, ik’?
+                  Når du har fundet et godt tilbud, er det nemt at gøre brug af det. Alt du skal gøre er at gå ned til butikken og vise dem din telefon med QuickD. Betalingen foregår direkte hos forretningen - <strong>nemt, ik’?</strong>
                 </p>
               </section>
               <aside class="right"><img src="img/deal-at-shop.png"></aside>

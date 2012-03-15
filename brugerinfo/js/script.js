@@ -98,10 +98,11 @@ function doEmailSignup() {
     $("#email").after('<span class="error">Indtast venligst en gyldig email.</span>');
   } else {
     $.post("api/subscribe", {email: email}, function(data) {
-        console.log(data);
         if (data.success == 'true'||(data.success=='false'&& data.error == 'user_exists') ) {
             //Successfully logged in!!
             showResponse();
+        } else {
+          $("#email").after('<span class="error">Der opstod en fejl. Prøv venligst igen senere.</span>');
         }
     }, 'json');
   }

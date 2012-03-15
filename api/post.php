@@ -1,7 +1,7 @@
 <?php
 $type = isset($_GET['type']) ? $_GET['type'] : '';
 $action = isset($_GET['action']) ? $_GET['action'] : (isset($_POST['action']) ? $_POST['action'] : '');
-$model = isset($_POST['model']) ? $_POST['model'] : $_POST;
+$model = isset($_POST['model']) ? $_POST['model'] : file_get_contents("php://input");
 if($type){
 	switch($type){	
 		case 'deals':

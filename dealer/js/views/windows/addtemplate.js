@@ -35,6 +35,7 @@ define([
 			return _events;
 		},
 		addTemplate: function(data){
+			log("Hvaa?");
 			if (this.form && this.form.valid()) {
 				var obj = {};
 				obj.title = $('#title').val();
@@ -45,18 +46,20 @@ define([
 				var category = $('.category.selected').attr('id');
 				obj.category = category.substr(4);
 				this.model = new App.models.Template();
-		
+				log("New?", this.model.isNew(), obj);
 			
-				this.model.save(obj,{success:this.changedModel,error:this.changedModel,silent:true});
+				this.model.save(obj,{success:this.changedModel,error:this.changedModel,wait:true});
 					
 			} else if(this.form)  this.form.submit();
 		},
 		changedModel: function(data,d){
 			log("added", data, d);
-			this.collection.add(this.model);
-			App.views.notifications.notify('fast',lang.notifications.template.created);
-			this.confirmClose=false;
-			this.activity.closeWindow(this);
+			if (d.success=='true') {
+				this.collection.add(this.model);
+				App.views.notifications.notify('fast',lang.notifications.template.created);
+				this.confirmClose=false;
+				this.activity.closeWindow(this);
+			}
 		},
 		onCreated: function() {
 			var thisClass = this;

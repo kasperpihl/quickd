@@ -1,6 +1,6 @@
 <div id="templateSelector-<%=data.cid%>" class="template-selector" style="<% if(data.width) print('width:'+data.width+'px;') %> <% if(data.height) print('max-height:'+data.height+'px;') %>">
     
-    <div class="scroll-list" id="templateSelector-expanded" style="display:<%=data.expanded?'block':'none'%>;<% if(data.height) print('max-height:'+data.height+'px;') %>">
+    <div class="scroll-list" id="templateSelector-expanded" style="display:<%=data.expanded?'block':'none'%>;">
         <%  
             _.each(data.templates, printItem)
             /* for (var i =0;i<3;i++) printItem(data.templates[i]); */

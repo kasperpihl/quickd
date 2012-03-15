@@ -2,6 +2,10 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
+Sortering af skabeloner (nyeste først)
+
+Godkend skabeloner - viser ikke alle ikke godkendte??
+
 Slet template 
 
 Slet planlagte deals
