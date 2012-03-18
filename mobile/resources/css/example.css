@@ -3517,6 +3517,12 @@ audio {
   overflow: visible; }
 
 /******************************************************************
+CONVERT IMAGES TO COMPASS SPRITE MAPS
+******************************************************************/
+.spr-sprite, #fedt-mand-spa .x-list-pullrefresh .x-list-pullrefresh-arrow, #quickd-deals article[id*=deal_] .deal-content > footer .awesome-badge, #quickd-deals article[id*=deal_].category.fooddrink footer .price:before, #quickd-deals article[id*=deal_].category.fooddrink footer time:before, #quickd-deals article[id*=deal_].category.shopping footer .price:before, #quickd-deals article[id*=deal_].category.shopping footer time:before, #quickd-deals article[id*=deal_].category.experience footer .price:before, #quickd-deals article[id*=deal_].category.experience footer time:before {
+  background: url('../images/spr-s3e44da9782.png') no-repeat; }
+
+/******************************************************************
 BUTTONS
 ******************************************************************/
 .x-button.x-button-sencha, .x-toolbar .x-button.x-button-sencha, .x-button.x-button-sencha-round, .x-toolbar .x-button.x-button-sencha-round, .x-button.x-button-sencha-small, .x-toolbar .x-button.x-button-sencha-small {
@@ -3627,10 +3633,10 @@ TOOLBAR STYLES
 PULL REFRESH
 ******************************************************************/
 #fedt-mand-spa .x-list-pullrefresh .x-list-pullrefresh-arrow {
+  background-position: 0 -120px;
   width: 24px;
   height: 26px;
-  background: url("../images/refresh-arrow.png");
-  background-size: 100%;
+  background-size: initial;
   -webkit-transform: rotation(0deg);
   transform: rotation(0deg);
   -webkit-transition: all 0.7s ease-in-out;
@@ -3735,7 +3741,6 @@ DEALS LIST
       width: 100%;
       height: 14px;
       background: url("../images/shadow.png");
-      background-size: 100% 14px;
       content: ''; }
     #quickd-deals .x-list-item .x-list-item-label {
       border: none;
@@ -3777,9 +3782,6 @@ DEALS LIST
             top: 1px;
             left: 0;
             display: block;
-            width: 12px;
-            height: 12px;
-            background: url("../images/spritemap.png");
             content: ''; }
         #quickd-deals article[id*=deal_] .deal-content > footer .price:before {
           background-position-x: 0; }
@@ -3789,9 +3791,9 @@ DEALS LIST
           position: absolute;
           top: -3px;
           right: -3px;
-          width: 54px;
+          background-position: 0 -36px;
           height: 48px;
-          background: url("../images/spritemap.png") no-repeat -1px -64px; }
+          width: 54px; }
           #quickd-deals article[id*=deal_] .deal-content > footer .awesome-badge .value {
             display: block;
             margin: 12px 0 0 24px;
@@ -3817,24 +3819,36 @@ DEALS LIST
     #quickd-deals article[id*=deal_].category.fooddrink footer {
       color: #c09159; }
     #quickd-deals article[id*=deal_].category.fooddrink footer .price:before {
-      background-position-y: -22px; }
+      background-position: 0 -96px;
+      height: 12px;
+      width: 13px; }
     #quickd-deals article[id*=deal_].category.fooddrink footer time:before {
-      background-position-y: -23px; }
+      background-position: 0 -12px;
+      height: 12px;
+      width: 12px; }
     #quickd-deals article[id*=deal_].category.fooddrink:before {
       background: #c09159; }
     #quickd-deals article[id*=deal_].category.shopping footer {
       color: #a25d7a; }
     #quickd-deals article[id*=deal_].category.shopping footer .price:before {
-      background-position-y: -44px; }
+      background-position: 0 -108px;
+      height: 12px;
+      width: 13px; }
     #quickd-deals article[id*=deal_].category.shopping footer time:before {
-      background-position-y: -45px; }
+      background-position: 0 -24px;
+      height: 12px;
+      width: 12px; }
     #quickd-deals article[id*=deal_].category.shopping:before {
       background: #a25d7a; }
     #quickd-deals article[id*=deal_].category.experience footer {
       color: #5da2a0; }
     #quickd-deals article[id*=deal_].category.experience footer .price:before {
-      background-position-y: 0; }
+      background-position: 0 -84px;
+      height: 12px;
+      width: 13px; }
     #quickd-deals article[id*=deal_].category.experience footer time:before {
-      background-position-y: -1px; }
+      background-position: 0 0;
+      height: 12px;
+      width: 12px; }
     #quickd-deals article[id*=deal_].category.experience:before {
       background: #5da2a0; }
