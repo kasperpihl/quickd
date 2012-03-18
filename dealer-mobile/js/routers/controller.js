@@ -107,7 +107,7 @@ App.routers.Controller = Backbone.Router.extend({
 		});			
 	},
 	changes:function(result){
-		log('result from changes',result);
+		//log('result from changes',result);
 		result = $.parseJSON(result);
 		if(result.hasOwnProperty('csince')) localStorage.setItem('csince',result.csince);
 		if(result.hasOwnProperty('success') && result.success == 'false') return setTimeout(this.getChanges,3000);
@@ -116,35 +116,32 @@ App.routers.Controller = Backbone.Router.extend({
 		setTimeout(this.getChanges,3000);
 		if(!result.data) return;
 		var results = result.data;
-		/*if(results.length > 0){
+		if(results.length > 0){
 			var resultHandling = {};
 			for(var i = results.length-1 ; i >= 0  ; i--){
 				var doc = results[i].value;
-				var model,newModel,collection,route;
+				var model,newModel,collection;
+				log(doc.type);
 				switch(doc.type){
+					
 					case 'template':
-						route = lang.urls.templates + '/' + doc.id;
 						newModel = App.models.Template;
 						collection = App.collections.templates;
 						model = collection.get(doc.id);
-					break;
-					case 'shop':
-						route = lang.urls.administrationShop;
-						newModel = App.models.Shop;
-						collection = App.collections.shops;
-						model = collection.get(doc.id);
-					break;
-					case 'feedback':
-						route = lang.urls.overviewFeedback + '/' + doc.id;
-						newModel = App.models.Feedback;
-						collection = App.collections.feedback;
-						model = collection.get(doc.id);
-					break;
+						if(model === undefined) break;
+						log(doc.action);
+						switch(doc.action){
+							case 'approved':
+							case 'declined':
+								model.set('approved',doc.action);
+							break;
+						}
+					break
 					case 'deal':
-						route = lang.urls.overviewDeals + '/' + doc.id;
 						newModel = App.models.Deal;
 						collection = App.collections.deals;
 						model = collection.get(doc.id);
+						if(model === undefined) break;
 					break;
 					default:
 						continue;
@@ -164,7 +161,7 @@ App.routers.Controller = Backbone.Router.extend({
 				}
 				
 			}
-		}*/
+		}
 	}
 	
 });

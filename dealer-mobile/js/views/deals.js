@@ -6,19 +6,24 @@ App.views.Deals = Backbone.View.extend({
 		this.router = this.options.router;
 		this.deals = App.collections.deals;
 		this.templates = App.collections.templates;
-		this.render();
+		this.render(true);
 	},
-	render: function(){
+	render: function(first){
 		var thisClass = this;
-		var data = {templates: this.templates.toJSON(), deals: this.deals.toJSON()};
+		log(this.templates);
+		var data = {templates: this.templates.models };
 		$.get('templates/deals.html',function(template){
 			$(thisClass.el).children().html(_.template(template,data));
-			thisClass.royalSlider();
+			if(first) thisClass.royalSlider();
+			else thisClass.update();
 		},'html');
 	},
 	
 	update:function(){
 		this.dealSlider.updateSliderSize();
+	},
+	renderDeals: function(){
+
 	},
 	beforeChange: function(){
 		this.router.lock();

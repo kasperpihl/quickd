@@ -10,9 +10,10 @@ $requireJSON =
 "if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
 var query = JSON.parse(req.query.json);";
 $addHistoryFunc=
-"function addHistory(id,timestamp,action,rev,priority){
+"function addHistory(id,action,rev){
+	var timestamp = parseInt(new Date().getTime()/1000);
 	if(!doc.hasOwnProperty('history')) doc.history = new Array();
-	var historyObj = {id:id,timestamp: timestamp,action:action,type:'feedback',rev:rev,priority:priority};
+	var historyObj = {id:id,timestamp: timestamp,action:action,type:'feedback',rev:rev};
 	doc.history.push(historyObj);
 }";
 if(!isset($db)) echo die('cant call this directly - use update.php');
@@ -505,6 +506,7 @@ try{
 					if (doc.templates.hasOwnProperty(key)) {
 						var obj = {
 							id : key,
+							rev: doc.templates[key].rev,
 							type: 'template',
 							approved: doc.templates[key].approved,
 							title : doc.templates[key].title,
@@ -526,6 +528,7 @@ try{
 			var obj = {
 				id: doc._id,
 				type: doc.type,
+				rev: doc.rev,
 				status: doc.status,
 				template_id: doc.template.id,
 				orig_price: doc.template.orig_price,
