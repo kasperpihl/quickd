@@ -3519,8 +3519,8 @@ audio {
 /******************************************************************
 CONVERT IMAGES TO COMPASS SPRITE MAPS
 ******************************************************************/
-.spr-sprite, #fedt-mand-spa .x-list-pullrefresh .x-list-pullrefresh-arrow, #quickd-deals article[id*=deal_] .deal-content > footer .awesome-badge, #quickd-deals article[id*=deal_].category.fooddrink footer .price:before, #quickd-deals article[id*=deal_].category.fooddrink footer time:before, #quickd-deals article[id*=deal_].category.shopping footer .price:before, #quickd-deals article[id*=deal_].category.shopping footer time:before, #quickd-deals article[id*=deal_].category.experience footer .price:before, #quickd-deals article[id*=deal_].category.experience footer time:before {
-  background: url('../images/spr-s3e44da9782.png') no-repeat; }
+.spr-sprite, #fedt-mand-spa .x-list-pullrefresh .x-list-pullrefresh-arrow, .venue-meta section.hours:before, .venue-meta section.location:before, .venue-meta section.feedback:before, #quickd-deals article[id*=deal_] .deal-content > footer .awesome-badge, #quickd-deals article[id*=deal_].category.fooddrink footer .price:before, #quickd-deals article[id*=deal_].category.fooddrink footer time:before, #quickd-deals article[id*=deal_].category.shopping footer .price:before, #quickd-deals article[id*=deal_].category.shopping footer time:before, #quickd-deals article[id*=deal_].category.experience footer .price:before, #quickd-deals article[id*=deal_].category.experience footer time:before {
+  background: url('../images/spr-s43ba1aa95e.png') no-repeat; }
 
 /******************************************************************
 BUTTONS
@@ -3734,9 +3734,10 @@ SINGLE DEAL
   font-size: 14px;
   line-height: 25px; }
   .venue-meta section {
+    position: relative;
     border-bottom: thin solid #cfd0d1;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
-    padding: 12px 10px 12px 50px;
+    padding: 12px 10px 12px 47px;
     margin-left: -10px;
     width: 107%; }
     .venue-meta section:first-child {
@@ -3752,14 +3753,30 @@ SINGLE DEAL
         box-orient: horizontal; }
       .venue-meta section.hours .day, .venue-meta section.hours .leader, .venue-meta section.hours time {
         display: block; }
-      .venue-meta section.hours .day {
-        background: blue; }
       .venue-meta section.hours .leader {
-        background: yellow;
-        -webkit-box-flex: 4;
-        box-flex: 4; }
-      .venue-meta section.hours time {
-        background: green; }
+        -webkit-box-flex: 1;
+        box-flex: 1;
+        border-bottom: thin dashed #CCC;
+        margin: 0 5px 7px; }
+    .venue-meta section:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 12px;
+      left: 10px; }
+    .venue-meta section.hours:before {
+      background-position: 0 -165px;
+      height: 25px;
+      width: 24px; }
+    .venue-meta section.location:before {
+      background-position: 0 -190px;
+      height: 25px;
+      width: 15px; }
+    .venue-meta section.feedback:before {
+      top: 16px;
+      background-position: 0 -146px;
+      height: 19px;
+      width: 25px; }
     .venue-meta section a, .venue-meta section a:hover, .venue-meta section a:visited {
       color: inherit; }
 

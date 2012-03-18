@@ -20,6 +20,7 @@ IMPORTS
 /******************************************************************
 CONVERT IMAGES TO COMPASS SPRITE MAPS
 ******************************************************************/
+$icon-layout:smart;
 @import "spr/*.png";
 
 /******************************************************************
@@ -206,9 +207,10 @@ SINGLE DEAL
     line-height: 25px;
 
     section {
+        position: relative;
         border-bottom: thin solid #cfd0d1;
         box-shadow: 0 1px 0 rgba(white, 0.7);
-        padding: 12px 10px 12px 50px;
+        padding: 12px 10px 12px 47px;
         margin-left: -10px;
         width: 107%;
 
@@ -222,33 +224,23 @@ SINGLE DEAL
             position: relative;
 
             li { 
-                //border-bottom: thin dotted gray;
                 @include display-box;
                 @include box-orient(horizontal);
             }
 
             .day, .leader, time { display: block; }
 
-            .day { 
-                background: blue; 
-            }
-            
             .leader {
-                background: yellow;
                 @include box-flex(1);
-            }
-
-            time { 
-                background: green;
+                border-bottom: thin dashed #CCC;
+                margin: 0 5px 7px;
             }
         }
 
-        &.location {
-
-        }
-        &.feedback {
-
-        }
+        &:before { content: ''; display: block; position: absolute; top: 12px; left: 10px; }
+        &.hours:before { @include spr-sprite('venue-meta-hours', true); }
+        &.location:before { @include spr-sprite('venue-meta-location', true); }
+        &.feedback:before { top: 16px; @include spr-sprite('venue-meta-feedback', true); }
 
         a, a:hover, a:visited { color: inherit; }
     }

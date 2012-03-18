@@ -14,7 +14,7 @@ var showDealTemplate = new Ext.XTemplate(
                     '<li><span class="day">Man-Torsdag</span><span class="leader"></span><time>09.00 &ndash; 17.30</time></li>',
                     '<li><span class="day">Fredag</span><span class="leader"></span><time>09.00 &ndash; 20.00</time></li>',
                     '<li><span class="day">Lørdag</span><span class="leader"></span><time>11.00 &ndash; 17.30</time></li>',
-                    '<li><span class="day">Søndag</span><span class="leader"></span><time>Lukket.</time></li>',
+                    '<li><span class="day">Søndag</span><span class="leader"></span><time>Lukket</time></li>',
                 '</ul>',
             '</section>',
             '<section class="location">',
