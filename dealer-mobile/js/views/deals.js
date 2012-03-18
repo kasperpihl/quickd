@@ -22,9 +22,6 @@ App.views.Deals = Backbone.View.extend({
 	update:function(){
 		this.dealSlider.updateSliderSize();
 	},
-	renderDeals: function(){
-
-	},
 	beforeChange: function(){
 		this.router.lock();
 	},
