@@ -3681,6 +3681,8 @@ SINGLE DEAL
     color: #808080; }
 #quickd-single .x-body > .x-inner .deal-info .rightPanel {
   margin-left: 7px; }
+#quickd-single .x-body > .x-inner #quickd-deal-content .x-inner {
+  top: -590px; }
 #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article {
   padding: 19px 10px 108px;
   background: url(../images/deal-bg.png) repeat;
@@ -3699,11 +3701,15 @@ SINGLE DEAL
     padding-bottom: 38px;
     margin-bottom: 33px;
     background: url(../images/stippled-line.png) repeat-x bottom left; }
+  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article .venue .venue-thumb {
+    width: 107%;
+    margin-left: -10px; }
 #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml h1, #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml h2 {
   font-size: 33px;
   line-height: 34px;
   font-weight: bold;
   color: #131313;
+  letter-spacing: 0;
   margin-bottom: 28px; }
 
 /******************************************************************
