@@ -11,8 +11,7 @@ if(isset($_POST['action'],$_POST['model']) ){
 		
 		require_once(API_DIR.'post.php');
 	}
-	else if($action == 'stop'){
-		$_POST['model']['time'] = time();
+	else if($action == 'soldout'){
 		$_POST['model'] = json_encode($_POST['model']);
 		require_once(API_DIR.'post.php');
 	}

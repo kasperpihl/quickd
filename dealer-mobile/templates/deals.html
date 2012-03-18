@@ -1,13 +1,19 @@
-<% _.each(templates,function(template){ 
-	if(App.collections.deals.isStartedDeal(template.get('id')) || template.isApproved() ) {
-		%>
-		<li class="royalSlide">
-			<article class="deal" id="template-<%= template.get('id') %>" templateId="<%= template.get('id') %>">
-		    	<img class="imageItem left" src="thumbnail/" height="100%" />
-		        <div class="slideTextBlock">
-		            <h4><%= template.get('title') %></h4>
-		            <p>Før: <span class="amount"><%= template.get('orig_price') %>,-</span> / Nu: <span class="amount"><%= template.get('deal_price') %>,-</span></p>
-		        </div>
-		    </article>
-		</li>
-<% }}); %>
+<div id="sliderEl">
+	<div class="royalSlider iskin">
+		<ul class="royalSlidesContainer" id="rSS">      					
+	<% _.each(templates,function(template){ 
+		if(App.collections.deals.isStartedDeal(template.get('id')) || template.isApproved() ) {
+			%>
+			<li class="royalSlide">
+				<article class="deal" id="template-<%= template.get('id') %>" templateId="<%= template.get('id') %>">
+			    	<img class="imageItem left" src="thumbnail/" height="100%" />
+			        <div class="slideTextBlock">
+			            <h4><%= template.get('title') %></h4>
+			            <p>Før: <span class="amount"><%= template.get('orig_price') %>,-</span> / Nu: <span class="amount"><%= template.get('deal_price') %>,-</span></p>
+			        </div>
+			    </article>
+			</li>
+	<% }}); %>
+		</ul>
+	</div>
+</div>

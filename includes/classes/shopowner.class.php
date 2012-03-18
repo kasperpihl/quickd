@@ -294,8 +294,6 @@ class Shopowner {
 	}
 	public static function updateDeal($model){
 		global $dealer,$db;
-		//return $model;
-		$model = json_decode($model);
 		$editDeal = json_decode($db->updateDocFullAPI('dealer','startStopDeal',array('doc_id'=>$model->id,'params'=>array('json'=>json_encode($model)))));
 		return $editDeal;
 	}

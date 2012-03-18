@@ -70,7 +70,7 @@ App.routers.Controller = Backbone.Router.extend({
 			obj = {action:'start',model:{mobile:'true',template_id:this.activeModel.get('id'),seconds: time}};
 			break;
 			case 'deal':
-			obj = {action: 'stop',model: {id: this.activeModel.get('id'),status:'soldout'}};
+			obj = {action: 'soldout',model: {id: this.activeModel.get('id'),status:'soldout'}};
 			break;
 		}
 		$.post('ajax/deal.php?type=deals',obj,function(data){
@@ -132,6 +132,7 @@ App.routers.Controller = Backbone.Router.extend({
 						log(doc.action);
 						switch(doc.action){
 							case 'approved':
+							case 'edited':
 							case 'declined':
 								model.set('approved',doc.action);
 							break;
@@ -147,16 +148,15 @@ App.routers.Controller = Backbone.Router.extend({
 						continue;
 					break;
 				}
-				if(model && (doc.rev > model.get('rev'))){
+				/*if(model && (doc.rev > model.get('rev'))){
 					//log('fetched',doc.type,doc.id);
 					model.fetch({success:function(d,mod){ log('response fra fetch1',d,mod); },error:function(d,d2){ log(d,d2); }});
 					App.views.notifications.changesHandling(doc.type,doc.action,route);
-				} 
+				} */
 				if(model === undefined){
 					log('fetchedU',doc.type,doc.id);
 					model = new newModel({id:doc.id});
-
-					model.fetch({success:function(d,data){ log('response fra fetch2',d,data); if(data.success == 'true'){  collection.add(d); App.views.notifications.changesHandling(doc,route); } },error:function(d,d2){ log(d,d2); }});
+					model.fetch({success:function(d,data){ log('response fra fetch2',d,data); if(data.success == 'true'){  collection.add(d); } },error:function(d,d2){ log(d,d2); }});
 					
 				}
 				

@@ -137,7 +137,7 @@ try{
 		else{
 			if(query.hasOwnProperty('status') && query.status == 'soldout'){
 				if(query.hasOwnProperty('time')){
-					var time = parseInt(query.time);
+					var time = timestamp;
 					if(time > doc.start && time < doc.end){
 						doc.status = 'soldout';
 						doc.rev = doc.rev +1 ;

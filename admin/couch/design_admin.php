@@ -117,7 +117,7 @@ try{
 	$getStuff = 
 	"function (doc) {
 		if (!doc.hasOwnProperty('type') || doc.type != \"user\") return false;
-		/*if(doc.hasOwnProperty('templates')){
+		if(doc.hasOwnProperty('templates')){
 			for (var key in doc.templates) {
 
 				if (doc.templates.hasOwnProperty(key)) {
@@ -139,7 +139,7 @@ try{
 						emit([doc._id,'shop',key],doc.shops[key]);
 				}
 			}
-		}*/
+		}
 	}";
 	$getStatistics = 
 	"function (doc) {
