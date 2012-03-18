@@ -50,7 +50,7 @@ class Session {
 		if($cookie){
 			$md5string =  $type . '_-_' . $id . '_-_' . md5($password . MD5_STRING);
 			$expire=time()+60*60*24*30;
-			setcookie('md5string',$md5string,$expire,'quickd.dk');
+			setcookie('md5string',$md5string,$expire,'.quickd.dk');
 		}
 	}
 	public function unsets($key){

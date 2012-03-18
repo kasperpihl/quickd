@@ -1,21 +1,25 @@
 <html>
 	<head>
-		<title></title>
+		<title>QuickD testside</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
 		<style>
-		.emphasis {color: red; }
+			.emphasis {color: red; }
 		</style>
 	</head>
 	<body>
 		<ul class="emphasis">
-			<li>hello</li>
-			<li>hello2</li>
-			<li>hello3</li>
+			<a href="/dealer">
+				<li>Forhandler</li>
+			</a>
+			<a href="/dealer-mobile">
+				<li>Forhandler Mobil</li>
+			</a>
+			<a href="/brugerinfo">
+				<li>Beta splash</li>
+			</a>
+			<a href="/mobile">
+				<li>Forbruger Mobil</li>
+			</a>
 		</ul>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
-		<script type="text/javascript">
-			$('ul.emphasis').children().first().addClass('emphasis');
-			//$('li:first-child').addClass('emphasis');
-			//$('ul li').addClass('emphasis');
-		</script>
 	</body>
 </html>
