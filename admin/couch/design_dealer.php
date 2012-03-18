@@ -136,17 +136,15 @@ try{
 		}
 		else{
 			if(query.hasOwnProperty('status') && query.status == 'soldout'){
-				if(query.hasOwnProperty('time')){
-					var time = timestamp;
-					if(time > doc.start && time < doc.end){
-						doc.status = 'soldout';
-						doc.rev = doc.rev +1 ;
-						returnObj = {status:soldout,rev:doc.rev};
-						return [doc, msg(returnObj,true)];
-					}
-					else return [null, msg('cant_sold_out_not_running')];
+				if(doc.status == 'soldout') return [null,msg('already_sold_out')];
+				var time = timestamp;
+				if(time > doc.start && time < doc.end){
+					doc.status = 'soldout';
+					doc.rev = doc.rev +1 ;
+					returnObj = {status:doc.status,rev:doc.rev};
+					return [doc, msg(returnObj,true)];
 				}
-				else return [null, msg('no_time_specified')];
+				else return [null, msg('cant_sold_out_not_running')];
 			}
 		}
 		return [null,msg('ja tak')];

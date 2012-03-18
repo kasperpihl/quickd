@@ -67,12 +67,13 @@ App.routers.Controller = Backbone.Router.extend({
 		var obj;
 		switch(this.activeModel.get('type')){
 			case 'template':
-			obj = {action:'start',model:{mobile:'true',template_id:this.activeModel.get('id'),seconds: time}};
+				obj = {action:'start',model:{mobile:'true',template_id:this.activeModel.get('id'),seconds: time}};
 			break;
 			case 'deal':
-			obj = {action: 'soldout',model: {id: this.activeModel.get('id'),status:'soldout'}};
+				obj = {action: 'soldout',model: {id: this.activeModel.get('id'),status:'soldout'}};
 			break;
 		}
+		log(obj);
 		$.post('ajax/deal.php?type=deals',obj,function(data){
 			log(JSON.stringify(data));
 			if(data.success == 'true'){

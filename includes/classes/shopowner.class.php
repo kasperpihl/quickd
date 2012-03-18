@@ -294,8 +294,15 @@ class Shopowner {
 	}
 	public static function updateDeal($model){
 		global $dealer,$db;
-		$editDeal = json_decode($db->updateDocFullAPI('dealer','startStopDeal',array('doc_id'=>$model->id,'params'=>array('json'=>json_encode($model)))));
-		return $editDeal;
+		$model = json_decode($model);
+		try{
+			$editDeal = json_decode($db->updateDocFullAPI('dealer','startStopDeal',array('doc_id'=>$model->id,'params'=>array('json'=>json_encode($model)))));
+			return $editDeal;
+		}
+		catch(Exception $e){
+			echo json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); 
+		}
+		
 	}
 	public static function checkDeal($model){
 		global $dealer,$db;

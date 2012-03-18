@@ -6,7 +6,7 @@ if (!$model ||empty($model)) $model = file_get_contents("php://input");
 if($type){
 	switch($type){	
 		case 'deals':
-			if($action == 'stop') $result =  Shopowner::updateDeal($model);
+			if($action == 'soldout') $result =  Shopowner::updateDeal($model);
 			else $result = Shopowner::checkDeal($model);
 		break;
 		default:

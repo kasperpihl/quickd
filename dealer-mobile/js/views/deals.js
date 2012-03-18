@@ -1,4 +1,3 @@
-
 App.views.Deals = Backbone.View.extend({
 	el: '#deal-slider',
 	initialize:function(){
