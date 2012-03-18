@@ -1,19 +1,28 @@
 <?php
 require_once('../config.php'); 
 require_admin();
-$users = $db->getView('dealer','getUsersByMail');
+$users = $db->getView('admin','getStatistics');
 $users = $users->rows;
-
 $users = array_filter($users,function($user){ return ($user->value->privileges == 1); });
-$facebookUsers = array_filter($users,function($user){ return isset($user->value->fb_info); });
+function cmp($a, $b)
+{
+    if ($a->key == $b->key) {
+        return 0;
+    }
+    return ($a->key < $b->key) ? 1 : -1;
+}
 
+
+usort($users, "cmp");
+
+$facebookUsers = array_filter($users,function($user){ return isset($user->value->fb_info); });
 echo 'Registrerede brugere: '.sizeof($users).'<br/>';
 echo 'Registreret med facebook: '.sizeOf($facebookUsers).'<br/><br/>';
 if(!empty($users)){
-	echo '<table><thead><th>Email</th><th>Facebook</th></thead><tbody>';
+	echo '<table><thead><th>Email</th><th>Facebook</th><th>Oprettet</th></thead><tbody>';
 	foreach($users as $user){
 		$fb = (isset($user->value->fb_info)) ? 'X' :'';
-		echo '<tr><td>'.$user->key . '</td><td>'.$fb.'</td></tr>';
+		echo '<tr><td>'.$user->value->email . '</td><td>'.$fb.'</td><td>'.date('j F H:i',$user->key).'</td></tr>';
 	}
 	echo '</tbody></table>';
 }
