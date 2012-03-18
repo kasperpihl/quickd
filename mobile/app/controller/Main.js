@@ -31,10 +31,20 @@ Ext.define('QuickD.controller.Main', {
         var id = t.getId();
         switch (id){
             case 'sortButton':
+                this.sortController.setState();
                 this.changeToView('dealsort');
             break;
+            case 'mapButton':
+                this.changeToView('mapshow');
+            break;
+            case 'backFromMapButton':
+                this.getMain().animateActiveItem(this.getDealShow(), 'flip');
+            break;
             case 'backFromSortButton':
-                this.changeToView('deallist');
+                var controller = this.getApplication().getController('SortController');
+                controller.filterChange();
+                this.getMain().animateActiveItem(this.getDealList(), 'flip');
+                //this.changeToView('dealshow');
             break;
             case 'backFromShowButton':
                 this.changeToView('deallist');
@@ -62,6 +72,10 @@ Ext.define('QuickD.controller.Main', {
 
     },
     launch:function(){
+        this.sortController = this.getApplication().getController('SortController');
+        var test = this.getDealShow().query('#quickd-deal-content')[0].element;
+        log(test);
+        test.on('horizontalswipe',function(){ log('test'); });
         this.$container = $('#quickd-deals .x-scroll-container');
         this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
       
@@ -69,28 +83,9 @@ Ext.define('QuickD.controller.Main', {
         this.$container.append($('<div id="deal-bg"></div>'));
         this.$dealsBg = this.$container.find('#deal-bg').hide();
     },
-    filterChange:function(instance,data,options){
-        if(data && data.hasOwnProperty('data')){
-            var id = data.data.value;
-            if(id != this.filter){
-                this.filter = id;
-                var store = Ext.getStore('Deals');
-                switch(id){
-                    case 'shopping':
-                    case 'fooddrink':
-                    case 'experience':
-                        store.clearFilter();
-                        store.filter('category',id);
-                    break;
-                    case 'all':
-                        store.clearFilter();
-                    break;
-                }
-            }
-        }
-
-    },
+    
     updatedStore:function(instance,data,options){
+        log('updatedStore');
         this.getDealShow().setSlider(instance.getData().items);
     },
     onLocationUpdate:function(){
@@ -109,13 +104,6 @@ Ext.define('QuickD.controller.Main', {
     handleMap: function(){
         this.changeToView('mapshow');
     },
-    handleBack:function(){
-        this.getBackButton().hide();
-        this.getMapButton().hide();
-        this.getFilterButton().show();
-        this.getDealList().deselectAll();
-        this.getMain().setActiveItem(1);
-    },
     changeToView:function(view,options){
         var main    = this.getMain(),
             $deals  = $('#quickd-deals .x-list-container div.x-list-item'),
@@ -128,7 +116,8 @@ Ext.define('QuickD.controller.Main', {
             case 'dealshow':
                 var dealsOut    = this.animationController.dealsListOut($deals),
                     bgIn        = this.showSingleBackground(300);
-                
+                var button = Ext.ComponentQuery.query('toolbar #sortButton');
+                button[0].hide();
                 // Fetch data for selected deal.
                 this.getDealShow().loadDeal(options.record,options.list); // ingen server load, så dataen er der med det samme.
                 
@@ -137,6 +126,8 @@ Ext.define('QuickD.controller.Main', {
                 });
             break;
             case 'deallist':
+                var button = Ext.ComponentQuery.query('toolbar #sortButton');
+                button[0].show();
                 main.setActiveItem(this.getDealList());
                 
                 setTimeout(function() {
@@ -148,7 +139,9 @@ Ext.define('QuickD.controller.Main', {
                 }, 100);
             break;
             case 'mapshow':
-                this.getMain().setActiveItem(this.getMapShow());
+                this.getMapShow().setRecord(this.activeDeal);
+                this.getMain().animateActiveItem(this.getMapShow(), 'flip');
+                //this.getMain().setActiveItem();
             break;
         }
     },
@@ -166,6 +159,7 @@ Ext.define('QuickD.controller.Main', {
         this.getMain().getAt(1).setHtml('error location');
     },
     onDealSelect:function(list, index, node, record){
+        this.activeDeal = record;
         this.changeToView('dealshow',{record:record,list:list,index: index});
         return false;
         // Bind the record onto the show contact view

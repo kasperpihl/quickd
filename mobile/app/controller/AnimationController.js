@@ -66,15 +66,3 @@ Ext.define('QuickD.controller.AnimationController', {
 
     }
 });
-
-
-/* This class should have z-index 5. Making the deals lay over the fading in background*/
-$('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner').css('zIndex',5);
-/* Quickd N'dirty solution. Appending div  */
-$('#quickd-deals .x-scroll-container').append('<div id="testing" style="z-index:3; background:black; position: absolute; top: 0; left:0;min-width:100%; min-height:100%; display:none;"></div>');
-var i = 0;
-$('#quickd-deals .x-list-container div.x-list-item').each(function(){
-    $(this).toggleClass('animateUp',(options.index >= i));
-    $(this).toggleClass('animateDown',(options.index < i));
-    i++;
-});
