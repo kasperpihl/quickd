@@ -22,7 +22,7 @@ if(!empty($users)){
 	echo '<table><thead><th>Email</th><th>Facebook</th><th>Oprettet</th></thead><tbody>';
 	foreach($users as $user){
 		$fb = (isset($user->value->fb_info)) ? 'X' :'';
-		echo '<tr><td>'.$user->value->email . '</td><td>'.$fb.'</td><td>'.date('j F H:i',$user->key).'</td></tr>';
+		echo '<tr><td>'.$user->value->email . '</td><td>'.$fb.'</td><td>'.date('j/n H:i',$user->key).'</td></tr>';
 	}
 	echo '</tbody></table>';
 }

@@ -17,7 +17,7 @@ class Session {
 		return (isset($this->user_id,$this->privileges) && $this->privileges >= 5) ? $this->user_id : false;
 	}
 	
-	private function check_login($cookie=false){
+	private function check_login($cookie=true){
 		global $db;
 		unset($this->user_id);
 		unset($this->privileges);
@@ -50,7 +50,7 @@ class Session {
 		if($cookie){
 			$md5string =  $type . '_-_' . $id . '_-_' . md5($password . MD5_STRING);
 			$expire=time()+60*60*24*30;
-			setcookie('md5string',$md5string,$expire,'/');
+			setcookie('md5string',$md5string,$expire,'quickd.dk');
 		}
 	}
 	public function unsets($key){
