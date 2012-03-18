@@ -31,6 +31,7 @@ BUTTONS
 GENERAL STYLES
 ******************************************************************/
 #ext-mainview-1 { background: transparent; }
+strong { font-weight: bold; }
 
 /******************************************************************
 TOOLBAR STYLES
@@ -82,9 +83,6 @@ PULL REFRESH
 
     .x-list-pullrefresh {
         .x-list-pullrefresh-arrow {
-            $url: $img-path + 'refresh-arrow.png';
-            $w: 24px; $h: 26px;
-
             @include spr-sprite('refresh-arrow');
             width: 24px; height: 26px;
             background-size: initial;
@@ -152,39 +150,30 @@ SINGLE DEAL
 
         #quickd-deal-content .x-innerhtml {
             > article {
-                $side-padding: 10px;
-
-                padding: 19px $side-padding 108px;
+                padding: 19px 10px 108px;
                 background: url(../images/deal-bg.png) repeat;
                 border-top: 4px solid red;
 
                 color: #575757;
                 text-shadow: 0 1px 0 white;
+                font-size: 14px;
+                line-height: 21px;
 
                 @include box-shadow(
                     0 -1px 0 rgba(255, 255, 255, 0.7), 
                     0 -5px 13px 7px black
                 );
 
+                strong { color: #141414; }
+
                 &.shopping { border-color: #a25d7a; }
                 &.experience { border-color: #5da2a0; }
                 &.fooddrink { border-color: #c09159; }
 
-                > section {
+                > section:not(.venue) {
                     padding-bottom: 38px;
                     margin-bottom: 33px;
                     background: url(../images/stippled-line.png) repeat-x bottom left;
-                }
-
-                .venue {
-                    .venue-thumb {
-                        width: 107%;
-                        margin-left: 0 - $side-padding;
-                    }
-                }
-
-                .venue-meta {
-
                 }
             }
 
@@ -198,6 +187,70 @@ SINGLE DEAL
                 margin-bottom: 28px;
             }
         }
+    }
+}
+
+.venue {
+    background: none; 
+    margin-bottom: 0;
+    
+    .venue-thumb {
+        width: 107%;
+        margin-left: -10px;
+        margin-bottom: 10px;
+    }
+}
+
+.venue-meta {
+    font-size: 14px;
+    line-height: 25px;
+
+    section {
+        border-bottom: thin solid #cfd0d1;
+        box-shadow: 0 1px 0 rgba(white, 0.7);
+        padding: 12px 10px 12px 50px;
+        margin-left: -10px;
+        width: 107%;
+
+        &:first-child {
+            border-top: thin solid #cfd0d1;
+            box-shadow: 0 1px 0 rgba(white, 0.4), inset 0 1px 0 rgba(white, 0.7);
+            margin-top: 52px;
+        }
+
+        &.hours {
+            position: relative;
+
+            li { 
+                //border-bottom: thin dotted gray;
+                @include display-box;
+                @include box-orient(horizontal);
+            }
+
+            .day, .leader, time { display: block; }
+
+            .day { 
+                background: blue; 
+            }
+            
+            .leader {
+                background: yellow;
+                @include box-flex(1);
+            }
+
+            time { 
+                background: green;
+            }
+        }
+
+        &.location {
+
+        }
+        &.feedback {
+
+        }
+
+        a, a:hover, a:visited { color: inherit; }
     }
 }
 
@@ -233,6 +286,7 @@ DEALS LIST
             
             width: $w;  height: $h;
             background: url($url);
+            background-size: 100% $h;
 
             content: '';
         }
