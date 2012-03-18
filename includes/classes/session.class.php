@@ -34,7 +34,7 @@ class Session {
 				if(!isset($array[0],$array[1])) return;
 				$doc = $db->getDoc($array[0]);
 				if(!property_exists($doc,'md5_password')) return;
-				if($array[2] == md5($doc->md5_password . MD5_STRING))
+				if($array[1] == md5($doc->md5_password . MD5_STRING))
 					$this->login($array[0],$doc->user->privileges);
 			}
 			catch(Exception $e){
