@@ -262,6 +262,7 @@ $(function() {
 		var loginX = (documentWidth/2)-(loginWidth/2);
 		var loginY = (documentHeight/2)-(loginHeight/2);
 		me.css({position:'absolute',left:loginX,top:loginY});
+		return me;
 	}
 	$.fn.shakeBox = function(){
 		var me = $(this);
@@ -276,7 +277,25 @@ $(function() {
 		}
 		//me.effect("shake", { times:3 }, 500);
 		me.find('input').filter(':last').val('').focus();
+		return me;
 	}
+
+	$.fn.hiddenHeight = function() {
+		var me = $(this),
+				height = 0;
+
+		if (!me.is(':visible')) {
+			var position = me.css('position'),
+					display = me.css('display');
+			me.css({'position':'absolute','visibility':'hidden','display':'block'});
+			height = me.height();
+			me.css({'visibility':'visible', 'position':position, 'display':display});
+		} else {
+			height = me.outerHeight();
+		}
+		return height;
+	}
+
 	$.fn.verticalAlign = function(noResize, options) {
 		var me = $(this);
 		var parent = me.parent();
@@ -289,7 +308,7 @@ $(function() {
 		//log(parent);
 		//if (me.attr('id') =='start_deal') log('parent: '+parentHeight+' me: '+meHeight+' newY: '+newY);
 		//if (options && options.animate) log("animating!");
-		if (options && options.animate) me.css({position:'absolute', top:me.position().top}).animate({ top: newY }, {duration:1000, easing:'easeOutExpo',queue:false});
+		if (options && options.animate && me.is(':visible')) me.css({position:'absolute', top:me.position().top}).animate({ top: newY }, {duration:1000, easing:'easeOutExpo',queue:false});
 		else me.css({position:'absolute',top:newY});
 		if (!noResize) {
 			$(window).resize(function(){
@@ -364,6 +383,7 @@ $(function() {
 		else me.find('form').each(function() {
 			$(this).validate(option);
 		});
+		return me;
 	}
 	$.fn.formSetState = function(state, animate) {
 		var me = $(this);
@@ -393,6 +413,7 @@ $(function() {
 			//me.find('input[type=text]:first').focus();
 			button.val('Gem');
 		}
+		return me;
 	}
 	$.fn.createMask = function(onClick, classes) {
 		var me = $(this);
@@ -420,6 +441,7 @@ $(function() {
 						   });
 					  });
 		else mask.fadeIn(400);
+		return me;
 	}
 	
 	$.fn.removeMask = function() {
@@ -428,6 +450,7 @@ $(function() {
 		else var id = me.get(0).tagName+"-mask";
 		me.find('#'+id).remove();
 		if (!me.is('body')) me.removeClass('inactive');
+		return me;
 	}
 	$.validator.addMethod('saving', function() {
 	   var orig = convertNumber($('#orig_price').val());
@@ -457,5 +480,41 @@ $(function() {
 		return s
 			? this.before(s).remove()
 			: $("<p>").append(this.eq(0).clone()).html();
+	};
+
+	$.fn.getHiddenDimensions = function(includeMargin) {
+    var $item = this,
+        props = { position: 'absolute', visibility: 'hidden', display: 'block' },
+        dim = { width:0, height:0, innerWidth: 0, innerHeight: 0,outerWidth: 0,outerHeight: 0 },
+        $hiddenParents = $item.is(':visible')?$([]):$item.parents().andSelf().not(':visible'),
+        includeMargin = (includeMargin == null)? false : includeMargin;
+ 
+    var oldProps = [];
+    $hiddenParents.each(function() {
+        var old = {};
+ 
+        for ( var name in props ) {
+            old[ name ] = this.style[ name ];
+            this.style[ name ] = props[ name ];
+        }
+ 
+        oldProps.push(old);
+    });
+ 
+    dim.width = $item.width();
+    dim.outerWidth = $item.outerWidth(includeMargin);
+    dim.innerWidth = $item.innerWidth();
+    dim.height = $item.height();
+    dim.innerHeight = $item.innerHeight();
+    dim.outerHeight = $item.outerHeight(includeMargin);
+ 
+    $hiddenParents.each(function(i) {
+        var old = oldProps[i];
+        for ( var name in props ) {
+            this.style[ name ] = old[ name ];
+        }
+    });
+ 
+    return dim;
 	};
 });

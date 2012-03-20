@@ -4298,23 +4298,22 @@ div.ui-datepicker {
   height: 100%;
 }
 /* line 2468, ../sass/screen.scss */
-.template-selector .title {
+.template-selector .template-selected {
   padding: 5px;
-  text-align: center;
   font-size: 18px;
 }
 /* line 2469, ../sass/screen.scss */
-.template-selector .scroll-list {
+.template-selector .template-list {
   overflow-y: auto;
   margin: 0px;
   padding: 0px;
   width: 100%;
-  height: 100%;
 }
 
 /* line 2472, ../sass/screen.scss */
 .template-selector .list-item, #selected_template_area .list-item {
   border-radius: inherit;
+  height: 68px;
   display: block;
   margin: 0px;
   padding: 0px;

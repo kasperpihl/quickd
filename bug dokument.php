@@ -2,6 +2,10 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
+Sortering af skabeloner (nyeste først)
+
+Godkend skabeloner - viser ikke alle ikke godkendte??
+
 Slet template 
 
 Slet planlagte deals
@@ -14,11 +18,12 @@ Vis rabat ved oprettelse af templates
 
 Glemt adgangskode-dialog - har ingen funktionalitet, men vinduet er lavet
 
+(Kasper) Glemt adgangskode funktionalitet
+
 Shake login box virker ikke ordenligt, første gang den rystes, og efter ryst hvis, man gør vinduet større følger feltet ikke med
 
 Manglende features
  - Vis betingelser
- - Glemt adgangskode-dialog
 
 Startdeal "shaken" bugger når den allerede er planlagt
 

@@ -1,7 +1,11 @@
 <?php
 require_once('../config.php');
-$test = Shopowner::NewPassword('kasper@tornoe.org');
-print_r($test);
+
+//$test = Shopowner::requestNewPassword('kasper@tornoe.org','dealer');
+//print_r($test);
+echo "Email valid?";
+$email = 'jstougaard%40gmail.com';
+echo filter_var($email, FILTER_VALIDATE_EMAIL);
 /*$result = array();
 $array = array('Denis','Anders','Kasper','Kristjan');
 for ($i = 0; $i < 10000 ; $i++){

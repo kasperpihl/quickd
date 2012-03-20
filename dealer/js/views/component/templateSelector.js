@@ -6,6 +6,8 @@ define([
 		initialize:function(){
 			_.bindAll(this,'handleClick', 'updateContent','expandList', 'collapseList', 'setSelected', 'resetSelected');
 			this.componentId = '#cmp-'+this.cid;
+			this.$collapsed;
+			this.$expanded;
 			this.router = this.options.router;
 			this.created = false;
 			this.expanded = this.options.expandOnCreate ? this.options.expandOnCreate : false;
@@ -13,6 +15,7 @@ define([
 			this.width = this.options.width ? this.options.width:320;
 			this.appendTo = this.options.appendTo ? this.options.appendTo : this.el;
 			this.parent = this.options.parent ? this.options.parent : this.el;
+			if (this.options.onCreated) this.onCreated = this.options.onCreated;
 			if (this.options.onExpand) this.onExpand = this.options.onExpand;
 			if (this.options.onCollapse) this.onCollapse = this.options.onCollapse;
 			this.collection = App.collections.templates;
@@ -26,6 +29,16 @@ define([
 			var thisClass = this;
 			var tpl = _.template(template, {data: this});
 			$(this.appendTo).html(tpl);
+			this.$el = $(this.componentId);
+			this.$collapsed = $('#templateSelector-collapsed');
+			this.$expanded = $('#templateSelector-expanded');
+			if (this.expanded) {
+				setTimeout( function() {
+					thisClass.expandedHeight = thisClass.$expanded.getHiddenDimensions(true).outerHeight;
+					thisClass.$expanded.height(thisClass.expandedHeight);
+					if (thisClass.onCreated) thisClass.onCreated();
+				},100);
+			}
 			this.created = true;
 		},
 		events: {
@@ -43,9 +56,8 @@ define([
 		},
 		expandList:function() {
 			var thisClass = this;
-			log("expandList");
-			$('#templateSelector-collapsed').hide();
-			$('#templateSelector-expanded').slideDown('slow');
+			this.$collapsed.hide();
+			this.$expanded.slideDown('slow');
 			if (thisClass.onExpand) thisClass.onExpand();
 			thisClass.expanded = true;
 			
@@ -53,17 +65,16 @@ define([
 			
 		},
 		collapseList:function() {
-			log("collapseList");
 			if (this.expanded) {
 				var thisClass = this;
 				if ($('#templateSelector-'+this.cid).is(':visible')) {
-					$('#templateSelector-expanded').slideUp(function() {
-						$('#templateSelector-collapsed').fadeIn('fast');
+					this.$expanded.slideUp(function() {
+						thisClass.$collapsed.fadeIn('fast');
 						if (thisClass.onCollapse) thisClass.onCollapse();
 					});
 				} else {
-					$('#templateSelector-expanded').hide();
-					$('#templateSelector-collapsed').show();
+					this.$expanded.hide();
+					this.$collapsed.show();
 					if (this.onCollapse) this.onCollapse();
 				}
 				this.expanded = false;
@@ -71,17 +82,18 @@ define([
 		},
 		setSelected:function(id) {
 			this.selected = this.collection.get(id).toJSON();
-			var el = $('#'+id).outerHTML();
-			$('#templateSelector-expanded .list-item.selected').removeClass('selected');
+			var el = $($('#'+id).outerHTML()).removeClass('selected');
+			this.$expanded.children('.list-item.selected').removeClass('selected');
 			$('#'+id).addClass('selected');
-			$('#templateSelector-collapsed').html(el);
+			this.$collapsed.html(el);
 			this.collapseList();
+			this.collapsedHeight = this.$collapsed.getHiddenDimensions(true).outerHeight;
 			this.router.trigger('templateSelected', {templateId: id, parent:this.parent});
 		},
 		resetSelected:function() {
 			if (this.selected) {
 				this.selected = null;
-				$('#templateSelector-expanded .list-item.selected').removeClass('selected');
+				this.$expanded.children('.list-item.selected').removeClass('selected');
 				this.expandList();
 			}
 		}

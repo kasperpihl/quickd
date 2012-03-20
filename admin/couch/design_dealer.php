@@ -1,15 +1,19 @@
 <? 
 $msgFunc = 
-"function msg(message,success){
-	 if(!success) var obj = {success:'false',error:message};
+"function msg(message,success,data){
+	 if(!success) var obj = {success:'false',error:message,data:data};
 	 else var obj = {success:'true',data:message};
 	 
 	 return JSON.stringify(obj);
 }";
+$requireJSON = 
+"if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
+var query = JSON.parse(req.query.json);";
 $addHistoryFunc=
-"function addHistory(id,timestamp,action,rev,priority){
+"function addHistory(id,action,rev){
+	var timestamp = parseInt(new Date().getTime()/1000);
 	if(!doc.hasOwnProperty('history')) doc.history = new Array();
-	var historyObj = {id:id,timestamp: timestamp,action:action,type:'feedback',rev:rev,priority:priority};
+	var historyObj = {id:id,timestamp: timestamp,action:action,type:'feedback',rev:rev};
 	doc.history.push(historyObj);
 }";
 if(!isset($db)) echo die('cant call this directly - use update.php');
@@ -39,7 +43,7 @@ try{
 		if(!query.hasOwnProperty('email') || !query.hasOwnProperty('password')) return [null, msg('email_and_password_must_be_specified')];
 		if(!query.hasOwnProperty('privileges')) return [null, msg('privileges_must_be_specified')];
 		var privileges = parseInt(query.privileges);
-		if(privileges>=3 && !query.hasOwnProperty('hours')) return [null,msg('hours_must_be_specified')];
+		if(privileges>=3 && !query.hasOwnProperty('hours')) return [null,msg('hours_must_be_specified',0,query)];
 		
 		var historyArray = new Array();
 		historyArray.push({timestamp: timestamp,action:'created',type:'user','priority':2});
@@ -66,11 +70,27 @@ try{
 		}
 		else return [null,msg('no_user_found')];
 	}";
+	$updates->editUser =
+	"function(doc,req){
+		".$msgFunc."
+		".$addHistoryFunc."
+		".$requireJSON."
+		if (doc && doc.hasOwnProperty('user')) {
+			var user = doc.user;
+			
+			if(query.hasOwnProperty('md5_password')){
+				user.md5_password = query.md5_password;
+				if(user.hasOwnProperty('newPass')) delete user.newPass;
+			} 
+			return [doc,msg('',true)];
+		}
+		else return [null,msg('no_user_found')];
+	}
+	";
 	$updates->updateFbInfo = 
 	"function(doc,req){
 		".$msgFunc."
-		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
-		var query = JSON.parse(req.query.json);
+		".$requireJSON."
 		if(!query.hasOwnProperty('fb_info')) return [null, msg('fb_details_not_specified')];
 		if (doc && doc.hasOwnProperty('user')) {
 			doc.user.fb_info = query.fb_info;
@@ -116,17 +136,15 @@ try{
 		}
 		else{
 			if(query.hasOwnProperty('status') && query.status == 'soldout'){
-				if(query.hasOwnProperty('time')){
-					var time = parseInt(query.time);
-					if(time > doc.start && time < doc.end){
-						doc.status = 'soldout';
-						doc.rev = doc.rev +1 ;
-						returnObj = {status:soldout,rev:doc.rev};
-						return [doc, msg(returnObj,true)];
-					}
-					else return [null, msg('cant_sold_out_not_running')];
+				if(doc.status == 'soldout') return [null,msg('already_sold_out')];
+				var time = timestamp;
+				if(time > doc.start && time < doc.end){
+					doc.status = 'soldout';
+					doc.rev = doc.rev +1 ;
+					returnObj = {status:doc.status,rev:doc.rev};
+					return [doc, msg(returnObj,true)];
 				}
-				else return [null, msg('no_time_specified')];
+				else return [null, msg('cant_sold_out_not_running')];
 			}
 		}
 		return [null,msg('ja tak')];
@@ -273,7 +291,7 @@ try{
 			return true;
 		}
 		var timestamp = parseInt(new Date().getTime()/1000);
-		if(!req.query.json) return [null,msg('json_must_be_specified')];
+		if(!req.query.json) return [null,msg('json_must_be_specified', 0, req)];
 		if(!doc) return [null, msg('user_not_exist')];
 		if(!doc.type || doc.type != 'user') return [null, msg('request_is_not_a_user')];
 		var query = JSON.parse(req.query.json);
@@ -486,6 +504,7 @@ try{
 					if (doc.templates.hasOwnProperty(key)) {
 						var obj = {
 							id : key,
+							rev: doc.templates[key].rev,
 							type: 'template',
 							approved: doc.templates[key].approved,
 							title : doc.templates[key].title,
@@ -507,6 +526,7 @@ try{
 			var obj = {
 				id: doc._id,
 				type: doc.type,
+				rev: doc.rev,
 				status: doc.status,
 				template_id: doc.template.id,
 				orig_price: doc.template.orig_price,
@@ -569,7 +589,7 @@ try{
 		if ( doc.type && doc.type == \"user\") {
 			if(doc.hasOwnProperty('user')){
 				if(doc.user.newPass){
-					emit(doc.user.newPass.endtime,doc.user.newPass.url);
+					emit(doc.user.newPass.url,[doc._id,doc.user]);
 				}
 			}
 		}

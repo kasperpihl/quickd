@@ -17,7 +17,7 @@ class Session {
 		return (isset($this->user_id,$this->privileges) && $this->privileges >= 5) ? $this->user_id : false;
 	}
 	
-	private function check_login($cookie=false){
+	private function check_login($cookie=true){
 		global $db;
 		unset($this->user_id);
 		unset($this->privileges);
@@ -31,11 +31,11 @@ class Session {
 			$md5string = $_COOKIE['md5string'];
 			$array = explode('_-_',$md5string);
 			try{
-				if(!isset($array[1],$array[2])) return;
-				$doc = $db->getDoc($array[1]);
+				if(!isset($array[0],$array[1])) return;
+				$doc = $db->getDoc($array[0]);
 				if(!property_exists($doc,'md5_password')) return;
-				if($array[2] == md5($doc->md5_password . MD5_STRING))
-					$this->login($type,$array[0]);
+				if($array[1] == md5($doc->user->md5_password . MD5_STRING))
+					$this->login($array[0],$doc->user->privileges);
 			}
 			catch(Exception $e){
 			
@@ -48,9 +48,9 @@ class Session {
 		$this->user_id = $_SESSION['user_id'] = $id;
 		$this->privileges = $_SESSION['privileges'] = $privileges;
 		if($cookie){
-			$md5string =  $type . '_-_' . $id . '_-_' . md5($password . MD5_STRING);
+			$md5string = $id . '_-_' . md5($password . MD5_STRING);
 			$expire=time()+60*60*24*30;
-			setcookie('md5string',$md5string,$expire,'/');
+			setcookie('md5string',$md5string,$expire,'.quickd.dk');
 		}
 	}
 	public function unsets($key){

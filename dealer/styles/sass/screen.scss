@@ -2465,13 +2465,13 @@ div.ui-datepicker {font-size:12px;}
 
 .template-selector {
 	height:100%;
-	.title {padding:5px;text-align:center;font-size:18px;}
-	.scroll-list { overflow-y:auto;margin:0px;padding:0px;width:100%;height:100%;}
+	.template-selected {padding:5px;font-size:18px;}
+	.template-list { overflow-y:auto;margin:0px;padding:0px;width:100%;}
 }
 .template-selector, #selected_template_area {
 	.list-item {
 		border-radius: inherit;
-		
+		height:68px;
 		display:block;
 		margin:0px;
 		padding: 0px;

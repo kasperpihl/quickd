@@ -1,13 +1,13 @@
-<div id="templateSelector-<%=data.cid%>" class="template-selector" style="<% if(data.width) print('width:'+data.width+'px;') %> <% if(data.height) print('max-height:'+data.height+'px;') %>">
+<div id="cmp-<%=data.cid%>" class="template-selector" style="<% if(data.width) print('width:'+data.width+'px;') %> <% if(data.height) print('max-height:'+data.height+'px;') %>">
     
-    <div class="scroll-list" id="templateSelector-expanded" style="display:<%=data.expanded?'block':'none'%>;<% if(data.height) print('max-height:'+data.height+'px;') %>">
+    <div class="template-list" id="templateSelector-expanded" style="display:<%=data.expanded?'block':'none'%>;">
         <%  
             _.each(data.templates, printItem)
             /* for (var i =0;i<3;i++) printItem(data.templates[i]); */
         %>
         
     </div>
-    <div class="title" id="templateSelector-collapsed" style="display:<%=!data.expanded?'block':'none'%>">
+    <div class="template-selected" id="templateSelector-collapsed" style="display:<%=!data.expanded?'block':'none'%>">
         <% if (data.selected) printItem(data.selected); 
         else { %><div class="button blue select_template" id="btn_expand_template_list">Tryk for at vælge</div><% } %> 
     </div>

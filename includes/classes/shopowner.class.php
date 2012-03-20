@@ -1,16 +1,22 @@
 <?php
 class Shopowner {
-	public static function register($model, $type='user'){
+	public static function register($model, $type='subscribe'){
 		global $db,$session;
 		try{
 			$email = isset($model['email']) ? strtolower($model['email']) : '';
-			if (!isValidEmail($email)) return array('success'=>'false','error'=>'email_not_valid');
+			if (!isValidEmail($email)) return array('success'=>'false','error'=>'email_not_valid', 'data'=>$model);
 			$password = isset($model['password']) ? $model['password'] : null;
 			if(($password && strlen($password) < 6) || (!$password && $type=='dealer')) return array('success'=>'false','error'=>'password_must_be_6_long');
 			$user = (object) json_decode(self::checkEmail($email));
-			if(!$email || $user->success=='true') return array('success'=>'false','error'=>'user_exists');
+			if(!$email || $user->success=='true') {
+				if ($type==='subscribe') {
+					$session->login($user->data->id,$user->data->value->privileges);
+					return array('success'=>'true', 'data'=>$user);
+				}
+				return array('success'=>'false','error'=>'user_exists', 'data'=>$user);
+			}
 			$update = 'registerUser';
-			if ($type=='dealer') {
+			if ($type==='dealer') {
 				if(BETA_MODE&&$type=='dealer'){
 					if(!isset($model['betacode'])) return array('success'=>'false','error'=>'betacode_must_be_included');
 					$betakoder = $db->getDoc('configuration');
@@ -29,8 +35,9 @@ class Shopowner {
 			
 			if($result->success == 'true'){
 				if ($type=='dealer') $result->data->hours = $model['hours'];
-				$result->data->email = $model['email'];
+				$result->data->email = $email;
 				$session->login($result->data->id,$model['privileges']);
+				Mail::sendBetaConfirmation($email);
 			}
 			
 			return $result;
@@ -59,8 +66,11 @@ class Shopowner {
 	    	if($user&&$user->success=='true'&&isset($user->data,$user->data->value,$user->data->value->fb_info)) {
 	    		//Fb user already exists
 	    		$fb = $user->data->value->fb_info;
-	    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60)
+	    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60) {
+	    			$session->login($user->data->id,$user->data->value->privileges);
 	    			return  array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no');
+	    		}
+	    			
 	    	} else $user = false;
 
 		    // Getting facebook info
@@ -134,10 +144,35 @@ class Shopowner {
 			$model = array('newPass'=>array('endtime'=>$endtime, 'url'=>$url));
 			$result = json_decode($db->updateDocFullAPI('dealer','requestNewPassword',array('doc_id'=>$doc_id,'params'=>array('json'=>json_encode($model)))));
 			if($result->success != 'true') return json_encode($result);
-			Mail::sendNewPasswordForDealer($email,$url);
+			switch($type){
+				case 'dealer':
+					Mail::sendNewPasswordForDealer($email,$url);
+				break;
+				case 'user':
+					Mail::sendNewPasswordForUser($email,$url);
+				break;
+			}
+			
 
 		}
 		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'requestNewPassword', 'e'=>$e->getMessage())); }
+	}
+	public static function resetPassword($doc_id,$newPass){
+		global $db;
+		try{
+
+			$newPass = md5(MD5_STRING.$newPass);
+			$model = array('md5_password'=>$newPass);
+			$result = json_decode($db->updateDocFullAPI('dealer','editUser',array('doc_id'=>$doc_id,'params'=>array('json'=>json_encode($model)))));
+			print_r($result);
+			if($result->success != 'true') return json_encode($result);
+			
+		}
+		catch(Exception $e){
+			return array('success'=>'false','error'=>'database_error','e'=>$e->getMessage()); 
+	
+		}
+
 	}
 	public static function getShopowner(){
 		
@@ -259,10 +294,15 @@ class Shopowner {
 	}
 	public static function updateDeal($model){
 		global $dealer,$db;
-		//return $model;
 		$model = json_decode($model);
-		$editDeal = json_decode($db->updateDocFullAPI('dealer','startStopDeal',array('doc_id'=>$model->id,'params'=>array('json'=>json_encode($model)))));
-		return $editDeal;
+		try{
+			$editDeal = json_decode($db->updateDocFullAPI('dealer','startStopDeal',array('doc_id'=>$model->id,'params'=>array('json'=>json_encode($model)))));
+			return $editDeal;
+		}
+		catch(Exception $e){
+			echo json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); 
+		}
+		
 	}
 	public static function checkDeal($model){
 		global $dealer,$db;

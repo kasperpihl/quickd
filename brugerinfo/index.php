@@ -2,8 +2,8 @@
   require_once('../config.php'); 
   $registred = false;
   if (!$session->logged_user()) {
-    $fb = Shopowner::fb_connect();
-    if (isset($fb['success'])&&$fb['success']==='true') $registred = true;
+    $fb = (object) Shopowner::fb_connect();
+    if (isset($fb->success)&&$fb->success==='true') $registred = true;
   } else $registred = true;
 ?>
 <!doctype html>
@@ -34,12 +34,14 @@
   <meta property="og:image" content="<?=ROOT_URL?>img/logo_medium.jpg" />
   <meta property="og:site_name" content="QuickD" />
   <meta property="fb:admins" content="508608046" />
-
+  <script>
+    var ROOT_URL = "<?= ROOT_URL ?>";
+  </script>
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
   <!-- CSS: implied media=all -->
   <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="<?= ROOT_URL ?>css/style.css">
   <!-- end CSS-->
 
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
@@ -47,19 +49,19 @@
   <!-- All JavaScript at the bottom, except for Modernizr / Respond.
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
        For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
-  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+  <script src="<?= ROOT_URL ?>js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 
 <body>
   <div id="container">
     <div id="top"></div>
     <div id="bgImage"></div>
-    <img id="beta" src="img/beta.png">
+    <img id="beta" src="<?=ROOT_URL?>img/beta.png">
     <header>
 
     </header>
     <div id="main" role="main">
-      <div id="logo"><img src="img/logo.png"></div>
+      <div id="logo"><img src="<?=ROOT_URL?>img/logo.png"></div>
       <div id="container_left">
         <div id="intro">
           <h1>En ny måde at handle på.</h1>
@@ -83,19 +85,21 @@
           </div>
 
 
-          <a href="#read-more" id="read-more-green" class="scroll"><img src="img/read-more-btn.png"></a>
-          <div id="btn_show_email">Brug e-mail i stedet</div>
-          <div id="email_signup_area">
-            
-            <div id="email_fields" style="display:none">
-              <input type="text" name="email" id="email" placeholder="E-mail" />
-              <div id="btn_email_signup"></div>
+          <a href="#read-more" id="read-more-green" class="scroll"><img src="<?=ROOT_URL?>img/read-more-btn.png"></a>
+          <?php if (!$registred) {   ?>
+            <div id="btn_show_email">Brug e-mail i stedet</div>
+            <div id="email_signup_area">
+              
+              <div id="email_fields" style="display:none">
+                <input type="text" name="email" id="email" placeholder="E-mail" />
+                <div id="btn_email_signup"></div>
+              </div>
             </div>
-          </div>
+          <?php } ?>
           <div style="clear:both"></div>
         </div>
       </div>
-      <div id="read-more-btn"><a href="#read-more" class="scroll"><img src="img/scroll-down.png"></a></div>
+      <div id="read-more-btn"><a href="#read-more" class="scroll"><img src="<?=ROOT_URL?>img/scroll-down.png"></a></div>
     </div>
     <footer>
         <div id="read-more">
@@ -103,33 +107,33 @@
           <section id="features">
             <article>
               <section class="left">
-                <h1>Opdag deals omkring dig.</h1>
+                <h1>Opdag fantastiske tilbud omkring dig.</h1>
                 <p>
-                  Med QuickD går du aldrig glip af et godt tilbud. En brunch på favoritcaféen, en klipning hos din lokale frisør eller en tur i biografen - vi sørger altid for at vise relevante deals, der er tæt på netop dig. Og i det sekund din favoritforretning starter en ny deal, bliver den automatisk tilgængelig på din smartphone.</p>
+                  Med QuickD går du aldrig glip af et godt tilbud. En brunch på favoritcaféen, en klipning hos din lokale frisør eller en tur i biografen - vi sørger altid for at vise <strong>relevante tilbud omkring dig</strong>, når du har lyst til spændende oplevelser.</p>
               </section>
-              <aside class="right"><img src="img/deal-list.png"></aside>
+              <aside class="right"><img src="<?=ROOT_URL?>img/deal-list.png"></aside>
             </article>
             <article>
               <section class="right">
-                <h1>Kvalitetskontrol.</h1>
+                <h1>Vi sørger for super skarpe deals til dig.</h1>
                 <p>
-                  En vigtig del af QuickD er, at forretningerne kan starte deals når de har lyst - direkte fra butikken. Dette går dog ikke ud over kvaliteten. Vi sørger for at forhåndsgodkende de skabeloner, som tilbuddene bygger på. Samtidig kræver vi, at hver deal er nedsat med minimum 25% fra original-prisen. Det betyder, at du altid opnår den bedst mulige besparelse.
+                  På QuickD kan forretningerne selv starte tilbud når de har lyst - direkte fra butikken. Men vi går ikke på kompromis med kvaliteten. Vi godkender alle tilbud og kræver, at de minimum er nedsat med 25% fra originalprisen.
                 </p>
               </section>
-              <aside class="left"><img src="img/deal-single.png"></aside>
+              <aside class="left"><img src="<?=ROOT_URL?>img/deal-single.png"></aside>
             </article>
             <article>
               <section class="left">
-                <h1>Besøg forretningen.</h1>
+                <h1>Så nemt er det.</h1>
                 <p>
-                  Når du har fundet en deal du er interesseret i, er det bare at besøge butikken og vise dem tilbuddet på din smartphone. Du betaler direkte hos dem - vi formidler ikke betalingen. Fordel-agtigt for både dig og forretningen.
+                  Når du har fundet et godt tilbud, er det nemt at gøre brug af det. Alt du skal gøre er at gå ned til butikken og vise dem din telefon med QuickD. Betalingen foregår direkte hos forretningen - <strong>nemt, ik’?</strong>
                 </p>
               </section>
-              <aside class="right"><img src="img/deal-at-shop.png"></aside>
+              <aside class="right"><img src="<?=ROOT_URL?>img/deal-at-shop.png"></aside>
             </article>
             <div style="clear:both"/>
           </section>
-          <div id="scroll-up-btn"><a href="#top" class="scroll"><img src="img/scroll-up.png"></a></div>
+          <div id="scroll-up-btn"><a href="#top" class="scroll"><img src="<?=ROOT_URL?>img/scroll-up.png"></a></div>
           <div id="copyright">Copyright &copy; 2011-2012 QuickD. All rights reserved.</div>
         </div>
     </footer>
@@ -140,13 +144,13 @@
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-  <script src="js/libs/jquery_easing.js"></script>
+  <script>window.jQuery || document.write('<script src="<?= ROOT_URL ?>js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+  <script src="<?= ROOT_URL ?>js/libs/jquery_easing.js"></script>
 
 
   <!-- scripts concatenated and minified via ant build script-->
-  <script defer src="js/plugins.js"></script>
-  <script defer src="js/script.js"></script>
+  <script defer src="<?= ROOT_URL ?>js/plugins.js"></script>
+  <script defer src="<?= ROOT_URL ?>js/script.js"></script>
   <!-- end scripts-->
 
 	

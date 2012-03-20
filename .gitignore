@@ -1,5 +1,5 @@
 .sass-cache
 .sass-cache/**
 .DS_Store
-*.sublime-workspace
 *.sublime-project
+*.sublime-workspace

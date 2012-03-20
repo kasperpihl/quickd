@@ -97,11 +97,13 @@ function doEmailSignup() {
   } else if (!emailReg.test(email)) {
     $("#email").after('<span class="error">Indtast venligst en gyldig email.</span>');
   } else {
-    $.post("api/subscribe", {email: email}, function(data) {
-        console.log(data);
+    $.post(ROOT_URL+"api/subscribe", {email: email}, function(data) {
+        //log(data);
         if (data.success == 'true'||(data.success=='false'&& data.error == 'user_exists') ) {
             //Successfully logged in!!
             showResponse();
+        } else {
+          $("#email").after('<span class="error">Der opstod en fejl. Prøv venligst igen senere.</span>');
         }
     }, 'json');
   }
@@ -132,12 +134,13 @@ function doFBSubscribe() {
     var spinner = $('<img />').attr('src','img/loader.png').addClass('spinning-loader');
     FB.login(function(response) {
       if (response.authResponse) {
+        $('#btn_fb_signup').width($('#btn_fb_signup').outerWidth());
         $('#btn_fb_signup').html(spinner);
         $('#start_text').fadeOut('slow');
         var f = $('#btn_fb_like').find('iframe');
         if (f) f.attr('src', f.attr('src'));
         
-        $.post("api/fbconnect", {}, function(data) {
+        $.post(ROOT_URL+"api/fbconnect", {}, function(data) {
             //console.log(data);
             if (data.success == 'true') {
                 //Successfully logged in!!
@@ -155,6 +158,7 @@ function showResponse() {
   if ($('#start_text').is(':visible')) $('#start_text').hide();
   $('#response_text').fadeIn('slow');
   $('#btn_show_email').hide();
+  $('#btn_fb_like').width($('#btn_fb_signup').width());
   $('#btn_fb_signup').hide();
   $('#btn_fb_like').show();
   $('#email_signup_area').slideUp();

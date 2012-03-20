@@ -10,7 +10,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 		if(!empty($admins)){
 			$admin = $admins[0]->value;
 			if($admin->password == md5(MD5_STRING.$password)){
-				$session->login($admin->id,$admin->privileges);
+				$session->login($admin->id,$admin->privileges,1,$password);
 				redirect('dashboard.php');
 			}
 		}
