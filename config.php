@@ -30,7 +30,6 @@ switch($root){
 		$cdnUrl = $_SERVER['SERVER_ADDR'].'/';
 	break; 
 }
-print_r($restUrl);
 $historyObj = json_encode(array('pushState'=>false,'root'=>$end));
 define('MIN_DISCOUNT',25);
 define('DEALS_PR_PAGE',10);
