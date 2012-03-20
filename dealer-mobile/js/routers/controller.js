@@ -78,7 +78,7 @@ App.routers.Controller = Backbone.Router.extend({
 			if(data.success == 'true'){
 				if(data.data.id){
 					var model = new App.models.Deal(data.data);
-					App.collections.deals.add(model);
+					App.collections.deals.add(model,{silent:true});
 				}
 				else {
 					this.activeModel.set(data.data);

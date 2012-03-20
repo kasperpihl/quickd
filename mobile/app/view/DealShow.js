@@ -65,7 +65,6 @@ Ext.define('QuickD.view.DealShow', {
     config: {
         fullscreen:true,
         layout: 'fit',
-        
         id: 'quickd-single',
         items: [
         {
@@ -111,7 +110,14 @@ Ext.define('QuickD.view.DealShow', {
             id: 'quickd-deal-content',
             tpl: showDealTemplate,
             config: {
-                           
+                draggable:{
+                    direction: 'horizontal',
+                    listeners:{
+                        dragstart: function(l1,l2,l3){
+                            log(l1,l2,l3);
+                        }
+                    }
+                }
             }
         }]
     },
