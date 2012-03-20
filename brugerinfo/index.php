@@ -54,7 +54,7 @@
   <div id="container">
     <div id="top"></div>
     <div id="bgImage"></div>
-    <img id="beta" src="img/beta.png">
+    <img id="beta" src="<?=ROOT_URL?>img/beta.png">
     <header>
 
     </header>
