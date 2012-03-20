@@ -34,7 +34,9 @@
   <meta property="og:image" content="<?=ROOT_URL?>img/logo_medium.jpg" />
   <meta property="og:site_name" content="QuickD" />
   <meta property="fb:admins" content="508608046" />
-
+  <script>
+    var ROOT_URL = "<?= ROOT_URL ?>";
+  </script>
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
   <!-- CSS: implied media=all -->

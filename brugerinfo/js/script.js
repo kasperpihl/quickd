@@ -97,7 +97,7 @@ function doEmailSignup() {
   } else if (!emailReg.test(email)) {
     $("#email").after('<span class="error">Indtast venligst en gyldig email.</span>');
   } else {
-    $.post("api/subscribe", {email: email}, function(data) {
+    $.post(ROOT_URL+"api/subscribe", {email: email}, function(data) {
         //log(data);
         if (data.success == 'true'||(data.success=='false'&& data.error == 'user_exists') ) {
             //Successfully logged in!!
