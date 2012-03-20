@@ -49,7 +49,7 @@
   <!-- All JavaScript at the bottom, except for Modernizr / Respond.
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
        For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
-  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+  <script src="<?= ROOT_URL ?>js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 
 <body>
@@ -144,13 +144,13 @@
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-  <script src="js/libs/jquery_easing.js"></script>
+  <script>window.jQuery || document.write('<script src="<?= ROOT_URL ?>js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+  <script src="<?= ROOT_URL ?>js/libs/jquery_easing.js"></script>
 
 
   <!-- scripts concatenated and minified via ant build script-->
-  <script defer src="js/plugins.js"></script>
-  <script defer src="js/script.js"></script>
+  <script defer src="<?= ROOT_URL ?>js/plugins.js"></script>
+  <script defer src="<?= ROOT_URL ?>js/script.js"></script>
   <!-- end scripts-->
 
 	
