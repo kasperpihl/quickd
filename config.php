@@ -1,8 +1,9 @@
 <?php
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
+
 switch($root){
-	case 'test.quickd.dk':
+	case 'test.quickd.com':
 	case 'localhost':
 		$dbLink = 'quickd:testanders@77.66.53.58';
 		if(strpos($_SERVER['REQUEST_URI'], 'dealer/')) $string = 'dealer/';
@@ -14,16 +15,23 @@ switch($root){
 		else $string = 'dealer/';
 		$arr = explode($string,$_SERVER['REQUEST_URI']);
 		$end = $arr[0].$string;
+		if(isset($arr[1])) $restUrl = $arr[1];
 		$cdnUrl = $root . $arr[0] . 'cdn/';
-		$historyObj = json_encode(array('pushState'=>false,'root'=>$end));
+		
 	break;
 	default:
 		$dbLink = 'quickd:ka2jae2n@localhost';
+		$arr = explode('/',$_SERVER['REQUEST_URI']);
+		if(isset($arr[1])){
+			unset($arr[0]);
+			$restUrl = implode('/', $arr);
+		}
 		$end = '/';
 		$cdnUrl = $_SERVER['SERVER_ADDR'].'/';
-		$historyObj = json_encode(array('pushState'=>false,'root'=>'/'));
 	break; 
 }
+print_r($restUrl);
+$historyObj = json_encode(array('pushState'=>false,'root'=>$end));
 define('MIN_DISCOUNT',25);
 define('DEALS_PR_PAGE',10);
 define('DEAL_MAX_DIST',25000);
