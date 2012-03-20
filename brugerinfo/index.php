@@ -83,7 +83,7 @@
           </div>
 
 
-          <a href="#read-more" id="read-more-green" class="scroll"><img src="img/read-more-btn.png"></a>
+          <a href="#read-more" id="read-more-green" class="scroll"><img src="<?=ROOT_URL?>img/read-more-btn.png"></a>
           <?php if (!$registred) {   ?>
             <div id="btn_show_email">Brug e-mail i stedet</div>
             <div id="email_signup_area">
