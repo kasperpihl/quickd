@@ -1,12 +1,13 @@
 define([
 'views/windows/window',
-'views/dialogs/imageSelector'
+'views/dialogs/imageSelector',
+'views/dialogs/promtDialog'
 ],function(){
 	App.views.windows.ViewTemplate = App.views.Window.extend({
 		el: '#activity_templates',
 		initialize: function(){
 			this.init(this.options);
-			_.bindAll(this,'editTemplate','delTemplate','startDeal', 'setValidator','events','cancelEdit', 'openSelectImage', 'imageSelected','updateContent');
+			_.bindAll(this,'editTemplate','delTemplate', 'confirmCallback', 'startDeal', 'setValidator','events','cancelEdit', 'openSelectImage', 'imageSelected','updateContent');
 			this.template = 'viewtemplate';
 			this.depth = 2;
 			this.confirmClose=true;
@@ -18,6 +19,7 @@ define([
 			this.createWindow(true, data);
 			this.router.bind('imageSelected',this.imageSelected);
 			App.collections.templates.bind('change',this.updateContent);
+			this.router.bind('promtCallback:'+this.cid, this.confirmCallback);
 		},
 		events: function() {
 			var _events = {};
@@ -112,7 +114,7 @@ define([
 				//Find image
 				var manual = {};
 				if ($('#img_src').val()!="" && $('#img_src').val()!=this.model.attributes.image) manual.image = $('#img_src').val();
-				if ($(this.windowId+' .category.selected')) manual.category = ($(this.windowId+' .category.selected').attr('id')).substr(4);
+				if (!$(this.windowId+' .category.selected').empty()) manual.category = ($(this.windowId+' .category.selected').attr('id')).substr(4);
 				var thisClass = this;
 				this.saveToModel({onChanged:function() {
 					thisClass.router.trigger('templateEdited',{event:'templateEdited'}); 
@@ -151,12 +153,21 @@ define([
 			calcDiscount(orig, deal, '#discount-amount');
 		},
 		delTemplate:function(){
-			this.model.destroy({data:this.model.id, success:function(model, response) {
-				log("deleted", model, response);
-				this.router.trigger('templateEdited',{event:'templateDeleted'});
-			}, error:function(model, response) { log("error delete: ", model, response); }});
-			this.activity.closeWindow(this, false, true);
+			var confirmer = new App.views.dialogs.PromtDialog({router:this.router, type: 'confirm', callbackCid:this.cid, title:'Er du sikker på, du ønsker at slette denne skabelon?', confirmText:'Slet'});	
 			return false;
+		},
+		confirmCallback:function(obj) {
+			if(obj.callbackCid==this.cid&&obj.type=='confirm') {
+				if (obj.eventType=='confirm') {
+					this.model.destroy({data:this.model.id, success:function(model, response) {
+						log("deleted", model, response);
+						this.router.trigger('templateEdited',{event:'templateDeleted'});
+					}, error:function(model, response) { log("error delete: ", model, response); }});
+					this.activity.closeWindow(this, false, true);
+				} else {
+					this.router.trigger('setFocus', {activity:this.activity, windowCid:this.cid});
+				}
+			}
 		},
 		openSelectImage:function() {
 			if (!this.selectorView)

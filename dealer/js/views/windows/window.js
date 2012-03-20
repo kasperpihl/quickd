@@ -56,7 +56,7 @@ define([
 			}
 		},
 		setFocus: function(data) {
-			if (data.windowCid == this.cid) {
+			if (data.windowCid == this.cid) {	
 				if (this.locked) this.lock('unlock');
 				if (this.lastFocus) this.lastFocus.focus();
 				if (this.important) this.router.trigger('lock',{lock:'window',me: this.cid,activityCid: this.activity.cid,depth:this.depth});

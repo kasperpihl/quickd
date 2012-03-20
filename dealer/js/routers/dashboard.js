@@ -2,6 +2,7 @@ define([
 'collections/collections',
 'models/models',
 'views/dashboard',
+'views/dialogs/promtDialog'
 ],function(){
 	App.routers.Dashboard = Backbone.Router.extend({
 		routes: {
@@ -20,7 +21,7 @@ define([
 		start: function(options){
 			this.route;
 			if(!App.models.shopowner && shopowner) App.models.shopowner = new App.models.Shopowner(shopowner.dealer);
-			_.bindAll(this,'getChanges','changes');
+			_.bindAll(this,'getChanges','changes', 'retryConnection');
 			App.collections.feedback = new App.collections.Feedback();
 			App.collections.templates = new App.collections.Templates();
 			App.collections.shops = new App.collections.Shops();
@@ -28,6 +29,14 @@ define([
 			App.collections.images = new App.collections.Images();
 			if(options.stuff) this.setStuff(options.stuff);
 			App.views.dashboard = new App.views.Dashboard({router:this});
+
+			this.networkErrorDialog = new App.views.dialogs.PromtDialog({router:this, type: 'promt', callbackCid:'dashboard-router', 
+				openOnCreate: false, closable: false,
+				title:'Ingen forbindelse til serveren', 
+				msg:'Vi kan i øjeblikket ikke få forbindelse til vores server. Tjek din internetforbindelse og prøv ingen', 
+				confirmText:'Prøv igen'
+			});
+			this.bind('promtCallback:dashboard-router', this.retryConnection);
 			this.getChanges();
 			//setTimeout(this.getChanges,10000);
 		},
@@ -93,11 +102,11 @@ define([
 			}
 			App.views.dashboard.changeActivity(options);
 		},
-		
-		
-		
-		
-		getChanges: function(){
+		retryConnection:function(obj) {
+			if (this.networkErrorShown) this.networkErrorShown = false;
+			this.getChanges(true);
+		},
+		getChanges: function(singleCall){
 			var thisClass = this;
 			var cindex = (localStorage.getItem('cindex') != 'undefined') ? localStorage.getItem('cindex') : 0;
 			var csince = (localStorage.getItem('csince') != 'undefined') ? localStorage.getItem('csince') : 0;
@@ -108,10 +117,17 @@ define([
 		        async: true,
 		        cache: false,
 		        timeout:4000,
-		        success: thisClass.changes,
+		        success: function() {
+		        	thisClass.changes
+		        	if (!singleCall) setTimeout(thisClass.getChanges,3000)
+		        },
 		        error: function(XMLHttpRequest, textStatus, errorThrown) {
-					log('error changes',XMLHttpRequest,textStatus,errorThrown);
-		           	setTimeout(thisClass.getChanges,3000);
+							log('error changes',XMLHttpRequest,textStatus,errorThrown);
+							if (thisClass.networkErrorDialog && !thisClass.networkErrorShown) {
+								thisClass.networkErrorDialog.openDialog();
+								thisClass.networkErrorShown = true;
+							}
+		          if (!singleCall) setTimeout(thisClass.getChanges,3000);
 		        }
 		   	});			
 		},
@@ -152,12 +168,13 @@ define([
 		},
 		changes:function(result){
 			//log('result from changes',result);
+			if (this.networkErrorShown) this.networkErrorDialog.closeDialog();
 			result = $.parseJSON(result);
 			if(result.hasOwnProperty('csince')) localStorage.setItem('csince',result.csince);
 			if(result.hasOwnProperty('success') && result.success == 'false') return setTimeout(this.getChanges,3000);
 			if(result.hasOwnProperty('cindex')) localStorage.setItem('cindex',result.cindex);
 
-			setTimeout(this.getChanges,3000);
+			
 			if(!result.data) return;
 			
 			var results = result.data;
