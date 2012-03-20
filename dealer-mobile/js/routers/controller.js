@@ -74,6 +74,7 @@ App.routers.Controller = Backbone.Router.extend({
 			break;
 		}
 		log(obj);
+		var thisClass = this;
 		$.post('ajax/deal.php?type=deals',obj,function(data){
 			log(JSON.stringify(data));
 			if(data.success == 'true'){
@@ -82,7 +83,7 @@ App.routers.Controller = Backbone.Router.extend({
 					App.collections.deals.add(model,{silent:true});
 				}
 				else {
-					this.activeModel.set(data.data);
+					thisClass.activeModel.set(data.data);
 				}
 				
 				

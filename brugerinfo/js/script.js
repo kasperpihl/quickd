@@ -131,7 +131,7 @@ function doEmailSignup() {
 
 //Signup with Facebook
 function doFBSubscribe() {
-    var spinner = $('<img />').attr('src','img/loader.png').addClass('spinning-loader');
+    var spinner = $('<img />').attr('src',ROOT_URL+'img/loader.png').addClass('spinning-loader');
     FB.login(function(response) {
       if (response.authResponse) {
         $('#btn_fb_signup').width($('#btn_fb_signup').outerWidth());
