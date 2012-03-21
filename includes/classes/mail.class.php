@@ -13,7 +13,7 @@ Class Mail{
 			'Vi glæder os helt vildt til at kunne lancere for dig!'."\n\n".
 			'De bedste hilsner,'."\n".
 			'QuickD-teamet';
-		self::sendMail($mail,$subject,$message);
+		self::sendMail($mail,$subject,base64_encode($message));
 	}
 	public static function sendNewPasswordForDealer($mail, $url,$name = false){
 		$subject = 'Glemt adgangskode til QuickD Forhandler';
@@ -33,8 +33,8 @@ Class Mail{
 		$headers = 
 			'MIME-Version: 1.0' ."\n".
 			'From: QuickD-teamet <' .self::$sender . ">". "\n" . 
+			'Content-Transfer-Encoding: base64'."\n".
 			'Reply-To: '.self::$sender . "\n" .
-			'charset=utf-8'.'\n'.
     		'X-Mailer: PHP/' . phpversion();
 		mail($to,$subject,$message,$headers);
 	}
