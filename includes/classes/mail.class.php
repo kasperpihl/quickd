@@ -1,6 +1,6 @@
 <?php 
 Class Mail{
-	protected static $sender = 'mail@quickd.dk';
+	protected static $sender = 'mail@quickd.com';
 	public static function sendBetaConfirmation($mail, $name=false){
 		$subject = 'Registrering til beta-lancering af QuickD';
 		if ($name) $greet = "Hej ".$name."\n\n";
