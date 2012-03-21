@@ -50,7 +50,7 @@ define([
 			return response.data;
 		},
 		comparator: function(template) {
-			return template.get('created_at');
+			return -template.get('created_at');
 		},
 		getApproved:function() {
 			var approved = [];
