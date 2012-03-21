@@ -34,6 +34,7 @@ Class Mail{
 			'MIME-Version: 1.0' ."\n".
 			'From: QuickD-teamet <' .self::$sender . ">". "\n" . 
 			'Reply-To: '.self::$sender . "\n" .
+			'Content-Type:text/html;charset=utf-8'.'\n'.
     		'X-Mailer: PHP/' . phpversion();
 		mail($to,$subject,$message,$headers);
 	}
