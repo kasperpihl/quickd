@@ -157,11 +157,12 @@ define([
 			return false;
 		},
 		confirmCallback:function(obj) {
+			var thisClass = this;
 			if(obj.callbackCid==this.cid&&obj.type=='confirm') {
 				if (obj.eventType=='confirm') {
 					this.model.destroy({data:this.model.id, success:function(model, response) {
 						log("deleted", model, response);
-						this.router.trigger('templateEdited',{event:'templateDeleted'});
+						thisClass.router.trigger('templateEdited',{event:'templateDeleted'});
 					}, error:function(model, response) { log("error delete: ", model, response); }});
 					this.activity.closeWindow(this, false, true);
 				} else {

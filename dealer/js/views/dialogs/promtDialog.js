@@ -20,6 +20,7 @@ define([
 			this.aniTime = 200;
 			this.openOnCreate=this.options.hasOwnProperty('openOnCreate')?this.options.openOnCreate:true;
 			this.closable = this.options.hasOwnProperty('closable')?this.options.closable:true;
+			this.destroyOnClose=this.options.hasOwnProperty('destroyOnClose')?this.options.destroyOnClose:true;
 			this.callbackCid = this.options.callbackCid;
 			this.windowName = this.options.windowName;
 			
@@ -32,9 +33,8 @@ define([
 		handleClick:function(obj) {
 			var id = obj.currentTarget.id;
 			var eventType = id.substr(4);
-			
+			this.closeDialog(this.destroyOnClose, true);
 			this.doTrigger(eventType);
-			this.closeDialog(true, true);
 			return false;
 		},
 		onClose:function() {

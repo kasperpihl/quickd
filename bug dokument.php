@@ -2,8 +2,6 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
-Slet template 
-
 Slet planlagte deals
 
 Meld planlagte deals udsolgt
@@ -37,6 +35,8 @@ Redigering af brugerindstillinger virker ikke.
 	Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Slet template 
 
 (rettet Kasper) Sortering af skabeloner (nyeste først)
 

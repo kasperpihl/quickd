@@ -119,7 +119,7 @@ Ext.define('QuickD.controller.Main', {
                 var button = Ext.ComponentQuery.query('toolbar #sortButton');
                 button[0].hide();
                 // Fetch data for selected deal.
-                this.getDealShow().loadDeal(options.record,options.list); // ingen server load, så dataen er der med det samme.
+                this.getDealShow().loadDeal(options.record,options.index); // ingen server load, så dataen er der med det samme.
                 
                 $.when(dealsOut, bgIn).done(function() {
                     self.getMain().setActiveItem(self.getDealShow());

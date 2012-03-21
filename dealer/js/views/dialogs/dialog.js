@@ -43,6 +43,7 @@ define([
 			});
 			if (this.created) {
 				$(this.dialogId).fadeIn(thisClass.aniTime, function() {
+					$(this).show();
 					if (thisClass.doOnOpen) thisClass.doOnOpen();
 				});
 				
@@ -69,7 +70,10 @@ define([
 			$('#body-mask').fadeOut(thisClass.aniTime, function() { $(this).remove(); });
 			$(this.dialogId).fadeOut(thisClass.aniTime,function(){
 				if (!silent) thisClass.onClose();
-				if (remove) $(this).remove();
+				if (remove) {
+					thisClass.undelegateEvents();
+					$(this).remove();
+				}
 			});
 		},
 		shakeDialog: function() {
