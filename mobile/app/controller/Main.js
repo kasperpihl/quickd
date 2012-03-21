@@ -53,7 +53,7 @@ Ext.define('QuickD.controller.Main', {
     },
     test:function(container,newItem,oldItem){
         //log(this.getMain().setShowAnimation('flip'));
-        //this.getDealShow().loadDeal(newItem);
+        this.getDealShow().loadDeal(newItem);
     },
     init: function() {
         Ext.getStore('Deals').addListener('refresh', this.updatedStore, this);
