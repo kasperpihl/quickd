@@ -1,6 +1,6 @@
 <?php require_once('../config.php');
 if(isset($_POST['email'])){
-	Mail::sendBetaConfirmation($_GET['email'],'Kasper');
+	Mail::sendBetaConfirmation($_POST['email'],'Kasper');
 	echo 'mail blev sendt';
 }
 
