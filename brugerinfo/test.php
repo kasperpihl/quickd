@@ -1,3 +1,11 @@
 <?php require_once('../config.php');
-Mail::sendBetaConfirmation('kasper@tornoe.org','Kasper');
+if(isset($_POST['email'])){
+	Mail::sendBetaConfirmation($_GET['email'],'Kasper');
+	echo 'mail blev sendt';
+}
+
 ?>
+<form method="POST">
+	<input type="text" name="email">
+	<input type="submit" value="send">
+</form>
