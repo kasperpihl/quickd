@@ -6,8 +6,6 @@ Sortering af skabeloner (nyeste først)
 
 Godkend skabeloner - viser ikke alle ikke godkendte??
 
-Slet template 
-
 Slet planlagte deals
 
 Meld planlagte deals udsolgt
@@ -43,6 +41,8 @@ Redigering af brugerindstillinger virker ikke.
 	Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Slet template 
 
 (rettet Jeppe) Databasefejl ved ændring af template
 

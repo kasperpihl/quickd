@@ -109,6 +109,7 @@ define([
 			if(this.hasLocked) this.router.trigger('unlock',{lock:'window',activityCid: this.activity.cid,depth:this.depth});
 			var thisClass = this;
 			$(this.windowId).fadeOut(400,function(){
+				thisClass.undelegateEvents();
 				$(this).remove();
 				if (callback) callback();
 			});

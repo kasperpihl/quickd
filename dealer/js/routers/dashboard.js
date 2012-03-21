@@ -31,7 +31,7 @@ define([
 			App.views.dashboard = new App.views.Dashboard({router:this});
 
 			this.networkErrorDialog = new App.views.dialogs.PromtDialog({router:this, type: 'promt', callbackCid:'dashboard-router', 
-				openOnCreate: false, closable: false,
+				openOnCreate: false, closable: false, destroyOnClose: false,
 				title:'Ingen forbindelse til serveren', 
 				msg:'Vi kan i øjeblikket ikke få forbindelse til vores server. Tjek din internetforbindelse og prøv ingen', 
 				confirmText:'Prøv igen'
@@ -107,29 +107,40 @@ define([
 			this.getChanges(true);
 		},
 		getChanges: function(singleCall){
-			var thisClass = this;
-			var cindex = (localStorage.getItem('cindex') != 'undefined') ? localStorage.getItem('cindex') : 0;
-			var csince = (localStorage.getItem('csince') != 'undefined') ? localStorage.getItem('csince') : 0;
-			$.ajax({
+			var thisClass = this,
+					cindex = (localStorage.getItem('cindex') != 'undefined') ? localStorage.getItem('cindex') : 0,
+					csince = (localStorage.getItem('csince') != 'undefined') ? localStorage.getItem('csince') : 0,
+					doOnError = function() {
+						if (thisClass.networkErrorDialog && !thisClass.networkErrorShown) {
+								thisClass.networkErrorDialog.openDialog();
+								thisClass.networkErrorShown = true;
+						}
+		       };
+
+		  if (window.navigator.onLine) {
+				$.ajax({
 		        type: "GET",
 		        url: ROOT_URL+"ajax/changes.php",
 		        data: 'cindex='+cindex+'&csince='+csince,
 		        async: true,
 		        cache: false,
 		        timeout:4000,
-		        success: function() {
-		        	thisClass.changes
-		        	if (!singleCall) setTimeout(thisClass.getChanges,3000)
+		        success: function(result) {
+		        	result = $.parseJSON(result);
+		        	if (result.hasOwnProperty('success') && result.success=='false' && result.error=='database_error') doOnError();
+		        	thisClass.changes(result);
+		        	if (!singleCall) setTimeout(thisClass.getChanges,3000);
 		        },
 		        error: function(XMLHttpRequest, textStatus, errorThrown) {
-							log('error changes',XMLHttpRequest,textStatus,errorThrown);
-							if (thisClass.networkErrorDialog && !thisClass.networkErrorShown) {
-								thisClass.networkErrorDialog.openDialog();
-								thisClass.networkErrorShown = true;
-							}
-		          if (!singleCall) setTimeout(thisClass.getChanges,3000);
+							log('Error changes',XMLHttpRequest,textStatus,errorThrown);
+							doOnError();
+							if (!singleCall) setTimeout(thisClass.getChanges,3000);
 		        }
-		   	});			
+		   	}, 'json');
+		  } else {
+		  	doOnError();
+		  	if (!singleCall) setTimeout(thisClass.getChanges,3000);
+		  }			
 		},
 		setStuff:function(stuff){
 			_.each(stuff,function(item,i){
@@ -169,9 +180,9 @@ define([
 		changes:function(result){
 			//log('result from changes',result);
 			if (this.networkErrorShown) this.networkErrorDialog.closeDialog();
-			result = $.parseJSON(result);
+			
 			if(result.hasOwnProperty('csince')) localStorage.setItem('csince',result.csince);
-			if(result.hasOwnProperty('success') && result.success == 'false') return setTimeout(this.getChanges,3000);
+			if(result.hasOwnProperty('success') && result.success == 'false') return;
 			if(result.hasOwnProperty('cindex')) localStorage.setItem('cindex',result.cindex);
 
 			
