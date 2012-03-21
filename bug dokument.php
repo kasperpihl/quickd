@@ -2,8 +2,6 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
-Sortering af skabeloner (nyeste først)
-
 Slet template 
 
 Slet planlagte deals
@@ -28,8 +26,6 @@ Startdeal "shaken" bugger når den allerede er planlagt
 Redigering af brugerindstillinger virker ikke.
 	Hvad skal de indeholde?
 
-(Jeppe) Deals vinduet skal kun have 2 faner "aktuelle" og "afsluttede",
-
 
 (Jeppe) Internet explorer
 
@@ -41,6 +37,8 @@ Redigering af brugerindstillinger virker ikke.
 	Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Kasper) Sortering af skabeloner (nyeste først)
 
 (rettet Kasper) Godkend skabeloner - viser ikke alle ikke godkendte??
 

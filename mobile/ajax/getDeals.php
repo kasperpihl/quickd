@@ -19,7 +19,7 @@ foreach($results as $res){
 	$deal['orig_price'] = $res->value->template->orig_price;
 	$deal['description'] = $res->value->template->description; 
 	$deal['name'] = $res->value->shop->name;
-	$deal['category'] = $categories[rand(0,sizeof($categories)-1)];
+	$deal['category'] = $res->value->template->category;
 	$deal['discount'] = discount($deal['orig_price'],$deal['deal_price']);
 	$deal['image'] = isset($res->value->template->image) ? $res->value->template->image : STD_IMAGE;
 	$deals[] = $deal;
