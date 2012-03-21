@@ -4,8 +4,6 @@ Bugs:
 
 Sortering af skabeloner (nyeste først)
 
-Godkend skabeloner - viser ikke alle ikke godkendte??
-
 Slet template 
 
 Slet planlagte deals
@@ -43,6 +41,8 @@ Redigering af brugerindstillinger virker ikke.
 	Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Kasper) Godkend skabeloner - viser ikke alle ikke godkendte??
 
 (rettet Jeppe) Databasefejl ved ændring af template
 
