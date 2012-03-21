@@ -1,6 +1,6 @@
 <?php 
 Class Mail{
-	protected static $sender = 'mail@quickd.dk';
+	protected static $sender = 'mail@quickd.com';
 	public static function sendBetaConfirmation($mail, $name=false){
 		$subject = 'Registrering til beta-lancering af QuickD';
 		if ($name) $greet = "Hej ".$name."\n\n";
@@ -33,7 +33,8 @@ Class Mail{
 		$headers = 
 			'MIME-Version: 1.0' ."\n".
 			'From: QuickD-teamet <' .self::$sender . ">". "\n" . 
-			'Reply-To: '.self::$sender . "\n" .
+			'Reply-To: QuickD-teamet <'.self::$sender . ">\n" .
+			'Content-Type: text/plain; charset=utf-8'."\n".
     		'X-Mailer: PHP/' . phpversion();
 		mail($to,$subject,$message,$headers);
 	}

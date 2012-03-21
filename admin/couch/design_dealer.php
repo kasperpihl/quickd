@@ -327,7 +327,7 @@ try{
 			obj.deal_price = deal_price;
 			obj.rev = 1;
 			obj.approved = 'waiting';
-			returnArr = {id:index,approved:'waiting',rev:1};
+			returnArr = {id:index,approved:'waiting',created_at:timestamp,rev:1};
 			doc.templates[index] = obj;
 			addHistory(index,timestamp,'created',1,1);
 		}
