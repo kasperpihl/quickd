@@ -53,7 +53,7 @@ Ext.define('QuickD.controller.Main', {
     },
     test:function(container,newItem,oldItem){
         //log(this.getMain().setShowAnimation('flip'));
-        //this.getDealShow().loadDeal(newItem);
+        this.getDealShow().loadDeal(newItem);
     },
     init: function() {
         Ext.getStore('Deals').addListener('refresh', this.updatedStore, this);
@@ -119,7 +119,7 @@ Ext.define('QuickD.controller.Main', {
                 var button = Ext.ComponentQuery.query('toolbar #sortButton');
                 button[0].hide();
                 // Fetch data for selected deal.
-                this.getDealShow().loadDeal(options.record,options.list); // ingen server load, så dataen er der med det samme.
+                this.getDealShow().loadDeal(options.record,options.index); // ingen server load, så dataen er der med det samme.
                 
                 $.when(dealsOut, bgIn).done(function() {
                     self.getMain().setActiveItem(self.getDealShow());

@@ -42,31 +42,13 @@ Ext.define('QuickD.controller.SortController', {
     filterChange:function(){
         var store = Ext.getStore('Deals');
         var filter = [];
+        
         if(this.changedSorting){
             store.clearFilter();
             var self = this;
             var filter = this.changedStateObj;
             store.filter({filterFn: function(item) { return (filter[item.get("category")] == true); }});
         }
-        /*if(data && data.hasOwnProperty('data')){
-            var id = data.data.value;
-            if(id != this.filter){
-                this.filter = id;
-                
-                switch(id){
-                    case 'shopping':
-                    case 'fooddrink':
-                    case 'experience':
-                        store.clearFilter();
-                        store.filter('category',id);
-                    break;
-                    case 'all':
-                        store.clearFilter();
-                    break;
-                }
-            }
-        }*/
-
     },
     init: function() {
         this.unchangedStateObj = {};
