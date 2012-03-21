@@ -12,8 +12,8 @@ try{
 			 else var obj = {success:'true',data:message}; 
 			 return JSON.stringify(obj);
 		}
-		function addHistory(id,timestamp,rev){
-		
+		function addHistory(id,hours,rev){
+			var timestamp = parseInt(new Date().getTime()/1000);
 			if(!doc.hasOwnProperty('history')) doc.history = new Array();
 			var historyObj = {id:id,timestamp: timestamp,action:'response',type:'feedback',rev:rev,priority:2};
 			doc.history.push(historyObj);
@@ -31,7 +31,7 @@ try{
 		doc.user.hours = doc.user.hours + hours;
 		var feedbackObj = { id: index, type:'response',rev:index,timestamp:timestamp,hours:hours,message:query.message};
 		doc.feedback.push(feedbackObj); 
-		addHistory(index,timestamp,index);
+		addHistory(index,index);
 		return [doc,msg('response',true)];
 		
 	}";
