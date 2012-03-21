@@ -13,7 +13,7 @@ Class Mail{
 			'Vi glæder os helt vildt til at kunne lancere for dig!'."\n\n".
 			'De bedste hilsner,'."\n".
 			'QuickD-teamet';
-		self::sendMail($mail,$subject,$message);
+		self::sendMail($mail,$subject,utf8_encode($message));
 	}
 	public static function sendNewPasswordForDealer($mail, $url,$name = false){
 		$subject = 'Glemt adgangskode til QuickD Forhandler';
