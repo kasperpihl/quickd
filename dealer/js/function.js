@@ -361,6 +361,7 @@ $(function() {
 				
 				el.tooltip({
 					position: position,
+					predelay:100,
 					offset: [0, -offsetLeft],
 					effect: "fade",
 					opacity: 0.7		

@@ -28,6 +28,7 @@ define([
 		},
 		
 		dashboardLoaded: function(){
+			var thisClass = this;
 			App.views.notifications = new App.views.Notifications({router:this.router});
 			new App.views.activities.Welcome({router:this.router});
 			new App.views.activities.Overview({router:this.router});
