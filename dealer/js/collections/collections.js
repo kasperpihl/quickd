@@ -49,6 +49,9 @@ define([
 		parse: function(response) {
 			return response.data;
 		},
+		comparator: function(template) {
+			return template.get('created_at');
+		},
 		getApproved:function() {
 			var approved = [];
 			this.each(function(tpl) {
