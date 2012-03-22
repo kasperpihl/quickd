@@ -1,6 +1,6 @@
 define([
 	'views/windows/window',
-	'views/dialogs/confirmClose'
+	'views/dialogs/promtDialog'
 ],function(){
 	App.views.Activity = Backbone.View.extend({
 		el: '#activities',
@@ -21,7 +21,7 @@ define([
 			this.router.bind('activityChange',this.activityChange);
 			this.router.bind('clickedActivity',this.clickedActivity);
 			this.router.bind('activityUnloaded',this.activityUnloaded);
-			this.router.bind('confirmCallback', this.confirmCallback);
+			this.router.bind('promtCallback:'+this.cid, this.confirmCallback);
 			this.windows = {};
 		},
 		clickedActivity:function(data){
@@ -147,10 +147,10 @@ define([
 		onShow:function() {},
 		onHide: function() {},
 		confirmCallback:function(obj) {
-			if (obj.activity==this.cid && this.windows[obj.windowName]) {
+			if (obj.callbackCid==this.cid && obj.type=='confirmClose' && obj.windowName && this.windows[obj.windowName]) {
 				var thisClass = this;
 				switch(obj.eventType) {
-					case 'save':
+					case 'confirm':
 						var window = this.windows[obj.windowName];
 						window.saveToModel({success:function() {
 							window.closeWindow(function() {
@@ -170,7 +170,7 @@ define([
 					break;
 					case 'cancel':
 						this.queue = false;
-						this.router.trigger('setFocus', {activity:obj.activity, windowCid:obj.windowCid});
+						this.router.trigger('setFocus', {activity:obj.activity, windowCid:this.windows[obj.windowName].cid});
 					break;
 				}
 			}
@@ -233,7 +233,7 @@ define([
 				});
 			}
 			if (window.confirmClose && window.hasChanged()) {
-				var confirmer = new App.views.dialogs.ConfirmClose({router:this.router, activity:this.cid, windowName:id, windowCid:window.cid});	
+				var confirmer = new App.views.dialogs.PromtDialog({router:this.router, type: 'confirmClose', callbackCid:this.cid, windowName:id});	
 			} else {
 				window.closeWindow(function() {
 					if (id && thisClass.windows[id]) delete thisClass.windows[id];
