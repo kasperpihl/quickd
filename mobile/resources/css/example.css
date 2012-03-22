@@ -3517,6 +3517,12 @@ audio {
   overflow: visible; }
 
 /******************************************************************
+CONVERT IMAGES TO COMPASS SPRITE MAPS
+******************************************************************/
+.spr-sprite, #fedt-mand-spa .x-list-pullrefresh .x-list-pullrefresh-arrow, .venue-meta section.hours:before, .venue-meta section.location:before, .venue-meta section.feedback:before, #quickd-deals article[id*=deal_] .deal-content > footer .awesome-badge, #quickd-deals article[id*=deal_].category.fooddrink footer .price:before, #quickd-deals article[id*=deal_].category.fooddrink footer time:before, #quickd-deals article[id*=deal_].category.shopping footer .price:before, #quickd-deals article[id*=deal_].category.shopping footer time:before, #quickd-deals article[id*=deal_].category.experience footer .price:before, #quickd-deals article[id*=deal_].category.experience footer time:before {
+  background: url('../images/spr-s43ba1aa95e.png') no-repeat; }
+
+/******************************************************************
 BUTTONS
 ******************************************************************/
 .x-button.x-button-sencha, .x-toolbar .x-button.x-button-sencha, .x-button.x-button-sencha-round, .x-toolbar .x-button.x-button-sencha-round, .x-button.x-button-sencha-small, .x-toolbar .x-button.x-button-sencha-small {
@@ -3546,6 +3552,9 @@ GENERAL STYLES
 ******************************************************************/
 #ext-mainview-1 {
   background: transparent; }
+
+strong {
+  font-weight: bold; }
 
 /******************************************************************
 TOOLBAR STYLES
@@ -3627,10 +3636,10 @@ TOOLBAR STYLES
 PULL REFRESH
 ******************************************************************/
 #fedt-mand-spa .x-list-pullrefresh .x-list-pullrefresh-arrow {
+  background-position: 0 -120px;
   width: 24px;
   height: 26px;
-  background: url("../images/refresh-arrow.png");
-  background-size: 100%;
+  background-size: initial;
   -webkit-transform: rotation(0deg);
   transform: rotation(0deg);
   -webkit-transition: all 0.7s ease-in-out;
@@ -3687,15 +3696,19 @@ SINGLE DEAL
   border-top: 4px solid red;
   color: #575757;
   text-shadow: 0 1px 0 white;
+  font-size: 14px;
+  line-height: 21px;
   -webkit-box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.7), 0 -5px 13px 7px black;
   box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.7), 0 -5px 13px 7px black; }
+  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article strong {
+    color: #141414; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article.shopping {
     border-color: #a25d7a; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article.experience {
     border-color: #5da2a0; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article.fooddrink {
     border-color: #c09159; }
-  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article > section {
+  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article > section:not(.venue) {
     padding-bottom: 38px;
     margin-bottom: 33px;
     background: url(../images/stippled-line.png) repeat-x bottom left; }
@@ -3704,7 +3717,66 @@ SINGLE DEAL
   line-height: 34px;
   font-weight: bold;
   color: #131313;
+  letter-spacing: 0;
   margin-bottom: 28px; }
+
+.venue {
+  background: none;
+  margin-bottom: 0; }
+  .venue .venue-thumb {
+    width: 107%;
+    margin-left: -10px;
+    margin-bottom: 10px; }
+
+.venue-meta {
+  font-size: 14px;
+  line-height: 25px; }
+  .venue-meta section {
+    position: relative;
+    border-bottom: thin solid #cfd0d1;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    padding: 12px 10px 12px 47px;
+    margin-left: -10px;
+    width: 107%; }
+    .venue-meta section:first-child {
+      border-top: thin solid #cfd0d1;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+      margin-top: 52px; }
+    .venue-meta section.hours {
+      position: relative; }
+      .venue-meta section.hours li {
+        display: -webkit-box;
+        display: box;
+        -webkit-box-orient: horizontal;
+        box-orient: horizontal; }
+      .venue-meta section.hours .day, .venue-meta section.hours .leader, .venue-meta section.hours time {
+        display: block; }
+      .venue-meta section.hours .leader {
+        -webkit-box-flex: 1;
+        box-flex: 1;
+        border-bottom: thin dashed #CCC;
+        margin: 0 5px 7px; }
+    .venue-meta section:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 12px;
+      left: 10px; }
+    .venue-meta section.hours:before {
+      background-position: 0 -165px;
+      height: 25px;
+      width: 24px; }
+    .venue-meta section.location:before {
+      background-position: 0 -190px;
+      height: 25px;
+      width: 15px; }
+    .venue-meta section.feedback:before {
+      top: 16px;
+      background-position: 0 -146px;
+      height: 19px;
+      width: 25px; }
+    .venue-meta section a, .venue-meta section a:hover, .venue-meta section a:visited {
+      color: inherit; }
 
 /******************************************************************
 DEALS LIST
@@ -3771,9 +3843,6 @@ DEALS LIST
             top: 1px;
             left: 0;
             display: block;
-            width: 12px;
-            height: 12px;
-            background: url("../images/spritemap.png");
             content: ''; }
         #quickd-deals article[id*=deal_] .deal-content > footer .price:before {
           background-position-x: 0; }
@@ -3783,9 +3852,9 @@ DEALS LIST
           position: absolute;
           top: -3px;
           right: -3px;
-          width: 54px;
+          background-position: 0 -36px;
           height: 48px;
-          background: url("../images/spritemap.png") no-repeat -1px -64px; }
+          width: 54px; }
           #quickd-deals article[id*=deal_] .deal-content > footer .awesome-badge .value {
             display: block;
             margin: 12px 0 0 24px;
@@ -3811,24 +3880,36 @@ DEALS LIST
     #quickd-deals article[id*=deal_].category.fooddrink footer {
       color: #c09159; }
     #quickd-deals article[id*=deal_].category.fooddrink footer .price:before {
-      background-position-y: -22px; }
+      background-position: 0 -96px;
+      height: 12px;
+      width: 13px; }
     #quickd-deals article[id*=deal_].category.fooddrink footer time:before {
-      background-position-y: -23px; }
+      background-position: 0 -12px;
+      height: 12px;
+      width: 12px; }
     #quickd-deals article[id*=deal_].category.fooddrink:before {
       background: #c09159; }
     #quickd-deals article[id*=deal_].category.shopping footer {
       color: #a25d7a; }
     #quickd-deals article[id*=deal_].category.shopping footer .price:before {
-      background-position-y: -44px; }
+      background-position: 0 -108px;
+      height: 12px;
+      width: 13px; }
     #quickd-deals article[id*=deal_].category.shopping footer time:before {
-      background-position-y: -45px; }
+      background-position: 0 -24px;
+      height: 12px;
+      width: 12px; }
     #quickd-deals article[id*=deal_].category.shopping:before {
       background: #a25d7a; }
     #quickd-deals article[id*=deal_].category.experience footer {
       color: #5da2a0; }
     #quickd-deals article[id*=deal_].category.experience footer .price:before {
-      background-position-y: 0; }
+      background-position: 0 -84px;
+      height: 12px;
+      width: 13px; }
     #quickd-deals article[id*=deal_].category.experience footer time:before {
-      background-position-y: -1px; }
+      background-position: 0 0;
+      height: 12px;
+      width: 12px; }
     #quickd-deals article[id*=deal_].category.experience:before {
       background: #5da2a0; }

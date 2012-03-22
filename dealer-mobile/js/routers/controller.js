@@ -67,21 +67,23 @@ App.routers.Controller = Backbone.Router.extend({
 		var obj;
 		switch(this.activeModel.get('type')){
 			case 'template':
-			obj = {action:'start',model:{mobile:'true',template_id:this.activeModel.get('id'),seconds: time}};
+				obj = {action:'start',model:{mobile:'true',template_id:this.activeModel.get('id'),seconds: time}};
 			break;
 			case 'deal':
-			obj = {action: 'stop',model: {id: this.activeModel.get('id'),status:'soldout'}};
+				obj = {action: 'soldout',model: {id: this.activeModel.get('id'),status:'soldout'}};
 			break;
 		}
+		log(obj);
+		var thisClass = this;
 		$.post('ajax/deal.php?type=deals',obj,function(data){
 			log(JSON.stringify(data));
 			if(data.success == 'true'){
 				if(data.data.id){
 					var model = new App.models.Deal(data.data);
-					App.collections.deals.add(model);
+					App.collections.deals.add(model,{silent:true});
 				}
 				else {
-					this.activeModel.set(data.data);
+					thisClass.activeModel.set(data.data);
 				}
 				
 				
@@ -107,7 +109,7 @@ App.routers.Controller = Backbone.Router.extend({
 		});			
 	},
 	changes:function(result){
-		log('result from changes',result);
+		//log('result from changes',result);
 		result = $.parseJSON(result);
 		if(result.hasOwnProperty('csince')) localStorage.setItem('csince',result.csince);
 		if(result.hasOwnProperty('success') && result.success == 'false') return setTimeout(this.getChanges,3000);
@@ -116,55 +118,52 @@ App.routers.Controller = Backbone.Router.extend({
 		setTimeout(this.getChanges,3000);
 		if(!result.data) return;
 		var results = result.data;
-		/*if(results.length > 0){
+		if(results.length > 0){
 			var resultHandling = {};
 			for(var i = results.length-1 ; i >= 0  ; i--){
 				var doc = results[i].value;
-				var model,newModel,collection,route;
+				var model,newModel,collection;
+				log(doc.type);
 				switch(doc.type){
+					
 					case 'template':
-						route = lang.urls.templates + '/' + doc.id;
 						newModel = App.models.Template;
 						collection = App.collections.templates;
 						model = collection.get(doc.id);
-					break;
-					case 'shop':
-						route = lang.urls.administrationShop;
-						newModel = App.models.Shop;
-						collection = App.collections.shops;
-						model = collection.get(doc.id);
-					break;
-					case 'feedback':
-						route = lang.urls.overviewFeedback + '/' + doc.id;
-						newModel = App.models.Feedback;
-						collection = App.collections.feedback;
-						model = collection.get(doc.id);
-					break;
+						if(model === undefined) break;
+						log(doc.action);
+						switch(doc.action){
+							case 'approved':
+							case 'edited':
+							case 'declined':
+								model.set('approved',doc.action);
+							break;
+						}
+					break
 					case 'deal':
-						route = lang.urls.overviewDeals + '/' + doc.id;
 						newModel = App.models.Deal;
 						collection = App.collections.deals;
 						model = collection.get(doc.id);
+						if(model === undefined) break;
 					break;
 					default:
 						continue;
 					break;
 				}
-				if(model && (doc.rev > model.get('rev'))){
+				/*if(model && (doc.rev > model.get('rev'))){
 					//log('fetched',doc.type,doc.id);
 					model.fetch({success:function(d,mod){ log('response fra fetch1',d,mod); },error:function(d,d2){ log(d,d2); }});
 					App.views.notifications.changesHandling(doc.type,doc.action,route);
-				} 
+				} */
 				if(model === undefined){
 					log('fetchedU',doc.type,doc.id);
 					model = new newModel({id:doc.id});
-
-					model.fetch({success:function(d,data){ log('response fra fetch2',d,data); if(data.success == 'true'){  collection.add(d); App.views.notifications.changesHandling(doc,route); } },error:function(d,d2){ log(d,d2); }});
+					model.fetch({success:function(d,data){ log('response fra fetch2',d,data); if(data.success == 'true'){  collection.add(d); } },error:function(d,d2){ log(d,d2); }});
 					
 				}
 				
 			}
-		}*/
+		}
 	}
 	
 });

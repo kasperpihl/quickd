@@ -11,10 +11,10 @@ var showDealTemplate = new Ext.XTemplate(
         '<footer class="venue-meta">',
             '<section class="hours">',
                 '<ul>',
-                    '<li><span class="day">Man-Torsdag</span><span class="time">09.00 &ndash; 17.30</span></li>',
-                    '<li><span class="day">Fredag</span><span class="time">09.00 &ndash; 20.00</span></li>',
-                    '<li><span class="day">Lørdag</span><span class="time">11.00 &ndash; 17.30</span></li>',
-                    '<li><span class="day">Søndag</span><span class="time">Lukket.</span></li>',
+                    '<li><span class="day">Man-Torsdag</span><span class="leader"></span><time>09.00 &ndash; 17.30</time></li>',
+                    '<li><span class="day">Fredag</span><span class="leader"></span><time>09.00 &ndash; 20.00</time></li>',
+                    '<li><span class="day">Lørdag</span><span class="leader"></span><time>11.00 &ndash; 17.30</time></li>',
+                    '<li><span class="day">Søndag</span><span class="leader"></span><time>Lukket</time></li>',
                 '</ul>',
             '</section>',
             '<section class="location">',
@@ -64,7 +64,7 @@ Ext.define('QuickD.view.DealShow', {
     ],
     config: {
         fullscreen:true,
-        layout:'vbox',
+        layout: 'fit',
         id: 'quickd-single',
         items: [
         {
@@ -92,8 +92,7 @@ Ext.define('QuickD.view.DealShow', {
             xtype: 'carousel',
             id: 'quickd-deal-slider',
             config:{
-                height:170,
-                flex:1
+                height:'170px',
             },
             indicator: false,
             defaults:{
@@ -111,8 +110,14 @@ Ext.define('QuickD.view.DealShow', {
             id: 'quickd-deal-content',
             tpl: showDealTemplate,
             config: {
-                flex:1,
-                scrollable: true,
+                draggable:{
+                    direction: 'horizontal',
+                    listeners:{
+                        dragstart: function(l1,l2,l3){
+                            log(l1,l2,l3);
+                        }
+                    }
+                }
             }
         }]
     },

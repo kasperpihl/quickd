@@ -14,8 +14,9 @@ define([
 			this.dealTemplates = {};
 			this.showTimeType = 'type-now';
 			this.dateSelected = false;
+			this.vAligned = false;
 			this.router = this.options.router;
-			this.activity = this.options.activity;		
+			this.activity = this.options.activity;
 			this.timeStandard = 5;
 			this.timeMinInterval = 10;
 			this.templateSelected = null;
@@ -28,12 +29,13 @@ define([
 		render: function(){
 			var thisClass = this;
 			$(this.el).html(_.template(template,{data:this}));
+			this.$el = $('#start_deal');
 			this.first = true;
 			this.expanded = false;
 			this.starting = false;
 			this.hours = null;
 			//Setting jquery date pickers
-			$('#'+this.elemId+' #deal_start_time').datetimepicker({
+			this.$el.find('#deal_start_time').datetimepicker({
 				stepMinute: thisClass.timeMinInterval,
 				hourGrid: 4,
 				minuteGrid: thisClass.timeMinInterval,
@@ -66,7 +68,7 @@ define([
 			$('#treasure_read_more').click(function(){
 				thisClass.treasureDialog();
 			});
-			$('#'+this.elemId+' #deal_end_time').datetimepicker({
+			this.$el.find('#deal_end_time').datetimepicker({
 				stepMinute: thisClass.timeMinInterval,
 				hourGrid: 4,
 				minuteGrid: thisClass.timeMinInterval,
@@ -91,20 +93,24 @@ define([
 					//$('#deal_start_time').datetimepicker('option', 'maxDate', new Date(end.getTime()) );
 					thisClass.updateHours();
 				}
-			});	
+			});
 			//this.height = $('#start_deal').height();
-			this.setVerticalAlign();
+			
 			this.selectorView = new App.views.components.TemplateSelectorView({
-				router:this.router, 
+				router:this.router,
 				appendTo: '#select-template-list',
-				expandOnCreate: (this.templateSelected==null),
-				parent: this.cid, 
+				expandOnCreate: (this.templateSelected===null),
+				parent: this.cid,
 				onExpand: function() {
 					if (thisClass.expanded) thisClass.collapse();
 					else thisClass.setVerticalAlign();
 				},
-				onCollapse: this.setVerticalAlign
+				onCollapse: this.setVerticalAlign,
+				onCreated: function() {
+					thisClass.setVerticalAlign();
+				}
 			});
+			
 			return true;
 		},
 		handleEvent:function(options){
@@ -114,14 +120,16 @@ define([
 					if (this.selectorView) this.selectorView.setSelected(options.id);
 			}
 		},
-		setVerticalAlign:function() {
-			if (!$('#start_deal').is(':visible')) {
-				$("#start_deal").css({'position':'absolute','visibility':'hidden','display':'block'});
-				$('#start_deal').verticalAlign(false);
-				$("#start_deal").css({'visibility':'visible'});
+		setVerticalAlign:function(options) {
+			if (!this.$el.is(':visible')) {
+				this.$el.css({'position':'absolute','visibility':'hidden','display':'block'});
+				this.$el.verticalAlign(this.vAligned, options);
+				this.$el.css({'visibility':'visible'});
 			} else {
-				$('#start_deal').verticalAlign(false, {animate: true});
+				var o = $.extend({}, options, {animate:true});
+				this.$el.verticalAlign(this.vAligned, o);
 			}
+			this.vAligned = true;
 		},
 		updateTemplates:function(data) {
 			this.dealTemplates = data;
@@ -129,7 +137,6 @@ define([
 		setTemplateSelected:function(data) {
 			if (data && data.parent === this.cid && data.templateId) {
 				var id = data.templateId;
-				log("setTemplateSelected", id);
 				this.templateSelected = id;
 				this.router.navigate(lang.urls.startdeals+'/'+this.templateSelected);
 				this.expand();
@@ -142,7 +149,7 @@ define([
 					var time = (new Date()).getTime()+1000*60*60 * this.timeStandard;
 					$('#deal_end_time').val(getTimeString(time,true,this.timeMinInterval));
 					var set_template = $('#set_template_block');
-					if (!$('#start_deal').is(':visible')) {
+					if (!this.$el.is(':visible')) {
 						$('#stage-two').css({position:'relative',top: '0px'}).show();
 						//if(!thisClass.height) thisClass.height = $('#start_deal').outerHeight();
 					} else {
@@ -164,15 +171,18 @@ define([
 				thisClass.router.navigate(lang.urls.startdeals);
 				$('#deal_templates').val("");
 
+				var height = this.selectorView?$('#set_template_block').outerHeight()-this.selectorView.collapsedHeight+this.selectorView.expandedHeight:0;
+
 				var wrapper = $('<div />').css({overflowY:'hidden',width:'100%'});
 				$('#stage-two').wrap(wrapper)
 					.animate({ top: -$('#stage-two').outerHeight()-20 }, {duration: 1000, easing:'easeOutExpo', complete: function() {
 						if(!thisClass.expanded) $(this).hide();
 						$(this).unwrap();
 					},queue:false});
-				if (doReset && this.selectorView) this.selectorView.resetSelected();	
+				if (doReset && this.selectorView) this.selectorView.resetSelected();
 				//$('#start_deal').verticalAlign(false, {animate:true, meHeight:$('#set_template_block').outerHeight()});
-				this.setVerticalAlign();
+				
+				this.setVerticalAlign({meHeight:height});
 				this.expanded = false;
 				this.templateSelected=null;
 				
@@ -230,7 +240,7 @@ define([
 			
 			var els = [$('#starter_button'),$('#set_time_block'),$('#set_template_block')];
 			var i = 0;
-			var pos = $('#btn_overview').offset().top-$('#start_deal').offset().top-50;
+			var pos = $('#btn_overview').offset().top-this.$el.offset().top-50;
 			$(els).each(function() {
 				var me = $(this);
 				i++;
@@ -240,7 +250,7 @@ define([
 							
 							var el = $('#select-template-list');
 							el.css({position:'absolute', zIndex:3, top: el.offset().top, left:el.offset().left, width:el.width()}).appendTo('#content');
-							$('#start_deal').fadeOut(500);
+							thisClass.$el.fadeOut(500);
 							el.animate({ left: 0, top: $('#btn_overview').offset().top, opacity:0.2 }, 1000, 'easeInOutSine', function() {
 								$(this).remove();
 								if (callback) callback();

@@ -1,4 +1,3 @@
-
 App.views.Deals = Backbone.View.extend({
 	el: '#deal-slider',
 	initialize:function(){
@@ -6,13 +5,19 @@ App.views.Deals = Backbone.View.extend({
 		this.router = this.options.router;
 		this.deals = App.collections.deals;
 		this.templates = App.collections.templates;
+		this.templates.on("change:approved add remove",this.changed,this);
+		this.deals.on("add remove",this.changed,this);
+		this.render(true);
+	},
+	changed:function(){
 		this.render();
 	},
-	render: function(){
+	render: function(first){
 		var thisClass = this;
-		var data = {templates: this.templates.toJSON(), deals: this.deals.toJSON()};
+		var data = {templates: this.templates.models };
 		$.get('templates/deals.html',function(template){
-			$(thisClass.el).children().html(_.template(template,data));
+			if(thisClass.dealSlider) thisClass.dealSlider.destroy();
+			$(thisClass.el).html(_.template(template,data));
 			thisClass.royalSlider();
 		},'html');
 	},
@@ -38,7 +43,8 @@ App.views.Deals = Backbone.View.extend({
 
 
 	royalSlider:function(){
-		this.dealSlider = $(this.el).royalSlider({
+		log(this.el);
+		this.dealSlider = $('#sliderEl').royalSlider({
     		directionNavEnabled: false,
     		slideTransitionSpeed: 800,
     		slideTransitionEasing: 'easeInOutExpo',

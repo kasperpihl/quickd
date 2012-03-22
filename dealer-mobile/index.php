@@ -90,10 +90,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); h
                 	<article data-role="content" id="appContent">
             			
             			<section class="deals">
-            				<nav id="deal-slider" class="royalSlider iskin">
-            					<ul class="royalSlidesContainer" id="rSS">
- 									
-            					</ul>
+            				<nav id="deal-slider">
             				</nav>
             			</section>
             			<section id="controlpanel">

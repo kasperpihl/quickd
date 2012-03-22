@@ -97,7 +97,7 @@ function doEmailSignup() {
   } else if (!emailReg.test(email)) {
     $("#email").after('<span class="error">Indtast venligst en gyldig email.</span>');
   } else {
-    $.post("api/subscribe", {email: email}, function(data) {
+    $.post(ROOT_URL+"api/subscribe", {email: email}, function(data) {
         //log(data);
         if (data.success == 'true'||(data.success=='false'&& data.error == 'user_exists') ) {
             //Successfully logged in!!
@@ -131,7 +131,7 @@ function doEmailSignup() {
 
 //Signup with Facebook
 function doFBSubscribe() {
-    var spinner = $('<img />').attr('src','img/loader.png').addClass('spinning-loader');
+    var spinner = $('<img />').attr('src',ROOT_URL+'img/loader.png').addClass('spinning-loader');
     FB.login(function(response) {
       if (response.authResponse) {
         $('#btn_fb_signup').width($('#btn_fb_signup').outerWidth());
@@ -140,7 +140,7 @@ function doFBSubscribe() {
         var f = $('#btn_fb_like').find('iframe');
         if (f) f.attr('src', f.attr('src'));
         
-        $.post("api/fbconnect", {}, function(data) {
+        $.post(ROOT_URL+"api/fbconnect", {}, function(data) {
             //console.log(data);
             if (data.success == 'true') {
                 //Successfully logged in!!

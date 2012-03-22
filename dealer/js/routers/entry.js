@@ -48,30 +48,42 @@ App.routers.Entry = Backbone.Router.extend({
 	},
 	doRegister: function(){
 		var thisClass = this;
-		log($('#register_username').val(),'hej');
+		//log($('#register_password').val(),'hej');
 		//$.post('api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
 			
 		//	log('reg',response);
 		//	if(response.success == 'true'){
+			if (5-2 == 3) {
 				//log("response from register", response);
 				thisClass.animateDoRegister();
 				setTimeout(function(){
-					//thisClass.model.set(response.dealer);
-					//thisClass.startDashboard(response.stuff);
+					thisClass.animateDashboard();
+				}, 2000);
+				setTimeout(function(){
+					thisClass.model.set(response.dealer);
+					thisClass.startDashboard(response.stuff);
 				}, 200);
 
 
 				//thisClass.startDashboard();
-		//	}
-		//	else{
-		//		if(response.error == 'user_exists') {
-		//			thisClass.registerView.shakeDialog();
-		//			alert('Brugeren findes allerede');
-		//		} else if (response.error == 'wrong_beta'){
-		//			thisClass.registerView.shakeDialog();
-		//			alert('Forkert betakode');
-		//		}
-		//	}
+				
+			}
+			else{
+				//log("response from register", response);
+				if(response.error == 'user_exists') {
+					//thisClass.registerView.shakeDialog();
+					alert('Brugeren findes allerede');
+				} else if (response.error == 'wrong_betacode'){
+					//thisClass.registerView.shakeDialog();
+					alert('Forkert betakode');
+				} else if (response.error == 'email_not_valid'){
+					//thisClass.registerView.shakeDialog();
+					alert('Email ikke valid');				
+				}
+				else if (response.error == "password_must_be_6_long") {
+					alert('Password ikke valid');
+				}
+			}
 		//},'json');
 		
 	},

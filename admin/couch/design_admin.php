@@ -116,32 +116,38 @@ try{
 	}";
 	$getStuff = 
 	"function (doc) {
-		if(doc.type && (doc.type == \"user\") ){
-			if(doc.hasOwnProperty('templates')){
-				for (var key in doc.templates) {
-					if (doc.templates.hasOwnProperty(key)) {
-						if(doc.templates[key].hasOwnProperty('approved') && doc.templates[key].approved == 'waiting'){
-							var obj = {};
-							if(doc.templates[key].hasOwnProperty('image')){
-								obj.image = doc.images[doc.templates[key].image].n;
-							}
-							obj.template = doc.templates[key];
-							emit([doc._id,'template',key],obj);
+		if (!doc.hasOwnProperty('type') || doc.type != \"user\") return false;
+		if(doc.hasOwnProperty('templates')){
+			for (var key in doc.templates) {
+
+				if (doc.templates.hasOwnProperty(key)) {
+					if(doc.templates[key].hasOwnProperty('approved') && doc.templates[key].approved == 'waiting'){
+						var obj = {};
+						if(doc.templates[key].hasOwnProperty('image')){
+							obj.image = doc.images[doc.templates[key].image].n;
 						}
+						obj.template = doc.templates[key];
+						emit([doc._id,'template',key],obj);
 					}
 				}
 			}
-			if(doc.hasOwnProperty('shops')){
-				for (var key in doc.shops) {
-					if (doc.shops.hasOwnProperty(key)) {
-						if(doc.shops[key].hasOwnProperty('approved') && doc.shops[key].approved == 'waiting')
-							emit([doc._id,'shop',key],doc.shops[key]);
-					}
+		}
+		if(doc.hasOwnProperty('shops')){
+			for (var key in doc.shops) {
+				if (doc.shops.hasOwnProperty(key)) {
+					if(doc.shops[key].hasOwnProperty('approved') && doc.shops[key].approved == 'waiting')
+						emit([doc._id,'shop',key],doc.shops[key]);
 				}
 			}
-		}		
+		}
 	}";
-	
+	$getStatistics = 
+	"function (doc) {
+		if ( doc.type && doc.type == \"user\") {
+			emit(doc.history[0].timestamp,doc.user);
+		}
+	}";
+	$views->getStatistics = array("map"=>$getStatistics);
 	$views->getAdminsByMail = array("map"=>$getAdminsByMail);
 	$views->getStuff = array("map"=>$getStuff);
 	$views->getFeedback = array("map"=>$getFeedback);
