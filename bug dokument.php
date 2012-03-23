@@ -24,10 +24,8 @@ Startdeal "shaken" bugger når den allerede er planlagt
 Redigering af brugerindstillinger virker ikke.
 	Hvad skal de indeholde?
 
-
 (Jeppe) Internet explorer
 
-(kasper) En shopowners timetal skal opdateres når der kommer feedback og han tildeles det. 
 
 =====================================
 
@@ -35,6 +33,8 @@ Redigering af brugerindstillinger virker ikke.
 	Det skal ske i det man trykker
 	
 =======================================
+
+(rettet kasper) En shopowners timetal skal opdateres når der kommer feedback og han tildeles det. 
 
 (rettet Jeppe) Slet template 
 

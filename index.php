@@ -1,8 +1,3 @@
-<? 
-$arr = explode('/',$_SERVER['REQUEST_URI']);
-print_r($arr);
-die();
-?>
 <html>
 	<head>
 		<title>QuickD testside</title>

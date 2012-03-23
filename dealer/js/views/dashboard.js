@@ -21,6 +21,7 @@ define([
 			this.activity = false;
 			this.activityRoutes = {};
 			this.model = App.models.shopowner;
+			this.model.on('change:hours',this.renderHours,this);
 			_.bindAll(this,'render','clickedActivity','dashboardLoaded','openRefill','lock','unlock','changeActivity');
 			this.render();
 			this.locked = false;
@@ -65,6 +66,16 @@ define([
 			if(data.lock == 'activity'){
 				this.locked = false;
 			}
+		},
+		renderHours:function(model,model2,test){
+			log(model,model2,test);
+			$hoursEl = $('#hours_show');
+			$hoursEl.html(model.get('hours') + ' timer');
+			$hoursEl.addClass('green');
+			setTimeout(function(){
+				$hoursEl.removeClass('green');
+			},3000);
+			
 		},
 		render: function(){
 			// This is rendering the structure of the dashboard

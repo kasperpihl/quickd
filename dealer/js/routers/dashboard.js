@@ -209,6 +209,8 @@ define([
 						break;
 						case 'feedback':
 							route = lang.urls.overviewFeedback + '/' + doc.id;
+							log(doc);
+							if(doc.hasOwnProperty('hours') && parseInt(doc.hours) > 0) App.models.shopowner.fetch();
 							newModel = App.models.Feedback;
 							collection = App.collections.feedback;
 							model = collection.get(doc.id);

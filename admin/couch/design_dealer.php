@@ -455,7 +455,17 @@ try{
 	
 	
 	$views = new stdClass();
-	
+	$views->getShopowner = array('map'=>
+	"function (doc) {
+		if(doc.type && (doc.type == \"user\") ){
+			if(!doc.user.hasOwnProperty('privileges') || parseInt(doc.user.privileges) < 3) return false;
+			var obj = {};
+			if(doc.user.hasOwnProperty('hours')) obj.hours = doc.user.hours;
+			if(doc.user.hasOwnProperty('email')) obj.email = doc.user.email;
+			emit(doc._id,obj);
+			
+		}	
+	}");
 	/* The view to get the shops by its shopowner */
 	$getAll = 
 	"function (doc) {

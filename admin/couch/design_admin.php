@@ -15,7 +15,7 @@ try{
 		function addHistory(id,hours,rev){
 			var timestamp = parseInt(new Date().getTime()/1000);
 			if(!doc.hasOwnProperty('history')) doc.history = new Array();
-			var historyObj = {id:id,timestamp: timestamp,action:'response',type:'feedback',rev:rev,priority:2};
+			var historyObj = {id:id,timestamp: timestamp,action:'response',type:'feedback',hours:hours,rev:rev,priority:2};
 			doc.history.push(historyObj);
 		}
 		if(!doc) return [null,msg('user_not_exist')];
@@ -31,7 +31,7 @@ try{
 		doc.user.hours = doc.user.hours + hours;
 		var feedbackObj = { id: index, type:'response',rev:index,timestamp:timestamp,hours:hours,message:query.message};
 		doc.feedback.push(feedbackObj); 
-		addHistory(index,index);
+		addHistory(index,hours,index);
 		return [doc,msg('response',true)];
 		
 	}";
