@@ -49,23 +49,21 @@ App.routers.Entry = Backbone.Router.extend({
 	doRegister: function(){
 		var thisClass = this;
 		//log($('#register_password').val(),'hej');
-		//$.post('api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
+		$.post('api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
 			
-		//	log('reg',response);
-		//	if(response.success == 'true'){
-			if (5-2 == 3) {
+			log('reg',response);
+			if(response.success == 'true'){
 				//log("response from register", response);
 				thisClass.animateDoRegister();
 				setTimeout(function(){
 					thisClass.animateDashboard();
 				}, 2000);
 				setTimeout(function(){
-					thisClass.model.set(response.dealer);
-					thisClass.startDashboard(response.stuff);
+					thisClass.model.set(response.data);
+					thisClass.startDashboard();
 				}, 200);
 
 
-				//thisClass.startDashboard();
 				
 			}
 			else{
@@ -84,7 +82,7 @@ App.routers.Entry = Backbone.Router.extend({
 					alert('Password ikke valid');
 				}
 			}
-		//},'json');
+		},'json');
 		
 	},
 	doResetPass: function() {
