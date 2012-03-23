@@ -25,7 +25,9 @@
   <meta name="author" content="">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <? if($uagent->DetectTierIphone()) { ?>
   <meta name="viewport" content="width=750, user-scalable=1">
+  <? } ?>
 
   <meta property="og:title" content="QuickD" />
   <meta property="og:description" content="En ny måde at handle på - snart i din by."/>
