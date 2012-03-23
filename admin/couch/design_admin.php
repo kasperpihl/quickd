@@ -123,7 +123,7 @@ try{
 					if(doc.templates[key].hasOwnProperty('approved') && doc.templates[key].approved == 'waiting'){
 						var obj = {};
 						if(doc.templates[key].hasOwnProperty('image')){
-							if(doc.hasOwnProperty('image') && doc.images.hasOwnProperty(doc.templates[key].image)){
+							if(doc.hasOwnProperty('images') && doc.images.hasOwnProperty(doc.templates[key].image)){
 								obj.image = doc.images[doc.templates[key].image].n;
 							}
 							
@@ -132,22 +132,6 @@ try{
 						emit([doc._id,'template',key],obj);
 					}
 					
-				}
-			}
-		}
-		return;
-		if(doc.hasOwnProperty('templates')){
-			for (var key in doc.templates) {
-
-				if (doc.templates.hasOwnProperty(key)) {
-					if(doc.templates[key].hasOwnProperty('approved') && doc.templates[key].approved == 'waiting'){
-						var obj = {};
-						if(doc.templates[key].hasOwnProperty('image')){
-							obj.image = doc.images[doc.templates[key].image].n;
-						}
-						obj.template = doc.templates[key];
-						emit([doc._id,'template',key],obj);
-					}
 				}
 			}
 		}
