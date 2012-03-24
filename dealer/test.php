@@ -1,7 +1,8 @@
 <?php
 require_once('../config.php');
 
-$test = Shopowner::requestNewPassword('kontakt@lassechor.dk','dealer');
+$test = Shopowner::requestNewPassword('anders@hoedholt.me','dealer');
+print_r($test);
 //print_r($test);
 /*echo "Email valid?";
 $email = 'jstougaard%40gmail.com';

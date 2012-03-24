@@ -55,6 +55,11 @@ Ext.define('QuickD.view.DealList', {
         }],
         store: 'Deals',
         itemTpl: myTemplate
-    }
+    },
+    listeners: {
+		painted: function() {
+			
+		}
+	}
 });
 

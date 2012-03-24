@@ -131,13 +131,21 @@ class Shopowner {
 		}
 		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'checkEmail', 'e'=>$e->getMessage())); }
 	}
-	public static function requestNewPassword($email,$type='user'){
+	public static function requestNewPassword($model){
 		global $db;
+		if(!isset($model['email'])) return array('success'=>'false','error'=>'no_email_provided', 'data'=>$model);
+		$email = $model['email'];
+		$type = isset($model['type']) ? $model['type'] : 'dealer';
 		try{
 			$user = self::checkEmail($email);
 			$user = json_decode($user);
 			if($user->success != 'true') return json_encode($user);
 			$user = $user->data;
+			
+			if(isset($user->value->newPass,$user->value->newPass->endtime)){
+				$end = $user->value->newPass->endtime;
+				//if($end > time()) return array('success'=>'false','error'=>'cant_request_until_24_hours', 'data'=>$model);
+			}
 			$doc_id = $user->id;
 			$endtime = time() + (60*60*24);
 			$url = md5(MD5_STRING.$user->id.$endtime);
@@ -152,7 +160,7 @@ class Shopowner {
 					Mail::sendNewPasswordForUser($email,$url);
 				break;
 			}
-			
+			return $result;
 
 		}
 		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'requestNewPassword', 'e'=>$e->getMessage())); }
@@ -164,8 +172,7 @@ class Shopowner {
 			$newPass = md5(MD5_STRING.$newPass);
 			$model = array('md5_password'=>$newPass);
 			$result = json_decode($db->updateDocFullAPI('dealer','editUser',array('doc_id'=>$doc_id,'params'=>array('json'=>json_encode($model)))));
-			print_r($result);
-			if($result->success != 'true') return json_encode($result);
+			return $result;
 			
 		}
 		catch(Exception $e){

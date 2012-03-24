@@ -4,6 +4,7 @@ $root = $_SERVER['HTTP_HOST'];
 
 switch($root){
 	case 'test.quickd.com':
+	case '10.185.209.87':
 	case 'localhost':
 		$dbLink = 'quickd:testanders@77.66.53.58';
 		if(strpos($_SERVER['REQUEST_URI'], 'dealer/')) $string = 'dealer/';

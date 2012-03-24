@@ -32,7 +32,7 @@ App.routers.Entry = Backbone.Router.extend({
 	},
 	doLogin: function(){
 		var thisClass = this;
-		$.post('api/login',{email:$('#login_username').val(),password:$('#login_password').val()},function(response){
+		$.post(ROOT_URL+'api/login',{email:$('#login_username').val(),password:$('#login_password').val()},function(response){
 		 	log('response from login',response);
 			if(response.success == 'true'){
 				thisClass.animateDashboard();
@@ -49,21 +49,23 @@ App.routers.Entry = Backbone.Router.extend({
 	doRegister: function(){
 		var thisClass = this;
 		//log($('#register_password').val(),'hej');
-		$.post('api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
+		$.post(ROOT_URL+'api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
 			
 			log('reg',response);
 			if(response.success == 'true'){
 				//log("response from register", response);
-				thisClass.animateDoRegister();
-				setTimeout(function(){
-					thisClass.animateDashboard();
-				}, 2000);
+				//thisClass.animateDoRegister();
+				//setTimeout(function(){
+				//	thisClass.animateDashboard();
+				//}, 2000);
+				
+				$("#footer-login").fadeOut();
+				$("#header-login").fadeOut();
+
 				setTimeout(function(){
 					thisClass.model.set(response.data);
 					thisClass.startDashboard();
 				}, 200);
-
-
 				
 			}
 			else{
@@ -85,13 +87,17 @@ App.routers.Entry = Backbone.Router.extend({
 		},'json');
 		
 	},
-	doResetPass: function() {
-		log("DO RESET PASSWORD HERE!?!");
+	doResetPass: function(email) {
+		$.post(ROOT_URL+'api/reset',{model:{email:email,type:'dealer'}},function(data){
+			log(data);
+		},'html');
 	},
 	
 	openRegisterView:function(){
 		//this.registerView.openDialog();
-		$("#header-login").animate({height: $(window).height() + 'px', opacity: 1}, 1200, 'easeOutQuart');
+		$("#header-login").animate({height: $(window).height() + 'px', opacity: 1}, 1200, 'easeOutQuart', function() {
+			$("#header-login").height("100%");
+		});
 		$("#position_wrapper").animate({marginTop: '-210px'}, 1200, 'easeOutQuart');
 		$("#login_fields").animate({left: '-50%'}, 400, 'easeInQuart', function() {
 			$("#registrer").css("display", "block");
@@ -103,7 +109,9 @@ App.routers.Entry = Backbone.Router.extend({
 	},
 	
 	closeRegisterView:function() {
-		$("#header-login").animate({height: $(window).height()/2 + 'px', opacity: 1}, 1200, 'easeOutQuart');
+		$("#header-login").animate({height: $(window).height()/2 + 'px', opacity: 1}, 1200, 'easeOutQuart', function() {
+			$("#header-login").height("50%");
+		});
 		$("#position_wrapper").animate({marginTop: '-124px'}, 1200, 'easeOutQuart');
 		
 		$("#registrer").animate({right: '-50%', marginRight: '-203px'}, 400, 'easeInQuart', function() {
