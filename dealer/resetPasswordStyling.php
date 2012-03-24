@@ -16,12 +16,14 @@
 			<div>
 				<div id="logo"></div>
 				<div id="enterNewPassword">
-					<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
+					<!--<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
 					<div class="field">
 						<div>
 							<input type="password" name="newPass" value=""/><button name="submit">Fortsæt</button>
 						</div>
-					</div>
+					</div>-->
+					<p>Linket er brugt, forældet eller findes ikke.</p>
+					<a class="gotoDealer" href="<?= ROOT_URL ?>">Gå til forhandlerlogin</a>
 				</div>
 			</div>
 		</div>
