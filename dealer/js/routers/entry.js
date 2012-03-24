@@ -100,10 +100,6 @@ App.routers.Entry = Backbone.Router.extend({
 		
 		//$("#registrer").fadeIn('slow');
 		//$("#register_background").fadeIn('slow');
-		
-		
-		
-
 	},
 	
 	closeRegisterView:function() {
