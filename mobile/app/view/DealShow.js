@@ -1,5 +1,6 @@
 var showDealTemplate = new Ext.XTemplate(
-    '<article id="deal-{id}-info" class="{category}">',
+    '<article id="deal-{id}-info" class="{category}" data-scrollable="y" style="position: absolute;">',
+        '<section class="content-wrap">',
         '<header><h1>{title}</h1></header>',
         '<section class="desc">{description}</section>',
         '<section class="venue">',
@@ -24,6 +25,7 @@ var showDealTemplate = new Ext.XTemplate(
                 '<p>9 anmeldelser</p>',
             '</section>',
         '</footer>',
+        '</section>',
     '</article>',
     {
         priceIt: priceIt,
@@ -66,7 +68,6 @@ Ext.define('QuickD.view.DealShow', {
         fullscreen:true,
         layout: 'fit',
         id: 'quickd-single',
-        //scrollable:true,
         items: [
         {
             ui:'sencha',
@@ -131,23 +132,53 @@ Ext.define('QuickD.view.DealShow', {
         for(var key in records){
             //array.push(records[key].data);
             slider.add({}).setData(records[key].data);
-            
         }
-        //for(var i = array.length -1; i >= 0  ; i--){
-        /*for(var i = 0; i < array.length  ; i++){
-            log(array[i]);
-            slider.add({}).setData(array[i]);
-        }*/
-        
     },
     loadDeal:function(record,index){
         //log('logging data',record.getData().end);
         this.down('#quickd-deal-slider').setActiveItem(index);
         this.down('#quickd-deal-content').setData(record.getData());
-    }
-    /*updateRecord: function(newRecord) {
-        if (newRecord) {
-            this.setData(newRecord.data);
+    },
+    initialize: function() {
+        this.callParent(arguments);
+        log('Initialize #' + this._id);
+        //log('Scroller: ' + Ext.scroll.View.getScroller());
+
+        //this.scroller.scrollTo({x:0, y:500}));
+        //this.getEventDispatcher().addListener('element', '#' + this._id, 'drag', this.handleDragInfo, this);
+
+
+
+
+
+    },
+    handleDragInfo: function(e, target, options, eventController) {
+        var eventName   = eventController.info.eventName;
+        //this.scroller.scrollTo({x: 0, y: 200}, true);
+        
+        var selector = 'article[id*=deal-]';
+        log('Vertically dragging ' + e.deltaY + 'px, selector: ' + selector);
+        $(selector).css('top', e.deltaY);
+    },
+    listeners: {
+        painted: function() {
+            var self = this;
+            (function() {
+                var $deal   = $('article[id*=deal-]');
+                if ($deal.length > 0) self.addCustomScroll();
+                else setTimeout(arguments.callee, 500); // Fix sencha bug where 'painted' is called too early.
+            })();
         }
-    }*/
+    },
+    addCustomScroll: function() {
+        log('Adding scroll...');
+        var el = $('article[id*=deal-]').first()[0];
+        log('element: ', el);
+
+        new EasyScroller(el, {
+            scrollingX: false,
+            scrollingY: true,
+            zooming: false
+        });
+    }
 });
