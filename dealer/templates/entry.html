@@ -23,28 +23,32 @@
 							      </div>
 						        <div class="login_button" id="login_button"></div>
 					    </div>
-						<div id="registrer" class="register_fields" style="position: absolute; right: -50%; display: none;">
-							<div style="z-index: 100;"><h1>Registrering</h1></div>
-							E-mail
-						    <div class="field">
-						    	<div class="input-wrapper">
-						        	<input name="register_user" type="text" id="register_username" autocomplete="off" />
-						        </div>
-						    </div>
-						    Adgangskode
-						    <div class="field">
-						    	<div class="input-wrapper">
-						       		<input name="register_password" type="password" id="register_password" autocomplete="off" />
-						       	</div>
-						    </div>
-						    Betanøgle
-						    <div class="field">
-						    	<div class="input-wrapper">
-						       		<input name="register_betacode" type="text" id="betacode" autocomplete="off" />
-						       	</div>
-						    </div>
-						    <button id="do_register_button">Registrer</button>
-						    <button id="cancel_register_button">Annuller</button>   
+					    <div id="registrer" style="display: none; position: absolute; right: -50%;">
+						    <div style="z-index: 100; margin-top: 20px;"><h1>Registrering af forretning</h1></div>
+							<div class="register_fields">
+								<label for="email">E-mail<small>Har du allerede en konto?<a href="#" id="cancel_register_button">Log ind</a></small></label>
+							    <div class="field">
+							    	<div class="input-wrapper">
+							        	<input name="register_user" type="text" id="register_username" autocomplete="off" />
+							        </div>
+							    </div>
+							    <label for="password">Ønsket adgangskode<small>Min. 6 tegn</small></label>
+							    <div class="field">
+							    	<div class="input-wrapper">
+							       		<input name="register_password" type="password" id="register_password" autocomplete="off" />
+							       	</div>
+							    </div>
+							    <label for="betakey">Betanøgle</label>
+							    <div class="field">
+							    	<div class="input-wrapper">
+							       		<input name="register_betacode" type="text" id="betacode" autocomplete="off" />
+							       	</div>
+							    </div>
+							    <label for="terms" class="keep_inline"><input type="checkbox" id="accept_terms">Jeg accepterer<a id="btn_read_conditions" href="#">betingelserne</a></label>
+							    <div class="field">
+							    	<button id="do_register_button">Registrer</button>
+							    </div>
+							</div>
 						</div>
 					</div>
 				

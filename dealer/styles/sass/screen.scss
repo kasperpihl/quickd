@@ -933,6 +933,14 @@ body {
 	height: 100%;
 	
 	.header {
+
+		h1 {
+			font-weight: 100;
+			font-size: 20px;
+			margin-bottom: 10px;
+			color: #4D4D4D;
+		}
+
 		//background-color: rgb(179,209,73); // Old browsers
 		//@include filter-gradient(#b3d149, #6d8b33, vertical); // IE6-9
 		//@include background-image(linear-gradient(top,  rgba(179,209,73,1) 0%,rgba(109,139,51,1) 100%));
@@ -952,11 +960,11 @@ body {
 		
 		.login_fields {
 			@include big-input2;
+			width: 407px;
 			.field {
 				margin: 0px; margin-top: 1px;
 			}
 			margin-top: 20px;
-			width: 404px;
 			margin-left: auto;
 			margin-right: auto;
 			
@@ -966,26 +974,88 @@ body {
 				border-radius: 19px;
 				width: 404px;
 				border: 1px solid rgba(0, 0, 0, 0.3);
-			}
-			
-			h1 {
-				font-weight: 100;
-				font-size: 20px;
-				margin-bottom: 10px;
-				color: #4D4D4D;
 			}
 		}
 
+		#register {
+			width: 404px;
+		}
+
 		.register_fields {
+			position: relative;
 			@include input-register;
 			margin-top: 20px;
-			width: 404px;
 			margin-left: auto;
 			margin-right: auto;
+			padding: 20px;
+			width: 407px;
+			height: 274px;
+			background: white;
+			@include box-shadow(0px 1px 2px rgba(0,0,0,0.3));
+			@include border-radius(5px);
+
+			label {
+				font-weight: bold;
+				float: left;
+				clear: both;
+				font-size: 13px;
+				margin-bottom: 5px;
+				margin-top: 15px;
+				color: rgba(0,0,0,0.6);
+
+				input[type="checkbox"] {
+					margin-right: 7px;
+				}
+
+				a {
+					font-weight: bold;
+					font-size: 12px;
+					margin-left: 4px;
+					color: #2E73BC;
+					text-decoration: none;
+				}
+
+				a:hover {
+					text-decoration: underline;
+				}
+
+				small {
+					color: rgba(0,0,0,0.4);
+					font-size: 12px;
+					margin-left: 7px;
+					font-weight: normal;
+				}
+			}
+
 
 			.field {
+				width: 393px;
+				clear: both;
 
-				
+				input[type="text"], input[type="password"] {
+					width: 100%;
+					border: 1px solid #CCC;
+					@include border-radius(3px);
+					@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.2));
+					color: rgba(0,0,0,0.8);
+					font-size: 13px;
+					outline: none;
+					padding: 6px;
+					-moz-transition: border .2s linear, box-shadow .2s linear;
+					-webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
+				}
+
+				input[type="text"]:focus, input[type="password"]:focus {
+					border: 1px solid #59CCD9;
+					@include box-shadow(0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0,0,0,0.2));
+				}
+
+				button {
+					float: left;
+					line-height: 20px;
+					margin-top: 10px;
+				}
+
 			}
 			
 			#shadow-wrapper {
@@ -994,13 +1064,6 @@ body {
 				border-radius: 19px;
 				width: 404px;
 				border: 1px solid rgba(0, 0, 0, 0.3);
-			}
-			
-			h1 {
-				font-weight: 100;
-				font-size: 20px;
-				margin-bottom: 10px;
-				color: #4D4D4D;
 			}
 
 		}	
