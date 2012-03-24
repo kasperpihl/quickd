@@ -1,5 +1,6 @@
 var showDealTemplate = new Ext.XTemplate(
-    '<article id="deal-{id}-info" class="{category}" data-scrollable="y">',
+    '<article id="deal-{id}-info" class="{category}" data-scrollable="y" style="position: absolute;">',
+        '<section class="content-wrap">',
         '<header><h1>{title}</h1></header>',
         '<section class="desc">{description}</section>',
         '<section class="venue">',
@@ -24,6 +25,7 @@ var showDealTemplate = new Ext.XTemplate(
                 '<p>9 anmeldelser</p>',
             '</section>',
         '</footer>',
+        '</section>',
     '</article>',
     {
         priceIt: priceIt,
@@ -140,11 +142,43 @@ Ext.define('QuickD.view.DealShow', {
     initialize: function() {
         this.callParent(arguments);
         log('Initialize #' + this._id);
+        //log('Scroller: ' + Ext.scroll.View.getScroller());
 
-        this.getEventDispatcher().addListener('element', '#' + this._id, 'drag', this.handleDragInfo, this);
+        //this.scroller.scrollTo({x:0, y:500}));
+        //this.getEventDispatcher().addListener('element', '#' + this._id, 'drag', this.handleDragInfo, this);
+
+
+
+
+
     },
     handleDragInfo: function(e, target, options, eventController) {
         var eventName   = eventController.info.eventName;
-        log('Vertically dragging ' + e.deltaY + 'px');
+        //this.scroller.scrollTo({x: 0, y: 200}, true);
+        
+        var selector = 'article[id*=deal-]';
+        log('Vertically dragging ' + e.deltaY + 'px, selector: ' + selector);
+        $(selector).css('top', e.deltaY);
+    },
+    listeners: {
+        painted: function() {
+            var self = this;
+            (function() {
+                var $deal   = $('article[id*=deal-]');
+                if ($deal.length > 0) self.addCustomScroll();
+                else setTimeout(arguments.callee, 500); // Fix sencha bug where 'painted' is called too early.
+            })();
+        }
+    },
+    addCustomScroll: function() {
+        log('Adding scroll...');
+        var el = $('article[id*=deal-]').first()[0];
+        log('element: ', el);
+
+        new EasyScroller(el, {
+            scrollingX: false,
+            scrollingY: true,
+            zooming: false
+        });
     }
 });
