@@ -137,6 +137,18 @@ Ext.define('QuickD.view.DealShow', {
         this.down('#quickd-deal-slider').setActiveItem(index);
         this.down('#quickd-deal-content').setData(record.getData());
     },
+    initialize: function() {
+        this.callParent(arguments);
+        log('Initialize #' + this._id);
+
+        this.getEventDispatcher().addListener('element', '#' + this._id, '*', this.handleTouchEvents, this);
+    },
+    handleTouchEvents: function(e, target, options, eventController) {
+        var eventName = eventController.info.eventName;
+        if (eventName === 'drag') {
+            log('DRAG', e);
+        }
+    },
     listeners: {
         painted: function() {
             if (!window.dealShowPaintedFired) {
@@ -146,12 +158,15 @@ Ext.define('QuickD.view.DealShow', {
                 var $viewEl = $('#' + this._id);
                 log($viewEl);
 
-                $viewEl.on('scroll', function() {
+                $viewEl.on('', function(e) {
                     log('scrolling ' + $viewEl);
                 });
 
                 log('__/_PAINTED_________________________');
             }
+        },
+        drag: function() {
+            log('Dragging!');
         }
     }
 });
