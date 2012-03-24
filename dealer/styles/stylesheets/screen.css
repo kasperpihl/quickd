@@ -1,9 +1,10 @@
+@charset "CP850";
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* Så slipper vi for manuelt at kode vendor prefixes */
-/* line 17, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,45 +26,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 20, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 20, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
 }
 
-/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 24, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 101, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 114, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -3812,52 +3813,52 @@ form textarea:focus, form input:focus {
 }
 
 /* line 2299, ../sass/screen.scss */
-.view-deal h1 {
+#view-deal h1 {
   padding: 10px;
   font-size: 18px;
 }
 /* line 2300, ../sass/screen.scss */
-.view-deal img {
+#view-deal img {
   width: 100px;
   height: 100px;
   float: left;
   margin: 5px 10px;
 }
 /* line 2301, ../sass/screen.scss */
-.view-deal .deal-prices {
+#view-deal .deal-prices {
   float: left;
   margin: 10px 0px;
 }
 /* line 2304, ../sass/screen.scss */
-.view-deal .deal-prices p {
+#view-deal .deal-prices p {
   padding: 5px 0px;
 }
 /* line 2305, ../sass/screen.scss */
-.view-deal .deal-prices .label {
+#view-deal .deal-prices .label {
   width: 120px;
   display: inline-block;
 }
 /* line 2306, ../sass/screen.scss */
-.view-deal .deal-prices .price {
+#view-deal .deal-prices .price {
   font-size: 130%;
 }
 /* line 2308, ../sass/screen.scss */
-.view-deal .deal-times {
+#view-deal .deal-times {
   clear: both;
   padding: 10px;
   margin: 0px 5px;
 }
 /* line 2310, ../sass/screen.scss */
-.view-deal .deal-times .time-seperator {
+#view-deal .deal-times .time-seperator {
   text-align: center;
   margin: 0px 20px;
 }
 /* line 2311, ../sass/screen.scss */
-.view-deal .deal-times #deal_start_time, .view-deal .deal-times #deal_end_time {
+#view-deal .deal-times #deal_start_time, #view-deal .deal-times #deal_end_time {
   font-size: 130%;
 }
 /* line 2313, ../sass/screen.scss */
-.view-deal .description {
+#view-deal .description {
   clear: both;
   padding: 10px;
 }
@@ -4190,19 +4191,19 @@ form textarea:focus, form input:focus {
 #view-deals .list-item h2 {
   color: #2F3E46;
 }
-/* line 2451, ../sass/screen.scss */
+/* line 2452, ../sass/screen.scss */
 #view-deals .list-item span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 2452, ../sass/screen.scss */
+/* line 2453, ../sass/screen.scss */
 #view-deals .list-item span em {
   font-size: 14px;
   color: #545454;
 }
-/* line 2459, ../sass/screen.scss */
+/* line 2460, ../sass/screen.scss */
 #view-deals .list-item:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -4216,14 +4217,25 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
+/* line 2466, ../sass/screen.scss */
+#view-deals h1 {
+  padding: 10px 5px;
+  font-size: 18px;
+  font-weight: normal;
+}
+/* line 2467, ../sass/screen.scss */
+#view-deals hr {
+  margin: 15px auto;
+  width: 80%;
+}
 
-/* line 2471, ../sass/screen.scss */
+/* line 2474, ../sass/screen.scss */
 #edit_shop .opening-times #weekdays {
   list-style-type: none;
   float: left;
   width: 40px;
 }
-/* line 2472, ../sass/screen.scss */
+/* line 2475, ../sass/screen.scss */
 #edit_shop .opening-times #weekdays li {
   margin: 1px;
   padding: 5px;
@@ -4232,30 +4244,30 @@ form textarea:focus, form input:focus {
   border: 1px solid #7B7E6B;
   text-align: center;
 }
-/* line 2473, ../sass/screen.scss */
+/* line 2476, ../sass/screen.scss */
 #edit_shop .opening-times #weekdays .ui-selecting {
   background: #D0D1C9;
 }
-/* line 2474, ../sass/screen.scss */
+/* line 2477, ../sass/screen.scss */
 #edit_shop .opening-times #weekdays .ui-selected {
   background: #077815;
   border: 1px solid #185C07;
   color: white;
 }
 
-/* line 2479, ../sass/screen.scss */
+/* line 2482, ../sass/screen.scss */
 #start_deal {
   color: #000;
   width: 600px;
   margin: 0px 20%;
 }
-/* line 2483, ../sass/screen.scss */
+/* line 2486, ../sass/screen.scss */
 #start_deal .head {
   font-size: 32px;
   text-align: left;
   margin: 20px 0px;
 }
-/* line 2488, ../sass/screen.scss */
+/* line 2491, ../sass/screen.scss */
 #start_deal .block {
   clear: both;
   position: relative;
@@ -4271,7 +4283,7 @@ form textarea:focus, form input:focus {
   margin: 10px 3px;
   opacity: 0.92;
 }
-/* line 2496, ../sass/screen.scss */
+/* line 2499, ../sass/screen.scss */
 #start_deal .block.noOne {
   background-color: #e8e8e8 url("i/first.png") no-repeat top left;
   *zoom: 1;
@@ -4287,7 +4299,7 @@ form textarea:focus, form input:focus {
   margin-bottom: 0px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
-/* line 2504, ../sass/screen.scss */
+/* line 2507, ../sass/screen.scss */
 #start_deal .block.noTwo {
   background-color: #e8e8e8 url("i/first.png") no-repeat top left;
   *zoom: 1;
@@ -4304,11 +4316,11 @@ form textarea:focus, form input:focus {
   height: 90px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
-/* line 2512, ../sass/screen.scss */
+/* line 2515, ../sass/screen.scss */
 #start_deal .block.noThree {
   background: white url("i/third.png") no-repeat top left;
 }
-/* line 2515, ../sass/screen.scss */
+/* line 2518, ../sass/screen.scss */
 #start_deal .label {
   width: 200px;
   float: left;
@@ -4316,21 +4328,21 @@ form textarea:focus, form input:focus {
   padding: 30px 0px 30px 20px;
   text-shadow: 1px 1px 1px white;
 }
-/* line 2516, ../sass/screen.scss */
+/* line 2519, ../sass/screen.scss */
 #start_deal .data {
   float: right;
   min-width: 320px;
   width: auto !important;
   width: 320px;
 }
-/* line 2518, ../sass/screen.scss */
+/* line 2521, ../sass/screen.scss */
 #start_deal .select_template {
   padding: 10px;
   margin: 20px 10px;
   font-size: 16px;
   float: right;
 }
-/* line 2519, ../sass/screen.scss */
+/* line 2522, ../sass/screen.scss */
 #start_deal #selected_template_area {
   padding: 0px;
   margin: 10px;
@@ -4343,16 +4355,16 @@ form textarea:focus, form input:focus {
   -khtml-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 2521, ../sass/screen.scss */
+/* line 2524, ../sass/screen.scss */
 #start_deal .set_time .label {
   width: auto;
 }
-/* line 2522, ../sass/screen.scss */
+/* line 2525, ../sass/screen.scss */
 #start_deal .set_time .field {
   margin: 5px 15px;
   float: left;
 }
-/* line 2524, ../sass/screen.scss */
+/* line 2527, ../sass/screen.scss */
 #start_deal .set_time .field .sublabel {
   color: #333;
   font-size: 16px;
@@ -4360,12 +4372,12 @@ form textarea:focus, form input:focus {
   clear: both;
   margin: 0px 0px 5px 0px;
 }
-/* line 2525, ../sass/screen.scss */
+/* line 2528, ../sass/screen.scss */
 #start_deal .set_time .field .subdata {
   float: right;
   clear: both;
 }
-/* line 2526, ../sass/screen.scss */
+/* line 2529, ../sass/screen.scss */
 #start_deal .set_time .field .subdata input {
   width: 160px;
   font-family: "Helvetica";
@@ -4385,7 +4397,7 @@ form textarea:focus, form input:focus {
   -o-box-shadow: inset 0 0 3px black;
   box-shadow: inset 0 0 3px black;
 }
-/* line 2534, ../sass/screen.scss */
+/* line 2537, ../sass/screen.scss */
 #start_deal .set_time .field .subdata input:focus {
   border: 1px solid #888;
   -moz-box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
@@ -4393,28 +4405,28 @@ form textarea:focus, form input:focus {
   -o-box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
   box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
 }
-/* line 2540, ../sass/screen.scss */
+/* line 2543, ../sass/screen.scss */
 #start_deal .set_time .show_hours {
   margin: 15px 20px 5px 20px;
 }
-/* line 2542, ../sass/screen.scss */
+/* line 2545, ../sass/screen.scss */
 #start_deal .set_time .show_hours .hours {
   font-size: 40px;
   text-align: center;
   color: black;
   text-shadow: 1px 1px 1px white;
 }
-/* line 2543, ../sass/screen.scss */
+/* line 2546, ../sass/screen.scss */
 #start_deal .set_time .show_hours .sublabel {
   color: black;
   text-align: center;
 }
-/* line 2546, ../sass/screen.scss */
+/* line 2549, ../sass/screen.scss */
 #start_deal .starter {
   width: 62%;
   margin: 20px auto;
 }
-/* line 2547, ../sass/screen.scss */
+/* line 2550, ../sass/screen.scss */
 #start_deal .start_deal_btn {
   padding: 10px 20px;
   font-size: 24px;
@@ -4423,7 +4435,7 @@ form textarea:focus, form input:focus {
   display: block;
   position: relative;
 }
-/* line 2549, ../sass/screen.scss */
+/* line 2552, ../sass/screen.scss */
 #start_deal .start_deal_btn.disabled {
   -moz-transition-property: none;
   -webkit-transition-property: none;
@@ -4433,21 +4445,21 @@ form textarea:focus, form input:focus {
   background-size: auto;
 }
 
-/* line 2558, ../sass/screen.scss */
+/* line 2561, ../sass/screen.scss */
 div.ui-datepicker {
   font-size: 12px;
 }
 
-/* line 2560, ../sass/screen.scss */
+/* line 2563, ../sass/screen.scss */
 .template-selector {
   height: 100%;
 }
-/* line 2562, ../sass/screen.scss */
+/* line 2565, ../sass/screen.scss */
 .template-selector .template-selected {
   padding: 5px;
   font-size: 18px;
 }
-/* line 2563, ../sass/screen.scss */
+/* line 2566, ../sass/screen.scss */
 .template-selector .template-list {
   overflow-y: auto;
   margin: 0px;
@@ -4455,7 +4467,7 @@ div.ui-datepicker {
   width: 100%;
 }
 
-/* line 2566, ../sass/screen.scss */
+/* line 2569, ../sass/screen.scss */
 .template-selector .list-item, #selected_template_area .list-item {
   border-radius: inherit;
   height: 68px;
@@ -4476,30 +4488,30 @@ div.ui-datepicker {
   background: -ms-linear-gradient(#fdfdfd, #eeeeee);
   background: linear-gradient(#fdfdfd, #eeeeee);
 }
-/* line 2575, ../sass/screen.scss */
+/* line 2578, ../sass/screen.scss */
 .template-selector .list-item img, #selected_template_area .list-item img {
   width: 50px;
   float: left;
   margin: 9px;
 }
-/* line 2577, ../sass/screen.scss */
+/* line 2580, ../sass/screen.scss */
 .template-selector .list-item .details, #selected_template_area .list-item .details {
   float: left;
   padding: 10px 5px;
   width: 210px;
 }
-/* line 2578, ../sass/screen.scss */
+/* line 2581, ../sass/screen.scss */
 .template-selector .list-item h2, #selected_template_area .list-item h2 {
   color: #2F3E46;
 }
-/* line 2579, ../sass/screen.scss */
+/* line 2582, ../sass/screen.scss */
 .template-selector .list-item span, #selected_template_area .list-item span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 2585, ../sass/screen.scss */
+/* line 2588, ../sass/screen.scss */
 .template-selector .list-item:hover, #selected_template_area .list-item:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -4513,52 +4525,52 @@ div.ui-datepicker {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
-/* line 2590, ../sass/screen.scss */
+/* line 2593, ../sass/screen.scss */
 .template-selector .list-item.selected, #selected_template_area .list-item.selected {
   background: #e1e1e1;
   cursor: default;
 }
-/* line 2591, ../sass/screen.scss */
+/* line 2594, ../sass/screen.scss */
 .template-selector .list-item.selected:hover, #selected_template_area .list-item.selected:hover {
   background: #e1e1e1;
 }
 
-/* line 2595, ../sass/screen.scss */
+/* line 2598, ../sass/screen.scss */
 .jcrop-holder {
   text-align: left;
 }
 
-/* line 2596, ../sass/screen.scss */
+/* line 2599, ../sass/screen.scss */
 .jcrop-vline, .jcrop-hline {
   font-size: 0px;
   position: absolute;
   background: white url("i/Jcrop.gif") top left repeat;
 }
 
-/* line 2597, ../sass/screen.scss */
+/* line 2600, ../sass/screen.scss */
 .jcrop-vline {
   height: 100%;
   width: 1px !important;
 }
 
-/* line 2598, ../sass/screen.scss */
+/* line 2601, ../sass/screen.scss */
 .jcrop-hline {
   width: 100%;
   height: 1px !important;
 }
 
-/* line 2599, ../sass/screen.scss */
+/* line 2602, ../sass/screen.scss */
 .jcrop-vline.right {
   right: 0px;
   margin: 0px;
 }
 
-/* line 2600, ../sass/screen.scss */
+/* line 2603, ../sass/screen.scss */
 .jcrop-hline.bottom {
   bottom: 0px;
 }
 
-/* line 2601, ../sass/screen.scss */
+/* line 2604, ../sass/screen.scss */
 .jcrop-handle {
   font-size: 1px;
   width: 7px !important;
@@ -4567,18 +4579,18 @@ div.ui-datepicker {
   background-color: #333;
 }
 
-/* line 2608, ../sass/screen.scss */
+/* line 2611, ../sass/screen.scss */
 .jcrop-tracker {
   width: 100%;
   height: 100%;
 }
 
-/* line 2609, ../sass/screen.scss */
+/* line 2612, ../sass/screen.scss */
 .custom .jcrop-vline, .custom .jcrop-hline {
   background: yellow;
 }
 
-/* line 2610, ../sass/screen.scss */
+/* line 2613, ../sass/screen.scss */
 .custom .jcrop-handle {
   border-color: black;
   background-color: #C7BB00;
@@ -4590,20 +4602,20 @@ div.ui-datepicker {
   border-radius: 3px;
 }
 
-/* line 2616, ../sass/screen.scss */
+/* line 2619, ../sass/screen.scss */
 #notifications {
   position: fixed;
   top: 50px;
   right: 0;
   z-index: 15;
 }
-/* line 2622, ../sass/screen.scss */
+/* line 2625, ../sass/screen.scss */
 #notifications .meow {
   margin: 20px 20px 0 0;
   position: relative;
   cursor: pointer;
 }
-/* line 2626, ../sass/screen.scss */
+/* line 2629, ../sass/screen.scss */
 #notifications .meow .inner {
   background: #191919;
   zoom: 1;
@@ -4625,7 +4637,7 @@ div.ui-datepicker {
   width: 250px;
   min-height: 48px;
 }
-/* line 2642, ../sass/screen.scss */
+/* line 2645, ../sass/screen.scss */
 #notifications .meow .inner:after {
   content: "\0200";
   display: block;
@@ -4634,7 +4646,7 @@ div.ui-datepicker {
   line-height: 0;
   height: 0;
 }
-/* line 2650, ../sass/screen.scss */
+/* line 2653, ../sass/screen.scss */
 #notifications .meow .inner h1 {
   font-size: 14px;
   font-weight: bold;
@@ -4642,27 +4654,27 @@ div.ui-datepicker {
   padding: 0;
   line-height: 1;
 }
-/* line 2657, ../sass/screen.scss */
+/* line 2660, ../sass/screen.scss */
 #notifications .meow .inner .icon {
   width: 48px;
   height: 48px;
   float: left;
   margin-right: 6px;
 }
-/* line 2662, ../sass/screen.scss */
+/* line 2665, ../sass/screen.scss */
 #notifications .meow .inner .icon img {
   max-width: 48px;
   max-height: 48px;
 }
-/* line 2664, ../sass/screen.scss */
+/* line 2667, ../sass/screen.scss */
 #notifications .meow .inner .close {
   display: none;
 }
-/* line 2666, ../sass/screen.scss */
+/* line 2669, ../sass/screen.scss */
 #notifications .meow.hover .inner {
   border: 2px solid #fff;
 }
-/* line 2668, ../sass/screen.scss */
+/* line 2671, ../sass/screen.scss */
 #notifications .meow.hover .inner .close {
   display: block;
   position: absolute;
@@ -4689,13 +4701,13 @@ div.ui-datepicker {
   text-decoration: none;
 }
 
-/* line 2696, ../sass/screen.scss */
+/* line 2699, ../sass/screen.scss */
 .bubble_message #container {
   width: 500px;
   padding: 0 0 50px;
   margin: 0 auto;
 }
-/* line 2702, ../sass/screen.scss */
+/* line 2705, ../sass/screen.scss */
 .bubble_message h1 {
   margin: 1em 0 0;
   font-size: 2.5em;
@@ -4703,7 +4715,7 @@ div.ui-datepicker {
   line-height: 1.2;
   text-align: center;
 }
-/* line 2710, ../sass/screen.scss */
+/* line 2713, ../sass/screen.scss */
 .bubble_message h2 {
   margin: 0.5em 0 1.5em;
   font-size: 1.25em;
@@ -4711,11 +4723,11 @@ div.ui-datepicker {
   font-style: italic;
   text-align: center;
 }
-/* line 2718, ../sass/screen.scss */
+/* line 2721, ../sass/screen.scss */
 .bubble_message p {
   margin: 1em 0;
 }
-/* line 2722, ../sass/screen.scss */
+/* line 2725, ../sass/screen.scss */
 .bubble_message .content h2 {
   margin: 2em 0 0.75em;
   font-size: 2em;
@@ -4723,26 +4735,26 @@ div.ui-datepicker {
   font-style: normal;
   text-align: left;
 }
-/* line 2730, ../sass/screen.scss */
+/* line 2733, ../sass/screen.scss */
 .bubble_message blockquote {
   margin: 1em 0;
 }
-/* line 2734, ../sass/screen.scss */
+/* line 2737, ../sass/screen.scss */
 .bubble_message blockquote p {
   margin: 0;
   font-size: 2em;
 }
-/* line 2739, ../sass/screen.scss */
+/* line 2742, ../sass/screen.scss */
 .bubble_message .follow {
   clear: both;
   margin-top: 2em;
   font-size: 1.125em;
 }
-/* line 2745, ../sass/screen.scss */
+/* line 2748, ../sass/screen.scss */
 .bubble_message .follow span {
   font-weight: bold;
 }
-/* line 2750, ../sass/screen.scss */
+/* line 2753, ../sass/screen.scss */
 .bubble_message.msg {
   position: absolute;
   top: -224px;
@@ -4763,12 +4775,12 @@ div.ui-datepicker {
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 2768, ../sass/screen.scss */
+/* line 2771, ../sass/screen.scss */
 .bubble_message.msg p {
   font-size: 28px;
   line-height: 1.25em;
 }
-/* line 2770, ../sass/screen.scss */
+/* line 2773, ../sass/screen.scss */
 .bubble_message .msg:before {
   content: url(twitter-logo.gif);
   position: absolute;
@@ -4779,7 +4791,7 @@ div.ui-datepicker {
   /* reduce the damage in FF3.0 */
   display: block;
 }
-/* line 2781, ../sass/screen.scss */
+/* line 2784, ../sass/screen.scss */
 .bubble_message.msg:after {
   content: "";
   position: absolute;
@@ -4790,7 +4802,7 @@ div.ui-datepicker {
   display: block;
   width: 0;
 }
-/* line 2791, ../sass/screen.scss */
+/* line 2794, ../sass/screen.scss */
 .bubble_message.msg + p {
   padding-left: 15px;
   font: 14px Arial, sans-serif;

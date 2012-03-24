@@ -26,7 +26,9 @@ var lang = {
 		deal:{
 			planned: 	'Din deal er nu planlagt. Held og lykke!',
 			started:	'En deal er lige startet. Klik for at se hvilken.',
-			ended:		'En deal er netop afsluttet. Klik for at se hvilken.'
+			ended:		'En deal er netop afsluttet. Klik for at se hvilken.',
+			deleted:  'En deal er blevet slettet',
+			soldout: 	'En deal er blevet meldt udsolgt'
 		},
 		shop:{
 			created: 	'Din butik er blevet oprettet og afventer nu godkendelse fra os! Imens kan du jo gå igang med at oprette dine skabeloner',
@@ -54,7 +56,7 @@ define([
 			this.object = '#notifications';
 			this.render();
 			this.router.bind('notification',this.notify);
-			this.router.bind('dealStarted',this.eventHandling);
+			this.router.bind('dealEdited',this.eventHandling);
 			this.router.bind('shopCreated',this.eventHandling);
 			this.router.bind('templateEdited',this.eventHandling);
 			this.router.bind('settingsEdited',this.eventHandling);
@@ -70,6 +72,9 @@ define([
 				break;
 				case 'deal_planned':
 					message = lang.notifications.deal.planned;
+				break;
+				case 'deal_deleted':
+					message = lang.notifications.deal.deleted;
 				break;
 				case 'shopCreated':
 					message = lang.notifications.shop.created;
@@ -88,10 +93,12 @@ define([
 		},
 		dealChanged:function(model) {
 			//log("dealChanged", model, model.hasChanged('state'));
-			if (model.hasChanged('state')) {
+			if (model.hasChanged('state')||model.hasChanged('status')) {
 				var message = null;
-				if (model.get('state')=='current') message = lang.notifications.deal.started;
+				if (model.get('status') == 'soldout') message = lang.notifications.deal.soldout;
+				else if (model.get('state')=='current') message = lang.notifications.deal.started;
 				else if (model.get('state') == 'ended') message = lang.notifications.deal.ended;
+				
 				var route = lang.urls.overviewDeals+'/'+model.get('id');
 				if (message) this.notify('fast', message, route);
 			}
