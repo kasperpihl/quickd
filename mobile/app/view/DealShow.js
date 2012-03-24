@@ -66,7 +66,6 @@ Ext.define('QuickD.view.DealShow', {
         fullscreen:true,
         layout: 'fit',
         id: 'quickd-single',
-        //scrollable:true,
         items: [
         {
             ui:'sencha',
@@ -131,23 +130,16 @@ Ext.define('QuickD.view.DealShow', {
         for(var key in records){
             //array.push(records[key].data);
             slider.add({}).setData(records[key].data);
-            
         }
-        //for(var i = array.length -1; i >= 0  ; i--){
-        /*for(var i = 0; i < array.length  ; i++){
-            log(array[i]);
-            slider.add({}).setData(array[i]);
-        }*/
-        
     },
     loadDeal:function(record,index){
         //log('logging data',record.getData().end);
         this.down('#quickd-deal-slider').setActiveItem(index);
         this.down('#quickd-deal-content').setData(record.getData());
-    }
-    /*updateRecord: function(newRecord) {
-        if (newRecord) {
-            this.setData(newRecord.data);
+    },
+    listeners: {
+        painted: function() {
+            log('Painted, baby!');
         }
-    }*/
+    }
 });
