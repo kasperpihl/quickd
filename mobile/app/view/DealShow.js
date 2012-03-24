@@ -1,5 +1,5 @@
 var showDealTemplate = new Ext.XTemplate(
-    '<section class="knaldperlen">',
+    '<section class="deal-wrap">',
     '<article id="deal-{id}-info" class="{category}">',
         '<header><h1>{title}</h1></header>',
         '<section class="desc">{description}</section>',

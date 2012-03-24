@@ -148,6 +148,11 @@ SINGLE DEAL
         }
 
         #quickd-deal-content .x-innerhtml {
+            .deal-wrap {
+                position: absolute;
+                height: 100%;
+            }
+
             article[id*=deal-] {
                 padding: 19px 10px 108px;
                 background: url(../images/deal-bg.png) repeat;
