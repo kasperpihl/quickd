@@ -66,6 +66,7 @@ Ext.define('QuickD.view.DealShow', {
         fullscreen:true,
         layout: 'fit',
         id: 'quickd-single',
+        //scrollable:true,
         items: [
         {
             ui:'sencha',

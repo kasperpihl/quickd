@@ -434,13 +434,21 @@ class Shopowner {
 				case 'shops':
 					$view = 'getShops';
 					break;
+				case 'shopowner':
+
+					$view = 'getShopowner';
+					$id = true;
+					$key = true;
+					break;
 				case 'all':
 					$key = true;
 					$view = 'getAll';
 					break;
 			}
 			try{
+
 				if(isset($view) && $view && !$id){
+
 					if($key) $dbq = $db->key($shopowner);
 					else $dbq = $db->startkey(array($shopowner,0))->endkey(array($shopowner,'z'));
 					$results = $dbq->getView('dealer',$view);
