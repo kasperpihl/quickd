@@ -54,16 +54,18 @@ App.routers.Entry = Backbone.Router.extend({
 			log('reg',response);
 			if(response.success == 'true'){
 				//log("response from register", response);
-				thisClass.animateDoRegister();
-				setTimeout(function(){
-					thisClass.animateDashboard();
-				}, 2000);
+				//thisClass.animateDoRegister();
+				//setTimeout(function(){
+				//	thisClass.animateDashboard();
+				//}, 2000);
+				
+				$("#footer-login").fadeOut();
+				$("#header-login").fadeOut();
+
 				setTimeout(function(){
 					thisClass.model.set(response.data);
 					thisClass.startDashboard();
 				}, 200);
-
-
 				
 			}
 			else{
