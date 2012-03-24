@@ -97,7 +97,7 @@ App.routers.Entry = Backbone.Router.extend({
 		$("#position_wrapper").animate({marginTop: '-175px'}, 1200, 'easeOutQuart');
 		$("#login_fields").animate({left: '-50%'}, 400, 'easeInQuart', function() {
 			$("#registrer").css("display", "block");
-			$("#registrer").animate({right: '50%', marginRight: '-203px'}, 400, 'easeOutQuart');
+			$("#registrer").animate({right: '50%', marginRight: '-224px'}, 400, 'easeOutQuart');
 		});
 		
 		//$("#registrer").fadeIn('slow');

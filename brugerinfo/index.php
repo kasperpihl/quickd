@@ -25,7 +25,7 @@
   <meta name="author" content="">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-  <? if($uagent->DetectTierIphone()) { ?>
+  <? if( $uagent->DetectTierIphone()) { ?>
   <meta name="viewport" content="width=750, user-scalable=1">
   <? } ?>
 
