@@ -153,12 +153,18 @@ Ext.define('QuickD.view.DealShow', {
         }
     },
     addCustomScroll: function() {
-        var el = $('article[id*=deal-]').first()[0];
+        var $el             = $('article[id*=deal-]').first(),
+            $wrap           = $el.parent(),
+            carouselHeight  = $('#quickd-deal-slider').height();
     
-        new EasyScroller(el, {
+        new EasyScroller($el[0], {
             scrollingX: false,
             scrollingY: true,
             zooming: false
         });
+
+        $(window).on('resize', function(e) {
+            $wrap.height((window.innerHeight - carouselHeight));
+        }).resize();
     }
 });

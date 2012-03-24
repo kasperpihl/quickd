@@ -3691,9 +3691,9 @@ SINGLE DEAL
 #quickd-single .x-body > .x-inner .deal-info .rightPanel {
   margin-left: 7px; }
 #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml .deal-wrap {
-  position: absolute;
-  height: 100%; }
+  position: absolute; }
 #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-] {
+  position: relative;
   padding: 19px 10px 108px;
   background: url(../images/deal-bg.png) repeat;
   border-top: 4px solid red;
