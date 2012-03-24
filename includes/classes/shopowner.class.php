@@ -239,6 +239,8 @@ class Shopowner {
 				$update = 'addEditTemplate';
 			break;
 			case 'deals':
+				$deal = json_decode($model);
+				$doc_id = $deal->id;
 				$update = 'startStopDeal';
 			break;
 			case 'feedback':
@@ -259,7 +261,7 @@ class Shopowner {
 				return json_decode($result);
 			}
 			catch(Exception $e){
-				echo json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); 
+				return json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); 
 			}
 			
 		}
@@ -274,10 +276,10 @@ class Shopowner {
 			case 'templates':
 				$update = 'delTemplate';
 			break;
-			/*case 'deals':
+			case 'deals':
 				$update = 'delDeal';
 			break;
-			case 'images':
+			/*case 'images':
 				$update = 'delImage';
 				$response = Shopowner::updateImage($model);
 				if ($response && isset($response['success']) && ($response['success']===true||$response['success']=='true') ) 
@@ -288,12 +290,23 @@ class Shopowner {
 		}
 		if(isset($update) && $update){
 			try{
-				$json = json_encode(array('id'=>$id));
-				$result = $db->updateDocFullAPI('dealer',$update,array('doc_id'=>$doc_id,'params'=>array('json'=>$json)));
+				if ($update == 'delDeal') {
+					$doc = $db->getDoc($id);
+					if (!$doc->shopowner_id ||$doc->shopowner_id!=$shopowner) return json_encode(array('success'=>'false', 'error'=>'user_not_authorized'));
+					if (!$doc->type ||$doc->type!='deal') return json_encode(array('success'=>'false', 'error'=>'doc_not_a_deal'));
+					$time = time();
+					if (!$doc->start || !$doc->end || $doc->start > $time || $doc->end < $time) {
+						$db->deleteDoc($doc);
+						return json_encode(array('success'=>'true','data'=>'deleted')); 
+					} else return json_encode(array('success'=>'false', 'error'=>'cannot_delete_active'));
+				} else {
+					$json = json_encode(array('id'=>$id));
+					$result = $db->updateDocFullAPI('dealer',$update,array('doc_id'=>$doc_id,'params'=>array('json'=>$json)));
+				}
 				return json_decode($result);
 			}
 			catch(Exception $e){
-				echo json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); 
+				return json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); 
 			}
 			
 		}
@@ -307,13 +320,18 @@ class Shopowner {
 			return $editDeal;
 		}
 		catch(Exception $e){
-			echo json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); 
+			return json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); 
 		}
 		
 	}
 	public static function checkDeal($model){
 		global $dealer,$db;
 		$model = json_decode($model);
+
+		if (property_exists($model, 'status') && $model->status=='soldout') {
+			self::updateDeal($model);
+		}
+
 		/* Checking initial conditions to continue */
 		if(!property_exists($model,'start') OR !property_exists($model,'end')) return array('success'=>'false','error'=>'start_and_end_time_must_be_specified');
 		/* Checking and setting time */

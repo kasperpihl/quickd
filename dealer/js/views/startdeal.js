@@ -333,7 +333,7 @@ define([
 							thisClass.activity.route = lang.urls[thisClass.activity.activityName]
 							thisClass.router.navigate(lang.urls.overviewDeals+'/'+data.id,{trigger:true});
 							thisClass.resetStarter(true);
-							thisClass.router.trigger('dealStarted',{event: 'deal_planned'});
+							thisClass.router.trigger('dealEdited',{event: 'deal_planned'});
 						});
 						
 					}

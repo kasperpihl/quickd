@@ -12,9 +12,9 @@ define([
 		initialize: function(){
 			var thisClass = this;
 			this.init(this.options);
-			_.bindAll(this,'updateContent', 'stateChanged', 'viewDeal', 'changeTab', 'onDealAdded', 'onDealChanged');
+			_.bindAll(this,'updateContent', 'stateChanged', 'viewDeal', 'changeTab', 'onDealAdded', 'onDealChanged', 'removeDeal', 'confirmRemoveCallback');
 			this.template = 'mydeals';
-			this.tabId = 'deals-current';
+			this.tabId = 'deals-tab-current';
 			
 			
 			this.collection = App.collections.deals;
@@ -22,15 +22,24 @@ define([
 			else this.currentDeal = null;
 			if (this.currentDeal) this.view = 'deal-details';
 			else this.view = 'deal-list';
+			log("deals", this.collection.toJSON());
 			var data = this.updateContent(false);
 			this.createWindow(true, data);
 			App.collections.deals.bind('add',this.onDealAdded);
 			App.collections.deals.bind('change',this.onDealChanged);
 			App.collections.deals.bind('remove',this.updateContent);
+			this.router.bind('promtCallback:'+this.cid, this.confirmRemoveCallback);
 		},
 		updateContent:function(doSetContent) {
 			var thisClass = this;
 			var data = this.sortDeals();
+			if (this.currentDeal) {
+				var tpl = 'text!templates/component/viewDeal.html';
+				require([tpl],function(template){
+
+				});
+				data.dealView = _.template()
+			}
 			data.currentDeal = this.currentDeal;
 			data.tabId = this.tabId;
 			data.view = this.view;
@@ -38,9 +47,10 @@ define([
 			else return data;
 		},
 		onDealChanged:function(data, obj) {
+			log("onDealChanged", data, obj);
 			if (data.hasChanged('state')) {
 				this.stateChanged(data.get('id'));
-			}
+			} else this.updateContent(true);
 		},
 		onDealAdded:function(data, obj) {
 			this.currentDeal = data;
@@ -66,7 +76,7 @@ define([
 			if (deal) {
 				var el = $('#deal-'+deal.id);
 				var state = deal.state;
-				var preState = el.parent('.tab-block').attr('id').substr(6);
+				var preState = el.parent('.deal-list').attr('id').substr(6);
 				//log("stateChanged", deal, state, preState);
 				if (state!=preState) {
 					el.slideUp('300', function() {
@@ -93,6 +103,7 @@ define([
 			_events['click '+this.windowId+' .deal-item'] = 'viewDeal';
 			_events['click '+this.windowId+' .tab-link'] = 'changeTab';
 			_events['click '+this.windowId+' #btn_deal_back'] = 'viewList';
+			_events['click '+this.windowId+' #btn_remove_deal'] = 'removeDeal';
 			return _events;
 		},
 		fillFields:function(empty) {
@@ -130,13 +141,55 @@ define([
 				this.changeView('deal-details');
 			}
 		},
+		removeDeal:function(){
+			if (this.currentDeal) {
+				var time = parseInt(new Date().getTime()/1000);
+				if (this.currentDeal.start>time ||this.currentDeal.end < time) {
+					var title = 'Er du sikker på du ønsker at slette denne deal?',
+							btn_txt = 'Slet';
+				} else {
+					var title = 'Er du sikker på du ønsker at melde denne deal udsolgt?',
+							btn_txt = 'Meld udsolgt';
+				}
+				var confirmer = new App.views.dialogs.PromtDialog({router:this.router, type: 'confirm', callbackCid:this.cid, title:title, confirmText:btn_txt});	
+			}
+			return false;
+		},
+		confirmRemoveCallback:function(obj) {
+			log("remove",obj, this.currentDeal);
+			var thisClass = this;
+			if(obj.callbackCid==this.cid&&obj.type=='confirm'&&this.currentDeal) {
+				if (obj.eventType=='confirm') {
+					if(this.currentDeal.get('state')=='current') {
+						this.currentDeal.save({status:'soldout'}, {success:function(model, response) {
+							log('Deal soldout', model, response);
+						}, error: function(model, response) { log('Deal soldout error', model, response);}});
+					} else {
+						this.currentDeal.destroy({data:this.currentDeal.id, success:function(model, response) {
+							log("deleted", model, response);
+					
+						thisClass.router.trigger('dealEdited',{event:'dealDeleted'});
+						thisClass.activity.closeWindow(this, false, true);
+					
+						}, error:function(model, response) { log("error delete: ", model, response); }});
+					}
+					
+					
+				} else {
+					this.router.trigger('setFocus', {activity:this.activity, windowCid:this.cid});
+				}
+			}
+		},
+		setDealSoldout: function(id) {
+			log("deal is sold out", id, this.collection.get(id));
+		},
 		showList:function() {
 			this.changeView('deal-list');
 			$('#btn_deal_back').hide();
 		},
 		changeTab: function(data) {
 			var id = data.currentTarget.id;
-			var tabId = "deals-"+id.substr(4);
+			var tabId = "deals-tab-"+id.substr(4);
 			if (tabId != this.tabId) {
 				$("#"+this.tabId).hide();
 				$("#"+tabId).show();

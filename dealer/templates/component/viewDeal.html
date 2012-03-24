@@ -1,0 +1,23 @@
+<div id="deal-view">
+<% 
+  var deal = {};
+    if (data.currentDeal) deal = data.currentDeal.toJSON().template;
+    var imgSrc = deal.image ? IMG_URL+'thumbnail/'+deal.image : 'styles/stylesheets/i/no_image_small.png';
+    var discount = deal.orig_price ? Math.round((deal.orig_price-deal.deal_price) / deal.orig_price * 100)+'%' : ''; 
+%>
+<h1 id="deal_title"><%=deal.title?deal.title:""%></h1>
+<img id="deal_image" src="<%=imgSrc%>" />
+<div class="deal-prices">
+  <p><span class="label">Normalpris:  </span><span class="price" id="deal_orig_price"><%=deal.orig_price?deal.orig_price:""%></span></p>
+    <p><span class="label">Rabat:     </span><span class="price" id="deal_discount"><%=discount%></span></p>
+    <p><span class="label">Tilbudspris: </span><span class="price" id="deal_price"><%=deal.deal_price?deal.deal_price:""%></span></p>
+</div>
+<div class="deal-times">
+  <span id="deal_starting_time"><%=data.currentDeal?getTimeString(data.currentDeal.get('start')*1000, 'simple'):''%></span>
+    <span class="time-seperator"> til </span>
+    <span id="deal_ending_time"><%=data.currentDeal?getTimeString(data.currentDeal.get('end')*1000, 'simple'):''%></span>
+</div>
+<div class="description" id="deal_description"><%=deal.description?deal.description:''%></div>
+
+<button class="button red" id="btn_remove_deal">Slet</button>
+</div>

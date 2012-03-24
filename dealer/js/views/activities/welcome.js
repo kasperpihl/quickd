@@ -14,7 +14,7 @@ define([
 			this.render();
 			this.router.bind('shopCreated',this.event);
 			this.router.bind('templateCreated',this.event);
-			this.router.bind('dealStarted',this.event);
+			this.router.bind('dealEdited',this.event);
 		},
 		render:function(){
 			var data = {};

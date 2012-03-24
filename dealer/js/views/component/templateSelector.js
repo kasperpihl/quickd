@@ -35,6 +35,7 @@ define([
 			if (this.expanded) {
 				setTimeout( function() {
 					thisClass.expandedHeight = thisClass.$expanded.getHiddenDimensions(true).outerHeight;
+					thisClass.expandedHeight = thisClass.expandedHeight>thisClass.height?thisClass.height:thisClass.expandedHeight;
 					thisClass.$expanded.height(thisClass.expandedHeight);
 					if (thisClass.onCreated) thisClass.onCreated();
 				},100);
