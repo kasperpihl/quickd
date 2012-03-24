@@ -18,17 +18,18 @@ define([
 			
 		},
 		events: {
-			'click #login_button': 'handleClick',
-			'keypress #user_email': 'handleKeypress'
+			'click #btn_reset_button': 'handleClick',
+			'keypress #reset_email': 'handleKeypress'
 		},
 		handleClick: function(data){
-			if(data.currentTarget.id == 'btn_reset_pass'){
-				this.router.doResetPass();
+			if(data.currentTarget.id == 'btn_reset_button'){
+				this.router.doResetPass($('#reset_email').val());
 			}
 		},
 		handleKeypress: function(e){
 			if(e.keyCode == 13){
-				this.router.doResetPass();
+				
+				//this.router.doResetPass();
 			}
 		},
 		doOnOpen:function() {

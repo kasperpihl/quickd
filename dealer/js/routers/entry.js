@@ -32,7 +32,7 @@ App.routers.Entry = Backbone.Router.extend({
 	},
 	doLogin: function(){
 		var thisClass = this;
-		$.post('api/login',{email:$('#login_username').val(),password:$('#login_password').val()},function(response){
+		$.post(ROOT_URL+'api/login',{email:$('#login_username').val(),password:$('#login_password').val()},function(response){
 		 	log('response from login',response);
 			if(response.success == 'true'){
 				thisClass.animateDashboard();
@@ -49,7 +49,7 @@ App.routers.Entry = Backbone.Router.extend({
 	doRegister: function(){
 		var thisClass = this;
 		//log($('#register_password').val(),'hej');
-		$.post('api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
+		$.post(ROOT_URL+'api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
 			
 			log('reg',response);
 			if(response.success == 'true'){
@@ -87,8 +87,10 @@ App.routers.Entry = Backbone.Router.extend({
 		},'json');
 		
 	},
-	doResetPass: function() {
-		log("DO RESET PASSWORD HERE!?!");
+	doResetPass: function(email) {
+		$.post(ROOT_URL+'api/reset',{model:{email:email,type:'dealer'}},function(data){
+			log(data);
+		},'html');
 	},
 	
 	openRegisterView:function(){

@@ -12,9 +12,8 @@ if(isset($_GET['id'])){
 			if($endtime > time()){
 				if(isset($_POST['newPass'])){
 					/* Validating */
-					echo 'setting new pass';
 					$reset = Shopowner::resetPassword($doc_id,$_POST['newPass']);
-					print_r($reset);
+					if($reset->success == 'true') redirect(ROOT_URL);
 				}
 				else{
 					echo '
