@@ -13,7 +13,7 @@ if(isset($_GET['id'])){
 				if(isset($_POST['newPass'])){
 					/* Validating */
 					$reset = Shopowner::resetPassword($doc_id,$_POST['newPass']);
-					if($reset->success == 'true') redirect(ROOT_URL.'index.php');
+					if($reset->success == 'true') redirect(ROOT_URL);
 				}
 				else{
 					echo '

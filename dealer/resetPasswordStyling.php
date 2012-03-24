@@ -8,11 +8,6 @@
 		<link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic&subset=latin,latin-ext" rel="stylesheet"/>
         
 		<link href="<?= ROOT_URL ?>styles/stylesheets/resetPassword.css" media="all" rel="stylesheet"/>
-     
-        <script src="<?= LIBS_URL ?>jquery/jquery-min.js"></script>
-		<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
-        <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
-        <script src="<?= ROOT_URL ?>js/function.js"></script>
 	</head>
 
 	<body>

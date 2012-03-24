@@ -12,8 +12,6 @@ Vis rabat ved oprettelse af templates
 
 Glemt adgangskode-dialog - har ingen funktionalitet, men vinduet er lavet
 
-(Kasper) Glemt adgangskode funktionalitet
-
 Shake login box virker ikke ordenligt, første gang den rystes, og efter ryst hvis, man gør vinduet større følger feltet ikke med
 
 Manglende features
@@ -33,6 +31,8 @@ Redigering af brugerindstillinger virker ikke.
 	Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Kasper) Glemt adgangskode funktionalitet
 
 (rettet kasper) En shopowners timetal skal opdateres når der kommer feedback og han tildeles det. 
 
