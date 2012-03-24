@@ -135,35 +135,34 @@ Ext.define('QuickD.view.DealShow', {
         }
     },
     loadDeal:function(record,index){
+        // TODO: This gets called before single deal view is loaded. It's probably a bug.
         this.down('#quickd-deal-slider').setActiveItem(index);
         this.down('#quickd-deal-content').setData(record.getData());
+
+
+        var $deal = $('#deal-' + record.internalId + '-info');
+
+        log('New deal set: ', record, index, $deal);
+        
+        if ($deal.length > 0) this.addCustomScroll($deal);
+        else log('views/DealShow.js > NO DEAL YET!!!!');
     },
     initialize: function() {
         this.callParent(arguments);
     },
-    listeners: {
-        painted: function() {
-            var self = this;
-            (function() {
-                var $deal   = $('article[id*=deal-]');
-                if ($deal.length > 0) {
-                    self.addCustomScroll($('article[id*=deal-]').first());
-                } else {
-                  setTimeout(arguments.callee, 500); // Fix sencha bug where 'painted' is called too early.
-                }
-            })();
-        }
-    },
     addCustomScroll: function($el) {
         var $wrap           = $el.parent(),
             carouselHeight  = $('#quickd-deal-slider').height();
-    
-        new EasyScroller($el[0], {
+        
+        if (this.easyScroll) this.easyScroll = null; // TODO: Find a better way to kill the old instance (Couldn't find a destroy() method).
+
+        this.easyScroll = new EasyScroller($el[0], {
             scrollingX: false,
             scrollingY: true,
             zooming: false
         });
 
+        // TODO: Could we optimize this?
         $(window).on('resize', function(e) {
             $wrap.height((window.innerHeight - carouselHeight));
         }).resize();
