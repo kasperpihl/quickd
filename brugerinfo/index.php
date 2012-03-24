@@ -1,4 +1,5 @@
 <?php 
+	print_r('anders lugter'); die();
   require_once('../config.php'); 
   $registred = false;
   if (!$session->logged_user()) {
