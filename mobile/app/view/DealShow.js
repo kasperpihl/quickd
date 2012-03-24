@@ -1,5 +1,5 @@
 var showDealTemplate = new Ext.XTemplate(
-    '<article id="deal-{id}-info" class="{category}">',
+    '<article id="deal-{id}-info" class="{category}" data-scrollable="y">',
         '<header><h1>{title}</h1></header>',
         '<section class="desc">{description}</section>',
         '<section class="venue">',
