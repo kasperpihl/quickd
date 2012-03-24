@@ -139,7 +139,19 @@ Ext.define('QuickD.view.DealShow', {
     },
     listeners: {
         painted: function() {
-            log('Painted, baby!');
+            if (!window.dealShowPaintedFired) {
+                window.dealShowPaintedFired = true;
+
+                log('PAINTED_________________________');
+                var $viewEl = $('#' + this._id);
+                log($viewEl);
+
+                $viewEl.on('scroll', function() {
+                    log('scrolling ' + $viewEl);
+                });
+
+                log('__/_PAINTED_________________________');
+            }
         }
     }
 });
