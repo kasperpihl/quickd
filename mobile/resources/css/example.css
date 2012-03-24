@@ -3690,7 +3690,7 @@ SINGLE DEAL
     color: #808080; }
 #quickd-single .x-body > .x-inner .deal-info .rightPanel {
   margin-left: 7px; }
-#quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article {
+#quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-] {
   padding: 19px 10px 108px;
   background: url(../images/deal-bg.png) repeat;
   border-top: 4px solid red;
@@ -3700,15 +3700,15 @@ SINGLE DEAL
   line-height: 21px;
   -webkit-box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.7), 0 -5px 13px 7px black;
   box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.7), 0 -5px 13px 7px black; }
-  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article strong {
+  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-] strong {
     color: #141414; }
-  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article.shopping {
+  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-].shopping {
     border-color: #a25d7a; }
-  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article.experience {
+  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-].experience {
     border-color: #5da2a0; }
-  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article.fooddrink {
+  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-].fooddrink {
     border-color: #c09159; }
-  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml > article > section:not(.venue) {
+  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-] > section:not(.venue) {
     padding-bottom: 38px;
     margin-bottom: 33px;
     background: url(../images/stippled-line.png) repeat-x bottom left; }

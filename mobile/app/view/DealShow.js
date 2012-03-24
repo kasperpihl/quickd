@@ -1,6 +1,6 @@
 var showDealTemplate = new Ext.XTemplate(
-    '<article id="deal-{id}-info" class="{category}" data-scrollable="y" style="position: absolute;">',
-        '<section class="content-wrap">',
+    '<section class="knaldperlen">',
+    '<article id="deal-{id}-info" class="{category}">',
         '<header><h1>{title}</h1></header>',
         '<section class="desc">{description}</section>',
         '<section class="venue">',
@@ -25,8 +25,8 @@ var showDealTemplate = new Ext.XTemplate(
                 '<p>9 anmeldelser</p>',
             '</section>',
         '</footer>',
-        '</section>',
     '</article>',
+    '</section>',
     {
         priceIt: priceIt,
         humanReadableDistance: humanReadableDistance
