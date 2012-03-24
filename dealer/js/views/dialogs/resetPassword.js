@@ -11,6 +11,8 @@ define([
 			this.router = this.options.router;
 			this.classes ="login";
 			this.closable = true;
+			this.width = 600;
+			this.height = 200;
 			this.createDialog({}, function() {
 				$(thisClass.dialogId).formValidate();
 				
