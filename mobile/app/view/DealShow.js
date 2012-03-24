@@ -124,18 +124,17 @@ Ext.define('QuickD.view.DealShow', {
         }]
     },
     setSlider:function(records){
-        var array = [];
-        log(records);
-        var slider = this.down('#quickd-deal-slider');
+        var array   = [],
+            slider  = this.down('#quickd-deal-slider');
+        
         slider.removeAll(true,true);
-        var array = [];
         for(var key in records){
-            //array.push(records[key].data);
-            slider.add({}).setData(records[key].data);
+            slider
+                .add({})
+                .setData(records[key].data);
         }
     },
     loadDeal:function(record,index){
-        //log('logging data',record.getData().end);
         this.down('#quickd-deal-slider').setActiveItem(index);
         this.down('#quickd-deal-content').setData(record.getData());
     },
@@ -147,14 +146,16 @@ Ext.define('QuickD.view.DealShow', {
             var self = this;
             (function() {
                 var $deal   = $('article[id*=deal-]');
-                if ($deal.length > 0) self.addCustomScroll();
-                else setTimeout(arguments.callee, 500); // Fix sencha bug where 'painted' is called too early.
+                if ($deal.length > 0) {
+                    self.addCustomScroll($('article[id*=deal-]').first());
+                } else {
+                  setTimeout(arguments.callee, 500); // Fix sencha bug where 'painted' is called too early.
+                }
             })();
         }
     },
-    addCustomScroll: function() {
-        var $el             = $('article[id*=deal-]').first(),
-            $wrap           = $el.parent(),
+    addCustomScroll: function($el) {
+        var $wrap           = $el.parent(),
             carouselHeight  = $('#quickd-deal-slider').height();
     
         new EasyScroller($el[0], {
