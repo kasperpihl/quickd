@@ -92,7 +92,7 @@ App.routers.Entry = Backbone.Router.extend({
 	openRegisterView:function(){
 		//this.registerView.openDialog();
 		$("#header-login").animate({height: $(window).height() + 'px', opacity: 1}, 1200, 'easeOutQuart');
-		$("#position_wrapper").animate({marginTop: '-175px'}, 1200, 'easeOutQuart');
+		$("#position_wrapper").animate({marginTop: '-210px'}, 1200, 'easeOutQuart');
 		$("#login_fields").animate({left: '-50%'}, 400, 'easeInQuart', function() {
 			$("#registrer").css("display", "block");
 			$("#registrer").animate({right: '50%', marginRight: '-224px'}, 400, 'easeOutQuart');
