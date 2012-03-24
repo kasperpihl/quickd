@@ -141,24 +141,6 @@ Ext.define('QuickD.view.DealShow', {
     },
     initialize: function() {
         this.callParent(arguments);
-        log('Initialize #' + this._id);
-        //log('Scroller: ' + Ext.scroll.View.getScroller());
-
-        //this.scroller.scrollTo({x:0, y:500}));
-        //this.getEventDispatcher().addListener('element', '#' + this._id, 'drag', this.handleDragInfo, this);
-
-
-
-
-
-    },
-    handleDragInfo: function(e, target, options, eventController) {
-        var eventName   = eventController.info.eventName;
-        //this.scroller.scrollTo({x: 0, y: 200}, true);
-        
-        var selector = 'article[id*=deal-]';
-        log('Vertically dragging ' + e.deltaY + 'px, selector: ' + selector);
-        $(selector).css('top', e.deltaY);
     },
     listeners: {
         painted: function() {
@@ -171,10 +153,8 @@ Ext.define('QuickD.view.DealShow', {
         }
     },
     addCustomScroll: function() {
-        log('Adding scroll...');
         var el = $('article[id*=deal-]').first()[0];
-        log('element: ', el);
-
+    
         new EasyScroller(el, {
             scrollingX: false,
             scrollingY: true,
