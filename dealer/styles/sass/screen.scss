@@ -984,7 +984,7 @@ body {
 		.register_fields {
 			position: relative;
 			@include input-register;
-			margin-top: 20px;
+			margin-top: 5px;
 			margin-left: auto;
 			margin-right: auto;
 			padding: 20px;
@@ -1052,8 +1052,26 @@ body {
 
 				button {
 					float: left;
-					line-height: 20px;
+					line-height: 25px;
+					padding-left: 8px;
+					padding-right: 8px;
 					margin-top: 10px;
+					cursor: pointer;
+					@include border-radius(3px);
+					outline: none;
+					font-weight: bold;
+					font-size: 13px;
+					color: #2E2826;
+					@include text-shadow(0 1px 1px rgba(255,255,255,0.8));
+
+					display: inline-block;
+					border: 1px solid #FD9A0F;
+
+					// needs latest Compass, add '@import "compass"' to your scss
+					background-color: rgb(234,232,121); // Old browsers
+					@include filter-gradient(#eae879, #fd9a0f, vertical); // IE6-9
+					@include background-image(linear-gradient(top,  rgba(234,232,121,1) 0%,rgba(253,154,15,1) 100%));
+
 				}
 
 			}
