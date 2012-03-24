@@ -154,7 +154,6 @@ class Shopowner {
 			if($result->success != 'true') return json_encode($result);
 			switch($type){
 				case 'dealer':
-					$email = 'kasperpihl@me.com';
 					Mail::sendNewPasswordForDealer($email,$url);
 				break;
 				case 'user':
