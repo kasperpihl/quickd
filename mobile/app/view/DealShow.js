@@ -141,32 +141,10 @@ Ext.define('QuickD.view.DealShow', {
         this.callParent(arguments);
         log('Initialize #' + this._id);
 
-        this.getEventDispatcher().addListener('element', '#' + this._id, '*', this.handleTouchEvents, this);
+        this.getEventDispatcher().addListener('element', '#' + this._id, 'drag', this.handleDragInfo, this);
     },
-    handleTouchEvents: function(e, target, options, eventController) {
-        var eventName = eventController.info.eventName;
-        if (eventName === 'drag') {
-            log('DRAG', e);
-        }
-    },
-    listeners: {
-        painted: function() {
-            if (!window.dealShowPaintedFired) {
-                window.dealShowPaintedFired = true;
-
-                log('PAINTED_________________________');
-                var $viewEl = $('#' + this._id);
-                log($viewEl);
-
-                $viewEl.on('', function(e) {
-                    log('scrolling ' + $viewEl);
-                });
-
-                log('__/_PAINTED_________________________');
-            }
-        },
-        drag: function() {
-            log('Dragging!');
-        }
+    handleDragInfo: function(e, target, options, eventController) {
+        var eventName   = eventController.info.eventName;
+        log('Vertically dragging ' + e.deltaY + 'px');
     }
 });
