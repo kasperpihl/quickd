@@ -3813,52 +3813,52 @@ form textarea:focus, form input:focus {
 }
 
 /* line 2299, ../sass/screen.scss */
-#view-deal h1 {
+.deal-view h1 {
   padding: 10px;
   font-size: 18px;
 }
 /* line 2300, ../sass/screen.scss */
-#view-deal img {
+.deal-view img {
   width: 100px;
   height: 100px;
   float: left;
   margin: 5px 10px;
 }
 /* line 2301, ../sass/screen.scss */
-#view-deal .deal-prices {
+.deal-view .deal-prices {
   float: left;
   margin: 10px 0px;
 }
 /* line 2304, ../sass/screen.scss */
-#view-deal .deal-prices p {
+.deal-view .deal-prices p {
   padding: 5px 0px;
 }
 /* line 2305, ../sass/screen.scss */
-#view-deal .deal-prices .label {
+.deal-view .deal-prices .label {
   width: 120px;
   display: inline-block;
 }
 /* line 2306, ../sass/screen.scss */
-#view-deal .deal-prices .price {
+.deal-view .deal-prices .price {
   font-size: 130%;
 }
 /* line 2308, ../sass/screen.scss */
-#view-deal .deal-times {
+.deal-view .deal-times {
   clear: both;
   padding: 10px;
   margin: 0px 5px;
 }
 /* line 2310, ../sass/screen.scss */
-#view-deal .deal-times .time-seperator {
+.deal-view .deal-times .time-seperator {
   text-align: center;
   margin: 0px 20px;
 }
 /* line 2311, ../sass/screen.scss */
-#view-deal .deal-times #deal_start_time, #view-deal .deal-times #deal_end_time {
+.deal-view .deal-times #deal_start_time, .deal-view .deal-times #deal_end_time {
   font-size: 130%;
 }
 /* line 2313, ../sass/screen.scss */
-#view-deal .description {
+.deal-view .description {
   clear: both;
   padding: 10px;
 }

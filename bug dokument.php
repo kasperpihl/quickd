@@ -2,10 +2,6 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
-Slet planlagte deals
-
-Meld planlagte deals udsolgt
-
 Gennemtest billede-upload
 
 Vis rabat ved oprettelse af templates
@@ -31,6 +27,10 @@ Redigering af brugerindstillinger virker ikke.
 	Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Slet planlagte deals
+
+(rettet Jeppe) Meld planlagte deals udsolgt
 
 (rettet Kasper) Glemt adgangskode funktionalitet
 
