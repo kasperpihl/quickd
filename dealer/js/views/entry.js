@@ -1,7 +1,7 @@
 define([
 ],function(){
 	App.views.Entry = Backbone.View.extend({
-		el: '#content',
+		el: 'body',
 		initialize:function(){
 			_.bindAll(this,'handleKeypress','doOnOpen','handleClick');
 			var thisClass = this;
@@ -17,7 +17,7 @@ define([
 			var tpl = 'text!templates/entry.html';
 			var thisClass = this;
 			require([tpl],function(template){
-				$('#content').append(_.template(template));
+				$('body').append(_.template(template));
 				$('#entry_view').formValidate();
 				$('#login_username').focus();
 			});

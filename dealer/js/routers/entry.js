@@ -95,7 +95,8 @@ App.routers.Entry = Backbone.Router.extend({
 	
 	openRegisterView:function(){
 		//this.registerView.openDialog();
-		$("#header-login").animate({height: $(window).height() + 'px', opacity: 1}, 1200, 'easeOutQuart', function() {
+		var $view = $('#entry_view');
+		$("#header-login").animate({height: $view.outerHeight() + 'px', opacity: 1}, 1200, 'easeOutQuart', function() {
 			$("#header-login").height("100%");
 		});
 		$("#position_wrapper").animate({marginTop: '-210px'}, 1200, 'easeOutQuart');
@@ -109,7 +110,8 @@ App.routers.Entry = Backbone.Router.extend({
 	},
 	
 	closeRegisterView:function() {
-		$("#header-login").animate({height: $(window).height()/2 + 'px', opacity: 1}, 1200, 'easeOutQuart', function() {
+		var $view = $('#entry_view');
+		$("#header-login").animate({height: $view.outerHeight()/2 + 'px', opacity: 1}, 1200, 'easeOutQuart', function() {
 			$("#header-login").height("50%");
 		});
 		$("#position_wrapper").animate({marginTop: '-124px'}, 1200, 'easeOutQuart');

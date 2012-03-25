@@ -647,10 +647,9 @@ background-color: rgb(94,150,27); // Old browsers
 	}
 }
 
-html, body {
-	height: 100%; width: 100%;
+html, body, #content {
+	height: 100%; width: 100%;min-height:600px;
 	margin:0; padding:0;
-	overflow: hidden;
 }
 
 body {
@@ -658,12 +657,11 @@ body {
 	background-color:$background-color;
 	//background-size: cover;
 	font-family:$font-family;
+	//overflow:hidden;
 }
 
 #content{
 	position:relative;
-	width:100%;
-	min-height:100%;
 	min-width:1100px;
 	overflow:hidden;
 	#bgImage {position:absolute;top:0px;left:0px;width:100%;}
@@ -908,6 +906,7 @@ body {
 #content{width:100%;}
 .body-mask {
 	@include stretch;
+	position:fixed;
 	background: black;
 	opacity:0.7;
 	z-index:46;
@@ -1021,6 +1020,8 @@ body {
 	top: 0px;
 	width: 100%;
 	height: 100%;
+	min-height:600px;
+	overflow:hidden;
 	
 	.header {
 
@@ -1044,7 +1045,7 @@ body {
 		//height: 404px;
 		height: 50%;
 		width: 100%;
-		overflow-y: scroll;
+		overflow-y: auto;
 		z-index: 45;
 		@include box-shadow(0 0 5px rgba(0,0,0,0.5));
 		
@@ -1117,7 +1118,7 @@ body {
 		display: block;
 		text-align: center;
 		border-top: none;
-		overflow-y: scroll;
+		overflow-y: auto;
 
 		em {
 			font-weight: 900;
