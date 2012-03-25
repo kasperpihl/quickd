@@ -10,15 +10,53 @@ define([
 			
 		},
 		events: {
-			'click #login_button, #btn_read_conditions,#btn_forgot_pass,#go_register_button,#do_register_button,#cancel_register_button': 'handleClick',			
-			'keypress #login_username, #login_password': 'handleKeypress'
+			'click #login_button, #btn_read_conditions,#btn_forgot_pass,#go_register_button,#do_register_button,#cancel_register_button': 'handleClick'
 		},
 		render: function(){
 			var tpl = 'text!templates/entry.html';
 			var thisClass = this;
 			require([tpl],function(template){
 				$('body').append(_.template(template));
-				$('#entry_view').formValidate();
+				this.form = $('#register-form');
+				if (this.form) this.form.formValidate({
+					rules: {
+						 user: {
+							 required:true,
+							 email:true,
+							 remote: {
+								 url: "ajax/shopowner.php",
+	       						 type: "post",
+								 data: {
+									action: 'test_username' 
+								 }
+							 }
+						 },
+						 password: {
+							 required:true,
+							 minlength:6
+						 },
+						 betacode: {
+							 required: true,
+							 remote: {
+								 url: "ajax/shopowner.php",
+	       						 type: "post",
+								 data: {
+									action: 'test_betacode' 
+								 }
+							 }
+						 }
+				   },
+				   messages: {
+					   user: {
+						   remote: jQuery.validator.format("Emailen er allerede optaget.<br /> Vælg venligst en anden email")
+					   },
+					   betacode: {
+						   remote: jQuery.validator.format("Den indtastede betakode er ugyldig")
+					   }
+				   },
+				   submitKey: '#do_register_button'
+
+				});
 				$('#login_username').focus();
 			});
 		},

@@ -51,7 +51,7 @@ if(isset($_GET['id'])){
 						 		left: left+'px'
 						 	});
 					},
-				  submitKey: '#btn:submit_pass'
+				  submitKey: '#btn_submit_pass'
 				});
 				$('button#btn_submit_pass').on('click', function() {
 					if (form && form.valid()) {
@@ -73,7 +73,7 @@ if(isset($_GET['id'])){
 						<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
 						<div class="field">
 							
-								<input type="password" name="newPass" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
+								<input type="password" name="newPass" id="newpass-input" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
 							
 						</div>
 						<?php } else{ ?>
