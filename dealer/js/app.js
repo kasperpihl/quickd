@@ -10,7 +10,8 @@ define(function(){
 		}else{
 			require(['routers/entry'],function(tst){				
 				$(function(){ 
-					App.routers.entry = new App.routers.Entry();					
+					App.routers.entry = new App.routers.Entry();	
+					Backbone.history.start(historyObj); 			
 				});
 			});
 			

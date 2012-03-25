@@ -2,6 +2,8 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
+Server-error bliver vist nogle gange ved logud og opdater
+
 Gennemtest billede-upload
 
 Roter billede virker ikke

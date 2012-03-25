@@ -80,13 +80,32 @@ $register-shop-btn-active: -78px;
 		padding: 6px;
 		-moz-transition: border .2s linear, box-shadow .2s linear;
 		-webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
+
+		&.errorTip {
+			border: 1px solid #DD5555;
+			@include box-shadow(0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0,0,0,0.2));
+		}
 	}
 
-	input[type="text"]:focus, input[type="password"]:focus {
+	input[type="text"]:focus:not(.errorTip), input[type="password"]:focus:not(.errorTip) {
 		border: 1px solid #59CCD9;
 		//border: 1px solid rgba(253,154,15,1);
 		@include box-shadow(0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0,0,0,0.2));
 		//@include box-shadow(0 0px 3px rgba(234,232,121,1), inset 0 1px 2px rgba(0,0,0,0.2));
+	}
+	div.errorTip {
+		position:absolute;
+		width:200px;
+		background-color:#000;
+		border:1px solid #fff;
+		opacity:0.7;
+		padding:5px 10px;
+		color:#fff;
+		text-align:left;
+		font-size:14px;
+		z-index: 50;
+		@include box-shadow(0 0 5px #000);
+		@include border-radius(5px);
 	}
 
 	button {
@@ -789,7 +808,7 @@ body {
 #workspace {
 	position:relative;
 	//@include stretch-x();
-	@include stretch-y($header-height, $footer-height);
+	@include stretch-y($header-height, 0px);
 	//height:90%;
 	width:100%;
 	min-height:550px;
@@ -1080,18 +1099,23 @@ body {
 			margin-right: auto;
 			padding: 20px;
 			width: 407px;
-			height: 274px;
+			//height: 274px;
 			background: white;
 			@include box-shadow(0px 1px 2px rgba(0,0,0,0.3));
 			@include border-radius(5px);
 			@include entryview_input;
 
-
+			#error_container {
+				text-align:center;
+				font-weight:bold;
+				font-size:14px;
+				color:#F06868;
+				display:none;
+			}
 			.field {
 				width: 393px;
 				clear: both;
 			}
-			
 			#shadow-wrapper {
 				position: absolute;
 				@include box-shadow(0px 0px 2px rgba(0, 0, 0, 0.3));
@@ -1388,7 +1412,7 @@ body {
 	position:absolute;
 	top:0;
 	left:0;
-	padding:50px 50px 20px 30px;
+	padding:50px 50px 40px 30px;
 	height:100%;
 	@include box-sizing(border-box);
 	@include stretch-x;
@@ -1446,7 +1470,7 @@ body {
 	
 	&.bubble-dialog {
 		width: 350px;
-		z-index: 30;
+		z-index: 50;
 		@include border-radius(10px);
 		background-color: $window-background;
 		border: $window-border;

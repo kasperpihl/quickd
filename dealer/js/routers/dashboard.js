@@ -15,8 +15,7 @@ define([
 			'administration/:path':	'openAdministration',
 			'start':				'openStartDeals',
 			'start/:id':			'openStartDeals',
-			'hjem':					'openHomeView',
-			'*index':				'indexing'
+			'hjem':					'openHomeView'
 		},
 		start: function(options){
 			this.route;
@@ -38,10 +37,16 @@ define([
 			});
 			this.bind('promtCallback:dashboard-router', this.retryConnection);
 			this.getChanges();
+			this.on('route:*index', this.indexing);
+			//log("started", options)
+			this.started = true;
 			//setTimeout(this.getChanges,10000);
 		},
-		indexing:function(test){
-			this.navigate('hjem',{trigger:true});
+		indexing:function(){
+			log("indexing");
+			if (this.started) {
+				this.navigate('hjem',{trigger:true});
+			}
 		},
 		openHomeView:function(){
 			App.views.dashboard.changeActivity({activity:'welcome'});

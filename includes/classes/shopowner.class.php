@@ -4,7 +4,7 @@ class Shopowner {
 		global $db,$session;
 		try{
 			$email = isset($model['email']) ? strtolower($model['email']) : '';
-			if (!isValidEmail($email)) return array('success'=>'false','error'=>'email_not_valid', 'data'=>$model);
+			if (!isValidEmail($email)) return array('success'=>'false','error'=>'email_not_valid');
 			$password = isset($model['password']) ? $model['password'] : null;
 			if(($password && strlen($password) < 6) || (!$password && $type=='dealer')) return array('success'=>'false','error'=>'password_must_be_6_long');
 			$user = (object) json_decode(self::checkEmail($email));
@@ -13,7 +13,7 @@ class Shopowner {
 					$session->login($user->data->id,$user->data->value->privileges);
 					return array('success'=>'true', 'data'=>$user);
 				}
-				return array('success'=>'false','error'=>'user_exists', 'data'=>$user);
+				return array('success'=>'false','error'=>'user_exists');
 			}
 			$update = 'registerUser';
 			if ($type==='dealer') {
@@ -37,7 +37,7 @@ class Shopowner {
 				if ($type=='dealer') $result->data->hours = $model['hours'];
 				$result->data->email = $email;
 				$session->login($result->data->id,$model['privileges']);
-				Mail::sendBetaConfirmation($email);
+				if ($type!='dealer') Mail::sendBetaConfirmation($email);
 			}
 			
 			return $result;
@@ -133,7 +133,6 @@ class Shopowner {
 	}
 	public static function requestNewPassword($model){
 		global $db;
-		if(!isset($model['email'])) return array('success'=>'false','error'=>'no_email_provided', 'data'=>$model);
 		$email = $model['email'];
 		$type = isset($model['type']) ? $model['type'] : 'dealer';
 		try{
@@ -165,11 +164,14 @@ class Shopowner {
 		}
 		catch(Exception $e){ return json_encode(array('success'=>'false','error'=>'database_error','function'=>'requestNewPassword', 'e'=>$e->getMessage())); }
 	}
-	public static function resetPassword($doc_id,$newPass){
+	public static function resetPassword($model){
+		if(isset($model['email'])) return self::requestNewPassword($model);
+		if(!isset($model['password'],$model['id'],$model['doc_id'])) return array('success'=>'false','error'=>'password_or_id_not_provided');
+
 		global $db;
 		try{
-
-			$newPass = md5(MD5_STRING.$newPass);
+			$doc_id = $model['doc_id'];
+			$newPass = md5(MD5_STRING.$model['password']);
 			$model = array('md5_password'=>$newPass);
 			$result = json_decode($db->updateDocFullAPI('dealer','editUser',array('doc_id'=>$doc_id,'params'=>array('json'=>json_encode($model)))));
 			return $result;

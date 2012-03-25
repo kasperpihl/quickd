@@ -8,6 +8,7 @@ define([
 			_.bindAll(this,'saveShop','closeBubble','openBubble','success','doContinue');
 			this.activity = "welcome_greeting";
 			this.router = this.options.router;
+
 			this.render();
 		},
 		render:function(){
@@ -48,7 +49,8 @@ define([
 				});
 				$('#shop_name').focus();
 				thisClass.bubbleShown=true;
-				GMapInitialize();
+				require(['http://maps.googleapis.com/maps/api/js?sensor=true&callback=GMapInitialize']);
+				//GMapInitialize();
 			});
 		},
 		doNothing:function(obj) {
@@ -76,7 +78,6 @@ define([
 			
 		},
 		doContinue:function(e) {
-			log("continue");
 			var thisClass=this;
 			if((!e.keyCode || e.keyCode == 13) && this.form.valid() ){
 				$('#add_shop_fields input:focus').blur();

@@ -1,25 +1,36 @@
 define([
 'order!views/dialogs/dialog',
 'order!views/entry',
-'models/models'
+'models/models',
+'routers/dashboard'
 ],function(){
 App.routers.Entry = Backbone.Router.extend({
 	routes: {
-		
-		//'login':				'openLoginView',
-		//'register':				'openRegisterView',
+		'login':		'setViewLogin',
+		'register':	'setViewRegister',
+		'*index': 	'setViewLogin'	
 	},
 	initialize: function(){	
-		this.dashReady = false;
+		this.route;
+		this.dashReady = true;
 		this.entryView = new App.views.Entry({router:this});
+		App.routers.dashboard = new App.routers.Dashboard();
 		this.model = App.models.shopowner = new App.models.Shopowner();
-		this.view;
+		this.view = 'login';
 		this.box = false;
 		_.bindAll(this,'doLogin','doRegister','openRegisterView', 'closeRegisterView', 'makeDashReady');
-		this.makeDashReady();
+		//this.makeDashReady();
 	},
 	dealer:function(){
 		log('dealing');
+	},
+	setViewLogin:function(obj) {
+		this.view = 'login';
+		if (this.entryView.created) this.closeRegisterView();
+	},
+	setViewRegister:function(obj) {
+		this.view = 'register';
+		if (this.entryView.created) this.openRegisterView();
 	},
 	animateDashboard: function() {
 		$("#body-mask").hide();
@@ -49,15 +60,10 @@ App.routers.Entry = Backbone.Router.extend({
 	doRegister: function(){
 		var thisClass = this;
 		//log($('#register_password').val(),'hej');
-		$.post(ROOT_URL+'api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
+		$.post(ROOT_URL+'api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#register_betacode').val()},function(response){
 			
 			log('reg',response);
 			if(response.success == 'true'){
-				//log("response from register", response);
-				//thisClass.animateDoRegister();
-				//setTimeout(function(){
-				//	thisClass.animateDashboard();
-				//}, 2000);
 				
 				$("#footer-login").fadeOut();
 				$("#header-login").fadeOut();
@@ -69,20 +75,12 @@ App.routers.Entry = Backbone.Router.extend({
 				
 			}
 			else{
-				//log("response from register", response);
-				if(response.error == 'user_exists') {
-					//thisClass.registerView.shakeDialog();
-					alert('Brugeren findes allerede');
-				} else if (response.error == 'wrong_betacode'){
-					//thisClass.registerView.shakeDialog();
-					alert('Forkert betakode');
-				} else if (response.error == 'email_not_valid'){
-					//thisClass.registerView.shakeDialog();
-					alert('Email ikke valid');				
-				}
-				else if (response.error == "password_must_be_6_long") {
-					alert('Password ikke valid');
-				}
+				var $errorCont = $('#error_container');
+				if      (response.error == 'user_exists') $errorCont.html('Brugeren findes allerede');
+				else if (response.error == 'wrong_betacode') $errorCont.html('Betanøglen er ugyldig');
+				else if (response.error == 'email_not_valid') $errorCont.html('Den indtastede email er ugyldig');
+				else if (response.error == "password_must_be_6_long") $errorCont.html('Det valgte password er for kort');
+				$errorCont.show();
 			}
 		},'json');
 		
@@ -94,19 +92,20 @@ App.routers.Entry = Backbone.Router.extend({
 	},
 	
 	openRegisterView:function(){
-		//this.registerView.openDialog();
 		var $view = $('#entry_view');
 		$("#header-login").animate({height: $view.outerHeight() + 'px', opacity: 1}, 1200, 'easeOutQuart', function() {
 			$("#header-login").height("100%");
 		});
 		$("#position_wrapper").animate({marginTop: '-210px'}, 1200, 'easeOutQuart');
 		$("#login_fields").animate({left: '-50%'}, 400, 'easeInQuart', function() {
+			$(this).hide();
 			$("#registrer").css("display", "block");
-			$("#registrer").animate({right: '50%', marginRight: '-224px'}, 400, 'easeOutQuart');
+			$("#registrer").animate({right: '50%', marginRight: '-224px'}, 400, 'easeOutQuart', function() {
+				$("#register_username").focus();
+			});
+			
 		});
-		
-		//$("#registrer").fadeIn('slow');
-		//$("#register_background").fadeIn('slow');
+		this.navigate('register');
 	},
 	
 	closeRegisterView:function() {
@@ -117,10 +116,11 @@ App.routers.Entry = Backbone.Router.extend({
 		$("#position_wrapper").animate({marginTop: '-124px'}, 1200, 'easeOutQuart');
 		
 		$("#registrer").animate({right: '-50%', marginRight: '-203px'}, 400, 'easeInQuart', function() {
-			$("#login_fields").animate({left: '50%'}, 400, 'easeOutQuart');
+			$("#login_fields").show().animate({left: '50%'}, 400, 'easeOutQuart');
 			$("#registrer").css("display", "none");
+			$("#login_username").focus();
 		});
-		
+		this.navigate('login');
 		
 		
 		//$("#login_fields").fadeIn('slow');
@@ -135,10 +135,10 @@ App.routers.Entry = Backbone.Router.extend({
 			thisClass.conditionsView.openDialog();
 		});
 	},
-	openResetPass:function() {
+	openResetPass:function(email) {
 		var thisClass = this;
 		require(['views/dialogs/resetPassword'],function(){
-			thisClass.resetPassView = new App.views.dialogs.ResetPassword({router:thisClass});
+			thisClass.resetPassView = new App.views.dialogs.ResetPassword({router:thisClass,email:email});
 			thisClass.resetPassView.openDialog();
 		});
 	},
@@ -148,25 +148,24 @@ App.routers.Entry = Backbone.Router.extend({
 			log('dash ready');
 			thisClass.dashReady = true;
 			App.routers.dashboard = new App.routers.Dashboard();
+			obj = historyObj;
+			obj.silent = true;
+			Backbone.history.start(obj);
 		});
 	},
 	startDashboard: function(stuff){
 		if(!this.dashReady){
 			setTimeout(this.startDashboard(stuff),200);
 			return;
-		}
-		var obj = {};
-		if(stuff) obj.stuff = stuff;
-		/*this.loginView.closeDialog(true);
-		this.registerView.closeDialog(true);*/
-		$('#footer.entry_footer').remove();
-		require(['routers/dashboard'],function(){
+		} else {
+			var obj = {};
+			if(stuff) obj.stuff = stuff;
 			App.routers.dashboard.start(obj);
-			Backbone.history.start(historyObj); 
+			$('#footer.entry_footer').remove();
 			$(function(){
 				App.routers.dashboard.navigate('hjem',{trigger:true});
 			});
-		});
+		}
 	}
 });
 return App.routers.Entry;

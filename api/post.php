@@ -26,7 +26,7 @@ else if($action){
 			$result = Shopowner::register($model, 'subscribe');
 		break;
 		case 'reset':
-			$result = Shopowner::requestNewPassword($model);
+			$result = Shopowner::resetPassword($model);
 		break;
 		case 'fbconnect':
 			$result = Shopowner::fb_connect();

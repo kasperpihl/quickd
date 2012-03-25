@@ -3,39 +3,43 @@ define([
 	App.views.Entry = Backbone.View.extend({
 		el: 'body',
 		initialize:function(){
-			_.bindAll(this,'handleKeypress','doOnOpen','handleClick');
+			_.bindAll(this,'doOnOpen','handleClick');
 			var thisClass = this;
 			this.router = this.options.router;
+			this.created = false;
 			this.render();
 			
 		},
 		events: {
-			'click #login_button, #btn_read_conditions,#btn_forgot_pass,#go_register_button,#do_register_button,#cancel_register_button': 'handleClick'
+			'click #login_button, #btn_read_conditions,#btn_forgot_pass,#go_register_button,#do_register_button,#cancel_register_button': 'handleClick',
+			'keypress #login_username, #login_password': 'handleKeypressLogin',
+			'keypress #register_username, #register_password, #register_betacode': 'handleKeypressRegister',
+
 		},
 		render: function(){
 			var tpl = 'text!templates/entry.html';
 			var thisClass = this;
 			require([tpl],function(template){
-				$('body').append(_.template(template));
-				this.form = $('#register-form');
-				if (this.form) this.form.formValidate({
+				$('body').append(_.template(template, {view: thisClass.router.view}));
+				thisClass.form = $('#register-form');
+				$('#entry_view').formValidate({
 					rules: {
-						 user: {
+						 register_username: {
 							 required:true,
 							 email:true,
 							 remote: {
-								 url: "ajax/shopowner.php",
+								 url: ROOT_URL+"ajax/shopowner.php",
 	       						 type: "post",
 								 data: {
 									action: 'test_username' 
 								 }
 							 }
 						 },
-						 password: {
+						 register_password: {
 							 required:true,
 							 minlength:6
 						 },
-						 betacode: {
+						 register_betacode: {
 							 required: true,
 							 remote: {
 								 url: "ajax/shopowner.php",
@@ -44,20 +48,38 @@ define([
 									action: 'test_betacode' 
 								 }
 							 }
+						 },
+						 register_accept_terms: {
+						 	required:true
 						 }
 				   },
 				   messages: {
-					   user: {
-						   remote: jQuery.validator.format("Emailen er allerede optaget.<br /> Vælg venligst en anden email")
+					   register_username: {
+						   remote: jQuery.validator.format("Den indtastede email er allerede registreret<br /> Log ind eller vælg en anden")
 					   },
-					   betacode: {
+					   register_betacode: {
 						   remote: jQuery.validator.format("Den indtastede betakode er ugyldig")
+					   },
+					   register_accept_terms: {
+					   	required: jQuery.validator.format('Betingelser skal godkendes')
 					   }
 				   },
-				   submitKey: '#do_register_button'
+				   errorPlacement: function(error, element) {
+						  var parent = element.closest('.field');
+						  if (parent) error.appendTo(parent);
+						  else error.insertAfter(element);
+						  var top = element.position().top + (element.outerHeight()-error.outerHeight())/2 + 1;
+						  var left = -(error.outerWidth()+15);
+						  error.css({
+						 		top: top+'px',
+						 		left: left+'px'
+						 	});
+						}
 
 				});
-				$('#login_username').focus();
+				if (thisClass.router.view=='register') $('#register_username').focus();
+				else $('#login_username').focus();
+				thisClass.created = true;
 			});
 		},
 		shakeDialog:function(){
@@ -66,10 +88,10 @@ define([
 		},
 		
 		handleClick: function(data){
-			log(data.currentTarget.id);
+			//log(data.currentTarget.id);
 			switch(data.currentTarget.id){
 				case 'btn_forgot_pass':
-					this.router.openResetPass();
+					this.router.openResetPass($('#login_username').val());
 				break;
 				case 'btn_read_conditions':
 					this.router.openConditionsView();
@@ -78,19 +100,32 @@ define([
 					this.router.doLogin();
 				break;
 				case 'go_register_button':
-					this.router.openRegisterView();
+					//this.router.openRegisterView();
+					this.router.navigate('register', {trigger:true});
 				break;
 				case 'do_register_button':
-					this.router.doRegister();
+					if (this.form && this.form.valid()) {
+						this.router.doRegister();
+					} 
+					//else this.form.submit();
 				break;
 				case 'cancel_register_button':
-					this.router.closeRegisterView();
+					//this.router.closeRegisterView();
+					this.router.navigate('login', {trigger:true});
 				break;
 			}
+			return false;
 		},
-		handleKeypress: function(e){
-			if(e.keyCode == 13){
+		handleKeypressLogin: function(e) {
+			if(e.keyCode == 13) {
 				this.router.doLogin();
+			}
+		},
+		handleKeypressRegister: function(e) {
+			if(e.keyCode == 13) {
+				if (this.form && this.form.valid()) {
+					this.router.doRegister();
+				} else this.form.submit();
 			}
 		},
 		doOnOpen:function() {
