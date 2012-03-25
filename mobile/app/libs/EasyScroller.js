@@ -18,7 +18,6 @@ var EasyScroller = function(content, options) {
 
 	// reflow for the first time
 	this.reflow();
-
 };
 
 EasyScroller.prototype.render = (function() {

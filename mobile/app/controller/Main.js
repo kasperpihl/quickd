@@ -44,7 +44,6 @@ Ext.define('QuickD.controller.Main', {
                 var controller = this.getApplication().getController('SortController');
                 controller.filterChange();
                 this.getMain().animateActiveItem(this.getDealList(), 'flip');
-                //this.changeToView('dealshow');
             break;
             case 'backFromShowButton':
                 this.changeToView('deallist');
@@ -86,7 +85,9 @@ Ext.define('QuickD.controller.Main', {
     
     updatedStore:function(instance,data,options){
         log('updatedStore');
-        this.getDealShow().setSlider(instance.getData().items);
+        var view = this.getDealShow();
+        
+        view.setSlider(instance.getData().items);
     },
     onLocationUpdate:function(){
         this.getMain().getAt(0).show();
@@ -107,6 +108,7 @@ Ext.define('QuickD.controller.Main', {
     changeToView:function(view,options){
         var main    = this.getMain(),
             $deals  = $('#quickd-deals .x-list-container div.x-list-item'),
+            button  = Ext.ComponentQuery.query('toolbar #sortButton'),
             self    = this;
 
         switch(view){
@@ -116,24 +118,24 @@ Ext.define('QuickD.controller.Main', {
             case 'dealshow':
                 var dealsOut    = this.animationController.dealsListOut($deals),
                     bgIn        = this.showSingleBackground(300);
-                var button = Ext.ComponentQuery.query('toolbar #sortButton');
+
                 button[0].hide();
+                
                 // Fetch data for selected deal.
                 this.getDealShow().loadDeal(options.record,options.index); // ingen server load, så dataen er der med det samme.
                 
                 $.when(dealsOut, bgIn).done(function() {
                     self.getMain().setActiveItem(self.getDealShow());
+                    self.getDealShow().updateScroll();
                 });
             break;
             case 'deallist':
-                var button = Ext.ComponentQuery.query('toolbar #sortButton');
                 button[0].show();
                 main.setActiveItem(this.getDealList());
                 
+                // TODO: Why do we need a timeout here...?
                 setTimeout(function() {
-                    log('hideSingleBackground begin');
                     self.hideSingleBackground().done(function() {
-                        log('hideSingleBackground done');
                         self.animationController.dealsListIn($deals);
                     });
                 }, 100);
@@ -141,7 +143,6 @@ Ext.define('QuickD.controller.Main', {
             case 'mapshow':
                 this.getMapShow().setRecord(this.activeDeal);
                 this.getMain().animateActiveItem(this.getMapShow(), 'flip');
-                //this.getMain().setActiveItem();
             break;
         }
     },
@@ -149,20 +150,19 @@ Ext.define('QuickD.controller.Main', {
         var drf = new $.Deferred();
         this.$dealsBg.delay(delay).fadeIn(duration || 250, drf.resolve);
         return drf.promise();
-    }, 
+    },
     hideSingleBackground: function(delay, duration) {
         var drf = new $.Deferred();
         this.$dealsBg.delay(delay).fadeOut(duration || 200, drf.resolve);
         return drf.promise();
     },
-    onLocationError:function(error,test1,permDenied,test3,test4){
+    onLocationError:function(error, test1, permDenied, test3, test4){
         this.getMain().getAt(1).setHtml('error location');
     },
     onDealSelect:function(list, index, node, record){
         this.activeDeal = record;
         this.changeToView('dealshow',{record:record,list:list,index: index});
+        this.getDealShow().addCustomScroll();
         return false;
-        // Bind the record onto the show contact view
-       // this.showDeal.setRecord(record);
     }
 });

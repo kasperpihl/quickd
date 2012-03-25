@@ -94,7 +94,7 @@ Ext.define('QuickD.view.DealShow', {
             xtype: 'carousel',
             id: 'quickd-deal-slider',
             config:{
-                height:'170px',
+                height:'170px'
             },
             indicator: false,
             defaults:{
@@ -128,31 +128,25 @@ Ext.define('QuickD.view.DealShow', {
             slider  = this.down('#quickd-deal-slider');
         
         slider.removeAll(true,true);
-        for(var key in records){
-            slider
-                .add({})
-                .setData(records[key].data);
-        }
+        for(var key in records) slider.add({}).setData(records[key].data);
     },
     loadDeal:function(record,index){
+        var $deal = $('#deal-' + record.internalId + '-info');
+        
         // TODO: This gets called before single deal view is loaded. It's probably a bug.
         this.down('#quickd-deal-slider').setActiveItem(index);
         this.down('#quickd-deal-content').setData(record.getData());
 
-
-        var $deal = $('#deal-' + record.internalId + '-info');
-
         log('New deal set: ', record, index, $deal);
-        
-        if ($deal.length > 0) this.addCustomScroll($deal);
-        else log('views/DealShow.js > NO DEAL YET!!!!');
     },
     initialize: function() {
         this.callParent(arguments);
     },
-    addCustomScroll: function($el) {
-        var $wrap           = $el.parent(),
-            carouselHeight  = $('#quickd-deal-slider').height();
+    addCustomScroll: function() {
+        var $el             = $('#quickd-deal-content article[id*=deal-]'),
+            $wrap           = $el.parent(),
+            carouselHeight  = $('#quickd-deal-slider').height(),
+            self            = this;
         
         if (this.easyScroll) this.easyScroll = null; // TODO: Find a better way to kill the old instance (Couldn't find a destroy() method).
 
@@ -162,9 +156,22 @@ Ext.define('QuickD.view.DealShow', {
             zooming: false
         });
 
-        // TODO: Could we optimize this?
+        // TODO: Could we optimize this to prevent memory leaks? A resize-controller maybe.
+        // resizeController.addChild($wrap) // resizeController.removeChild($wrap);
         $(window).on('resize', function(e) {
             $wrap.height((window.innerHeight - carouselHeight));
         }).resize();
+
+        $el.find('img').load(function() { self.updateScroll(); } );
+
+        /*setTimeout(function() {
+            self.easyScroll.reflow();
+        }, 1000);*/
+    },
+    updateScroll: function() {
+        if (this.easyScroll) {
+            this.easyScroll.reflow();
+            log('EasyScroller updated.');
+        }     
     }
 });
