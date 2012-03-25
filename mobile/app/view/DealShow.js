@@ -94,7 +94,7 @@ Ext.define('QuickD.view.DealShow', {
             xtype: 'carousel',
             id: 'quickd-deal-slider',
             config:{
-                height:'170px',
+                height:'170px'
             },
             indicator: false,
             defaults:{
@@ -124,47 +124,49 @@ Ext.define('QuickD.view.DealShow', {
         }]
     },
     setSlider:function(records){
-        var array = [];
-        log(records);
-        var slider = this.down('#quickd-deal-slider');
+        var array   = [],
+            slider  = this.down('#quickd-deal-slider');
+        
         slider.removeAll(true,true);
-        var array = [];
-        for(var key in records){
-            //array.push(records[key].data);
-            slider.add({}).setData(records[key].data);
-        }
+        for(var key in records) slider.add({}).setData(records[key].data);
     },
     loadDeal:function(record,index){
-        //log('logging data',record.getData().end);
+        var $deal = $('#deal-' + record.internalId + '-info');
+        
         this.down('#quickd-deal-slider').setActiveItem(index);
         this.down('#quickd-deal-content').setData(record.getData());
+
+        if ($('#quickd-deal-content article[id*=deal-]').length > 0) this.addCustomScroll();
     },
     initialize: function() {
         this.callParent(arguments);
     },
-    listeners: {
-        painted: function() {
-            var self = this;
-            (function() {
-                var $deal   = $('article[id*=deal-]');
-                if ($deal.length > 0) self.addCustomScroll();
-                else setTimeout(arguments.callee, 500); // Fix sencha bug where 'painted' is called too early.
-            })();
-        }
-    },
     addCustomScroll: function() {
-        var $el             = $('article[id*=deal-]').first(),
+        var $el             = $('#quickd-deal-content article[id*=deal-]'),
             $wrap           = $el.parent(),
-            carouselHeight  = $('#quickd-deal-slider').height();
-    
-        new EasyScroller($el[0], {
+            carouselHeight  = $('#quickd-deal-slider').height(),
+            self            = this;
+
+        if (this.easyScroll) this.easyScroll = null; // TODO: Find a better way to kill the old instance (Couldn't find a destroy() method).
+
+        this.easyScroll = new EasyScroller($el[0], {
             scrollingX: false,
             scrollingY: true,
             zooming: false
         });
 
+        // TODO: Could we optimize this to prevent memory leaks? A resize-controller maybe.
+        // resizeController.addChild($wrap) // resizeController.removeChild($wrap);
         $(window).on('resize', function(e) {
             $wrap.height((window.innerHeight - carouselHeight));
         }).resize();
+
+        $el.find('img').load(function() { self.updateScroll(); } );
+    },
+    updateScroll: function() {
+        if (this.easyScroll) {
+            this.easyScroll.reflow();
+            log('EasyScroller updated.');
+        }
     }
 });
