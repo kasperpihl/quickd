@@ -1,6 +1,7 @@
 define([
 'views/windows/window'
 ],function(){
+
 	App.views.windows.MyDeals = App.views.Window.extend({
 		el: '#activity_overview',
 		depth: 2,
@@ -22,9 +23,15 @@ define([
 			else this.currentDeal = null;
 			if (this.currentDeal) this.view = 'deal-details';
 			else this.view = 'deal-list';
-			log("deals", this.collection.toJSON());
 			var data = this.updateContent(false);
-			this.createWindow(true, data);
+			var tpl = 'text!templates/component/viewDeal.html';
+	    require([tpl],function(tmp){
+	      thisClass.dealViewHtml = tmp;
+	      if (thisClass.currentDeal)
+	      	data.dealView = _.template(tmp, {data:thisClass.currentDeal.toJSON()});
+	      thisClass.createWindow(true, data);
+	    });
+			
 			App.collections.deals.bind('add',this.onDealAdded);
 			App.collections.deals.bind('change',this.onDealChanged);
 			App.collections.deals.bind('remove',this.updateContent);
@@ -33,16 +40,11 @@ define([
 		updateContent:function(doSetContent) {
 			var thisClass = this;
 			var data = this.sortDeals();
-			if (this.currentDeal) {
-				var tpl = 'text!templates/component/viewDeal.html';
-				require([tpl],function(template){
-
-				});
-				data.dealView = _.template()
-			}
-			data.currentDeal = this.currentDeal;
 			data.tabId = this.tabId;
 			data.view = this.view;
+			data.currentDeal = this.currentDeal;
+			if (this.dealViewHtml&&this.currentDeal) data.dealView = _.template(this.dealViewHtml, {data:this.currentDeal.toJSON()});
+
 			if (doSetContent) this.setContent(data);
 			else return data;
 		},
@@ -50,6 +52,14 @@ define([
 			log("onDealChanged", data, obj);
 			if (data.hasChanged('state')) {
 				this.stateChanged(data.get('id'));
+			} else if(data.hasChanged('status') && data.get('status')=='soldout') {
+				$('#deal-'+data.get('id')).find('.soldout').show();
+				if (this.currentDeal && this.currentDeal.get('id')==data.get('id')) {
+					$('#view-'.this.currentDeal.get('id'))
+						.find('.remove-btn').hide().end()
+						.find('.soldout').show();
+				}
+
 			} else this.updateContent(true);
 		},
 		onDealAdded:function(data, obj) {
@@ -106,25 +116,6 @@ define([
 			_events['click '+this.windowId+' #btn_remove_deal'] = 'removeDeal';
 			return _events;
 		},
-		fillFields:function(empty) {
-			if (!empty && this.currentDeal) var data = this.currentDeal.toJSON().template;
-			else {
-				//create empty object here	
-			}
-			
-			$('#deal_title').html(data.title);
-			var imgSrc = data.image ? IMG_URL+'thumbnail/'+data.image : 'styles/stylesheets/i/no_image_small.png';
-			//log("imgSrc", imgSrc);
-			$('#deal_image').attr('src', imgSrc);
-			$('#deal_orig_price').html(data.orig_price+' kr.');
-			$('#deal_price').html(data.deal_price+ ' kr.');
-			var discount = Math.round((data.orig_price-data.deal_price) / data.orig_price * 100);
-			$('#deal_discount').html(discount+'%');
-			
-			$('#deal_starting_time').html(getTimeString(this.currentDeal.get('start')*1000, 'simple'));
-			$('#deal_ending_time').html(getTimeString(this.currentDeal.get('end')*1000, 'simple'));
-			$('#deal_description').html(data.description);
-		},
 		viewDeal: function(data) {
 			var id = data.currentTarget.id;
 			id = id.substr(5);
@@ -137,14 +128,19 @@ define([
 			this.currentDeal = this.collection.get(id);
 			if (this.currentDeal) {
 				$('#btn_deal_back').show();
-				this.fillFields();
+				$('#view-deal-details').html(_.template(this.dealViewHtml, {data:this.currentDeal.toJSON()}))
 				this.changeView('deal-details');
 			}
+		},
+		showList:function() {
+			this.currentDeal = null;
+			this.changeView('deal-list');
+			$('#btn_deal_back').hide();
 		},
 		removeDeal:function(){
 			if (this.currentDeal) {
 				var time = parseInt(new Date().getTime()/1000);
-				if (this.currentDeal.start>time ||this.currentDeal.end < time) {
+				if (this.state!='current') {
 					var title = 'Er du sikker på du ønsker at slette denne deal?',
 							btn_txt = 'Slet';
 				} else {
@@ -167,10 +163,8 @@ define([
 					} else {
 						this.currentDeal.destroy({data:this.currentDeal.id, success:function(model, response) {
 							log("deleted", model, response);
-					
-						thisClass.router.trigger('dealEdited',{event:'dealDeleted'});
-						thisClass.activity.closeWindow(this, false, true);
-					
+							thisClass.router.trigger('dealEdited',{event:'dealDeleted'});
+							thisClass.activity.closeWindow(thisClass, false, true);
 						}, error:function(model, response) { log("error delete: ", model, response); }});
 					}
 					
@@ -179,13 +173,6 @@ define([
 					this.router.trigger('setFocus', {activity:this.activity, windowCid:this.cid});
 				}
 			}
-		},
-		setDealSoldout: function(id) {
-			log("deal is sold out", id, this.collection.get(id));
-		},
-		showList:function() {
-			this.changeView('deal-list');
-			$('#btn_deal_back').hide();
 		},
 		changeTab: function(data) {
 			var id = data.currentTarget.id;

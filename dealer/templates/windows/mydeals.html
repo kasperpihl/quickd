@@ -21,9 +21,8 @@
                            <em>122</em> listevisninger / <em>23</em> dealvisninger
                         </span> -->
                     <% } %>
-                    <% if (deal.status=='soldout') { %>
-                      <span class="soldout">Udsolgt</span>
-                    <% } %>
+                    <span class="soldout" style="display:<%=deal.status=='soldout' ? 'block' : 'none' %>">Udsolgt</span>
+
                 </div>
             </div>
           
@@ -58,6 +57,7 @@
             </div>
     </div>
     <div class="content-wrapper" id="view-deal-details" <% if(data.view=='deal-list') print('style="display:none"') %> >
-    	
+    	<%=data.dealView?data.dealView : ''%>
     </div>
 </div>
+
