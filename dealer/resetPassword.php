@@ -1,5 +1,5 @@
 <?php require_once('../config.php'); 
-$resetPasswordBool = false;
+$resetPasswordBool = true;
 if(isset($_GET['id'])){
 	$id = $_GET['id'];
 	try{
@@ -29,6 +29,25 @@ if(isset($_GET['id'])){
 		<script src="<?= ROOT_URL ?>js/function.js"></script>
 		<script src="<?= LIBS_URL ?>jquery/jquery.validate.js"></script>
 		<script>
+			$(document).ready(function() {
+				var form = $('form#new-pass-form');
+
+				form.formValidate({
+					rules: {
+						newPass: {
+							 required:true,
+							 minlength:6
+						}
+				  },
+				  submitKey: '#btn:submit_pass'
+				});
+				$('button#btn_submit_pass').on('click', function() {
+					if (form && form.valid()) {
+						//do ajax here!!
+					} else form.submit();
+					return false;
+				});
+			});
 		</script>
 	</head>
 	<body>
@@ -36,19 +55,21 @@ if(isset($_GET['id'])){
 		<div class="wrapper">
 			<div>
 				<div id="logo"></div>
-				<div id="enterNewPassword">
-					<?php if($resetPasswordBool){ ?>
-					<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
-					<div class="field">
-						<div>
-							<input type="password" name="newPass" value=""/><button name="submit">Fortsæt</button>
+				<form id="new-pass-form">
+					<div id="enterNewPassword">
+						<?php if($resetPasswordBool){ ?>
+						<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
+						<div class="field">
+							<div>
+								<input type="password" name="newPass" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
+							</div>
 						</div>
+						<?php } else{ ?>
+							<p>Linket er brugt, forældet eller findes ikke.</p>
+							<a class="gotoDealer" href="<?= ROOT_URL ?>">Gå til forhandlerlogin</a>
+						<?php } ?>
 					</div>
-					<?php } else{ ?>
-						<p>Linket er brugt, forældet eller findes ikke.</p>
-						<a class="gotoDealer" href="<?= ROOT_URL ?>">Gå til forhandlerlogin</a>
-					<?php } ?>
-				</div>
+				</form>
 			</div>
 		</div>
 		</div>
