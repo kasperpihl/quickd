@@ -31,7 +31,7 @@ define([
 			log(data.currentTarget.id);
 			switch(data.currentTarget.id){
 				case 'btn_forgot_pass':
-					this.router.openResetPass();
+					this.router.openResetPass($('#login_username').val());
 				break;
 				case 'btn_read_conditions':
 					this.router.openConditionsView();

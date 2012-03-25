@@ -12,9 +12,9 @@ define([
 			this.closable = true;
 			this.width = 380;
 			this.height = 222;
-			this.createDialog({}, function() {
+			log(this.options);
+			this.createDialog({email:this.options.email}, function() {
 				$(thisClass.dialogId).formValidate();
-				
 			});
 			
 		},
@@ -30,7 +30,7 @@ define([
 		handleKeypress: function(e){
 			if(e.keyCode == 13){
 				
-				//this.router.doResetPass();
+				this.router.doResetPass();
 			}
 		},
 		doOnOpen:function() {

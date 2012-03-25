@@ -133,10 +133,10 @@ App.routers.Entry = Backbone.Router.extend({
 			thisClass.conditionsView.openDialog();
 		});
 	},
-	openResetPass:function() {
+	openResetPass:function(email) {
 		var thisClass = this;
 		require(['views/dialogs/resetPassword'],function(){
-			thisClass.resetPassView = new App.views.dialogs.ResetPassword({router:thisClass});
+			thisClass.resetPassView = new App.views.dialogs.ResetPassword({router:thisClass,email:email});
 			thisClass.resetPassView.openDialog();
 		});
 	},
