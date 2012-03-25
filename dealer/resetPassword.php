@@ -39,6 +39,18 @@ if(isset($_GET['id'])){
 							 minlength:6
 						}
 				  },
+				  errorPlacement: function(error, element) {
+						  var parent = element.parents('.field');
+						  if (parent) error.appendTo(parent);
+						  else error.insertAfter(element);
+							var input = parent.find('input').first();
+						  var top = input.position().top + (input.outerHeight()-error.outerHeight())/2 + 1;
+						  var left = -(error.outerWidth()+35);
+						  error.css({
+						 		top: top+'px',
+						 		left: left+'px'
+						 	});
+					},
 				  submitKey: '#btn:submit_pass'
 				});
 				$('button#btn_submit_pass').on('click', function() {
@@ -60,9 +72,9 @@ if(isset($_GET['id'])){
 						<?php if($resetPasswordBool){ ?>
 						<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
 						<div class="field">
-							<div>
+							
 								<input type="password" name="newPass" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
-							</div>
+							
 						</div>
 						<?php } else{ ?>
 							<p>Linket er brugt, forældet eller findes ikke.</p>
