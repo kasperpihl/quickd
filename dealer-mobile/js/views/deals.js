@@ -18,7 +18,7 @@ App.views.Deals = Backbone.View.extend({
 		$.get('templates/deals.html',function(template){
 			if(thisClass.dealSlider) thisClass.dealSlider.destroy();
 			$(thisClass.el).html(_.template(template,data));
-			thisClass.royalSlider();
+			if(!thisClass.dealSlider)thisClass.royalSlider();
 		},'html');
 	},
 	
