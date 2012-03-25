@@ -9,7 +9,8 @@ if(isset($_GET['id'])){
 			$doc_id = $resetPass[0]->value[0];
 			$user = $resetPass[0]->value[1];
 			$endtime = $user->newPass->endtime;
-			if($endtime > time()) $resetPasswordBool = true;			
+			$url = $user->newPass->url;
+			if($endtime > time()) $resetPasswordBool = $url;			
 		}
 	}
 	catch(Exception $e){
