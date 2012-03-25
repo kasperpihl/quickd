@@ -114,7 +114,7 @@ define([
 				//Find image
 				var manual = {};
 				if ($('#img_src').val()!="" && $('#img_src').val()!=this.model.attributes.image) manual.image = $('#img_src').val();
-				if (!$(this.windowId+' .category.selected').empty()) manual.category = ($(this.windowId+' .category.selected').attr('id')).substr(4);
+				if ($(this.windowId+' .category.selected')) manual.category = ($(this.windowId+' .category.selected').attr('id')).substr(4);
 				var thisClass = this;
 				this.saveToModel({onChanged:function() {
 					thisClass.router.trigger('templateEdited',{event:'templateEdited'}); 
