@@ -67,6 +67,96 @@ $register-shop-btn-active: -78px;
 	opacity: 1;
 }
 
+@mixin entryview_input {
+
+	input[type="text"], input[type="password"] {
+		width: 100%;
+		border: 1px solid #CCC;
+		@include border-radius(3px);
+		@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.2));
+		color: rgba(0,0,0,0.8);
+		font-size: 13px;
+		outline: none;
+		padding: 6px;
+		-moz-transition: border .2s linear, box-shadow .2s linear;
+		-webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
+	}
+
+	input[type="text"]:focus, input[type="password"]:focus {
+		border: 1px solid #59CCD9;
+		//border: 1px solid rgba(253,154,15,1);
+		@include box-shadow(0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0,0,0,0.2));
+		//@include box-shadow(0 0px 3px rgba(234,232,121,1), inset 0 1px 2px rgba(0,0,0,0.2));
+	}
+
+	button {
+		float: left;
+		line-height: 25px;
+		padding-left: 8px;
+		padding-right: 8px;
+		margin-top: 10px;
+		cursor: pointer;
+		@include border-radius(3px);
+		outline: none;
+		font-weight: bold;
+		font-size: 13px;
+		color: #2E2826;
+		@include text-shadow(0 1px 1px rgba(255,255,255,0.8));
+		@include box-shadow(inset 0 1px 1px rgba(255,255,255,0.8));
+
+		display: inline-block;
+		border: 1px solid #FD9A0F;
+
+		// needs latest Compass, add '@import "compass"' to your scss
+		background-color: rgb(234,232,121); // Old browsers
+		@include filter-gradient(#eae879, #fd9a0f, vertical); // IE6-9
+		@include background-image(linear-gradient(top,  rgba(234,232,121,1) 0%,rgba(253,154,15,1) 100%));
+	}
+
+	button:hover {
+		background-color: rgb(234,232,121); // Old browsers
+		@include filter-gradient(#eae879, #fd9a0f, vertical); // IE6-9
+		@include background-image(linear-gradient(top,  rgba(234,232,121,1) 0%,rgba(253,154,15,0.7) 100%));
+	}
+
+	button:active {
+		@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.5));
+	}
+
+	label {
+		font-weight: bold;
+		float: left;
+		clear: both;
+		font-size: 13px;
+		margin-bottom: 5px;
+		margin-top: 15px;
+		color: rgba(0,0,0,0.6);
+
+		input[type="checkbox"] {
+			margin-right: 7px;
+		}
+
+		a {
+			font-weight: bold;
+			font-size: 12px;
+			margin-left: 4px;
+			color: #2E73BC;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		small {
+			color: rgba(0,0,0,0.4);
+			font-size: 12px;
+			margin-left: 7px;
+			font-weight: normal;
+		}
+	}
+}
+
 @mixin default-list-item {
 		padding:0px;
 		margin:0px 1px;
@@ -983,7 +1073,7 @@ body {
 
 		.register_fields {
 			position: relative;
-			@include input-register;
+			//@include input-register;
 			margin-top: 5px;
 			margin-left: auto;
 			margin-right: auto;
@@ -993,96 +1083,12 @@ body {
 			background: white;
 			@include box-shadow(0px 1px 2px rgba(0,0,0,0.3));
 			@include border-radius(5px);
-
-			label {
-				font-weight: bold;
-				float: left;
-				clear: both;
-				font-size: 13px;
-				margin-bottom: 5px;
-				margin-top: 15px;
-				color: rgba(0,0,0,0.6);
-
-				input[type="checkbox"] {
-					margin-right: 7px;
-				}
-
-				a {
-					font-weight: bold;
-					font-size: 12px;
-					margin-left: 4px;
-					color: #2E73BC;
-					text-decoration: none;
-				}
-
-				a:hover {
-					text-decoration: underline;
-				}
-
-				small {
-					color: rgba(0,0,0,0.4);
-					font-size: 12px;
-					margin-left: 7px;
-					font-weight: normal;
-				}
-			}
+			@include entryview_input;
 
 
 			.field {
 				width: 393px;
 				clear: both;
-
-				input[type="text"], input[type="password"] {
-					width: 100%;
-					border: 1px solid #CCC;
-					@include border-radius(3px);
-					@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.2));
-					color: rgba(0,0,0,0.8);
-					font-size: 13px;
-					outline: none;
-					padding: 6px;
-					-moz-transition: border .2s linear, box-shadow .2s linear;
-					-webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
-				}
-
-				input[type="text"]:focus, input[type="password"]:focus {
-					border: 1px solid #59CCD9;
-					@include box-shadow(0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0,0,0,0.2));
-				}
-
-				button {
-					float: left;
-					line-height: 25px;
-					padding-left: 8px;
-					padding-right: 8px;
-					margin-top: 10px;
-					cursor: pointer;
-					@include border-radius(3px);
-					outline: none;
-					font-weight: bold;
-					font-size: 13px;
-					color: #2E2826;
-					@include text-shadow(0 1px 1px rgba(255,255,255,0.8));
-					@include box-shadow(inset 0 1px 1px rgba(255,255,255,0.8));
-
-					display: inline-block;
-					border: 1px solid #FD9A0F;
-
-					// needs latest Compass, add '@import "compass"' to your scss
-					background-color: rgb(234,232,121); // Old browsers
-					@include filter-gradient(#eae879, #fd9a0f, vertical); // IE6-9
-					@include background-image(linear-gradient(top,  rgba(234,232,121,1) 0%,rgba(253,154,15,1) 100%));
-				}
-
-				button:hover {
-					background-color: rgb(234,232,121); // Old browsers
-					@include filter-gradient(#eae879, #fd9a0f, vertical); // IE6-9
-					@include background-image(linear-gradient(top,  rgba(234,232,121,1) 0%,rgba(253,154,15,0.7) 100%));
-				}
-
-				button:active {
-					@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.5));
-				}
 			}
 			
 			#shadow-wrapper {
@@ -1332,6 +1338,23 @@ body {
 	.head { font-size:20px; text-align:center;padding:10px;}
 	b { font-weight:bold; color:#2567B3;}
 	em {color:#ABD026;font-weight:bold;}
+}
+
+#resetpassword_dialog {
+	@include entryview_input;
+
+	.field {
+		width: 333px;
+		margin-left: 2px;
+	}
+
+	.content {
+		padding: 15px;
+	}
+
+	.title {
+		padding: 15px;
+	}
 }
 
 #feedback_readmore {

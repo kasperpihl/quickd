@@ -1,37 +1,15 @@
 <?php require_once('../config.php'); 
+$resetPasswordBool = false;
 if(isset($_GET['id'])){
 	$id = $_GET['id'];
 	try{
 		$resetPass = $db->key($id)->getView('dealer','getResetPass');
 		$resetPass = $resetPass->rows;
-
 		if(!empty($resetPass)){
 			$doc_id = $resetPass[0]->value[0];
 			$user = $resetPass[0]->value[1];
 			$endtime = $user->newPass->endtime;
-			if($endtime > time()){
-				if(isset($_POST['newPass'])){
-					/* Validating */
-					$reset = Shopowner::resetPassword($doc_id,$_POST['newPass']);
-					if($reset->success == 'true') redirect(ROOT_URL);
-				}
-				else{
-					echo '
-					<form action="http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'" method="POST">
-						<h1>Indtast dit nye password og klik fortsæt</h1>
-						<input type="password" name="newPass" value=""/>
-						<input type="submit" name="submit" value="Fortsæt">
-					</form>
-					';
-				}
-			}
-			else{
-				echo '<h1>Linket er desværre udløbet. Prøv igen</h1>';
-			}
-			
-		}
-		else {
-			echo '<h1>Linket blev ikke fundet</h1>';
+			if($endtime > time()) $resetPasswordBool = true;			
 		}
 	}
 	catch(Exception $e){
@@ -39,3 +17,40 @@ if(isset($_GET['id'])){
 	}
 }
 ?>
+<!DOCTYPE html>
+<html class="no-js" lang="da_DK">
+	<head>
+		<meta charset="UTF-8"/> 
+		<meta name="viewport" content="width=device-width,initial-scale=.9">
+		<title>QuickD</title>
+		<link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic&subset=latin,latin-ext" rel="stylesheet"/>
+        <script src="<?= LIBS_URL ?>jquery/jquery-min.js"></script>
+		<link href="<?= ROOT_URL ?>styles/stylesheets/resetPassword.css" media="all" rel="stylesheet"/>
+		<script src="<?= ROOT_URL ?>js/function.js"></script>
+		<script src="<?= LIBS_URL ?>jquery/jquery.validate.js"></script>
+		<script>
+		</script>
+	</head>
+	<body>
+		<div style="position: absolute; width: 100%; height: 100%">
+		<div class="wrapper">
+			<div>
+				<div id="logo"></div>
+				<div id="enterNewPassword">
+					<?php if($resetPasswordBool){ ?>
+					<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
+					<div class="field">
+						<div>
+							<input type="password" name="newPass" value=""/><button name="submit">Fortsæt</button>
+						</div>
+					</div>
+					<?php } else{ ?>
+						<p>Linket er brugt, forældet eller findes ikke.</p>
+						<a class="gotoDealer" href="<?= ROOT_URL ?>">Gå til forhandlerlogin</a>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

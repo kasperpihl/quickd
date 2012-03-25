@@ -9,10 +9,9 @@ define([
 			this.init(this.options);
 			this.template ='resetPassword';
 			this.router = this.options.router;
-			this.classes ="login";
 			this.closable = true;
-			this.width = 600;
-			this.height = 200;
+			this.width = 380;
+			this.height = 222;
 			this.createDialog({}, function() {
 				$(thisClass.dialogId).formValidate();
 				
@@ -35,7 +34,7 @@ define([
 			}
 		},
 		doOnOpen:function() {
-			$('#user_email').focus();
+			$('#reset_email').focus();
 		}
 	});
 });
