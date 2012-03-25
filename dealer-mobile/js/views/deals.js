@@ -5,6 +5,7 @@ App.views.Deals = Backbone.View.extend({
 		this.router = this.options.router;
 		this.deals = App.collections.deals;
 		this.templates = App.collections.templates;
+		log(this.templates.toJSON());
 		this.templates.on("change:approved add remove",this.changed,this);
 		this.deals.on("add remove",this.changed,this);
 		this.render(true);
@@ -12,13 +13,18 @@ App.views.Deals = Backbone.View.extend({
 	changed:function(){
 		this.render();
 	},
+	/**
+	 * Rendering the deal sliders
+	 * @param  {BOOL} first Deciding if it is the first time it gets rendered
+	 * @return {[type]}       [description]
+	 */
 	render: function(first){
 		var thisClass = this;
 		var data = {templates: this.templates.models };
 		$.get('templates/deals.html',function(template){
 			if(thisClass.dealSlider) thisClass.dealSlider.destroy();
 			$(thisClass.el).html(_.template(template,data));
-			if(!thisClass.dealSlider)thisClass.royalSlider();
+			thisClass.royalSlider();
 		},'html');
 	},
 	
@@ -37,7 +43,6 @@ App.views.Deals = Backbone.View.extend({
 		var slideSelector	= '.royalSlide:nth-child(' + (currSlideNum + 1) + ')';
 		this.currentSlide	= $(slideSelector, this.dealSliderEl).toggleClass('current',true);
 		var templateId		= $(slideSelector + ' .deal').attr('templateId');
-		
 		this.router.changedToTemplate(templateId);
 	},
 
