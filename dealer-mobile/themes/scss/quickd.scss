@@ -235,13 +235,12 @@ div[data-role="page"] {
 #deals {
 	background: transparent;
 }
-
-#deal-slider {
+#deal-slider{
 	width: 90%;
 	margin-left: 5%;
 	height: 110px;
 	
-	.royalWrapper { overflow: visible; }
+	.royalSliderContainer { overflow: visible; }
 	
 	ul { border: none; }
 	

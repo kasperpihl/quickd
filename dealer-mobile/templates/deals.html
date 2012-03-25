@@ -6,7 +6,7 @@
 			%>
 			<li class="royalSlide">
 				<article class="deal" id="template-<%= template.get('id') %>" templateId="<%= template.get('id') %>">
-			    	<img class="imageItem left" src="thumbnail/" height="100%" />
+			    	<img class="imageItem left" src="<%= template.get('image') ? IMG_URL + 'thumbnail/' + template.get('image') : ''%>" height="100%" />
 			        <div class="slideTextBlock">
 			            <h4><%= template.get('title') %></h4>
 			            <p>Før: <span class="amount"><%= template.get('orig_price') %>,-</span> / Nu: <span class="amount"><%= template.get('deal_price') %>,-</span></p>

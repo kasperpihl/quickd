@@ -522,7 +522,7 @@ try{
 							deal_price : doc.templates[key].deal_price
 						};
 						if(doc.templates[key].hasOwnProperty('image')){
-							if(doc.images.hasOwnProperty(doc.templates[key])) obj.image = doc.images[doc.templates[key].image].n;
+							if(doc.images.hasOwnProperty(doc.templates[key].image)) obj.image = doc.images[doc.templates[key].image].n;
 						}
 						emit([doc._id,parseInt(key)],obj);
 					

@@ -43,7 +43,8 @@ class Shopowner {
 			return $result;
 		}
 		catch(Exception $e){
-			return array('success'=>'false','error'=>'database_error','function'=>'shopowner_register','e'=>$e->getMessage()); }
+			return array('success'=>'false','error'=>'database_error','function'=>'shopowner_register','e'=>$e->getMessage()); 
+		}
 	}
 
 	public static function fb_connect() {
