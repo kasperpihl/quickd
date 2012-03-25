@@ -1,20 +1,21 @@
 <?php require_once('../config.php'); 
-$resetPasswordBool = true;
+$resetPassword = false;
 if(isset($_GET['id'])){
 	$id = $_GET['id'];
 	try{
 		$resetPass = $db->key($id)->getView('dealer','getResetPass');
 		$resetPass = $resetPass->rows;
+
 		if(!empty($resetPass)){
 			$doc_id = $resetPass[0]->value[0];
 			$user = $resetPass[0]->value[1];
 			$endtime = $user->newPass->endtime;
-			$url = $user->newPass->url;
-			if($endtime > time()) $resetPasswordBool = $url;			
+			$id = $user->newPass->url;
+			if($endtime > time()) $resetPassword = $id;			
 		}
 	}
 	catch(Exception $e){
-			
+		
 	}
 }
 ?>
@@ -29,7 +30,9 @@ if(isset($_GET['id'])){
 		<link href="<?= ROOT_URL ?>styles/stylesheets/resetPassword.css" media="all" rel="stylesheet"/>
 		<script src="<?= ROOT_URL ?>js/function.js"></script>
 		<script src="<?= LIBS_URL ?>jquery/jquery.validate.js"></script>
+		<?php if($resetPassword){ ?>
 		<script>
+			
 			$(document).ready(function() {
 				var form = $('form#new-pass-form');
 
@@ -56,12 +59,16 @@ if(isset($_GET['id'])){
 				});
 				$('button#btn_submit_pass').on('click', function() {
 					if (form && form.valid()) {
-						//do ajax here!!
+						$.post("<?= ROOT_URL ?>api/reset",{model:{doc_id: "<?= $doc_id ?>",password:$('#newPass').val(),id:"<?= $id ?>"}},function(data){
+							log('response from reset',data);
+						},'json');
 					} else form.submit();
 					return false;
 				});
 			});
+			
 		</script>
+		<?php }?>
 	</head>
 	<body>
 		<div style="position: absolute; width: 100%; height: 100%">
@@ -70,11 +77,11 @@ if(isset($_GET['id'])){
 				<div id="logo"></div>
 				<form id="new-pass-form">
 					<div id="enterNewPassword">
-						<?php if($resetPasswordBool){ ?>
+						<?php if($resetPassword){ ?>
 						<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
 						<div class="field">
 							
-								<input type="password" name="newPass" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
+								<input type="password" id="newPass" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
 							
 						</div>
 						<?php } else{ ?>
