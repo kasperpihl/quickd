@@ -87,8 +87,6 @@ Ext.define('QuickD.controller.Main', {
     updatedStore:function(instance,data,options){
         log('updatedStore');
         this.getDealShow().setSlider(instance.getData().items);
-        var store = Ext.getStore('Deals');
-        this.changeToView('dealshow',{record:store.getAt(0),index:0});
     },
     onLocationUpdate:function(){
         this.getMain().getAt(0).show();

@@ -8,7 +8,7 @@ define([
 	App.views.StartDeal = Backbone.View.extend({
 		el: '#activity_startdeals',
 		initialize:function(){
-			_.bindAll(this,'startDeal','render','updateTemplates', 'selectTemplate', 'setTemplateSelected', 'setVerticalAlign','handleEvent');
+			_.bindAll(this,'startDeal','render','updateTemplates', 'setTemplateSelected', 'setVerticalAlign','handleEvent');
 			this.templateName = 'startdeal';
 			this.elemId = 'start_deal';
 			this.dealTemplates = {};
@@ -65,7 +65,8 @@ define([
 					
 				}
 			});
-			$('#treasure_read_more').click(function(){
+			$('#btn_submit_start_deal', this.$el).on('click', this.startDeal);
+			this.$el.find('#treasure_read_more').click(function(){
 				thisClass.treasureDialog();
 			});
 			this.$el.find('#deal_end_time').datetimepicker({
@@ -198,19 +199,6 @@ define([
 			var h = Math.round(minutes/60);
 			if (setHours) this.hours = h;
 			$('#deal_hours').html(h);
-		},
-		events: {
-			'click #btn_submit_start_deal': 'startDeal',
-			//'click #btn_select_area': 'selectTemplate'
-		},
-		selectTemplate: function() {
-			//if (!this.selectorView) 
-				//this.selectorView = new App.views.dialogs.TemplateSelectorView({router:this.router, templates:this.dealTemplates});
-			//this.selectorView.openDialog();
-			//if (!this.selectorView) 
-				
-			//this.selectorView.openDialog();
-
 		},
 		resetStarter:function(doWait) {
 			//REMEMBER TO RESET!!
