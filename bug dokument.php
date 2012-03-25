@@ -6,7 +6,7 @@ Gennemtest billede-upload
 
 Vis rabat ved oprettelse af templates
 
-Glemt adgangskode-dialog - har ingen funktionalitet, men vinduet er lavet
+Glemt adgangskode-dialog
 
 Shake login box virker ikke ordenligt, første gang den rystes, og efter ryst hvis, man gør vinduet større følger feltet ikke med
 
