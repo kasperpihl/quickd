@@ -23,7 +23,7 @@ Ext.define('QuickD.controller.Main', {
                 itemtap: 'onDealSelect'
             },
             dealShowSlider:{
-                activeitemchange: 'test'
+                activeitemchange: 'setNewDeal'
             }
         }
     },
@@ -50,7 +50,7 @@ Ext.define('QuickD.controller.Main', {
             break;
         }
     },
-    test:function(container,newItem,oldItem){
+    setNewDeal:function(container,newItem,oldItem){
         //log(this.getMain().setShowAnimation('flip'));
         this.getDealShow().loadDeal(newItem);
     },
@@ -162,7 +162,6 @@ Ext.define('QuickD.controller.Main', {
     onDealSelect:function(list, index, node, record){
         this.activeDeal = record;
         this.changeToView('dealshow',{record:record,list:list,index: index});
-        this.getDealShow().addCustomScroll();
         return false;
     }
 });

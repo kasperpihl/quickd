@@ -133,11 +133,10 @@ Ext.define('QuickD.view.DealShow', {
     loadDeal:function(record,index){
         var $deal = $('#deal-' + record.internalId + '-info');
         
-        // TODO: This gets called before single deal view is loaded. It's probably a bug.
         this.down('#quickd-deal-slider').setActiveItem(index);
         this.down('#quickd-deal-content').setData(record.getData());
 
-        log('New deal set: ', record, index, $deal);
+        if ($('#quickd-deal-content article[id*=deal-]').length > 0) this.addCustomScroll();
     },
     initialize: function() {
         this.callParent(arguments);
@@ -147,7 +146,7 @@ Ext.define('QuickD.view.DealShow', {
             $wrap           = $el.parent(),
             carouselHeight  = $('#quickd-deal-slider').height(),
             self            = this;
-        
+
         if (this.easyScroll) this.easyScroll = null; // TODO: Find a better way to kill the old instance (Couldn't find a destroy() method).
 
         this.easyScroll = new EasyScroller($el[0], {
@@ -163,15 +162,11 @@ Ext.define('QuickD.view.DealShow', {
         }).resize();
 
         $el.find('img').load(function() { self.updateScroll(); } );
-
-        /*setTimeout(function() {
-            self.easyScroll.reflow();
-        }, 1000);*/
     },
     updateScroll: function() {
         if (this.easyScroll) {
             this.easyScroll.reflow();
             log('EasyScroller updated.');
-        }     
+        }
     }
 });
