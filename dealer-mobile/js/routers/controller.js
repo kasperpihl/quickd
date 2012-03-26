@@ -65,7 +65,7 @@ App.routers.Controller = Backbone.Router.extend({
 	},
 	clickedStartStop:function(time){
 		var obj;
-		time = 10;
+		//time = 10;
 		switch(this.activeModel.get('type')){
 			case 'template':
 				obj = {action:'start',model:{mobile:'true',template_id:this.activeModel.get('id'),seconds: time}};
