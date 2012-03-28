@@ -567,7 +567,7 @@ $media-query-width-small: 480px;
  * 
  * Defaults to `matte`.
  */
-/* line 41, ../compass-recipes/stylesheets/recipes/_webfont-icon.scss */
+/* line 41, /Users/kasper/Sites/quickd/dealer-mobile/themes/compass-recipes/stylesheets/recipes/_webfont-icon.scss */
 .webfont-icon-base {
   color: transparent;
   -webkit-background-clip: text;
