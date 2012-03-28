@@ -2,11 +2,7 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
-Server-error bliver vist nogle gange ved logud og opdater
-
 Gennemtest billede-upload
-
-Roter billede virker ikke
 
 Vis rabat ved oprettelse af templates
 
@@ -34,6 +30,10 @@ Redigering af brugerindstillinger virker ikke.
 	Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe - skyldtes rettigheder) Roter billede virker ikke
+
+(rettet Jeppe) Server-error bliver vist nogle gange ved logud og opdater
 
 (rettet Jeppe) Slet planlagte deals
 

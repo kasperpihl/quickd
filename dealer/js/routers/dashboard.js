@@ -109,7 +109,7 @@ define([
 		},
 		retryConnection:function(obj) {
 			if (this.networkErrorShown) this.networkErrorShown = false;
-			this.getChanges(true);
+			this.getChanges(true, true);
 		},
 		getChanges: function(singleCall){
 			var thisClass = this,
@@ -119,10 +119,10 @@ define([
 						if (thisClass.networkErrorDialog && !thisClass.networkErrorShown) {
 								thisClass.networkErrorDialog.openDialog();
 								thisClass.networkErrorShown = true;
-						}
-		       };
+						} 
+		      };
 
-		  if (window.navigator.onLine) {
+		  //if (window.navigator.onLine) {
 				$.ajax({
 		        type: "GET",
 		        url: ROOT_URL+"ajax/changes.php",
@@ -132,20 +132,20 @@ define([
 		        timeout:4000,
 		        success: function(result) {
 		        	result = $.parseJSON(result);
-		        	if (result.hasOwnProperty('success') && result.success=='false' && result.error=='database_error') doOnError();
-		        	thisClass.changes(result);
+		        	if (result.hasOwnProperty('success') && result.success=='false' && result.error=='error_database') doOnError();
+		        	else thisClass.changes(result);
 		        	if (!singleCall) setTimeout(thisClass.getChanges,3000);
 		        },
 		        error: function(XMLHttpRequest, textStatus, errorThrown) {
 							log('Error changes',XMLHttpRequest,textStatus,errorThrown);
-							doOnError();
+							doOnError();	
 							if (!singleCall) setTimeout(thisClass.getChanges,3000);
 		        }
 		   	}, 'json');
-		  } else {
-		  	doOnError();
+		  /*} else {
+		  	doOnError(showError);
 		  	if (!singleCall) setTimeout(thisClass.getChanges,3000);
-		  }			
+		  }	*/
 		},
 		setStuff:function(stuff){
 			_.each(stuff,function(item,i){
@@ -184,10 +184,11 @@ define([
 		},
 		changes:function(result){
 			//log('result from changes',result);
-			if (this.networkErrorShown) this.networkErrorDialog.closeDialog();
 			
-			if(result.hasOwnProperty('csince')) localStorage.setItem('csince',result.csince);
+			if (this.networkErrorShown) this.networkErrorDialog.closeDialog();
 			if(result.hasOwnProperty('success') && result.success == 'false') return;
+
+			if(result.hasOwnProperty('csince')) localStorage.setItem('csince',result.csince);
 			if(result.hasOwnProperty('cindex')) localStorage.setItem('cindex',result.cindex);
 
 			
