@@ -35,7 +35,8 @@ var showDealTemplate = new Ext.XTemplate(
 var showDealSliderObj = new Ext.XTemplate(
     '<div class="dealBackground">',
         '<div class="leftPanel left">',
-            '<img src="http://lorempixum.com/185/185/food/" width="185" height="185" />',
+            '<img src="' + IMG_URL +'thumbnail/{image}" width="185" height="185" />',
+            //'<img src="http://lorempixum.com/185/185/food/" width="185" height="185" />',
         '</div>',
         '<div class="rightPanel left">',
             '<div class="infoBox">',

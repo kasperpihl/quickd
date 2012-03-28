@@ -12,6 +12,5 @@ Ext.application({
 		Ext.Viewport.add({
 			xclass: 'QuickD.view.Main'
 		});
-
 	}
 });

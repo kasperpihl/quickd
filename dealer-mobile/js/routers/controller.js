@@ -105,7 +105,7 @@ App.routers.Controller = Backbone.Router.extend({
 			success: thisClass.changes,
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				log('error changes',XMLHttpRequest,textStatus,errorThrown);
-				setTimeout(thisClass.getChanges,3000);
+				setTimeout(thisClass.getChanges,10000);
 			}
 		});			
 	},
