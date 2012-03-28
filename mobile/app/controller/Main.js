@@ -27,6 +27,9 @@ Ext.define('QuickD.controller.Main', {
             }
         }
     },
+    test:function(p1,p2,p3,p4){
+        log('params',p1,p2,p3,p4);
+    },
     buttonHandler:function(t,t2,t3){
         var id = t.getId();
         switch (id){
@@ -73,7 +76,6 @@ Ext.define('QuickD.controller.Main', {
     launch:function(){
         this.sortController = this.getApplication().getController('SortController');
         var test = this.getDealShow().query('#quickd-deal-content')[0].element;
-        log(test);
         test.on('horizontalswipe',function(){ log('test'); });
         this.$container = $('#quickd-deals .x-scroll-container');
         this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
@@ -120,9 +122,9 @@ Ext.define('QuickD.controller.Main', {
                     bgIn        = this.showSingleBackground(300);
 
                 button[0].hide();
-                
                 // Fetch data for selected deal.
-                this.getDealShow().loadDeal(options.record,options.index); // ingen server load, så dataen er der med det samme.
+                log('changeToView');
+                this.getDealShow().down('#quickd-deal-slider').setActiveItem(options.index);
                 
                 $.when(dealsOut, bgIn).done(function() {
                     self.getMain().setActiveItem(self.getDealShow());

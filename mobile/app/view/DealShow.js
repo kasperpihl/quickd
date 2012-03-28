@@ -129,14 +129,19 @@ Ext.define('QuickD.view.DealShow', {
             slider  = this.down('#quickd-deal-slider');
         
         slider.removeAll(true,true);
-        for(var key in records) slider.add({}).setData(records[key].data);
+        for(var key in records) slider.add({modelId:records[key].getId()}).setData(records[key].data);
     },
     loadDeal:function(record,index){
+        var model;
+        log('test');
+        if(record.modelId) model = Ext.getStore('Deals').getById(record.modelId);
+        else model = record;
         var $deal = $('#deal-' + record.internalId + '-info');
-        
-        this.down('#quickd-deal-slider').setActiveItem(index);
-        this.down('#quickd-deal-content').setData(record.getData());
-
+        //this.down('#quickd-show-topbar').setTitle('Test');
+        this.down('#quickd-deal-content').setData(model.getData());
+        var now = parseInt(new Date().getTime()/1000);
+        //log('rec',record.get('end'));
+        //log('record',parseInt(now)-parseInt(record.data.end));
         if ($('#quickd-deal-content article[id*=deal-]').length > 0) this.addCustomScroll();
     },
     initialize: function() {

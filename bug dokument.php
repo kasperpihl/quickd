@@ -6,6 +6,8 @@ Server-error bliver vist nogle gange ved logud og opdater
 
 Gennemtest billede-upload
 
+Overlays ved internet forbindelse røget (Skal ikke lægges på hvergang man trykker)
+
 Roter billede virker ikke
 
 Vis rabat ved oprettelse af templates

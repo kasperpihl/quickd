@@ -6,7 +6,7 @@ var myTemplate = new Ext.XTemplate(
 			'<h1>{title}</h1>',
 			'<h2>{name}</h2>',
 			'<footer class="footer">',
-				'<span class="price">{deal_price},-</span> <time>2t42m</time>',
+				'<span class="price">{deal_price},-</span> <time>{end:this.humanReadableTime}</time>',
 				'<span class="awesome-badge"><span class="value">{discount}%</span></span>',
 			'</footer>',
 		'</section>',
@@ -14,7 +14,8 @@ var myTemplate = new Ext.XTemplate(
 	{
 		priceIt: priceIt,
 		iad: isAwesomeDeal,
-		humanReadableDistance: humanReadableDistance
+		humanReadableDistance: humanReadableDistance,
+		humanReadableTime: humanReadableTime
 	}
 );
 Ext.define('QuickD.view.DealListView',{
@@ -55,11 +56,6 @@ Ext.define('QuickD.view.DealList', {
         }],
         store: 'Deals',
         itemTpl: myTemplate
-    },
-    listeners: {
-		painted: function() {
-			
-		}
-	}
+    }
 });
 

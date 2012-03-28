@@ -23,6 +23,7 @@
         <!-- Application -->
         <script type="text/javascript" src="app.js"></script>
         <script type="text/javascript" src="app/function.js"></script>
+        <script type="text/javascript" src="app/libs/countdown.js"></script>
 
         <script src="app/libs/Raf.js"></script>
         <script src="app/libs/Animate.js"></script>
