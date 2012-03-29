@@ -3,6 +3,7 @@ Ext.application({
 	name: 'QuickD',
 	models: ['Deal'],
 	stores: ['Deals'],
+	statusBarStyle: 'black',
 	views: ['Main'],
 	controllers: ['Main','SortController', 'AnimationController'],
 	icon: 'resources/images/icon.png',
