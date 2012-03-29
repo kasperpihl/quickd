@@ -32,6 +32,7 @@ if(isset($_GET['id'])){
 		<script src="<?= LIBS_URL ?>jquery/jquery.validate.js"></script>
 		<?php if($resetPassword){ ?>
 		<script>
+		
 			var ROOT_URL = "<?= ROOT_URL ?>";
 			$(document).ready(function() {
 				var form = $('form#new-pass-form');
