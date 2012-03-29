@@ -120,6 +120,7 @@ function stampToTime(stamp){
 	return formattedTime;
 }
 function padNumber(i) {
+	if (!i) i=0;
 	if (i<10)
 	{
 	  i="0" + i;
@@ -173,6 +174,12 @@ function convertNumber(number, toString) {
 	} else {
 		return parseFloat(number.replace(',','.').replace(' ',''))
 	}
+}
+function convertToTimestring(number) {
+	var numbers = number.split(':'),
+			h = padNumber(parseInt(numbers[0])),
+			m = padNumber(parseInt(numbers[1]));
+	return h+':'+m;
 }
 
 function resizeBg(stopRecursion) {

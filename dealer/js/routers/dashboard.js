@@ -123,6 +123,7 @@ define([
 				} 
 		    };
 
+
 		  //if (window.navigator.onLine) {
 				$.ajax({
 		        type: "GET",
