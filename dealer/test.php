@@ -1,5 +1,8 @@
 <?php
 require_once('../config.php');
+$model = file_get_contents("php://input");
+print_r($model);
+die();
 $result = array('success'=>'false','error'=>'no_action_match');
 //die(print(json_encode(array('success'=>'false', 'error'=>'testing', 'data'=>array('POST'=>$_POST, 'GET'=>$_GET, 'method'=>$_SERVER['REQUEST_METHOD'], 'PUT'=>file_get_contents("php://input"))))));
 switch($_SERVER['REQUEST_METHOD']){
