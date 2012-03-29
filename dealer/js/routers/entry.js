@@ -12,23 +12,19 @@ App.routers.Entry = Backbone.Router.extend({
 	},
 	initialize: function(){	
 		this.route;
-		this.dashReady = true;
 		this.entryView = new App.views.Entry({router:this});
-		App.routers.dashboard = new App.routers.Dashboard();
 		this.model = App.models.shopowner = new App.models.Shopowner();
 		this.view = 'login';
 		this.box = false;
-		_.bindAll(this,'doLogin','doRegister','openRegisterView', 'closeRegisterView', 'makeDashReady');
-		//this.makeDashReady();
-	},
-	dealer:function(){
-		log('dealing');
+		_.bindAll(this,'doLogin','doRegister','openRegisterView', 'closeRegisterView');
 	},
 	setViewLogin:function(obj) {
+		if(this.isLoggedIn) return false;
 		this.view = 'login';
 		if (this.entryView.created) this.closeRegisterView();
 	},
 	setViewRegister:function(obj) {
+		if(this.isLoggedIn) return false;
 		this.view = 'register';
 		if (this.entryView.created) this.openRegisterView();
 	},
@@ -142,30 +138,16 @@ App.routers.Entry = Backbone.Router.extend({
 			thisClass.resetPassView.openDialog();
 		});
 	},
-	makeDashReady:function(){
-		var thisClass = this;
-		require(['routers/dashboard'],function(){
-			log('dash ready');
-			thisClass.dashReady = true;
-			App.routers.dashboard = new App.routers.Dashboard();
-			obj = historyObj;
-			obj.silent = true;
-			Backbone.history.start(obj);
-		});
-	},
 	startDashboard: function(stuff){
-		if(!this.dashReady){
-			setTimeout(this.startDashboard(stuff),200);
-			return;
-		} else {
-			var obj = {};
-			if(stuff) obj.stuff = stuff;
-			App.routers.dashboard.start(obj);
-			$('#footer.entry_footer').remove();
-			$(function(){
-				App.routers.dashboard.navigate('hjem',{trigger:true});
-			});
-		}
+		var obj = {};
+		if(stuff) obj.stuff = stuff;
+		this.isLoggedIn = true;
+		App.routers.dashboard = new App.routers.Dashboard();
+		App.routers.dashboard.start(obj);
+		$('#footer.entry_footer').remove();
+		$(function(){
+			App.routers.dashboard.navigate('hjem',{trigger:true});
+		});
 	}
 });
 return App.routers.Entry;

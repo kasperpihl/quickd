@@ -69,7 +69,6 @@ define([
 		success:function(d,data){ 
 			log('result',d,data)
 			if(data.success){
-				this.router.trigger('shopCreated',{event:'shopCreated'});
 				App.collections.shops.add(d);
 			} 
 			else {

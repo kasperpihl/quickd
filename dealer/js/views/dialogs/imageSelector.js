@@ -73,6 +73,7 @@ define([
 			return _events;
 		},
 		changedRevision:function(model,revision){
+			log('changedRevision')
 			if (model.hasChanged('rev')) {
 				//log("changed revision", model, revision, this.currentModel);
 				var id = model.get('id');
@@ -230,6 +231,7 @@ define([
 		},
 		updateThumb: function(coords)
 		{
+			log('updateThum',coords);
 			if (this.currentModel) {
 				if (!coords) coords = this.currentModel.get("t");
 				if (this.thumbEdited) {
