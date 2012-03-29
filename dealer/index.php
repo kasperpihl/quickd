@@ -30,6 +30,7 @@ if(isset($_GET['logout'])){
 			var IMG_URL = "<?= IMAGES_URL ?>";
 			var LIBS_URL = "<?= LIBS_URL ?>";
 			var historyObj = JSON.parse('<?= $historyObj ?>');
+			var CATEGORIES = JSON.parse('<?=json_encode($categories) ?>');
 			<?php if(isset($dealer) && $dealer) { $return = getShopowner();?>
 				shopowner = <?= $return; ?>;
 			<? } ?>

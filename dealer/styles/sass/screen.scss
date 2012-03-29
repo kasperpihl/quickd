@@ -1858,6 +1858,12 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 	}
 	.categories {
 		padding:0px 4px;
+		.category-edit {display:none;}
+		.category-show {display:block;}
+		&.edit {
+			.category-edit {display:block;}
+			.category-show {display:none;}
+		}
 		.category {
 			float:left;
 			padding:5px;

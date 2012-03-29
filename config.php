@@ -66,9 +66,10 @@ $imageSizes = array(
 	)
 );
 $categories = array(
-	'shopping',
-	'fooddrink',
-	'experience'
+	'fooddrink'=>'Mad & drikke',
+	'shopping'=>'Shopping',
+	'experience'=>'Oplevelser',
+	'nightlife'=>'Natteliv'
 );
 require_once(HOME_DIR.'includes/includes.php');
 $db = new couchClient('http://'.$dbLink.':5984','quickd');
