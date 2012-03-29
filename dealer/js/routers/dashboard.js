@@ -117,10 +117,12 @@ define([
 					csince = (localStorage.getItem('csince') != 'undefined') ? localStorage.getItem('csince') : 0,
 					doOnError = function() {
 						//log('doOnError');
-						if (thisClass.networkErrorDialog && !thisClass.networkErrorShown) {
-								thisClass.networkErrorDialog.openDialog();
-								thisClass.networkErrorShown = true;
-						} 
+						setTimeout(function() {
+							if (thisClass.networkErrorDialog && !thisClass.networkErrorShown) {
+									thisClass.networkErrorDialog.openDialog();
+									thisClass.networkErrorShown = true;
+							}
+						}, 100); 
 		      };
 
 		  //if (window.navigator.onLine) {

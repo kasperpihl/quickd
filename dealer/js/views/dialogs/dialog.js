@@ -44,7 +44,7 @@ define([
 			if (this.created) {
 				$(this.dialogId).fadeIn(thisClass.aniTime, function() {
 					$(this).show();
-					if (thisClass.doOnOpen) thisClass.doOnOpen();
+					if (thisClass.onOpen) thisClass.onOpen();
 				});
 				
 				
