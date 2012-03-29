@@ -167,7 +167,7 @@ class Shopowner {
 	}
 	public static function resetPassword($model){
 		if(isset($model['email'])) return self::requestNewPassword($model);
-		if(!isset($model['password'],$model['id'],$model['doc_id'])) return array('success'=>'false','error'=>'password_or_id_not_provided');
+		if(!isset($model['password'],$model['id'],$model['doc_id'])) return array('success'=>'false','error'=>'password_or_id_not_provided','model'=>$model);
 
 		global $db;
 		try{

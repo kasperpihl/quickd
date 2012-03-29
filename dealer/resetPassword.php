@@ -81,10 +81,7 @@ if(isset($_GET['id'])){
 						<?php if($resetPassword){ ?>
 						<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
 						<div class="field">
-							
-								<input type="password" name="newPass" id="newpass-input" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
-
-							
+							<input type="password" name="newPass" id="newpass-input" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
 						</div>
 						<?php } else{ ?>
 							<p>Linket er brugt, forældet eller findes ikke.</p>
