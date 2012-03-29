@@ -4,21 +4,17 @@ Bugs:
 
 Gennemtest billede-upload
 
+Fejl besked ved diverse gem knapper og lign :-)
+
 Overlays ved internet forbindelse røget (Skal ikke lægges på hvergang man trykker)
 
 Vis rabat ved oprettelse af templates
 
 Glemt adgangskode-dialog
 
-Shake login box virker ikke ordenligt, første gang den rystes, og efter ryst hvis, man gør vinduet større følger feltet ikke med
-
 Tilføj betingelser i dialogboks
 
-Startdeal "shaken" bugger når den allerede er planlagt
-
 Åbningstider
-
-Vælg billede af butikken
 
 Redigering af brugerindstillinger virker ikke.
 	Hvad skal de indeholde?
@@ -27,11 +23,16 @@ Redigering af brugerindstillinger virker ikke.
 
 
 =====================================
+Lav prioritet
 
-(lav prioritet) Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter.
-	Det skal ske i det man trykker
+	Vælg billede af butikken
+	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet) Startdeal "shaken" bugger når den allerede er planlagt
+
+(rettet) Shake login box virker ikke ordenligt, første gang den rystes, og efter ryst hvis, man gør vinduet større følger feltet ikke med
 
 (rettet Jeppe - skyldtes rettigheder) Roter billede virker ikke
 

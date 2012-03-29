@@ -30,24 +30,28 @@
 	    
 	    <div class="content-area" id="edit-view" <% if(data.view != 'edit') print('style="display:none"'); %>>
 	    	<div id="uploaded_view">
+	    		<div class="left_menu">
+	    			<div class="btn_rotate_right" id="btn_rotate_right" title="Roter til højre"></div>
+	    			<div class="btn_rotate_left" id="btn_rotate_left" title="Roter til venstre"></div>
+                </div>
 	    		<div class="controlpane">
-	    			<div class="thumbnail" id="thumbnail_wrapper"></div>
+	    			
+	    			<div class="thumbnail_container">
+	    				<h1>Resultat</h1>
+	    				<div class="thumbnail" id="thumbnail_wrapper"></div>
+	    			</div>
 	    			<input type="hidden" id="x"/>
 	    			<input type="hidden" id="y"/>
 	    			<input type="hidden" id="w"/>
 					<input type="hidden" id="h"/>
 	    			<input type="hidden" id="preview_name"/>
 	    			
-	    			<div class="buttons">
-                        <button class="button blue" id="btn_rotate_left">Venstre</button>
-                        <button class="button blue" id="btn_rotate_right">Højre</button>
-                        <button class="button green" id="btn_select_img">Vælg billede</button>
-                        <button class="button blue" id="btn_edit_cancel">Tilbage</button>
-                    </div>
+                    <button class="button blue btn_select" id="btn_select_img">Vælg billede</button>
+                    <button class="button btn_back" id="btn_edit_cancel">Gå tilbage</button>
 	    		</div>
                 <div class="contentpane" id="image_edit_contentpane">
-                	<div class="preview" id="preview_wrapper">
-                    	<button class="button green" id="btn_edit_save">Gem</button>
+                	<div class="preview" id="preview_wrapper" style="margin-top: 60px;">
+                    	<button class="button" id="btn_edit_save">Gem</button>
                     </div>
                 </div>		
 	    	</div>

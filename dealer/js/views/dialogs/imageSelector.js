@@ -92,8 +92,9 @@ define([
 			//$('#preview_wrapper').fadeOut(function() {
 				var wrapper = $('#preview_wrapper');
 				var left = Math.round(($('.contentpane').width()-thisModel.get('w'))/2);
-				var top = Math.round(($('.contentpane').height()-thisModel.get('h'))/2);
-				top = top<0 ? 0 : top;
+				//var top = Math.round(($('.contentpane').height()-thisModel.get('h'))/2);
+				//top = top<0 ? 0 : top;
+				var top = 0;
 				//log("position", left, top, $('.contentpane').width(), $('.contentpane').height(), thisModel.get('w'), thisModel.get('h'));
 				
 				
