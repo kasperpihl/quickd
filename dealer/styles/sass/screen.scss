@@ -2517,13 +2517,28 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 
 #edit_shop {
 
-	.opening-times {
-
-		#weekdays {list-style-type: none;float:left;width:40px;
-			li {margin:1px;padding:5px;width:100%;background:#dedede;border:1px solid #7B7E6B;text-align:center;}
-			.ui-selecting {background:#D0D1C9;}
-			.ui-selected {background:#077815;border:1px solid #185C07;color:white;}
+	#opening-times {
+		margin-left:10px;
+		.notice {color:#858585;padding:5px;}
+		ul {list-style-type: none;float:left; }
+		li {
+			padding:5px;text-align:left;
+			span.day {width:40px;display:inline-block;}
+			span.data {
+				position:relative;display:none;float:none;margin:0;padding:0;
+				label {width:20px;font-size:11px;text-align:right;color:#858585;}
+				input {width:40px;margin-right:5px;clear:none;display:inline;text-align:right;}
+			}
+			span.closed {color:#858585;font-size:12px;display:inline;		}
+			&.selected {
+				span.data {display:inline-block;}
+				span.closed {display:none;}
+			}
+			
 		}
+		&.edit {
+			li span.data {display:inline-block;}
+		}	
 	}
 }
 

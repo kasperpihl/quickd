@@ -191,7 +191,7 @@ define([
 					});
 					
 					if(!$.isEmptyObject(obj)) {
-						
+						log("saving?", obj, manualValues)
 						//var button = this.form.find('.edit-save-button').filter(':first');
 						//button.wrap('<div class="loader-small" />');
 						this.model.save(obj,{success:function(d,data){

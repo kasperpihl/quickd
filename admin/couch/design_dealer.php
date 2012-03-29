@@ -246,6 +246,7 @@ try{
 			obj.address = query.address;
 			obj.approved = 'waiting';
 			obj.rev = 1;
+			
 			returnArr = {id:index,approved:'waiting',rev: 1};
 			doc.shops[index] = obj;
 			addHistory(index,timestamp,'created',obj.rev,1);
@@ -254,6 +255,12 @@ try{
 			
 			if(!doc.shops.hasOwnProperty(query.id)) return [null, msg('shop_doesnt_exist')];
 			var shop = doc.shops[query.id];
+			shop.rev = parseInt(shop.rev) +1;
+			if(query.hasOwnProperty('name')&&query.name != shop.name){
+				returnArr.approved = 'waiting';
+				returnArr.rev = shop.rev;
+				doc.shops[query.id].approved = 'waiting';	
+			}
 			if(query.name) shop.name = query.name;
 			if(query.lat) shop.lat = parseFloat(query.lat); 
 			if(query.long) shop.lat = parseFloat(query.lat);
@@ -262,12 +269,14 @@ try{
 			if(query.hasOwnProperty('website')) shop.website = query.website;
 			if(query.hasOwnProperty('phone')) shop.phone = query.phone;
 			if(query.hasOwnProperty('other')) shop.other = query.other;
-			shop.rev = parseInt(shop.rev) +1;
-			if(query.hasOwnProperty('name')){
-				returnArr.approved = 'waiting';
-				returnArr.rev = shop.rev;
-				doc.shops[query.id].approved = 'waiting';
-				
+			if (query.hasOwnProperty('open_hours')) {
+				var hours = query.open_hours;
+				shop.open_hours = {};
+				for (var i=0;i<7;i++) {
+					shop.open_hours[i] = {};
+					if(hours.hasOwnProperty(i) && hours[i].hasOwnProperty('open'))  shop.open_hours[i]['open'] = hours[i]['open'];
+					if(hours.hasOwnProperty(i) && hours[i].hasOwnProperty('close'))  shop.open_hours[i]['close'] = hours[i]['close'];
+				}
 			}
 			addHistory(query.id,timestamp,'edited',shop.rev,1);
 		}

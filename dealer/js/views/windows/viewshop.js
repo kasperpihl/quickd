@@ -14,15 +14,16 @@ define([
 			this.inputPrefix = 'shop_';
 			this.model = App.collections.shops.models[0];
 			var thisClass = this;
-			this.createWindow(true,{attributes:this.model.attributes, prefix:this.inputPrefix}, function() {
-				thisClass.selectable = $('#weekdays').selectable({ disabled: true });
-			});
+			this.createWindow(true,{attributes:this.model.attributes, prefix:this.inputPrefix});
 			
 		},
 		events: {
 			'click #btn_edit_shop': 'editShop',
 			'click input.readonly, textarea.readonly': 'editShop',
-			'click #btn_cancel_shop': 'cancelEdit'
+			'click #btn_cancel_shop': 'cancelEdit',
+			'focus #opening-times input': 'showTimes',
+			'blur #opening-times input': 'hideTimes',
+			'click #opening-times .day, #opening-times .overlay': 'selectDay'
 		},
 		setValidator: function() {
 			var thisClass = this;
@@ -49,9 +50,9 @@ define([
 				$("#btn_cancel_shop").css("display", "block");
 				$(this.windowId).formSetState('edit');
 				this.state = 'edit';
-				if(this.selectable) $('#weekdays').selectable("enable");
 				if (!this.form) this.setValidator();
-				
+				$('#opening-times').addClass('edit');
+
 				if ($('#'+obj.currentTarget.id).is(':button')) {
 					if (this.lastFocus) this.lastFocus.focus();
 					else this.form.find('input[type=text]:first').focus();
@@ -61,15 +62,22 @@ define([
 				this.router.trigger('lock',{lock:'window',me: this.cid,activityCid: this.activity.cid,depth:this.depth});
 			}
 			else{
-				
+				var open_hours = {},
+						$open_hours = $('#opening-times');
+				for (var i=0;i<7;i++) {
+					open_hours[i] = {};
+					open_hours[i]['open'] = $open_hours.find('#day-'+i+' input.opentime').val();
+					open_hours[i]['close'] = $open_hours.find('#day-'+i+' input.closetime').val();
+				}
+				manual = {open_hours: open_hours};
 				this.saveToModel({onChanged:function() {
 					thisClass.router.trigger('shopEdited',{event:'shopEdited'});
 				}, success:function(d,data){
 					$("#btn_edit_shop").html("Rediger").removeClass("blue");
 					$("#btn_cancel_shop").css("display", "none");
-					$('#weekdays').selectable("disable");
+					$open_hours.removeClass('edit').find('.notice').hide();
 					thisClass.state = 'view';
-				},error:function(d,data){log('error',d,data);} });
+				},error:function(d,data){log('error',d,data);} }, false, manual);
 				this.important = false;
 			}
 			
@@ -81,14 +89,41 @@ define([
 			this.router.trigger('unlock',{lock:'window',activityCid: this.activity.cid,depth:this.depth});
 			return false;
 		},
-		doEdit:function(obj) {
-			if (this.state=='view') {
-				$(this.windowId).formSetState('edit');
-				if (!this.form) this.setValidator();
-				obj.currentTarget.blur();
-				obj.currentTarget.focus();
-				this.state = 'edit';
-			}
+		selectDay:function(obj) {
+			if (this.state=='view') return;
+			var $day = $('#'+obj.currentTarget.id).closest('li'),
+					$overlay = $day.find('.overlay');
+			$overlay.fadeOut(200);
+			$day.find('input:first').focus();
+		},
+		showTimes: function(obj, event) {
+			var $this = $(obj.currentTarget),
+					$day = $this.closest('li'),
+					$overlay = $day.find('.closed');
+
+			if ($overlay.is(':visible')) $overlay.fadeOut(300, function() {
+				$day.addClass('selected');
+				$overlay.css('display', '');
+			});
+		},
+		hideTimes:function(obj) {
+			var $this = $(obj.currentTarget),
+					$day =  $this.closest('li'),
+					$overlay = $day.find('.closed');
+					empty = true;
+			if ($this.val()) $this.val(convertToTimestring($this.val()));
+			setTimeout(function() {
+				$day.find('input').each(function() {
+					var $me = $(this);
+					if($me.val() || $me.is(':focus')) empty = false;
+				});
+				if (empty) $overlay.fadeIn(300, function() {
+					$day.removeClass('selected');
+					$overlay.css('display', '');
+				});
+				else $day.addClass('selected');
+			}, 50);
+			
 		}
 	});
 });
