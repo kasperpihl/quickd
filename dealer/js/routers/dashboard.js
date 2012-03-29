@@ -122,8 +122,6 @@ define([
 					thisClass.networkErrorShown = true;
 				} 
 		    };
-
-
 		  //if (window.navigator.onLine) {
 				$.ajax({
 		        type: "GET",

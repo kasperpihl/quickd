@@ -4,7 +4,7 @@ define([
 	App.views.dialogs.ResetPassword = App.views.Dialog.extend({
 		el: '#content',
 		initialize:function(){
-			_.bindAll(this,'handleKeypress','doOnOpen','handleClick');
+			_.bindAll(this,'handleKeypress','onOpen','handleClick');
 			var thisClass = this;
 			this.init(this.options);
 			this.template ='resetPassword';
@@ -32,7 +32,7 @@ define([
 				this.router.doResetPass();
 			}
 		},
-		doOnOpen:function() {
+		onOpen:function() {
 			$('#reset_email').focus();
 		}
 	});

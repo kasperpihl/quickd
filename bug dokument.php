@@ -14,8 +14,6 @@ Glemt adgangskode-dialog
 
 Tilføj betingelser i dialogboks
 
-Åbningstider
-
 Redigering af brugerindstillinger virker ikke.
 	Hvad skal de indeholde?
 
@@ -29,6 +27,8 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Åbningstider
 
 (rettet) Startdeal "shaken" bugger når den allerede er planlagt
 

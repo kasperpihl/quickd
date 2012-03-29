@@ -31,11 +31,18 @@ define([
 			'click #btn_confirm, #btn_dont_save, #btn_cancel': 'handleClick'
 		},
 		handleClick:function(obj) {
-			var id = obj.currentTarget.id;
-			var eventType = id.substr(4);
-			this.closeDialog(this.destroyOnClose, true);
-			this.doTrigger(eventType);
+			if (!this.closing) {
+				this.closing = true;
+				var id = obj.currentTarget.id;
+				var eventType = id.substr(4);
+				this.closeDialog(this.destroyOnClose, true);
+				this.doTrigger(eventType);
+			}
 			return false;
+		},
+		onOpen:function() {
+			log("doOnOpen")
+			this.closing = false;
 		},
 		onClose:function() {
 			this.doTrigger('cancel');
