@@ -313,7 +313,7 @@ define([
 				success:function(m,data){
 					
 					if(data.success && data.success == 'true'){
-						log("start response", model,d);
+						log("start response", model,m);
 						App.collections.deals.add(model);
 						
 						//$('#btn_submit_start_deal');

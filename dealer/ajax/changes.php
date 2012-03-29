@@ -5,6 +5,7 @@ $cindex = (int)(isset($_GET['cindex']) ? $_GET['cindex'] : (isset($_SESSION['cin
 try{
 	$res = $db->since($csince)->filter('dealer/history',array('id'=>$dealer,'index'=>$cindex))->getChanges();
 	$results = isset($res->results) ? $res->results : array();
+	//echo die(json_encode(array('success'=>'false','error'=>'error_database', 'data'=>$results)));
 	$_SESSION['csince'] = $csince = $res->last_seq;
 	if(empty($results)) echo die(json_encode(array('success'=>'false','error'=>'no_results','csince'=>$csince,'cindex'=>$cindex)));
 	$data = $db->startkey(array($dealer,$cindex))->endkey(array($dealer,'a'))->getView('dealer','getHistory');
