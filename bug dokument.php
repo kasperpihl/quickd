@@ -4,6 +4,8 @@ Bugs:
 
 Gennemtest billede-upload
 
+Overlays ved internet forbindelse røget (Skal ikke lægges på hvergang man trykker)
+
 Vis rabat ved oprettelse af templates
 
 Glemt adgangskode-dialog

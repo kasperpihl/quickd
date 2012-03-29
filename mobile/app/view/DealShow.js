@@ -35,7 +35,8 @@ var showDealTemplate = new Ext.XTemplate(
 var showDealSliderObj = new Ext.XTemplate(
     '<div class="dealBackground">',
         '<div class="leftPanel left">',
-            '<img src="http://lorempixum.com/185/185/food/" width="185" height="185" />',
+            '<img src="' + IMG_URL +'thumbnail/{image}" width="185" height="185" />',
+            //'<img src="http://lorempixum.com/185/185/food/" width="185" height="185" />',
         '</div>',
         '<div class="rightPanel left">',
             '<div class="infoBox">',
@@ -128,14 +129,19 @@ Ext.define('QuickD.view.DealShow', {
             slider  = this.down('#quickd-deal-slider');
         
         slider.removeAll(true,true);
-        for(var key in records) slider.add({}).setData(records[key].data);
+        for(var key in records) slider.add({modelId:records[key].getId()}).setData(records[key].data);
     },
     loadDeal:function(record,index){
-        var $deal = $('#deal-' + record.internalId + '-info');
-        
-        this.down('#quickd-deal-slider').setActiveItem(index);
-        this.down('#quickd-deal-content').setData(record.getData());
+        var model;
+        if(record.modelId) model = Ext.getStore('Deals').getById(record.modelId);
+        else model = record;
+        //var $deal = $('#deal-' + record.internalId + '-info');
+        this.down('#quickd-show-topbar').setTitle('test');
+        this.down('#quickd-deal-content').setData(model.getData());
+        var now = parseInt(new Date().getTime()/1000);
 
+        var time_left = parseInt(model.get('end'))-parseInt(now);
+        javascript_countdown.start(time_left)
         if ($('#quickd-deal-content article[id*=deal-]').length > 0) this.addCustomScroll();
     },
     initialize: function() {
@@ -166,7 +172,6 @@ Ext.define('QuickD.view.DealShow', {
     updateScroll: function() {
         if (this.easyScroll) {
             this.easyScroll.reflow();
-            log('EasyScroller updated.');
         }
     }
 });

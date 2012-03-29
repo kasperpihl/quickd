@@ -10,7 +10,20 @@ window.log=function(){
 function priceIt(price){
 	return price + 'Dkr';
 }
+function humanReadableTime(stamp){
+	var now = parseInt(new Date().getTime()/1000,10);
+	var time = parseInt(stamp,10) - now;
+	var hours, minutes, seconds;
+	seconds = time % 60;
+	minutes = Math.floor(time / 60) % 60;
+	hours = Math.floor(time / 3600);
+	if(time < 60) return seconds + ' sekunder tilbage';
+	if(time < 600) return minutes + ' minutter tilbage';
+	if(time < 2700) return 'Over ' + (parseInt(minutes/10,10)*10) + ' minutter tilbage';
+	if(time < 3600) return 'Næsten 1 time tilbage';
+	else return (minutes < 45 ? 'Over ' + hours : 'Næsten ' + (hours+1))  + ' ' + (time < 6300 ? 'time' : 'timer') + ' tilbage';
 
+}
 /**
  * Convert metre value to human readable format
  *

@@ -32,7 +32,8 @@ if(isset($_GET['id'])){
 		<script src="<?= LIBS_URL ?>jquery/jquery.validate.js"></script>
 		<?php if($resetPassword){ ?>
 		<script>
-			
+		
+			var ROOT_URL = "<?= ROOT_URL ?>";
 			$(document).ready(function() {
 				var form = $('form#new-pass-form');
 
@@ -59,8 +60,11 @@ if(isset($_GET['id'])){
 				});
 				$('button#btn_submit_pass').on('click', function() {
 					if (form && form.valid()) {
-						$.post("<?= ROOT_URL ?>api/reset",{model:{doc_id: "<?= $doc_id ?>",password:$('#newPass').val(),id:"<?= $id ?>"}},function(data){
-							log('response from reset',data);
+						$.post("<?= ROOT_URL ?>api/reset",{model:{doc_id: "<?= $doc_id ?>",password:$('#newpass-input').val(),id:"<?= $id ?>"}},function(data){
+							if(data.success == 'true'){
+								window.location = ROOT_URL;
+							}
+							//log('response from reset',data);
 						},'json');
 					} else form.submit();
 					return false;
@@ -81,10 +85,7 @@ if(isset($_GET['id'])){
 						<?php if($resetPassword){ ?>
 						<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
 						<div class="field">
-							
-								<input type="password" name="newPass" id="newpass-input" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
-
-							
+							<input type="password" name="newPass" id="newpass-input" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
 						</div>
 						<?php } else{ ?>
 							<p>Linket er brugt, forældet eller findes ikke.</p>

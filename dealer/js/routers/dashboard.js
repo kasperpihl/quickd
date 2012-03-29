@@ -116,6 +116,7 @@ define([
 					cindex = (localStorage.getItem('cindex') != 'undefined') ? localStorage.getItem('cindex') : 0,
 					csince = (localStorage.getItem('csince') != 'undefined') ? localStorage.getItem('csince') : 0,
 					doOnError = function() {
+						log('doOnError');
 						if (thisClass.networkErrorDialog && !thisClass.networkErrorShown) {
 								thisClass.networkErrorDialog.openDialog();
 								thisClass.networkErrorShown = true;
@@ -131,6 +132,7 @@ define([
 		        cache: false,
 		        timeout:4000,
 		        success: function(result) {
+		        	log('success', result)
 		        	result = $.parseJSON(result);
 		        	if (result.hasOwnProperty('success') && result.success=='false' && result.error=='error_database') doOnError();
 		        	else thisClass.changes(result);
