@@ -4,6 +4,8 @@ Bugs:
 
 Gennemtest billede-upload
 
+Fejl besked ved diverse gem knapper og lign :-)
+
 Overlays ved internet forbindelse røget (Skal ikke lægges på hvergang man trykker)
 
 Vis rabat ved oprettelse af templates
