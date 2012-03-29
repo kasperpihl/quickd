@@ -6,8 +6,6 @@ Gennemtest billede-upload
 
 Fejl besked ved diverse gem knapper og lign :-)
 
-Overlays ved internet forbindelse røget (Skal ikke lægges på hvergang man trykker)
-
 Vis rabat ved oprettelse af templates
 
 Glemt adgangskode-dialog
@@ -27,6 +25,8 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Overlays ved internet forbindelse røget (Skal ikke lægges på hvergang man trykker)
 
 (rettet Jeppe) Åbningstider
 

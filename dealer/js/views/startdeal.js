@@ -310,16 +310,16 @@ define([
 			obj.end = $('#deal_end_time').val();
 			var model = new App.models.Deal();
 			model.save(obj,{
-				success:function(data,d){
+				success:function(m,data){
 					
-					if(d.success && d.success == 'true'){
-						log("start response", data,d);
+					if(data.success && data.success == 'true'){
+						log("start response", model,d);
 						App.collections.deals.add(model);
 						
 						//$('#btn_submit_start_deal');
 						thisClass.animateAway(function() {
 							thisClass.activity.route = lang.urls[thisClass.activity.activityName]
-							thisClass.router.navigate(lang.urls.overviewDeals+'/'+data.id,{trigger:true});
+							thisClass.router.navigate(lang.urls.overviewDeals+'/'+m.id,{trigger:true});
 							thisClass.resetStarter(true);
 							thisClass.router.trigger('dealEdited',{event: 'deal_planned'});
 						});
@@ -329,19 +329,19 @@ define([
 						$('#btn_submit_start_deal').removeClass('disabled').val('Planlæg deal');
 						thisClass.starting = false;
 						
-						switch(d.error){
-							case 'deal_already_planned':
-								thisClass.shakeADeal();
-								thisClass.showError();
-							break;
+						if (data.error == 'deal_already_planned'){
+							thisClass.shakeADeal();
+							thisClass.showError();
+						} else {
+							thisClass.router.showError("Der opstod en fejl", "Din deal blev ikke startet<br />Fejlmeddelelse: "+data.error);
 						}
-						log("start error", d);
+						log("start error", data);
 					}
 					
 				},
-				error:function(data,d){
-					log(data,d);
-					console.dir(d);
+				error:function(m,data){
+					log(m,data);
+					thisClass.router.showError("Der opstod en fejl", "Din deal blev ikke startet<br />Fejlmeddelelse: "+data.error);
 				}
 			});
 			

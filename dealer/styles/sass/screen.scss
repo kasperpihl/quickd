@@ -1401,6 +1401,10 @@ body {
 		.button.cancel {margin-right:10px;float:right;}
 	}
 }
+.error-promt {
+	h1 {padding-bottom:0px;}
+	.msg {color:#8E1717;font-size:14px;line-height:18px;}
+}
 
 #activities {
 	@include stretch-x($menu-width, 0px);@include min-width(900px);@include stretch-y();

@@ -122,9 +122,12 @@ define([
 					$("#btn_edit_template").html("Rediger").removeClass("blue");
 					$("#btn_cancel_template").css("display", "none");
 					$("#btn_del_template").css("display", "none");
+
 					//$('#whitespace').css('height', '0px');
 					thisClass.state = 'view';
-				},error: function(d,data){log('error saving model',d,data);} }, false, manual);
+				},error: function(d,data){
+					log('error saving model',d,data);
+				} }, false, manual);
 				this.important = false;
 				this.lastFocus = false;
 				

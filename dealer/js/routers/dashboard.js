@@ -108,6 +108,20 @@ define([
 			}
 			App.views.dashboard.changeActivity(options);
 		},
+		showError:function(title, msg) {
+			title = title ? title : 'Der op stod en fejl';
+			msg = msg ? msg : '';
+			if (!this.errorDialog) this.errorDialog = new App.views.dialogs.PromtDialog({router:this, type: 'promt', callbackCid:'error-msg-promt', 
+				openOnCreate: true, closable: true, destroyOnClose: false, classes: 'error-promt',
+				title:title, 
+				msg:msg, 
+				confirmText:'Okay'
+			});
+			else {
+				this.errorDialog.setText(title, msg);
+				this.errorDialog.openDialog();
+			}
+		},
 		retryConnection:function(obj) {
 			if (this.networkErrorShown) this.networkErrorShown = false;
 			this.getChanges(true, true);

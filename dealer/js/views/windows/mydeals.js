@@ -159,13 +159,19 @@ define([
 					if(this.currentDeal.get('state')=='current') {
 						this.currentDeal.save({status:'soldout'}, {success:function(model, response) {
 							log('Deal soldout', model, response);
-						}, error: function(model, response) { log('Deal soldout error', model, response);}});
+						}, error: function(model, response) { 
+							log('Deal soldout error', model, response);
+							thisClass.router.showError("Der opstod en fejl", "Det lykkedes ikke at melde din deal udsolgt<br />Fejlmeddelelse: "+response.error); 
+						}});
 					} else {
 						this.currentDeal.destroy({data:this.currentDeal.id, success:function(model, response) {
 							log("deleted", model, response);
 							thisClass.router.trigger('dealEdited',{event:'dealDeleted'});
 							thisClass.activity.closeWindow(thisClass, false, true);
-						}, error:function(model, response) { log("error delete: ", model, response); }});
+						}, error:function(model, response) { 
+							log("error delete: ", model, response); 
+							thisClass.router.showError("Der opstod en fejl", "Det lykkedes ikke at slette din deal<br />Fejlmeddelelse: "+response.error); 
+						}});
 					}
 					
 					
