@@ -29,7 +29,7 @@ define([
 			App.collections.images = new App.collections.Images();
 			if(options.stuff) this.setStuff(options.stuff);
 			App.views.dashboard = new App.views.Dashboard({router:this});
-
+			this.errorCount = 0;
 			this.networkErrorDialog = new App.views.dialogs.PromtDialog({router:this, type: 'promt', callbackCid:'dashboard-router', 
 				openOnCreate: false, closable: false, destroyOnClose: false,
 				title:'Ingen forbindelse til serveren', 
@@ -108,6 +108,20 @@ define([
 			}
 			App.views.dashboard.changeActivity(options);
 		},
+		showError:function(title, msg) {
+			title = title ? title : 'Der op stod en fejl';
+			msg = msg ? msg : '';
+			if (!this.errorDialog) this.errorDialog = new App.views.dialogs.PromtDialog({router:this, type: 'promt', callbackCid:'error-msg-promt', 
+				openOnCreate: true, closable: true, destroyOnClose: false, classes: 'error-promt',
+				title:title, 
+				msg:msg, 
+				confirmText:'Okay'
+			});
+			else {
+				this.errorDialog.setText(title, msg);
+				this.errorDialog.openDialog();
+			}
+		},
 		retryConnection:function(obj) {
 			if (this.networkErrorShown) this.networkErrorShown = false;
 			this.getChanges(true, true);
@@ -117,11 +131,12 @@ define([
 			cindex = (localStorage.getItem('cindex') != 'undefined') ? localStorage.getItem('cindex') : 0,
 			csince = (localStorage.getItem('csince') != 'undefined') ? localStorage.getItem('csince') : 0,
 			doOnError = function() {
-				if (thisClass.networkErrorDialog && !thisClass.networkErrorShown) {
+				if (thisClass.errorCount>=1 && thisClass.networkErrorDialog && !thisClass.networkErrorShown) {
 					thisClass.networkErrorDialog.openDialog();
 					thisClass.networkErrorShown = true;
-				} 
-		    };
+				}
+				thisClass.errorCount++; 
+		  };
 		  //if (window.navigator.onLine) {
 				$.ajax({
 		        type: "GET",
@@ -129,9 +144,10 @@ define([
 		        data: 'cindex='+cindex+'&csince='+csince,
 		        async: true,
 		        cache: false,
-		        timeout:4000,
+		        timeout:5000,
 		        success: function(result) {
-		        	//log('success', result)
+		        	log('success', result);
+
 		        	result = $.parseJSON(result);
 		        	if (result.hasOwnProperty('success') && result.success=='false' && result.error=='error_database') doOnError();
 		        	else thisClass.changes(result);
@@ -187,6 +203,7 @@ define([
 			//log('result from changes',result);
 			
 			if (this.networkErrorShown) this.networkErrorDialog.closeDialog();
+			this.errorCount = 0;
 			if(result.hasOwnProperty('success') && result.success == 'false') return;
 
 			if(result.hasOwnProperty('csince')) localStorage.setItem('csince',result.csince);

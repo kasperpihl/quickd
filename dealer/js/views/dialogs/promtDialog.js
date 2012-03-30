@@ -41,7 +41,6 @@ define([
 			return false;
 		},
 		onOpen:function() {
-			log("doOnOpen")
 			this.closing = false;
 		},
 		onClose:function() {
@@ -49,6 +48,9 @@ define([
 		},
 		doTrigger:function(eventType) {
 			this.router.trigger('promtCallback:'+this.callbackCid, {eventType:eventType, callbackCid:this.callbackCid, type: this.type, windowName:this.windowName});
+		},
+		setText:function(title, msg) {
+			$(this.dialog).find('h1').html(title).end().find('.msg').html(msg);
 		}
 	});
 });

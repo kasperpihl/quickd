@@ -50,13 +50,15 @@ define([
 					
 			} else if(this.form)  this.form.submit();
 		},
-		changedModel: function(data,d){
-			log("added", data, d);
+		changedModel: function(m,data){
+			log("added", m, data);
 			if (d.success=='true') {
 				this.collection.add(this.model);
 				App.views.notifications.notify('fast',lang.notifications.template.created);
 				this.confirmClose=false;
 				this.activity.closeWindow(this);
+			} else {
+				this.router.showError("Der opstod en fejl", "Din skabelon blev ikke oprettet korrekt<br />Fejlmeddelelse: "+data.error);
 			}
 		},
 		onCreated: function() {

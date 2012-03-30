@@ -172,6 +172,7 @@ define([
 		},
 		saveToModel:function(callbacks, simple, manualValues) {
 			if (this.form && this.form.valid()) {
+
 				var thisClass = this;
 				if (!callbacks) callbacks = {};
 				var obj = {};
@@ -191,25 +192,27 @@ define([
 				});
 				
 				if(!$.isEmptyObject(obj)) {
-					log('model',this.model);
 					//var button = this.form.find('.edit-save-button').filter(':first');
 					//button.wrap('<div class="loader-small" />');
-					this.model.save(obj,{success:function(d,data){
+					this.model.save(obj,{success:function(m,data){
 						//console.log("success");console.dir(d); console.dir(data);
-						log("success", d, data);
+						log("success", m, data);
 						//button.unwrap();
 						$(thisClass.windowId).find('.field').find('input[type=password]').val('');
 						if (data.success == 'true') {
 							if(thisClass.lock) thisClass.router.trigger('unlock',{lock:'window',activityCid: thisClass.activity.cid,depth:thisClass.depth});
-							if (callbacks.success) callbacks.success(d, data);
-							if (callbacks.onChanged) callbacks.onChanged(d, data);
+							if (callbacks.success) callbacks.success(m, data);
+							if (callbacks.onChanged) callbacks.onChanged(m, data);
 							if (!simple) $(thisClass.windowId).formSetState('readonly');
 							
-						} else if(callbacks.error) callbacks.error(d, data);
-					}, error:function(d,data){
-						log('error',d,data);
+						} else {
+							thisClass.router.showError("Der opstod en fejl", "Dine ændringer blev ikke gemt<br />Fejlmeddelelse: "+data.error);
+							if(callbacks.error) callbacks.error(m, data);
+						}
+					}, error:function(m,data){
 						//console.log("error");console.dir(d); console.dir(data);
-						if (callbacks.error) callbacks.error(d, data);
+						thisClass.router.showError("Der opstod en fejl", "Dine ændringer blev ikke gemt<br />Fejlmeddelelse: "+data.error);
+						if (callbacks.error) callbacks.error(m, data);
 					}});
 				} else {
 					if(this.lock) this.router.trigger('unlock',{lock:'window',activityCid: this.activity.cid,depth:this.depth});

@@ -1,9 +1,10 @@
+@charset "CP850";
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* Så slipper vi for manuelt at kode vendor prefixes */
-/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,45 +26,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 20, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 20, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
 }
 
-/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 101, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 114, C:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -80,22 +81,25 @@ h1, h2, h3, h4, h5, h6 {
 @-webkit-keyframes whitePulse {
   /* line 260, ../sass/screen.scss */
   from {
-    -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -o-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
   /* line 261, ../sass/screen.scss */
   50% {
-    -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -o-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
   /* line 262, ../sass/screen.scss */
   to {
-    -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -o-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 }
@@ -103,22 +107,25 @@ h1, h2, h3, h4, h5, h6 {
 @-moz-keyframes whitePulse {
   /* line 260, ../sass/screen.scss */
   from {
-    -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -o-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
   /* line 261, ../sass/screen.scss */
   50% {
-    -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -o-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
   /* line 262, ../sass/screen.scss */
   to {
-    -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -o-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 }
@@ -126,22 +133,25 @@ h1, h2, h3, h4, h5, h6 {
 @-ms-keyframes whitePulse {
   /* line 260, ../sass/screen.scss */
   from {
-    -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -o-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
   /* line 261, ../sass/screen.scss */
   50% {
-    -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -o-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
   /* line 262, ../sass/screen.scss */
   to {
-    -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+    -o-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 }
@@ -149,15 +159,17 @@ h1, h2, h3, h4, h5, h6 {
 @-webkit-keyframes bluePulse {
   /* line 458, ../sass/screen.scss */
   from {
-    -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
+    -webkit-box-shadow: 0px 0px 9px transparent;
+    -o-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
   /* line 459, ../sass/screen.scss */
   50% {
-    -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
+    -webkit-box-shadow: 0px 0px 30px #236fba;
+    -o-box-shadow: 0px 0px 30px #236fba;
     box-shadow: 0px 0px 30px #236fba;
     opacity: 0.8;
     text-shadow: 0 0 10px white;
@@ -165,8 +177,9 @@ h1, h2, h3, h4, h5, h6 {
 
   /* line 460, ../sass/screen.scss */
   to {
-    -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
+    -webkit-box-shadow: 0px 0px 9px transparent;
+    -o-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 }
@@ -174,15 +187,17 @@ h1, h2, h3, h4, h5, h6 {
 @-moz-keyframes bluePulse {
   /* line 458, ../sass/screen.scss */
   from {
-    -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
+    -webkit-box-shadow: 0px 0px 9px transparent;
+    -o-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
   /* line 459, ../sass/screen.scss */
   50% {
-    -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
+    -webkit-box-shadow: 0px 0px 30px #236fba;
+    -o-box-shadow: 0px 0px 30px #236fba;
     box-shadow: 0px 0px 30px #236fba;
     opacity: 0.8;
     text-shadow: 0 0 10px white;
@@ -190,8 +205,9 @@ h1, h2, h3, h4, h5, h6 {
 
   /* line 460, ../sass/screen.scss */
   to {
-    -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
+    -webkit-box-shadow: 0px 0px 9px transparent;
+    -o-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 }
@@ -199,15 +215,17 @@ h1, h2, h3, h4, h5, h6 {
 @-ms-keyframes bluePulse {
   /* line 458, ../sass/screen.scss */
   from {
-    -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
+    -webkit-box-shadow: 0px 0px 9px transparent;
+    -o-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
   /* line 459, ../sass/screen.scss */
   50% {
-    -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
+    -webkit-box-shadow: 0px 0px 30px #236fba;
+    -o-box-shadow: 0px 0px 30px #236fba;
     box-shadow: 0px 0px 30px #236fba;
     opacity: 0.8;
     text-shadow: 0 0 10px white;
@@ -215,8 +233,9 @@ h1, h2, h3, h4, h5, h6 {
 
   /* line 460, ../sass/screen.scss */
   to {
-    -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
+    -webkit-box-shadow: 0px 0px 9px transparent;
+    -o-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 }
@@ -254,10 +273,11 @@ h1, h2, h3, h4, h5, h6 {
 /* line 504, ../sass/screen.scss */
 .button {
   cursor: pointer;
-  -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
+  -webkit-border-radius: 4px;
   -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
   border-radius: 4px;
   display: inline-block;
   line-height: normal;
@@ -272,14 +292,12 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
   border: 1px solid #4E7A00;
   text-shadow: 0.5px 0 2px black;
-  -webkit-transition-property: background, background-image, color;
   -moz-transition-property: background, background-image, color;
-  -ms-transition-property: background, background-image, color;
+  -webkit-transition-property: background, background-image, color;
   -o-transition-property: background, background-image, color;
   transition-property: background, background-image, color;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
-  -ms-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
   background: #abd026;
@@ -295,10 +313,11 @@ h1, h2, h3, h4, h5, h6 {
   background-image: -ms-linear-gradient(top, #5e961b 0%, #3a6b09 98%);
   background-image: linear-gradient(top, #5e961b 0%, #3a6b09 98%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   -webkit-animation: whitePulse 3s infinite;
   -moz-animation: whitePulse 3s infinite;
@@ -310,14 +329,12 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   color: white;
   border: 1px solid #4E7A00;
-  -webkit-transition-property: background, background-image, color;
   -moz-transition-property: background, background-image, color;
-  -ms-transition-property: background, background-image, color;
+  -webkit-transition-property: background, background-image, color;
   -o-transition-property: background, background-image, color;
   transition-property: background, background-image, color;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
-  -ms-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
   background-color: #5e961b;
@@ -340,8 +357,9 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
   border: 1px solid #4E7A00;
   background: #3A6B09;
-  -webkit-box-shadow: inset 0px 1px 3px #363535;
   -moz-box-shadow: inset 0px 1px 3px #363535;
+  -webkit-box-shadow: inset 0px 1px 3px #363535;
+  -o-box-shadow: inset 0px 1px 3px #363535;
   box-shadow: inset 0px 1px 3px #363535;
   -webkit-animation: none;
   -moz-animation: none;
@@ -357,10 +375,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* line 524, ../sass/screen.scss */
 .button.green.small {
-  -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
   -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
   border-radius: 3px;
 }
 /* line 527, ../sass/screen.scss */
@@ -470,8 +489,9 @@ h1, h2, h3, h4, h5, h6 {
   background: -o-linear-gradient(top, #c43f31, #ea5f55);
   background: -ms-linear-gradient(top, #c43f31, #ea5f55);
   background: linear-gradient(top, #c43f31, #ea5f55);
-  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
@@ -530,8 +550,9 @@ h1, h2, h3, h4, h5, h6 {
   background: -o-linear-gradient(top, #0064cd, #049cdb);
   background: -ms-linear-gradient(top, #0064cd, #049cdb);
   background: linear-gradient(top, #0064cd, #049cdb);
-  -webkit-box-shadow: inset 0px 1px 1px #363535;
   -moz-box-shadow: inset 0px 1px 1px #363535;
+  -webkit-box-shadow: inset 0px 1px 1px #363535;
+  -o-box-shadow: inset 0px 1px 1px #363535;
   box-shadow: inset 0px 1px 1px #363535;
   cursor: pointer;
 }
@@ -539,8 +560,9 @@ h1, h2, h3, h4, h5, h6 {
 .button.disabled, .button.disabled:hover, .button.disabled:active {
   background: #BDBDBD;
   border: #6e6e6e;
-  -webkit-box-shadow: none;
   -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
   box-shadow: none;
   cursor: default;
 }
@@ -569,8 +591,9 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
   font-size: 14px;
   z-index: 50;
-  -webkit-box-shadow: 0 0 5px black;
   -moz-box-shadow: 0 0 5px black;
+  -webkit-box-shadow: 0 0 5px black;
+  -o-box-shadow: 0 0 5px black;
   box-shadow: 0 0 5px black;
   border-radius: 5px;
   font-family: "Helvetica";
@@ -588,8 +611,9 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
   font-size: 14px;
   z-index: 50;
-  -webkit-box-shadow: 0 0 5px black;
   -moz-box-shadow: 0 0 5px black;
+  -webkit-box-shadow: 0 0 5px black;
+  -o-box-shadow: 0 0 5px black;
   box-shadow: 0 0 5px black;
   border-radius: 5px;
   font-family: "Helvetica";
@@ -679,8 +703,9 @@ body {
 #header {
   width: 100%;
   height: 45px;
-  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjgpIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZDFkMWQxIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background-size: 100%;
@@ -761,20 +786,19 @@ body {
   float: left;
   text-align: center;
   color: #f6f6f6;
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   padding: 4px 9px;
-  -webkit-transition-property: background, background-image, color;
   -moz-transition-property: background, background-image, color;
-  -ms-transition-property: background, background-image, color;
+  -webkit-transition-property: background, background-image, color;
   -o-transition-property: background, background-image, color;
   transition-property: background, background-image, color;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
-  -ms-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
   cursor: pointer;
@@ -862,10 +886,11 @@ body {
   background-image: -o-linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.98));
   background-image: -ms-linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.98));
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.98));
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   border: thin solid black;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -956,14 +981,12 @@ body {
   color: white;
   border: 1px solid #4E7A00;
   text-shadow: 0.5px 0 2px black;
-  -webkit-transition-property: background, background-image, color;
   -moz-transition-property: background, background-image, color;
-  -ms-transition-property: background, background-image, color;
+  -webkit-transition-property: background, background-image, color;
   -o-transition-property: background, background-image, color;
   transition-property: background, background-image, color;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
-  -ms-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
   background: #abd026;
@@ -979,22 +1002,21 @@ body {
   background-image: -ms-linear-gradient(top, #5e961b 0%, #3a6b09 98%);
   background-image: linear-gradient(top, #5e961b 0%, #3a6b09 98%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   -webkit-animation: whitePulse 3s infinite;
   -moz-animation: whitePulse 3s infinite;
   -ms-animation: whitePulse 3s infinite;
-  -webkit-transition-property: background, background-image, color;
   -moz-transition-property: background, background-image, color;
-  -ms-transition-property: background, background-image, color;
+  -webkit-transition-property: background, background-image, color;
   -o-transition-property: background, background-image, color;
   transition-property: background, background-image, color;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
-  -ms-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
 }
@@ -1004,14 +1026,12 @@ body {
   cursor: pointer;
   color: white;
   border: 1px solid #4E7A00;
-  -webkit-transition-property: background, background-image, color;
   -moz-transition-property: background, background-image, color;
-  -ms-transition-property: background, background-image, color;
+  -webkit-transition-property: background, background-image, color;
   -o-transition-property: background, background-image, color;
   transition-property: background, background-image, color;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
-  -ms-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
   background-color: #5e961b;
@@ -1090,13 +1110,15 @@ body {
   background-image: -o-linear-gradient(#ffffff 48%, #e2e2e2 100%);
   background-image: -ms-linear-gradient(#ffffff 48%, #e2e2e2 100%);
   background-image: linear-gradient(#ffffff 48%, #e2e2e2 100%);
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
-  -webkit-box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.4);
+  -o-box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.4);
 }
 /* line 948, ../sass/screen.scss */
@@ -1140,14 +1162,12 @@ body {
   color: white;
   border: 1px solid #4E7A00;
   text-shadow: 0.5px 0 2px black;
-  -webkit-transition-property: background, background-image, color;
   -moz-transition-property: background, background-image, color;
-  -ms-transition-property: background, background-image, color;
+  -webkit-transition-property: background, background-image, color;
   -o-transition-property: background, background-image, color;
   transition-property: background, background-image, color;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
-  -ms-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
   background: #abd026;
@@ -1163,18 +1183,20 @@ body {
   background-image: -ms-linear-gradient(top, #5e961b 0%, #3a6b09 98%);
   background-image: linear-gradient(top, #5e961b 0%, #3a6b09 98%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   -webkit-animation: whitePulse 3s infinite;
   -moz-animation: whitePulse 3s infinite;
   -ms-animation: whitePulse 3s infinite;
-  -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
-  -ms-border-radius: 7px;
+  -webkit-border-radius: 7px;
   -o-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -khtml-border-radius: 7px;
   border-radius: 7px;
   margin: 20px 20px;
 }
@@ -1184,14 +1206,12 @@ body {
   cursor: pointer;
   color: white;
   border: 1px solid #4E7A00;
-  -webkit-transition-property: background, background-image, color;
   -moz-transition-property: background, background-image, color;
-  -ms-transition-property: background, background-image, color;
+  -webkit-transition-property: background, background-image, color;
   -o-transition-property: background, background-image, color;
   transition-property: background, background-image, color;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
-  -ms-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
   background-color: #5e961b;
@@ -1214,8 +1234,9 @@ body {
   color: white;
   border: 1px solid #4E7A00;
   background: #3A6B09;
-  -webkit-box-shadow: inset 0px 1px 3px #363535;
   -moz-box-shadow: inset 0px 1px 3px #363535;
+  -webkit-box-shadow: inset 0px 1px 3px #363535;
+  -o-box-shadow: inset 0px 1px 3px #363535;
   box-shadow: inset 0px 1px 3px #363535;
   -webkit-animation: none;
   -moz-animation: none;
@@ -1247,10 +1268,11 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 1px grey;
   border: none;
   min-height: 90%;
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
 }
 /* line 993, ../sass/screen.scss */
@@ -1263,8 +1285,9 @@ body {
   background: none;
   width: 100%;
   height: 100%;
-  -webkit-box-shadow: none;
   -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
   box-shadow: none;
   position: absolute;
   top: 0px;
@@ -1282,10 +1305,11 @@ body {
   min-height: 230px;
   height: auto !important;
   height: 230px;
-  -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
-  -ms-border-radius: 0px;
+  -webkit-border-radius: 0px;
   -o-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -khtml-border-radius: 0px;
   border-radius: 0px;
 }
 /* line 1025, ../sass/screen.scss */
@@ -1327,8 +1351,9 @@ body {
   width: 100%;
   overflow-y: auto;
   z-index: 45;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 /* line 1047, ../sass/screen.scss */
@@ -1352,15 +1377,15 @@ body {
 }
 /* line 403, ../sass/screen.scss */
 #entry_view .header .login_fields .field .input-wrapper, #entry_view .header .login_fields .field input {
-  -webkit-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   -moz-transition: all linear 0.2s, box-shadow ease-out 0.2s;
-  -ms-transition: all linear 0.2s, box-shadow ease-out 0.2s;
+  -webkit-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   -o-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   transition: all linear 0.2s, box-shadow ease-out 0.2s;
-  -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
+  -webkit-border-radius: 20px;
   -o-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -khtml-border-radius: 20px;
   border-radius: 20px;
   display: inline-block;
   background: white url("i/loader.gif") no-repeat;
@@ -1385,8 +1410,9 @@ body {
 }
 /* line 431, ../sass/screen.scss */
 #entry_view .header .login_fields .field input.wrapped, #entry_view .header .login_fields .field input.wrapped:focus {
-  -webkit-box-shadow: none;
   -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
   box-shadow: none;
   background: transparent;
   border: none;
@@ -1420,8 +1446,9 @@ body {
 /* line 1081, ../sass/screen.scss */
 #entry_view .header .login_fields #shadow-wrapper {
   position: absolute;
-  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   border-radius: 19px;
   width: 404px;
@@ -1440,26 +1467,30 @@ body {
   padding: 20px;
   width: 407px;
   background: white;
-  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-  -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
+  -webkit-border-radius: 5px;
   -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
   border-radius: 5px;
 }
 /* line 72, ../sass/screen.scss */
 #entry_view .header .register_fields input[type="text"], #entry_view .header .register_fields input[type="password"] {
   width: 100%;
   border: 1px solid #CCC;
-  -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
   -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
   color: rgba(0, 0, 0, 0.8);
   font-size: 13px;
@@ -1471,15 +1502,17 @@ body {
 /* line 84, ../sass/screen.scss */
 #entry_view .header .register_fields input[type="text"].errorTip, #entry_view .header .register_fields input[type="password"].errorTip {
   border: 1px solid #DD5555;
-  -webkit-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 /* line 90, ../sass/screen.scss */
 #entry_view .header .register_fields input[type="text"]:focus:not(.errorTip), #entry_view .header .register_fields input[type="password"]:focus:not(.errorTip) {
   border: 1px solid #59CCD9;
-  -webkit-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 /* line 96, ../sass/screen.scss */
@@ -1494,13 +1527,15 @@ body {
   text-align: left;
   font-size: 14px;
   z-index: 50;
-  -webkit-box-shadow: 0 0 5px black;
   -moz-box-shadow: 0 0 5px black;
+  -webkit-box-shadow: 0 0 5px black;
+  -o-box-shadow: 0 0 5px black;
   box-shadow: 0 0 5px black;
-  -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
+  -webkit-border-radius: 5px;
   -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
   border-radius: 5px;
 }
 /* line 111, ../sass/screen.scss */
@@ -1511,18 +1546,20 @@ body {
   padding-right: 8px;
   margin-top: 10px;
   cursor: pointer;
-  -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
   -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
   border-radius: 3px;
   outline: none;
   font-weight: bold;
   font-size: 13px;
   color: #2E2826;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
-  -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
   -moz-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  -o-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
   display: inline-block;
   border: 1px solid #FD9A0F;
@@ -1554,8 +1591,9 @@ body {
 }
 /* line 141, ../sass/screen.scss */
 #entry_view .header .register_fields button:active {
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 /* line 145, ../sass/screen.scss */
@@ -1607,8 +1645,9 @@ body {
 /* line 1119, ../sass/screen.scss */
 #entry_view .header .register_fields #shadow-wrapper {
   position: absolute;
-  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
   border-radius: 19px;
   width: 404px;
@@ -1807,18 +1846,19 @@ body {
 }
 /* line 339, ../sass/screen.scss */
 #register_dialog .field .input-wrapper, #register_dialog .field input {
-  -webkit-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   -moz-transition: all linear 0.2s, box-shadow ease-out 0.2s;
-  -ms-transition: all linear 0.2s, box-shadow ease-out 0.2s;
+  -webkit-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   -o-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   transition: all linear 0.2s, box-shadow ease-out 0.2s;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   display: inline-block;
   background: white url("i/loader.gif") no-repeat;
@@ -1835,8 +1875,9 @@ body {
   padding-left: 16px;
   padding-top: 14px;
   outline: none;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
 }
 /* line 364, ../sass/screen.scss */
@@ -1849,15 +1890,17 @@ body {
   border-color: #888;
   color: #222;
   @include box-shadow(inset 0 0 3px rgba(0, 0, 0, 0.4));*/
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
+  -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
   border: 1px solid rgba(123, 232, 84, 0.7);
 }
 /* line 373, ../sass/screen.scss */
 #register_dialog .field input.wrapped, #register_dialog .field input.wrapped:focus {
-  -webkit-box-shadow: none;
   -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
   box-shadow: none;
   background: transparent;
   border: none;
@@ -1975,13 +2018,15 @@ body {
 #resetpassword_dialog input[type="text"], #resetpassword_dialog input[type="password"] {
   width: 100%;
   border: 1px solid #CCC;
-  -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
   -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
   color: rgba(0, 0, 0, 0.8);
   font-size: 13px;
@@ -1993,15 +2038,17 @@ body {
 /* line 84, ../sass/screen.scss */
 #resetpassword_dialog input[type="text"].errorTip, #resetpassword_dialog input[type="password"].errorTip {
   border: 1px solid #DD5555;
-  -webkit-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 /* line 90, ../sass/screen.scss */
 #resetpassword_dialog input[type="text"]:focus:not(.errorTip), #resetpassword_dialog input[type="password"]:focus:not(.errorTip) {
   border: 1px solid #59CCD9;
-  -webkit-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 /* line 96, ../sass/screen.scss */
@@ -2016,13 +2063,15 @@ body {
   text-align: left;
   font-size: 14px;
   z-index: 50;
-  -webkit-box-shadow: 0 0 5px black;
   -moz-box-shadow: 0 0 5px black;
+  -webkit-box-shadow: 0 0 5px black;
+  -o-box-shadow: 0 0 5px black;
   box-shadow: 0 0 5px black;
-  -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
+  -webkit-border-radius: 5px;
   -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
   border-radius: 5px;
 }
 /* line 111, ../sass/screen.scss */
@@ -2033,18 +2082,20 @@ body {
   padding-right: 8px;
   margin-top: 10px;
   cursor: pointer;
-  -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
   -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
   border-radius: 3px;
   outline: none;
   font-weight: bold;
   font-size: 13px;
   color: #2E2826;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
-  -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
   -moz-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  -o-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
   display: inline-block;
   border: 1px solid #FD9A0F;
@@ -2076,8 +2127,9 @@ body {
 }
 /* line 141, ../sass/screen.scss */
 #resetpassword_dialog button:active {
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 /* line 145, ../sass/screen.scss */
@@ -2168,6 +2220,17 @@ body {
 }
 
 /* line 1405, ../sass/screen.scss */
+.error-promt h1 {
+  padding-bottom: 0px;
+}
+/* line 1406, ../sass/screen.scss */
+.error-promt .msg {
+  color: #8E1717;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+/* line 1409, ../sass/screen.scss */
 #activities {
   position: absolute;
   left: 200px;
@@ -2179,14 +2242,14 @@ body {
   top: 0;
   bottom: 0;
 }
-/* line 1408, ../sass/screen.scss */
+/* line 1412, ../sass/screen.scss */
 #activities.newbie {
   position: absolute;
   left: 0;
   right: 0;
 }
 
-/* line 1410, ../sass/screen.scss */
+/* line 1414, ../sass/screen.scss */
 #activities .activity {
   display: none;
   position: absolute;
@@ -2194,8 +2257,9 @@ body {
   left: 0;
   padding: 50px 50px 40px 30px;
   height: 100%;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
   position: absolute;
   left: 0;
@@ -2203,15 +2267,16 @@ body {
   width: 100%;
   font-family: "Helvetica";
 }
-/* line 1423, ../sass/screen.scss */
+/* line 1427, ../sass/screen.scss */
 #activities .activity.ready .window {
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 25px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 25px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 25px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 25px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 25px rgba(0, 0, 0, 0.3);
   opacity: 1;
 }
 
-/* line 1428, ../sass/screen.scss */
+/* line 1432, ../sass/screen.scss */
 #activities .greeting {
   position: absolute;
   top: 45%;
@@ -2220,7 +2285,7 @@ body {
   padding: 0px 80px;
   text-align: center;
 }
-/* line 1436, ../sass/screen.scss */
+/* line 1440, ../sass/screen.scss */
 #activities .greeting .welcome {
   display: inline;
   padding-left: 10px;
@@ -2234,15 +2299,15 @@ body {
   text-indent: -14px;
   clear: both;
 }
-/* line 1451, ../sass/screen.scss */
+/* line 1455, ../sass/screen.scss */
 #activities .greeting .welcome .strong {
   font-weight: bold;
 }
-/* line 1456, ../sass/screen.scss */
+/* line 1460, ../sass/screen.scss */
 #activities .greeting .logo img {
   width: 250px;
 }
-/* line 1457, ../sass/screen.scss */
+/* line 1461, ../sass/screen.scss */
 #activities .greeting .howto {
   clear: both;
   font-size: 24px;
@@ -2251,13 +2316,13 @@ body {
   color: white;
   text-shadow: 0 0 5px black;
 }
-/* line 1458, ../sass/screen.scss */
+/* line 1462, ../sass/screen.scss */
 #activities .greeting .helptext {
   width: 100%;
   text-align: center;
   display: none;
 }
-/* line 1460, ../sass/screen.scss */
+/* line 1464, ../sass/screen.scss */
 #activities .greeting .create_shop_btn {
   padding: 10px 20px;
   font-size: 24px;
@@ -2266,7 +2331,7 @@ body {
   display: block;
 }
 
-/* line 1464, ../sass/screen.scss */
+/* line 1468, ../sass/screen.scss */
 #welcome_add_shop {
   padding: 10px;
   display: none;
@@ -2274,23 +2339,25 @@ body {
   position: absolute;
   color: black;
 }
-/* line 1471, ../sass/screen.scss */
+/* line 1475, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog {
   width: 350px;
   z-index: 50;
-  -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
+  -webkit-border-radius: 10px;
   -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -khtml-border-radius: 10px;
   border-radius: 10px;
   background-color: white;
   border: 1px solid #efefef;
   text-align: left;
-  -webkit-box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.4);
+  -o-box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.4);
 }
-/* line 1479, ../sass/screen.scss */
+/* line 1483, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog:after, #welcome_add_shop.bubble-dialog:before {
   content: "";
   display: block;
@@ -2302,7 +2369,7 @@ body {
   border-style: solid;
   border-color: #ffffff transparent;
 }
-/* line 1490, ../sass/screen.scss */
+/* line 1494, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog:before {
   bottom: -21px;
   left: 154px;
@@ -2316,18 +2383,19 @@ body {
 }
 /* line 339, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog .field .input-wrapper, #welcome_add_shop.bubble-dialog .field input {
-  -webkit-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   -moz-transition: all linear 0.2s, box-shadow ease-out 0.2s;
-  -ms-transition: all linear 0.2s, box-shadow ease-out 0.2s;
+  -webkit-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   -o-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   transition: all linear 0.2s, box-shadow ease-out 0.2s;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   display: inline-block;
   background: white url("i/loader.gif") no-repeat;
@@ -2344,8 +2412,9 @@ body {
   padding-left: 16px;
   padding-top: 14px;
   outline: none;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
 }
 /* line 364, ../sass/screen.scss */
@@ -2358,15 +2427,17 @@ body {
   border-color: #888;
   color: #222;
   @include box-shadow(inset 0 0 3px rgba(0, 0, 0, 0.4));*/
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
+  -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
   border: 1px solid rgba(123, 232, 84, 0.7);
 }
 /* line 373, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog .field input.wrapped, #welcome_add_shop.bubble-dialog .field input.wrapped:focus {
-  -webkit-box-shadow: none;
   -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
   box-shadow: none;
   background: transparent;
   border: none;
@@ -2392,17 +2463,17 @@ body {
   color: #bfbfbf;
   text-shadow: 0 0 1px white;
 }
-/* line 1500, ../sass/screen.scss */
+/* line 1504, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog input.errorTip {
   border: 1px solid #BF5A5A;
 }
-/* line 1501, ../sass/screen.scss */
+/* line 1505, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog div.errorTip, #welcome_add_shop.bubble-dialog label.errorTip {
   text-align: center;
   color: black;
   margin: 2px;
 }
-/* line 1506, ../sass/screen.scss */
+/* line 1510, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog .go_button {
   width: 30px;
   height: 30px;
@@ -2413,11 +2484,11 @@ body {
   cursor: pointer;
   background: url("i/go.png") no-repeat center center;
 }
-/* line 1516, ../sass/screen.scss */
+/* line 1520, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog .go_button:active {
   background-image: url("i/go_active.png");
 }
-/* line 1519, ../sass/screen.scss */
+/* line 1523, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog #confirm_map #map_canvas {
   display: block;
   position: relative;
@@ -2425,21 +2496,21 @@ body {
   height: 240px;
   clear: both;
 }
-/* line 1520, ../sass/screen.scss */
+/* line 1524, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog #confirm_map .title {
   font-size: 20px;
 }
-/* line 1521, ../sass/screen.scss */
+/* line 1525, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog #confirm_map .subheader {
   margin: 10px 5px;
   font-weight: bold;
 }
-/* line 1522, ../sass/screen.scss */
+/* line 1526, ../sass/screen.scss */
 #welcome_add_shop.bubble-dialog #confirm_map .button {
   margin: 10px 5px;
 }
 
-/* line 1527, ../sass/screen.scss */
+/* line 1531, ../sass/screen.scss */
 .ui-autocomplete {
   background-color: #000;
   border: 1px solid #fff;
@@ -2448,18 +2519,20 @@ body {
   text-align: left;
   font-size: 14px;
   opacity: 0.9;
-  -webkit-box-shadow: 0 0 5px black;
   -moz-box-shadow: 0 0 5px black;
+  -webkit-box-shadow: 0 0 5px black;
+  -o-box-shadow: 0 0 5px black;
   box-shadow: 0 0 5px black;
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   z-index: 31;
   position: absolute;
 }
-/* line 1540, ../sass/screen.scss */
+/* line 1544, ../sass/screen.scss */
 .ui-autocomplete .ui-menu-item a {
   display: block;
   width: 95%;
@@ -2467,22 +2540,23 @@ body {
   padding: 3px;
 }
 
-/* line 1548, ../sass/screen.scss */
+/* line 1552, ../sass/screen.scss */
 .window-container {
   float: left;
   position: relative;
   width: 390px;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
   height: 100%;
 }
-/* line 1555, ../sass/screen.scss */
+/* line 1559, ../sass/screen.scss */
 .window-container.inactive {
   opacity: 0.5;
 }
 
-/* line 1558, ../sass/screen.scss */
+/* line 1562, ../sass/screen.scss */
 .window-container.closeable {
   padding-left: 45px;
   margin-left: 10px;
@@ -2490,7 +2564,7 @@ body {
   background-repeat: no-repeat;
   background-position: left center;
 }
-/* line 1564, ../sass/screen.scss */
+/* line 1568, ../sass/screen.scss */
 .window-container.closeable .close_btn {
   background: transparent url("i/close.png") no-repeat center center;
   position: absolute;
@@ -2502,7 +2576,7 @@ body {
   z-index: 1;
 }
 
-/* line 1580, ../sass/screen.scss */
+/* line 1584, ../sass/screen.scss */
 #feedback_text_area {
   border-radius: 8px;
   border: thin solid #aaa;
@@ -2517,42 +2591,43 @@ body {
   max-width: 360px;
   height: 210px;
   max-height: 210px;
-  -webkit-box-shadow: none;
   -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
   box-shadow: none;
-  -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
 
-/* line 1599, ../sass/screen.scss */
+/* line 1603, ../sass/screen.scss */
 form textarea, form input {
   border-radius: 8px;
   border: thin solid #aaa;
   outline: 0;
   color: black;
   padding: 4px 4px;
-  -webkit-box-shadow: none;
   -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
   box-shadow: none;
-  -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-/* line 1609, ../sass/screen.scss */
+/* line 1613, ../sass/screen.scss */
 form textarea:focus, form input:focus {
   border-color: #444;
   color: #444;
-  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
+  -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
 }
 
-/* line 1616, ../sass/screen.scss */
+/* line 1620, ../sass/screen.scss */
 .window {
   width: 100%;
   height: 100%;
@@ -2568,35 +2643,37 @@ form textarea:focus, form input:focus {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.98));
   border: thin solid black;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
-  -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-/* line 1629, ../sass/screen.scss */
+/* line 1633, ../sass/screen.scss */
 .window .title {
   -moz-border-radius-topleft: 8px;
   -webkit-border-top-left-radius: 8px;
-  -ms-border-top-left-radius: 8px;
   -o-border-top-left-radius: 8px;
+  -ms-border-top-left-radius: 8px;
+  -khtml-border-top-left-radius: 8px;
   border-top-left-radius: 8px;
   -moz-border-radius-topright: 8px;
   -webkit-border-top-right-radius: 8px;
-  -ms-border-top-right-radius: 8px;
   -o-border-top-right-radius: 8px;
+  -ms-border-top-right-radius: 8px;
+  -khtml-border-top-right-radius: 8px;
   border-top-right-radius: 8px;
   margin: -1px -1px 0 -1px;
   text-align: center;
   vertical-align: center;
   background-image: url(i/transparent-noise.png);
 }
-/* line 1639, ../sass/screen.scss */
+/* line 1643, ../sass/screen.scss */
 .window .title h1 {
   font-size: 1.5em;
   font-family: "Helvetica";
@@ -2607,7 +2684,7 @@ form textarea:focus, form input:focus {
   color: #f9f9f9;
   text-shadow: 0px 1px 2px black;
 }
-/* line 1651, ../sass/screen.scss */
+/* line 1655, ../sass/screen.scss */
 .window .title input.data {
   font-size: 1.5em;
   font-family: "Helvetica";
@@ -2615,41 +2692,39 @@ form textarea:focus, form input:focus {
   padding-left: 0px;
   width: 260px;
 }
-/* line 1652, ../sass/screen.scss */
+/* line 1656, ../sass/screen.scss */
 .window .title .loader-small {
   position: absolute;
   top: 5px;
   right: 30px;
 }
-/* line 1653, ../sass/screen.scss */
+/* line 1657, ../sass/screen.scss */
 .window .title .loader-small .button {
   position: static;
 }
-/* line 1655, ../sass/screen.scss */
+/* line 1659, ../sass/screen.scss */
 .window .title .button {
   padding: 6px;
   padding-bottom: 6px;
 }
-/* line 1656, ../sass/screen.scss */
+/* line 1660, ../sass/screen.scss */
 .window .title .button.add {
   right: auto;
   padding-bottom: 3px;
 }
-/* line 1659, ../sass/screen.scss */
+/* line 1663, ../sass/screen.scss */
 .window .window_bottom {
   color: white;
   cursor: pointer;
   color: white;
   border: 1px solid #4E7A00;
   text-shadow: 0.5px 0 2px black;
-  -webkit-transition-property: background, background-image, color;
   -moz-transition-property: background, background-image, color;
-  -ms-transition-property: background, background-image, color;
+  -webkit-transition-property: background, background-image, color;
   -o-transition-property: background, background-image, color;
   transition-property: background, background-image, color;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
-  -ms-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
   background: #abd026;
@@ -2665,10 +2740,11 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, #5e961b 0%, #3a6b09 98%);
   background-image: linear-gradient(top, #5e961b 0%, #3a6b09 98%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   -webkit-animation: whitePulse 3s infinite;
   -moz-animation: whitePulse 3s infinite;
@@ -2683,30 +2759,30 @@ form textarea:focus, form input:focus {
   cursor: pointer;
   -moz-border-radius-bottomleft: 8px;
   -webkit-border-bottom-left-radius: 8px;
-  -ms-border-bottom-left-radius: 8px;
   -o-border-bottom-left-radius: 8px;
+  -ms-border-bottom-left-radius: 8px;
+  -khtml-border-bottom-left-radius: 8px;
   border-bottom-left-radius: 8px;
   -moz-border-radius-bottomright: 8px;
   -webkit-border-bottom-right-radius: 8px;
-  -ms-border-bottom-right-radius: 8px;
   -o-border-bottom-right-radius: 8px;
+  -ms-border-bottom-right-radius: 8px;
+  -khtml-border-bottom-right-radius: 8px;
   border-bottom-right-radius: 8px;
   -webkit-font-smoothing: subpixel-antialiased;
 }
-/* line 1674, ../sass/screen.scss */
+/* line 1678, ../sass/screen.scss */
 .window .window_bottom:hover {
   color: #ffffff;
   cursor: pointer;
   color: white;
   border: 1px solid #4E7A00;
-  -webkit-transition-property: background, background-image, color;
   -moz-transition-property: background, background-image, color;
-  -ms-transition-property: background, background-image, color;
+  -webkit-transition-property: background, background-image, color;
   -o-transition-property: background, background-image, color;
   transition-property: background, background-image, color;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
-  -ms-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
   background-color: #5e961b;
@@ -2723,34 +2799,34 @@ form textarea:focus, form input:focus {
   box-shadow: 0 0 10px white, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
 }
 
-/* line 1678, ../sass/screen.scss */
+/* line 1682, ../sass/screen.scss */
 .window .content {
   font-size: 14px;
   color: black;
   height: 100%;
   background-image: url(i/transparent-noise.png);
 }
-/* line 1685, ../sass/screen.scss */
+/* line 1689, ../sass/screen.scss */
 .window .content h2 {
   font-size: 16px;
 }
-/* line 1687, ../sass/screen.scss */
+/* line 1691, ../sass/screen.scss */
 .window .content h2.form-header {
   margin-left: 12px;
 }
-/* line 1692, ../sass/screen.scss */
+/* line 1696, ../sass/screen.scss */
 .window .content input, .window .content textarea {
   font-family: "Helvetica";
   font-size: 14px;
   margin: 2px;
 }
-/* line 1698, ../sass/screen.scss */
+/* line 1702, ../sass/screen.scss */
 .window .content input.readonly, .window .content textarea.readonly {
   border: none;
   background: none;
   resize: none;
 }
-/* line 1705, ../sass/screen.scss */
+/* line 1709, ../sass/screen.scss */
 .window .content .body-area {
   background: url("i/bg_pattern.png");
   background: #DFE5E6;
@@ -2767,20 +2843,20 @@ form textarea:focus, form input:focus {
   bottom: 0px;
   overflow-y: auto;
 }
-/* line 1721, ../sass/screen.scss */
+/* line 1725, ../sass/screen.scss */
 .window .content .body-area.form {
   background-color: #EAEAEA;
 }
-/* line 1725, ../sass/screen.scss */
+/* line 1729, ../sass/screen.scss */
 .window .content .body-area.list {
   padding-top: 0px;
   background: url("i/noise_grey.png");
 }
-/* line 1730, ../sass/screen.scss */
+/* line 1734, ../sass/screen.scss */
 .window .content .body-area.spacing {
   padding: 8px;
 }
-/* line 1735, ../sass/screen.scss */
+/* line 1739, ../sass/screen.scss */
 .window .content .body-area-overlay {
   border-radius: 5px;
   box-shadow: inset 0 0 3px black;
@@ -2797,7 +2873,7 @@ form textarea:focus, form input:focus {
   overflow: hidden;
   pointer-events: none;
 }
-/* line 1751, ../sass/screen.scss */
+/* line 1755, ../sass/screen.scss */
 .window .content .content-wrapper {
   position: absolute;
   top: 0;
@@ -2805,7 +2881,7 @@ form textarea:focus, form input:focus {
   left: 0;
   right: 0;
 }
-/* line 1753, ../sass/screen.scss */
+/* line 1757, ../sass/screen.scss */
 .window .content .field {
   padding: 10px 10px 10px 10px;
   clear: both;
@@ -2816,36 +2892,36 @@ form textarea:focus, form input:focus {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 1763, ../sass/screen.scss */
+/* line 1767, ../sass/screen.scss */
 .window .content .field .message {
   font-weight: bold;
   font-size: 12px;
   color: red;
 }
-/* line 1768, ../sass/screen.scss */
+/* line 1772, ../sass/screen.scss */
 .window .content .field .message .answer {
   color: black;
   font-weight: normal;
   font-style: italic;
 }
-/* line 1774, ../sass/screen.scss */
+/* line 1778, ../sass/screen.scss */
 .window .content .field .message .description {
   color: black;
   font-weight: bold;
 }
-/* line 1780, ../sass/screen.scss */
+/* line 1784, ../sass/screen.scss */
 .window .content .field .waiting {
   font-weight: bold;
   color: orange;
 }
-/* line 1785, ../sass/screen.scss */
+/* line 1789, ../sass/screen.scss */
 .window .content .field .approved {
   font-weight: bold;
   color: green;
   padding-top: 4px;
   padding-bottom: 4px;
 }
-/* line 1792, ../sass/screen.scss */
+/* line 1796, ../sass/screen.scss */
 .window .content .field .button.green {
   border-radius: 4px;
   position: absolute;
@@ -2853,118 +2929,135 @@ form textarea:focus, form input:focus {
   top: 16px;
   font-size: 12px;
 }
-/* line 1800, ../sass/screen.scss */
+/* line 1804, ../sass/screen.scss */
 .window .content .field.top {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   margin-bottom: 0px;
   border-bottom: none;
 }
-/* line 1807, ../sass/screen.scss */
+/* line 1811, ../sass/screen.scss */
 .window .content .field.middle {
   border-bottom: none;
   margin-top: 0px;
   margin-bottom: 0px;
   border-radius: 0px;
 }
-/* line 1814, ../sass/screen.scss */
+/* line 1818, ../sass/screen.scss */
 .window .content .field.bottom {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   margin-top: 0px;
   margin-bottom: 8px;
 }
-/* line 1821, ../sass/screen.scss */
+/* line 1825, ../sass/screen.scss */
 .window .content .field.neutral {
   background: none;
   border: none;
   border-radius: 0px;
   margin: 0px;
 }
-/* line 1828, ../sass/screen.scss */
+/* line 1832, ../sass/screen.scss */
 .window .content .field .data {
   float: right;
   margin-bottom: 3px;
 }
-/* line 1829, ../sass/screen.scss */
+/* line 1833, ../sass/screen.scss */
 .window .content .field .data input {
   width: 200px;
 }
-/* line 1832, ../sass/screen.scss */
+/* line 1836, ../sass/screen.scss */
 .window .content .field input.big {
   font-size: 18px;
   width: 120px;
 }
-/* line 1836, ../sass/screen.scss */
+/* line 1840, ../sass/screen.scss */
 .window .content .field input.big#orig_price, .window .content .field input.big#deal_price {
   font-size: 92%;
 }
-/* line 1839, ../sass/screen.scss */
+/* line 1843, ../sass/screen.scss */
 .window .content .field .long, .window .content .field .long input, .window .content .field .long textarea {
   float: none;
   clear: both;
   width: 96%;
 }
-/* line 1844, ../sass/screen.scss */
+/* line 1848, ../sass/screen.scss */
 .window .content .field .long textarea, .window .content .field .long input textarea, .window .content .field .long textarea textarea {
   height: 100px;
   outline: none;
 }
-/* line 1847, ../sass/screen.scss */
+/* line 1851, ../sass/screen.scss */
 .window .content .field .label {
   font-weight: bold;
   float: left;
   width: 70px;
   padding: 7px 0px;
 }
-/* line 1848, ../sass/screen.scss */
+/* line 1852, ../sass/screen.scss */
 .window .content .field .label.long, .window .content .field .long input.label, .window .content .field .long textarea.label {
   padding: 4px;
   width: 96%;
   color: black;
 }
-/* line 1849, ../sass/screen.scss */
+/* line 1853, ../sass/screen.scss */
 .window .content .field .label span {
   float: right;
   padding-right: 5px;
 }
-/* line 1855, ../sass/screen.scss */
+/* line 1859, ../sass/screen.scss */
 .window .content .categories {
   padding: 0px 4px;
 }
-/* line 1857, ../sass/screen.scss */
+/* line 1861, ../sass/screen.scss */
+.window .content .categories .category-edit {
+  display: none;
+}
+/* line 1862, ../sass/screen.scss */
+.window .content .categories .category-show {
+  display: block;
+}
+/* line 1864, ../sass/screen.scss */
+.window .content .categories.edit .category-edit {
+  display: block;
+}
+/* line 1865, ../sass/screen.scss */
+.window .content .categories.edit .category-show {
+  display: none;
+}
+/* line 1867, ../sass/screen.scss */
 .window .content .categories .category {
   float: left;
   padding: 5px;
   margin: 5px;
   width: 110px;
   text-align: center;
-  -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
   -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
   border-radius: 3px;
   background: #E3E3E3;
   border: 1px solid #727272;
   color: #727272;
   cursor: pointer;
 }
-/* line 1868, ../sass/screen.scss */
+/* line 1878, ../sass/screen.scss */
 .window .content .categories .category:hover {
   background: #C2C5BA;
 }
-/* line 1869, ../sass/screen.scss */
+/* line 1879, ../sass/screen.scss */
 .window .content .categories .category.readonly:hover {
   background: #E3E3E3;
 }
-/* line 1870, ../sass/screen.scss */
+/* line 1880, ../sass/screen.scss */
 .window .content .categories .category.selected, .window .content .categories .category.selected.readonly:hover {
   border: 1px solid #064604;
   background: #64A905;
   color: white;
   font-weight: bold;
 }
-/* line 1875, ../sass/screen.scss */
+/* line 1885, ../sass/screen.scss */
 .window .content .scroll-list {
   position: absolute;
   top: 0;
@@ -2973,7 +3066,7 @@ form textarea:focus, form input:focus {
   right: 0;
   overflow-y: auto;
 }
-/* line 1879, ../sass/screen.scss */
+/* line 1889, ../sass/screen.scss */
 .window .content .lower_sticky {
   position: absolute;
   bottom: 0px;
@@ -2982,7 +3075,7 @@ form textarea:focus, form input:focus {
   text-align: center;
   padding: 8px;
 }
-/* line 1888, ../sass/screen.scss */
+/* line 1898, ../sass/screen.scss */
 .window .content label.errorTip, .window .content div.errorTip {
   padding: 2px 8px;
   margin: 0px auto;
@@ -2990,11 +3083,11 @@ form textarea:focus, form input:focus {
   color: #BF5A5A;
   clear: both;
 }
-/* line 1895, ../sass/screen.scss */
+/* line 1905, ../sass/screen.scss */
 .window .content input.errorTip, .window .content textarea.errorTip {
   border: 1px solid #BF5A5A;
 }
-/* line 1898, ../sass/screen.scss */
+/* line 1908, ../sass/screen.scss */
 .window .content .subheader {
   clear: both;
   padding: 10px 0px 5px 0px;
@@ -3002,11 +3095,11 @@ form textarea:focus, form input:focus {
   font-size: 16px;
   border-bottom: 1px solid #333;
 }
-/* line 1900, ../sass/screen.scss */
+/* line 1910, ../sass/screen.scss */
 .window .content .cancel_btn {
   padding: 6px 10px;
 }
-/* line 1901, ../sass/screen.scss */
+/* line 1911, ../sass/screen.scss */
 .window .content .go_button {
   display: block;
   text-align: center;
@@ -3016,14 +3109,12 @@ form textarea:focus, form input:focus {
   color: white;
   border: 1px solid #4E7A00;
   text-shadow: 0.5px 0 2px black;
-  -webkit-transition-property: background, background-image, color;
   -moz-transition-property: background, background-image, color;
-  -ms-transition-property: background, background-image, color;
+  -webkit-transition-property: background, background-image, color;
   -o-transition-property: background, background-image, color;
   transition-property: background, background-image, color;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
-  -ms-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
   background: #abd026;
@@ -3039,37 +3130,37 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, #5e961b 0%, #3a6b09 98%);
   background-image: linear-gradient(top, #5e961b 0%, #3a6b09 98%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   -webkit-animation: whitePulse 3s infinite;
   -moz-animation: whitePulse 3s infinite;
   -ms-animation: whitePulse 3s infinite;
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   margin: 0px 0px;
   margin-top: 20px;
   margin-bottom: 8px;
 }
-/* line 1912, ../sass/screen.scss */
+/* line 1922, ../sass/screen.scss */
 .window .content .go_button:hover {
   color: #ffffff;
   cursor: pointer;
   color: white;
   border: 1px solid #4E7A00;
-  -webkit-transition-property: background, background-image, color;
   -moz-transition-property: background, background-image, color;
-  -ms-transition-property: background, background-image, color;
+  -webkit-transition-property: background, background-image, color;
   -o-transition-property: background, background-image, color;
   transition-property: background, background-image, color;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
-  -ms-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
   transition-duration: 0.25s;
   background-color: #5e961b;
@@ -3085,18 +3176,18 @@ form textarea:focus, form input:focus {
   background-image: linear-gradient(top, #5e961b 0%, #437511 98%);
   box-shadow: 0 0 10px white, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
 }
-/* line 1913, ../sass/screen.scss */
+/* line 1923, ../sass/screen.scss */
 .window .content .loader-small {
   background: url("i/loader.gif") no-repeat left center;
   padding-left: 20px;
   float: right;
 }
-/* line 1914, ../sass/screen.scss */
+/* line 1924, ../sass/screen.scss */
 .window .content .loader-small .button {
   border-color: none;
   cursor: default;
 }
-/* line 1915, ../sass/screen.scss */
+/* line 1925, ../sass/screen.scss */
 .window .content .loader-small .button:hover {
   background-color: #04a8c9;
   *zoom: 1;
@@ -3110,7 +3201,7 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, #04a8c9 2%, #003dce 100%);
   background-image: linear-gradient(top, #04a8c9 2%, #003dce 100%);
 }
-/* line 1921, ../sass/screen.scss */
+/* line 1931, ../sass/screen.scss */
 .window .content .list-item {
   padding: 0px;
   margin: 0px 1px;
@@ -3208,42 +3299,45 @@ form textarea:focus, form input:focus {
   clear: both;
   display: block;
 }
-/* line 1924, ../sass/screen.scss */
+/* line 1934, ../sass/screen.scss */
 .window .content .list-item.first {
   -moz-border-radius-topleft: 8px;
   -webkit-border-top-left-radius: 8px;
-  -ms-border-top-left-radius: 8px;
   -o-border-top-left-radius: 8px;
+  -ms-border-top-left-radius: 8px;
+  -khtml-border-top-left-radius: 8px;
   border-top-left-radius: 8px;
   -moz-border-radius-topright: 8px;
   -webkit-border-top-right-radius: 8px;
-  -ms-border-top-right-radius: 8px;
   -o-border-top-right-radius: 8px;
+  -ms-border-top-right-radius: 8px;
+  -khtml-border-top-right-radius: 8px;
   border-top-right-radius: 8px;
 }
-/* line 1930, ../sass/screen.scss */
+/* line 1940, ../sass/screen.scss */
 .window .content .list-item.last {
-  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   border-bottom: none;
 }
-/* line 1934, ../sass/screen.scss */
+/* line 1944, ../sass/screen.scss */
 .window .content .list-item.low {
   height: 25px;
   border-radius: 0px;
 }
-/* line 1938, ../sass/screen.scss */
+/* line 1948, ../sass/screen.scss */
 .window .content .list-item.low.first {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-/* line 1943, ../sass/screen.scss */
+/* line 1953, ../sass/screen.scss */
 .window .content .list-item.low.last {
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   border-radius: 0px;
 }
-/* line 1951, ../sass/screen.scss */
+/* line 1961, ../sass/screen.scss */
 .window .content .list-item.selected, .window .content .list-item.selected:hover {
   /*background-color: rgb(4,136,244); // Old browsers
   @include filter-gradient(#0488f4, #015ee6, vertical); // IE6-9
@@ -3261,22 +3355,22 @@ form textarea:focus, form input:focus {
   background-image: linear-gradient(top, #b5b5b5 1%, #727272 99%);
   cursor: default;
 }
-/* line 1961, ../sass/screen.scss */
+/* line 1971, ../sass/screen.scss */
 .window .content .list-item.selected h2, .window .content .list-item.selected:hover h2 {
   color: white;
   text-shadow: 0 1px 1px black;
 }
-/* line 1966, ../sass/screen.scss */
+/* line 1976, ../sass/screen.scss */
 .window .content .list-item.selected .details, .window .content .list-item.selected:hover .details {
   color: white;
 }
-/* line 1971, ../sass/screen.scss */
+/* line 1981, ../sass/screen.scss */
 .window .content .list-item .body-mask.loading {
   background: #cccccc url(i/loader2.gif) 95% center no-repeat;
   opacity: 0.5;
   cursor: default;
 }
-/* line 1980, ../sass/screen.scss */
+/* line 1990, ../sass/screen.scss */
 .window .content .list-item-deals {
   padding: 0px;
   margin: 0px 1px;
@@ -3375,11 +3469,11 @@ form textarea:focus, form input:focus {
   clear: both;
   display: block;
 }
-/* line 1984, ../sass/screen.scss */
+/* line 1994, ../sass/screen.scss */
 .window .content .lower {
   padding: 5px 0px;
 }
-/* line 1985, ../sass/screen.scss */
+/* line 1995, ../sass/screen.scss */
 .window .content #btn_del_template {
   position: relative;
   font-size: 15px;
@@ -3388,7 +3482,7 @@ form textarea:focus, form input:focus {
   margin: 8px 0px;
 }
 
-/* line 1997, ../sass/screen.scss */
+/* line 2007, ../sass/screen.scss */
 .window .tab-area .tab-bar {
   position: absolute;
   top: 0;
@@ -3405,7 +3499,7 @@ form textarea:focus, form input:focus {
   border: 1px solid #9f9f9f;
   border-left: none;
 }
-/* line 2003, ../sass/screen.scss */
+/* line 2013, ../sass/screen.scss */
 .window .tab-area .tab-bar .tab-link {
   height: 25px;
   border-left: 1px solid #9f9f9f;
@@ -3414,15 +3508,15 @@ form textarea:focus, form input:focus {
   text-align: center;
   cursor: pointer;
 }
-/* line 2010, ../sass/screen.scss */
+/* line 2020, ../sass/screen.scss */
 .window .tab-area .tab-bar .tab-link:hover {
   background: rgba(255, 255, 255, 0.3);
 }
-/* line 2013, ../sass/screen.scss */
+/* line 2023, ../sass/screen.scss */
 .window .tab-area .tab-bar .tab-link.selected {
   background: rgba(0, 0, 0, 0.2);
 }
-/* line 2016, ../sass/screen.scss */
+/* line 2026, ../sass/screen.scss */
 .window .tab-area .tab-block {
   position: absolute;
   top: 30px;
@@ -3432,19 +3526,19 @@ form textarea:focus, form input:focus {
   overflow-y: auto;
   display: none;
 }
-/* line 2021, ../sass/screen.scss */
+/* line 2031, ../sass/screen.scss */
 .window .tab-area .empty-block {
   text-align: center;
   padding: 40px;
 }
-/* line 2024, ../sass/screen.scss */
+/* line 2034, ../sass/screen.scss */
 .window .tab-area .empty-block h2 {
   margin-top: 20px;
   font-weight: normal;
   font-size: 150%;
 }
 
-/* line 2034, ../sass/screen.scss */
+/* line 2044, ../sass/screen.scss */
 .window .content .prices {
   /*position:absolute;
   bottom:0px;
@@ -3453,126 +3547,126 @@ form textarea:focus, form input:focus {
   margin-top: 15px;
   padding-left: 10px;
 }
-/* line 2042, ../sass/screen.scss */
+/* line 2052, ../sass/screen.scss */
 .window .content .prices .inputs {
   float: left;
 }
-/* line 2043, ../sass/screen.scss */
+/* line 2053, ../sass/screen.scss */
 .window .content .prices input.big {
   width: 80px;
 }
-/* line 2044, ../sass/screen.scss */
+/* line 2054, ../sass/screen.scss */
 .window .content .prices .field {
   margin: 0px 10px 0px 5px;
   padding: 0px;
 }
-/* line 2045, ../sass/screen.scss */
+/* line 2055, ../sass/screen.scss */
 .window .content .prices .label {
   font-size: 18px;
   line-height: 24px;
 }
-/* line 2046, ../sass/screen.scss */
+/* line 2056, ../sass/screen.scss */
 .window .content .prices .discount {
   float: left;
   text-align: center;
   padding: 5px 15px;
 }
-/* line 2048, ../sass/screen.scss */
+/* line 2058, ../sass/screen.scss */
 .window .content .prices .discount .label {
   width: auto;
   clear: both;
   display: block;
   padding: 4px 0px;
 }
-/* line 2049, ../sass/screen.scss */
+/* line 2059, ../sass/screen.scss */
 .window .content .prices .discount .value {
   font-size: 24px;
   padding: 0;
   color: #18AB34;
   display: block;
 }
-/* line 2050, ../sass/screen.scss */
+/* line 2060, ../sass/screen.scss */
 .window .content .prices .discount .value.badValue {
   color: #AE1100;
 }
 
-/* line 2053, ../sass/screen.scss */
+/* line 2063, ../sass/screen.scss */
 #edit_template .prices {
   bottom: 80px;
 }
 
-/* line 2054, ../sass/screen.scss */
+/* line 2064, ../sass/screen.scss */
 .window .content .admin.list-item {
   border-radius: inherit;
   padding: 20px;
   font-weight: bold;
   font-size: 20px;
 }
-/* line 2060, ../sass/screen.scss */
+/* line 2070, ../sass/screen.scss */
 .window .content .admin.list-item.selected {
   color: white;
 }
 
-/* line 2065, ../sass/screen.scss */
+/* line 2075, ../sass/screen.scss */
 #edit_account .label {
   width: 115px;
 }
-/* line 2066, ../sass/screen.scss */
+/* line 2076, ../sass/screen.scss */
 #edit_account .data.long input, #edit_account .window .content .field .long input.data input, .window .content .field .long #edit_account input.data input, #edit_account .window .content .field .long textarea.data input, .window .content .field .long #edit_account textarea.data input {
   width: 315px;
 }
-/* line 2067, ../sass/screen.scss */
+/* line 2077, ../sass/screen.scss */
 #edit_account .subheader {
   padding: 30px 0px 5px 0px;
 }
-/* line 2068, ../sass/screen.scss */
+/* line 2078, ../sass/screen.scss */
 #edit_account p {
   font-style: italic;
   color: #444;
   padding: 5px;
 }
 
-/* line 2070, ../sass/screen.scss */
+/* line 2080, ../sass/screen.scss */
 .select-img-box {
   margin: 0px;
 }
-/* line 2072, ../sass/screen.scss */
+/* line 2082, ../sass/screen.scss */
 .select-img-box .image-field {
   width: 70px;
   height: 70px;
   float: left;
   text-align: center;
 }
-/* line 2073, ../sass/screen.scss */
+/* line 2083, ../sass/screen.scss */
 .select-img-box .image-field.empty {
   border: 2px dashed #999;
   background: #ededed;
 }
-/* line 2081, ../sass/screen.scss */
+/* line 2091, ../sass/screen.scss */
 .select-img-box .image-field p {
   margin-top: 25px;
   font-size: 120%;
   color: #d9d9d9;
 }
-/* line 2082, ../sass/screen.scss */
+/* line 2092, ../sass/screen.scss */
 .select-img-box .image-field img {
   height: 100%;
 }
-/* line 2084, ../sass/screen.scss */
+/* line 2094, ../sass/screen.scss */
 .select-img-box #btn_select_image {
   margin: 23px 0px 0 25px;
   float: left;
 }
 
-/* line 2091, ../sass/screen.scss */
+/* line 2101, ../sass/screen.scss */
 .image-selector .title {
   padding: 10px;
 }
-/* line 2092, ../sass/screen.scss */
+/* line 2102, ../sass/screen.scss */
 .image-selector .wrapper {
   position: relative;
 }
-/* line 2093, ../sass/screen.scss */
+/* line 2103, ../sass/screen.scss */
 .image-selector .content-area {
   margin: 19px;
   overflow-y: auto;
@@ -3582,23 +3676,25 @@ form textarea:focus, form input:focus {
   left: 0;
   right: -10px;
 }
-/* line 2103, ../sass/screen.scss */
+/* line 2113, ../sass/screen.scss */
 .image-selector .jcrop-holder {
-  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
-/* line 2107, ../sass/screen.scss */
+/* line 2117, ../sass/screen.scss */
 .image-selector .thumbnail_container {
   margin-top: 5px;
 }
-/* line 2110, ../sass/screen.scss */
+/* line 2120, ../sass/screen.scss */
 .image-selector .thumbnail_container .thumbnail {
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 }
-/* line 2114, ../sass/screen.scss */
+/* line 2124, ../sass/screen.scss */
 .image-selector .thumbnail_container h1 {
   padding: 0px;
   text-align: left;
@@ -3607,7 +3703,7 @@ form textarea:focus, form input:focus {
   color: white;
   margin-left: 10px;
 }
-/* line 2126, ../sass/screen.scss */
+/* line 2136, ../sass/screen.scss */
 .image-selector .button.btn_back {
   width: 150px;
   font-size: 13px;
@@ -3616,7 +3712,7 @@ form textarea:focus, form input:focus {
   bottom: 0px;
   right: 50px;
 }
-/* line 2138, ../sass/screen.scss */
+/* line 2148, ../sass/screen.scss */
 .image-selector .button.btn_select {
   width: 150px;
   font-size: 13px;
@@ -3624,14 +3720,14 @@ form textarea:focus, form input:focus {
   bottom: 35px;
   right: 50px;
 }
-/* line 2150, ../sass/screen.scss */
+/* line 2160, ../sass/screen.scss */
 .image-selector .left_menu {
   position: absolute;
   left: 165px;
   top: 0px;
   z-index: 100;
 }
-/* line 2156, ../sass/screen.scss */
+/* line 2166, ../sass/screen.scss */
 .image-selector .left_menu .btn_rotate_left {
   position: absolute;
   top: 0px;
@@ -3641,7 +3737,7 @@ form textarea:focus, form input:focus {
   background-image: url("i/rotate_left.png");
   cursor: pointer;
 }
-/* line 2166, ../sass/screen.scss */
+/* line 2176, ../sass/screen.scss */
 .image-selector .left_menu .btn_rotate_right {
   position: absolute;
   top: 0px;
@@ -3651,12 +3747,12 @@ form textarea:focus, form input:focus {
   background-image: url("i/rotate_right.png");
   cursor: pointer;
 }
-/* line 2177, ../sass/screen.scss */
+/* line 2187, ../sass/screen.scss */
 .image-selector .controlpane {
   clear: both;
   margin-right: 40px;
 }
-/* line 2182, ../sass/screen.scss */
+/* line 2192, ../sass/screen.scss */
 .image-selector .img-item {
   float: left;
   position: relative;
@@ -3667,7 +3763,7 @@ form textarea:focus, form input:focus {
   text-align: center;
   cursor: pointer;
 }
-/* line 2192, ../sass/screen.scss */
+/* line 2202, ../sass/screen.scss */
 .image-selector .img-item .btn_edit {
   display: block;
   position: absolute;
@@ -3675,85 +3771,86 @@ form textarea:focus, form input:focus {
   right: 10px;
   opacity: 0;
 }
-/* line 2200, ../sass/screen.scss */
+/* line 2210, ../sass/screen.scss */
 .image-selector .img-item:hover .btn_edit {
   opacity: 0.8;
 }
-/* line 2202, ../sass/screen.scss */
+/* line 2212, ../sass/screen.scss */
 .image-selector .img-item:hover .btn_edit:hover {
   opacity: 1;
 }
-/* line 2206, ../sass/screen.scss */
+/* line 2216, ../sass/screen.scss */
 .image-selector .img-item.selected {
   box-shadow: 0 0 11px blue;
 }
-/* line 2207, ../sass/screen.scss */
+/* line 2217, ../sass/screen.scss */
 .image-selector .img-item.loading {
   background: #454343 url(i/loader_black.gif) center 30px no-repeat;
   margin: 19px;
   padding: 0px;
-  -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
+  -webkit-border-radius: 6px;
   -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
   border-radius: 6px;
 }
-/* line 2208, ../sass/screen.scss */
+/* line 2218, ../sass/screen.scss */
 .image-selector .img-item img {
   -webkit-transition: -webkit-transform 0.5s ease-in;
   height: 100%;
-  -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
+  -webkit-border-radius: 6px;
   -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
   border-radius: 6px;
-  -webkit-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.6);
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.6);
 }
-/* line 2214, ../sass/screen.scss */
+/* line 2224, ../sass/screen.scss */
 .image-selector .img-item img.selected {
   box-shadow: 0 0 11px blue;
 }
-/* line 2217, ../sass/screen.scss */
+/* line 2227, ../sass/screen.scss */
 .image-selector .img-item img:hover {
   box-shadow: 0 0 11px blue;
 }
-/* line 2221, ../sass/screen.scss */
+/* line 2231, ../sass/screen.scss */
 .image-selector .img-item .progressbar {
   border: 1px solid white;
   width: 140px;
   height: 20px;
   margin: 60px auto;
 }
-/* line 2226, ../sass/screen.scss */
+/* line 2236, ../sass/screen.scss */
 .image-selector .img-item .progressbar span {
   display: block;
   width: 0px;
   height: 100%;
   background: #5983DE;
-  -webkit-transition-property: width;
   -moz-transition-property: width;
-  -ms-transition-property: width;
+  -webkit-transition-property: width;
   -o-transition-property: width;
   transition-property: width;
-  -webkit-transition-duration: 0.8s;
   -moz-transition-duration: 0.8s;
-  -ms-transition-duration: 0.8s;
+  -webkit-transition-duration: 0.8s;
   -o-transition-duration: 0.8s;
   transition-duration: 0.8s;
 }
-/* line 2236, ../sass/screen.scss */
+/* line 2246, ../sass/screen.scss */
 .image-selector .controlbar {
   margin: 10px 20px;
   padding: 10px;
   border-top: 1px solid #dfdfdf;
 }
-/* line 2242, ../sass/screen.scss */
+/* line 2252, ../sass/screen.scss */
 .image-selector #btn_goto_upload {
   float: left;
 }
-/* line 2243, ../sass/screen.scss */
+/* line 2253, ../sass/screen.scss */
 .image-selector h1 {
   text-align: center;
   padding: 90px;
@@ -3761,7 +3858,7 @@ form textarea:focus, form input:focus {
   color: #999;
   line-height: 180%;
 }
-/* line 2245, ../sass/screen.scss */
+/* line 2255, ../sass/screen.scss */
 .image-selector .dropable {
   height: 156px;
   width: 160px;
@@ -3769,35 +3866,37 @@ form textarea:focus, form input:focus {
   border: 3px dashed rgba(255, 255, 255, 0.3);
   padding: 7px;
   margin: 3px;
-  -webkit-border-radius: 27px;
   -moz-border-radius: 27px;
-  -ms-border-radius: 27px;
+  -webkit-border-radius: 27px;
   -o-border-radius: 27px;
+  -ms-border-radius: 27px;
+  -khtml-border-radius: 27px;
   border-radius: 27px;
-  -webkit-box-shadow: inset 0 0 9px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: inset 0 0 9px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: inset 0 0 9px rgba(0, 0, 0, 0.8);
+  -o-box-shadow: inset 0 0 9px rgba(0, 0, 0, 0.8);
   box-shadow: inset 0 0 9px rgba(0, 0, 0, 0.8);
   background-color: #525252;
   background-image: url(i/transparent-noise.png);
   cursor: pointer;
 }
-/* line 2257, ../sass/screen.scss */
+/* line 2267, ../sass/screen.scss */
 .image-selector .dropable:hover {
   background-color: #5B5B5B;
 }
-/* line 2258, ../sass/screen.scss */
+/* line 2268, ../sass/screen.scss */
 .image-selector .dropable.dragover {
   border: 3px solid blue;
 }
-/* line 2259, ../sass/screen.scss */
+/* line 2269, ../sass/screen.scss */
 .image-selector .dropable.loading {
   background: url(i/loader.gif) center 30px no-repeat;
 }
-/* line 2261, ../sass/screen.scss */
+/* line 2271, ../sass/screen.scss */
 .image-selector .dropable.loading .text {
   display: none;
 }
-/* line 2263, ../sass/screen.scss */
+/* line 2273, ../sass/screen.scss */
 .image-selector .dropable .text {
   color: rgba(255, 255, 255, 0.7);
   font-size: 22px;
@@ -3806,51 +3905,51 @@ form textarea:focus, form input:focus {
   line-height: 31px;
   text-shadow: 0 0 4px black;
 }
-/* line 2271, ../sass/screen.scss */
+/* line 2281, ../sass/screen.scss */
 .image-selector .dropable .file {
   height: 20px;
   padding: 7px 10px 7px 10px;
   margin: 0;
 }
-/* line 2281, ../sass/screen.scss */
+/* line 2291, ../sass/screen.scss */
 .image-selector .dropable:active {
   border: 3px solid blue;
 }
-/* line 2285, ../sass/screen.scss */
+/* line 2295, ../sass/screen.scss */
 .image-selector #uploaded_view {
   height: 100%;
 }
-/* line 2287, ../sass/screen.scss */
+/* line 2297, ../sass/screen.scss */
 .image-selector #uploaded_view .controlpane {
   float: right;
   width: 170px;
 }
-/* line 2291, ../sass/screen.scss */
+/* line 2301, ../sass/screen.scss */
 .image-selector #uploaded_view .controlpane .thumbnail {
   width: 150px;
   height: 150px;
   overflow: hidden;
   margin: 10px;
 }
-/* line 2297, ../sass/screen.scss */
+/* line 2307, ../sass/screen.scss */
 .image-selector #uploaded_view .controlpane .buttons {
   width: 150px;
   margin: 10px auto;
 }
-/* line 2299, ../sass/screen.scss */
+/* line 2309, ../sass/screen.scss */
 .image-selector #uploaded_view .controlpane .buttons #btn_rotate_left {
   float: left;
 }
-/* line 2300, ../sass/screen.scss */
+/* line 2310, ../sass/screen.scss */
 .image-selector #uploaded_view .controlpane .buttons #btn_rotate_right {
   float: right;
 }
-/* line 2301, ../sass/screen.scss */
+/* line 2311, ../sass/screen.scss */
 .image-selector #uploaded_view .controlpane .buttons #btn_select_img {
   width: 100px;
   margin: 5px auto;
 }
-/* line 2305, ../sass/screen.scss */
+/* line 2315, ../sass/screen.scss */
 .image-selector #uploaded_view .contentpane {
   float: left;
   width: 700px;
@@ -3859,23 +3958,23 @@ form textarea:focus, form input:focus {
   position: relative;
   border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
-/* line 2312, ../sass/screen.scss */
+/* line 2322, ../sass/screen.scss */
 .image-selector #uploaded_view .contentpane.loading {
   overflow: hidden;
   background: url(i/loader.gif) center center no-repeat;
 }
-/* line 2313, ../sass/screen.scss */
+/* line 2323, ../sass/screen.scss */
 .image-selector #uploaded_view .contentpane .preview {
   margin: 0px auto;
   position: relative;
 }
-/* line 2314, ../sass/screen.scss */
+/* line 2324, ../sass/screen.scss */
 .image-selector #uploaded_view .contentpane .preview img {
   position: relative;
   top: 0px;
   left: 0px;
 }
-/* line 2315, ../sass/screen.scss */
+/* line 2325, ../sass/screen.scss */
 .image-selector #uploaded_view .contentpane .preview #btn_edit_save {
   display: none;
   position: absolute;
@@ -3883,7 +3982,7 @@ form textarea:focus, form input:focus {
   z-index: 310;
 }
 
-/* line 2329, ../sass/screen.scss */
+/* line 2339, ../sass/screen.scss */
 .file_input_hidden {
   font-size: 45px;
   position: absolute;
@@ -3896,7 +3995,7 @@ form textarea:focus, form input:focus {
   -moz-opacity: 0;
 }
 
-/* line 2342, ../sass/screen.scss */
+/* line 2352, ../sass/screen.scss */
 .status-label {
   width: 8px;
   height: 8px;
@@ -3908,7 +4007,7 @@ form textarea:focus, form input:focus {
   box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
-/* line 2353, ../sass/screen.scss */
+/* line 2363, ../sass/screen.scss */
 .status-label.green {
   background-color: green;
   *zoom: 1;
@@ -3923,7 +4022,7 @@ form textarea:focus, form input:focus {
   background-image: linear-gradient(top, #9ed196 0%, #39b726 50%, #9ed196 100%);
 }
 
-/* line 2359, ../sass/screen.scss */
+/* line 2369, ../sass/screen.scss */
 .status-label.yellow {
   background-color: yellow;
   *zoom: 1;
@@ -3938,7 +4037,7 @@ form textarea:focus, form input:focus {
   background-image: linear-gradient(top, #f4ee9a 0%, #dbd704 50%, #f4ee9a 100%);
 }
 
-/* line 2365, ../sass/screen.scss */
+/* line 2375, ../sass/screen.scss */
 .status-label.red {
   background-color: red;
   *zoom: 1;
@@ -3953,7 +4052,7 @@ form textarea:focus, form input:focus {
   background-image: linear-gradient(top, #f29c9b 0%, #d80704 50%, #f29c9b 100%);
 }
 
-/* line 2372, ../sass/screen.scss */
+/* line 2382, ../sass/screen.scss */
 #feedback {
   position: absolute;
   cursor: pointer;
@@ -3979,31 +4078,31 @@ form textarea:focus, form input:focus {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
-/* line 2390, ../sass/screen.scss */
+/* line 2400, ../sass/screen.scss */
 #feedback a {
   color: #097DB8;
   text-decoration: underline;
 }
-/* line 2395, ../sass/screen.scss */
+/* line 2405, ../sass/screen.scss */
 #feedback a:hover {
   text-decoration: none;
 }
 
-/* line 2400, ../sass/screen.scss */
+/* line 2410, ../sass/screen.scss */
 #feedback #feedback_text {
   font-weight: bold;
   position: absolute;
   left: -14px;
   top: 42px;
-  -webkit-transform: rotate(270deg);
   -moz-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
   -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
   transform: rotate(270deg);
   color: black;
 }
 
-/* line 2411, ../sass/screen.scss */
+/* line 2421, ../sass/screen.scss */
 #feedback h2.thanks {
   text-align: center;
   font-size: 18px;
@@ -4011,68 +4110,68 @@ form textarea:focus, form input:focus {
   color: black;
 }
 
-/* line 2417, ../sass/screen.scss */
+/* line 2427, ../sass/screen.scss */
 #feedback-thanks {
   margin-top: 20px;
 }
 
-/* line 2420, ../sass/screen.scss */
+/* line 2430, ../sass/screen.scss */
 #feedback h2.header {
   color: black;
 }
 
-/* line 2429, ../sass/screen.scss */
+/* line 2439, ../sass/screen.scss */
 #view-deal h1 {
   padding: 10px;
   font-size: 18px;
 }
-/* line 2430, ../sass/screen.scss */
+/* line 2440, ../sass/screen.scss */
 #view-deal img {
   width: 100px;
   height: 100px;
   float: left;
   margin: 5px 10px;
 }
-/* line 2431, ../sass/screen.scss */
+/* line 2441, ../sass/screen.scss */
 #view-deal .deal-prices {
   float: left;
   margin: 10px 0px;
 }
-/* line 2434, ../sass/screen.scss */
+/* line 2444, ../sass/screen.scss */
 #view-deal .deal-prices p {
   padding: 5px 0px;
 }
-/* line 2435, ../sass/screen.scss */
+/* line 2445, ../sass/screen.scss */
 #view-deal .deal-prices .label {
   width: 120px;
   display: inline-block;
 }
-/* line 2436, ../sass/screen.scss */
+/* line 2446, ../sass/screen.scss */
 #view-deal .deal-prices .price {
   font-size: 130%;
 }
-/* line 2438, ../sass/screen.scss */
+/* line 2448, ../sass/screen.scss */
 #view-deal .deal-times {
   clear: both;
   padding: 10px;
   margin: 0px 5px;
 }
-/* line 2440, ../sass/screen.scss */
+/* line 2450, ../sass/screen.scss */
 #view-deal .deal-times .time-seperator {
   text-align: center;
   margin: 0px 20px;
 }
-/* line 2441, ../sass/screen.scss */
+/* line 2451, ../sass/screen.scss */
 #view-deal .deal-times #deal_start_time, #view-deal .deal-times #deal_end_time {
   font-size: 130%;
 }
-/* line 2443, ../sass/screen.scss */
+/* line 2453, ../sass/screen.scss */
 #view-deal .description {
   clear: both;
   padding: 10px;
 }
 
-/* line 2446, ../sass/screen.scss */
+/* line 2456, ../sass/screen.scss */
 #feedback-window {
   position: relative;
   height: 100%;
@@ -4086,18 +4185,19 @@ form textarea:focus, form input:focus {
 }
 /* line 339, ../sass/screen.scss */
 #feedback-window .field .input-wrapper, #feedback-window .field input {
-  -webkit-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   -moz-transition: all linear 0.2s, box-shadow ease-out 0.2s;
-  -ms-transition: all linear 0.2s, box-shadow ease-out 0.2s;
+  -webkit-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   -o-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   transition: all linear 0.2s, box-shadow ease-out 0.2s;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   display: inline-block;
   background: white url("i/loader.gif") no-repeat;
@@ -4114,8 +4214,9 @@ form textarea:focus, form input:focus {
   padding-left: 16px;
   padding-top: 14px;
   outline: none;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
 }
 /* line 364, ../sass/screen.scss */
@@ -4128,15 +4229,17 @@ form textarea:focus, form input:focus {
   border-color: #888;
   color: #222;
   @include box-shadow(inset 0 0 3px rgba(0, 0, 0, 0.4));*/
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
+  -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6), 0 0 15px white;
   border: 1px solid rgba(123, 232, 84, 0.7);
 }
 /* line 373, ../sass/screen.scss */
 #feedback-window .field input.wrapped, #feedback-window .field input.wrapped:focus {
-  -webkit-box-shadow: none;
   -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
   box-shadow: none;
   background: transparent;
   border: none;
@@ -4162,44 +4265,41 @@ form textarea:focus, form input:focus {
   color: #bfbfbf;
   text-shadow: 0 0 1px white;
 }
-/* line 2456, ../sass/screen.scss */
+/* line 2466, ../sass/screen.scss */
 #feedback-window #feedback-messages {
   position: absolute;
   top: 0px;
   bottom: 45px;
   left: 0px;
   right: 0px;
-  -webkit-transition-property: bottom;
   -moz-transition-property: bottom;
-  -ms-transition-property: bottom;
+  -webkit-transition-property: bottom;
   -o-transition-property: bottom;
   transition-property: bottom;
-  -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
-  -ms-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
   -moz-transition-timing-function: ease-out;
-  -ms-transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
   -o-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
   overflow-y: auto;
   padding: 10px 0px;
 }
-/* line 2464, ../sass/screen.scss */
+/* line 2474, ../sass/screen.scss */
 #feedback-window #feedback-messages.focused {
   bottom: 90px;
 }
-/* line 2465, ../sass/screen.scss */
+/* line 2475, ../sass/screen.scss */
 #feedback-window #feedback-messages .sent {
   float: left;
 }
-/* line 2466, ../sass/screen.scss */
+/* line 2476, ../sass/screen.scss */
 #feedback-window #feedback-messages .response {
   float: right;
 }
-/* line 2468, ../sass/screen.scss */
+/* line 2478, ../sass/screen.scss */
 #feedback-window #feedback-text {
   position: absolute;
   bottom: 0px;
@@ -4222,38 +4322,36 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, #fcfcfc 0%, #c6c6c6 100%);
   background-image: linear-gradient(top, #fcfcfc 0%, #c6c6c6 100%);
   border-top: 1px solid #c4c4c4;
-  -webkit-transition-property: height;
   -moz-transition-property: height;
-  -ms-transition-property: height;
+  -webkit-transition-property: height;
   -o-transition-property: height;
   transition-property: height;
-  -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
-  -ms-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
   -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
-  -webkit-transition-timing-function: ease-out;
   -moz-transition-timing-function: ease-out;
-  -ms-transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
   -o-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-/* line 2490, ../sass/screen.scss */
+/* line 2500, ../sass/screen.scss */
 #feedback-window #feedback-text.focused {
   height: 80px;
 }
-/* line 2491, ../sass/screen.scss */
+/* line 2501, ../sass/screen.scss */
 #feedback-window #feedback-text.focused textarea {
   background: white;
 }
-/* line 2493, ../sass/screen.scss */
+/* line 2503, ../sass/screen.scss */
 #feedback-window #feedback-text form {
   height: 100%;
 }
-/* line 2494, ../sass/screen.scss */
+/* line 2504, ../sass/screen.scss */
 #feedback-window #feedback-text textarea {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
   background: #FFFFFF;
   border-color: #444;
@@ -4263,10 +4361,11 @@ form textarea:focus, form input:focus {
   float: left;
   margin: 0px;
 }
-/* line 2504, ../sass/screen.scss */
+/* line 2514, ../sass/screen.scss */
 #feedback-window #feedback-text #feedback-send-btn {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
   width: 10%;
   height: 100%;
@@ -4278,12 +4377,12 @@ form textarea:focus, form input:focus {
   line-height: 0px;
   border-radius: 8px;
 }
-/* line 2514, ../sass/screen.scss */
+/* line 2524, ../sass/screen.scss */
 #feedback-window #feedback-text #feedback-send-btn img {
   height: 15px;
   line-height: 100%;
 }
-/* line 2517, ../sass/screen.scss */
+/* line 2527, ../sass/screen.scss */
 #feedback-window #feedback-text #feedback-send-btn:after {
   display: block;
   width: 100%;
@@ -4293,29 +4392,30 @@ form textarea:focus, form input:focus {
   background: url("i/enter_arrow.png") no-repeat center center;
   background-size: 18px;
 }
-/* line 2529, ../sass/screen.scss */
+/* line 2539, ../sass/screen.scss */
 #feedback-window .timeshow {
   padding: 3px;
   font-size: 10px;
   color: grey;
   font-style: italic;
 }
-/* line 2535, ../sass/screen.scss */
+/* line 2545, ../sass/screen.scss */
 #feedback-window .message {
   width: 85%;
   padding: 4px;
   box-shadow: 0 0 2px black;
 }
-/* line 2540, ../sass/screen.scss */
+/* line 2550, ../sass/screen.scss */
 #feedback-window .message.response {
   margin-top: 12px;
   margin-right: 15px;
   text-align: right;
   background: rgba(200, 200, 200, 0.6);
-  -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
+  -webkit-border-radius: 4px;
   -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
   border-radius: 4px;
   background: white;
   /* Old browsers */
@@ -4334,16 +4434,17 @@ form textarea:focus, form input:focus {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e0e0e0',GradientType=0 );
   /* IE6-9 */
 }
-/* line 2556, ../sass/screen.scss */
+/* line 2566, ../sass/screen.scss */
 #feedback-window .message.sent {
   margin-top: 12px;
   text-align: left;
   margin-left: 15px;
   background: rgba(0, 200, 0, 0.6);
-  -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
+  -webkit-border-radius: 4px;
   -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
   border-radius: 4px;
   background: #d7edaa;
   /* Old browsers */
@@ -4363,7 +4464,7 @@ form textarea:focus, form input:focus {
   /* IE6-9 */
 }
 
-/* line 2574, ../sass/screen.scss */
+/* line 2584, ../sass/screen.scss */
 #view-deals .list-item {
   padding: 0px;
   margin: 0px 1px;
@@ -4378,39 +4479,39 @@ form textarea:focus, form input:focus {
   background: -ms-linear-gradient(#fdfdfd, #eeeeee);
   background: linear-gradient(#fdfdfd, #eeeeee);
 }
-/* line 2577, ../sass/screen.scss */
+/* line 2587, ../sass/screen.scss */
 #view-deals .list-item img {
   height: 75px;
   float: left;
   margin: 0px;
 }
-/* line 2578, ../sass/screen.scss */
+/* line 2588, ../sass/screen.scss */
 #view-deals .list-item .details {
   float: left;
   padding: 5px 5px 0px 5px;
   width: 210px;
 }
-/* line 2579, ../sass/screen.scss */
+/* line 2589, ../sass/screen.scss */
 #view-deals .list-item .prices {
   margin-top: 0px;
 }
-/* line 2580, ../sass/screen.scss */
+/* line 2590, ../sass/screen.scss */
 #view-deals .list-item h2 {
   color: #2F3E46;
 }
-/* line 2582, ../sass/screen.scss */
+/* line 2592, ../sass/screen.scss */
 #view-deals .list-item span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 2583, ../sass/screen.scss */
+/* line 2593, ../sass/screen.scss */
 #view-deals .list-item span em {
   font-size: 14px;
   color: #545454;
 }
-/* line 2590, ../sass/screen.scss */
+/* line 2600, ../sass/screen.scss */
 #view-deals .list-item:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -4424,43 +4525,43 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
-/* line 2596, ../sass/screen.scss */
+/* line 2606, ../sass/screen.scss */
 #view-deals h1 {
   padding: 10px 5px;
   font-size: 18px;
   font-weight: normal;
 }
-/* line 2597, ../sass/screen.scss */
+/* line 2607, ../sass/screen.scss */
 #view-deals hr {
   margin: 15px auto;
   width: 80%;
 }
 
-/* line 2602, ../sass/screen.scss */
+/* line 2612, ../sass/screen.scss */
 #edit_shop #opening-times {
   margin-left: 10px;
 }
-/* line 2604, ../sass/screen.scss */
+/* line 2614, ../sass/screen.scss */
 #edit_shop #opening-times .notice {
   color: #858585;
   padding: 5px;
 }
-/* line 2605, ../sass/screen.scss */
+/* line 2615, ../sass/screen.scss */
 #edit_shop #opening-times ul {
   list-style-type: none;
   float: left;
 }
-/* line 2606, ../sass/screen.scss */
+/* line 2616, ../sass/screen.scss */
 #edit_shop #opening-times li {
   padding: 5px;
   text-align: left;
 }
-/* line 2608, ../sass/screen.scss */
+/* line 2618, ../sass/screen.scss */
 #edit_shop #opening-times li span.day {
   width: 40px;
   display: inline-block;
 }
-/* line 2609, ../sass/screen.scss */
+/* line 2619, ../sass/screen.scss */
 #edit_shop #opening-times li span.data {
   position: relative;
   display: none;
@@ -4468,14 +4569,14 @@ form textarea:focus, form input:focus {
   margin: 0;
   padding: 0;
 }
-/* line 2611, ../sass/screen.scss */
+/* line 2621, ../sass/screen.scss */
 #edit_shop #opening-times li span.data label {
   width: 20px;
   font-size: 11px;
   text-align: right;
   color: #858585;
 }
-/* line 2612, ../sass/screen.scss */
+/* line 2622, ../sass/screen.scss */
 #edit_shop #opening-times li span.data input {
   width: 40px;
   margin-right: 5px;
@@ -4483,53 +4584,54 @@ form textarea:focus, form input:focus {
   display: inline;
   text-align: right;
 }
-/* line 2614, ../sass/screen.scss */
+/* line 2624, ../sass/screen.scss */
 #edit_shop #opening-times li span.closed {
   color: #858585;
   font-size: 12px;
   display: inline;
 }
-/* line 2616, ../sass/screen.scss */
+/* line 2626, ../sass/screen.scss */
 #edit_shop #opening-times li.selected span.data {
   display: inline-block;
 }
-/* line 2617, ../sass/screen.scss */
+/* line 2627, ../sass/screen.scss */
 #edit_shop #opening-times li.selected span.closed {
   display: none;
 }
-/* line 2622, ../sass/screen.scss */
+/* line 2632, ../sass/screen.scss */
 #edit_shop #opening-times.edit li span.data {
   display: inline-block;
 }
 
-/* line 2627, ../sass/screen.scss */
+/* line 2637, ../sass/screen.scss */
 #start_deal {
   color: #000;
   width: 600px;
   margin: 0px 20%;
 }
-/* line 2631, ../sass/screen.scss */
+/* line 2641, ../sass/screen.scss */
 #start_deal .head {
   font-size: 32px;
   text-align: left;
   margin: 20px 0px;
 }
-/* line 2636, ../sass/screen.scss */
+/* line 2646, ../sass/screen.scss */
 #start_deal .block {
   clear: both;
   position: relative;
   background-color: #FFF;
   border: 1px solid #e3e3e3;
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   padding: 10px;
   margin: 10px 3px;
   opacity: 0.92;
 }
-/* line 2644, ../sass/screen.scss */
+/* line 2654, ../sass/screen.scss */
 #start_deal .block.noOne {
   background-color: #e8e8e8 url("i/first.png") no-repeat top left;
   *zoom: 1;
@@ -4545,7 +4647,7 @@ form textarea:focus, form input:focus {
   margin-bottom: 0px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
-/* line 2652, ../sass/screen.scss */
+/* line 2662, ../sass/screen.scss */
 #start_deal .block.noTwo {
   background-color: #e8e8e8 url("i/first.png") no-repeat top left;
   *zoom: 1;
@@ -4562,11 +4664,11 @@ form textarea:focus, form input:focus {
   height: 90px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
-/* line 2660, ../sass/screen.scss */
+/* line 2670, ../sass/screen.scss */
 #start_deal .block.noThree {
   background: white url("i/third.png") no-repeat top left;
 }
-/* line 2663, ../sass/screen.scss */
+/* line 2673, ../sass/screen.scss */
 #start_deal .label {
   width: 200px;
   float: left;
@@ -4574,42 +4676,43 @@ form textarea:focus, form input:focus {
   padding: 30px 0px 30px 20px;
   text-shadow: 1px 1px 1px white;
 }
-/* line 2664, ../sass/screen.scss */
+/* line 2674, ../sass/screen.scss */
 #start_deal .data {
   float: right;
   min-width: 320px;
   width: auto !important;
   width: 320px;
 }
-/* line 2666, ../sass/screen.scss */
+/* line 2676, ../sass/screen.scss */
 #start_deal .select_template {
   padding: 10px;
   margin: 20px 10px;
   font-size: 16px;
   float: right;
 }
-/* line 2667, ../sass/screen.scss */
+/* line 2677, ../sass/screen.scss */
 #start_deal #selected_template_area {
   padding: 0px;
   margin: 10px;
   float: right;
   border: thin solid #ccc;
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 2669, ../sass/screen.scss */
+/* line 2679, ../sass/screen.scss */
 #start_deal .set_time .label {
   width: auto;
 }
-/* line 2670, ../sass/screen.scss */
+/* line 2680, ../sass/screen.scss */
 #start_deal .set_time .field {
   margin: 5px 15px;
   float: left;
 }
-/* line 2672, ../sass/screen.scss */
+/* line 2682, ../sass/screen.scss */
 #start_deal .set_time .field .sublabel {
   color: #333;
   font-size: 16px;
@@ -4617,58 +4720,61 @@ form textarea:focus, form input:focus {
   clear: both;
   margin: 0px 0px 5px 0px;
 }
-/* line 2673, ../sass/screen.scss */
+/* line 2683, ../sass/screen.scss */
 #start_deal .set_time .field .subdata {
   float: right;
   clear: both;
 }
-/* line 2674, ../sass/screen.scss */
+/* line 2684, ../sass/screen.scss */
 #start_deal .set_time .field .subdata input {
   width: 160px;
   font-family: "Helvetica";
   font-size: 18px;
   text-align: center;
   padding: 5px;
-  -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
   -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -khtml-border-radius: 8px;
   border-radius: 8px;
   border: 1px solid #D7D7D7;
   outline: none;
-  -webkit-box-shadow: inset 0 0 3px black;
   -moz-box-shadow: inset 0 0 3px black;
+  -webkit-box-shadow: inset 0 0 3px black;
+  -o-box-shadow: inset 0 0 3px black;
   box-shadow: inset 0 0 3px black;
 }
-/* line 2682, ../sass/screen.scss */
+/* line 2692, ../sass/screen.scss */
 #start_deal .set_time .field .subdata input:focus {
   border: 1px solid #888;
-  -webkit-box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
   box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
 }
-/* line 2688, ../sass/screen.scss */
+/* line 2698, ../sass/screen.scss */
 #start_deal .set_time .show_hours {
   margin: 15px 20px 5px 20px;
 }
-/* line 2690, ../sass/screen.scss */
+/* line 2700, ../sass/screen.scss */
 #start_deal .set_time .show_hours .hours {
   font-size: 40px;
   text-align: center;
   color: black;
   text-shadow: 1px 1px 1px white;
 }
-/* line 2691, ../sass/screen.scss */
+/* line 2701, ../sass/screen.scss */
 #start_deal .set_time .show_hours .sublabel {
   color: black;
   text-align: center;
 }
-/* line 2694, ../sass/screen.scss */
+/* line 2704, ../sass/screen.scss */
 #start_deal .starter {
   width: 62%;
   margin: 20px auto;
 }
-/* line 2695, ../sass/screen.scss */
+/* line 2705, ../sass/screen.scss */
 #start_deal .start_deal_btn {
   padding: 10px 20px;
   font-size: 24px;
@@ -4677,32 +4783,31 @@ form textarea:focus, form input:focus {
   display: block;
   position: relative;
 }
-/* line 2697, ../sass/screen.scss */
+/* line 2707, ../sass/screen.scss */
 #start_deal .start_deal_btn.disabled {
-  -webkit-transition-property: none;
   -moz-transition-property: none;
-  -ms-transition-property: none;
+  -webkit-transition-property: none;
   -o-transition-property: none;
   transition-property: none;
   background: #67a100 url(i/loader_green.gif) 80px center no-repeat;
   background-size: auto;
 }
 
-/* line 2706, ../sass/screen.scss */
+/* line 2716, ../sass/screen.scss */
 div.ui-datepicker {
   font-size: 12px;
 }
 
-/* line 2708, ../sass/screen.scss */
+/* line 2718, ../sass/screen.scss */
 .template-selector {
   height: 100%;
 }
-/* line 2710, ../sass/screen.scss */
+/* line 2720, ../sass/screen.scss */
 .template-selector .template-selected {
   padding: 5px;
   font-size: 18px;
 }
-/* line 2711, ../sass/screen.scss */
+/* line 2721, ../sass/screen.scss */
 .template-selector .template-list {
   overflow-y: auto;
   margin: 0px;
@@ -4710,7 +4815,7 @@ div.ui-datepicker {
   width: 100%;
 }
 
-/* line 2714, ../sass/screen.scss */
+/* line 2724, ../sass/screen.scss */
 .template-selector .list-item, #selected_template_area .list-item {
   border-radius: inherit;
   height: 68px;
@@ -4731,30 +4836,30 @@ div.ui-datepicker {
   background: -ms-linear-gradient(#fdfdfd, #eeeeee);
   background: linear-gradient(#fdfdfd, #eeeeee);
 }
-/* line 2723, ../sass/screen.scss */
+/* line 2733, ../sass/screen.scss */
 .template-selector .list-item img, #selected_template_area .list-item img {
   width: 50px;
   float: left;
   margin: 9px;
 }
-/* line 2725, ../sass/screen.scss */
+/* line 2735, ../sass/screen.scss */
 .template-selector .list-item .details, #selected_template_area .list-item .details {
   float: left;
   padding: 10px 5px;
   width: 210px;
 }
-/* line 2726, ../sass/screen.scss */
+/* line 2736, ../sass/screen.scss */
 .template-selector .list-item h2, #selected_template_area .list-item h2 {
   color: #2F3E46;
 }
-/* line 2727, ../sass/screen.scss */
+/* line 2737, ../sass/screen.scss */
 .template-selector .list-item span, #selected_template_area .list-item span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 2733, ../sass/screen.scss */
+/* line 2743, ../sass/screen.scss */
 .template-selector .list-item:hover, #selected_template_area .list-item:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -4768,52 +4873,52 @@ div.ui-datepicker {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
-/* line 2738, ../sass/screen.scss */
+/* line 2748, ../sass/screen.scss */
 .template-selector .list-item.selected, #selected_template_area .list-item.selected {
   background: #e1e1e1;
   cursor: default;
 }
-/* line 2739, ../sass/screen.scss */
+/* line 2749, ../sass/screen.scss */
 .template-selector .list-item.selected:hover, #selected_template_area .list-item.selected:hover {
   background: #e1e1e1;
 }
 
-/* line 2743, ../sass/screen.scss */
+/* line 2753, ../sass/screen.scss */
 .jcrop-holder {
   text-align: left;
 }
 
-/* line 2744, ../sass/screen.scss */
+/* line 2754, ../sass/screen.scss */
 .jcrop-vline, .jcrop-hline {
   font-size: 0px;
   position: absolute;
   background: white url("i/Jcrop.gif") top left repeat;
 }
 
-/* line 2745, ../sass/screen.scss */
+/* line 2755, ../sass/screen.scss */
 .jcrop-vline {
   height: 100%;
   width: 1px !important;
 }
 
-/* line 2746, ../sass/screen.scss */
+/* line 2756, ../sass/screen.scss */
 .jcrop-hline {
   width: 100%;
   height: 1px !important;
 }
 
-/* line 2747, ../sass/screen.scss */
+/* line 2757, ../sass/screen.scss */
 .jcrop-vline.right {
   right: 0px;
   margin: 0px;
 }
 
-/* line 2748, ../sass/screen.scss */
+/* line 2758, ../sass/screen.scss */
 .jcrop-hline.bottom {
   bottom: 0px;
 }
 
-/* line 2749, ../sass/screen.scss */
+/* line 2759, ../sass/screen.scss */
 .jcrop-handle {
   font-size: 1px;
   width: 7px !important;
@@ -4822,52 +4927,54 @@ div.ui-datepicker {
   background-color: #333;
 }
 
-/* line 2756, ../sass/screen.scss */
+/* line 2766, ../sass/screen.scss */
 .jcrop-tracker {
   width: 100%;
   height: 100%;
 }
 
-/* line 2757, ../sass/screen.scss */
+/* line 2767, ../sass/screen.scss */
 .custom .jcrop-vline, .custom .jcrop-hline {
   background: yellow;
 }
 
-/* line 2758, ../sass/screen.scss */
+/* line 2768, ../sass/screen.scss */
 .custom .jcrop-handle {
   border-color: black;
   background-color: #C7BB00;
-  -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
   -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
   border-radius: 3px;
 }
 
-/* line 2764, ../sass/screen.scss */
+/* line 2774, ../sass/screen.scss */
 #notifications {
   position: fixed;
   top: 50px;
   right: 0;
   z-index: 15;
 }
-/* line 2770, ../sass/screen.scss */
+/* line 2780, ../sass/screen.scss */
 #notifications .meow {
   margin: 20px 20px 0 0;
   position: relative;
   cursor: pointer;
 }
-/* line 2774, ../sass/screen.scss */
+/* line 2784, ../sass/screen.scss */
 #notifications .meow .inner {
   background: #191919;
   zoom: 1;
   filter: alpha(opacity=75);
   background: rgba(25, 25, 25, 0.75);
   border: 2px solid transparent;
-  -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
+  -webkit-border-radius: 10px;
   -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -khtml-border-radius: 10px;
   border-radius: 10px;
 @incldue box-shadow(2px 2px 10px rgba(25, 25, 25, .25));
   color: #fff;
@@ -4878,7 +4985,7 @@ div.ui-datepicker {
   width: 250px;
   min-height: 48px;
 }
-/* line 2790, ../sass/screen.scss */
+/* line 2800, ../sass/screen.scss */
 #notifications .meow .inner:after {
   content: "\0200";
   display: block;
@@ -4887,7 +4994,7 @@ div.ui-datepicker {
   line-height: 0;
   height: 0;
 }
-/* line 2798, ../sass/screen.scss */
+/* line 2808, ../sass/screen.scss */
 #notifications .meow .inner h1 {
   font-size: 14px;
   font-weight: bold;
@@ -4895,27 +5002,27 @@ div.ui-datepicker {
   padding: 0;
   line-height: 1;
 }
-/* line 2805, ../sass/screen.scss */
+/* line 2815, ../sass/screen.scss */
 #notifications .meow .inner .icon {
   width: 48px;
   height: 48px;
   float: left;
   margin-right: 6px;
 }
-/* line 2810, ../sass/screen.scss */
+/* line 2820, ../sass/screen.scss */
 #notifications .meow .inner .icon img {
   max-width: 48px;
   max-height: 48px;
 }
-/* line 2812, ../sass/screen.scss */
+/* line 2822, ../sass/screen.scss */
 #notifications .meow .inner .close {
   display: none;
 }
-/* line 2814, ../sass/screen.scss */
+/* line 2824, ../sass/screen.scss */
 #notifications .meow.hover .inner {
   border: 2px solid #fff;
 }
-/* line 2816, ../sass/screen.scss */
+/* line 2826, ../sass/screen.scss */
 #notifications .meow.hover .inner .close {
   display: block;
   position: absolute;
@@ -4928,10 +5035,11 @@ div.ui-datepicker {
   filter: alpha(opacity=75);
   background: rgba(25, 25, 25, 0.75);
   border: 2px solid #ffffff;
-  -webkit-border-radius: 18px;
   -moz-border-radius: 18px;
-  -ms-border-radius: 18px;
+  -webkit-border-radius: 18px;
   -o-border-radius: 18px;
+  -ms-border-radius: 18px;
+  -khtml-border-radius: 18px;
   border-radius: 18px;
   color: #ffffff;
   font-size: 22px;
@@ -4941,13 +5049,13 @@ div.ui-datepicker {
   text-decoration: none;
 }
 
-/* line 2844, ../sass/screen.scss */
+/* line 2854, ../sass/screen.scss */
 .bubble_message #container {
   width: 500px;
   padding: 0 0 50px;
   margin: 0 auto;
 }
-/* line 2850, ../sass/screen.scss */
+/* line 2860, ../sass/screen.scss */
 .bubble_message h1 {
   margin: 1em 0 0;
   font-size: 2.5em;
@@ -4955,7 +5063,7 @@ div.ui-datepicker {
   line-height: 1.2;
   text-align: center;
 }
-/* line 2858, ../sass/screen.scss */
+/* line 2868, ../sass/screen.scss */
 .bubble_message h2 {
   margin: 0.5em 0 1.5em;
   font-size: 1.25em;
@@ -4963,11 +5071,11 @@ div.ui-datepicker {
   font-style: italic;
   text-align: center;
 }
-/* line 2866, ../sass/screen.scss */
+/* line 2876, ../sass/screen.scss */
 .bubble_message p {
   margin: 1em 0;
 }
-/* line 2870, ../sass/screen.scss */
+/* line 2880, ../sass/screen.scss */
 .bubble_message .content h2 {
   margin: 2em 0 0.75em;
   font-size: 2em;
@@ -4975,33 +5083,34 @@ div.ui-datepicker {
   font-style: normal;
   text-align: left;
 }
-/* line 2878, ../sass/screen.scss */
+/* line 2888, ../sass/screen.scss */
 .bubble_message blockquote {
   margin: 1em 0;
 }
-/* line 2882, ../sass/screen.scss */
+/* line 2892, ../sass/screen.scss */
 .bubble_message blockquote p {
   margin: 0;
   font-size: 2em;
 }
-/* line 2887, ../sass/screen.scss */
+/* line 2897, ../sass/screen.scss */
 .bubble_message .follow {
   clear: both;
   margin-top: 2em;
   font-size: 1.125em;
 }
-/* line 2893, ../sass/screen.scss */
+/* line 2903, ../sass/screen.scss */
 .bubble_message .follow span {
   font-weight: bold;
 }
-/* line 2898, ../sass/screen.scss */
+/* line 2908, ../sass/screen.scss */
 .bubble_message.msg {
   position: absolute;
   top: -224px;
   left: 167px;
   width: 240px;
-  -webkit-box-shadow: 0 0 40px black;
   -moz-box-shadow: 0 0 40px black;
+  -webkit-box-shadow: 0 0 40px black;
+  -o-box-shadow: 0 0 40px black;
   box-shadow: 0 0 40px black;
   padding: 15px;
   padding-top: 0px;
@@ -5014,12 +5123,12 @@ div.ui-datepicker {
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 2916, ../sass/screen.scss */
+/* line 2926, ../sass/screen.scss */
 .bubble_message.msg p {
   font-size: 28px;
   line-height: 1.25em;
 }
-/* line 2918, ../sass/screen.scss */
+/* line 2928, ../sass/screen.scss */
 .bubble_message .msg:before {
   content: url(twitter-logo.gif);
   position: absolute;
@@ -5030,7 +5139,7 @@ div.ui-datepicker {
   /* reduce the damage in FF3.0 */
   display: block;
 }
-/* line 2929, ../sass/screen.scss */
+/* line 2939, ../sass/screen.scss */
 .bubble_message.msg:after {
   content: "";
   position: absolute;
@@ -5041,7 +5150,7 @@ div.ui-datepicker {
   display: block;
   width: 0;
 }
-/* line 2939, ../sass/screen.scss */
+/* line 2949, ../sass/screen.scss */
 .bubble_message.msg + p {
   padding-left: 15px;
   font: 14px Arial, sans-serif;

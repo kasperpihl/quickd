@@ -2,11 +2,9 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
+!!! getUsersByMail virker ikker !!!
+
 Gennemtest billede-upload
-
-Fejl besked ved diverse gem knapper og lign :-)
-
-Overlays ved internet forbindelse røget (Skal ikke lægges på hvergang man trykker)
 
 Vis rabat ved oprettelse af templates
 
@@ -27,6 +25,12 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Ændret kategori-vælger
+
+(rettet Jeppe) Fejl besked ved diverse gem knapper og lign :-)
+
+(rettet Jeppe) Overlays ved internet forbindelse røget (Skal ikke lægges på hvergang man trykker)
 
 (rettet Jeppe) Åbningstider
 

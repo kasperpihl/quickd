@@ -62,15 +62,16 @@
 		   		<div id="prices-toolTip" />
 		 </div>
 
-		    <div class="field">
-		  	  <div class="label long">Kategori</div>
-		  	  <div class="data long categories">
-		  	  	<div class="category selected" id="cat_fooddrink">Mad og drikke</div>
-		  	  	<div class="category" id="cat_experience">Oplevelser</div>
-		  	  	<div class="category" id="cat_shopping">Shopping</div>
-		  	  	<div class="category" id="cat_nightlife">Natteliv</div>
-		  	  </div>
-		    </div>
+		<% if (CATEGORIES) { %>
+  		<div class="field">
+  	  	<div class="label long">Kategori</div>
+  	  	<div class="data long categories" id="categories">
+					<% _.each(CATEGORIES, function(name, key) { %>
+            <div class="category readonly <%='fooddrink'==key? 'selected': ''%>" id="cat_<%=key%>"><%=name%></div>
+          <% }); %>
+  	  	</div>
+      </div>
+    <% } %>
 		    <div class="clearline" />
 		    
 		    <div id="btn_submit_add_template" class="go_button" style="position: relative;">Gem</div>
