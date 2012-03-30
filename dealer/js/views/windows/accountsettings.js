@@ -33,10 +33,6 @@ define([
 						 user_pass_new: {
 							 minlength: 6
 						 },
-						 user_pass_again: {
-							 equalTo: "#user_pass_new",
-							 minlength: 6
-						 },
 						 user_pass: {
 							 required: function(el) {
 								if ($('#user_pass_new').val() != "" && $('#user_pass_again').val() != "") return true;
@@ -56,7 +52,6 @@ define([
 		  
 		},
 		editAccount:function(obj){
-			log("editAccount", this.state);
 			if(this.state == 'view'){
 				$("#btn_edit_account").html("Gem").addClass("blue");
 				$("#btn_cancel_account").css("display", "block");
@@ -74,12 +69,11 @@ define([
 			else{
 				var thisClass = this;
 				if ($('#wrong_pass').is(':visible')) $('#wrong_pass').slideUp();
-				
 				this.saveToModel({onChanged:function() {
 					log("onChanged");
 					thisClass.router.trigger('settingsEdited',{event:'settingsEdited'});
 				}, success:function(d,data){  
-					log("success");
+					log("success",data,d);
 					$("#btn_edit_account").html("Rediger").removeClass("blue");
 					$("#btn_cancel_account").css("display", "none");
 					thisClass.state = 'view';

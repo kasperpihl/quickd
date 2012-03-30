@@ -77,11 +77,12 @@ try{
 		".$requireJSON."
 		if (doc && doc.hasOwnProperty('user')) {
 			var user = doc.user;
-			
+			if(query.hasOwnProperty('phone')) user.phone = query.phone;
+			if(query.hasOwnProperty('name')) user.name = query.name;
 			if(query.hasOwnProperty('md5_password')){
 				user.md5_password = query.md5_password;
 				if(user.hasOwnProperty('newPass')) delete user.newPass;
-			} 
+			}
 			return [doc,msg('',true)];
 		}
 		else return [null,msg('no_user_found')];
