@@ -12,7 +12,6 @@ define([
 			this.closable = true;
 			this.width = 380;
 			this.height = 222;
-			log(this.options);
 			this.createDialog({email:this.options.email}, function() {
 				$(thisClass.dialogId).formValidate();
 			});
@@ -27,6 +26,9 @@ define([
 				$('#newPassSuccess').fadeIn(400);
 			});
 		},
+		error:function(){
+			$(this.el).shakeBox();
+		},
 		handleClick: function(data){
 			if(data.currentTarget.id == 'btn_reset_button'){
 				this.router.doResetPass($('#reset_email').val());
@@ -34,7 +36,7 @@ define([
 		},
 		handleKeypress: function(e){
 			if(e.keyCode == 13){	
-				this.router.doResetPass();
+				this.router.doResetPass($('#reset_email').val());
 			}
 		},
 		onOpen:function() {

@@ -58,7 +58,7 @@ App.routers.Entry = Backbone.Router.extend({
 		//log($('#register_password').val(),'hej');
 		$.post(ROOT_URL+'api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#register_betacode').val()},function(response){
 			
-			log('reg',response);
+			//log('reg',response);
 			if(response.success == 'true'){
 				
 				$("#footer-login").fadeOut();
@@ -82,10 +82,15 @@ App.routers.Entry = Backbone.Router.extend({
 		
 	},
 	doResetPass: function(email) {
+		//log('email',email);
 		var thisClass = this;
 		$.post(ROOT_URL+'api/reset',{model:{email:email,type:'dealer'}},function(data){
+			//log(data);
 			if(data.success == 'true'){
 				if(thisClass.resetPassView) thisClass.resetPassView.success();
+			}
+			else{
+				if(thisClass.resetPassView) thisClass.resetPassView.error();
 			}
 		},'json');
 	},
