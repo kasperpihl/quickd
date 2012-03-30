@@ -62,7 +62,16 @@ if(isset($_GET['id'])){
 					if (form && form.valid()) {
 						$.post("<?= ROOT_URL ?>api/reset",{model:{doc_id: "<?= $doc_id ?>",password:$('#newpass-input').val(),id:"<?= $id ?>"}},function(data){
 							if(data.success == 'true'){
-								window.location = ROOT_URL;
+								$('#newPassForm').fadeOut(400,function(){
+									$('#passwordSuccess').fadeIn(400);
+									setTimeout(function(){
+										window.location = ROOT_URL;
+									},4000);
+								});
+								//window.location = ROOT_URL;
+							}
+							else{
+								alert('Der skete en fejl');
 							}
 							//log('response from reset',data);
 						},'json');
@@ -83,9 +92,15 @@ if(isset($_GET['id'])){
 				<form id="new-pass-form">
 					<div id="enterNewPassword">
 						<?php if($resetPassword){ ?>
-						<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
-						<div class="field">
-							<input type="password" name="newPass" id="newpass-input" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
+						<div id="newPassForm">
+							<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
+							<div class="field">
+								<input type="password" name="newPass" id="newpass-input" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
+							</div>
+						</div>
+						<div id="passwordSuccess" style="display:none;">
+							<p>Koden er fornyet, og du sendes til login</p>
+							<a class="gotoDealer" href="<?= ROOT_URL ?>">Gå til forhandlerlogin</a>
 						</div>
 						<?php } else{ ?>
 							<p>Linket er brugt, forældet eller findes ikke.</p>

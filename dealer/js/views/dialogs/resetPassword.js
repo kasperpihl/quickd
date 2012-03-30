@@ -22,6 +22,11 @@ define([
 			'click #btn_reset_button': 'handleClick',
 			'keypress #reset_email': 'handleKeypress'
 		},
+		success:function(){
+			$('#newPassForm').fadeOut(400,function(){
+				$('#newPassSuccess').fadeIn(400);
+			});
+		},
 		handleClick: function(data){
 			if(data.currentTarget.id == 'btn_reset_button'){
 				this.router.doResetPass($('#reset_email').val());

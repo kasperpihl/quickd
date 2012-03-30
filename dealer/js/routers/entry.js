@@ -82,9 +82,12 @@ App.routers.Entry = Backbone.Router.extend({
 		
 	},
 	doResetPass: function(email) {
+		var thisClass = this;
 		$.post(ROOT_URL+'api/reset',{model:{email:email,type:'dealer'}},function(data){
-			log(data);
-		},'html');
+			if(data.success == 'true'){
+				if(thisClass.resetPassView) thisClass.resetPassView.success();
+			}
+		},'json');
 	},
 	
 	openRegisterView:function(){
