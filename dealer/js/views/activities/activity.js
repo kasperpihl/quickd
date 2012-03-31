@@ -186,7 +186,7 @@ define([
 					this.windows[options.parent].setSelected(options.clickId);
 				} else var setSelectedLater = true;
 			}
-			var req = 'views/windows/'+windowName.toLowerCase()+'?v='+version;
+			var req = 'views/windows/'+windowName.toLowerCase();
 			var thisClass = this;
 			require([req],function(){
 				if (!thisClass.windows[id]) {
