@@ -38,18 +38,21 @@ App.routers.Entry = Backbone.Router.extend({
 		$("#position_wrapper").animate({marginTop: '-124px'}, 1200, 'easeOutQuart');	
 	},
 	doLogin: function(){
+		if(this.loggingIn) return false;
+		this.loggingIn = true;
 		var thisClass = this;
 		$.post(ROOT_URL+'api/login',{email:$('#login_username').val(),password:$('#login_password').val()},function(response){
 		 	log('response from login',response);
 			if(response.success == 'true'){
 				thisClass.animateDashboard();
+				thisClass.loggingIn = false;
 				setTimeout(function(){
 					thisClass.model.set(response.dealer);
 					thisClass.startDashboard(response.stuff);		
 				},200);
 			}
 			else{
-				thisClass.entryView.shakeDialog();
+				thisClass.entryView.shakeDialog(thisClass);
 			}
 		},'json');
 	},

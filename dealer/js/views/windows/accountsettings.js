@@ -13,7 +13,6 @@ define([
 			this.confirmClose=true;
 			this.inputPrefix = 'user_';
 			this.model = App.models.shopowner;
-			console.log(this.model);
 			this.createWindow(true,{attributes:this.model.attributes,prefix:this.inputPrefix});
 			
 		},

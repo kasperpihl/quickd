@@ -271,19 +271,24 @@ $(function() {
 		me.css({position:'absolute',left:loginX,top:loginY});
 		return me;
 	}
-	$.fn.shakeBox = function(){
+	var shakeLock = false;
+	$.fn.shakeBox = function(deleteField,callback){
+		log('initializing shake',shakeLock);
 		var me = $(this);
 		var x = me.position().left;
 		var dur = 50;
 		var distance = 30;
 		for (i=5;i>=1;i--){
 			var max = x-(i*2);
-			var min = x+(i*2);
-			me.animate({left:max},dur).animate({left:min},dur);
-			
+			var min = (i == 1) ? x : x+(i*2);
+			if(i == 1 && callback) me.animate({left:max},{duration:dur}).animate({left:min},{duration:dur,complete:function(){
+				callback();
+			}});
+			else me.animate({left:max},{duration:dur}).animate({left:min},{duration:dur});
 		}
 		//me.effect("shake", { times:3 }, 500);
-		me.find('input').filter(':last').val('').focus();
+		if(deleteField) me.find('input').filter(':last').val('').focus();
+		else me.find('input').filter(':last').focus().select();
 		return me;
 	}
 

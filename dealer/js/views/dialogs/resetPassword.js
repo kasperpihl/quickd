@@ -33,11 +33,14 @@ define([
 			if(data.currentTarget.id == 'btn_reset_button'){
 				this.router.doResetPass($('#reset_email').val());
 			}
+			return false;
 		},
 		handleKeypress: function(e){
 			if(e.keyCode == 13){	
 				this.router.doResetPass($('#reset_email').val());
+				return false;
 			}
+
 		},
 		onOpen:function() {
 			$('#reset_email').focus();
