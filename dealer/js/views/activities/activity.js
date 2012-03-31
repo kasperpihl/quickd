@@ -186,7 +186,7 @@ define([
 					this.windows[options.parent].setSelected(options.clickId);
 				} else var setSelectedLater = true;
 			}
-			var req = 'views/windows/'+windowName.toLowerCase();
+			var req = 'views/windows/'+windowName.toLowerCase()+'?v='+version;
 			var thisClass = this;
 			require([req],function(){
 				if (!thisClass.windows[id]) {
@@ -204,7 +204,7 @@ define([
 					if (!queue){
 						newWindow.openWindow();
 						if (setSelectedLater && thisClass.windows[newWindow.parent]) {
-							thisClass.windows[newWindow.parent].setSelected(options.clickId); 
+							thisClass.windows[newWindow.parent].setSelected(options.clickId);
 						}
 						thisClass.windows[id] = newWindow;
 					}

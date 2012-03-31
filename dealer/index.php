@@ -27,6 +27,7 @@ if(isset($_GET['logout'])){
         <script src="<?= ROOT_URL ?>js/function.js"></script>
         <script> var shopowner; var debug = false;	
        		var ROOT_URL = "<?= ROOT_URL ?>";
+       		var version = "<?= VERSION ?>";
 			var IMG_URL = "<?= IMAGES_URL ?>";
 			var LIBS_URL = "<?= LIBS_URL ?>";
 			var historyObj = JSON.parse('<?= $historyObj ?>');

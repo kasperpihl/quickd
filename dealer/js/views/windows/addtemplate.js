@@ -52,7 +52,7 @@ define([
 		},
 		changedModel: function(m,data){
 			log("added", m, data);
-			if (d.success=='true') {
+			if (data.success=='true') {
 				this.collection.add(this.model);
 				App.views.notifications.notify('fast',lang.notifications.template.created);
 				this.confirmClose=false;
