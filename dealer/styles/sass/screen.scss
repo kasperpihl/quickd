@@ -80,13 +80,32 @@ $register-shop-btn-active: -78px;
 		padding: 6px;
 		-moz-transition: border .2s linear, box-shadow .2s linear;
 		-webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
+
+		&.errorTip {
+			border: 1px solid #DD5555;
+			@include box-shadow(0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0,0,0,0.2));
+		}
 	}
 
-	input[type="text"]:focus, input[type="password"]:focus {
+	input[type="text"]:focus:not(.errorTip), input[type="password"]:focus:not(.errorTip) {
 		border: 1px solid #59CCD9;
 		//border: 1px solid rgba(253,154,15,1);
 		@include box-shadow(0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0,0,0,0.2));
 		//@include box-shadow(0 0px 3px rgba(234,232,121,1), inset 0 1px 2px rgba(0,0,0,0.2));
+	}
+	div.errorTip {
+		position:absolute;
+		width:200px;
+		background-color:#000;
+		border:1px solid #fff;
+		opacity:0.7;
+		padding:5px 10px;
+		color:#fff;
+		text-align:left;
+		font-size:14px;
+		z-index: 50;
+		@include box-shadow(0 0 5px #000);
+		@include border-radius(5px);
 	}
 
 	button {
@@ -789,7 +808,7 @@ body {
 #workspace {
 	position:relative;
 	//@include stretch-x();
-	@include stretch-y($header-height, $footer-height);
+	@include stretch-y($header-height, 0px);
 	//height:90%;
 	width:100%;
 	min-height:550px;
@@ -1080,18 +1099,23 @@ body {
 			margin-right: auto;
 			padding: 20px;
 			width: 407px;
-			height: 274px;
+			//height: 274px;
 			background: white;
 			@include box-shadow(0px 1px 2px rgba(0,0,0,0.3));
 			@include border-radius(5px);
 			@include entryview_input;
 
-
+			#error_container {
+				text-align:center;
+				font-weight:bold;
+				font-size:14px;
+				color:#F06868;
+				display:none;
+			}
 			.field {
 				width: 393px;
 				clear: both;
 			}
-			
 			#shadow-wrapper {
 				position: absolute;
 				@include box-shadow(0px 0px 2px rgba(0, 0, 0, 0.3));
@@ -1377,6 +1401,10 @@ body {
 		.button.cancel {margin-right:10px;float:right;}
 	}
 }
+.error-promt {
+	h1 {padding-bottom:0px;}
+	.msg {color:#8E1717;font-size:14px;line-height:18px;}
+}
 
 #activities {
 	@include stretch-x($menu-width, 0px);@include min-width(900px);@include stretch-y();
@@ -1388,7 +1416,7 @@ body {
 	position:absolute;
 	top:0;
 	left:0;
-	padding:50px 50px 20px 30px;
+	padding:50px 50px 40px 30px;
 	height:100%;
 	@include box-sizing(border-box);
 	@include stretch-x;
@@ -1446,7 +1474,7 @@ body {
 	
 	&.bubble-dialog {
 		width: 350px;
-		z-index: 30;
+		z-index: 50;
 		@include border-radius(10px);
 		background-color: $window-background;
 		border: $window-border;
@@ -1830,6 +1858,12 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 	}
 	.categories {
 		padding:0px 4px;
+		.category-edit {display:none;}
+		.category-show {display:block;}
+		&.edit {
+			.category-edit {display:block;}
+			.category-show {display:none;}
+		}
 		.category {
 			float:left;
 			padding:5px;
@@ -2075,6 +2109,86 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 		left: 0;
 		right: -10px;
 	}
+
+	.jcrop-holder {
+		@include box-shadow(0 2px 2px rgba(0,0,0,0.5));
+	}
+
+	.thumbnail_container {
+		margin-top: 5px;
+
+		.thumbnail {
+			@include box-shadow(0 1px 1px rgba(0,0,0,0.5));
+		}
+
+		h1 {
+			padding: 0px;
+			text-align: left;
+			font-weight: normal;
+			@include text-shadow(0 1px 1px rgba(0,0,0,1));
+			color: white;
+			margin-left: 10px;
+		}
+	}
+
+	.button {
+
+		&.btn_back {
+			//position: relative;
+			width: 150px;
+			//margin-left: 10px;
+			//margin-top: 8px;
+			font-size: 13px;
+			clear: both;
+			position: absolute;
+			bottom: 0px;
+			right: 50px;
+		}
+
+		&.btn_select {
+			//position: relative;
+			width: 150px;
+			//margin-left: 10px;
+			//margin-top: 8px;
+			font-size: 13px;
+			position: absolute;
+			bottom: 35px;
+			right: 50px;
+		}
+	}
+
+	.left_menu {
+		position: absolute;
+		left: 165px;
+		top: 0px;
+		z-index: 100;
+
+		.btn_rotate_left {
+			position: absolute;
+			top: 0px;
+			left: 200px;
+			width: 43px;
+			height: 43px;
+			background-image: url('i/rotate_left.png');
+			cursor: pointer;
+		}
+
+		.btn_rotate_right {
+			position: absolute;
+			top: 0px;
+			left: 100px;
+			width: 43px;
+			height: 43px;
+			background-image: url('i/rotate_right.png');
+			cursor: pointer;
+		}
+	}
+
+	.controlpane {
+		clear: both;
+		margin-right: 40px;
+	}
+
 	.img-item {
 		float: left;
 		position: relative;
@@ -2098,6 +2212,7 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 				&:hover { opacity:1; }
 			}
 		}
+
 		&.selected {box-shadow: 0 0 11px blue;}
 		&.loading { background: #454343 url(i/loader_black.gif) center 30px no-repeat;margin: 19px;padding: 0px;@include border-radius(6px); }
 		img {
@@ -2203,6 +2318,7 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 			height:100%;
 			min-height:500px;
 			position:relative;
+			border-right: 1px solid rgba(255, 255, 255, 0.3);
 			&.loading {overflow:hidden;background: url(i/loader.gif) center center no-repeat; }
 			.preview { margin:0px auto;position:relative;
 				img { position:relative;top:0px;left:0px;}
@@ -2493,13 +2609,28 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 
 #edit_shop {
 
-	.opening-times {
-
-		#weekdays {list-style-type: none;float:left;width:40px;
-			li {margin:1px;padding:5px;width:100%;background:#dedede;border:1px solid #7B7E6B;text-align:center;}
-			.ui-selecting {background:#D0D1C9;}
-			.ui-selected {background:#077815;border:1px solid #185C07;color:white;}
+	#opening-times {
+		margin-left:10px;
+		.notice {color:#858585;padding:5px;}
+		ul {list-style-type: none;float:left; }
+		li {
+			padding:5px;text-align:left;
+			span.day {width:40px;display:inline-block;}
+			span.data {
+				position:relative;display:none;float:none;margin:0;padding:0;
+				label {width:20px;font-size:11px;text-align:right;color:#858585;}
+				input {width:40px;margin-right:5px;clear:none;display:inline;text-align:right;}
+			}
+			span.closed {color:#858585;font-size:12px;display:inline;		}
+			&.selected {
+				span.data {display:inline-block;}
+				span.closed {display:none;}
+			}
+			
 		}
+		&.edit {
+			li span.data {display:inline-block;}
+		}	
 	}
 }
 

@@ -6,14 +6,9 @@ Gennemtest billede-upload
 
 Vis rabat ved oprettelse af templates
 
-Glemt adgangskode-dialog - har ingen funktionalitet, men vinduet er lavet
+Dialog boblen ved registrering - Screen http://cl.ly/1M0p0U021F0U0h361f0V
 
-Shake login box virker ikke ordenligt, første gang den rystes, og efter ryst hvis, man gør vinduet større følger feltet ikke med
-
-Manglende features
- - Vis betingelser
-
-Startdeal "shaken" bugger når den allerede er planlagt
+Tilføj betingelser i dialogboks
 
 Redigering af brugerindstillinger virker ikke.
 	Hvad skal de indeholde?
@@ -22,11 +17,32 @@ Redigering af brugerindstillinger virker ikke.
 
 
 =====================================
+Lav prioritet
 
-(lav prioritet) Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter.
-	Det skal ske i det man trykker
+	Vælg billede af butikken
+	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Kasper) Glemt adgangskode-dialog
+
+(rettet Kasper) !!! getUsersByMail virker ikker !!!
+
+(rettet Jeppe) Ændret kategori-vælger
+
+(rettet Jeppe) Fejl besked ved diverse gem knapper og lign :-)
+
+(rettet Jeppe) Overlays ved internet forbindelse røget (Skal ikke lægges på hvergang man trykker)
+
+(rettet Jeppe) Åbningstider
+
+(rettet) Startdeal "shaken" bugger når den allerede er planlagt
+
+(rettet) Shake login box virker ikke ordenligt, første gang den rystes, og efter ryst hvis, man gør vinduet større følger feltet ikke med
+
+(rettet Jeppe - skyldtes rettigheder) Roter billede virker ikke
+
+(rettet Jeppe) Server-error bliver vist nogle gange ved logud og opdater
 
 (rettet Jeppe) Slet planlagte deals
 

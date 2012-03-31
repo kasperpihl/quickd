@@ -21,7 +21,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); h
 		<link rel="apple-touch-startup-image" href="img/start-up-image.png" />
 		
        	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
+		<script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-min.js"><\/script>')</script>
 		<?php if(isset($dealer) && $dealer) { $return = Shopowner::getStuffForMobile(); ?>
 			<script src="<?= LIBS_URL ?>jquery/jquery.easing.1.3.min.js"></script>
 			<script src="<?= LIBS_URL ?>jquery/royal-slider-8.1.min.js"></script>
@@ -36,11 +36,12 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); h
 			</script>
 			<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
 	        <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
-	        <script src="js/collections/collections.js"></script>
-	        <script src="js/models/models.js"></script>
-	        <script src="js/routers/controller.js"></script>
-	        <script src="js/views/deals.js"></script>
-	        <script src="js/views/controlpanel.js"></script>
+	        <script src="<?= ROOT_URL ?>js/collections/collections.js"></script>
+	        <script src="<?= ROOT_URL ?>js/models/models.js"></script>
+	        <script src="<?= ROOT_URL ?>js/routers/controller.js"></script>
+	        <script src="<?= ROOT_URL ?>js/utilities/countdown.js"></script>
+	        <script src="<?= ROOT_URL ?>js/views/deals.js"></script>
+	        <script src="<?= ROOT_URL ?>js/views/controlpanel.js"></script>
 	        <script> 
 	        	var shopowner; 
 	       		var ROOT_URL = "<?= ROOT_URL ?>";
@@ -73,7 +74,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); h
 	                </div>
 	                
 	                <footer class="text-center">
-	                	<a href="mailto:mail@quickd.dk">mail@quickd.dk</a>
+	                	<a href="mailto:mail@quickd.com">mail@quickd.com</a>
 	                </footer>
                 </div>
            	</div>

@@ -204,7 +204,7 @@ define([
 					if (!queue){
 						newWindow.openWindow();
 						if (setSelectedLater && thisClass.windows[newWindow.parent]) {
-							thisClass.windows[newWindow.parent].setSelected(options.clickId); 
+							thisClass.windows[newWindow.parent].setSelected(options.clickId);
 						}
 						thisClass.windows[id] = newWindow;
 					}

@@ -2,6 +2,8 @@ Ext.define('QuickD.view.Main', {
     extend: 'Ext.Panel',
     xtype: 'mainview',
     requires: [
+        'Ext.Panel',
+        'Ext.XTemplate',
         'QuickD.view.DealList',
         'QuickD.view.DealShow',
         'QuickD.view.DealSort',

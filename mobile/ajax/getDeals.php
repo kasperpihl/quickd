@@ -18,6 +18,7 @@ foreach($results as $res){
 	$deal['deal_price'] = $res->value->template->deal_price;
 	$deal['orig_price'] = $res->value->template->orig_price;
 	$deal['description'] = $res->value->template->description; 
+	$deal['end'] = $res->value->end;
 	$deal['name'] = $res->value->shop->name;
 	$deal['category'] = isset($res->value->template->category)?$res->value->template->category:'';
 	$deal['discount'] = discount($deal['orig_price'],$deal['deal_price']);

@@ -27,9 +27,11 @@ if(isset($_GET['logout'])){
         <script src="<?= ROOT_URL ?>js/function.js"></script>
         <script> var shopowner; var debug = false;	
        		var ROOT_URL = "<?= ROOT_URL ?>";
+       		var version = "<?= VERSION ?>";
 			var IMG_URL = "<?= IMAGES_URL ?>";
 			var LIBS_URL = "<?= LIBS_URL ?>";
 			var historyObj = JSON.parse('<?= $historyObj ?>');
+			var CATEGORIES = JSON.parse('<?=json_encode($categories) ?>');
 			<?php if(isset($dealer) && $dealer) { $return = getShopowner();?>
 				shopowner = <?= $return; ?>;
 			<? } ?>
@@ -79,6 +81,5 @@ if(isset($_GET['logout'])){
 			<!--<script src="animate.js"></script>-->
 			
 			<script src="<?= LIBS_URL ?>require/require.js" data-main="<?= ROOT_URL ?>js/main"></script>
-
 	</body>
 </html>

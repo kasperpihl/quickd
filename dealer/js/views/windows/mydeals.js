@@ -54,10 +54,10 @@ define([
 				this.stateChanged(data.get('id'));
 			} else if(data.hasChanged('status') && data.get('status')=='soldout') {
 				$('#deal-'+data.get('id')).find('.soldout').show();
-				if (this.currentDeal && this.currentDeal.get('id')==data.get('id')) {
-					$('#view-'.this.currentDeal.get('id'))
-						.find('.remove-btn').hide().end()
-						.find('.soldout').show();
+				if (this.currentDeal && this.currentDeal.get('id') == data.get('id')) {
+					var $view = $('#view-' + this.currentDeal.get('id'));
+					log($view);
+					$view.find('.remove-btn').hide().end().find('.soldout').show();
 				}
 
 			} else this.updateContent(true);
@@ -74,7 +74,7 @@ define([
 				current: [],
 				planned: [],
 				ended: []
-			}
+			};
 			_.each(deals, function(deal) {
 				if(deal.state && thisClass.deals[deal.state]) thisClass.deals[deal.state].push(deal);
 			});
@@ -90,13 +90,14 @@ define([
 				//log("stateChanged", deal, state, preState);
 				if (state!=preState) {
 					el.slideUp('300', function() {
-						if (thisClass.deals[preState].length==1) {
-							var block = $('#deals-'+preState).find('.empty-block');
+						var block;
+						if (thisClass.deals[preState].length===1) {
+							block = $('#deals-'+preState).find('.empty-block');
 							if (block.is(':visible')) block.fadeIn('slow');
 							else block.css({display:'block'});
 						}
-						if (thisClass.deals[state].length==0) {
-							var block = $('#deals-'+state).find('.empty-block');
+						if (thisClass.deals[state].length===0) {
+							block = $('#deals-'+state).find('.empty-block');
 							if (block.is(':visible')) block.fadeOut('slow');
 							else block.css({display:'none'});
 						}
@@ -128,7 +129,7 @@ define([
 			this.currentDeal = this.collection.get(id);
 			if (this.currentDeal) {
 				$('#btn_deal_back').show();
-				$('#view-deal-details').html(_.template(this.dealViewHtml, {data:this.currentDeal.toJSON()}))
+				$('#view-deal-details').html(_.template(this.dealViewHtml, {data:this.currentDeal.toJSON()}));
 				this.changeView('deal-details');
 			}
 		},
@@ -139,12 +140,13 @@ define([
 		},
 		removeDeal:function(){
 			if (this.currentDeal) {
-				var time = parseInt(new Date().getTime()/1000);
+				var time = parseInt(new Date().getTime()/1000,10);
+				var title;
 				if (this.state!='current') {
-					var title = 'Er du sikker på du ønsker at slette denne deal?',
+					title = 'Er du sikker på du ønsker at slette denne deal?',
 							btn_txt = 'Slet';
 				} else {
-					var title = 'Er du sikker på du ønsker at melde denne deal udsolgt?',
+					title = 'Er du sikker på du ønsker at melde denne deal udsolgt?',
 							btn_txt = 'Meld udsolgt';
 				}
 				var confirmer = new App.views.dialogs.PromtDialog({router:this.router, type: 'confirm', callbackCid:this.cid, title:title, confirmText:btn_txt});	
@@ -159,13 +161,19 @@ define([
 					if(this.currentDeal.get('state')=='current') {
 						this.currentDeal.save({status:'soldout'}, {success:function(model, response) {
 							log('Deal soldout', model, response);
-						}, error: function(model, response) { log('Deal soldout error', model, response);}});
+						}, error: function(model, response) { 
+							log('Deal soldout error', model, response);
+							thisClass.router.showError("Der opstod en fejl", "Det lykkedes ikke at melde din deal udsolgt<br />Fejlmeddelelse: "+response.error); 
+						}});
 					} else {
 						this.currentDeal.destroy({data:this.currentDeal.id, success:function(model, response) {
 							log("deleted", model, response);
 							thisClass.router.trigger('dealEdited',{event:'dealDeleted'});
 							thisClass.activity.closeWindow(thisClass, false, true);
-						}, error:function(model, response) { log("error delete: ", model, response); }});
+						}, error:function(model, response) { 
+							log("error delete: ", model, response); 
+							thisClass.router.showError("Der opstod en fejl", "Det lykkedes ikke at slette din deal<br />Fejlmeddelelse: "+response.error); 
+						}});
 					}
 					
 					

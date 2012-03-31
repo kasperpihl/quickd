@@ -32,6 +32,7 @@ switch($root){
 	break; 
 }
 $historyObj = json_encode(array('pushState'=>false,'root'=>$end));
+define('VERSION','v0.2');
 define('MIN_DISCOUNT',25);
 define('DEALS_PR_PAGE',10);
 define('DEAL_MAX_DIST',25000);
@@ -66,9 +67,10 @@ $imageSizes = array(
 	)
 );
 $categories = array(
-	'shopping',
-	'fooddrink',
-	'experience'
+	'fooddrink'=>'Mad & drikke',
+	'shopping'=>'Shopping',
+	'experience'=>'Oplevelser',
+	'nightlife'=>'Natteliv'
 );
 require_once(HOME_DIR.'includes/includes.php');
 $db = new couchClient('http://'.$dbLink.':5984','quickd');

@@ -172,51 +172,55 @@ define([
 		},
 		saveToModel:function(callbacks, simple, manualValues) {
 			if (this.form && this.form.valid()) {
-					var thisClass = this;
-					if (!callbacks) callbacks = {};
-					var obj = {};
-					
-					$(this.windowId).find('.field').find('input, textarea').each(function(){
-						if($(this).val() && (!$(this).attr("oldValue") || $(this).attr("oldValue") != $(this).val())){
-							var index = $(this).attr('id');
-							if (thisClass.inputPrefix && thisClass.inputPrefix.length!=0) index = index.substr(thisClass.inputPrefix.length);
-							var val = $(this).val();
-							if(index=='orig_price'||index=='deal_price') val = convertNumber(val);
-							obj[index] = val;
-							if ($(this).attr("oldValue")) $(this).attr('oldValue',$(this).val());
-						}
-					});
-					_.each(manualValues, function(val, key) {
-						obj[key] = val;
-					});
-					
-					if(!$.isEmptyObject(obj)) {
-						
-						//var button = this.form.find('.edit-save-button').filter(':first');
-						//button.wrap('<div class="loader-small" />');
-						this.model.save(obj,{success:function(d,data){
-							//console.log("success");console.dir(d); console.dir(data);
-							log("success", d, data);
-							//button.unwrap();
-							$(thisClass.windowId).find('.field').find('input[type=password]').val('');
-							if (data.success == 'true') {
-								if(thisClass.lock) thisClass.router.trigger('unlock',{lock:'window',activityCid: thisClass.activity.cid,depth:thisClass.depth});
-								if (callbacks.success) callbacks.success(d, data);
-								if (callbacks.onChanged) callbacks.onChanged(d, data);
-								if (!simple) $(thisClass.windowId).formSetState('readonly');
-								
-							} else if(callbacks.error) callbacks.error(d, data);
-						}, error:function(d,data){
-							//console.log("error");console.dir(d); console.dir(data);
-							if (callbacks.error) callbacks.error(d, data);
-						}});
-					} else {
-						if(this.lock) this.router.trigger('unlock',{lock:'window',activityCid: this.activity.cid,depth:this.depth});
-						if (callbacks.success) callbacks.success();
-						if (!simple) $(this.windowId).formSetState('readonly');
+
+				var thisClass = this;
+				if (!callbacks) callbacks = {};
+				var obj = {};
+				
+				$(this.windowId).find('.field').find('input, textarea').each(function(){
+					if($(this).val() && (!$(this).attr("oldValue") || $(this).attr("oldValue") != $(this).val())){
+						var index = $(this).attr('id');
+						if (thisClass.inputPrefix && thisClass.inputPrefix.length!=0) index = index.substr(thisClass.inputPrefix.length);
+						var val = $(this).val();
+						if(index=='orig_price'||index=='deal_price') val = convertNumber(val);
+						obj[index] = val;
+						if ($(this).attr("oldValue")) $(this).attr('oldValue',$(this).val());
 					}
-					
-					this.state = 'view';
+				});
+				_.each(manualValues, function(val, key) {
+					obj[key] = val;
+				});
+				
+				if(!$.isEmptyObject(obj)) {
+					//var button = this.form.find('.edit-save-button').filter(':first');
+					//button.wrap('<div class="loader-small" />');
+					this.model.save(obj,{success:function(m,data){
+						//console.log("success");console.dir(d); console.dir(data);
+						log("success", m, data);
+						//button.unwrap();
+						$(thisClass.windowId).find('.field').find('input[type=password]').val('');
+						if (data.success == 'true') {
+							if(thisClass.lock) thisClass.router.trigger('unlock',{lock:'window',activityCid: thisClass.activity.cid,depth:thisClass.depth});
+							if (callbacks.success) callbacks.success(m, data);
+							if (callbacks.onChanged) callbacks.onChanged(m, data);
+							if (!simple) $(thisClass.windowId).formSetState('readonly');
+							
+						} else {
+							thisClass.router.showError("Der opstod en fejl", "Dine ændringer blev ikke gemt<br />Fejlmeddelelse: "+data.error);
+							if(callbacks.error) callbacks.error(m, data);
+						}
+					}, error:function(m,data){
+						//console.log("error");console.dir(d); console.dir(data);
+						thisClass.router.showError("Der opstod en fejl", "Dine ændringer blev ikke gemt<br />Fejlmeddelelse: "+data.error);
+						if (callbacks.error) callbacks.error(m, data);
+					}});
+				} else {
+					if(this.lock) this.router.trigger('unlock',{lock:'window',activityCid: this.activity.cid,depth:this.depth});
+					if (callbacks.success) callbacks.success();
+					if (!simple) $(this.windowId).formSetState('readonly');
+				}
+				
+				this.state = 'view';
 			} else if(this.form)  this.form.submit();
 		}
 	

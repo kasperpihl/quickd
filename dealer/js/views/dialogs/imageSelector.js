@@ -73,6 +73,7 @@ define([
 			return _events;
 		},
 		changedRevision:function(model,revision){
+			log('changedRevision')
 			if (model.hasChanged('rev')) {
 				//log("changed revision", model, revision, this.currentModel);
 				var id = model.get('id');
@@ -92,8 +93,9 @@ define([
 			//$('#preview_wrapper').fadeOut(function() {
 				var wrapper = $('#preview_wrapper');
 				var left = Math.round(($('.contentpane').width()-thisModel.get('w'))/2);
-				var top = Math.round(($('.contentpane').height()-thisModel.get('h'))/2);
-				top = top<0 ? 0 : top;
+				//var top = Math.round(($('.contentpane').height()-thisModel.get('h'))/2);
+				//top = top<0 ? 0 : top;
+				var top = 0;
 				//log("position", left, top, $('.contentpane').width(), $('.contentpane').height(), thisModel.get('w'), thisModel.get('h'));
 				
 				
@@ -230,6 +232,7 @@ define([
 		},
 		updateThumb: function(coords)
 		{
+			log('updateThum',coords);
 			if (this.currentModel) {
 				if (!coords) coords = this.currentModel.get("t");
 				if (this.thumbEdited) {

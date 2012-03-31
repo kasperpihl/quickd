@@ -77,11 +77,12 @@ try{
 		".$requireJSON."
 		if (doc && doc.hasOwnProperty('user')) {
 			var user = doc.user;
-			
+			if(query.hasOwnProperty('phone')) user.phone = query.phone;
+			if(query.hasOwnProperty('name')) user.name = query.name;
 			if(query.hasOwnProperty('md5_password')){
 				user.md5_password = query.md5_password;
 				if(user.hasOwnProperty('newPass')) delete user.newPass;
-			} 
+			}
 			return [doc,msg('',true)];
 		}
 		else return [null,msg('no_user_found')];
@@ -246,6 +247,7 @@ try{
 			obj.address = query.address;
 			obj.approved = 'waiting';
 			obj.rev = 1;
+			
 			returnArr = {id:index,approved:'waiting',rev: 1};
 			doc.shops[index] = obj;
 			addHistory(index,timestamp,'created',obj.rev,1);
@@ -254,6 +256,12 @@ try{
 			
 			if(!doc.shops.hasOwnProperty(query.id)) return [null, msg('shop_doesnt_exist')];
 			var shop = doc.shops[query.id];
+			shop.rev = parseInt(shop.rev) +1;
+			if(query.hasOwnProperty('name')&&query.name != shop.name){
+				returnArr.approved = 'waiting';
+				returnArr.rev = shop.rev;
+				doc.shops[query.id].approved = 'waiting';	
+			}
 			if(query.name) shop.name = query.name;
 			if(query.lat) shop.lat = parseFloat(query.lat); 
 			if(query.long) shop.lat = parseFloat(query.lat);
@@ -262,12 +270,14 @@ try{
 			if(query.hasOwnProperty('website')) shop.website = query.website;
 			if(query.hasOwnProperty('phone')) shop.phone = query.phone;
 			if(query.hasOwnProperty('other')) shop.other = query.other;
-			shop.rev = parseInt(shop.rev) +1;
-			if(query.hasOwnProperty('name')){
-				returnArr.approved = 'waiting';
-				returnArr.rev = shop.rev;
-				doc.shops[query.id].approved = 'waiting';
-				
+			if (query.hasOwnProperty('open_hours')) {
+				var hours = query.open_hours;
+				shop.open_hours = {};
+				for (var i=0;i<7;i++) {
+					shop.open_hours[i] = {};
+					if(hours.hasOwnProperty(i) && hours[i].hasOwnProperty('open'))  shop.open_hours[i]['open'] = hours[i]['open'];
+					if(hours.hasOwnProperty(i) && hours[i].hasOwnProperty('close'))  shop.open_hours[i]['close'] = hours[i]['close'];
+				}
 			}
 			addHistory(query.id,timestamp,'edited',shop.rev,1);
 		}
@@ -522,7 +532,7 @@ try{
 							deal_price : doc.templates[key].deal_price
 						};
 						if(doc.templates[key].hasOwnProperty('image')){
-							if(doc.images.hasOwnProperty(doc.templates[key])) obj.image = doc.images[doc.templates[key].image].n;
+							if(doc.images.hasOwnProperty(doc.templates[key].image)) obj.image = doc.images[doc.templates[key].image].n;
 						}
 						emit([doc._id,parseInt(key)],obj);
 					

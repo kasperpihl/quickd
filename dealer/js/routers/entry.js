@@ -1,25 +1,32 @@
 define([
 'order!views/dialogs/dialog',
 'order!views/entry',
-'models/models'
+'models/models',
+'routers/dashboard'
 ],function(){
 App.routers.Entry = Backbone.Router.extend({
 	routes: {
-		
-		//'login':				'openLoginView',
-		//'register':				'openRegisterView',
+		'login':		'setViewLogin',
+		'register':	'setViewRegister',
+		'*index': 	'setViewLogin'	
 	},
 	initialize: function(){	
-		this.dashReady = false;
+		this.route;
 		this.entryView = new App.views.Entry({router:this});
 		this.model = App.models.shopowner = new App.models.Shopowner();
-		this.view;
+		this.view = 'login';
 		this.box = false;
-		_.bindAll(this,'doLogin','doRegister','openRegisterView', 'closeRegisterView', 'makeDashReady');
-		this.makeDashReady();
+		_.bindAll(this,'doLogin','doRegister','openRegisterView', 'closeRegisterView');
 	},
-	dealer:function(){
-		log('dealing');
+	setViewLogin:function(obj) {
+		if(this.isLoggedIn) return false;
+		this.view = 'login';
+		if (this.entryView.created) this.closeRegisterView();
+	},
+	setViewRegister:function(obj) {
+		if(this.isLoggedIn) return false;
+		this.view = 'register';
+		if (this.entryView.created) this.openRegisterView();
 	},
 	animateDashboard: function() {
 		$("#body-mask").hide();
@@ -31,11 +38,13 @@ App.routers.Entry = Backbone.Router.extend({
 		$("#position_wrapper").animate({marginTop: '-124px'}, 1200, 'easeOutQuart');	
 	},
 	doLogin: function(){
+		if(this.lockAction) return false;
+		this.lockAction = true;
 		var thisClass = this;
 		$.post(ROOT_URL+'api/login',{email:$('#login_username').val(),password:$('#login_password').val()},function(response){
-		 	log('response from login',response);
 			if(response.success == 'true'){
 				thisClass.animateDashboard();
+				thisClass.lockAction = false;
 				setTimeout(function(){
 					thisClass.model.set(response.dealer);
 					thisClass.startDashboard(response.stuff);		
@@ -43,70 +52,79 @@ App.routers.Entry = Backbone.Router.extend({
 			}
 			else{
 				thisClass.entryView.shakeDialog();
+				setTimeout(function(){
+					thisClass.lockAction = false;
+				},400);
 			}
 		},'json');
 	},
 	doRegister: function(){
+		if(this.lockAction) return false;
+		this.lockAction = true;
 		var thisClass = this;
 		//log($('#register_password').val(),'hej');
-		$.post(ROOT_URL+'api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#betacode').val()},function(response){
+		$.post(ROOT_URL+'api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#register_betacode').val()},function(response){
 			
-			log('reg',response);
+			//log('reg',response);
 			if(response.success == 'true'){
-				//log("response from register", response);
-				//thisClass.animateDoRegister();
-				//setTimeout(function(){
-				//	thisClass.animateDashboard();
-				//}, 2000);
-				
 				$("#footer-login").fadeOut();
 				$("#header-login").fadeOut();
 
 				setTimeout(function(){
+					thisClass.lockAction = false;
 					thisClass.model.set(response.data);
 					thisClass.startDashboard();
 				}, 200);
 				
 			}
 			else{
-				//log("response from register", response);
-				if(response.error == 'user_exists') {
-					//thisClass.registerView.shakeDialog();
-					alert('Brugeren findes allerede');
-				} else if (response.error == 'wrong_betacode'){
-					//thisClass.registerView.shakeDialog();
-					alert('Forkert betakode');
-				} else if (response.error == 'email_not_valid'){
-					//thisClass.registerView.shakeDialog();
-					alert('Email ikke valid');				
-				}
-				else if (response.error == "password_must_be_6_long") {
-					alert('Password ikke valid');
-				}
+				setTimeout(function(){
+					thisClass.lockAction = false;
+				},400);
+				var $errorCont = $('#error_container');
+				if      (response.error == 'user_exists') $errorCont.html('Brugeren findes allerede');
+				else if (response.error == 'wrong_betacode') $errorCont.html('Betanøglen er ugyldig');
+				else if (response.error == 'email_not_valid') $errorCont.html('Den indtastede email er ugyldig');
+				else if (response.error == "password_must_be_6_long") $errorCont.html('Det valgte password er for kort');
+				$errorCont.show();
 			}
 		},'json');
 		
 	},
 	doResetPass: function(email) {
+		if(this.lockAction) return false;
+		this.lockAction = true;
+		var thisClass = this;
 		$.post(ROOT_URL+'api/reset',{model:{email:email,type:'dealer'}},function(data){
-			log(data);
-		},'html');
+			//log(data);
+			if(data.success == 'true'){
+				if(thisClass.resetPassView) thisClass.resetPassView.success();
+				thisClass.lockAction = false;
+			}
+			else{
+				if(thisClass.resetPassView) thisClass.resetPassView.error();
+				setTimeout(function(){
+					thisClass.lockAction = false;
+				},400);
+			}
+		},'json');
 	},
 	
 	openRegisterView:function(){
-		//this.registerView.openDialog();
 		var $view = $('#entry_view');
 		$("#header-login").animate({height: $view.outerHeight() + 'px', opacity: 1}, 1200, 'easeOutQuart', function() {
 			$("#header-login").height("100%");
 		});
 		$("#position_wrapper").animate({marginTop: '-210px'}, 1200, 'easeOutQuart');
 		$("#login_fields").animate({left: '-50%'}, 400, 'easeInQuart', function() {
+			$(this).hide();
 			$("#registrer").css("display", "block");
-			$("#registrer").animate({right: '50%', marginRight: '-224px'}, 400, 'easeOutQuart');
+			$("#registrer").animate({right: '50%', marginRight: '-224px'}, 400, 'easeOutQuart', function() {
+				$("#register_username").focus();
+			});
+			
 		});
-		
-		//$("#registrer").fadeIn('slow');
-		//$("#register_background").fadeIn('slow');
+		this.navigate('register');
 	},
 	
 	closeRegisterView:function() {
@@ -117,15 +135,11 @@ App.routers.Entry = Backbone.Router.extend({
 		$("#position_wrapper").animate({marginTop: '-124px'}, 1200, 'easeOutQuart');
 		
 		$("#registrer").animate({right: '-50%', marginRight: '-203px'}, 400, 'easeInQuart', function() {
-			$("#login_fields").animate({left: '50%'}, 400, 'easeOutQuart');
+			$("#login_fields").show().animate({left: '50%'}, 400, 'easeOutQuart');
 			$("#registrer").css("display", "none");
+			$("#login_username").focus();
 		});
-		
-		
-		
-		//$("#login_fields").fadeIn('slow');
-		//$("#registrer").fadeOut('slow');
-		//$("#register_background").fadeOut('slow');
+		this.navigate('login');
 	},
 
 	openConditionsView:function() {
@@ -142,30 +156,15 @@ App.routers.Entry = Backbone.Router.extend({
 			thisClass.resetPassView.openDialog();
 		});
 	},
-	makeDashReady:function(){
-		var thisClass = this;
-		require(['routers/dashboard'],function(){
-			log('dash ready');
-			thisClass.dashReady = true;
-			App.routers.dashboard = new App.routers.Dashboard();
-		});
-	},
 	startDashboard: function(stuff){
-		if(!this.dashReady){
-			setTimeout(this.startDashboard(stuff),200);
-			return;
-		}
 		var obj = {};
 		if(stuff) obj.stuff = stuff;
-		/*this.loginView.closeDialog(true);
-		this.registerView.closeDialog(true);*/
+		this.isLoggedIn = true;
+		App.routers.dashboard = new App.routers.Dashboard();
+		App.routers.dashboard.start(obj);
 		$('#footer.entry_footer').remove();
-		require(['routers/dashboard'],function(){
-			App.routers.dashboard.start(obj);
-			Backbone.history.start(historyObj); 
-			$(function(){
-				App.routers.dashboard.navigate('hjem',{trigger:true});
-			});
+		$(function(){
+			App.routers.dashboard.navigate('hjem',{trigger:true});
 		});
 	}
 });

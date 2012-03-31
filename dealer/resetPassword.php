@@ -32,7 +32,8 @@ if(isset($_GET['id'])){
 		<script src="<?= LIBS_URL ?>jquery/jquery.validate.js"></script>
 		<?php if($resetPassword){ ?>
 		<script>
-			
+		
+			var ROOT_URL = "<?= ROOT_URL ?>";
 			$(document).ready(function() {
 				var form = $('form#new-pass-form');
 
@@ -54,17 +55,37 @@ if(isset($_GET['id'])){
 						 		top: top+'px',
 						 		left: left+'px'
 						 	});
-					},
-				  submitKey: '#btn:submit_pass'
+					}
 				});
 				$('button#btn_submit_pass').on('click', function() {
 					if (form && form.valid()) {
-						$.post("<?= ROOT_URL ?>api/reset",{model:{doc_id: "<?= $doc_id ?>",password:$('#newPass').val(),id:"<?= $id ?>"}},function(data){
-							log('response from reset',data);
+						$.post("<?= ROOT_URL ?>api/reset",{model:{doc_id: "<?= $doc_id ?>",password:$('#newpass-input').val(),id:"<?= $id ?>"}},function(data){
+							log('response');
+							if(data.success == 'true'){
+								$('#newPassForm').fadeOut(400,function(){
+									$('#passwordSuccess').fadeIn(400);
+									var j = 1;
+									for(var i = 1 ; i < 6 ; i++){ 
+										setTimeout(function(){
+											log('j',j);
+											$('#secCounter').html(parseInt($('#secCounter').html())-1);
+											if(j == 5) window.location = ROOT_URL;
+											j++;
+										},(i * 1000));
+									}
+									
+								});
+								//window.location = ROOT_URL;
+							}
+							else{
+								alert('Der skete en fejl');
+							}
+							//log('response from reset',data);
 						},'json');
 					} else form.submit();
 					return false;
 				});
+				setTimeout(function() { $('input#newpass-input').focus(); }, 100);
 			});
 			
 		</script>
@@ -78,11 +99,15 @@ if(isset($_GET['id'])){
 				<form id="new-pass-form">
 					<div id="enterNewPassword">
 						<?php if($resetPassword){ ?>
-						<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
-						<div class="field">
-							
-								<input type="password" id="newPass" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
-							
+						<div id="newPassForm">
+							<label for="password">Ny adgangskode<small>Min. 6 tegn</small></label>
+							<div class="field">
+								<input type="password" name="newPass" id="newpass-input" value=""/><button id="btn_submit_pass" name="submit">Fortsæt</button>
+							</div>
+						</div>
+						<div id="passwordSuccess" style="display:none;">
+							<p>Koden er fornyet, og du sendes til login om <span id="secCounter">5</span> sekunder</p>
+							<a class="gotoDealer" href="<?= ROOT_URL ?>">Gå til forhandlerlogin</a>
 						</div>
 						<?php } else{ ?>
 							<p>Linket er brugt, forældet eller findes ikke.</p>

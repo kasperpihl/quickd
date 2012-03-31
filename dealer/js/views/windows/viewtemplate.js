@@ -95,7 +95,9 @@ define([
 				$("#btn_del_template").css("display", "block");
 				//$('#whitespace').css('height', '50px');
 				
-				$(this.windowId).formSetState('edit');
+				$(this.windowId).formSetState('edit')
+					.find('#categories').addClass('edit');
+
 				this.state = 'edit';
 				if (!this.form) this.setValidator();
 				if ($('#'+obj.currentTarget.id).is(':button')) {
@@ -114,7 +116,7 @@ define([
 				//Find image
 				var manual = {};
 				if ($('#img_src').val()!="" && $('#img_src').val()!=this.model.attributes.image) manual.image = $('#img_src').val();
-				if (!$(this.windowId+' .category.selected').empty()) manual.category = ($(this.windowId+' .category.selected').attr('id')).substr(4);
+				if ($(this.windowId+' .category.selected')) manual.category = ($(this.windowId+' .category.selected').attr('id')).substr(4);
 				var thisClass = this;
 				this.saveToModel({onChanged:function() {
 					thisClass.router.trigger('templateEdited',{event:'templateEdited'}); 
@@ -122,13 +124,17 @@ define([
 					$("#btn_edit_template").html("Rediger").removeClass("blue");
 					$("#btn_cancel_template").css("display", "none");
 					$("#btn_del_template").css("display", "none");
+					$(thisClass.windowId).find('#categories').removeClass('edit');
 					//$('#whitespace').css('height', '0px');
 					thisClass.state = 'view';
-				},error: function(d,data){log('error saving model',d,data);} }, false, manual);
+				},error: function(d,data){
+					log('error saving model',d,data);
+				} }, false, manual);
 				this.important = false;
 				this.lastFocus = false;
 				
 			}
+			log('returning');
 			return false;
 			
 		},

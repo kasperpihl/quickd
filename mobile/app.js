@@ -1,8 +1,9 @@
-Ext.Loader.setConfig({ enabled: true });
+//Ext.Loader.setConfig({ enabled: true });
 Ext.application({
 	name: 'QuickD',
 	models: ['Deal'],
 	stores: ['Deals'],
+	statusBarStyle: 'black',
 	views: ['Main'],
 	controllers: ['Main','SortController', 'AnimationController'],
 	icon: 'resources/images/icon.png',
@@ -12,6 +13,5 @@ Ext.application({
 		Ext.Viewport.add({
 			xclass: 'QuickD.view.Main'
 		});
-
 	}
 });

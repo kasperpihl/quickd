@@ -120,6 +120,7 @@ function stampToTime(stamp){
 	return formattedTime;
 }
 function padNumber(i) {
+	if (!i) i=0;
 	if (i<10)
 	{
 	  i="0" + i;
@@ -173,6 +174,12 @@ function convertNumber(number, toString) {
 	} else {
 		return parseFloat(number.replace(',','.').replace(' ',''))
 	}
+}
+function convertToTimestring(number) {
+	var numbers = number.split(':'),
+			h = padNumber(parseInt(numbers[0])),
+			m = padNumber(parseInt(numbers[1]));
+	return h+':'+m;
 }
 
 function resizeBg(stopRecursion) {
@@ -264,19 +271,19 @@ $(function() {
 		me.css({position:'absolute',left:loginX,top:loginY});
 		return me;
 	}
-	$.fn.shakeBox = function(){
+	$.fn.shakeBox = function(deleteField){
 		var me = $(this);
 		var x = me.position().left;
 		var dur = 50;
 		var distance = 30;
 		for (i=5;i>=1;i--){
 			var max = x-(i*2);
-			var min = x+(i*2);
-			me.animate({left:max},dur).animate({left:min},dur);
-			
+			var min = (i == 1) ? x : x+(i*2);
+			me.animate({left:max},{duration:dur}).animate({left:min},{duration:dur});
 		}
 		//me.effect("shake", { times:3 }, 500);
-		me.find('input').filter(':last').val('').focus();
+		if(deleteField) me.find('input').filter(':last').val('').focus();
+		else me.find('input').filter(':last').focus().select();
 		return me;
 	}
 

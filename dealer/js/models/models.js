@@ -76,11 +76,12 @@ App.models.Shop = Backbone.Model.extend({
 	}
 });
 App.models.Shopowner = Backbone.Model.extend({
-	urlRoot: 'api/shopowner',
+	url: 'api/shopowner',
 	getNotifications:function(){
 		
 	},
 	parse:function(response){
+		return response;
 		return response.data;
 	}
 });

@@ -6,8 +6,7 @@
 .royalSlider {	
 	position:relative;
 	/* set width and height of slider here, in px, % or em*/
-	width:320px;
-	height:110px;
+	width:100%;
 	/* Used to prevent content "jumping" on page load. this property is removed when javascript is loaded and slider is instanciated */
 	overflow:hidden;
 }

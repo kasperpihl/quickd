@@ -18,12 +18,15 @@ define([
 		},
 		render:function(){
 			var data = {};
+			App.collections.shops.off('add',this.render);
+			log('rendering welcome');
 			if (App.collections.shops.length==0) {
 				data.name = "";
 				data.text = "text_add_shop";
 				this.shopCreator();
+				App.collections.shops.on('add',this.render);
 			} else {
-				data.name = App.collections.shops.models[0].attributes.name;
+				data.name = App.collections.shops.at(0).get('name');
 				data.text="";
 			}
 			$('#activity_welcome').html(_.template(template, {data: data}));
@@ -43,9 +46,6 @@ define([
 					case 'template':
 						this.changeText('choose_activity');
 					break;
-					case 'deal':
-						this.changeText('deal_created', 0, 5000);
-					break;
 				}
 			}
 			else{
@@ -62,28 +62,6 @@ define([
 				thisClass.addShopBubble = new App.views.dialogs.AddShop({router:thisClass.router});
 				$('#activities').addClass('newbie');
 			});
-			
-			//this.show();
-		},
-		changeText: function(newText,priority, duration){
-			if(priority && priority > this.priority ){
-				log("change "+newText);
-				if(this.activeText) $('#text_'+this.activeText).removeClass('active').fadeOut();
-				$('#text_'+newText).addClass('active').fadeIn(600);
-				this.activeText = newText;
-				this.priority = priority;
-			}
-			else if (duration) {
-				$('#text_'+newText).addClass('active').fadeIn(400).delay(duration).fadeOut();
-			}
-			else if (!priority){
-				if(this.activeText) $('#text_'+this.activeText).removeClass('active').fadeOut(400,function(){
-					this.activeText = newText;
-					$('#text_'+newText).addClass('active').fadeIn(400);
-				});
-				
-			}
-			
 		},
 		openAddShop:function(obj) {
 			var me = $('#'+obj.currentTarget.id);
