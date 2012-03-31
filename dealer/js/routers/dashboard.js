@@ -146,7 +146,7 @@ define([
 		        cache: false,
 		        timeout:5000,
 		        success: function(result) {
-		        	log('success', result);
+		        	//log('success', result);
 
 		        	result = $.parseJSON(result);
 		        	if (result.hasOwnProperty('success') && result.success=='false' && result.error=='error_database') doOnError();

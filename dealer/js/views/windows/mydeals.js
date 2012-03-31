@@ -54,10 +54,10 @@ define([
 				this.stateChanged(data.get('id'));
 			} else if(data.hasChanged('status') && data.get('status')=='soldout') {
 				$('#deal-'+data.get('id')).find('.soldout').show();
-				if (this.currentDeal && this.currentDeal.get('id')==data.get('id')) {
-					$('#view-'+this.currentDeal.get('id'))
-						.find('.remove-btn').hide().end()
-						.find('.soldout').show();
+				if (this.currentDeal && this.currentDeal.get('id') == data.get('id')) {
+					var $view = $('#view-' + this.currentDeal.get('id'));
+					log($view);
+					$view.find('.remove-btn').hide().end().find('.soldout').show();
 				}
 
 			} else this.updateContent(true);
