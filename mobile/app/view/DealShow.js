@@ -63,7 +63,10 @@ Ext.define('QuickD.view.DealShow', {
     xtype: 'dealshow',
     
     requires:[
-        'Ext.Carousel'
+        'Ext.Carousel',
+        'Ext.Toolbar',
+        'Ext.Button',
+        'Ext.Panel'
     ],
     config: {
         fullscreen:true,

@@ -5,3 +5,4 @@
 *.sublime-workspace
 cdn/images/*
 .DS_Store
+mobile/touch/*
