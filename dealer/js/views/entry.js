@@ -82,11 +82,8 @@ define([
 				thisClass.created = true;
 			});
 		},
-		shakeDialog:function(self){
-			log('shaking');
-			$('#shadow-wrapper').shakeBox(false,function(){
-				self.loggingIn = false;
-			});
+		shakeDialog:function(){
+			$('#shadow-wrapper').shakeBox(false);
 		},
 		
 		handleClick: function(data){

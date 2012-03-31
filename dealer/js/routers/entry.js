@@ -38,42 +38,49 @@ App.routers.Entry = Backbone.Router.extend({
 		$("#position_wrapper").animate({marginTop: '-124px'}, 1200, 'easeOutQuart');	
 	},
 	doLogin: function(){
-		if(this.loggingIn) return false;
-		this.loggingIn = true;
+		if(this.lockAction) return false;
+		this.lockAction = true;
 		var thisClass = this;
 		$.post(ROOT_URL+'api/login',{email:$('#login_username').val(),password:$('#login_password').val()},function(response){
-		 	log('response from login',response);
 			if(response.success == 'true'){
 				thisClass.animateDashboard();
-				thisClass.loggingIn = false;
+				thisClass.lockAction = false;
 				setTimeout(function(){
 					thisClass.model.set(response.dealer);
 					thisClass.startDashboard(response.stuff);		
 				},200);
 			}
 			else{
-				thisClass.entryView.shakeDialog(thisClass);
+				thisClass.entryView.shakeDialog();
+				setTimeout(function(){
+					thisClass.lockAction = false;
+				},400);
 			}
 		},'json');
 	},
 	doRegister: function(){
+		if(this.lockAction) return false;
+		this.lockAction = true;
 		var thisClass = this;
 		//log($('#register_password').val(),'hej');
 		$.post(ROOT_URL+'api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#register_betacode').val()},function(response){
 			
 			//log('reg',response);
 			if(response.success == 'true'){
-				
 				$("#footer-login").fadeOut();
 				$("#header-login").fadeOut();
 
 				setTimeout(function(){
+					thisClass.lockAction = false;
 					thisClass.model.set(response.data);
 					thisClass.startDashboard();
 				}, 200);
 				
 			}
 			else{
+				setTimeout(function(){
+					thisClass.lockAction = false;
+				},400);
 				var $errorCont = $('#error_container');
 				if      (response.error == 'user_exists') $errorCont.html('Brugeren findes allerede');
 				else if (response.error == 'wrong_betacode') $errorCont.html('Betanøglen er ugyldig');
@@ -85,15 +92,20 @@ App.routers.Entry = Backbone.Router.extend({
 		
 	},
 	doResetPass: function(email) {
-		//log('email',email);
+		if(this.lockAction) return false;
+		this.lockAction = true;
 		var thisClass = this;
 		$.post(ROOT_URL+'api/reset',{model:{email:email,type:'dealer'}},function(data){
 			//log(data);
 			if(data.success == 'true'){
 				if(thisClass.resetPassView) thisClass.resetPassView.success();
+				thisClass.lockAction = false;
 			}
 			else{
 				if(thisClass.resetPassView) thisClass.resetPassView.error();
+				setTimeout(function(){
+					thisClass.lockAction = false;
+				},400);
 			}
 		},'json');
 	},
@@ -128,11 +140,6 @@ App.routers.Entry = Backbone.Router.extend({
 			$("#login_username").focus();
 		});
 		this.navigate('login');
-		
-		
-		//$("#login_fields").fadeIn('slow');
-		//$("#registrer").fadeOut('slow');
-		//$("#register_background").fadeOut('slow');
 	},
 
 	openConditionsView:function() {
