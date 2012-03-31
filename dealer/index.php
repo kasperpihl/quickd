@@ -43,9 +43,22 @@ if(isset($_GET['logout'])){
             <img id="bgImage" class="bgImage" style="display:none" src="<?= ROOT_URL ?>styles/stylesheets/i/bg-test.jpg" />
 			<div id="dashboard">
 			</div>
-		
+		</div>
 			<!-- Main javascript files to get it all to work -->
 			
+			<!--[if lt IE 9]>
+			<script type="text/javascript">
+					$(function() {
+						var showModal = function() {
+							var msg = "Looks like you're using an outdated browser. \nOld browsers are insecure, slow and make websites behave wonky. \n \nLuckily it's free and easy to upgrade – Just swing by http://browsehappy.com/ Click ok to go there now. \n";
+							if (confirm(msg)) window.location.href = "http://browsehappy.com/";
+						}
+						
+						setTimeout(showModal, 1500);
+					});
+				</script>
+			<![endif]-->
+
 			<script src="<?= LIBS_URL ?>modernizr/modernizr-2.0.6.custom.js"></script>
 			<script src="<?= LIBS_URL ?>jquery/jquery-ui.js"></script>
 			<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.5&sensor=false&region=DK"></script>-->
@@ -66,7 +79,6 @@ if(isset($_GET['logout'])){
 			<!--<script src="animate.js"></script>-->
 			
 			<script src="<?= LIBS_URL ?>require/require.js" data-main="<?= ROOT_URL ?>js/main"></script>
-		</div>
 
 	</body>
 </html>
