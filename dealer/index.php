@@ -67,7 +67,7 @@ if(isset($_GET['logout'])){
 			<script src="<?= LIBS_URL ?>jquery/jquery.tools.min.js"></script>
 			<!--<script src="animate.js"></script>-->
 			
-			<script src="<?= LIBS_URL ?>require/require.js" data-main="<?= ROOT_URL ?>js/main"></script>
+			<script src="<?= LIBS_URL ?>require/require.js?v=<?= VERSION ?>" data-main="<?= ROOT_URL ?>js/main"></script>
 		</div>
 
 	</body>
