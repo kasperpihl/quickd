@@ -248,7 +248,7 @@ try{
 			obj.approved = 'waiting';
 			obj.rev = 1;
 			
-			returnArr = {id:index,approved:'waiting',rev: 1};
+			returnArr = {id:index,approved:'waiting',rev: 1,mail:'editShop'};
 			doc.shops[index] = obj;
 			addHistory(index,timestamp,'created',obj.rev,1);
 		}
@@ -259,6 +259,7 @@ try{
 			shop.rev = parseInt(shop.rev) +1;
 			if(query.hasOwnProperty('name')&&query.name != shop.name){
 				returnArr.approved = 'waiting';
+				returnArr.mail = 'editShop';
 				returnArr.rev = shop.rev;
 				doc.shops[query.id].approved = 'waiting';	
 			}
