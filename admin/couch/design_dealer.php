@@ -298,7 +298,7 @@ try{
 			doc.history.push(historyObj);
 		}
 		function testPrice(orig_price,deal_price){
-			if( ((orig_price - deal_price) / orig_price * 100) < 25 ) return false;
+			if( ((orig_price - deal_price) / orig_price * 100) < 20 ) return false;
 			return true;
 		}
 		var timestamp = parseInt(new Date().getTime()/1000);
