@@ -19,7 +19,7 @@ define([
 		render:function(){
 			var data = {};
 			App.collections.shops.off('add',this.render);
-			log('rendering welcome');
+			//log('rendering welcome');
 			if (App.collections.shops.length==0) {
 				data.name = "";
 				data.text = "text_add_shop";
