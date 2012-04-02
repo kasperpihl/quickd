@@ -54,7 +54,7 @@ function calcDiscount(orig, deal, target_id) {
 		target.html(value+"%");
 		if (target_input) target_input.val(value);
 		if (value <= 0) { target.html("-"); target.addClass('badValue'); }
-		else if (value < 25 || value > 100) target.addClass('badValue');
+		else if (value < 20 || value > 100) target.addClass('badValue');
 		else target.removeClass('badValue');
 	}
 }
@@ -464,7 +464,7 @@ $(function() {
 	   var orig = convertNumber($('#orig_price').val());
 	   var deal = convertNumber($('#deal_price').val());
 	   if (orig && deal) var discount = calcDiscount(orig, deal);
-	   var r = ((orig && deal) && (isNaN(discount) || discount < 25));
+	   var r = ((orig && deal) && (isNaN(discount) || discount < 20));
 	   //console.log("Return? "+r);
 	   return !r;
 	}, "Den valgte besparelse er ikke tilstrækkelig stor");
