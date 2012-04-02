@@ -3,7 +3,9 @@ Ext.define('QuickD.view.DealSort', {
     xtype: 'dealsort',
     test:false,
     requires:[
-        'Ext.field.Checkbox'
+        'Ext.field.Checkbox',
+        'Ext.Toolbar',
+        'Ext.Button'
     ],
     config: {
         items:[ {

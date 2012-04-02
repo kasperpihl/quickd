@@ -78,8 +78,11 @@ try{
 		target = target[id];
 		target.approved = action;
 		if(target.hasOwnProperty('image') && action == 'approved'){
-			if(doc.images.hasOwnProperty(target.image))
-				doc.images[target.image].app = 'approved';
+			if(doc.hasOwnProperty('images')){
+				if(doc.images.hasOwnProperty(target.image)){
+					doc.images[target.image].app = 'approved';
+				}
+			}
 		}
 		if(query.hasOwnProperty('message')) var message = query.message;
 		else var message = false;

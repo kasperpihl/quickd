@@ -116,8 +116,11 @@ define([
 				//this.closeFeedback('thanksmessage');
 				var model = new App.models.Feedback();
 				model.save({message:feedback},{
-				success:function(data,obj){log('success feedback sent',data, obj); App.collections.feedback.add(model);},
-				error:function(data,obj){log(data, obj); }});
+				success:function(m,data){log('success feedback sent',m, data); App.collections.feedback.add(m);},
+				error:function(m,data){
+					log(m, data);
+					thisClass.router.showError("Der opstod en fejl", "Din feedback-besked blev ikke sendt korrekt<br />Fejlmeddelelse: "+data.error); 
+				}});
 			}
 		}
 		

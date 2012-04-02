@@ -66,14 +66,14 @@ define([
 				//$('#BODY-mask').fadeOut(400, function() { $(this).remove(); });
 			}
 		},
-		success:function(d,data){ 
-			log('result',d,data)
+		success:function(m,data){ 
+			log('result',m,data)
 			if(data.success){
-				this.router.trigger('shopCreated',{event:'shopCreated'});
-				App.collections.shops.add(d);
+				App.collections.shops.add(m);
 			} 
 			else {
-				log('else',d,data);
+				log('else',m,data);
+				thisClass.router.showError("Der opstod en fejl", "Din butik blev ikke oprettet i systemet<br />Fejlmeddelelse: "+data.error);
 			}
 			
 		},
@@ -145,7 +145,12 @@ define([
 		saveShop:function(name,address,lat,long){
 			var shop = new App.models.Shop();
 			var thisClass = this;
-			shop.save({lat:lat,long:long,name:name,address:address},{success:this.success, error:function(d,data){console.dir(d); console.dir(data);} });
+			shop.save({lat:lat,long:long,name:name,address:address},{success:this.success, 
+					error:function(m,data){
+						log('saveShop error', m, data);
+						thisClass.router.showError("Der opstod en fejl", "Din butik blev ikke oprettet i systemet<br />Fejlmeddelelse: "+data.error);
+					} 
+			});
 		}
 		
 	});

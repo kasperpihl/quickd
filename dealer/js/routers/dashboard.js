@@ -15,7 +15,8 @@ define([
 			'administration/:path':	'openAdministration',
 			'start':				'openStartDeals',
 			'start/:id':			'openStartDeals',
-			'hjem':					'openHomeView'
+			'hjem':					'openHomeView',
+			'*index': 				'indexing' 
 		},
 		start: function(options){
 			this.route;
@@ -28,7 +29,7 @@ define([
 			App.collections.images = new App.collections.Images();
 			if(options.stuff) this.setStuff(options.stuff);
 			App.views.dashboard = new App.views.Dashboard({router:this});
-
+			this.errorCount = 0;
 			this.networkErrorDialog = new App.views.dialogs.PromtDialog({router:this, type: 'promt', callbackCid:'dashboard-router', 
 				openOnCreate: false, closable: false, destroyOnClose: false,
 				title:'Ingen forbindelse til serveren', 
@@ -107,22 +108,35 @@ define([
 			}
 			App.views.dashboard.changeActivity(options);
 		},
+		showError:function(title, msg) {
+			title = title ? title : 'Der op stod en fejl';
+			msg = msg ? msg : '';
+			if (!this.errorDialog) this.errorDialog = new App.views.dialogs.PromtDialog({router:this, type: 'promt', callbackCid:'error-msg-promt', 
+				openOnCreate: true, closable: true, destroyOnClose: false, classes: 'error-promt',
+				title:title, 
+				msg:msg, 
+				confirmText:'Okay'
+			});
+			else {
+				this.errorDialog.setText(title, msg);
+				this.errorDialog.openDialog();
+			}
+		},
 		retryConnection:function(obj) {
 			if (this.networkErrorShown) this.networkErrorShown = false;
 			this.getChanges(true, true);
 		},
 		getChanges: function(singleCall){
 			var thisClass = this,
-					cindex = (localStorage.getItem('cindex') != 'undefined') ? localStorage.getItem('cindex') : 0,
-					csince = (localStorage.getItem('csince') != 'undefined') ? localStorage.getItem('csince') : 0,
-					doOnError = function() {
-						log('doOnError');
-						if (thisClass.networkErrorDialog && !thisClass.networkErrorShown) {
-								thisClass.networkErrorDialog.openDialog();
-								thisClass.networkErrorShown = true;
-						} 
-		      };
-
+			cindex = (localStorage.getItem('cindex') != 'undefined') ? localStorage.getItem('cindex') : 0,
+			csince = (localStorage.getItem('csince') != 'undefined') ? localStorage.getItem('csince') : 0,
+			doOnError = function() {
+				if (thisClass.errorCount>=1 && thisClass.networkErrorDialog && !thisClass.networkErrorShown) {
+					thisClass.networkErrorDialog.openDialog();
+					thisClass.networkErrorShown = true;
+				}
+				thisClass.errorCount++; 
+		  };
 		  //if (window.navigator.onLine) {
 				$.ajax({
 		        type: "GET",
@@ -130,9 +144,10 @@ define([
 		        data: 'cindex='+cindex+'&csince='+csince,
 		        async: true,
 		        cache: false,
-		        timeout:4000,
+		        timeout:5000,
 		        success: function(result) {
-		        	log('success', result)
+		        	//log('success', result);
+
 		        	result = $.parseJSON(result);
 		        	if (result.hasOwnProperty('success') && result.success=='false' && result.error=='error_database') doOnError();
 		        	else thisClass.changes(result);
@@ -188,6 +203,7 @@ define([
 			//log('result from changes',result);
 			
 			if (this.networkErrorShown) this.networkErrorDialog.closeDialog();
+			this.errorCount = 0;
 			if(result.hasOwnProperty('success') && result.success == 'false') return;
 
 			if(result.hasOwnProperty('csince')) localStorage.setItem('csince',result.csince);
@@ -217,7 +233,6 @@ define([
 						break;
 						case 'feedback':
 							route = lang.urls.overviewFeedback + '/' + doc.id;
-							log(doc);
 							if(doc.hasOwnProperty('hours') && parseInt(doc.hours) > 0) App.models.shopowner.fetch();
 							newModel = App.models.Feedback;
 							collection = App.collections.feedback;
@@ -236,7 +251,7 @@ define([
 					if(model && (doc.rev > model.get('rev'))){
 						//log('fetched',doc.type,doc.id);
 						model.fetch({success:function(d,mod){ log('response fra fetch1',d,mod); },error:function(d,d2){ log(d,d2); }});
-						App.views.notifications.changesHandling(doc.type,doc.action,route);
+						App.views.notifications.changesHandling(doc,route);
 					} 
 					if(model === undefined){
 						log('fetchedU',doc.type,doc.id);

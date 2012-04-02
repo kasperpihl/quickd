@@ -9,6 +9,7 @@ define([
 			_.bindAll(this,'handle', 'createDialog', 'closeDialog','openDialog','setHandlers','setContent', 'onClose');
 			this.dialogId = '#dialog-'+this.cid;
 			this.router = options.router;
+			if (this.options.classes) this.classes = this.options.classes;
 			if (this.options.onClose) this.onClose = this.options.onClose;
 			this.created = false;
 			this.openOnCreate = false;
@@ -44,7 +45,7 @@ define([
 			if (this.created) {
 				$(this.dialogId).fadeIn(thisClass.aniTime, function() {
 					$(this).show();
-					if (thisClass.doOnOpen) thisClass.doOnOpen();
+					if (thisClass.onOpen) thisClass.onOpen();
 				});
 				
 				

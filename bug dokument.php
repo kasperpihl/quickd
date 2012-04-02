@@ -4,17 +4,11 @@ Bugs:
 
 Gennemtest billede-upload
 
-Fejl besked ved diverse gem knapper og lign :-)
-
-Overlays ved internet forbindelse røget (Skal ikke lægges på hvergang man trykker)
-
 Vis rabat ved oprettelse af templates
 
-Glemt adgangskode-dialog
+Dialog boblen ved registrering - Screen http://cl.ly/1M0p0U021F0U0h361f0V
 
 Tilføj betingelser i dialogboks
-
-Åbningstider
 
 Redigering af brugerindstillinger virker ikke.
 	Hvad skal de indeholde?
@@ -29,6 +23,18 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Kasper) Glemt adgangskode-dialog
+
+(rettet Kasper) !!! getUsersByMail virker ikker !!!
+
+(rettet Jeppe) Ændret kategori-vælger
+
+(rettet Jeppe) Fejl besked ved diverse gem knapper og lign :-)
+
+(rettet Jeppe) Overlays ved internet forbindelse røget (Skal ikke lægges på hvergang man trykker)
+
+(rettet Jeppe) Åbningstider
 
 (rettet) Startdeal "shaken" bugger når den allerede er planlagt
 

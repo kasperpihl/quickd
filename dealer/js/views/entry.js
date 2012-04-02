@@ -83,8 +83,7 @@ define([
 			});
 		},
 		shakeDialog:function(){
-			log('shaking');
-			$('#shadow-wrapper').shakeBox();
+			$('#shadow-wrapper').shakeBox(false);
 		},
 		
 		handleClick: function(data){

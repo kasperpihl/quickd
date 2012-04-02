@@ -107,10 +107,10 @@ class Shopowner {
 		    	Mail::sendBetaConfirmation($email, $name);
 		    }
 		    if($result && $result->success == 'true'){
-					$result->data->email = $email;
-					$session->login($result->data->id,$model->privileges);
-				}
-				return $result;
+				$result->data->email = $email;
+				$session->login($result->data->id,$model->privileges);
+			}
+			return $result;
 		    
 		  } catch (FacebookApiException $e) {
 		    return array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','e'=>$e->getMessage(),'data'=>$user_profile);
@@ -215,6 +215,7 @@ class Shopowner {
 			if(empty($dealer)) return array('success'=>'false','error'=>'username_not_exist');
 			$id = $dealer[0]->id;
 			$dealer = $dealer[0]->value;
+			$dealer->id = $id;
 			if (!isset($dealer->md5_password)||empty($dealer->md5_password) || $dealer->md5_password=='null' || $dealer->md5_password=='undefined') return array('success'=>'false','error'=>'pass_not_set');
 			if(md5(MD5_STRING.$password) != $dealer->md5_password) return array('success'=>'false','error'=>'wrong_pass');
 			unset($dealer->md5_password);
@@ -237,6 +238,11 @@ class Shopowner {
 		switch($type){
 			case 'shops':
 				$update = 'addEditShop';
+			break;
+			case 'shopowner':
+				$shopowner = json_decode($model);
+				
+				$update = 'editUser';
 			break;
 			case 'templates':
 				$update = 'addEditTemplate';
@@ -268,6 +274,7 @@ class Shopowner {
 			}
 			
 		}
+		else return json_encode(array('success'=>'false','error'=>'no_matching_save_function')); 
 		
 	}
 	public static function delete($type,$id){

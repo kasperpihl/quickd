@@ -32,6 +32,7 @@ var lang = {
 		},
 		shop:{
 			created: 	'Din butik er blevet oprettet og afventer nu godkendelse fra os! Imens kan du jo gå igang med at oprette dine skabeloner',
+			edited: 	'Dine ændringer er blevet gemt',
 			approved: 	'Din butik er blevet godkendt, jubiii!',
 			declined: 	'Din butik er desværre afslået'
 		},
@@ -107,9 +108,9 @@ define([
 			//log("dealAdded", t, o);
 		},
 		changesHandling:function(doc,route){
-			//log("changes", type, action, route);
+			log("changes", doc, route);
 			var message;
-			message = lang.notifications[doc.type][doc.action];
+			message = lang.notifications[doc.type]&&lang.notifications[doc.type][doc.action]?lang.notifications[doc.type][doc.action]:'';
 			this.notify('fast',message,route);
 		},
 		changeRoute: function(route){

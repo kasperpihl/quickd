@@ -29,7 +29,11 @@ Ext.define('QuickD.view.DealListView',{
 Ext.define('QuickD.view.DealList', {
     extend: 'Ext.List',
     xtype: 'deallist',
-    
+    requires:[
+    	'Ext.plugin.PullRefresh',
+        'Ext.Toolbar',
+        'Ext.Button'
+    ],
     config: {
     	zIndex:1,
         title: 'lalala',

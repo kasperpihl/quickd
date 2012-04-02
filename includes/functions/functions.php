@@ -10,6 +10,7 @@ function getShopowner(){
 	if(!isset($dealer)) return array('success'=>'false','error_message'=>'not_logged_in');
 	try{
 		$doc = $db->getDoc($dealer);
+		$doc->user->id = $doc->_id;
 		$doc = $doc->user;
 		unset($doc->md5_password);
 		$ownerStuff = Shopowner::get('all');

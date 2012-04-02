@@ -21,5 +21,8 @@ switch($_SERVER['REQUEST_METHOD']){
 	case 'DELETE':
 		require_once(API_DIR.'delete.php');
 	break;
+	default:
+		echo json_encode($result);
+	break;
 }
 ?>

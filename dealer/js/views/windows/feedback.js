@@ -67,11 +67,14 @@ define([
 				$('#feedback-messages').append('<div class="messageObj"><div class="message sent left">Sender meddelelse...</div></div>').scrollTo('max', 200);
 				var model = new App.models.Feedback();
 				model.save({message:feedback},{
-				success:function(data,obj){
-					App.collections.feedback.add(data);
-					log("retur fra server",data, obj); 
+				success:function(m,data){
+					App.collections.feedback.add(m);
+					log("retur fra server",m, data); 
 				},
-				error:function(data,obj){log("fejl fra server", obj); }, silent:true});
+				error:function(m,data){
+					log("fejl fra server", data);
+					thisClass.router.showError("Der opstod en fejl", "Din feedback-besked blev ikke sendt korrekt<br />Fejlmeddelelse: "+data.error);  
+				}, silent:true});
 			}
 		}
 	});
