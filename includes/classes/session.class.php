@@ -49,7 +49,7 @@ class Session {
 		if($cookie){
 			$md5string = $id . '_-_' . md5($cookie . MD5_STRING);
 			$expire=time()+60*60*24*30;
-			setcookie('md5string',$md5string,$expire,'/',COOKIE_URL);
+			setcookie('md5string',$md5string,$expire,'/');
 		}
 	}
 	public function unsets($key){
