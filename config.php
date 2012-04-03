@@ -69,6 +69,12 @@ $imageSizes = array(
 		'h'=>500
 	)
 );
+$adminmails = array(
+	'kasperpihl@me.com',
+	'anders@hoedholt.com',
+	'jstougaard@gmail.com',
+	'jens@ahrengot.com'
+);
 $categories = array(
 	'fooddrink'=>'Mad & drikke',
 	'shopping'=>'Shopping',
