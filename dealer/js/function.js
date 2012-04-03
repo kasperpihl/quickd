@@ -58,7 +58,7 @@ function calcDiscount(orig, deal, target_id) {
 		else target.removeClass('badValue');
 	}
 }
-
+/*
 function getAddress(request, response,count) {
 	if (!count) count=3;
 	var term = request.term + ' , Denmark';
@@ -100,12 +100,15 @@ function GMapInitialize(){
         $("#shop_long").val(ui.item.longitude);
         $('#shop_form_address').val(ui.item.label);
         
+      },
+      close: function(event, ui) {
+      	log("closed");
       }
     });
   
   
 				
-}
+}*/
 function stampToTime(stamp){
 	var date = new Date(stamp*1000);
 	// hours part from the timestamp

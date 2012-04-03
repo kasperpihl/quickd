@@ -5,7 +5,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'test_username') {
 	if (!$email) echo 'false';
 	else {
 		$user = (object) json_decode(Shopowner::checkEmail($email));
-		if($user->success=='true') echo 'false';
+		if($user->success=='true' && $user->data->value->privileges>1) echo 'false';
 		else echo 'true';
 	}
 } elseif (isset($_POST['action']) && $_POST['action'] == 'test_betacode') {

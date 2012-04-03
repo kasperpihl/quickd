@@ -84,7 +84,7 @@ $(function() {
   });
   $('#btn_email_signup').click(doEmailSignup);
   $('#email').keypress(function(e) {
-    if(e.keyCode == 13) doEmailSignup();
+    if(e.keyCode === 13) doEmailSignup();
   });
 });
 

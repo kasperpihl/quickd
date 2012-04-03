@@ -2,11 +2,21 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
+Start-deal database-error (?)
+
+Slet billede
+
+Send godkendelses mails til admins (ved oprettelser)
+
+Meld udsolgt deal på forhandler mobil app
+
+Notifications - bedre beskeder - skal ikke stå venter på godkendelse, hvis den ikke skal godkendes f.eks.
+
 Gennemtest billede-upload
 
 Vis rabat ved oprettelse af templates
 
-Dialog boblen ved registrering - Screen http://cl.ly/1M0p0U021F0U0h361f0V
+
 
 Tilføj betingelser i dialogboks
 
@@ -23,6 +33,10 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Kan ikke oprette dealer, når bruger allerede er oprettet via signup
+
+(rettet Jeppe) Dialog boblen ved registrering - Screen http://cl.ly/1M0p0U021F0U0h361f0V
 
 (rettet Kasper) Glemt adgangskode-dialog
 
