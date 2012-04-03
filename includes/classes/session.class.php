@@ -17,7 +17,7 @@ class Session {
 		return (isset($this->user_id,$this->privileges) && $this->privileges >= 5) ? $this->user_id : false;
 	}
 	
-	private function check_login($cookie=true){
+	private function check_login($cookie=false){
 		global $db;
 		unset($this->user_id);
 		unset($this->privileges);
@@ -42,15 +42,14 @@ class Session {
 			}
 		}
 	}
-	public function login($id,$privileges=1,$cookie=false, $password=false){
+	public function login($id,$privileges=1,$cookie=false){
 		global $dealer;
-			
 		$this->user_id = $_SESSION['user_id'] = $id;
 		$this->privileges = $_SESSION['privileges'] = $privileges;
 		if($cookie){
-			$md5string = $id . '_-_' . md5($password . MD5_STRING);
+			$md5string = $id . '_-_' . md5($cookie . MD5_STRING);
 			$expire=time()+60*60*24*30;
-			setcookie('md5string',$md5string,$expire,'.quickd.dk');
+			setcookie('md5string',$md5string,$expire,'/',COOKIE_URL);
 		}
 	}
 	public function unsets($key){
@@ -66,7 +65,6 @@ class Session {
 	public function logout($type="all"){
 		if($type== 'all'){
 			unset($this->user_id,$this->admin_id,$this->dealer_id,$_SESSION['user_id'],$_SESSION['dealer_id'],$_SESSION['admin_id']);
-			
 		}
 		else {
 			$type = $type.'_id';

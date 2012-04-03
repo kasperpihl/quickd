@@ -19,7 +19,8 @@ $(document).bind('pageinit', function() {
         if($('#password').hasClass('animated shake fail')) $('#password').removeClass('animated shake fail');
     });
     $('#login').submit(function(){
-        $.post('ajax/login.php',{email:$('#user').val(),password:$('#password').val()},function(data){          
+        $.post('ajax/login.php',{email:$('#user').val(),password:$('#password').val()},function(data){  
+            log('response',data);        
             if(data.success == 'true') document.location = './';
             else {
                 if(data.error == 'username_not_exist'){
@@ -31,7 +32,7 @@ $(document).bind('pageinit', function() {
                     $('#password').val('');
                 } 
             }
-        },'json');
+        },'html');
         return false;
     });
     

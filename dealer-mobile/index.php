@@ -1,5 +1,6 @@
 <? require_once('../config.php'); 
-if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); header('Location: ./'); }
+if(isset($_GET['cookie'])) die(print_r($_COOKIE));
+if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); header('Location: '.ROOT_URL); }
 
 ?>
 <!doctype html>
@@ -57,7 +58,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); h
   		<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js" ></script>
     </head>
     <body>
-    	<?php if (!$session->logged_dealer()):?>
+    	<?php if (!$session->logged_dealer()): ?>
     		
     		<div id="login-wrap" data-role="page" data-theme="a">
         		<div id="login" class="current">	
@@ -84,7 +85,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); h
         	<div id="deal" class="current">
             	<div data-role="header" data-position="fixed">
                     <h1>QuickD Mini</h1>
-                    <a class="button" id="logout" href="./index.php?action=logout" data-theme="b">Log ud</a>
+                    <a class="button" id="logout" href="<?= ROOT_URL ?>?action=logout" data-theme="b">Log ud</a>
                 </div>
                 <div class="scroll">
                 	
