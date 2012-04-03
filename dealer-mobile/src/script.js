@@ -20,7 +20,7 @@ $(document).bind('pageinit', function() {
     });
     $('#login').submit(function(){
         $.post('ajax/login.php',{email:$('#user').val(),password:$('#password').val()},function(data){  
-            log('response',data);        
+            //log('response',data);        
             if(data.success == 'true') document.location = './';
             else {
                 if(data.error == 'username_not_exist'){
@@ -32,7 +32,7 @@ $(document).bind('pageinit', function() {
                     $('#password').val('');
                 } 
             }
-        },'html');
+        },'json');
         return false;
     });
     

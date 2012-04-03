@@ -1,6 +1,7 @@
 <?php
-//require_once('../config.php');
+require_once('../config.php');
 print_r($_COOKIE);
+print_r(COOKIE_URL);
 //$update = 'testUpdate';
 
 /*$template = array('title'=>'Test 123','description'=>'test 456 ja tak','orig_price'=>100,'deal_price'=>75);
