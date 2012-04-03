@@ -9,11 +9,15 @@ class Shopowner {
 			if(($password && strlen($password) < 6) || (!$password && $type=='dealer')) return array('success'=>'false','error'=>'password_must_be_6_long');
 			$user = (object) json_decode(self::checkEmail($email));
 			if(!$email || $user->success=='true') {
+				
+				$privileges = $user->data->value->privileges;
+				$user_id = $user->data->id;
 				if ($type==='subscribe') {
-					$session->login($user->data->id,$user->data->value->privileges);
+					$session->login($user->data->id,$privileges);
 					return array('success'=>'true', 'data'=>$user);
+				} else if ($type==='dealer'&&$privileges>=2) {
+					return array('success'=>'false','error'=>'user_exists', 'data'=>$user);
 				}
-				return array('success'=>'false','error'=>'user_exists');
 			}
 			$update = 'registerUser';
 			if ($type==='dealer') {
@@ -31,7 +35,10 @@ class Shopowner {
 				$model['privileges'] = 1;
 			}
 			$model['password'] = $password?md5(MD5_STRING.$model['password']):'null';
-			$result = json_decode($db->updateDocFullAPI('dealer',$update,array('params'=>array('json'=>json_encode($model)))));
+			if ($user && $user_id) {
+				$model['edit_register'] = true;
+				$result = json_decode($db->updateDocFullAPI('dealer',$update,array('doc_id'=>$user_id, 'params'=>array('json'=>json_encode($model)))));
+			} else $result = json_decode($db->updateDocFullAPI('dealer',$update,array('params'=>array('json'=>json_encode($model)))));
 			
 			if($result->success == 'true'){
 				if ($type=='dealer') $result->data->hours = $model['hours'];
