@@ -1,6 +1,6 @@
 <? require_once('../config.php'); 
 if(isset($_GET['cookie'])) die(print_r($_COOKIE));
-if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); header('Location: '.ROOT_URL); }
+if(isset($_GET['action']) && $_GET['action'] == 'logout'){ $session->logout(); redirect(ROOT_URL); }
 
 ?>
 <!doctype html>
