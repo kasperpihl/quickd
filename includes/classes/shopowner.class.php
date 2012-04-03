@@ -204,7 +204,7 @@ class Shopowner {
 		}
 		else return $results;
 	}
-	public static function login($model,$stuff=true){
+	public static function login($model,$stuff=true,$cookie=false){
 		if(!isset($model['email'],$model['password'])) return array('success'=>'false','error'=>'most_include_both_email_and_password');
 		$email = strtolower($model['email']);
 		$password = $model['password'];
@@ -218,8 +218,8 @@ class Shopowner {
 			$dealer->id = $id;
 			if (!isset($dealer->md5_password)||empty($dealer->md5_password) || $dealer->md5_password=='null' || $dealer->md5_password=='undefined') return array('success'=>'false','error'=>'pass_not_set');
 			if(md5(MD5_STRING.$password) != $dealer->md5_password) return array('success'=>'false','error'=>'wrong_pass');
+			$session->login($id,$dealer->privileges,($cookie ? $dealer->md5_password : false));
 			unset($dealer->md5_password);
-			$session->login($id,$dealer->privileges);
 			if($stuff){
 				$ownerStuff = self::get('all');
 				$ownerStuff = ($ownerStuff['success'] == 'true') ? $ownerStuff['results'] : '';
