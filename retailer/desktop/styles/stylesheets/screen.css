@@ -4750,7 +4750,7 @@ form textarea:focus, form input:focus {
   -khtml-border-radius: 8px;
   border-radius: 8px;
   padding: 10px;
-  margin: 10px 3px;
+  margin: 10px 0px;
   opacity: 0.92;
 }
 /* line 2763, ../sass/screen.scss */

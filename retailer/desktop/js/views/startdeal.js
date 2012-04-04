@@ -232,8 +232,8 @@ define([
 			$(els).each(function() {
 				var me = $(this);
 				i++;
-				me.css({position:'absolute', top: me.position().top, left:me.position().left, width:me.width()})
-					.animate({ top: pos }, 800, 'easeInOutSine', function() {
+				me.css({position:'absolute', top: me.position().top, left:(me.position().left+parseInt(me.css('marginLeft'))), width:me.width()})
+					.animate({ top: pos, height:90 }, 800, 'easeInOutSine', function() {
 						if (i == els.length) {
 							
 							var el = $('#select-template-list');
@@ -242,9 +242,7 @@ define([
 							el.animate({ left: 0, top: $('#btn_overview').offset().top, opacity:0.2 }, 1000, 'easeInOutSine', function() {
 								$(this).remove();
 								if (callback) callback();
-								
 							});
-							
 						}
 					});
 			});
@@ -297,6 +295,7 @@ define([
 			});
 		},
 		startDeal:function(){
+			//var me=$('#starter_button');log("button", me.position().left, me.position().left+parseInt(me.css('marginLeft'))); return;
 			if (this.starting) return;
 			this.starting = true;
 			if(this.errorMsg) this.hideError();
