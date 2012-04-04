@@ -4,12 +4,11 @@
     	<% if(data.name!="") { %>Velkommen, <span class="strong"><%=data.name %>!</span>
    		<% } else { %>Velkommen til <span class="strong">QuickD!</span><% } %>
     </div>
-    <div class="helptext" id="text_add_shop" <% if (data.text=="text_add_shop") print("style='display:block'") %>>
-	    	
-			<div class="howto">For at komme igang skal du oprette en butik</div>
-	        	<div id="btn_add_shop" class="button green create_shop_btn">Opret butik</div>
-			</div>
-	    
-    </div>
+    <% if(data.text=="text_add_shop") { %>
+      <div class="helptext" id="text_add_shop">
+  			<div class="howto">For at komme igang skal du oprette en butik</div>
+  	    <div id="btn_add_shop" class="button green create_shop_btn">Opret butik</div>
+      </div>
+    <% } %>
 	 <div class="clearline"></div>
 </div>

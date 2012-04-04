@@ -213,7 +213,7 @@ define([
 						//console.log("error");console.dir(d); console.dir(data);
 						thisClass.router.showError("Der opstod en fejl", "Dine ændringer blev ikke gemt<br />Fejlmeddelelse: "+data.error);
 						if (callbacks.error) callbacks.error(m, data);
-					}});
+					}, wait:true});
 				} else {
 					if(this.lock) this.router.trigger('unlock',{lock:'window',activityCid: this.activity.cid,depth:this.depth});
 					if (callbacks.success) callbacks.success();

@@ -1,9 +1,3 @@
-<?php
-if(isset($_GET['logout'])){
-	$session->logout();
-	redirect(ROOT_URL);
-}
-?>
 <!DOCTYPE html>
 <html class="no-js" lang="da_DK">
 	<head>

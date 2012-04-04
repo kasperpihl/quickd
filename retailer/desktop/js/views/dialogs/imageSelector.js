@@ -8,7 +8,7 @@ define([
 	App.views.dialogs.ImageSelectorView = App.views.Dialog.extend({
 		el: '#content',
 		initialize:function(){
-			_.bindAll(this,'handleClick', 'imgUploaded', 'imgUploadProgress', 'imgBeforeSend', 'triggerUpload', 'goEdit', 'updateThumb', 'saveThumb','changedRevision','updatePreview', 'jcropOnSelect');
+			_.bindAll(this,'handleClick', 'imgUploaded', 'setJcrop', 'imgUploadProgress', 'imgBeforeSend', 'triggerUpload', 'goEdit', 'updateThumb', 'saveThumb','changedRevision','updatePreview', 'jcropOnSelect');
 			var thisClass = this;
 			this.init(this.options);
 			this.template ='imageSelector';
@@ -125,7 +125,6 @@ define([
 			if(this.jcropapi) this.jcropapi.destroy();
 			var thisClass = this;
 			var thumb = this.currentModel.get('t');
-			
 			$('#image_preview').Jcrop({
 				onChange: thisClass.updateThumb,
 				onSelect: thisClass.jcropOnSelect,
@@ -136,7 +135,6 @@ define([
 			}, function() {
 				thisClass.jcropapi = this;
 			});
-			
 		},
 		imgUploaded:function(id, filename, response){
 			//log("imgUploaded", id, filename, response);
@@ -232,7 +230,7 @@ define([
 		},
 		updateThumb: function(coords)
 		{
-			log('updateThum',coords);
+			//log('updateThum',coords);
 			if (this.currentModel) {
 				if (!coords) coords = this.currentModel.get("t");
 				if (this.thumbEdited) {

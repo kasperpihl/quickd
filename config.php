@@ -18,7 +18,7 @@ $uagent = new uagent_info();
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
 $live = false;
-$mobile = (isset($_SESSION['version'])) ? ($_SESSION['version'] == 'mobile') : ($uagent->DetectTierIphone()) ? true : false;
+$version = $_SESSION['version'] = (isset($_SESSION['version'])) ? $_SESSION['version'] : ($uagent->DetectTierIphone() ? 'mobile' : 'desktop');
 switch($root){
 	case 'test.quickd.com':
 	case '10.185.209.87':
@@ -27,7 +27,7 @@ switch($root){
 		$dbLink = 'quickd:testanders@77.66.53.58';
 		if(strpos($_SERVER['REQUEST_URI'], 'retailer/')){
 		 	$string = 'retailer/';
-		 	$ending = ($mobile ? 'mobile/' : 'desktop/');
+		 	$ending = $version. '/';
 		}
 		else if(strpos($_SERVER['REQUEST_URI'], 'brugerinfo/')) $string = 'brugerinfo/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'mobile/')) $string = 'mobile/';
