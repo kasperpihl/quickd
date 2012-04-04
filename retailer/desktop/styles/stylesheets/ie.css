@@ -184,3 +184,8 @@
 #menu .menu_icon.disabled:active {
   border-bottom: 1px solid #5D5D5D;
 }
+
+/* line 104, ../sass/ie.scss */
+#entry_view .header .login_fields .field input {
+  line-height: 70px;
+}

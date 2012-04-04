@@ -90,6 +90,17 @@ define([
 						 }
 						 
 				   },
+				   groups: {
+				   	prices: "orig_price deal_price"
+				   },
+				   messages: {
+				   	orig_price: {
+				   		required: 'Udfyld venligts prisfelterne'
+				   	},
+				   	deal_price: {
+				   		required: 'Udfyld venligst prisfelterne'
+				   	}
+				   },
 				   errorPlacement: function(error, element) {
 					 if (element.attr("name") == "orig_price" || element.attr("name") == "deal_price" ) {
 					   $('#prices-error').html(error);
@@ -104,19 +115,7 @@ define([
 			   $(this.form).find('input, textarea').focus(function() {
 				  thisClass.lastFocus = $(this); 
 			   });
-			   
-			   /*$(thisClass.windowId+" #selector-images").jCarouselLite({
-					btnNext: thisClass.windowId+" #nextImg",
-					btnPrev: thisClass.windowId+" #prevImg",
-					beforeStart: function(items) {
-						var i = Math.floor(items.length/2);
-						$(items[i]).removeClass('selected');
-					},
-					afterEnd: function(items) {
-						var i = Math.floor(items.length/2);
-						$(items[i]).addClass('selected');
-					}
-				});*/
+
 				$(thisClass.windowId+" #image-selector").slides({
 					//generateNextPrev: true
 					preload: true,
@@ -137,9 +136,10 @@ define([
 			}
 		},
 		priceChanged: function() {
+			//if (this.form) this.form.valid();
 			var orig = $('#orig_price').val();
 			var deal = $('#deal_price').val();
-			calcDiscount(orig, deal, '#discount-amount');
+			calcDiscount(orig, deal, '#discount-field');
 		},
 		openSelectImage:function() {
 			if (!this.selectorView)

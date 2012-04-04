@@ -17,50 +17,28 @@
 	   	     <input type="hidden" name="img_src" id="img_src" value="" />
 	    	</div>
 	    </div>
-	    
-	<!--	<div class="prices">
-		    <div class="inputs">
-		        <div class="field">
-		            <div class="label">Før-pris:</div>
-		            <div class="data">kr.
-		                <input type="text" id="orig_price" name="orig_price"class="big" title="Indtast værdien af den solgte vare"/></div>
-		            <div class="clearline"></div>
-		        </div>
-		        <div class="field">
-		            <div class="label">Deal-pris:</div>
-		            <div class="data">kr.
-		            	<input type="text" name="deal_price" id="deal_price" class="big" title="Indtast deal-prisen" /></div>
-		            <div class="clearline"></div>
-		        </div>
-		    </div>
-	        
-		    <div class="discount">
-		    	<span class="label">Spar</span>
-		        <span class="value" id="discount-amount">-</span>
-		        
-		    </div>-->
-		    
-		<div class="field top">
-		<!--<div class="prices">-->
-			<div class="inputs">
-		        <div class="field neutral">
-		            <div class="label">Førpris:</div>
-		            <div class="data">kr.
-		                 <input type="text" id="orig_price" name="orig_price" class="big" /></div>
-		            <div class="clearline"></div>
-		        </div>
-		    </div>
-		 </div>
-		 <div class="field bottom">
-		        <div class="field neutral">
-		            <div class="label">Dealpris:</div>
-		            <div class="data">kr.
-		            	<input type="text" name="deal_price" id="deal_price" class="big" /></div>
-		            <div class="clearline"></div>
-		        </div>
-		        <div id="prices-error" />
-		   		<div id="prices-toolTip" />
-		 </div>
+	
+		<div class="prices">   
+			<div class="field top">
+	      <div class="label">Førpris:</div>
+	      <div class="data">kr.
+	           <input type="text" id="orig_price" name="orig_price" class="big" /></div>
+	      <div class="clearline"></div>
+			</div>
+			<div class="field middle">
+	      <div class="label">Dealpris:</div>
+	      <div class="data">kr.
+	      	<input type="text" name="deal_price" id="deal_price" class="big" /></div>
+	      <div class="clearline"></div>
+			</div>
+			<div class="field bottom">
+        <div class="label">Rabat:</div>
+        <div class="data discount" id="discount-field">-</div>
+        <div class="clearline"></div>
+        <div id="prices-error" />
+        <div id="prices-toolTip" />
+    	</div>
+		</div>
 
 		<% if (CATEGORIES) { %>
   		<div class="field">
