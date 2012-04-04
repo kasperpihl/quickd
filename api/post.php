@@ -20,7 +20,7 @@ else if($action){
 			$result = Shopowner::register($model, 'dealer');
 		break;
 		case 'login':
-			$result = Shopowner::login($model,true,true);
+			$result = Shopowner::login($model,isset($_POST['stuff']),isset($_POST['remember']));
 		break;
 		case 'subscribe':
 			$result = Shopowner::register($model, 'subscribe');

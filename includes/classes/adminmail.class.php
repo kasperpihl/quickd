@@ -6,17 +6,17 @@ Class AdminMail{
 			case 'newTemplate':
 				$subject = 'Ny skabelon oprettet';
 				$message = 
-				'http://admin.quickd.com'."\n\n";
+				'http://admin.quickd.com/approve.php'."\n\n";
 			break;
 			case 'editTemplate':
 				$subject = 'En skabelon er ændret';
 				$message = 
-				'http://admin.quickd.com'."\n\n";
+				'http://admin.quickd.com/approve.php'."\n\n";
 			break;
 			case 'feedback':
 				$subject = 'Der er skrevet feedback';
 				$message = 
-				'http://admin.quickd.com'."\n\n";
+				'http://admin.quickd.com/feedback.php'."\n\n";
 			break;
 			default:
 				return false;
