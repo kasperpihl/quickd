@@ -23,8 +23,8 @@ Class AdminMail{
 				return false;
 			break;
 		}
-		self::sendMail($subject,$message);
-		return 'send';
+		return self::sendMail($subject,$message);
+		
 	}
 	private static function sendMail($subject,$message){
 		global $live;
@@ -34,7 +34,7 @@ Class AdminMail{
 			'Reply-To: QuickD-teamet <'.self::$sender . ">"."\n" .
 			'Content-Type: text/plain; charset=utf-8'."\n".
     		'X-Mailer: PHP/' . phpversion();
-		mail('admin@quickd.com',$subject,$message,$headers);
+		return mail('admin@quickd.com',$subject,$message,$headers);
 	}
 }
 ?>
