@@ -32,7 +32,7 @@ switch($root){
 		else if(strpos($_SERVER['REQUEST_URI'], 'brugerinfo/')) $string = 'brugerinfo/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'mobile/')) $string = 'mobile/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'admin/')) $string = 'admin/';
-
+		else $string = '/';
 		$arr = explode($string,$_SERVER['REQUEST_URI']);
 		$histRoot = $arr[0].$string;
 		$end = $arr[0].$string.$ending;
