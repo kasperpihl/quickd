@@ -6,12 +6,12 @@ Class AdminMail{
 			case 'newTemplate':
 				$subject = 'Ny skabelon oprettet';
 				$message = 
-				'Check http://admin.quickd.com'."\n\n";
+				'Check æøå http://admin.quickd.com'."\n\n";
 			break;
 			case 'editTemplate':
 				$subject = 'En skabelon er ændret';
 				$message = 
-				'Check http://admin.quickd.com'."\n\n";
+				'Check æøå http://admin.quickd.com'."\n\n";
 			break;
 			default:
 				return false;
@@ -23,7 +23,6 @@ Class AdminMail{
 	private static function sendMail($subject,$message){
 		global $adminmails;
 		$mails = implode(', ', $adminmails);
-		$mails = 'kasperpihl@me.com';
 		$headers = 
 			'MIME-Version: 1.0' ."\n".
 			'From: QuickD-teamet <' .self::$sender . ">". "\n" . 
