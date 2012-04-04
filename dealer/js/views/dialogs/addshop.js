@@ -1,6 +1,7 @@
 define([
 'text!templates/dialogs/addshop.html',
 'views/dialogs/dialog',
+'async!http://maps.googleapis.com/maps/api/js?sensor=false'
 ],function(template){
 	App.views.dialogs.AddShop = Backbone.View.extend({
 		el: "body",
@@ -31,12 +32,14 @@ define([
 			'click #continue_button': 'doContinue'
 		},
 		openBubble:function(bottomX, bottomY){
+			var thisClass = this;
+			//require(['http://maps.googleapis.com/maps/api/js?sensor=false&callback=thisClass.GMapInitialize']);
 			if (!bottomX) bottomX = $(document).width()/2;
 			if (!bottomY) bottomY = $(document).height()/2;
 			//var top = bottomY-$(this.id).outerHeight();
 			$("#"+this.activity).css({height: $("#"+this.activity).height()});
 			var bottom = $("#"+this.activity).outerHeight() - bottomY;
-			var left = bottomX - $(this.id).width()/2;
+			var left = bottomX - $(this.id).outerWidth()/2;
 			var thisClass=this;
 			$("#workspace").createMask();
 			
@@ -48,9 +51,8 @@ define([
 					} 
 				});
 				$('#shop_name').focus();
+				thisClass.geocoderInit();
 				thisClass.bubbleShown=true;
-				require(['http://maps.googleapis.com/maps/api/js?sensor=true&callback=GMapInitialize']);
-				//GMapInitialize();
 			});
 		},
 		doNothing:function(obj) {
@@ -79,7 +81,8 @@ define([
 		},
 		doContinue:function(e) {
 			var thisClass=this;
-			if((!e.keyCode || e.keyCode == 13) && this.form.valid() ){
+
+			if((!e || !e.keyCode || e.keyCode == 13) && this.form.valid() ){
 				$('#add_shop_fields input:focus').blur();
 				
 				var response=function(e){
@@ -90,7 +93,7 @@ define([
 					}
 					//console.log(e);
 				};
-				getAddress({term:$('#shop_address').val()}, response, 1);
+				thisClass.getAddress({term:$('#shop_address').val()}, response, 1);
 			}
 		
 		},
@@ -151,7 +154,52 @@ define([
 						thisClass.router.showError("Der opstod en fejl", "Din butik blev ikke oprettet i systemet<br />Fejlmeddelelse: "+data.error);
 					} 
 			});
+		},
+		getAddress: function(request, response,count) {
+			if (!this.geocoder);
+			if (!count) count=3;
+			var term = request.term + ' , Denmark';
+		      	
+			this.geocoder.geocode( {'address': term }, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) { 
+				}
+					var i = 0;           		
+				  response($.map(results, function(item) {
+					i++;
+					if(i>count) return;
+					return {
+					  label: item.formatted_address,
+					  value: item.formatted_address,
+					  postal_code: item.postal_code,
+					  latitude: item.geometry.location.lat(),
+					  longitude: item.geometry.location.lng()
+					}
+				  }));
+				
+			});
+		},
+		geocoderInit: function(){
+		  var thisClass = this;
+		  if (!google) setTimeout(thisClass.geocoderInit,300);
+		  
+		  //GEOCODER
+		  if (!this.geocoder) this.geocoder = new google.maps.Geocoder();
+
+		  $("#shop_address").autocomplete({
+		      minLength: 4,
+				  appendTo: "#welcome_add_shop",
+				  //This bit uses the geocoder to fetch address values
+		      source: function(request, response) {thisClass.getAddress(request, response)},
+		      //This bit is executed upon selection of an address
+		      select: function(event, ui) {
+		        $("#shop_lat").val(ui.item.latitude);
+		        $("#shop_long").val(ui.item.longitude);
+		        $('#shop_form_address').val(ui.item.label);
+		        thisClass.doContinue();
+		      }
+		  	});
 		}
+
 		
 	});
 });
