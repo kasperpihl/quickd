@@ -1,12 +1,12 @@
 <div id="entry_view">
 	<div class="header" id="header-login" style="<%=view=='register'? 'height:100%' : ''%>">
-		<img src="./styles/stylesheets/i/beta_new.png" style="position: absolute; left: 0px; top: 0px;" />
+		<img src="<%= ROOT_URL %>styles/stylesheets/i/beta_new.png" style="position: absolute; left: 0px; top: 0px;" />
 		
 		<div style="position: absolute; width: 100%; height: 100%">
 			<div style="position: relative; top: 50%; width: 100%; margin-top: <%=view=='login'? '-124px': '-210px' %>;" id="position_wrapper">
 					<div style="width: 500px; height:350px; background-color: white; position: absolute; left: 50%; margin-left: -250px; display: none; z-index: 0; margin-top: -30px; border-radius: 8px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);" id="register_background"></div>
 					<div style="z-index: 50;">
-					    <div style="z-index: 100; background: url('./styles/stylesheets/i/quickd-logo-185x47.png'); width: 185px; height: 47px; position: relative; left: 50%; margin-left: -93px"></div>
+					    <div style="z-index: 100; background: url('<%= ROOT_URL %>styles/stylesheets/i/quickd-logo-185x47.png'); width: 185px; height: 47px; position: relative; left: 50%; margin-left: -93px"></div>
 					    <div class="login_fields" id="login_fields" style="position: absolute;margin-left: -203px; <%=view=='login'? 'left: 50%;': 'left:-50%;display:none;'%>; height: 200px;">
 					   	  		<h1>Forhandleradgang</h1>
 						        <div id="shadow-wrapper">
@@ -65,7 +65,7 @@
 	<div class="footer" id="footer-login">
 		<div class="wrapper">
 			<div class="box_left" id="mobile">
-				<img src="./styles/stylesheets/i/mobile_app.png" />
+				<img src="<%= ROOT_URL %>styles/stylesheets/i/mobile_app.png" />
 				<h1>QuickD. <em>Overalt.</em></h1>
 				<p>Nu kan du starte deals direkte fra mobilen!<br/><br/>
 				Alle godkendte skabeloner kan startes med et enkelt tryk, uanset hvor du befinder dig.<br/><br/>
@@ -73,7 +73,7 @@
 				<br/><br/><br/>
 			</div>
 			<div class="box_right" id="register">
-				<img src="./styles/stylesheets/i/keys.png" />
+				<img src="<%= ROOT_URL %>styles/stylesheets/i/keys.png" />
 				<h1>Sådan kommer du igang.</h1>		
 				<p>Er du en af de heldige der har modtaget en beta-invitation til QuickD, har du nu mulighed for at 
 				registrere din forretning.

@@ -2,7 +2,7 @@ define([
 'models/models'
 ],function(){
 	App.collections.Deals = Backbone.Collection.extend({
-		url: 'api/shopowner/deals',
+		url: ROOT_URL+'api/shopowner/deals',
 		parse: function(response) {
 			return response.data;
 	  	},
@@ -20,7 +20,7 @@ define([
 			return -parseInt(model.get('id'));
 		},
 		getUrl:function(id, type) {
-			var standard = 'styles/stylesheets/i/no_image_small.png';
+			var standard = ROOT_URL+'styles/stylesheets/i/no_image_small.png';
 			if (!id) return standard;
 			if (!type) type = 'thumbnail';
 			
@@ -45,7 +45,7 @@ define([
 		model: App.models.Shop
 	});
 	App.collections.Templates = Backbone.Collection.extend({
-		url: 'api/shopowner/templates',
+		url: ROOT_URL+'api/shopowner/templates',
 		parse: function(response) {
 			return response.data;
 		},

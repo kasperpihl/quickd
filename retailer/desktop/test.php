@@ -1,5 +1,5 @@
 <?php
-require_once('../config.php');
+require_once('../../config.php');
 //$doc = $db->key('kasper')->limit(1)->getView('dealer','getPassById');
 //print_r($doc);
 die();

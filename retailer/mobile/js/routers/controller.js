@@ -75,7 +75,7 @@ App.routers.Controller = Backbone.Router.extend({
 			break;
 		}
 		var thisClass = this;
-		$.post('ajax/deal.php?type=deals',obj,function(data){
+		$.post(ROOT_URL+'ajax/deal.php?type=deals',obj,function(data){
 			log(data);
 			if(data.success == 'true'){
 				if(data.data.id){

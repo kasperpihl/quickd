@@ -1,5 +1,5 @@
 App.collections.Deals = Backbone.Collection.extend({
-	url: 'api/shopowner/deals',
+	url: ROOT_URL+'api/shopowner/deals',
 	parse: function(response) {
 		return response.data;
     },
@@ -20,14 +20,14 @@ App.collections.Deals = Backbone.Collection.extend({
   model: App.models.Deal
 });
 App.collections.Shops = Backbone.Collection.extend({
-	url: 'api/shopowner/shops',
+	url: ROOT_URL+'api/shopowner/shops',
 	parse: function(response) {
      return response.data;
  },
  model: App.models.Shop
 });
 App.collections.Templates = Backbone.Collection.extend({
-	url: 'api/shopowner/templates',
+	url: ROOT_URL+'api/shopowner/templates',
 	parse: function(response) {
      return response.data;
  },

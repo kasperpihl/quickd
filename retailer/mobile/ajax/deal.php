@@ -1,5 +1,5 @@
 <? 
-require_once('../../config.php');
+require_once('../../../config.php');
 if(isset($_POST['action'],$_POST['model']) ){
 	$model = $_POST['model'];
 	$action = $_POST['action'];

@@ -1,4 +1,4 @@
-<?php require_once('../../config.php'); 
+<?php require_once('../../../config.php'); 
 if(!isset($dealer) || !$dealer) echo die(json_encode(array('success'=>'false','error'=>'not_logged_in')));
 $csince = (int)(isset($_GET['csince']) ? $_GET['csince'] : (isset($_SESSION['csince']) ? $_SESSION['csince'] : 0));
 $cindex = (int)(isset($_GET['cindex']) ? $_GET['cindex'] : (isset($_SESSION['cindex']) ? $_SESSION['cindex'] : 0));

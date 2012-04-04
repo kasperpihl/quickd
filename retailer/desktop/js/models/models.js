@@ -86,7 +86,7 @@ App.models.Shopowner = Backbone.Model.extend({
 	}
 });
 App.models.Template = Backbone.Model.extend({
-	urlRoot: 'api/shopowner/templates',
+	urlRoot: ROOT_URL+'api/shopowner/templates',
 	parse: function(response) {
     	return response.data;
   	}

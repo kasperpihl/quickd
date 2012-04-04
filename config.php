@@ -12,6 +12,9 @@ define('DEAL_MAX_DIST',25000);
 define('MAX_DIST',25000);
 define('STD_IMAGE','hej');
 define("BETA_MODE",1);
+require_once(HOME_DIR.'includes/includes.php');
+$uagent = new uagent_info();
+
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
 $live = false;
@@ -20,14 +23,19 @@ switch($root){
 	case 'test.quickd.com':
 	case '10.185.209.87':
 	case 'localhost':
+		$ending = '';
 		$dbLink = 'quickd:testanders@77.66.53.58';
-		if(strpos($_SERVER['REQUEST_URI'], 'retailer/')) $string = 'retailer/';
+		if(strpos($_SERVER['REQUEST_URI'], 'retailer/')){
+		 	$string = 'retailer/';
+		 	$ending = ($mobile ? 'mobile/' : 'desktop/');
+		}
 		else if(strpos($_SERVER['REQUEST_URI'], 'brugerinfo/')) $string = 'brugerinfo/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'mobile/')) $string = 'mobile/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'admin/')) $string = 'admin/';
-		else $string = 'dealer/';
+
 		$arr = explode($string,$_SERVER['REQUEST_URI']);
-		$end = $arr[0].$string;
+		$histRoot = $arr[0].$string;
+		$end = $arr[0].$string.$ending;
 		if(isset($arr[1])) $restUrl = $arr[1];
 		$cdnUrl = $root . $arr[0] . 'cdn/';
 		
@@ -41,13 +49,15 @@ switch($root){
 			$restUrl = implode('/', $arr);
 		}
 		$end = '/';
+		$histRoot = $end;
 		$cdnUrl = $_SERVER['SERVER_ADDR'].'/';
 	break; 
 }
-$historyObj = json_encode(array('pushState'=>false,'root'=>$end));
+$historyObj = json_encode(array('pushState'=>true,'root'=>$histRoot));
 
 
 define('ROOT_URL','http://'.$root.$end);
+define('REAL_URL','http://'.$root.$histRoot);
 define('DEALER_RESET_URL',ROOT_URL.'reset/');
 define("CDN_URL", 'http://'.$cdnUrl);
 define("IMAGES_URL",CDN_URL.'images/');
@@ -76,7 +86,7 @@ $categories = array(
 	'experience'=>'Oplevelser',
 	'nightlife'=>'Natteliv'
 );
-require_once(HOME_DIR.'includes/includes.php');
+
 $db = new couchClient('http://'.$dbLink.':5984','quickd');
 $db_subscribers = new couchClient('http://quickd:testanders@77.66.53.58:5984', 'quickd_subscribers');
 $db_subscribers_business = new couchClient('http://quickd:testanders@77.66.53.58:5984', 'quickd_subscribers_business');
@@ -87,7 +97,7 @@ $facebook = new Facebook(array(
   'secret' => 'a7878832e840ac3a4cdb52c373db19e1',
 ));
 
-$uagent = new uagent_info();
+
 //$session->logout();
 $dealer = $session->logged_dealer();
 $admin = $session->logged_admin();

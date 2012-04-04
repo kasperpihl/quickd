@@ -1,5 +1,5 @@
 App.models.Deal = Backbone.Model.extend({
-	urlRoot: 'api/shopowner/deals/mobile',
+	urlRoot: ROOT_URL+'api/shopowner/deals/mobile',
 	initialize:function(obj) {
 		this.setState();
 		//log("deal init", obj, this.state);
@@ -53,13 +53,13 @@ App.models.Deal = Backbone.Model.extend({
 	}
 });
 App.models.Shop = Backbone.Model.extend({
-	urlRoot: 'api/shopowner/shops/mobile',
+	urlRoot: ROOT_URL+'api/shopowner/shops/mobile',
 	parse:function(response){
 		return response.data;
 	}
 });
 App.models.Template = Backbone.Model.extend({
-	urlRoot: 'api/shopowner/templates/mobile',
+	urlRoot: ROOT_URL+'api/shopowner/templates/mobile',
 	parse: function(response) {
 		return response.data;
 	},

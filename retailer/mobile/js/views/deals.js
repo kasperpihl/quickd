@@ -21,7 +21,7 @@ App.views.Deals = Backbone.View.extend({
 	render: function(first){
 		var thisClass = this;
 		var data = {templates: this.templates.models };
-		$.get('templates/deals.html',function(template){
+		$.get(ROOT_URL+'templates/deals.html',function(template){
 			if(thisClass.dealSlider) thisClass.dealSlider.destroy();
 			$(thisClass.el).html(_.template(template,data));
 			thisClass.royalSlider();

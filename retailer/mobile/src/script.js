@@ -19,8 +19,7 @@ $(document).bind('pageinit', function() {
         if($('#password').hasClass('animated shake fail')) $('#password').removeClass('animated shake fail');
     });
     $('#login').submit(function(){
-        $.post('ajax/login.php',{email:$('#user').val(),password:$('#password').val()},function(data){  
-            //log('response',data);        
+        $.post(ROOT_URL+'ajax/login.php',{email:$('#user').val(),password:$('#password').val()},function(data){          
             if(data.success == 'true') document.location = './';
             else {
                 if(data.error == 'username_not_exist'){

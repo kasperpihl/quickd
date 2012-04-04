@@ -1,4 +1,4 @@
-<?php require_once('../../config.php');
+<?php
 if(isset($_GET['logout'])){
 	$session->logout();
 	redirect(ROOT_URL);
@@ -25,6 +25,7 @@ if(isset($_GET['logout'])){
     <script src="<?= ROOT_URL ?>js/function.js"></script>
     <script> var shopowner; var debug = false;	
       var ROOT_URL = "<?= ROOT_URL ?>";
+      var REAL_URL = "<?= REAL_URL ?>";
       var version = "<?= VERSION ?>";
 			var IMG_URL = "<?= IMAGES_URL ?>";
 			var LIBS_URL = "<?= LIBS_URL ?>";
