@@ -5,7 +5,7 @@
     <% if (deals && _.size(deals) > 0) {
           _.each(deals, function(deal) {  if (!deal) return; %>
              <div class="list-item deal-item clearfix" style="height: auto;" id="deal-<%= deal.id %>">
-                <img src="<%=deal.template.image ? IMG_URL+'thumbnail/'+deal.template.image : 'styles/stylesheets/i/no_image_small.png'%>" />
+                <img src="<%=deal.template.image ? IMG_URL+'thumbnail/'+deal.template.image : App.collections.images.getUrl(0, 'thumbnail')%>" />
                 <div class="details">
                     <h2><%= deal.template.title?deal.template.title.trunc(30, true):"Ingen titel" %></h2> 
                     <span class="time">

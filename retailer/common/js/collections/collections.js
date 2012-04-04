@@ -28,7 +28,7 @@ App.collections.Images = Backbone.Collection.extend({
 		return -parseInt(model.get('id'),10);
 	},
 	getUrl:function(id, type) {
-		var standard = ROOT_URL+'styles/stylesheets/i/no_image_small.png';
+		var standard = IMG_URL+type+'/noimage.png';
 		if (!id) return standard;
 		if (!type) type = 'thumbnail';
 		
