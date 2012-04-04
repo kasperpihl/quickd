@@ -69,12 +69,6 @@ $imageSizes = array(
 		'h'=>500
 	)
 );
-$adminmails = array(
-	'kasper@quickd.com',
-	'anders@quickd.com',
-	'jstougaard@quickd.com',
-	'jens@quickd.com'
-);
 $categories = array(
 	'fooddrink'=>'Mad & drikke',
 	'shopping'=>'Shopping',
@@ -94,4 +88,5 @@ $facebook = new Facebook(array(
 //$session->logout();
 $dealer = $session->logged_dealer();
 $admin = $session->logged_admin();
+
 ?>

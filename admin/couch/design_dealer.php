@@ -206,7 +206,7 @@ try{
 		var feedbackObj = { id: index, type:'sent',rev:index,timestamp:timestamp,message:query.message};
 		doc.feedback.push(feedbackObj); 
 		addHistory(index,timestamp,'sent',index,1);
-		return [doc,msg({id:index,rev:index},true)];
+		return [doc,msg({id:index,rev:index,mail:'feedback'},true)];
 		
 	}";
 	$updates->addEditShop = 
