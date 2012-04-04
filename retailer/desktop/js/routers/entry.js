@@ -8,10 +8,10 @@ App.routers.Entry = Backbone.Router.extend({
 	routes: {
 		'login':		'setViewLogin',
 		'register':	'setViewRegister',
-		'*index': 	'setViewLogin'	
+		'*index':	'setViewLogin'
 	},
 	initialize: function(){	
-		this.route;
+		this.route = false;
 		this.entryView = new App.views.Entry({router:this});
 		this.model = App.models.shopowner = new App.models.Shopowner();
 		this.view = 'login';
