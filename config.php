@@ -39,6 +39,7 @@ switch($root){
 		$end = $arr[0].$string.$ending;
 		if(isset($arr[1])) $restUrl = $arr[1];
 		$cdnUrl = $root . $arr[0] . 'cdn/';
+		$cdnUrl = $_SERVER['SERVER_ADDR'].'/';
 		
 	break;
 	default:
