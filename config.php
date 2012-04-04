@@ -25,6 +25,7 @@ switch($root){
 	case 'localhost':
 		$ending = '';
 		$dbLink = 'quickd:testanders@77.66.53.58';
+		$ending = $version. '/';
 		if(strpos($_SERVER['REQUEST_URI'], 'retailer/')){
 		 	$string = 'retailer/';
 		 	$ending = $version. '/';
@@ -36,8 +37,6 @@ switch($root){
 		$arr = explode($string,$_SERVER['REQUEST_URI']);
 		$histRoot = $arr[0].$string;
 		$end = $arr[0].$string.$ending;
-		print_r($end);
-		die();
 		if(isset($arr[1])) $restUrl = $arr[1];
 		$cdnUrl = $root . $arr[0] . 'cdn/';
 		
