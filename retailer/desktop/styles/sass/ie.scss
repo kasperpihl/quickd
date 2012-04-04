@@ -1,0 +1,106 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+
+@import "compass";
+@import "compass/css3"; /* Så slipper vi for manuelt at kode vendor prefixes */
+@import "compass/css3/images";
+/* Gradient backgrounds */
+.dialog {
+  @include filter-gradient(#ffffff, #e2e2e2, vertical);
+  &.black { @include filter-gradient(#383737, #212020, vertical); }
+}
+.window {
+  @include filter-gradient(#373737, #121212, vertical);
+}
+.button {
+  &.grey {
+    @include filter-gradient(rgb(252,252,252), rgb(165,165,165), vertical);
+  }
+  &.add {
+    @include filter-gradient(#333333, #000000, vertical);
+    &:hover {@include filter-gradient(#333333, #161616, vertical);}
+    &:active {@include filter-gradient(#000000, #333333, vertical);}
+  }
+  &.blue {
+    @include filter-gradient(#049cdb,#0064cd,vertical);
+    &:hover {@include filter-gradient(#049cdb, #006fe5,vertical);}
+    &:active {@include filter-gradient(#0064cd, #049cdb,vertical);}
+  }
+  &.green {
+    @include filter-gradient(rgb(94,150,27), rgb(58,107,9), vertical);
+    &:hover {@include filter-gradient(#5e961b, #437511, vertical);}
+    &:active {}
+  }
+  &.red {
+    @include filter-gradient(rgb(234,95,85), rgb(196, 63, 49), vertical);
+    &:hover {@include filter-gradient(rgb(234,95,85), rgb(216, 83, 59), vertical); }
+    &:active {@include filter-gradient(rgb(196, 63, 49), rgb(234,95,85), vertical);}
+  }
+  
+}
+.status-label.green {  @include filter-gradient(#9ed196, #9ed196, vertical); }
+.status-label.yellow { @include filter-gradient(#f4ee9a, #f4ee9a, vertical); }
+.status-label.red {    @include filter-gradient(#f29c9b, #f29c9b, vertical); }
+#feedback {@include filter-gradient(#cecece, #999999, vertical);}
+#feedback-text { @include filter-gradient(#fcfcfc, #c6c6c6, vertical); }
+
+.tab-bar {
+  cursor:pointer;
+  @include filter-gradient(#F4F4F4, #d1d1d1, vertical);
+  .tab-link {
+    &:hover { background: #D6D6D6;  }
+    &.selected { @include filter-gradient(#CDCDCD, #909090, vertical); }
+  }
+}
+.text-bubbles {
+  .bubble {
+    $border: 1px solid #ACACAC;
+    border:$border;
+    &.white {
+      @include filter-gradient(rgb(240, 240, 240), #A6A6A6, vertical);
+      &:after {background:none;}
+    }
+    &.green {
+      @include filter-gradient(#A3E666, #6FC620, vertical);
+      &:after {background:none;}
+    }
+  }
+}
+
+/* Menu */
+#menu {
+ 
+  @include filter-gradient(#373737, #121212, vertical);
+  
+  .menu_icon{
+    border-bottom: 1px solid #5D5D5D;
+    
+    &:hover {
+      background-color: #464646;
+    }
+    &:active {
+      border-bottom: 1px solid black;
+    }
+    &.selected {
+      background-color: #595959;
+    }
+    
+    &.disabled {
+      
+      &:hover {
+        background-color: inherit;
+        border-bottom: 1px solid #5D5D5D;
+      }
+      &:active { 
+        border-bottom: 1px solid #5D5D5D;
+      }
+    }
+  }
+}
+
+#entry_view .header .login_fields .field input {
+  line-height:70px;
+}

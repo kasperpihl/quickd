@@ -1,0 +1,59 @@
+<div class="title"><h1>Ny skabelon</h1></div>
+<div class="body-area spacing">
+	<div style="position: relative; height: 100%;">
+		<form name="new_template" id="new_template" style="padding-bottom:8px;">
+		<div class="field top">
+		 	<div class="label long">Titel</div>
+			<div class="data long"><input type="text" name="title" id="title" /></div>
+		</div>
+		<div class="field bottom">
+		    <div class="label long">Beskrivelse</div>
+		    <div class="data long"><textarea name="description" id="description" title="Beskriv tilbuddet så præcist som muligt"></textarea></div>
+		</div>
+		<div class="field">
+	  	  <div class="select-img-box clearfix">
+	   	 	<div class="image-field" id="image-field"><img src="<%=App.collections.images.getUrl(0, 'thumbnail')%>" /></div>
+	   	     <div id="btn_select_image" class="button blue">Vælg billede</div>
+	   	     <input type="hidden" name="img_src" id="img_src" value="" />
+	    	</div>
+	    </div>
+	
+		<div class="prices">   
+			<div class="field top">
+	      <div class="label">Førpris:</div>
+	      <div class="data">kr.
+	           <input type="text" id="orig_price" name="orig_price" class="big" /></div>
+	      <div class="clearline"></div>
+			</div>
+			<div class="field middle">
+	      <div class="label">Dealpris:</div>
+	      <div class="data">kr.
+	      	<input type="text" name="deal_price" id="deal_price" class="big" /></div>
+	      <div class="clearline"></div>
+			</div>
+			<div class="field bottom">
+        <div class="label">Rabat:</div>
+        <div class="data discount" id="discount-field">-</div>
+        <div class="clearline"></div>
+        <div id="prices-error" />
+        <div id="prices-toolTip" />
+    	</div>
+		</div>
+
+		<% if (CATEGORIES) { %>
+  		<div class="field">
+  	  	<div class="label long">Kategori</div>
+  	  	<div class="data long categories" id="categories">
+					<% _.each(CATEGORIES, function(name, key) { %>
+            <div class="category readonly <%='fooddrink'==key? 'selected': ''%>" id="cat_<%=key%>"><%=name%></div>
+          <% }); %>
+  	  	</div>
+      </div>
+    <% } %>
+		    <div class="clearline" />
+		    
+		    <div id="btn_submit_add_template" class="go_button" style="position: relative;">Gem</div>
+		</div>
+		</form>
+	</div>
+</div>

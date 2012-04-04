@@ -1,0 +1,63 @@
+<% var now = (new Date()).getTime(); %>
+<% function printItems(deals, type, tabId) { %>
+	<div class="deal-list" id="deals-<%=type%>">
+     	<div class="empty-block" <% if(deals && deals.length > 0) print('style="display:none"'); %>><h2>Ingen</h2></div>
+    <% if (deals && _.size(deals) > 0) {
+          _.each(deals, function(deal) {  if (!deal) return; %>
+             <div class="list-item deal-item clearfix" style="height: auto;" id="deal-<%= deal.id %>">
+                <img src="<%=deal.template.image ? IMG_URL+'thumbnail/'+deal.template.image : App.collections.images.getUrl(0, 'thumbnail')%>" />
+                <div class="details">
+                    <h2><%= deal.template.title?deal.template.title.trunc(30, true):"Ingen titel" %></h2> 
+                    <span class="time">
+                        <% if(type=='planned') print("Starter"); else print("Startet"); %>: 
+                        <em><% print(getTimeString(deal.start*1000, 'simple')); %></em>
+                    </span>
+                    <span class="time">
+                        <% if(type=='ended') print("Sluttede"); else print("Slutter"); %>: 
+                        <em><% print(getTimeString(deal.end*1000, 'simple')); %></em>
+                    </span>
+                    <% if (type!='planned') { %>
+                      <!--  <span class="hits">
+                           <em>122</em> listevisninger / <em>23</em> dealvisninger
+                        </span> -->
+                    <% } %>
+                    <span class="soldout" style="display:<%=deal.status=='soldout' ? 'block' : 'none' %>">Udsolgt</span>
+
+                </div>
+            </div>
+          
+             
+     <% }); 
+    } %>
+    </div>
+<% } %>
+
+<div class="title">
+	<div style="position: absolute; left: 0px;"><button class="button add" id="btn_deal_back" <% if(data.view=='deal-list') print('style="display:none"') %> >Tilbage</button></div>
+	<h1>Deals</h1>
+</div>
+<div class="body-area tab-area" id="view-deals">
+	<div class="content-wrapper" id="view-deal-list" <% if(data.view=='deal-details') print('style="display:none"') %>>
+        <div class="tab-bar">
+            <!--<div class="tab-link<% if(data.tabId=='deals-planned') print(' selected');%>" id="tab-planned" style="width:33%">Planlagte</div>-->
+            <div class="tab-link<% if(data.tabId=='deals-tab-current') print(' selected');%>" id="tab-current" style="width:50%">Aktuelle</div>
+            <div class="tab-link<% if(data.tabId=='deals-tab-ended') print(' selected');%>" id="tab-ended"   style="width:49%">Afsluttede</div>
+        </div>
+        
+        
+            <div class="tab-block" id="deals-tab-current" <% if (data.tabId=="deals-tab-current") print("style='display:block'")%>>
+                <h1>Nuværende</h1>
+                <% printItems(data.current, 'current', data.tabId); %>
+                <hr>
+                <h1>Planlagte</h1>
+                <% printItems(data.planned, 'planned', data.tabId); %>
+            </div>
+            <div class="tab-block" id="deals-tab-ended" <% if (data.tabId=="deals-tab-ended") print("style='display:block'")%>>
+                <% printItems(data.ended, 'ended', data.tabId); %>
+            </div>
+    </div>
+    <div class="content-wrapper" id="view-deal-details" <% if(data.view=='deal-list') print('style="display:none"') %> >
+    	<%=data.dealView?data.dealView : ''%>
+    </div>
+</div>
+

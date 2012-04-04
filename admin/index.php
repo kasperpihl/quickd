@@ -4,13 +4,13 @@ if(isset($admin) && $admin) redirect('dashboard.php');
 if(isset($_POST['email']) && isset($_POST['password'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	try{		
+	try{
 		$admins = $db->key($email)->getView('admin','getAdminsByMail');
 		$admins = $admins->rows;
 		if(!empty($admins)){
 			$admin = $admins[0]->value;
 			if($admin->password == md5(MD5_STRING.$password)){
-				$session->login($admin->id,$admin->privileges,$password);
+				$session->login($admin->id,$admin->privileges,$admin->password);
 				redirect('dashboard.php');
 			}
 		}

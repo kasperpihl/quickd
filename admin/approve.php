@@ -62,7 +62,7 @@ else{
 	<div><?php echo $doc->name; ?>
 	
 	<? } else if($type=='template'){ ?>
-		<img src="<? echo IMAGES_URL . 'preview/'.$doc->image; ?>" width="200"/><br/>
+		<?php if (isset($doc->image)) { ?><img src="<? echo IMAGES_URL . 'preview/'.$doc->image; ?>" width="200"/><br/><?php } ?>
 		<?php echo $doc->template->title; ?><br/><br/>
 		<?php echo $doc->template->description; ?>
 	<? } ?></div>

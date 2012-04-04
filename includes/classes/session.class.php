@@ -21,24 +21,29 @@ class Session {
 		global $db;
 		unset($this->user_id);
 		unset($this->privileges);
+		$bool = false;
 		if( $user_id = $this->get('user_id')){
 			$this->user_id = $user_id;
+			$bool = true;
 		}
 		if( $privileges = $this->get('privileges')){
 			$this->privileges = $privileges;
 		}
-		if($cookie && isset($_COOKIE['md5string']) && $_COOKIE['md5string']){
+		if(!$bool && $cookie && isset($_COOKIE['md5string']) && $_COOKIE['md5string']){
 			$md5string = $_COOKIE['md5string'];
 			$array = explode('_-_',$md5string);
 			try{
 				if(!isset($array[0],$array[1])) return;
-				$doc = $db->getDoc($array[0]);
-				if(!property_exists($doc->user,'md5_password')) return;
-				if($array[1] == md5($doc->user->md5_password . MD5_STRING))
-					$this->login($array[0],$doc->user->privileges);
+				$doc = $db->key($array[0])->limit(1)->getView('dealer','getPassById');
+				$doc = $doc->rows;
+				if(empty($doc)) return;
+				$doc = $doc[0]->value;
+				if(!property_exists($doc,'md5_password')) return;
+				if($array[1] == md5($doc->md5_password . MD5_STRING))
+					$this->login($array[0],$doc->privileges);
 			}
 			catch(Exception $e){
-			
+				return false;
 			}
 		}
 	}
