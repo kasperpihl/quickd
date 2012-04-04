@@ -1,0 +1,31 @@
+<div id="welcome_add_shop" class="bubble-dialog">
+    <form id="consumer-signup" name="consumer-signup" class="create_shop clear fix" action="/">
+        <input type="hidden" id="shop_lat" value="" />
+        <input type="hidden" id="shop_long" value="" />
+        <input type="hidden" id="shop_form_address" value="" />
+        <div id="add_shop_fields">
+            <div class="field">
+                <div class="label long">Butiksnavn</div>
+                <div class="data long">
+                    <input type="text" hideLabel="F.eks. 7Eleven, McDonald's Aarhus" title="Dette er navnet kunderne vil se på deres mobil" id="shop_name" autocomplete="off" name="shop_name" required />
+                </div>
+            </div>
+            <div class="field">
+                <div class="label long">Adresse</div>
+                <div class="data long" style="position:relative">
+                    <input id="shop_address" name="shop_address" type="text" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" hideLabel="F.eks. Åboulevarden 5, 8000 Aarhus" title="Adresseforslag kommer mens du skriver - vælg venligst fra listen." required />
+                    <div class="go_button" id="continue_button"></div>
+                </div>
+            </div>
+            
+        </div>
+        <div id="confirm_map" style="display:none;">
+            <div class="title">Bekræft adresse</div>
+            <div id="confirm_shop_name" class="subheader"></div>
+            <div id="map_canvas" />
+            <input type="button" id="btn_reenter_shop" class="button grey left" value="Tilbage"/>
+            <input type="button" id="btn_confirm_shop" class="button green small right" value="Bekræft"/>
+        </div>
+    </form>
+    <div class="clearline" />
+</div>

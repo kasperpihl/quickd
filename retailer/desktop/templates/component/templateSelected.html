@@ -1,0 +1,13 @@
+<div class="list-item clearfix" id="<%= item.id %>">
+    <img src="<%= App.collections.images.getUrl(item.image, 'thumbnail') %>" title="Dealbillede" />
+    <div class="details">
+        <h2><%= item.title.trunc(30, true) %></h2> 
+    
+        <span class="address">
+           <%= item.description.trunc(40, true) %>
+        </span>
+        <span class="prices">
+           Før: <%= item.orig_price %> kr. / Nu: <%= item.deal_price %> kr.
+        </span>
+    </div>
+</div>
