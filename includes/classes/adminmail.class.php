@@ -13,6 +13,11 @@ Class AdminMail{
 				$message = 
 				'http://admin.quickd.com'."\n\n";
 			break;
+			case 'feedback':
+				$subject = 'Der er skrevet feedback';
+				$message = 
+				'http://admin.quickd.com'."\n\n";
+			break;
 			default:
 				return false;
 			break;
