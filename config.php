@@ -43,7 +43,6 @@ switch($root){
 	break;
 	default:
 		if(strpos($root, 'retailer') !== false) $ending = $version . '/';
-		//print_r($root . '   ' . strpos($root,'retailer'));
 		$live = true;
 		$dbLink = 'quickd:ka2jae2n@localhost';
 		$arr = explode('/',$_SERVER['REQUEST_URI']);
