@@ -25,9 +25,9 @@ switch($root){
 	case '10.185.209.87':
 	case 'localhost':
 		$dbLink = 'quickd:testanders@77.66.53.58';
-		//$ending = $version. '/';
 		if(strpos($_SERVER['REQUEST_URI'], 'retailer/')){
 		 	$string = 'retailer/';
+		 	$ending = $version. '/';
 		}
 		else if(strpos($_SERVER['REQUEST_URI'], 'brugerinfo/')) $string = 'brugerinfo/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'mobile/')) $string = 'mobile/';
@@ -38,7 +38,6 @@ switch($root){
 		$end = $arr[0].$string.$ending;
 		if(isset($arr[1])) $restUrl = $arr[1];
 		$cdnUrl = $root . $arr[0] . 'cdn/';
-		//$cdnUrl = $_SERVER['SERVER_ADDR'].'/';
 		
 	break;
 	default:
@@ -90,16 +89,12 @@ $categories = array(
 );
 
 $db = new couchClient('http://'.$dbLink.':5984','quickd');
-$db_subscribers = new couchClient('http://quickd:testanders@77.66.53.58:5984', 'quickd_subscribers');
-$db_subscribers_business = new couchClient('http://quickd:testanders@77.66.53.58:5984', 'quickd_subscribers_business');
-
 $session = new Session();
+
 $facebook = new Facebook(array(
   'appId'  => '286675801401479',
   'secret' => 'a7878832e840ac3a4cdb52c373db19e1',
 ));
-
-
 //$session->logout();
 $dealer = $session->logged_dealer();
 $admin = $session->logged_admin();
