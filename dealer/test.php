@@ -1,5 +1,8 @@
 <?php
 require_once('../config.php');
+$doc = $db->key('kasper')->limit(1)->getView('dealer','getPassById');
+print_r($doc);
+die();
 if(isset($_GET['v'])){
 	$expire=time()+60*60*24*30;
 	$bool = setcookie('normal',$_GET['v'],$expire,'/');

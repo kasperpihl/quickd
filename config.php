@@ -70,10 +70,10 @@ $imageSizes = array(
 	)
 );
 $adminmails = array(
-	'kasperpihl@me.com',
-	'anders@hoedholt.com',
-	'jstougaard@gmail.com',
-	'jens@ahrengot.com'
+	'kasper@quickd.com',
+	'anders@quickd.com',
+	'jstougaard@quickd.com',
+	'jens@quickd.com'
 );
 $categories = array(
 	'fooddrink'=>'Mad & drikke',

@@ -592,6 +592,19 @@ try{
 			}
 		}
 	}");
+	$views->getPassById = 
+	array('map'=>
+	"function (doc) {
+		if ( doc.type && doc.type == \"user\") {
+			if(doc.user.hasOwnProperty('md5_password')){
+				var obj = {};
+				obj.md5_password = doc.user.md5_password;
+				obj.privileges = doc.user.privileges;
+				emit(doc._id,obj);
+			}
+				
+		}
+	}");
 	$getTemplates = 
 	"function (doc) {
 		if ( doc.type && doc.type == \"user\") {
