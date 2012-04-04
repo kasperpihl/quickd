@@ -41,7 +41,9 @@ App.routers.Entry = Backbone.Router.extend({
 		if(this.lockAction) return false;
 		this.lockAction = true;
 		var thisClass = this;
-		$.post(ROOT_URL+'api/login',{email:$('#login_username').val(),password:$('#login_password').val()},function(response){
+		var obj = {stuff:true,email:$('#login_username').val(),password:$('#login_password').val()};
+		if($('#stay_signed_in_check:checked').length > 0) obj.remember =true;
+		$.post(ROOT_URL+'api/login',obj,function(response){
 			if(response.success == 'true'){
 				thisClass.animateDashboard();
 				thisClass.lockAction = false;
