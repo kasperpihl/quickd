@@ -2,6 +2,8 @@
 Class AdminMail{
 	protected static $sender = 'mail@quickd.com';
 	public static function sendAdminMail($mail,$doc_id){
+		global $live;
+		if(!$live) return false;
 		switch($mail){
 			case 'newTemplate':
 				$subject = 'Ny skabelon oprettet';

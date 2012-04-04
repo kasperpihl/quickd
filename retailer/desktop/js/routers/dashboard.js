@@ -159,10 +159,6 @@ define([
 							if (!singleCall) setTimeout(thisClass.getChanges,3000);
 		        }
 		   	}, 'json');
-		  /*} else {
-		  	doOnError(showError);
-		  	if (!singleCall) setTimeout(thisClass.getChanges,3000);
-		  }	*/
 		},
 		setStuff:function(stuff){
 			_.each(stuff,function(item,i){
