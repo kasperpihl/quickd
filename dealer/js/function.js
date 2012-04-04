@@ -398,19 +398,24 @@ $(function() {
 		mask.css({display:'block', opacity:0})
 		mask.animate({opacity: 0.7}, 400, function() {
 		   	if (onClick) {
-			   	$(this).click(function() {
-						onClick();
-			   	});
+			   	$(this).click(onClick);
 			 	}
 	  });
 		return me;
 	}
 	
-	$.fn.removeMask = function() {
-		var me = $(this);
+	$.fn.removeMask = function(duration, callback) {
+		var me = $(this),
+				mask;
 		if (me.attr('id')) var id = me.attr('id')+"-mask";
 		else var id = me.get(0).tagName+"-mask";
-		me.find('#'+id).remove();
+		mask = me.find('#'+id);
+		if(duration) {
+			mask.fadeOut(duration, function() {
+				mask.remove();
+				if (callback) callback();
+			});
+		} else mask.remove();
 		if (!me.is('body')) me.removeClass('inactive');
 		return me;
 	}

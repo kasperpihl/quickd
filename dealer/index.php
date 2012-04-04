@@ -20,7 +20,6 @@ if(isset($_GET['logout'])){
     <!--[if lt IE 9]>
       <link href="<?= ROOT_URL ?>styles/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
-		<link href="<?= ROOT_URL ?>styles/stylesheets/bubbles.css" media="all" rel="stylesheet"/>
      
     <script src="<?= LIBS_URL ?>jquery/jquery-min.js"></script>
 		<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
@@ -73,7 +72,6 @@ if(isset($_GET['logout'])){
 			<script src="<?= LIBS_URL ?>jquery/jquery.easing.js"></script>
 			<script src="<?= LIBS_URL ?>jquery/jquery.tools.min.js"></script>
 
-<script src="<?= LIBS_URL ?>jquery/jquery.jcrop.js"></script>
 
 			<script src="<?= LIBS_URL ?>jquery/browserDetect.js"></script>
 			<script src="<?= LIBS_URL ?>jquery/date.js"></script>

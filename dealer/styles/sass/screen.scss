@@ -231,7 +231,6 @@ $register-shop-btn-active: -78px;
 
 @mixin white-gradient {
 	background:#FFF;
-	@include filter-gradient(#ffffff, #e2e2e2, vertical); // IE6-9
 	@include background-image(linear-gradient(#ffffff 48%,#e2e2e2 100%));
 }
 
@@ -244,7 +243,6 @@ $register-shop-btn-active: -78px;
 	@include transition-duration(0.25s);
 	background: rgba(171,208,38,1);
 	background-color: rgb(94,150,27); // Old browsers
-	@include filter-gradient(rgb(94,150,27), rgb(58,107,9), vertical); // IE6-9
 	@include background-image(linear-gradient(top,  rgba(94,150,27,1) 0%,rgba(58,107,9,1) 98%));
 
 
@@ -288,15 +286,11 @@ $register-shop-btn-active: -78px;
 	top: 5px;
 	right:auto;
 	border: 1px solid black;
-	@include filter-gradient(#333333, #000000, vertical);
 	@include background(linear-gradient(top, rgba(51,51,51,1) 0%, rgba(0,0,0,1) 100%));
-	
 	&:hover {
-		@include filter-gradient(#333333, #161616, vertical);
 		@include background(linear-gradient(top, rgba(51,51,51,1) 0%, rgba(22,22,22,1) 100%));
 	}
 	&:active {
-		@include filter-gradient(#000000, #333333, vertical);
 		@include background(linear-gradient(top, rgba(0,0,0,1) 0%, rgba(51,51,51,1) 100%));
 		box-shadow: inset 0 0 2px rgba(0,0,0,1);
 	}
@@ -310,9 +304,7 @@ $register-shop-btn-active: -78px;
 	@include transition-property((background,background-image,color));
 	@include transition-duration(0.25s);
 background-color: rgb(94,150,27); // Old browsers
-@include filter-gradient(#5e961b, #437511, vertical); // IE6-9
 @include background-image(linear-gradient(top,  rgba(94,150,27,1) 0%,rgba(67,117,17,1) 98%));
-
 	box-shadow: 0 0 10px white, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
 	
 }
@@ -542,16 +534,13 @@ background-color: rgb(94,150,27); // Old browsers
 	&.red {
 		color:#fff;
 		background-color:#FF2828;
-		@include filter-gradient(rgb(234,95,85), rgb(196, 63, 49), vertical);
 		@include background(linear-gradient(top, rgb(234,95,85),rgb(196, 63, 49)));
 		&:hover {
 			background-color: rgb(234,95,85); // Old browsers
-			@include filter-gradient(rgb(234,95,85), rgb(216, 83, 59), vertical); // IE6-9
 			@include background-image(linear-gradient(top, rgb(234,95,85),rgb(216, 83, 59)));
 		}
 		&:active {
 			background-color: rgb(196, 63, 49);
-			@include filter-gradient(rgb(196, 63, 49), rgb(234,95,85), vertical);
 			@include background(linear-gradient(top, rgb(196, 63, 49), rgb(234,95,85)));
 			@include box-shadow(inset 0px 1px 1px rgba(0,0,0,0.5));
 			cursor: pointer;
@@ -561,7 +550,7 @@ background-color: rgb(94,150,27); // Old browsers
 		color: white;
 		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 		background-color: #0064cd;
-		@include filter-gradient(#049cdb,#0064cd,vertical);
+		
 		@include background(linear-gradient(top, #049cdb, #0064cd));
 		border-color: rgba(0,0,0,0.1) rgba(0,0,0, 0.1) rgba(0,0,0,0.25);
 		box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 0 2px #757575;
@@ -576,17 +565,10 @@ background-color: rgb(94,150,27); // Old browsers
 
 		&:hover {
 			background-color: #006fe5;
-			@include filter-gradient(#049cdb, #006fe5,vertical);
 			@include background(linear-gradient(top, #049cdb, #006fe5));
 		}
 		&:active {
 			background-color: #0064cd;
-			@include filter-gradient(#0064cd, #049cdb,vertical);
-			@include background(linear-gradient(top, #0064cd, #049cdb));
-		}
-		&:active {
-			background-color: #0064cd;
-			@include filter-gradient(#0064cd, #049cdb,vertical);
 			@include background(linear-gradient(top, #0064cd, #049cdb));
 			@include box-shadow(inset 0px 1px 1px #363535);
 			cursor: pointer;
@@ -943,6 +925,7 @@ body {
 	//height: auto !important;
 	z-index:50;
 	border:$window-border;
+	overflow:visible;
 	@include white-gradient;
 	@include border-radius($window-border-radius);
 	@include box-shadow(0px 5px 35px rgba(0,0,0,0.4));
@@ -968,7 +951,7 @@ body {
 		border-radius: $size;
 		
 		cursor:pointer;
-		z-index:1;
+		z-index:60;
 		
 
 		
@@ -986,7 +969,6 @@ body {
 		
 	&.black {
 		background-color: rgb(56,55,55); // Old browsers
-		@include filter-gradient(#383737, #212020, vertical); // IE6-9
 		@include background-image(linear-gradient(top,  rgba(56,55,55,1) 0%,rgba(33,32,32,1) 100%));
 
 		box-shadow: 0 0 20px rgba(0,0,0,0.8), inset 0 0 1px grey;
@@ -1065,18 +1047,11 @@ body {
 			margin-bottom: 10px;
 			color: #4D4D4D;
 		}
-
-		//background-color: rgb(179,209,73); // Old browsers
-		//@include filter-gradient(#b3d149, #6d8b33, vertical); // IE6-9
-		//@include background-image(linear-gradient(top,  rgba(179,209,73,1) 0%,rgba(109,139,51,1) 100%));
 		position: relative;
 		top: 0px;
-		//background-image: url(i/login_header.png);
 		background: white;
 		border-bottom: 1px solid #A6A6A6;
-		//@include background-image(linear-gradient(top, #ffffff, #EAEAEA));
 		@include background-image(url('i/gray_noise.png'));
-		//height: 404px;
 		height: 50%;
 		width: 100%;
 		overflow-y: auto;
@@ -1460,9 +1435,6 @@ body {
 		text-align: center; font-size:60px; text-shadow: -1px 2px 8px rgba(0, 0, 0, 1);
 		font-family: $font-family;
 		color: white;
-		//@include filter-gradient(#99464646, #99828282, vertical);
-		//@include background(linear-gradient(top, rgba(70,70,70,0.6) 0%, rgba(130,130,130,0.6) 100%));
-		//box-shadow: inset 0 0 7px rgba(0,0,0,1);
 		border-radius: $default-border-radius;
 		
 		text-indent: -14px;
@@ -1475,7 +1447,7 @@ body {
 	
 	.logo img { width: 250px}
 	.howto {clear:both;font-size:24px;text-align:center;padding:15px 0px;color:white; @include text-shadow(0 0 5px black);}
-	.helptext {width:100%;text-align:center;display:none;}
+	.helptext {width:100%;text-align:center;}
 	
 	.create_shop_btn { padding:10px 20px;font-size:24px;width:230px;margin:0px auto;display:block; }
 
@@ -1639,7 +1611,6 @@ form {
 	position:relative;
 	font-family:$window-font-family;
 	background:rgb(0,0,0);
-	@include filter-gradient(#373737, #121212, vertical);
 	@include background(linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.98)));
 	border: thin solid black;
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -1976,10 +1947,6 @@ form {
 
 		
 		&.selected, &.selected:hover {
-			/*background-color: rgb(4,136,244); // Old browsers
-			@include filter-gradient(#0488f4, #015ee6, vertical); // IE6-9
-			@include background-image(linear-gradient(top,  rgba(4,136,244,1) 0%,rgba(1,94,230,1) 100%));*/
-			
 			background-color: rgb(181,181,181); // Old browsers
 			@include filter-gradient(#b5b5b5, #727272, vertical); // IE6-9
 			@include background-image(linear-gradient(top,  rgba(181,181,181,1) 1%,rgba(114,114,114,1) 99%));
@@ -2024,6 +1991,7 @@ form {
 	.tab-bar {
 		position:absolute;
 		top:0;left:0;right:0;height:$tab-bar-height;
+
 		@include background(linear-gradient(top, rgba(255, 255, 255, 0.8), #d1d1d1));
 		border: $tab-bar-border;
 		border-left:none;
@@ -2034,9 +2002,7 @@ form {
 			padding:5px 0px 0px;
 			text-align:center;
 			cursor:pointer;
-			&:hover {
-				background: rgba(255, 255, 255, 0.3);
-			}
+			&:hover {	background: rgba(255, 255, 255, 0.3); }
 			&.selected { background: rgba(0, 0, 0, 0.2); }
 		}
 	}
@@ -2369,7 +2335,7 @@ form {
 .status-label {
 	width: 8px;
 	height: 8px;
-	border-radius: 4px;
+	@include border-radius(4px);
 	position: relative;
 	float: left;
 	margin-top: 4px;
@@ -2408,7 +2374,6 @@ form {
 	z-index: 10;
 
 	background-color: rgb(206,206,206); // Old browsers
-	@include filter-gradient(#cecece, #999999, vertical); // IE6-9
 	@include background-image(linear-gradient(top, rgba(206,206,206,1) 0%,rgba(153,153,153,1) 100%));
 	box-shadow: 0 0 8px black;
 	border-top-left-radius: 6px; 
@@ -2569,7 +2534,6 @@ form {
 
 
 		background-color: rgb(252,252,252); // Old browsers
-		@include filter-gradient(#fcfcfc, #c6c6c6, vertical); // IE6-9
 		@include background-image(linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(198,198,198,1) 100%));
 
 		
@@ -2635,14 +2599,8 @@ form {
 		background: rgba(200,200,200,0.6);
 		@include border-radius(4px);
 		background: rgb(255,255,255); /* Old browsers */
-		background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(224,224,224,1))); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%); /* IE10+ */
-		background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-9 */
-
+		@include filter-gradient(#ffffff, #e0e0e0, vertical);
+		@include background-image(linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%));
 	}
 	.message.sent{
 		margin-top:12px;
@@ -2651,16 +2609,91 @@ form {
 		background: rgba(0,200,0,0.6);
 		@include border-radius(4px);
 		background: rgb(215,237,170); /* Old browsers */
-		background: -moz-linear-gradient(top,  rgba(215,237,170,1) 0%, rgba(165,209,71,1) 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(215,237,170,1)), color-stop(100%,rgba(165,209,71,1))); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top,  rgba(215,237,170,1) 0%,rgba(165,209,71,1) 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top,  rgba(215,237,170,1) 0%,rgba(165,209,71,1) 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top,  rgba(215,237,170,1) 0%,rgba(165,209,71,1) 100%); /* IE10+ */
-		background: linear-gradient(top,  rgba(215,237,170,1) 0%,rgba(165,209,71,1) 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7edaa', endColorstr='#a5d147',GradientType=0 ); /* IE6-9 */
-
+		@include filter-gradient(#d7edaa, #a5d147, vertical);
+		@include background-image(linear-gradient(top,  rgba(215,237,170,1) 0%,rgba(165,209,71,1) 100%));
 	}
 }
+.text-bubbles {
+	.bubble {
+    width:255px;
+    min-height:36px;
+    @include border-radius(15px);
+    @include box-shadow(inset 0px 0px 2px rgba(0,0,0,0.2),0px 1px 2px rgba(0,0,0,.2));
+    padding:8px 15px;
+    border:1px solid rgba(0,0,0,0.25);
+    position:relative;
+    z-index:8;
+    text-shadow:1px 1px rgba(255,255,255,.3);
+
+    &:after {
+    	content:'';
+	    border-left:1px solid rgba(0,0,0,0.25);
+	    border-bottom:1px solid rgba(0,0,0,0.25);
+	    position:absolute;
+	    height:13px;
+	    width:13px;
+    }
+    &:before {
+    	padding:0 10px 0 11px;
+	    content:'';
+	    position:absolute;
+	    z-index:-5;
+	    left:4px;
+	    top:1px;
+	    width:inherit;
+	    height:14px;
+	    @include border-radius(5px);
+	    @include border-corner-radius('bottom', 'left', 5px);
+	    @include border-corner-radius('bottom', 'right', 5px);
+	    @include background-image(linear-gradient(top, rgba(255, 255, 255, .7), rgba(255, 255, 255, .2)));
+    }
+    &.left {
+    	margin:0 0 10px 20px;
+    	&:after {
+		    left:-8px;
+		    bottom:20px; 
+		    @include transform(rotate(45deg));  
+			}
+			.avatar { left:-50px; }
+    }
+    &.right {
+    	margin:0 20px 10px 0;
+    	&:after {
+		    right:-8px;
+		    bottom:20px;
+		    @include transform(rotate(225deg));
+			}
+			.avatar { right:-50px;}
+    }
+    .avatar {
+	    position:absolute;
+	    width:32px;
+	    height:32px;
+	    bottom:12px;
+	    img {
+		    width:32px;
+		    height:32px;
+		    border:none;
+			}
+		}
+		small {
+	    display:block;
+	    margin:11px 0 0 0;
+	    font-style:italic;
+	    color:rgba(0,0,0,.3);
+	    font-size: 0.8em;
+		}
+
+		&.white, &.white:after { background:#ddd; }
+		&.green, &.green:after { background:#9ADB5C; }
+		&.blue, &.blue:after { background:#75BAEB; }
+		&.slate, &.slate:after { background:#BECFCD; }
+		&.orange, &.orange:after { background:#fc9e51; }
+		&.yellow, &.yellow:after { background:#fde288; }
+		&.pink, &.pink:after { background:#fb89df; }
+	}
+}
+
 #view-deals {
 	.list-item {
 		padding:0px;
