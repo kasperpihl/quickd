@@ -2390,14 +2390,13 @@ form {
 }
 
 #feedback #feedback_text{
-	//margin-top:50px; 
 	font-weight: bold;
 	position: absolute;
-	left: -14px;
-	top: 42px;
-	//-webkit-transform: rotate(270deg);
-	//-moz-transform: rotate(270deg);
-	@include transform(rotate(270deg));
+	left: 18px;
+	top: 12px;
+	height:75px;
+	width:13px;
+	background: url(i/feedback.png) no-repeat;
 	color: black;
 }
 #feedback h2.thanks{

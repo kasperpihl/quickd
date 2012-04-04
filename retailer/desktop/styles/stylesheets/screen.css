@@ -4076,17 +4076,15 @@ form textarea:focus, form input:focus {
 #feedback #feedback_text {
   font-weight: bold;
   position: absolute;
-  left: -14px;
-  top: 42px;
-  -moz-transform: rotate(270deg);
-  -webkit-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
-  transform: rotate(270deg);
+  left: 18px;
+  top: 12px;
+  height: 75px;
+  width: 13px;
+  background: url(i/feedback.png) no-repeat;
   color: black;
 }
 
-/* line 2403, ../sass/screen.scss */
+/* line 2405, ../sass/screen.scss */
 #feedback h2.thanks {
   text-align: center;
   font-size: 18px;
@@ -4094,12 +4092,12 @@ form textarea:focus, form input:focus {
   color: black;
 }
 
-/* line 2409, ../sass/screen.scss */
+/* line 2411, ../sass/screen.scss */
 #feedback-thanks {
   margin-top: 20px;
 }
 
-/* line 2412, ../sass/screen.scss */
+/* line 2414, ../sass/screen.scss */
 #feedback h2.header {
   color: black;
 }
@@ -4121,11 +4119,11 @@ form textarea:focus, form input:focus {
 	}
 	.description {clear:both;padding:10px;}
 }*/
-/* line 2438, ../sass/screen.scss */
+/* line 2440, ../sass/screen.scss */
 .deal-view {
   padding: 8px;
 }
-/* line 2441, ../sass/screen.scss */
+/* line 2443, ../sass/screen.scss */
 .deal-view #deal_image {
   margin-right: 5px;
   -moz-box-shadow: 0 1px 1px black;
@@ -4136,7 +4134,7 @@ form textarea:focus, form input:focus {
   clear: left;
   margin-bottom: 10px;
 }
-/* line 2449, ../sass/screen.scss */
+/* line 2451, ../sass/screen.scss */
 .deal-view #btn_remove_deal {
   position: relative;
   font-size: 15px;
@@ -4144,20 +4142,20 @@ form textarea:focus, form input:focus {
   padding: 8px;
   margin: 8px 0px;
 }
-/* line 2457, ../sass/screen.scss */
+/* line 2459, ../sass/screen.scss */
 .deal-view .deal-info {
   width: 100%;
   margin-top: 5px;
 }
-/* line 2462, ../sass/screen.scss */
+/* line 2464, ../sass/screen.scss */
 .deal-view .deal-times {
   clear: both;
 }
-/* line 2466, ../sass/screen.scss */
+/* line 2468, ../sass/screen.scss */
 .deal-view #deal_title {
   font-size: 20px;
 }
-/* line 2470, ../sass/screen.scss */
+/* line 2472, ../sass/screen.scss */
 .deal-view h2 {
   font-size: 18px;
   font-weight: bold;
@@ -4165,31 +4163,31 @@ form textarea:focus, form input:focus {
   clear: right;
   text-shadow: 0 1px 1px white;
 }
-/* line 2478, ../sass/screen.scss */
+/* line 2480, ../sass/screen.scss */
 .deal-view h3 {
   clear: right;
   font-size: 14px;
   font-weight: bold;
   font-family: "Helvetica";
 }
-/* line 2485, ../sass/screen.scss */
+/* line 2487, ../sass/screen.scss */
 .deal-view #sold-out {
   font-size: 30px;
   color: red;
   text-align: center;
   margin-top: 15px;
 }
-/* line 2492, ../sass/screen.scss */
+/* line 2494, ../sass/screen.scss */
 .deal-view .deal-price {
   margin-bottom: 8px;
 }
-/* line 2496, ../sass/screen.scss */
+/* line 2498, ../sass/screen.scss */
 .deal-view .price {
   font-size: 16px;
   text-shadow: 0 1px 1px white;
 }
 
-/* line 2502, ../sass/screen.scss */
+/* line 2504, ../sass/screen.scss */
 #feedback-window {
   position: relative;
   height: 100%;
@@ -4283,7 +4281,7 @@ form textarea:focus, form input:focus {
   color: #bfbfbf;
   text-shadow: 0 0 1px white;
 }
-/* line 2512, ../sass/screen.scss */
+/* line 2514, ../sass/screen.scss */
 #feedback-window #feedback-messages {
   position: absolute;
   top: 0px;
@@ -4305,19 +4303,19 @@ form textarea:focus, form input:focus {
   overflow-y: auto;
   padding: 10px 0px;
 }
-/* line 2520, ../sass/screen.scss */
+/* line 2522, ../sass/screen.scss */
 #feedback-window #feedback-messages.focused {
   bottom: 90px;
 }
-/* line 2521, ../sass/screen.scss */
+/* line 2523, ../sass/screen.scss */
 #feedback-window #feedback-messages .sent {
   float: left;
 }
-/* line 2522, ../sass/screen.scss */
+/* line 2524, ../sass/screen.scss */
 #feedback-window #feedback-messages .response {
   float: right;
 }
-/* line 2524, ../sass/screen.scss */
+/* line 2526, ../sass/screen.scss */
 #feedback-window #feedback-text {
   position: absolute;
   bottom: 0px;
@@ -4351,19 +4349,19 @@ form textarea:focus, form input:focus {
   -o-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-/* line 2545, ../sass/screen.scss */
+/* line 2547, ../sass/screen.scss */
 #feedback-window #feedback-text.focused {
   height: 80px;
 }
-/* line 2546, ../sass/screen.scss */
+/* line 2548, ../sass/screen.scss */
 #feedback-window #feedback-text.focused textarea {
   background: white;
 }
-/* line 2548, ../sass/screen.scss */
+/* line 2550, ../sass/screen.scss */
 #feedback-window #feedback-text form {
   height: 100%;
 }
-/* line 2549, ../sass/screen.scss */
+/* line 2551, ../sass/screen.scss */
 #feedback-window #feedback-text textarea {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -4377,7 +4375,7 @@ form textarea:focus, form input:focus {
   float: left;
   margin: 0px;
 }
-/* line 2559, ../sass/screen.scss */
+/* line 2561, ../sass/screen.scss */
 #feedback-window #feedback-text #feedback-send-btn {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -4393,12 +4391,12 @@ form textarea:focus, form input:focus {
   line-height: 0px;
   border-radius: 8px;
 }
-/* line 2569, ../sass/screen.scss */
+/* line 2571, ../sass/screen.scss */
 #feedback-window #feedback-text #feedback-send-btn img {
   height: 15px;
   line-height: 100%;
 }
-/* line 2572, ../sass/screen.scss */
+/* line 2574, ../sass/screen.scss */
 #feedback-window #feedback-text #feedback-send-btn:after {
   display: block;
   width: 100%;
@@ -4408,20 +4406,20 @@ form textarea:focus, form input:focus {
   background: url("i/enter_arrow.png") no-repeat center center;
   background-size: 18px;
 }
-/* line 2584, ../sass/screen.scss */
+/* line 2586, ../sass/screen.scss */
 #feedback-window .timeshow {
   padding: 3px;
   font-size: 10px;
   color: grey;
   font-style: italic;
 }
-/* line 2590, ../sass/screen.scss */
+/* line 2592, ../sass/screen.scss */
 #feedback-window .message {
   width: 85%;
   padding: 4px;
   box-shadow: 0 0 2px black;
 }
-/* line 2595, ../sass/screen.scss */
+/* line 2597, ../sass/screen.scss */
 #feedback-window .message.response {
   margin-top: 12px;
   margin-right: 15px;
@@ -4446,7 +4444,7 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, #ffffff 0%, #e0e0e0 100%);
   background-image: linear-gradient(top, #ffffff 0%, #e0e0e0 100%);
 }
-/* line 2605, ../sass/screen.scss */
+/* line 2607, ../sass/screen.scss */
 #feedback-window .message.sent {
   margin-top: 12px;
   text-align: left;
@@ -4472,7 +4470,7 @@ form textarea:focus, form input:focus {
   background-image: linear-gradient(top, #d7edaa 0%, #a5d147 100%);
 }
 
-/* line 2617, ../sass/screen.scss */
+/* line 2619, ../sass/screen.scss */
 .text-bubbles .bubble {
   width: 255px;
   min-height: 36px;
@@ -4492,7 +4490,7 @@ form textarea:focus, form input:focus {
   z-index: 8;
   text-shadow: 1px 1px rgba(255, 255, 255, 0.3);
 }
-/* line 2628, ../sass/screen.scss */
+/* line 2630, ../sass/screen.scss */
 .text-bubbles .bubble:after {
   content: '';
   border-left: 1px solid rgba(0, 0, 0, 0.25);
@@ -4501,7 +4499,7 @@ form textarea:focus, form input:focus {
   height: 13px;
   width: 13px;
 }
-/* line 2636, ../sass/screen.scss */
+/* line 2638, ../sass/screen.scss */
 .text-bubbles .bubble:before {
   padding: 0 10px 0 11px;
   content: '';
@@ -4538,11 +4536,11 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2));
   background-image: linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2));
 }
-/* line 2650, ../sass/screen.scss */
+/* line 2652, ../sass/screen.scss */
 .text-bubbles .bubble.left {
   margin: 0 0 10px 20px;
 }
-/* line 2652, ../sass/screen.scss */
+/* line 2654, ../sass/screen.scss */
 .text-bubbles .bubble.left:after {
   left: -8px;
   bottom: 20px;
@@ -4552,15 +4550,15 @@ form textarea:focus, form input:focus {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-/* line 2657, ../sass/screen.scss */
+/* line 2659, ../sass/screen.scss */
 .text-bubbles .bubble.left .avatar {
   left: -50px;
 }
-/* line 2659, ../sass/screen.scss */
+/* line 2661, ../sass/screen.scss */
 .text-bubbles .bubble.right {
   margin: 0 20px 10px 0;
 }
-/* line 2661, ../sass/screen.scss */
+/* line 2663, ../sass/screen.scss */
 .text-bubbles .bubble.right:after {
   right: -8px;
   bottom: 20px;
@@ -4570,24 +4568,24 @@ form textarea:focus, form input:focus {
   -ms-transform: rotate(225deg);
   transform: rotate(225deg);
 }
-/* line 2666, ../sass/screen.scss */
+/* line 2668, ../sass/screen.scss */
 .text-bubbles .bubble.right .avatar {
   right: -50px;
 }
-/* line 2668, ../sass/screen.scss */
+/* line 2670, ../sass/screen.scss */
 .text-bubbles .bubble .avatar {
   position: absolute;
   width: 32px;
   height: 32px;
   bottom: 12px;
 }
-/* line 2673, ../sass/screen.scss */
+/* line 2675, ../sass/screen.scss */
 .text-bubbles .bubble .avatar img {
   width: 32px;
   height: 32px;
   border: none;
 }
-/* line 2679, ../sass/screen.scss */
+/* line 2681, ../sass/screen.scss */
 .text-bubbles .bubble small {
   display: block;
   margin: 11px 0 0 0;
@@ -4595,36 +4593,36 @@ form textarea:focus, form input:focus {
   color: rgba(0, 0, 0, 0.3);
   font-size: 0.8em;
 }
-/* line 2687, ../sass/screen.scss */
+/* line 2689, ../sass/screen.scss */
 .text-bubbles .bubble.white, .text-bubbles .bubble.white:after {
   background: #ddd;
 }
-/* line 2688, ../sass/screen.scss */
+/* line 2690, ../sass/screen.scss */
 .text-bubbles .bubble.green, .text-bubbles .bubble.green:after {
   background: #9ADB5C;
 }
-/* line 2689, ../sass/screen.scss */
+/* line 2691, ../sass/screen.scss */
 .text-bubbles .bubble.blue, .text-bubbles .bubble.blue:after {
   background: #75BAEB;
 }
-/* line 2690, ../sass/screen.scss */
+/* line 2692, ../sass/screen.scss */
 .text-bubbles .bubble.slate, .text-bubbles .bubble.slate:after {
   background: #BECFCD;
 }
-/* line 2691, ../sass/screen.scss */
+/* line 2693, ../sass/screen.scss */
 .text-bubbles .bubble.orange, .text-bubbles .bubble.orange:after {
   background: #fc9e51;
 }
-/* line 2692, ../sass/screen.scss */
+/* line 2694, ../sass/screen.scss */
 .text-bubbles .bubble.yellow, .text-bubbles .bubble.yellow:after {
   background: #fde288;
 }
-/* line 2693, ../sass/screen.scss */
+/* line 2695, ../sass/screen.scss */
 .text-bubbles .bubble.pink, .text-bubbles .bubble.pink:after {
   background: #fb89df;
 }
 
-/* line 2698, ../sass/screen.scss */
+/* line 2700, ../sass/screen.scss */
 #view-deals .list-item {
   padding: 0px;
   margin: 0px 1px;
@@ -4639,39 +4637,39 @@ form textarea:focus, form input:focus {
   background: -ms-linear-gradient(#fdfdfd, #eeeeee);
   background: linear-gradient(#fdfdfd, #eeeeee);
 }
-/* line 2701, ../sass/screen.scss */
+/* line 2703, ../sass/screen.scss */
 #view-deals .list-item img {
   height: 75px;
   float: left;
   margin: 0px;
 }
-/* line 2702, ../sass/screen.scss */
+/* line 2704, ../sass/screen.scss */
 #view-deals .list-item .details {
   float: left;
   padding: 5px 5px 0px 5px;
   width: 210px;
 }
-/* line 2703, ../sass/screen.scss */
+/* line 2705, ../sass/screen.scss */
 #view-deals .list-item .prices {
   margin-top: 0px;
 }
-/* line 2704, ../sass/screen.scss */
+/* line 2706, ../sass/screen.scss */
 #view-deals .list-item h2 {
   color: #2F3E46;
 }
-/* line 2706, ../sass/screen.scss */
+/* line 2708, ../sass/screen.scss */
 #view-deals .list-item span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 2707, ../sass/screen.scss */
+/* line 2709, ../sass/screen.scss */
 #view-deals .list-item span em {
   font-size: 14px;
   color: #545454;
 }
-/* line 2714, ../sass/screen.scss */
+/* line 2716, ../sass/screen.scss */
 #view-deals .list-item:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -4685,43 +4683,43 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
-/* line 2720, ../sass/screen.scss */
+/* line 2722, ../sass/screen.scss */
 #view-deals h1 {
   padding: 10px 5px;
   font-size: 18px;
   font-weight: normal;
 }
-/* line 2721, ../sass/screen.scss */
+/* line 2723, ../sass/screen.scss */
 #view-deals hr {
   margin: 15px auto;
   width: 80%;
 }
 
-/* line 2726, ../sass/screen.scss */
+/* line 2728, ../sass/screen.scss */
 #edit_shop #opening-times {
   margin-left: 10px;
 }
-/* line 2728, ../sass/screen.scss */
+/* line 2730, ../sass/screen.scss */
 #edit_shop #opening-times .notice {
   color: #858585;
   padding: 5px;
 }
-/* line 2729, ../sass/screen.scss */
+/* line 2731, ../sass/screen.scss */
 #edit_shop #opening-times ul {
   list-style-type: none;
   float: left;
 }
-/* line 2730, ../sass/screen.scss */
+/* line 2732, ../sass/screen.scss */
 #edit_shop #opening-times li {
   padding: 5px;
   text-align: left;
 }
-/* line 2732, ../sass/screen.scss */
+/* line 2734, ../sass/screen.scss */
 #edit_shop #opening-times li span.day {
   width: 40px;
   display: inline-block;
 }
-/* line 2733, ../sass/screen.scss */
+/* line 2735, ../sass/screen.scss */
 #edit_shop #opening-times li span.data {
   position: relative;
   display: none;
@@ -4729,14 +4727,14 @@ form textarea:focus, form input:focus {
   margin: 0;
   padding: 0;
 }
-/* line 2735, ../sass/screen.scss */
+/* line 2737, ../sass/screen.scss */
 #edit_shop #opening-times li span.data label {
   width: 20px;
   font-size: 11px;
   text-align: right;
   color: #858585;
 }
-/* line 2736, ../sass/screen.scss */
+/* line 2738, ../sass/screen.scss */
 #edit_shop #opening-times li span.data input {
   width: 40px;
   margin-right: 5px;
@@ -4744,38 +4742,38 @@ form textarea:focus, form input:focus {
   display: inline;
   text-align: right;
 }
-/* line 2738, ../sass/screen.scss */
+/* line 2740, ../sass/screen.scss */
 #edit_shop #opening-times li span.closed {
   color: #858585;
   font-size: 12px;
   display: inline;
 }
-/* line 2740, ../sass/screen.scss */
+/* line 2742, ../sass/screen.scss */
 #edit_shop #opening-times li.selected span.data {
   display: inline-block;
 }
-/* line 2741, ../sass/screen.scss */
+/* line 2743, ../sass/screen.scss */
 #edit_shop #opening-times li.selected span.closed {
   display: none;
 }
-/* line 2746, ../sass/screen.scss */
+/* line 2748, ../sass/screen.scss */
 #edit_shop #opening-times.edit li span.data {
   display: inline-block;
 }
 
-/* line 2751, ../sass/screen.scss */
+/* line 2753, ../sass/screen.scss */
 #start_deal {
   color: #000;
   width: 600px;
   margin: 0px 20%;
 }
-/* line 2755, ../sass/screen.scss */
+/* line 2757, ../sass/screen.scss */
 #start_deal .head {
   font-size: 32px;
   text-align: left;
   margin: 20px 0px;
 }
-/* line 2760, ../sass/screen.scss */
+/* line 2762, ../sass/screen.scss */
 #start_deal .block {
   clear: both;
   position: relative;
@@ -4791,7 +4789,7 @@ form textarea:focus, form input:focus {
   margin: 10px 3px;
   opacity: 0.92;
 }
-/* line 2768, ../sass/screen.scss */
+/* line 2770, ../sass/screen.scss */
 #start_deal .block.noOne {
   background-color: #e8e8e8 url("i/first.png") no-repeat top left;
   *zoom: 1;
@@ -4807,7 +4805,7 @@ form textarea:focus, form input:focus {
   margin-bottom: 0px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
-/* line 2776, ../sass/screen.scss */
+/* line 2778, ../sass/screen.scss */
 #start_deal .block.noTwo {
   background-color: #e8e8e8 url("i/first.png") no-repeat top left;
   *zoom: 1;
@@ -4824,11 +4822,11 @@ form textarea:focus, form input:focus {
   height: 90px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
 }
-/* line 2784, ../sass/screen.scss */
+/* line 2786, ../sass/screen.scss */
 #start_deal .block.noThree {
   background: white url("i/third.png") no-repeat top left;
 }
-/* line 2787, ../sass/screen.scss */
+/* line 2789, ../sass/screen.scss */
 #start_deal .label {
   width: 200px;
   float: left;
@@ -4836,21 +4834,21 @@ form textarea:focus, form input:focus {
   padding: 30px 0px 30px 20px;
   text-shadow: 1px 1px 1px white;
 }
-/* line 2788, ../sass/screen.scss */
+/* line 2790, ../sass/screen.scss */
 #start_deal .data {
   float: right;
   min-width: 320px;
   width: auto !important;
   width: 320px;
 }
-/* line 2790, ../sass/screen.scss */
+/* line 2792, ../sass/screen.scss */
 #start_deal .select_template {
   padding: 10px;
   margin: 20px 10px;
   font-size: 16px;
   float: right;
 }
-/* line 2791, ../sass/screen.scss */
+/* line 2793, ../sass/screen.scss */
 #start_deal #selected_template_area {
   padding: 0px;
   margin: 10px;
@@ -4863,16 +4861,16 @@ form textarea:focus, form input:focus {
   -khtml-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 2793, ../sass/screen.scss */
+/* line 2795, ../sass/screen.scss */
 #start_deal .set_time .label {
   width: auto;
 }
-/* line 2794, ../sass/screen.scss */
+/* line 2796, ../sass/screen.scss */
 #start_deal .set_time .field {
   margin: 5px 15px;
   float: left;
 }
-/* line 2796, ../sass/screen.scss */
+/* line 2798, ../sass/screen.scss */
 #start_deal .set_time .field .sublabel {
   color: #333;
   font-size: 16px;
@@ -4880,12 +4878,12 @@ form textarea:focus, form input:focus {
   clear: both;
   margin: 0px 0px 5px 0px;
 }
-/* line 2797, ../sass/screen.scss */
+/* line 2799, ../sass/screen.scss */
 #start_deal .set_time .field .subdata {
   float: right;
   clear: both;
 }
-/* line 2798, ../sass/screen.scss */
+/* line 2800, ../sass/screen.scss */
 #start_deal .set_time .field .subdata input {
   width: 160px;
   font-family: "Helvetica";
@@ -4905,7 +4903,7 @@ form textarea:focus, form input:focus {
   -o-box-shadow: inset 0 0 3px black;
   box-shadow: inset 0 0 3px black;
 }
-/* line 2806, ../sass/screen.scss */
+/* line 2808, ../sass/screen.scss */
 #start_deal .set_time .field .subdata input:focus {
   border: 1px solid #888;
   -moz-box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
@@ -4913,28 +4911,28 @@ form textarea:focus, form input:focus {
   -o-box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
   box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
 }
-/* line 2812, ../sass/screen.scss */
+/* line 2814, ../sass/screen.scss */
 #start_deal .set_time .show_hours {
   margin: 15px 20px 5px 20px;
 }
-/* line 2814, ../sass/screen.scss */
+/* line 2816, ../sass/screen.scss */
 #start_deal .set_time .show_hours .hours {
   font-size: 40px;
   text-align: center;
   color: black;
   text-shadow: 1px 1px 1px white;
 }
-/* line 2815, ../sass/screen.scss */
+/* line 2817, ../sass/screen.scss */
 #start_deal .set_time .show_hours .sublabel {
   color: black;
   text-align: center;
 }
-/* line 2818, ../sass/screen.scss */
+/* line 2820, ../sass/screen.scss */
 #start_deal .starter {
   width: 62%;
   margin: 20px auto;
 }
-/* line 2819, ../sass/screen.scss */
+/* line 2821, ../sass/screen.scss */
 #start_deal .start_deal_btn {
   padding: 10px 20px;
   font-size: 24px;
@@ -4943,7 +4941,7 @@ form textarea:focus, form input:focus {
   display: block;
   position: relative;
 }
-/* line 2821, ../sass/screen.scss */
+/* line 2823, ../sass/screen.scss */
 #start_deal .start_deal_btn.disabled {
   -moz-transition-property: none;
   -webkit-transition-property: none;
@@ -4953,21 +4951,21 @@ form textarea:focus, form input:focus {
   background-size: auto;
 }
 
-/* line 2830, ../sass/screen.scss */
+/* line 2832, ../sass/screen.scss */
 div.ui-datepicker {
   font-size: 12px;
 }
 
-/* line 2832, ../sass/screen.scss */
+/* line 2834, ../sass/screen.scss */
 .template-selector {
   height: 100%;
 }
-/* line 2834, ../sass/screen.scss */
+/* line 2836, ../sass/screen.scss */
 .template-selector .template-selected {
   padding: 5px;
   font-size: 18px;
 }
-/* line 2835, ../sass/screen.scss */
+/* line 2837, ../sass/screen.scss */
 .template-selector .template-list {
   overflow-y: auto;
   margin: 0px;
@@ -4975,7 +4973,7 @@ div.ui-datepicker {
   width: 100%;
 }
 
-/* line 2838, ../sass/screen.scss */
+/* line 2840, ../sass/screen.scss */
 .template-selector .list-item, #selected_template_area .list-item {
   border-radius: inherit;
   height: 68px;
@@ -4996,30 +4994,30 @@ div.ui-datepicker {
   background: -ms-linear-gradient(#fdfdfd, #eeeeee);
   background: linear-gradient(#fdfdfd, #eeeeee);
 }
-/* line 2847, ../sass/screen.scss */
+/* line 2849, ../sass/screen.scss */
 .template-selector .list-item img, #selected_template_area .list-item img {
   width: 50px;
   float: left;
   margin: 9px;
 }
-/* line 2849, ../sass/screen.scss */
+/* line 2851, ../sass/screen.scss */
 .template-selector .list-item .details, #selected_template_area .list-item .details {
   float: left;
   padding: 10px 5px;
   width: 210px;
 }
-/* line 2850, ../sass/screen.scss */
+/* line 2852, ../sass/screen.scss */
 .template-selector .list-item h2, #selected_template_area .list-item h2 {
   color: #2F3E46;
 }
-/* line 2851, ../sass/screen.scss */
+/* line 2853, ../sass/screen.scss */
 .template-selector .list-item span, #selected_template_area .list-item span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 2857, ../sass/screen.scss */
+/* line 2859, ../sass/screen.scss */
 .template-selector .list-item:hover, #selected_template_area .list-item:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -5033,52 +5031,52 @@ div.ui-datepicker {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
-/* line 2862, ../sass/screen.scss */
+/* line 2864, ../sass/screen.scss */
 .template-selector .list-item.selected, #selected_template_area .list-item.selected {
   background: #e1e1e1;
   cursor: default;
 }
-/* line 2863, ../sass/screen.scss */
+/* line 2865, ../sass/screen.scss */
 .template-selector .list-item.selected:hover, #selected_template_area .list-item.selected:hover {
   background: #e1e1e1;
 }
 
-/* line 2867, ../sass/screen.scss */
+/* line 2869, ../sass/screen.scss */
 .jcrop-holder {
   text-align: left;
 }
 
-/* line 2868, ../sass/screen.scss */
+/* line 2870, ../sass/screen.scss */
 .jcrop-vline, .jcrop-hline {
   font-size: 0px;
   position: absolute;
   background: white url("i/Jcrop.gif") top left repeat;
 }
 
-/* line 2869, ../sass/screen.scss */
+/* line 2871, ../sass/screen.scss */
 .jcrop-vline {
   height: 100%;
   width: 1px !important;
 }
 
-/* line 2870, ../sass/screen.scss */
+/* line 2872, ../sass/screen.scss */
 .jcrop-hline {
   width: 100%;
   height: 1px !important;
 }
 
-/* line 2871, ../sass/screen.scss */
+/* line 2873, ../sass/screen.scss */
 .jcrop-vline.right {
   right: 0px;
   margin: 0px;
 }
 
-/* line 2872, ../sass/screen.scss */
+/* line 2874, ../sass/screen.scss */
 .jcrop-hline.bottom {
   bottom: 0px;
 }
 
-/* line 2873, ../sass/screen.scss */
+/* line 2875, ../sass/screen.scss */
 .jcrop-handle {
   font-size: 1px;
   width: 7px !important;
@@ -5087,18 +5085,18 @@ div.ui-datepicker {
   background-color: #333;
 }
 
-/* line 2880, ../sass/screen.scss */
+/* line 2882, ../sass/screen.scss */
 .jcrop-tracker {
   width: 100%;
   height: 100%;
 }
 
-/* line 2881, ../sass/screen.scss */
+/* line 2883, ../sass/screen.scss */
 .custom .jcrop-vline, .custom .jcrop-hline {
   background: yellow;
 }
 
-/* line 2882, ../sass/screen.scss */
+/* line 2884, ../sass/screen.scss */
 .custom .jcrop-handle {
   border-color: black;
   background-color: #C7BB00;
@@ -5110,20 +5108,20 @@ div.ui-datepicker {
   border-radius: 3px;
 }
 
-/* line 2888, ../sass/screen.scss */
+/* line 2890, ../sass/screen.scss */
 #notifications {
   position: fixed;
   top: 50px;
   right: 0;
   z-index: 15;
 }
-/* line 2894, ../sass/screen.scss */
+/* line 2896, ../sass/screen.scss */
 #notifications .meow {
   margin: 20px 20px 0 0;
   position: relative;
   cursor: pointer;
 }
-/* line 2898, ../sass/screen.scss */
+/* line 2900, ../sass/screen.scss */
 #notifications .meow .inner {
   background: #191919;
   zoom: 1;
@@ -5145,7 +5143,7 @@ div.ui-datepicker {
   width: 250px;
   min-height: 48px;
 }
-/* line 2914, ../sass/screen.scss */
+/* line 2916, ../sass/screen.scss */
 #notifications .meow .inner:after {
   content: "\0200";
   display: block;
@@ -5154,7 +5152,7 @@ div.ui-datepicker {
   line-height: 0;
   height: 0;
 }
-/* line 2922, ../sass/screen.scss */
+/* line 2924, ../sass/screen.scss */
 #notifications .meow .inner h1 {
   font-size: 14px;
   font-weight: bold;
@@ -5162,27 +5160,27 @@ div.ui-datepicker {
   padding: 0;
   line-height: 1;
 }
-/* line 2929, ../sass/screen.scss */
+/* line 2931, ../sass/screen.scss */
 #notifications .meow .inner .icon {
   width: 48px;
   height: 48px;
   float: left;
   margin-right: 6px;
 }
-/* line 2934, ../sass/screen.scss */
+/* line 2936, ../sass/screen.scss */
 #notifications .meow .inner .icon img {
   max-width: 48px;
   max-height: 48px;
 }
-/* line 2936, ../sass/screen.scss */
+/* line 2938, ../sass/screen.scss */
 #notifications .meow .inner .close {
   display: none;
 }
-/* line 2938, ../sass/screen.scss */
+/* line 2940, ../sass/screen.scss */
 #notifications .meow.hover .inner {
   border: 2px solid #fff;
 }
-/* line 2940, ../sass/screen.scss */
+/* line 2942, ../sass/screen.scss */
 #notifications .meow.hover .inner .close {
   display: block;
   position: absolute;
@@ -5209,13 +5207,13 @@ div.ui-datepicker {
   text-decoration: none;
 }
 
-/* line 2968, ../sass/screen.scss */
+/* line 2970, ../sass/screen.scss */
 .bubble_message #container {
   width: 500px;
   padding: 0 0 50px;
   margin: 0 auto;
 }
-/* line 2974, ../sass/screen.scss */
+/* line 2976, ../sass/screen.scss */
 .bubble_message h1 {
   margin: 1em 0 0;
   font-size: 2.5em;
@@ -5223,7 +5221,7 @@ div.ui-datepicker {
   line-height: 1.2;
   text-align: center;
 }
-/* line 2982, ../sass/screen.scss */
+/* line 2984, ../sass/screen.scss */
 .bubble_message h2 {
   margin: 0.5em 0 1.5em;
   font-size: 1.25em;
@@ -5231,11 +5229,11 @@ div.ui-datepicker {
   font-style: italic;
   text-align: center;
 }
-/* line 2990, ../sass/screen.scss */
+/* line 2992, ../sass/screen.scss */
 .bubble_message p {
   margin: 1em 0;
 }
-/* line 2994, ../sass/screen.scss */
+/* line 2996, ../sass/screen.scss */
 .bubble_message .content h2 {
   margin: 2em 0 0.75em;
   font-size: 2em;
@@ -5243,26 +5241,26 @@ div.ui-datepicker {
   font-style: normal;
   text-align: left;
 }
-/* line 3002, ../sass/screen.scss */
+/* line 3004, ../sass/screen.scss */
 .bubble_message blockquote {
   margin: 1em 0;
 }
-/* line 3006, ../sass/screen.scss */
+/* line 3008, ../sass/screen.scss */
 .bubble_message blockquote p {
   margin: 0;
   font-size: 2em;
 }
-/* line 3011, ../sass/screen.scss */
+/* line 3013, ../sass/screen.scss */
 .bubble_message .follow {
   clear: both;
   margin-top: 2em;
   font-size: 1.125em;
 }
-/* line 3017, ../sass/screen.scss */
+/* line 3019, ../sass/screen.scss */
 .bubble_message .follow span {
   font-weight: bold;
 }
-/* line 3022, ../sass/screen.scss */
+/* line 3024, ../sass/screen.scss */
 .bubble_message.msg {
   position: absolute;
   top: -224px;
@@ -5283,12 +5281,12 @@ div.ui-datepicker {
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 3040, ../sass/screen.scss */
+/* line 3042, ../sass/screen.scss */
 .bubble_message.msg p {
   font-size: 28px;
   line-height: 1.25em;
 }
-/* line 3042, ../sass/screen.scss */
+/* line 3044, ../sass/screen.scss */
 .bubble_message .msg:before {
   content: url(twitter-logo.gif);
   position: absolute;
@@ -5299,7 +5297,7 @@ div.ui-datepicker {
   /* reduce the damage in FF3.0 */
   display: block;
 }
-/* line 3053, ../sass/screen.scss */
+/* line 3055, ../sass/screen.scss */
 .bubble_message.msg:after {
   content: "";
   position: absolute;
@@ -5310,7 +5308,7 @@ div.ui-datepicker {
   display: block;
   width: 0;
 }
-/* line 3063, ../sass/screen.scss */
+/* line 3065, ../sass/screen.scss */
 .bubble_message.msg + p {
   padding-left: 15px;
   font: 14px Arial, sans-serif;
