@@ -7,7 +7,7 @@
 					<div style="width: 500px; height:350px; background-color: white; position: absolute; left: 50%; margin-left: -250px; display: none; z-index: 0; margin-top: -30px; border-radius: 8px; box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);" id="register_background"></div>
 					<div style="z-index: 50;">
 					    <div style="z-index: 100; background: url('./styles/stylesheets/i/quickd-logo-185x47.png'); width: 185px; height: 47px; position: relative; left: 50%; margin-left: -93px"></div>
-					    <div class="login_fields" id="login_fields" style="position: absolute;margin-left: -203px; <%=view=='login'? 'left: 50%;': 'left:-50%;display:none;'%>">
+					    <div class="login_fields" id="login_fields" style="position: absolute;margin-left: -203px; <%=view=='login'? 'left: 50%;': 'left:-50%;display:none;'%>; height: 200px;">
 					   	  		<h1>Forhandleradgang</h1>
 						        <div id="shadow-wrapper">
 							        <div class="field">
@@ -22,6 +22,7 @@
 							        </div>
 							      </div>
 						        <div class="login_button" id="login_button"></div>
+						        <div id="stay_signed_in"><input id="stay_signed_in_check" type="checkbox"><label for="stay_signed_in_check">Forbliv logget ind</label></div>
 					    </div>
 					    <div id="registrer" style="<%=view=='register'? 'right:50%;' : 'display:none;right:-50%;'%>position: absolute;margin-right:-224px;">
 						    <div style="z-index: 100; margin-top: 20px;"><h1>Registrer forretning</h1></div>
