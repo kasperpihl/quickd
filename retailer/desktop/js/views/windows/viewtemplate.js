@@ -30,8 +30,8 @@ define([
 			_events['click '+windowId+' input:not(:button).readonly, textarea.readonly']= 'editTemplate';
 			_events['click '+windowId+' #btn_select_image, '+windowId+' #image-field']= 'openSelectImage';
 			_events['click '+windowId+' #btn_del_template']= 'delTemplate';
-			_events['blur '+windowId+' #orig_price']= 'priceChanged';
-			_events['keyup '+windowId+' #deal_price']= 'priceChanged';
+			//_events['blur '+windowId+' #orig_price']= 'priceChanged';
+			_events['keyup '+windowId+' #deal_price, '+windowId+' #orig_price']= 'priceChanged';
 			_events['click '+windowId+' .category']= 'categoryChanged';
 			return _events;
 		},
@@ -153,9 +153,10 @@ define([
 			return false;
 		},
 		priceChanged: function() {
+			if (this.form) this.form.valid();
 			var orig = $('#orig_price').val();
 			var deal = $('#deal_price').val();
-			calcDiscount(orig, deal, '#discount-amount');
+			calcDiscount(orig, deal, '#discount-field');
 		},
 		delTemplate:function(){
 			var confirmer = new App.views.dialogs.PromtDialog({router:this.router, type: 'confirm', callbackCid:this.cid, title:'Er du sikker på, du ønsker at slette denne skabelon?', confirmText:'Slet'});	

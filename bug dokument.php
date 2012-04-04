@@ -6,25 +6,16 @@ Start-deal database-error (?)
 
 Slet billede
 
-Send godkendelses mails til admins (ved oprettelser)
-
 Meld udsolgt deal på forhandler mobil app
 
 Notifications - bedre beskeder - skal ikke stå venter på godkendelse, hvis den ikke skal godkendes f.eks.
 
 Gennemtest billede-upload
 
-Vis rabat ved oprettelse af templates
-
-
-
 Tilføj betingelser i dialogboks
 
 Redigering af brugerindstillinger virker ikke.
-	Hvad skal de indeholde?
-
-(Jeppe) Internet explorer
-
+	Password
 
 =====================================
 Lav prioritet
@@ -33,6 +24,12 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Vis rabat ved oprettelse af templates
+
+(rettet Kasper) Send godkendelses mails til admins (ved oprettelser)
+
+(rettet Jeppe) Internet explorer
 
 (rettet Jeppe) Kan ikke oprette dealer, når bruger allerede er oprettet via signup
 
@@ -112,6 +109,3 @@ Lav prioritet
 
 
 (rettet Jeppe) deals vinduet skal virke med routeren
-
-
-test

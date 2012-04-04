@@ -57,28 +57,30 @@
    	     <input type="hidden" name="img_src" id="img_src" value="" />
     	</div>
     </div>
-    
-	<div class="field top">
-	<!--<div class="prices">-->
-		<div class="inputs">
-	        <div class="field neutral">
-	            <div class="label">Førpris:</div>
-	            <div class="data">kr.
-	                <input type="text" id="orig_price" name="orig_price" value="<%= data.model.orig_price %>" oldValue="<%= data.model.orig_price %>" class="big readonly" readonly /></div>
-	            <div class="clearline"></div>
-	        </div>
-	    </div>
-	 </div>
-	 <div class="field bottom">
-	        <div class="field neutral">
-	            <div class="label">Dealpris:</div>
-	            <div class="data">kr.
-	            	<input type="text" name="deal_price" id="deal_price" value="<%= data.model.deal_price %>" oldValue="<%= data.model.deal_price %>" class="big readonly" readonly /></div>
-	            <div class="clearline"></div>
-	        </div>
+  <div class="prices">  
+  	<div class="field top">
+      <div class="label">Normalpris:</div>
+      <div class="data">kr.
+          <input type="text" id="orig_price" name="orig_price" value="<%= data.model.orig_price %>" oldValue="<%= data.model.orig_price %>" class="big readonly" readonly />
+      </div>
+      <div class="clearline"></div>     
+  	</div>
+  	<div class="field middle">
+      <div class="label">Dealpris:</div>
+      <div class="data">kr.
+      	<input type="text" name="deal_price" id="deal_price" value="<%= data.model.deal_price %>" oldValue="<%= data.model.deal_price %>" class="big readonly" readonly /></div>
+      <div class="clearline"></div>
+  	</div>
+    <div class="field bottom">
+        <div class="label">Rabat:</div>
+        <div class="data discount" id="discount-field">
+         <%= Math.round((data.model.orig_price-data.model.deal_price)/data.model.orig_price *100) %>%
+        </div>
+        <div class="clearline"></div>
         <div id="prices-error" />
-	 	<div id="prices-toolTip" />
-	 </div>
+        <div id="prices-toolTip" />
+    </div>
+  </div>
    <% if (CATEGORIES) { %>
   	 <div class="field">
     	  	<div class="label long">Kategori</div>
