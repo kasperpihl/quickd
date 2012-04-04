@@ -206,7 +206,7 @@ try{
 		var feedbackObj = { id: index, type:'sent',rev:index,timestamp:timestamp,message:query.message};
 		doc.feedback.push(feedbackObj); 
 		addHistory(index,timestamp,'sent',index,1);
-		return [doc,msg({id:index,rev:index},true)];
+		return [doc,msg({id:index,rev:index,mail:'feedback'},true)];
 		
 	}";
 	$updates->addEditShop = 
@@ -259,7 +259,7 @@ try{
 			if(!doc.shops.hasOwnProperty(query.id)) return [null, msg('shop_doesnt_exist')];
 			var shop = doc.shops[query.id];
 			shop.rev = parseInt(shop.rev) +1;
-			if(query.hasOwnProperty('name')&&query.name != shop.name){
+			if(query.hasOwnProperty('name') && query.name != shop.name){
 				returnArr.approved = 'waiting';
 				returnArr.mail = 'editShop';
 				returnArr.rev = shop.rev;
@@ -340,7 +340,7 @@ try{
 			obj.deal_price = deal_price;
 			obj.rev = 1;
 			obj.approved = 'waiting';
-			returnArr = {id:index,approved:'waiting',created_at:timestamp,rev:1};
+			returnArr = {id:index,approved:'waiting',created_at:timestamp,rev:1,mail:'newTemplate'};
 			doc.templates[index] = obj;
 			addHistory(index,timestamp,'created',1,1);
 		}
@@ -370,6 +370,7 @@ try{
 			if(app){
 				returnArr.approved = 'waiting';
 				returnArr.message = false;
+				returnArr.mail = 'editTemplate';
 				temp.approved = 'waiting';
 				if(temp.hasOwnProperty('message')) temp.message = false;
 			}
@@ -590,6 +591,19 @@ try{
 					emit([doc._id,parseInt(i)],doc.history[i]);
 				}
 			}
+		}
+	}");
+	$views->getPassById = 
+	array('map'=>
+	"function (doc) {
+		if ( doc.type && doc.type == \"user\") {
+			if(doc.user.hasOwnProperty('md5_password')){
+				var obj = {};
+				obj.md5_password = doc.user.md5_password;
+				obj.privileges = doc.user.privileges;
+				emit(doc._id,obj);
+			}
+				
 		}
 	}");
 	$getTemplates = 

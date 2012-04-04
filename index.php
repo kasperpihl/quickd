@@ -1,3 +1,4 @@
+<?php print_r($_COOKIE); ?>
 <html>
 	<head>
 		<title>QuickD testside</title>

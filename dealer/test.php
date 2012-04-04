@@ -1,7 +1,20 @@
 <?php
 require_once('../config.php');
-print_r($_COOKIE);
-print_r(COOKIE_URL);
+//$doc = $db->key('kasper')->limit(1)->getView('dealer','getPassById');
+//print_r($doc);
+die();
+if(isset($_GET['v'])){
+	$expire=time()+60*60*24*30;
+	$bool = setcookie('normal',$_GET['v'],$expire,'/');
+	print_r($bool . ' cookie normal - time: '.time().' expire: '.$expire . ' URL: ' . COOKIE_URL . ' value: '.$_GET['v']);
+}
+else if(isset($_GET['a'])){
+	$expire=time()+60*60*24*30;
+	$bool = setcookie('ajax',$_GET['a'],$expire,'/',COOKIE_URL);
+	print_r($bool . ' cookie ajax - expire: '.$expire . ' URL: ' . COOKIE_URL . ' value: '.$_GET['v']);
+}
+else echo print_r($_COOKIE);
+
 //$update = 'testUpdate';
 
 /*$template = array('title'=>'Test 123','description'=>'test 456 ja tak','orig_price'=>100,'deal_price'=>75);

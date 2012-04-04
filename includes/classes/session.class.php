@@ -17,28 +17,33 @@ class Session {
 		return (isset($this->user_id,$this->privileges) && $this->privileges >= 5) ? $this->user_id : false;
 	}
 	
-	private function check_login($cookie=false){
+	private function check_login($cookie=true){
 		global $db;
 		unset($this->user_id);
 		unset($this->privileges);
+		$bool = false;
 		if( $user_id = $this->get('user_id')){
 			$this->user_id = $user_id;
+			$bool = true;
 		}
 		if( $privileges = $this->get('privileges')){
 			$this->privileges = $privileges;
 		}
-		if($cookie && isset($_COOKIE['md5string']) && $_COOKIE['md5string']){
+		if(!$bool && $cookie && isset($_COOKIE['md5string']) && $_COOKIE['md5string']){
 			$md5string = $_COOKIE['md5string'];
 			$array = explode('_-_',$md5string);
 			try{
 				if(!isset($array[0],$array[1])) return;
-				$doc = $db->getDoc($array[0]);
+				$doc = $db->key($array[0])->limit(1)->getView('dealer','getPassById');
+				$doc = $doc->rows;
+				if(empty($doc)) return;
+				$doc = $doc[0]->value;
 				if(!property_exists($doc,'md5_password')) return;
-				if($array[1] == md5($doc->user->md5_password . MD5_STRING))
-					$this->login($array[0],$doc->user->privileges);
+				if($array[1] == md5($doc->md5_password . MD5_STRING))
+					$this->login($array[0],$doc->privileges);
 			}
 			catch(Exception $e){
-			
+				return false;
 			}
 		}
 	}
@@ -49,7 +54,7 @@ class Session {
 		if($cookie){
 			$md5string = $id . '_-_' . md5($cookie . MD5_STRING);
 			$expire=time()+60*60*24*30;
-			setcookie('md5string',$md5string,$expire,'/',COOKIE_URL);
+			setcookie('md5string',$md5string,$expire,'/');
 		}
 	}
 	public function unsets($key){
@@ -63,14 +68,9 @@ class Session {
 		return false;
 	}
 	public function logout($type="all"){
-		if($type== 'all'){
-			unset($this->user_id,$this->admin_id,$this->dealer_id,$_SESSION['user_id'],$_SESSION['dealer_id'],$_SESSION['admin_id']);
-		}
-		else {
-			$type = $type.'_id';
-			unset($this->$type,$_SESSION[$type]);
-		}
-		
+		unset($this->user_id,$this->privileges,$_SESSION['user_id'],$_SESSION['privileges']);
+		$expire=time()-60*60*24*30;
+		setcookie('md5string','',$expire,'/');		
 	}
 }
 ?>
