@@ -1042,6 +1042,19 @@ body {
 	min-height:600px;
 	overflow:hidden;
 	
+	#stay_signed_in {
+		position: absolute;
+		bottom: 4px;
+		left: 138px;
+		@include text-shadow(0px 1px 1px white);
+		font-size: 14px;
+		color: rgba(0,0,0,0.7);
+
+		#stay_signed_in_check {
+			margin-right: 5px;
+		}
+	}
+
 	.header {
 
 		h1 {
