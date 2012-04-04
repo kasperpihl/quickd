@@ -36,10 +36,13 @@ try{
 	$updates->registerUser =
 	"function(doc,req){
 		".$msgFunc."
-		if(doc) return [null,msg('user_exists')];
 		var timestamp = parseInt(new Date().getTime()/1000);
 		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
 		var query = JSON.parse(req.query.json);
+
+		if (doc && doc.hasOwnProperty('user') && query.hasOwnProperty('edit_register') && query.edit_register) var user = doc.user;
+		else if (doc) return [null,msg('user_exists')];
+		else var user = {};
 		if(!query.hasOwnProperty('email') || !query.hasOwnProperty('password')) return [null, msg('email_and_password_must_be_specified')];
 		if(!query.hasOwnProperty('privileges')) return [null, msg('privileges_must_be_specified')];
 		var privileges = parseInt(query.privileges);
@@ -47,16 +50,15 @@ try{
 		
 		var historyArray = new Array();
 		historyArray.push({timestamp: timestamp,action:'created',type:'user','priority':2});
-		var user = {
-			email: query.email,
-			md5_password: query.password,
-			privileges: privileges
-		};
+
+		user.email= query.email;
+		user.md5_password= query.password;
+		user.privileges= privileges;
+		
 		if(query.hasOwnProperty('betacode')) user.betacode = query.betacode;
 		if(query.hasOwnProperty('hours')) user.hours = query.hours;
-		var obj = {_id: req.uuid, type:'user', user: user, history:historyArray};
-		
-		return [obj,msg({id:req.uuid},true)];
+		if (!doc) var doc = {_id: req.uuid, type:'user', user: user, history:historyArray};
+		return [doc,msg({id:req.uuid},true)];
 	}";
 	$updates->requestNewPassword =
 	"function(doc,req){
@@ -248,7 +250,7 @@ try{
 			obj.approved = 'waiting';
 			obj.rev = 1;
 			
-			returnArr = {id:index,approved:'waiting',rev: 1};
+			returnArr = {id:index,approved:'waiting',rev: 1,mail:'editShop'};
 			doc.shops[index] = obj;
 			addHistory(index,timestamp,'created',obj.rev,1);
 		}
@@ -259,6 +261,7 @@ try{
 			shop.rev = parseInt(shop.rev) +1;
 			if(query.hasOwnProperty('name')&&query.name != shop.name){
 				returnArr.approved = 'waiting';
+				returnArr.mail = 'editShop';
 				returnArr.rev = shop.rev;
 				doc.shops[query.id].approved = 'waiting';	
 			}
@@ -297,7 +300,7 @@ try{
 			doc.history.push(historyObj);
 		}
 		function testPrice(orig_price,deal_price){
-			if( ((orig_price - deal_price) / orig_price * 100) < 25 ) return false;
+			if( ((orig_price - deal_price) / orig_price * 100) < 20 ) return false;
 			return true;
 		}
 		var timestamp = parseInt(new Date().getTime()/1000);

@@ -9,11 +9,15 @@ class Shopowner {
 			if(($password && strlen($password) < 6) || (!$password && $type=='dealer')) return array('success'=>'false','error'=>'password_must_be_6_long');
 			$user = (object) json_decode(self::checkEmail($email));
 			if(!$email || $user->success=='true') {
+				
+				$privileges = $user->data->value->privileges;
+				$user_id = $user->data->id;
 				if ($type==='subscribe') {
-					$session->login($user->data->id,$user->data->value->privileges);
+					$session->login($user->data->id,$privileges);
 					return array('success'=>'true', 'data'=>$user);
+				} else if ($type==='dealer'&&$privileges>=2) {
+					return array('success'=>'false','error'=>'user_exists', 'data'=>$user);
 				}
-				return array('success'=>'false','error'=>'user_exists');
 			}
 			$update = 'registerUser';
 			if ($type==='dealer') {
@@ -31,7 +35,10 @@ class Shopowner {
 				$model['privileges'] = 1;
 			}
 			$model['password'] = $password?md5(MD5_STRING.$model['password']):'null';
-			$result = json_decode($db->updateDocFullAPI('dealer',$update,array('params'=>array('json'=>json_encode($model)))));
+			if ($user && $user_id) {
+				$model['edit_register'] = true;
+				$result = json_decode($db->updateDocFullAPI('dealer',$update,array('doc_id'=>$user_id, 'params'=>array('json'=>json_encode($model)))));
+			} else $result = json_decode($db->updateDocFullAPI('dealer',$update,array('params'=>array('json'=>json_encode($model)))));
 			
 			if($result->success == 'true'){
 				if ($type=='dealer') $result->data->hours = $model['hours'];
@@ -204,7 +211,7 @@ class Shopowner {
 		}
 		else return $results;
 	}
-	public static function login($model,$stuff=true){
+	public static function login($model,$stuff=true,$cookie=false){
 		if(!isset($model['email'],$model['password'])) return array('success'=>'false','error'=>'most_include_both_email_and_password');
 		$email = strtolower($model['email']);
 		$password = $model['password'];
@@ -218,8 +225,8 @@ class Shopowner {
 			$dealer->id = $id;
 			if (!isset($dealer->md5_password)||empty($dealer->md5_password) || $dealer->md5_password=='null' || $dealer->md5_password=='undefined') return array('success'=>'false','error'=>'pass_not_set');
 			if(md5(MD5_STRING.$password) != $dealer->md5_password) return array('success'=>'false','error'=>'wrong_pass');
+			$session->login($id,$dealer->privileges,($cookie ? $dealer->md5_password : false));
 			unset($dealer->md5_password);
-			$session->login($id,$dealer->privileges);
 			if($stuff){
 				$ownerStuff = self::get('all');
 				$ownerStuff = ($ownerStuff['success'] == 'true') ? $ownerStuff['results'] : '';

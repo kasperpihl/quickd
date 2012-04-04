@@ -1,11 +1,12 @@
 <?php
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
-
+$live = false;
 switch($root){
 	case 'test.quickd.com':
 	case '10.185.209.87':
 	case 'localhost':
+		define('COOKIE_URL','localhost');
 		$dbLink = 'quickd:testanders@77.66.53.58';
 		if(strpos($_SERVER['REQUEST_URI'], 'dealer/')) $string = 'dealer/';
 		
@@ -21,6 +22,8 @@ switch($root){
 		
 	break;
 	default:
+		define('COOKIE_URL','.quickd.dk');
+		$live = true;
 		$dbLink = 'quickd:ka2jae2n@localhost';
 		$arr = explode('/',$_SERVER['REQUEST_URI']);
 		if(isset($arr[1])){

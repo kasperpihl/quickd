@@ -20,7 +20,7 @@ require.config({
 		/* Plugins to require.js*/
 		text: LIBS_URL+'require/text',
 		order: LIBS_URL+'require/order',
-		
+		async: LIBS_URL+'require/async',
 		/* Main libraries */
 		jquery: LIBS_URL+'jquery',
 		underscore: LIBS_URL+'underscore',

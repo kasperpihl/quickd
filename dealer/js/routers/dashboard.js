@@ -246,13 +246,12 @@ define([
 						break;
 						default:
 							continue;
-						break;
 					}
 					if(model && (doc.rev > model.get('rev'))){
 						//log('fetched',doc.type,doc.id);
 						model.fetch({success:function(d,mod){ log('response fra fetch1',d,mod); },error:function(d,d2){ log(d,d2); }});
 						App.views.notifications.changesHandling(doc,route);
-					} 
+					}
 					if(model === undefined){
 						log('fetchedU',doc.type,doc.id);
 						model = new newModel({id:doc.id});

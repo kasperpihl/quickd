@@ -19,7 +19,7 @@ define([
 		render:function(){
 			var data = {};
 			App.collections.shops.off('add',this.render);
-			log('rendering welcome');
+			//log('rendering welcome');
 			if (App.collections.shops.length==0) {
 				data.name = "";
 				data.text = "text_add_shop";
@@ -66,8 +66,8 @@ define([
 		openAddShop:function(obj) {
 			var me = $('#'+obj.currentTarget.id);
 			var y = me.position().top-30;
-			var x = me.position().left + me.outerWidth()/2;
-			log(x,y);
+			var x = me.position().left + me.outerWidth(true)/2;
+			//log(x,y, me.position().left, me.outerWidth());
 			this.addShopBubble.openBubble(x , y);
 		}
 		

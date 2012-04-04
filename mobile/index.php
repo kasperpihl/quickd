@@ -15,7 +15,7 @@
       	<link rel="stylesheet" href="resources/css/example.css" type="text/css" />
         <link rel="stylesheet" href="resources/css/kasper.css" type="text/css" />
         
-        <script type="text/javascript" src="touch/sencha-touch-debug.js"></script>
+        <script type="text/javascript" src="touch/builds/sencha-touch-all-compat.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
         <script src="<?= LIBS_URL ?>jquery/jquery.color.js"></script>
