@@ -1,7 +1,7 @@
 define([
 'order!views/dialogs/dialog',
 'order!views/entry',
-'models/models',
+'common/models/models',
 'routers/dashboard'
 ],function(){
 App.routers.Entry = Backbone.Router.extend({
