@@ -12,7 +12,7 @@ define([
 		model: App.models.Deal,
 	});
 	App.collections.Images = Backbone.Collection.extend({
-		url: 'api/shopowner/images',
+		url: ROOT_URL+'api/shopowner/images',
 		parse: function(response){
 			return response.results;
 		},
@@ -31,14 +31,14 @@ define([
 		model: App.models.Image
 	});
 	App.collections.Feedback = Backbone.Collection.extend({
-		url: 'api/shopowner/feedback',
+		url: ROOT_URL+'api/shopowner/feedback',
 		parse: function(response){
 			return response.data;
 		},
 		model: App.models.Image
 	});
 	App.collections.Shops = Backbone.Collection.extend({
-		url: 'api/shopowner/shops',
+		url: ROOT_URL+'api/shopowner/shops',
 		parse: function(response) {
 	    	return response.data;
 	  	},
