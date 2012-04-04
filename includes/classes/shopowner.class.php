@@ -277,7 +277,7 @@ class Shopowner {
 				$result = json_decode($result);
 				if(isset($result->data,$result->data->mail)){ 
 					AdminMail::sendAdminMail($result->data->mail,$doc_id);
-					unset($result->data->mail);
+					//unset($result->data->mail);
 				}
 				return $result;
 			}
