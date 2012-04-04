@@ -259,7 +259,7 @@ try{
 			if(!doc.shops.hasOwnProperty(query.id)) return [null, msg('shop_doesnt_exist')];
 			var shop = doc.shops[query.id];
 			shop.rev = parseInt(shop.rev) +1;
-			if(query.hasOwnProperty('name')&&query.name != shop.name){
+			if(query.hasOwnProperty('name') && query.name != shop.name){
 				returnArr.approved = 'waiting';
 				returnArr.mail = 'editShop';
 				returnArr.rev = shop.rev;
@@ -340,7 +340,7 @@ try{
 			obj.deal_price = deal_price;
 			obj.rev = 1;
 			obj.approved = 'waiting';
-			returnArr = {id:index,approved:'waiting',created_at:timestamp,rev:1};
+			returnArr = {id:index,approved:'waiting',created_at:timestamp,rev:1,mail:'newTemplate'};
 			doc.templates[index] = obj;
 			addHistory(index,timestamp,'created',1,1);
 		}
@@ -370,6 +370,7 @@ try{
 			if(app){
 				returnArr.approved = 'waiting';
 				returnArr.message = false;
+				returnArr.mail = 'editTemplate';
 				temp.approved = 'waiting';
 				if(temp.hasOwnProperty('message')) temp.message = false;
 			}

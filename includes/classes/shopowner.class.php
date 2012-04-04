@@ -274,7 +274,12 @@ class Shopowner {
 		if(isset($update) && $update){
 			try{
 				$result = $db->updateDocFullAPI('dealer',$update,array('doc_id'=>$doc_id,'params'=>array('json'=>$model)));
-				return json_decode($result);
+				$result = json_decode($result);
+				if(isset($result->data,$result->data->mail)){ 
+					$test = AdminMail::sendAdminMail($result->data->mail,$doc_id);
+					$result->data->mail2 = $test;
+				}
+				return $result;
 			}
 			catch(Exception $e){
 				return json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); 
