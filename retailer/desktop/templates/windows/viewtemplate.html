@@ -49,9 +49,8 @@
     
     <div class="field">
   	  <div class="select-img-box clearfix">
-   	 	<div class="image-field <%=(data.model.image?"":"empty")%>" id="image-field">
-        	<% if(data.model.image) {%><img src="<%=App.collections.images.getUrl(data.model.image, 'thumbnail')%>" />
-            <% } else { %><p>Billede</p><% } %>
+   	 	<div class="image-field" id="image-field">
+        	<img src="<%=App.collections.images.getUrl(data.model.image, 'thumbnail')%>" />
         </div>
    	     <div id="btn_select_image" class="button blue"><%=(data.model.image?"Vælg nyt billede":"Vælg billede")%></div>
    	     <input type="hidden" name="img_src" id="img_src" value="" />
