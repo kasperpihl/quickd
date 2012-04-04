@@ -18,17 +18,16 @@ $uagent = new uagent_info();
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
 $live = false;
+$ending = '';
 $version = $_SESSION['version'] = (isset($_SESSION['version'])) ? $_SESSION['version'] : ($uagent->DetectTierIphone() ? 'mobile' : 'desktop');
 switch($root){
 	case 'test.quickd.com':
 	case '10.185.209.87':
 	case 'localhost':
-		$ending = '';
 		$dbLink = 'quickd:testanders@77.66.53.58';
 		//$ending = $version. '/';
 		if(strpos($_SERVER['REQUEST_URI'], 'retailer/')){
 		 	$string = 'retailer/';
-		 	$ending = $version. '/';
 		}
 		else if(strpos($_SERVER['REQUEST_URI'], 'brugerinfo/')) $string = 'brugerinfo/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'mobile/')) $string = 'mobile/';
@@ -43,6 +42,7 @@ switch($root){
 		
 	break;
 	default:
+		if(strpos($root, 'retailer')) $ending = $version. '/';
 		$live = true;
 		$dbLink = 'quickd:ka2jae2n@localhost';
 		$arr = explode('/',$_SERVER['REQUEST_URI']);
@@ -50,7 +50,7 @@ switch($root){
 			unset($arr[0]);
 			$restUrl = implode('/', $arr);
 		}
-		$end = '/';
+		$end = '/'.$ending;
 		$histRoot = $end;
 		$cdnUrl = $_SERVER['SERVER_ADDR'].'/';
 	break; 
