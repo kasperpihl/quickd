@@ -58,57 +58,6 @@ function calcDiscount(orig, deal, target_id) {
 		else target.removeClass('badValue');
 	}
 }
-/*
-function getAddress(request, response,count) {
-	if (!count) count=3;
-	var term = request.term + ' , Denmark';
-      	
-	geocoder.geocode( {'address': term }, function(results, status) {
-		if (status == google.maps.GeocoderStatus.OK) { 
-		}
-			var i = 0;           		
-		  response($.map(results, function(item) {
-			i++;
-			if(i>count) return;
-			return {
-			  label: item.formatted_address,
-			  value: item.formatted_address,
-			  postal_code: item.postal_code,
-			  latitude: item.geometry.location.lat(),
-			  longitude: item.geometry.location.lng()
-			}
-		  }));
-		
-	});
-}
-
-function GMapInitialize(){
-//MAP
-  
-  
-  //GEOCODER
-  geocoder = new google.maps.Geocoder();
-
-  $("#shop_address").autocomplete({
-      minLength: 4,
-	  appendTo: "#welcome_add_shop",
-	  //This bit uses the geocoder to fetch address values
-      source: function(request, response) {getAddress(request, response)},
-      //This bit is executed upon selection of an address
-     select: function(event, ui) {
-        $("#shop_lat").val(ui.item.latitude);
-        $("#shop_long").val(ui.item.longitude);
-        $('#shop_form_address').val(ui.item.label);
-        
-      },
-      close: function(event, ui) {
-      	log("closed");
-      }
-    });
-  
-  
-				
-}*/
 function stampToTime(stamp){
 	var date = new Date(stamp*1000);
 	// hours part from the timestamp
@@ -446,12 +395,14 @@ $(function() {
 			var mask = $('<div class="body-mask'+classes+'" id="'+id+'"></div>').hide().css({position:'absolute', top:0, bottom:0, left:0,right:0});
 			me.append(mask);
 		}
-		if (onClick) mask.fadeIn(400, function() {
-						   $(this).click(function() {
-								onClick();
-						   });
-					  });
-		else mask.fadeIn(400);
+		mask.css({display:'block', opacity:0})
+		mask.animate({opacity: 0.7}, 400, function() {
+		   	if (onClick) {
+			   	$(this).click(function() {
+						onClick();
+			   	});
+			 	}
+	  });
 		return me;
 	}
 	

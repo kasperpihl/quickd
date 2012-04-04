@@ -134,7 +134,6 @@ define([
 				this.lastFocus = false;
 				
 			}
-			log('returning');
 			return false;
 			
 		},

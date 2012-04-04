@@ -3,3 +3,37 @@
  * <!--[if IE]>
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
  * <![endif]--> */
+
+@import "compass";
+@import "compass/css3"; /* Så slipper vi for manuelt at kode vendor prefixes */
+@import "compass/css3/images";
+
+#menu {
+ 
+  @include filter-gradient(#373737, #121212, vertical);
+  
+  .menu_icon{
+    border-bottom: 1px solid #5D5D5D;
+    
+    &:hover {
+      background-color: #464646;
+    }
+    &:active {
+      border-bottom: 1px solid black;
+    }
+    &.selected {
+      background-color: #595959;
+    }
+    
+    &.disabled {
+      
+      &:hover {
+        background-color: inherit;
+        border-bottom: 1px solid #5D5D5D;
+      }
+      &:active { 
+        border-bottom: 1px solid #5D5D5D;
+      }
+    }
+  }
+}

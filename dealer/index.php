@@ -17,6 +17,9 @@ if(isset($_GET['logout'])){
     <link href="<?= LIBS_URL ?>jquery/css/jquery.ui.datepicker.css" media="all" rel="stylesheet"/>
         
 		<link href="<?= ROOT_URL ?>styles/stylesheets/screen.css" media="all" rel="stylesheet"/>
+    <!--[if lt IE 9]>
+      <link href="<?= ROOT_URL ?>styles/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <![endif]-->
 		<link href="<?= ROOT_URL ?>styles/stylesheets/bubbles.css" media="all" rel="stylesheet"/>
      
     <script src="<?= LIBS_URL ?>jquery/jquery-min.js"></script>
@@ -44,7 +47,7 @@ if(isset($_GET['logout'])){
 		</div>
 			<!-- Main javascript files to get it all to work -->
 			
-			<!--[if lt IE 9]>
+			<?php /* <!--[if lt IE 9]>
 			<script type="text/javascript">
 					$(function() {
 						var showModal = function() {
@@ -55,7 +58,7 @@ if(isset($_GET['logout'])){
 						setTimeout(showModal, 1500);
 					});
 				</script>
-			<![endif]-->
+			<![endif]--> */ ?>
 
 			<script src="<?= LIBS_URL ?>modernizr/modernizr-2.0.6.custom.js"></script>
 			<script src="<?= LIBS_URL ?>jquery/jquery-ui.js"></script>
@@ -69,6 +72,8 @@ if(isset($_GET['logout'])){
 			<script src="<?= LIBS_URL ?>jquery/jquery.meow.js" ></script>
 			<script src="<?= LIBS_URL ?>jquery/jquery.easing.js"></script>
 			<script src="<?= LIBS_URL ?>jquery/jquery.tools.min.js"></script>
+
+<script src="<?= LIBS_URL ?>jquery/jquery.jcrop.js"></script>
 
 			<script src="<?= LIBS_URL ?>jquery/browserDetect.js"></script>
 			<script src="<?= LIBS_URL ?>jquery/date.js"></script>

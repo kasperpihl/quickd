@@ -62,7 +62,6 @@ define([
 			this.router.bind('templateEdited',this.eventHandling);
 			this.router.bind('settingsEdited',this.eventHandling);
 			App.collections.deals.bind('change',this.dealChanged);
-			//App.collections.deals.bind('add',this.dealAdded);
 		},
 		eventHandling:function(event,options){
 			if(!event && !event.event) return false;

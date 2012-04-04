@@ -16,7 +16,7 @@ class Shopowner {
 					$session->login($user->data->id,$privileges);
 					return array('success'=>'true', 'data'=>$user);
 				} else if ($type==='dealer'&&$privileges>=2) {
-					return array('success'=>'false','error'=>'user_exists', 'data'=>$user);
+					return array('success'=>'false','error'=>'user_exists');
 				}
 			}
 			$update = 'registerUser';
@@ -35,7 +35,7 @@ class Shopowner {
 				$model['privileges'] = 1;
 			}
 			$model['password'] = $password?md5(MD5_STRING.$model['password']):'null';
-			if ($user && $user_id) {
+			if ($user && isset($user_id)) {
 				$model['edit_register'] = true;
 				$result = json_decode($db->updateDocFullAPI('dealer',$update,array('doc_id'=>$user_id, 'params'=>array('json'=>json_encode($model)))));
 			} else $result = json_decode($db->updateDocFullAPI('dealer',$update,array('params'=>array('json'=>json_encode($model)))));

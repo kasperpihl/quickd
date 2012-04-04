@@ -29,7 +29,7 @@ define([
 				data.name = App.collections.shops.at(0).get('name');
 				data.text="";
 			}
-			$('#activity_welcome').html(_.template(template, {data: data}));
+			$('#activity_welcome').append(_.template(template, {data: data}));
 		},
 		show: function() {
 			$('#activity_welcome').fadeIn();

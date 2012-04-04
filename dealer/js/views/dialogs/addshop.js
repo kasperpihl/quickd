@@ -165,15 +165,15 @@ define([
 				}
 					var i = 0;           		
 				  response($.map(results, function(item) {
-					i++;
-					if(i>count) return;
-					return {
-					  label: item.formatted_address,
-					  value: item.formatted_address,
-					  postal_code: item.postal_code,
-					  latitude: item.geometry.location.lat(),
-					  longitude: item.geometry.location.lng()
-					}
+						i++;
+						if(i>count) return;
+						return {
+						  label: item.formatted_address,
+						  value: item.formatted_address,
+						  postal_code: item.postal_code,
+						  latitude: item.geometry.location.lat(),
+						  longitude: item.geometry.location.lng()
+						}
 				  }));
 				
 			});
@@ -192,9 +192,10 @@ define([
 		      source: function(request, response) {thisClass.getAddress(request, response)},
 		      //This bit is executed upon selection of an address
 		      select: function(event, ui) {
+		        log("clicked?", event, ui);
 		        $("#shop_lat").val(ui.item.latitude);
 		        $("#shop_long").val(ui.item.longitude);
-		        $('#shop_form_address').val(ui.item.label);
+		        $('#shop_address').val(ui.item.label);
 		        thisClass.doContinue();
 		      }
 		  	});
