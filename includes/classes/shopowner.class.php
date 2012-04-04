@@ -276,7 +276,7 @@ class Shopowner {
 				$result = $db->updateDocFullAPI('dealer',$update,array('doc_id'=>$doc_id,'params'=>array('json'=>$model)));
 				$result = json_decode($result);
 				if(isset($result->data,$result->data->mail)){ 
-					AdminMail::sendAdminMail($result->data->mail,$doc_id);
+					$result->data->mail = AdminMail::sendAdminMail($result->data->mail,$doc_id);
 					//unset($result->data->mail);
 				}
 				return $result;
