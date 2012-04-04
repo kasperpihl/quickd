@@ -41,8 +41,8 @@
 			</script>
 			<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
 	        <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
-	        <script src="<?= ROOT_URL ?>js/collections/collections.js"></script>
-	        <script src="<?= ROOT_URL ?>js/models/models.js"></script>
+	        <script src="<?= COMMON_URL ?>js/collections/collections.js"></script>
+	        <script src="<?= COMMON_URL ?>js/models/models.js"></script>
 	        <script src="<?= ROOT_URL ?>js/routers/controller.js"></script>
 	        <script src="<?= ROOT_URL ?>js/utilities/countdown.js"></script>
 	        <script src="<?= ROOT_URL ?>js/views/deals.js"></script>

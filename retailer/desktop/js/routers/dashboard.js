@@ -1,6 +1,6 @@
 define([
-'collections/collections',
-'models/models',
+'common/collections/collections',
+'common/models/models',
 'views/dashboard',
 'views/dialogs/promtDialog'
 ],function(){

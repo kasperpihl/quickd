@@ -21,6 +21,7 @@
     <script src="<?= ROOT_URL ?>js/function.js"></script>
     <script> var shopowner; var debug = false;	
       var ROOT_URL = "<?= ROOT_URL ?>";
+      var COMMON_URL = "<?= COMMON_URL ?>";
       var REAL_URL = "<?= REAL_URL ?>";
       var version = "<?= VERSION ?>";
 			var IMG_URL = "<?= IMAGES_URL ?>";

@@ -22,6 +22,7 @@ require.config({
 		order: LIBS_URL+'require/order',
 		async: LIBS_URL+'require/async',
 		/* Main libraries */
+		common: COMMON_URL+'js',
 		jquery: LIBS_URL+'jquery',
 		underscore: LIBS_URL+'underscore',
 		backbone: LIBS_URL+'backbone',
