@@ -38,7 +38,11 @@ define([
 			this.router.bind('dialogOpened',this.handle);
 			var thisClass = this;
 	
-			$('<div class="body-mask '+this.maskClass+'" id="body-mask"></div>').hide().appendTo('body').fadeIn(thisClass.aniTime).click(function(obj) {
+			/*$('<div class="body-mask '+this.maskClass+'" id="body-mask"></div>').hide().appendTo('body').fadeIn(thisClass.aniTime).click(function(obj) {
+				obj.stopPropagation();
+				if (thisClass.closable) thisClass.closeDialog(thisClass.destroyOnClose);
+			});*/
+			$('body').createMask(function(obj) {
 				obj.stopPropagation();
 				if (thisClass.closable) thisClass.closeDialog(thisClass.destroyOnClose);
 			});
@@ -68,7 +72,8 @@ define([
 		},
 		closeDialog: function(remove, silent){
 			var thisClass = this;
-			$('#body-mask').fadeOut(thisClass.aniTime, function() { $(this).remove(); });
+			//$('#body-mask').fadeOut(thisClass.aniTime, function() { $(this).remove(); });
+			$('body').removeMask(this.aniTime);
 			$(this.dialogId).fadeOut(thisClass.aniTime,function(){
 				if (!silent) thisClass.onClose();
 				if (remove) {
