@@ -13,7 +13,7 @@ Class Mail{
 			'Vi glæder os helt vildt til at kunne lancere for dig!'."\n\n".
 			'De bedste hilsner,'."\n".
 			'QuickD-teamet';
-		Mailer::SmtpMail($mail,$subject,$message);
+		self::sendMail($mail,$subject,$message);
 	}
 	public static function sendNewPasswordForDealer($mail, $url,$name = false){
 		$subject = 'Glemt adgangskode til QuickD Forhandler';
@@ -27,7 +27,14 @@ Class Mail{
 			'Har I spørgsmål, kan I ringe til os på tlf. 30 911 911.'."\n\n".
 			'De bedste hilsner,'."\n".
 			'QuickD-teamet';
+		self::sendMail($mail,$subject,$message);
+		
+	}
+	private static function sendMail($mail,$subject,$message){
+		
 		Mailer::SmtpMail($mail,$subject,$message);
+		return true;
+		
 	}
 	public static function sendAdminMail($action,$doc_id=false){
 		global $live;
@@ -52,7 +59,7 @@ Class Mail{
 				return false;
 			break;
 		}
-		Mailer::SmtpMail('admin@quickd.com',$subject,$message);
+		self::sendMail('admin@quickd.com',$subject,$message);
 	}
 }
 ?>

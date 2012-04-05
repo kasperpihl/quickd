@@ -1,4 +1,4 @@
-<?php require_once('../../config.php'); 
+<?php require_once('../config.php'); 
 $resetPassword = false;
 if(isset($_GET['id'])){
 	$id = $_GET['id'];
@@ -34,6 +34,7 @@ if(isset($_GET['id'])){
 		<script>
 		
 			var ROOT_URL = "<?= ROOT_URL ?>";
+			var REAL_URL = "<?= REAL_URL ?>";
 			$(document).ready(function() {
 				var form = $('form#new-pass-form');
 
@@ -69,7 +70,7 @@ if(isset($_GET['id'])){
 										setTimeout(function(){
 											log('j',j);
 											$('#secCounter').html(parseInt($('#secCounter').html())-1);
-											if(j == 5) window.location = ROOT_URL;
+											if(j == 5) window.location = REAL_URL;
 											j++;
 										},(i * 1000));
 									}
@@ -107,11 +108,11 @@ if(isset($_GET['id'])){
 						</div>
 						<div id="passwordSuccess" style="display:none;">
 							<p>Koden er fornyet, og du sendes til login om <span id="secCounter">5</span> sekunder</p>
-							<a class="gotoDealer" href="<?= ROOT_URL ?>">Gå til forhandlerlogin</a>
+							<a class="gotoDealer" href="<?= REAL_URL ?>">Gå til forhandlerlogin</a>
 						</div>
 						<?php } else{ ?>
 							<p>Linket er brugt, forældet eller findes ikke.</p>
-							<a class="gotoDealer" href="<?= ROOT_URL ?>">Gå til forhandlerlogin</a>
+							<a class="gotoDealer" href="<?= REAL_URL ?>">Gå til forhandlerlogin</a>
 						<?php } ?>
 					</div>
 				</form>

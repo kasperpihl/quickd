@@ -60,7 +60,7 @@ $historyObj = json_encode(array('pushState'=>true,'root'=>$histRoot));
 
 define('ROOT_URL','http://'.$root.$end);
 define('REAL_URL','http://'.$root.$histRoot);
-define('DEALER_RESET_URL',ROOT_URL.'reset/');
+define('DEALER_RESET_URL',REAL_URL.'reset/');
 define("CDN_URL", 'http://'.$cdnUrl);
 define("IMAGES_URL",CDN_URL.'images/');
 define("LIBS_URL",CDN_URL.'libs/');
