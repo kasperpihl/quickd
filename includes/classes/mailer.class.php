@@ -8,7 +8,6 @@ class Mailer {
 	function __construct()
 	{
 	}
-
 	static private function EscapeHead($string, $encoding='GB2312')
 	{
 		$string	= mb_convert_encoding($string, $encoding, "UTF-8");

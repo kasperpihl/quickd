@@ -1,7 +1,19 @@
 <?php
-print_r($_SERVER);
-die();
 require_once('../../config.php');
+print_r(CLASSES_DIR.'thread.class.php');
+require_once(CLASSES_DIR.'thread.class.php');
+// test to see if threading is available
+if( ! Thread::available() ) {
+    die( 'Threads not supported' );
+}
+function paralel() {
+	Mail::sendBetaConfirmation('kasper@tornoe.org','Anders');
+	sleep(1);
+}
+Mail::sendBetaConfirmation('kasper@tornoe.org','Anders');
+$t1 = new Thread( 'paralel' );
+$t1->start();
+/*print_r($test);
 print_r(Mail::sendAdminMail('newTemplate','Anders'));
 //$doc = $db->key('kasper')->limit(1)->getView('dealer','getPassById');
 //print_r($doc);
