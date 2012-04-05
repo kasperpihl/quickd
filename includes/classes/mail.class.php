@@ -39,6 +39,7 @@ Class Mail{
 	public static function sendAdminMail($action,$doc_id=false){
 		global $live;
 		if(!$live) return;
+		return;
 		switch($action){
 			case 'newTemplate':
 				$subject = 'Ny skabelon oprettet';
