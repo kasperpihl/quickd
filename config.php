@@ -89,9 +89,9 @@ $categories = array(
 	'nightlife'=>'Natteliv'
 );
 
-$session = new Session();
-$db = new couchClient('http://'.$dbLink.':5984','quickd');
 
+$db = new couchClient('http://'.$dbLink.':5984','quickd');
+$session = new Session();
 
 $facebook = new Facebook(array(
   'appId'  => '286675801401479',
