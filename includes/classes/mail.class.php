@@ -13,7 +13,7 @@ Class Mail{
 			'Vi glæder os helt vildt til at kunne lancere for dig!'."\n\n".
 			'De bedste hilsner,'."\n".
 			'QuickD-teamet';
-		self::sendMail($mail,$subject,$message);
+		Mailer::SmtpMail($mail,$subject,$message);
 	}
 	public static function sendNewPasswordForDealer($mail, $url,$name = false){
 		$subject = 'Glemt adgangskode til QuickD Forhandler';
@@ -27,16 +27,32 @@ Class Mail{
 			'Har I spørgsmål, kan I ringe til os på tlf. 30 911 911.'."\n\n".
 			'De bedste hilsner,'."\n".
 			'QuickD-teamet';
-		self::sendMail($mail,$subject,$message);
+		Mailer::SmtpMail($mail,$subject,$message);
 	}
-	private static function sendMail($to,$subject,$message){
-		$headers = 
-			'MIME-Version: 1.0' ."\n".
-			'From: QuickD-teamet <' .self::$sender . ">". "\n" . 
-			'Reply-To: QuickD-teamet <'.self::$sender . ">"."\n" .
-			'Content-Type: text/plain; charset=utf-8'."\n".
-    		'X-Mailer: PHP/' . phpversion();
-		mail($to,$subject,$message,$headers);
+	public static function sendAdminMail($action,$doc_id=false){
+		global $live;
+		if(!$live) return;
+		switch($action){
+			case 'newTemplate':
+				$subject = 'Ny skabelon oprettet';
+				$message = 
+				'http://admin.quickd.com/approve.php'."\n\n";
+			break;
+			case 'editTemplate':
+				$subject = 'En skabelon er ændret';
+				$message = 
+				'http://admin.quickd.com/approve.php'."\n\n";
+			break;
+			case 'feedback':
+				$subject = 'Der er skrevet feedback';
+				$message = 
+				'http://admin.quickd.com/feedback.php'."\n\n";
+			break;
+			default:
+				return false;
+			break;
+		}
+		Mailer::SmtpMail('admin@quickd.com',$subject,$message);
 	}
 }
 ?>

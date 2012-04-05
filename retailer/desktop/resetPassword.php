@@ -1,4 +1,4 @@
-<?php require_once('../config.php'); 
+<?php require_once('../../config.php'); 
 $resetPassword = false;
 if(isset($_GET['id'])){
 	$id = $_GET['id'];

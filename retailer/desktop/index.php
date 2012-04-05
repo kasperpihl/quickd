@@ -16,18 +16,18 @@
     <![endif]-->
      
     <script src="<?= LIBS_URL ?>jquery/jquery-min.js"></script>
-		<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
+	<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
     <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
     <script src="<?= ROOT_URL ?>js/function.js"></script>
     <script> var shopowner; var debug = false;	
-      var ROOT_URL = "<?= ROOT_URL ?>";
-      var COMMON_URL = "<?= COMMON_URL ?>";
-      var REAL_URL = "<?= REAL_URL ?>";
-      var version = "<?= VERSION ?>";
-			var IMG_URL = "<?= IMAGES_URL ?>";
-			var LIBS_URL = "<?= LIBS_URL ?>";
-			var historyObj = JSON.parse('<?= $historyObj ?>');
-			var CATEGORIES = JSON.parse('<?=json_encode($categories) ?>');
+		var ROOT_URL = "<?= ROOT_URL ?>";
+		var COMMON_URL = "<?= COMMON_URL ?>";
+		var REAL_URL = "<?= REAL_URL ?>";
+		var version = "<?= VERSION ?>";
+		var IMG_URL = "<?= IMAGES_URL ?>";
+		var LIBS_URL = "<?= LIBS_URL ?>";
+		var historyObj = JSON.parse('<?= $historyObj ?>');
+		var CATEGORIES = JSON.parse('<?=json_encode($categories) ?>');
 			<?php if(isset($dealer) && $dealer) { $return = getShopowner();?>
 				shopowner = <?= $return; ?>;
 			<? } ?>
