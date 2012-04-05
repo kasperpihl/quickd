@@ -60,7 +60,7 @@ if(isset($_GET['id'])){
 				});
 				$('button#btn_submit_pass').on('click', function() {
 					if (form && form.valid()) {
-						$.post("<?= ROOT_URL ?>api/reset",{model:{doc_id: "<?= $doc_id ?>",password:$('#newpass-input').val(),id:"<?= $id ?>"}},function(data){
+						$.post("<?= REAL_URL ?>api/reset",{model:{doc_id: "<?= $doc_id ?>",password:$('#newpass-input').val(),id:"<?= $id ?>"}},function(data){
 							log('response');
 							if(data.success == 'true'){
 								$('#newPassForm').fadeOut(400,function(){
