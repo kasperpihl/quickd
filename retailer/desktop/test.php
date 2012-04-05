@@ -1,4 +1,6 @@
 <?php
+print_r($_SERVER);
+die();
 require_once('../../config.php');
 print_r(Mail::sendAdminMail('newTemplate','Anders'));
 //$doc = $db->key('kasper')->limit(1)->getView('dealer','getPassById');

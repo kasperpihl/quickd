@@ -14,13 +14,13 @@ define('STD_IMAGE','hej');
 define("BETA_MODE",1);
 require_once(HOME_DIR.'includes/includes.php');
 $uagent = new uagent_info();
-
+$session = new Session();
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
 $live = false;
 $ending = '';
 $version = $_SESSION['version'] = (isset($_SESSION['version'])) ? $_SESSION['version'] : ($uagent->DetectTierIphone() ? 'mobile' : 'desktop');
-if(isset($_GET['mobile'])) $version = 'mobile';
+
 switch($root){
 	case 'test.quickd.com':
 	case '10.185.209.87':
@@ -90,7 +90,7 @@ $categories = array(
 );
 
 $db = new couchClient('http://'.$dbLink.':5984','quickd');
-$session = new Session();
+
 
 $facebook = new Facebook(array(
   'appId'  => '286675801401479',

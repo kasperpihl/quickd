@@ -1,3 +1,13 @@
+<? 
+$thisfolder = end(explode('/',dirname(__FILE__)));
+if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
+	$newURI = str_replace($thisfolder.'/', '',$_SERVER['REQUEST_URI']);
+	session_start();
+	$_SESSION['version'] = $thisfolder;
+	header('Location: http://'.$_SERVER['SERVER_NAME'].$newURI);
+	exit;
+}
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="da_DK">
 	<head>
