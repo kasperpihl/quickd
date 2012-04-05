@@ -14,8 +14,7 @@ define('STD_IMAGE','hej');
 define("BETA_MODE",1);
 require_once(HOME_DIR.'includes/includes.php');
 $uagent = new uagent_info();
-$db = new couchClient('http://'.$dbLink.':5984','quickd');
-$session = new Session();
+session_start();
 date_default_timezone_set('Europe/Copenhagen');
 $root = $_SERVER['HTTP_HOST'];
 $live = false;
@@ -90,7 +89,8 @@ $categories = array(
 	'nightlife'=>'Natteliv'
 );
 
-
+$session = new Session();
+$db = new couchClient('http://'.$dbLink.':5984','quickd');
 
 
 $facebook = new Facebook(array(
