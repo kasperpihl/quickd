@@ -201,7 +201,7 @@ define([
 			if (this.networkErrorShown) this.networkErrorDialog.closeDialog();
 			this.errorCount = 0;
 			if(result.hasOwnProperty('success') && result.success == 'false') return;
-
+			//log('result from changes',result);
 			if(result.hasOwnProperty('csince')) localStorage.setItem('csince',result.csince);
 			if(result.hasOwnProperty('cindex')) localStorage.setItem('cindex',result.cindex);
 
@@ -244,8 +244,7 @@ define([
 							continue;
 					}
 					if(model && (doc.rev > model.get('rev'))){
-						//log('fetched',doc.type,doc.id);
-						model.fetch({success:function(d,mod){ log('response fra fetch1',d,mod); },error:function(d,d2){ log(d,d2); }});
+						model.fetch({success:function(m,data){ log('response fra fetch1',m,data); },error:function(d,d2){ log(d,d2); }});
 						App.views.notifications.changesHandling(doc,route);
 					}
 					if(model === undefined){

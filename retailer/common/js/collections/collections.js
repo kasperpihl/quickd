@@ -6,6 +6,15 @@ App.collections.Deals = Backbone.Collection.extend({
 	comparator: function(deal) {
 		return deal.get('start');
 	},
+	updateImages: function(imgName) {
+		this.each(function(deal) {
+			var tmpl = deal.get('template');
+			if (tmpl.image && tmpl.image == imgName) {
+				tmpl.image = '';
+				deal.set({template:tmpl});
+			}
+		});
+	},
 	isStartedDeal:function(templateId){
 		var now = parseInt((new Date()).getTime()/1000,10);
 		var startedNow = this.filter(function(item){

@@ -8,7 +8,7 @@ define([
 	App.views.dialogs.ImageSelectorView = App.views.Dialog.extend({
 		el: '#content',
 		initialize:function(){
-			_.bindAll(this,'handleClick', 'imgUploaded', 'setJcrop', 'imgUploadProgress', 'imgBeforeSend', 'triggerUpload', 'goEdit', 'updateThumb', 'saveThumb','changedRevision','updatePreview', 'jcropOnSelect');
+			_.bindAll(this,'handleClick', 'imgUploaded', 'setJcrop', 'imgUploadProgress', 'imgBeforeSend', 'triggerUpload', 'goEdit', 'updateThumb', 'saveThumb','changedRevision','updatePreview', 'jcropOnSelect', 'imgDelete', 'deleteConfirmCallback');
 			var thisClass = this;
 			this.init(this.options);
 			this.template ='imageSelector';
@@ -23,6 +23,7 @@ define([
 			this.jcropapi;
 			this.height = 562;
 			this.closable = true;
+      this.level = 0;
 			this.uploadField = "#uploader-field-"+this.cid;
 			this.currentPreview = false;
 			this.currentModel = false;
@@ -54,6 +55,7 @@ define([
 					sizeLimit: 8*1024*1024,
 				});
 			});
+      
 		},
 		events: function() {
 			var _events = {};
@@ -67,6 +69,7 @@ define([
 			_events['click '+windowId+' #btn_edit_cancel'] = 'goGallery';
 			_events['click '+windowId+' #btn_edit_save'] = 'saveThumb';
 			_events['click '+windowId+' #btn_select_img'] = 'handleClick';
+			_events['click '+windowId+' #btn_delete_img'] = 'imgDelete';
 			_events['click '+windowId+ '#uploader-field-'+this.cid] = 'doUpload';
 			_events['click '+windowId+' #uploader-'+this.cid] = 'triggerUpload';
 		
@@ -172,7 +175,7 @@ define([
 			$("#dialog-"+this.cid+' #uploader-field-'+this.cid).trigger('click',true);
 		},
 		handleClick:function(event) {
-			if (this.view = 'edit' && this.currentModel) {
+      if (this.view == 'edit' && this.currentModel) {
 				if (this.thumbEdited) {
 					var thisClass = this;
 					$('#btn_select_img').html('&nbsp').addClass('loading');
@@ -192,7 +195,7 @@ define([
 			$(this.dialogId+' .selected').removeClass('selected');
 			$(this.dialogId+' #img_'+id).addClass('selected');
 			this.router.trigger('imageSelected', {imgId: id, windowId:this.parentWindow});
-			if (this.view = 'edit') this.goGallery();
+			if (this.view == 'edit') this.goGallery();
 			this.closeDialog();
 		},
 		doRotation:function(event){
@@ -286,7 +289,7 @@ define([
 			}
 		},
 		goEdit: function(obj) {
-			obj.stopPropagation();
+      obj.stopPropagation();
 			var thisClass = this;
 			var id = obj.currentTarget.id;
 			var imgId = id.substr(9);
@@ -308,7 +311,7 @@ define([
 			});
 		},
 		changeView: function(goto, callback) {
-			if (goto=='edit' && this.view=='gallery') {
+      if (goto=='edit' && this.view=='gallery') {
 				$('#gallery-view').hide("slide", {direction:"left", easing: "easeOutQuint"}, 500);
 				$('#edit-view').show("slide", {direction:"right", easing: "easeOutQuint"}, 500);
 				this.view = 'edit';
@@ -317,18 +320,31 @@ define([
 				$('#gallery-view').show("slide", {direction:"left", easing: "easeOutQuint"}, 500);
 				this.view = 'gallery';
 			}
-			
-			/*
-			if (goto=='edit' && this.view=='gallery') {
-				$('#gallery-view').fadeOut();
-				$('#edit-view').fadeIn(400, callback);
-				this.view = 'edit';
-			} else if (goto=='gallery' && this.view=='edit') {
-				$('#edit-view').fadeOut();
-				$('#gallery-view').fadeIn(400, callback);
-				this.view = 'gallery';
-			}
-			*/
-		}
+		},
+		imgDelete: function(evt) {
+			if(!this.currentModel) return false;
+      var confirmer = new App.views.dialogs.PromtDialog({router:this.router, type: 'confirm', callbackCid:this.cid, title:'Slet billede', msg:'Er du sikker på, du ønsker at slette dette billede?<br/>Hvis billedet bliver brugt i deals vil det også blive slettet her.', confirmText:'Slet'}); 
+      this.router.bind('promtCallback:'+this.cid, this.deleteConfirmCallback);
+			return false;
+		},
+    deleteConfirmCallback:function(obj) {
+      var thisClass = this;
+      this.router.unbind('promtCallback:'+this.cid);
+      if(obj.callbackCid==this.cid&&obj.type=='confirm'&&obj.eventType=='confirm'&&this.currentModel) {
+          var id = this.currentModel.id,
+              filename = this.currentModel.get('n');
+          this.currentModel.destroy({data:id, 
+            success:function(model, response) {
+              log("deleted", model, response, id);
+              App.collections.deals.updateImages(filename);
+              $('#img_'+id).remove();
+            }, 
+            error: function(model, response) { 
+              log("error delete: ", model, response, id); 
+            }
+          });
+          thisClass.goGallery();
+      }
+    }
 	});
 });

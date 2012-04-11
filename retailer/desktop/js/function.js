@@ -128,9 +128,9 @@ function convertNumber(number, toString) {
 	}
 }
 function convertToTimestring(number) {
-	var numbers = number.split(':'),
-			h = padNumber(parseInt(numbers[0])),
-			m = padNumber(parseInt(numbers[1]));
+	var numbers = number.split(/[\s\.,:]+/),
+			h = padNumber(parseInt(numbers[0], 10)),
+			m = padNumber(parseInt(numbers[1], 10));
 	return h+':'+m;
 }
 
@@ -375,13 +375,15 @@ $(function() {
 		}
 		return me;
 	}
-	$.fn.createMask = function(onClick, classes) {
+	$.fn.createMask = function(onClick, classes, level) {
 		var me = $(this);
 		if (!classes) var classes = "";
 		else classes = " "+classes;
+		if (!level&&level!==0) var level = 1;
 		//log("mask", me);
 		if (me.attr('id')) var id = me.attr('id')+"-mask";
 		else var id = me.get(0).tagName+"-mask";
+		id = id+'_'+level;
 		if (me.css('position')=='static') me.css('position', 'relative');
 		
 		if (me.is('body')) {
@@ -395,7 +397,7 @@ $(function() {
 			var mask = $('<div class="body-mask'+classes+'" id="'+id+'"></div>').hide().css({position:'absolute', top:0, bottom:0, left:0,right:0});
 			me.append(mask);
 		}
-		mask.css({display:'block', opacity:0})
+		mask.css({display:'block', opacity:0, zIndex:(50-1+level*2)})
 		mask.animate({opacity: 0.7}, 400, function() {
 		   	if (onClick) {
 			   	$(this).click(onClick);
@@ -404,11 +406,13 @@ $(function() {
 		return me;
 	}
 	
-	$.fn.removeMask = function(duration, callback) {
+	$.fn.removeMask = function(duration, callback, level) {
 		var me = $(this),
 				mask;
+		if(!level&&level!==0) var level = 1;
 		if (me.attr('id')) var id = me.attr('id')+"-mask";
 		else var id = me.get(0).tagName+"-mask";
+		id = id+'_'+level;
 		mask = me.find('#'+id);
 		if(duration) {
 			mask.fadeOut(duration, function() {

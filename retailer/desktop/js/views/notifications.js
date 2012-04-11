@@ -27,8 +27,9 @@ var lang = {
 			planned: 	'Din deal er nu planlagt. Held og lykke!',
 			started:	'En deal er lige startet. Klik for at se hvilken.',
 			ended:		'En deal er netop afsluttet. Klik for at se hvilken.',
-			deleted:  'En deal er blevet slettet',
-			soldout: 	'En deal er blevet meldt udsolgt'
+			deleted:  	'En deal er blevet slettet',
+			soldout: 	'En deal er blevet meldt udsolgt',
+			changed:  	'En deal er blevet ændret'
 		},
 		shop:{
 			created: 	'Din butik er blevet oprettet og afventer nu godkendelse fra os! Imens kan du jo gå igang med at oprette dine skabeloner',
@@ -107,7 +108,7 @@ define([
 			//log("dealAdded", t, o);
 		},
 		changesHandling:function(doc,route){
-			log("changes", doc, route);
+			//log("changes", doc, route);
 			var message;
 			message = lang.notifications[doc.type]&&lang.notifications[doc.type][doc.action]?lang.notifications[doc.type][doc.action]:'';
 			this.notify('fast',message,route);
