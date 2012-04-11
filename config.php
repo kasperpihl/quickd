@@ -20,7 +20,7 @@ $root = $_SERVER['HTTP_HOST'];
 $live = false;
 $ending = '';
 $version = $_SESSION['version'] = (isset($_SESSION['version'])) ? $_SESSION['version'] : ($uagent->DetectTierIphone() ? 'mobile' : 'desktop');
-
+print_r($version);
 switch($root){
 	case 'test.quickd.com':
 	case '10.185.209.87':
