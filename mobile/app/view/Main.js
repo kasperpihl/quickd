@@ -4,6 +4,8 @@ Ext.define('QuickD.view.Main', {
     requires: [
         'Ext.Panel',
         'Ext.XTemplate',
+        'QuickD.view.Splash',
+        'QuickD.view.NoDeals',
         'QuickD.view.DealList',
         'QuickD.view.DealShow',
         'QuickD.view.DealSort',
@@ -13,14 +15,12 @@ Ext.define('QuickD.view.Main', {
         fullscreen: true,
         layout: 'card',
         items: [
-        {
-            xtype:'panel',
-            html: 'splash'
-        },
-        {xtype:'deallist'},
-        {xtype:'dealsort'},
-        {xtype:'dealshow'},
-        {xtype:'mapshow'}
+            {xtype:'splash'},
+            {xtype:'nodeals'},
+            {xtype:'deallist'},
+            {xtype:'dealsort'},
+            {xtype:'dealshow'},
+            {xtype:'mapshow'}
         ]
     },
     applyLayout: function(config) {

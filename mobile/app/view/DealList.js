@@ -30,13 +30,12 @@ Ext.define('QuickD.view.DealList', {
     extend: 'Ext.List',
     xtype: 'deallist',
     requires:[
-    	'Ext.plugin.PullRefresh',
+        'Ext.plugin.PullRefresh',
         'Ext.Toolbar',
         'Ext.Button'
     ],
     config: {
-    	zIndex:1,
-        title: 'lalala',
+        zIndex:1,
         id: 'quickd-deals',
 		plugins:[
 			{ xclass: 'Ext.plugin.PullRefresh', id: 'fedt-mand-spa', pullRefreshText: 'Træk for satan!' }
@@ -48,7 +47,7 @@ Ext.define('QuickD.view.DealList', {
             xtype : 'toolbar',
             docked: 'top',
             items:[
-            {
+            /*{
                 xtype:'spacer'
             },
             {
@@ -56,7 +55,7 @@ Ext.define('QuickD.view.DealList', {
                 id: 'sortButton',
                 hidden: false,
                 text:'Sorter'
-            }]
+            }*/]
         }],
         store: 'Deals',
         itemTpl: myTemplate

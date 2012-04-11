@@ -16,10 +16,10 @@ define([
 			'start':				'openStartDeals',
 			'start/:id':			'openStartDeals',
 			'hjem':					'openHomeView',
-			'*index': 				'indexing' 
+			'*index':				'indexing' 
 		},
 		start: function(options){
-			this.route;
+			this.route = '';
 			if(!App.models.shopowner && shopowner) App.models.shopowner = new App.models.Shopowner(shopowner.dealer);
 			_.bindAll(this,'getChanges','changes', 'retryConnection');
 			App.collections.feedback = new App.collections.Feedback();
@@ -136,9 +136,9 @@ define([
 					thisClass.networkErrorShown = true;
 				}
 				thisClass.errorCount++; 
-		  };
-		  //if (window.navigator.onLine) {
-				$.ajax({
+			};
+
+			$.ajax({
 		        type: "GET",
 		        url: ROOT_URL+"ajax/changes.php",
 		        data: 'cindex='+cindex+'&csince='+csince,
@@ -146,19 +146,19 @@ define([
 		        cache: false,
 		        timeout:5000,
 		        success: function(result) {
-		        	//log('success', result);
+					//log('success', result);
 
-		        	result = $.parseJSON(result);
-		        	if (result.hasOwnProperty('success') && result.success=='false' && result.error=='error_database') doOnError();
-		        	else thisClass.changes(result);
-		        	if (!singleCall) setTimeout(thisClass.getChanges,3000);
+					result = $.parseJSON(result);
+					if (result.hasOwnProperty('success') && result.success=='false' && result.error=='error_database') doOnError();
+					else thisClass.changes(result);
+					if (!singleCall) setTimeout(thisClass.getChanges,3000);
 		        },
 		        error: function(XMLHttpRequest, textStatus, errorThrown) {
 							log('Error changes',XMLHttpRequest,textStatus,errorThrown);
 							doOnError();	
 							if (!singleCall) setTimeout(thisClass.getChanges,3000);
 		        }
-		   	}, 'json');
+			}, 'json');
 		},
 		setStuff:function(stuff){
 			_.each(stuff,function(item,i){
@@ -168,7 +168,7 @@ define([
 					var model = new App.models.Deal(document);
 					App.collections.deals.add(model);
 				}
-				if(document.hasOwnProperty('historySince')) localStorage.setItem('cindex',parseInt(document.historySince));
+				if(document.hasOwnProperty('historySince')) localStorage.setItem('cindex',parseInt(document.historySince,10));
 				if(document.hasOwnProperty('images')){
 					_.each(document.images,function(image,i){
 						var model = new App.models.Image(image);
@@ -229,7 +229,7 @@ define([
 						break;
 						case 'feedback':
 							route = lang.urls.overviewFeedback + '/' + doc.id;
-							if(doc.hasOwnProperty('hours') && parseInt(doc.hours) > 0) App.models.shopowner.fetch();
+							if(doc.hasOwnProperty('hours') && parseInt(doc.hours,10) > 0) App.models.shopowner.fetch();
 							newModel = App.models.Feedback;
 							collection = App.collections.feedback;
 							model = collection.get(doc.id);
@@ -255,15 +255,8 @@ define([
 						model.fetch({success:function(d,data){ log('response fra fetch2',d,data); if(data.success == 'true'){  collection.add(d); App.views.notifications.changesHandling(doc,route); } },error:function(d,d2){ log(d,d2); }});
 						
 					}
-					
 				}
 			}
-		},
-		templates: function(){
-			
-		},
-		deals: function(){
-		
 		}
 	});
 });

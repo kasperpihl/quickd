@@ -13,7 +13,7 @@ foreach($results as $res){
 	$deal['long'] = $dealLong = $res->value->shop->long;
 	$deal['id'] = $res->id;
 	$deal['distance'] = distance($lat,$long,$dealLat,$dealLong);
-	//if($deal['distance'] > DEAL_MAX_DIST) continue;
+	//if($deal['distance'] > MAX_DIST) continue;
 	$deal['title'] = $res->value->template->title;
 	$deal['deal_price'] = $res->value->template->deal_price;
 	$deal['orig_price'] = $res->value->template->orig_price;
