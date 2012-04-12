@@ -49,6 +49,7 @@ define([
 				this.model.save(obj,{success:this.changedModel,error:this.changedModel,wait:true});
 					
 			} else if(this.form)  this.form.submit();
+			return false;
 		},
 		changedModel: function(m,data){
 			log("added", m, data);
@@ -145,6 +146,7 @@ define([
 			if (!this.selectorView)
 				this.selectorView = new App.views.dialogs.ImageSelectorView({router:this.router, windowId: this.windowId});
 			this.selectorView.openDialog();
+			return false;
 		},
 		imageSelected:function(data) {
 			//log("imageSelected", data);

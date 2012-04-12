@@ -150,7 +150,7 @@ define([
 			var imgId = model.get('id');
 			
 			var img = $('<img />').attr('src', model.getUrl('thumbnail')).load(function() {
-				var button = $('<button class="button blue btn_edit" id="btn_edit_'+imgId+'">Tilpas</button>');
+				var button = $('<button class="blue btn_edit" id="btn_edit_'+imgId+'">Tilpas</button>');
 				$('#temp_img_'+id).removeClass('loading').html($(this)).append(button).attr('id', "img_"+imgId);
 
 			});

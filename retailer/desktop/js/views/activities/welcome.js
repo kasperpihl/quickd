@@ -47,6 +47,7 @@ define([
 			var x = me.position().left + me.outerWidth(true)/2;
 			//log(x,y, me.position().left, me.outerWidth());
 			this.addShopBubble.openBubble(x , y);
+			return false;
 		}
 		
 	});

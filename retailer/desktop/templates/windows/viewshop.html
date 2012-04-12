@@ -1,8 +1,8 @@
 <form name="edit_shop" id="edit_shop">
 	<div class="title">
 	<div style="position: absolute; left: 0px;" id="shop_title_buttons">
-		<button  class="button add" value="Rediger" id="btn_edit_shop">Rediger</button>
-		<button class="button add grey" id="btn_cancel_shop" style="display: none;">Annuller</button>
+		<button  class="window-top black" value="Rediger" id="btn_edit_shop">Rediger</button>
+		<button class="window-top black" id="btn_cancel_shop" style="display: none;">Annuller</button>
 	</div>
 	<h1>Butik</h1>
 	</div>
@@ -54,7 +54,7 @@
 		    </div>
 		</div>
 				<div class="field">
-		    <div class="label long">Yderligere information</div>
+		    <div class="label long">Om butikken</div>
 		    <div class="data long"><textarea id="<%=data.prefix %>other" name="<%=data.prefix %>other" class="readonly" oldValue="<%= data.attributes.other %>" title="Indtast butikkens åbningstider samt yderligere information, der kunne have interesse for kunden" readonly ><%= data.attributes.other %></textarea></div>
 		</div>
 	</div>

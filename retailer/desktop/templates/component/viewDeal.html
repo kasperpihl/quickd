@@ -32,7 +32,7 @@
       <span id="deal_ending_time"><%=getTimeString(parseInt(data.end)*1000, 'simple')%></span>
     </div>
   </div>
-  <button class="button red remove-btn" id="btn_remove_deal" style="display:<%=data.status=='soldout'&&data.state!='ended' ? 'none' : 'block'%>">
+  <button class="red remove-btn" id="btn_remove_deal" style="display:<%=data.status=='soldout'&&data.state!='ended' ? 'none' : 'block'%>">
     <%=data.state=='current'? 'Meld udsolgt' : 'Slet'%>
   </button>
   <h2 class="soldout" id="sold-out" style="display:<%=data.status=='soldout' ? 'block' : 'none'%>">Udsolgt</h2>
