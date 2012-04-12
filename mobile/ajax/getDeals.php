@@ -22,7 +22,10 @@ foreach($results as $res){
 	$deal['deal_price'] = $res->value->template->deal_price;
 	$deal['orig_price'] = $res->value->template->orig_price;
 	$deal['description'] = $res->value->template->description; 
-	$deal['end'] = time()+10;
+	$deal['address'] = $res->value->shop->address;
+	if(isset($res->value->shop->open_hours)) $deal['open_hours'] = $res->value->shop->open_hours;
+	if(isset($res->value->shop->other)) $deal['info'] = $res->value->shop->other;
+	$deal['end'] = $res->value->end;
 	$deal['name'] = $res->value->shop->name;
 	$deal['category'] = isset($res->value->template->category)?$res->value->template->category:'';
 	$deal['discount'] = discount($deal['orig_price'],$deal['deal_price']);

@@ -28,8 +28,15 @@ Ext.define('QuickD.controller.Main', {
             }
         }
     },
-    test:function(p1,p2,p3,p4){
-        log('params',p1,p2,p3,p4);
+    addRemoveRecords:function(store,p2,p3,p4){
+        if(this.lockRefresh) return;
+        this.lockRefresh = true;
+        var self = this;
+        setTimeout(function(){
+            self.lockRefresh = false;
+            self.updatedStore(store);
+        },150);
+        //log('params',p1,p2,p3,p4);*/
     },
     buttonHandler:function(t,t2,t3){
         var id = t.getId();
@@ -64,7 +71,7 @@ Ext.define('QuickD.controller.Main', {
     init: function() {
         //log('init');
         //this.callParent(arguments);
-        Ext.getStore('Deals').on({ 'refresh': this.updatedStore, scope: this,'updaterecord': this.test});
+        Ext.getStore('Deals').on({ 'refresh': this.updatedStore, scope: this,'updaterecord': this.addRemoveRecords,'addrecords':this.addRemoveRecords});
         //Ext.getStore('Deals').addListener('updaterecord', this.test, this);
 
         this.animationController = this.getApplication().getController('AnimationController');
