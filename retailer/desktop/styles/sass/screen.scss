@@ -818,8 +818,8 @@ body {
 	h1 {padding: 5px 0px 10px;line-height:24px;}
 	button {float:right;margin:5px 10px;}
 	&#confirm_close_dialog {
-		.button {margin:10px 0px 10px 10px;float:left;}
-		.button.cancel {margin-right:10px;float:right;}
+		button {margin:10px 0px 10px 10px;float:left;}
+		button.cancel {margin-right:10px;float:right;}
 	}
 }
 .error-promt {
@@ -942,7 +942,7 @@ body {
 			#map_canvas { display:block;position:relative;width:350px;height:240px;clear:both; }
 			.title {font-size:20px;}
 			.subheader {margin:10px 5px;font-weight:bold;}
-			.button {margin:10px 5px;}
+			button {margin:10px 5px;}
 		}
 	}
 }
@@ -1073,7 +1073,7 @@ form {
 		}
 		input.data {font-size:$window-title-font-size;font-family: $input-font-family;margin:4px;padding-left:0px;width:260px;}
 		.loader-small {position:absolute;top:5px;right:30px;
-			.button {position:static;}
+			button {position:static;}
 		}
 	}
 }
@@ -1192,7 +1192,7 @@ form {
 			padding-bottom: 4px;
 		}
 		
-		.button.green {
+		button.green {
 			border-radius: 4px;
 			position: absolute;
 			right: 16px;
@@ -1318,8 +1318,8 @@ form {
 		margin-bottom: 8px;
 	}
 	.loader-small {background:url('i/loader.gif') no-repeat left center;padding-left:20px;float:right;
-		.button {border-color:none;cursor:default;}
-		.button:hover {
+		button {border-color:none;cursor:default;}
+		button:hover {
 			background-color: rgb(4,168,201); // Old browsers
 			@include filter-gradient(#04a8c9, #003dce, vertical); // IE6-9
 			@include background-image(linear-gradient(top,  rgba(4,168,201,1) 2%,rgba(0,61,206,1) 100%));
@@ -1516,8 +1516,7 @@ form {
 		}
 	}
 
-	.button {
-
+	button {
 		&.btn_back {
 			//position: relative;
 			width: 150px;
