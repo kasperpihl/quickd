@@ -35,14 +35,10 @@ define([
 			
 		},
 		openDialog: function(){
-			this.router.trigger('dialogOpened',{me:this.cid, level:this.level});
-			this.router.bind('dialogOpened',this.handle);
+			this.router.trigger('dialogAction',{action:'opened',cid:this.cid, level:this.level});
+			this.router.bind('dialogAction',this.handle);
 			var thisClass = this;
-	
-			/*$('<div class="body-mask '+this.maskClass+'" id="body-mask"></div>').hide().appendTo('body').fadeIn(thisClass.aniTime).click(function(obj) {
-				obj.stopPropagation();
-				if (thisClass.closable) thisClass.closeDialog(thisClass.destroyOnClose);
-			});*/
+
 			$('body').createMask(function(obj) {
 				obj.stopPropagation();
 				if (thisClass.closable) thisClass.closeDialog(thisClass.destroyOnClose);
@@ -57,6 +53,15 @@ define([
 				
 			}
 			else this.openOnCreate = true;
+			
+			/*if (this.closable) {
+				$(document).keyup(function(e) {
+				  log(e)
+				  if (e.keyCode == 27) {  // esc
+				  	thisClass.closeDialog(thisClass.destroyOnClose);
+				  }  
+				});
+			}*/
 			
 			
 			
@@ -73,6 +78,7 @@ define([
 		},
 		closeDialog: function(remove, silent){
 			var thisClass = this;
+			this.router.trigger('dialogAction',{action:'closed',cid:this.cid, level:this.level});
 			//$('#body-mask').fadeOut(thisClass.aniTime, function() { $(this).remove(); });
 			$('body').removeMask(this.aniTime, null, this.level);
 			$(this.dialogId).fadeOut(thisClass.aniTime,function(){
@@ -96,8 +102,9 @@ define([
 			
 		},
 		handle:function(option){
-			if (option.me == this.cid || option.level > this.level) return;
-			else this.closeDialog();
+			if (option.action=='opened' && option.cid != this.cid && option.level <= this.level
+				 || option.action=='doClose' && option.cid==this.cid) this.closeDialog();
+			else return;
 		},
 		onClose:function() {}
 	});
