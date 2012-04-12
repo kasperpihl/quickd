@@ -15,6 +15,7 @@ define([
 			this.openOnCreate = false;
 			this.destroyOnClose = true;
 			this.aniTime = 400;
+			this.level = 1;
 			this.maskClass = 'black';
 		},
 		createDialog:function(data, callback){
@@ -34,7 +35,7 @@ define([
 			
 		},
 		openDialog: function(){
-			this.router.trigger('dialogOpened',{me:this.cid});
+			this.router.trigger('dialogOpened',{me:this.cid, level:this.level});
 			this.router.bind('dialogOpened',this.handle);
 			var thisClass = this;
 	
@@ -45,7 +46,7 @@ define([
 			$('body').createMask(function(obj) {
 				obj.stopPropagation();
 				if (thisClass.closable) thisClass.closeDialog(thisClass.destroyOnClose);
-			});
+			}, this.maskClass, this.level);
 			if (this.created) {
 				$(this.dialogId).fadeIn(thisClass.aniTime, function() {
 					$(this).show();
@@ -73,7 +74,7 @@ define([
 		closeDialog: function(remove, silent){
 			var thisClass = this;
 			//$('#body-mask').fadeOut(thisClass.aniTime, function() { $(this).remove(); });
-			$('body').removeMask(this.aniTime);
+			$('body').removeMask(this.aniTime, null, this.level);
 			$(this.dialogId).fadeOut(thisClass.aniTime,function(){
 				if (!silent) thisClass.onClose();
 				if (remove) {
@@ -95,7 +96,7 @@ define([
 			
 		},
 		handle:function(option){
-			if (option.me == this.cid) return;
+			if (option.me == this.cid || option.level > this.level) return;
 			else this.closeDialog();
 		},
 		onClose:function() {}

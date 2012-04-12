@@ -49,7 +49,6 @@ define([
 			else return data;
 		},
 		onDealChanged:function(data, obj) {
-			log("onDealChanged", data, obj);
 			if (data.hasChanged('state')) {
 				this.stateChanged(data.get('id'));
 			} else if(data.hasChanged('status') && data.get('status')=='soldout') {
@@ -59,7 +58,6 @@ define([
 					log($view);
 					$view.find('.remove-btn').hide().end().find('.soldout').show();
 				}
-
 			} else this.updateContent(true);
 		},
 		onDealAdded:function(data, obj) {
@@ -169,7 +167,7 @@ define([
 						this.currentDeal.destroy({data:this.currentDeal.id, success:function(model, response) {
 							log("deleted", model, response);
 							thisClass.router.trigger('dealEdited',{event:'dealDeleted'});
-							thisClass.activity.closeWindow(thisClass, false, true);
+							thisClass.viewList();
 						}, error:function(model, response) { 
 							log("error delete: ", model, response); 
 							thisClass.router.showError("Der opstod en fejl", "Det lykkedes ikke at slette din deal<br />Fejlmeddelelse: "+response.error); 

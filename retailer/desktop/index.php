@@ -48,7 +48,7 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
 	<body onLoad="resizeBg()">
     <div id="content"><!--bg-test.jpg-->
       <img id="bgImage" class="bgImage" style="display:none" src="<?= ROOT_URL ?>styles/stylesheets/i/bg-test.jpg" />
-			<div id="dashboard"></div>
+      <div id="dashboard"></div>
 		</div>
 			<!-- Main javascript files to get it all to work -->
 			

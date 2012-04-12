@@ -132,5 +132,14 @@ class MyImages extends Images {
 		$this->imagedata['t'] = array('x'=>$x, 'y'=>$y, 'w'=>$width, 'h'=>$height);
 		$this->generateThumbs();
 	}
+
+	public function delete() {
+		foreach($this->sizes['thumbs'] as $path => $options){
+			$name = $this->getDir($path);
+			if (file_exists($name)) unlink($name);
+		}
+		if (file_exists($this->previewimage)) unlink($this->previewimage);
+		if (file_exists($this->originalimage)) unlink($this->originalimage);
+	}
 }
 ?>

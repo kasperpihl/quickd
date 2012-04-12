@@ -301,13 +301,11 @@ class Shopowner {
 			case 'deals':
 				$update = 'delDeal';
 			break;
-			/*case 'images':
+			case 'images':
 				$update = 'delImage';
-				$response = Shopowner::updateImage($model);
-				if ($response && isset($response['success']) && ($response['success']===true||$response['success']=='true') ) 
-					$model = json_encode($response['data']);
-				else if ($response) return $response;
-			break;*/
+				$response = Shopowner::deleteImage($id);
+				if ($response!==true) return $response;
+			break;
 				
 		}
 		if(isset($update) && $update){
@@ -328,15 +326,15 @@ class Shopowner {
 				return json_decode($result);
 			}
 			catch(Exception $e){
-				return json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); 
+				return array('success'=>'false','error'=>'database_error','e'=>$e->getMessage()); 
 			}
 			
-		}
+		} else return array('error'=>'no_matching_save_function', 'data'=>$type); 
 		
 	}
 	public static function updateDeal($model){
 		global $dealer,$db;
-		$model = json_decode($model);
+		if (!is_object($model)) $model = json_decode($model);
 		try{
 			$editDeal = json_decode($db->updateDocFullAPI('dealer','startStopDeal',array('doc_id'=>$model->id,'params'=>array('json'=>json_encode($model)))));
 			return $editDeal;
@@ -455,6 +453,30 @@ class Shopowner {
 			} 
 		}
 		if ($image->getErrors()) return $image->getErrors();
+	}
+	public static function deleteImage($id) {
+		
+		$imgData = Shopowner::get('images',$id);
+		if($imgData['success'] == 'true') $imgData = $imgData['data'];
+		else return $imgData;
+
+		// Find deals using images
+		
+		$deals = (object) Shopowner::get('deals');
+		if (isset($deals->success, $deals->results)&&$deals->success=='true') {
+			foreach($deals->results as $deal) {
+				$model = $deal->value;
+				$image = $model->template->image;
+				if ($image && $image == $imgData->n) {
+					$model->template->image = '';
+					Shopowner::updateDeal($model);
+				}
+			}
+		}	
+		$image = new MyImages(array('imagedata'=>$imgData));
+		$image->delete();
+		if ($image->getErrors()) return $image->getErrors();
+		else return true;
 	}
 	public static function get($type,$id=''){
 		global $db,$session;
