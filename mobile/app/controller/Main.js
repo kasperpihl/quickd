@@ -11,7 +11,6 @@ Ext.define('QuickD.controller.Main', {
             buttons: 'toolbar > button',
             dealList: 'mainview > deallist',
             dealShow: 'mainview > dealshow',
-            dealSort: 'mainview > dealsort',
             splash: 'mainview > splash',
             noDeals: 'mainview > nodeals',
             dealShowSlider: 'mainview > dealshow > carousel',
@@ -59,8 +58,14 @@ Ext.define('QuickD.controller.Main', {
         //log(this.getMain().setShowAnimation('flip'));
         this.getDealShow().loadDeal(newItem);
     },
+    constructor:function(){
+        this.callParent(arguments);
+    },
     init: function() {
-        Ext.getStore('Deals').addListener('refresh', this.updatedStore, this);
+        //log('init');
+        //this.callParent(arguments);
+        Ext.getStore('Deals').on({ 'refresh': this.updatedStore, scope: this,'updaterecord': this.test});
+        //Ext.getStore('Deals').addListener('updaterecord', this.test, this);
 
         this.animationController = this.getApplication().getController('AnimationController');
         

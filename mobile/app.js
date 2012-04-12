@@ -5,7 +5,7 @@ Ext.application({
 	stores: ['Deals'],
 	statusBarStyle: 'black',
 	views: ['Main'],
-	controllers: ['Main','SortController', 'AnimationController'],
+	controllers: ['Main',/*'SortController', */'AnimationController'],
 	icon: 'resources/images/icon.png',
 	phoneStartupScreen: 'resources/images/phone_startup.png',
 	glossOnIcon: false,

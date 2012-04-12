@@ -5,7 +5,7 @@ var showDealTemplate = new Ext.XTemplate(
         '<section class="desc">{description}</section>',
         '<section class="venue">',
             '<h2>{name}</h2>',
-            '<img class="venue-thumb" src="http://lorempixum.com/640/320/nightlife/" width="100%" />',
+            //'<img class="venue-thumb" src="http://lorempixum.com/640/320/nightlife/" width="100%" />',
             '<p><strong>Om stedet:</strong> Som gæst i Templet, vil du føle dig fortryllet af den ophøjede stemning, der tager dig ud af den rutineprægede hverdag og ind i en verden af magi og mystik.',
             ' På disse sider kan du læse mere om hvad der foregår Tantra Templet, se billeder der giver en idé om atmosfæren og læse hvad andre gæster har oplevet her.</p>',
         '</section>',
@@ -35,7 +35,7 @@ var showDealTemplate = new Ext.XTemplate(
 var showDealSliderObj = new Ext.XTemplate(
     '<div class="dealBackground">',
         '<div class="leftPanel left">',
-            '<img src="' + IMG_URL +'thumbnail/{image}" width="185" height="185" />',
+           // '<img src="' + IMG_URL +'thumbnail/{image}" width="185" height="185" />',
             //'<img src="http://lorempixum.com/185/185/food/" width="185" height="185" />',
         '</div>',
         '<div class="rightPanel left">',
