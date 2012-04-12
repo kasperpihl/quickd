@@ -11,7 +11,6 @@ define([
 		locked:false,
 		queue: false,
 		init:function(){
-			
 			this.router = this.options.router;
 			if(!this.activityName) console.log('Jeg mangler et aktivitetsnavn' + this.cid);
 			this.id = 'activity_'+this.activityName;
@@ -37,7 +36,7 @@ define([
 					if(!this.hasOwnProperty('route')) this.route = lang.urls[this.activityName];
 					if(!data.hasOwnProperty('isRouted')){
 						this.router.navigate(this.route,{trigger:false});
-					} 
+					}
 				} 
 				if(data.hasOwnProperty('isParentRoute')){
 					this.closeAllWindows();

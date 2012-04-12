@@ -48,6 +48,7 @@ define([
 			'click #btn_expand_template_list': 'expandList'
 		},
 		handleClick:function(data) {
+			log('handleClick');
 			var id = data.currentTarget.id;
 			this.setSelected(id);
 		},
@@ -56,6 +57,7 @@ define([
 			this.render();
 		},
 		expandList:function() {
+			log('expandClick');
 			var thisClass = this;
 			this.$collapsed.hide();
 			this.$expanded.slideDown('slow');
