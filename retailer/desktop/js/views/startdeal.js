@@ -299,12 +299,12 @@ define([
 		},
 		startDeal:function(){
 			//var me=$('#starter_button');log("button", me.position().left, me.position().left+parseInt(me.css('marginLeft'))); return;
-			if (this.starting) return;
+			if (this.starting) return false;
 			this.starting = true;
 			if(this.errorMsg) this.hideError();
 			var thisClass = this;
 			
-			$('#btn_submit_start_deal').val('Planlægger...').addClass('disabled');
+			$('#btn_submit_start_deal').html('Planlægger...').addClass('disabled');
 			var obj = {};
 			obj.shop_id = App.collections.shops.at(0).id;
 			obj.template_id = this.templateSelected;
@@ -317,8 +317,6 @@ define([
 					if(data.success && data.success == 'true'){
 						log("start response", model,m);
 						App.collections.deals.add(model);
-						
-						//$('#btn_submit_start_deal');
 						thisClass.animateAway(function() {
 							thisClass.activity.route = lang.urls[thisClass.activity.activityName]
 							thisClass.router.navigate(lang.urls.overviewDeals+'/'+m.id,{trigger:true});
@@ -328,7 +326,7 @@ define([
 						
 					}
 					else {
-						$('#btn_submit_start_deal').removeClass('disabled').val('Planlæg deal');
+						$('#btn_submit_start_deal').removeClass('disabled').html('Planlæg deal');
 						thisClass.starting = false;
 						
 						if (data.error == 'deal_already_planned'){
@@ -346,6 +344,7 @@ define([
 					thisClass.router.showError("Der opstod en fejl", "Din deal blev ikke startet<br />Fejlmeddelelse: "+data.error);
 				}
 			});
+			return false;
 			
 		}
 	});

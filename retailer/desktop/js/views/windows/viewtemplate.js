@@ -180,6 +180,7 @@ define([
 			if (!this.selectorView)
 				this.selectorView = new App.views.dialogs.ImageSelectorView({router:this.router, windowId: this.windowId, selected: this.model.attributes.image});
 			this.selectorView.openDialog();
+			return false;
 		},
 		imageSelected:function(data) {
 			if (!data.windowId || data.windowId != this.windowId || !data.imgId ||

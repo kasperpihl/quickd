@@ -63,9 +63,7 @@ define([
 			this.$expanded.slideDown('slow');
 			if (thisClass.onExpand) thisClass.onExpand();
 			thisClass.expanded = true;
-			
-			
-			
+			return false;
 		},
 		collapseList:function() {
 			if (this.expanded) {

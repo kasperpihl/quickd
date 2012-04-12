@@ -1,8 +1,8 @@
 <form name="edit_template" id="edit_template">
 	<div class="title">
 		<div style="position: absolute; left: 0px;" id="template_title_buttons">
-			<button class="button add" id="btn_edit_template">Rediger</button>
-			<button class="button add grey" id="btn_cancel_template" style="display: none;">Annuller</button>
+			<button class="window-top black" id="btn_edit_template">Rediger</button>
+			<button class="window-top black" id="btn_cancel_template" style="display: none;">Annuller</button>
 		</div>
 
 		<h1>Skabelon</h1>
@@ -34,7 +34,7 @@
 			<span class="approved" style="float: left;">
 				Skabelonen er godkendt!
 			</span>
-			<button class="button green" id="btn_start_deal_template">Planlæg deal</button>
+			<button class="green" id="btn_start_deal_template">Planlæg deal</button>
 		</div>
 	<% } %>
     <div class="field top">
@@ -52,7 +52,7 @@
    	 	<div class="image-field" id="image-field">
         	<img src="<%=App.collections.images.getUrl(data.model.image, 'thumbnail')%>" />
         </div>
-   	     <div id="btn_select_image" class="button blue"><%=(data.model.image?"Vælg nyt billede":"Vælg billede")%></div>
+   	     <button id="btn_select_image" class="blue"><%=(data.model.image?"Vælg nyt billede":"Vælg billede")%></button>
    	     <input type="hidden" name="img_src" id="img_src" value="" />
     	</div>
     </div>
@@ -108,7 +108,7 @@
         <!--<div id="whitespace" />
     </div>-->
 	<div class="lower" id="button_container">
-		<button id="btn_del_template" class="button red" style="display: none;">Slet skabelon</button>	
+		<button id="btn_del_template" class="red" style="display: none;">Slet skabelon</button>	
 	</div>
     <div class="clearline" />
 </div>

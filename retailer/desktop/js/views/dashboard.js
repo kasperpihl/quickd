@@ -18,7 +18,7 @@ define([
 		loadingActivity: false,
 		initialize: function(){
 			this.router = this.options.router;
-			this.activity = false;
+			this.router.activity = false;
 			this.activityRoutes = {};
 			this.model = App.models.shopowner;
 			this.model.on('change:hours',this.renderHours,this);
@@ -100,10 +100,10 @@ define([
 			this.changeActivity({activity:activity,clicked:true});
 		},
 		changeActivity:function(options){
-			if(options.hasOwnProperty('clicked') && (options.activity == this.activity || this.locked)) return false;
-			if(!this.activity) options.first = true;
-			if(this.activity == options.activity) options.dontChange = true;			
-			this.activity = options.activity;
+			if(options.hasOwnProperty('clicked') && (options.activity == this.router.activity || this.locked)) return false;
+			if(!this.router.activity) options.first = true;
+			if(this.router.activity == options.activity) options.dontChange = true;			
+			this.router.activity = options.activity;
 			this.router.trigger('clickedActivity',options);
 			
 		},

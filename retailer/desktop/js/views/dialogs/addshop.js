@@ -101,6 +101,7 @@ define([
 			$('#add_shop_fields').slideDown();
 			$('#confirm_map').slideUp();
 			$('#shop_address').focus();
+			return false;
 		},
 		showConfirm:function() {
 			
@@ -144,6 +145,7 @@ define([
 			if(!name) return alert('Indtast navnet på butikken');
 			this.saveShop(name,address,lat,long);
 			this.closeBubble();
+			return false;
 		},
 		saveShop:function(name,address,lat,long){
 			var shop = new App.models.Shop();

@@ -22,7 +22,7 @@
 	    	<% _.each(data.images,function(item,i){ %>
 	    		<div class="img-item <% if (data.selected && data.selected==item.n) print('selected')%>" id="<%='img_'+item.id%>">
                 	<img src="<%=IMG_URL + 'thumbnail/' + item.n+'?'+item.rev %>"/>
-                    <button class="button blue btn_edit" id="btn_edit_<%=item.id%>">Tilpas</button>
+                    <button class="blue btn_edit" id="btn_edit_<%=item.id%>">Tilpas</button>
                 </div>
 	     	<% }); %>
             <div class="clearline"></div>	        
@@ -47,13 +47,13 @@
 	    			<input type="hidden" id="preview_name"/>
 	    			
 
-                    <button class="button blue btn_select" id="btn_select_img">Vælg billede</button>
-                    <button class="button red btn_delete" id="btn_delete_img">Slet billede</button>
-                    <button class="button btn_back" id="btn_edit_cancel">Gå tilbage</button>
+                    <button class="blue btn_select" id="btn_select_img">Vælg billede</button>
+                    <button class="red btn_delete" id="btn_delete_img">Slet billede</button>
+                    <button class="btn_back" id="btn_edit_cancel">Gå tilbage</button>
 	    		</div>
                 <div class="contentpane" id="image_edit_contentpane">
                 	<div class="preview" id="preview_wrapper" style="margin-top: 60px;">
-                    	<button class="button" id="btn_edit_save">Gem</button>
+                    	<button id="btn_edit_save">Gem</button>
                     </div>
                 </div>		
 	    	</div>

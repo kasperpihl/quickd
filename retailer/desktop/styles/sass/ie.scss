@@ -4,9 +4,8 @@
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
  * <![endif]--> */
 
-@import "compass";
-@import "compass/css3"; /* Så slipper vi for manuelt at kode vendor prefixes */
-@import "compass/css3/images";
+@import "base";
+
 /* Gradient backgrounds */
 .dialog {
   @include filter-gradient(#ffffff, #e2e2e2, vertical);

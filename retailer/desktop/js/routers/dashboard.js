@@ -20,8 +20,9 @@ define([
 		},
 		start: function(options){
 			this.route = '';
+			var thisClass = this;
 			if(!App.models.shopowner && shopowner) App.models.shopowner = new App.models.Shopowner(shopowner.dealer);
-			_.bindAll(this,'getChanges','changes', 'retryConnection');
+			_.bindAll(this,'getChanges','changes', 'retryConnection', 'dialogHandle', 'handleEsc');
 			App.collections.feedback = new App.collections.Feedback();
 			App.collections.templates = new App.collections.Templates();
 			App.collections.shops = new App.collections.Shops();
@@ -37,8 +38,12 @@ define([
 				confirmText:'Prøv igen'
 			});
 			this.bind('promtCallback:dashboard-router', this.retryConnection);
+			this.bind('dialogAction',this.dialogHandle);
+			this.dialogs = {};
+			$(document).keyup(function(e) {
+			  if (e.keyCode == 27) thisClass.handleEsc();
+			});
 			this.getChanges();
-			this.on('route:*index', this.indexing);
 			//log("started", options)
 			this.started = true;
 			//setTimeout(this.getChanges,10000);
@@ -107,6 +112,19 @@ define([
 				options.isParentRoute = true;
 			}
 			App.views.dashboard.changeActivity(options);
+		},
+		dialogHandle:function(option) {
+			if (option.action == 'opened') this.dialogs[option.level] = option;
+			else if(option.action == 'closed' && this.dialogs[option.level] && this.dialogs[option.level].cid == option.cid ) delete this.dialogs[option.level];
+		},
+		handleEsc:function() {
+			if (!_.isEmpty(this.dialogs)) {
+				var shown = _.max(this.dialogs, function(dialog) { return dialog.level; });
+				shown.action = 'doClose';
+				this.trigger('dialogAction',shown);
+			} else if (this.activity) {
+				App.views.dashboard.changeActivity({activity:this.activity, route:lang.urls[this.activity],isRouted:true, isParentRoute:true});
+			}
 		},
 		showError:function(title, msg) {
 			title = title ? title : 'Der op stod en fejl';

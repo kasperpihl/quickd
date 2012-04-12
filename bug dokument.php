@@ -2,9 +2,9 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
-Start-deal database-error (?)
+Opryd SASS-fil
 
-Slet billede
+Start-deal database-error (?)
 
 Meld udsolgt deal på forhandler mobil app
 
@@ -24,6 +24,8 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Slet billede
 
 (rettet Jeppe) Vis rabat ved oprettelse af templates
 
