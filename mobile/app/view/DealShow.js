@@ -1,3 +1,46 @@
+
+function makeOpeningHours(object){
+    var daysLang = {
+        0:{ min:'Man', max:'Mandag'},
+        1:{ min: 'Tir',max: 'Tirsdag'},
+        2:{ min: 'Ons',max: 'Onsdag'},
+        3:{ min: 'Tor',max: 'Torsdag'},
+        4:{ min: 'Fre',max: 'Fredag'},
+        5:{ min: 'Lør',max: 'Lørdag'},
+        6:{ min: 'Søn',max: 'Søndag'},
+        closed: 'Lukket'
+    };
+
+    var times,closed,html='',min=0;
+    for(var i = 0 ; i <= 7 ; i++ ){
+        var close,open;
+        if(i < 7){ 
+            var temp = object[i];
+            open = (temp.hasOwnProperty('open') && temp.open) ? temp.open : false;
+            close = (temp.hasOwnProperty('close') && temp.close) ? temp.close : false;
+        }
+        if(i === 0) times = {open:open,close:close};
+        else{
+            if(i < 7 && open == times.open && close == times.close) continue;
+            var last = i-1;
+            var days,time;
+            if(last == min) days = daysLang[last].max;
+            else days = daysLang[min].min + '-' + daysLang[last].max;
+            if(!times.open || !times.close) time = daysLang.closed;
+            else time = times.open + ' &ndash; ' + times.close;
+            html += '<li><span class="day">'+days+'</span><span class="leader"></span><time>'+time+'</time></li>';
+            if(i < 7){
+                times.open = open;
+                times.close = close;
+                min = i;
+            }
+
+
+        }
+        
+    }
+    return html;
+}
 var showDealTemplate = new Ext.XTemplate(
     '<section class="deal-wrap">',
     '<article id="deal-{id}-info" class="{category}">',
@@ -6,20 +49,18 @@ var showDealTemplate = new Ext.XTemplate(
         '<section class="venue">',
             '<h2>{name}</h2>',
             '<img class="venue-thumb" src="http://lorempixum.com/640/320/nightlife/" width="100%" />',
-            '<p><strong>Om stedet:</strong> Som gæst i Templet, vil du føle dig fortryllet af den ophøjede stemning, der tager dig ud af den rutineprægede hverdag og ind i en verden af magi og mystik.',
-            ' På disse sider kan du læse mere om hvad der foregår Tantra Templet, se billeder der giver en idé om atmosfæren og læse hvad andre gæster har oplevet her.</p>',
+            '<tpl if="info"><p><strong>Om stedet: </strong>{info}</p></tpl>',
         '</section>',
         '<footer class="venue-meta">',
-            '<section class="hours">',
-                '<ul>',
-                    '<li><span class="day">Man-Torsdag</span><span class="leader"></span><time>09.00 &ndash; 17.30</time></li>',
-                    '<li><span class="day">Fredag</span><span class="leader"></span><time>09.00 &ndash; 20.00</time></li>',
-                    '<li><span class="day">Lørdag</span><span class="leader"></span><time>11.00 &ndash; 17.30</time></li>',
-                    '<li><span class="day">Søndag</span><span class="leader"></span><time>Lukket</time></li>',
-                '</ul>',
-            '</section>',
+            '<tpl if="open_hours">',
+                '<section class="hours">',
+                    '<ul>',
+                        '{open_hours:this.makeOpeningHours}',
+                    '</ul>',
+                '</section>',
+            '</tpl>',
             '<section class="location">',
-                '<p>Frederiksgade 42, 8000 Aarhus C.</p>',
+                '<p>{address}</p>',
             '</section>',
             '<section class="feedback">',
                 '<p>9 anmeldelser</p>',
@@ -29,9 +70,11 @@ var showDealTemplate = new Ext.XTemplate(
     '</section>',
     {
         priceIt: priceIt,
-        humanReadableDistance: humanReadableDistance
+        humanReadableDistance: humanReadableDistance,
+        makeOpeningHours: makeOpeningHours
     }
 );
+
 var showDealSliderObj = new Ext.XTemplate(
     '<div class="dealBackground">',
         '<div class="leftPanel left">',

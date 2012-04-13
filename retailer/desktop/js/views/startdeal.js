@@ -139,7 +139,9 @@ define([
 			if (data && data.parent === this.cid && data.templateId) {
 				var id = data.templateId;
 				this.templateSelected = id;
-				this.router.navigate(lang.urls.startdeals+'/'+this.templateSelected);
+				var route = lang.urls.startdeals+'/'+this.templateSelected;
+				this.activity.route = route;
+				this.router.navigate(route);
 				this.expand();
 			}
 		},
@@ -170,6 +172,7 @@ define([
 			if (this.expanded) {
 				var thisClass = this;
 				thisClass.router.navigate(lang.urls.startdeals);
+				this.activity.route = lang.urls.startdeals;
 				$('#deal_templates').val("");
 
 				var height = this.selectorView?$('#set_template_block').outerHeight()-this.selectorView.collapsedHeight+this.selectorView.expandedHeight:0;

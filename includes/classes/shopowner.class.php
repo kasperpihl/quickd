@@ -409,6 +409,7 @@ class Shopowner {
 			'orig_price' => $deal->template->orig_price,
 			'deal_price' => $deal->template->deal_price,
 			'end' => $deal->end,
+			'rev' => $deal->rev,
 			'start' => $deal->start
 		);
 		if(isset($deal->template->image)) $res['image'] = $deal->template->image;

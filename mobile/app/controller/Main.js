@@ -11,7 +11,8 @@ Ext.define('QuickD.controller.Main', {
             buttons: 'toolbar > button',
             dealList: 'mainview > deallist',
             dealShow: 'mainview > dealshow',
-            dealSort: 'mainview > dealsort',
+            splash: 'mainview > splash',
+            noDeals: 'mainview > nodeals',
             dealShowSlider: 'mainview > dealshow > carousel',
             mapShow: 'mainview > mapshow'
         },
@@ -27,8 +28,15 @@ Ext.define('QuickD.controller.Main', {
             }
         }
     },
-    test:function(p1,p2,p3,p4){
-        log('params',p1,p2,p3,p4);
+    addRemoveRecords:function(store,p2,p3,p4){
+        if(this.lockRefresh) return;
+        this.lockRefresh = true;
+        var self = this;
+        setTimeout(function(){
+            self.lockRefresh = false;
+            self.updatedStore(store);
+        },150);
+        //log('params',p1,p2,p3,p4);*/
     },
     buttonHandler:function(t,t2,t3){
         var id = t.getId();
@@ -57,8 +65,14 @@ Ext.define('QuickD.controller.Main', {
         //log(this.getMain().setShowAnimation('flip'));
         this.getDealShow().loadDeal(newItem);
     },
+    constructor:function(){
+        this.callParent(arguments);
+    },
     init: function() {
-        Ext.getStore('Deals').addListener('refresh', this.updatedStore, this);
+        //log('init');
+        //this.callParent(arguments);
+        Ext.getStore('Deals').on({ 'refresh': this.updatedStore, scope: this,'updaterecord': this.addRemoveRecords,'addrecords':this.addRemoveRecords});
+        //Ext.getStore('Deals').addListener('updaterecord', this.test, this);
 
         this.animationController = this.getApplication().getController('AnimationController');
         
@@ -79,27 +93,34 @@ Ext.define('QuickD.controller.Main', {
         test.on('horizontalswipe',function(){ log('test'); });
         this.$container = $('#quickd-deals .x-scroll-container');
         this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
-      
         // Add deals bg
         this.$container.append($('<div id="deal-bg"></div>'));
         this.$dealsBg = this.$container.find('#deal-bg').hide();
     },
     
     updatedStore:function(instance,data,options){
-        log('updatedStore');
+        log('test',instance.getCount(),data);
+        var count = instance.getCount();
+        var string = count + (count == 1 ? ' deal' : ' deals');
+        this.getDealList().getDockedComponent('quickd-list-topbar').setTitle(string);
         var view = this.getDealShow();
         
         view.setSlider(instance.getData().items);
     },
     onLocationUpdate:function(){
+        var lat = this.location.getLatitude();
+        var long = this.location.getLongitude();
+        if(distance(lat,long,56.16294,10.20392) > 10000){
+            return this.noLocation();
+        }
         this.getMain().getAt(0).show();
         this.getMain().setActiveItem(this.getDealList());
-        localStorage.setItem('lat',this.location.getLatitude());
-        localStorage.setItem('long',this.location.getLongitude());
+        localStorage.setItem('lat',lat);
+        localStorage.setItem('long',long);
         Ext.getStore('Deals').load({
             params: {
-                lat: this.location.getLatitude(),
-                long: this.location.getLongitude()
+                lat: lat,
+                long: long
             },
             scope: this
         });
@@ -121,9 +142,8 @@ Ext.define('QuickD.controller.Main', {
                 var dealsOut    = this.animationController.dealsListOut($deals),
                     bgIn        = this.showSingleBackground(300);
 
-                button[0].hide();
+                //button[0].hide();
                 // Fetch data for selected deal.
-                log('changeToView');
                 this.getDealShow().down('#quickd-deal-slider').setActiveItem(options.index);
                 
                 $.when(dealsOut, bgIn).done(function() {
@@ -132,7 +152,7 @@ Ext.define('QuickD.controller.Main', {
                 });
             break;
             case 'deallist':
-                button[0].show();
+                //button[0].show();
                 main.setActiveItem(this.getDealList());
                 
                 // TODO: Why do we need a timeout here...?
@@ -158,8 +178,15 @@ Ext.define('QuickD.controller.Main', {
         this.$dealsBg.delay(delay).fadeOut(duration || 200, drf.resolve);
         return drf.promise();
     },
+    noLocation:function(){
+        this.location.setLatitude(56.16294);
+        this.location.setLongitude(10.20392);
+        alert('Vores beta kører kun i Aarhus, så vi placerer dig midt i Aarhus centrum');
+        this.onLocationUpdate();
+    },
     onLocationError:function(error, test1, permDenied, test3, test4){
-        this.getMain().getAt(1).setHtml('error location');
+        this.noLocation();
+        //this.getMain().getAt(0).getAt(0).setHtml('error location');
     },
     onDealSelect:function(list, index, node, record){
         this.activeDeal = record;

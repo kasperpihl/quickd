@@ -1,7 +1,7 @@
 define([
-'views/windows/window',
-'order!jquery/jcarousellite.min',
-'views/dialogs/imageSelector'
+	'views/windows/window',
+	'order!jquery/jcarousellite.min',
+	'views/dialogs/imageSelector'
 ],function(){
 	App.views.windows.AddTemplate = App.views.Window.extend({
 		el: '#activity_templates',
@@ -57,7 +57,7 @@ define([
 				this.collection.add(this.model);
 				App.views.notifications.notify('fast',lang.notifications.template.created);
 				this.confirmClose=false;
-				this.activity.closeWindow(this);
+				this.activity.closeWindow(this,false,true);
 			} else {
 				this.router.showError("Der opstod en fejl", "Din skabelon blev ikke oprettet korrekt<br />Fejlmeddelelse: "+data.error);
 			}

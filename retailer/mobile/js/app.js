@@ -10,4 +10,6 @@ window.log=function(){
 };
 $(document).bind('pageinit', function() {
 	 App.routers.controller = new App.routers.Controller(shopowner);
+	 log('initializing router and start history');
+	 Backbone.history.start(historyObj);
 });

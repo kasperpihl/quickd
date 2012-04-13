@@ -8,7 +8,6 @@ define("CLASSES_DIR",HOME_DIR.'includes'.DS.'classes'.DS);
 define('VERSION','v0.2');
 define('MIN_DISCOUNT',25);
 define('DEALS_PR_PAGE',10);
-define('DEAL_MAX_DIST',25000);
 define('MAX_DIST',25000);
 define('STD_IMAGE','hej');
 define("BETA_MODE",1);

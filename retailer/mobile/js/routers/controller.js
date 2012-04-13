@@ -1,18 +1,37 @@
 App.routers.Controller = Backbone.Router.extend({
 	locked: false,
+	routes:{
+		'skabeloner':	'changeTemplate',
+		'skabeloner/:id':	'changeTemplate',
+		'*index':			'indexing'
+	},
+	indexing:function(){
+		log('indexing');
+		//this.navigate('skabeloner',{trigger:true});
+	},
+	changeTemplate:function(param){
+		log('skabeloner');
+		//return;
+		if(param) this.changedToTemplate(param);
+	},
 	initialize: function(shopowner){
+		log('test before indexing');
+		/* Initializing collections and add initializing stuff to them */
 		App.collections.templates = new App.collections.Templates();
 		App.collections.deals = new App.collections.Deals();
 		App.collections.shops = new App.collections.Shops();
 		this.addStuff(shopowner);
 		_.bindAll(this,'getChanges','changes','clickedStartStop','changedState');
+		/* Start changes listening */
 		this.getChanges();
+
+		/* Initialising views */
 		App.views.deals = new App.views.Deals({router: this});
 		App.utilities.countdown = new App.utilities.Countdown();
-		App.collections.deals.on('add',this.changedState);
-		App.collections.deals.on('change:state',this.changedState);
-		App.collections.deals.on('change:status',this.changedState);
 		App.views.controlPanel = new App.views.ControlPanel({router:this});
+
+		/* Adding events to deals collection */
+		App.collections.deals.on('add change:state change:status',this.changedState);
 	},
 	addStuff:function(stuff){
 		_.each(stuff,function(item,i){
@@ -35,7 +54,13 @@ App.routers.Controller = Backbone.Router.extend({
 			}
 		});
 	},
+	/**
+	 * Function used when models changes, to update the controlpanel if it is the active one
+	 * @param  {object} model the deal model that changes
+	 * @return none
+	 */
 	changedState:function(model){
+		log('testing state');
 		if(parseInt(model.get('template_id'),10) == parseInt(this.activeTemplateId,10)){
 			if(model.get('state') == 'current'){
 				App.views.controlPanel.changed(model);
@@ -45,7 +70,7 @@ App.routers.Controller = Backbone.Router.extend({
 				App.views.controlPanel.changed(App.collections.templates.get(this.activeTemplateId));
 			}
 			else if(model.get('status') == 'soldout'){
-				App.views.controlPanel.changed();
+				App.views.controlPanel.changed(model);
 			}
 		}
 	},
@@ -57,8 +82,10 @@ App.routers.Controller = Backbone.Router.extend({
 	},
 	changedToTemplate:function(templateId){
 		this.activeTemplateId = templateId;
+		App.views.deals.activeTemplateId = templateId;
 		var startedDeal = App.collections.deals.isStartedDeal(templateId);
 		startedDeal = startedDeal ? startedDeal : App.collections.templates.get(templateId);
+		startedDeal = startedDeal ? startedDeal : App.collections.templates.at(0);
 		this.activeModel = startedDeal;
 		App.views.controlPanel.changed(startedDeal);
 		//log(startedDeal.toJSON());
@@ -71,6 +98,7 @@ App.routers.Controller = Backbone.Router.extend({
 				obj = {action:'start',model:{mobile:'true',template_id:this.activeModel.get('id'),seconds: time}};
 			break;
 			case 'deal':
+				if(this.activeModel.get('status') == 'soldout') return alert('Denne skabelon kan først startes igen når tiden er udløbet');
 				obj = {action: 'soldout',model: {id: this.activeModel.get('id'),status:'soldout'}};
 			break;
 		}
@@ -82,12 +110,12 @@ App.routers.Controller = Backbone.Router.extend({
 					var model = new App.models.Deal(data.data);
 					App.collections.deals.add(model,{silent:true});
 					thisClass.changedState(model);
+					thisClass.activeModel = model;
 				}
 				else {
 					thisClass.activeModel.set(data.data);
+					thisClass.changedState(thisClass.activeModel);
 				}
-				
-				
 			}
 		},'json');
 	},
@@ -101,7 +129,7 @@ App.routers.Controller = Backbone.Router.extend({
 			data: 'cindex='+cindex+'&csince='+csince,
 			async: true,
 			cache: false,
-			timeout:4000,
+			timeout:10000,
 			success: thisClass.changes,
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				log('error changes',XMLHttpRequest,textStatus,errorThrown);
@@ -116,7 +144,7 @@ App.routers.Controller = Backbone.Router.extend({
 		if(result.hasOwnProperty('success') && result.success == 'false') return setTimeout(this.getChanges,3000);
 		if(result.hasOwnProperty('cindex')) localStorage.setItem('cindex',result.cindex);
 
-		setTimeout(this.getChanges,3000);
+		setTimeout(this.getChanges,10000);
 		if(!result.data) return;
 		var results = result.data;
 		if(results.length > 0){
@@ -140,7 +168,7 @@ App.routers.Controller = Backbone.Router.extend({
 								model.set('approved',doc.action);
 							break;
 						}
-					break
+					break;
 					case 'deal':
 						newModel = App.models.Deal;
 						collection = App.collections.deals;
@@ -148,8 +176,7 @@ App.routers.Controller = Backbone.Router.extend({
 						if(model === undefined) break;
 					break;
 					default:
-						continue;
-					break;
+					continue;
 				}
 				/*if(model && (doc.rev > model.get('rev'))){
 					//log('fetched',doc.type,doc.id);
