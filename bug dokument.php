@@ -2,6 +2,8 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
+retailer/skabeloner/*skabelon*: Klik på kategori og rabat går ikke i rediger-mode på samme måde som klik på titel, beskrivelse osv.
+
 Opryd SASS-fil
 
 Start-deal database-error (?)
@@ -25,7 +27,7 @@ Lav prioritet
 	
 =======================================
 
-(rettet Jeppe) Slet billede
+(rettet Jeppe) Slet billede <-- HVOR ER SHA1'en???!!?!
 
 (rettet Jeppe) Vis rabat ved oprettelse af templates
 
@@ -111,3 +113,5 @@ Lav prioritet
 
 
 (rettet Jeppe) deals vinduet skal virke med routeren
+
+?>
