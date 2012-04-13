@@ -187,6 +187,7 @@ try{
 		addHistory(id,timestamp);
 		returnObj.shop = shop;
 		returnObj.template = template;
+		returnObj.rev = 1;
 		if(template.hasOwnProperty('image')){
 			if(doc.images.hasOwnProperty(template.image)) returnObj.image = doc.images[template.image].n;
 			

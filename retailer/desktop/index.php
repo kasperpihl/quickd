@@ -15,31 +15,31 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
 		<meta name="viewport" content="width=device-width,initial-scale=.9">
 		<title>QuickD</title>
 		
-    <link href="<?= LIBS_URL ?>jquery/css/jquery.ui.theme.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="<?= LIBS_URL ?>jquery/css/jquery.ui.selectmenu.css" media="all" rel="stylesheet"/>
-    <link href="<?= LIBS_URL ?>jquery/css/jquery.ui.datepicker.css" media="all" rel="stylesheet"/>
-        
+	    <link href="<?= LIBS_URL ?>jquery/css/jquery.ui.theme.css" media="all" rel="stylesheet" type="text/css"/>
+	    <link href="<?= LIBS_URL ?>jquery/css/jquery.ui.selectmenu.css" media="all" rel="stylesheet"/>
+	    <link href="<?= LIBS_URL ?>jquery/css/jquery.ui.datepicker.css" media="all" rel="stylesheet"/>
+	        
 		<link href="<?= ROOT_URL ?>styles/stylesheets/screen.css" media="all" rel="stylesheet"/>
-    <!--[if lt IE 9]>
-		  <link href="<?= ROOT_URL ?>styles/stylesheets/ie.css" media="all" rel="stylesheet"/>
-    <![endif]-->
-     
-    <script src="<?= LIBS_URL ?>jquery/jquery-min.js"></script>
-	<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
-    <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
-    <script src="<?= ROOT_URL ?>js/function.js"></script>
-    <script> var shopowner; var debug = false;	
-		var ROOT_URL = "<?= ROOT_URL ?>";
-		var COMMON_URL = "<?= COMMON_URL ?>";
-		var REAL_URL = "<?= REAL_URL ?>";
-		var version = "<?= VERSION ?>";
-		var IMG_URL = "<?= IMAGES_URL ?>";
-		var LIBS_URL = "<?= LIBS_URL ?>";
-		var historyObj = JSON.parse('<?= $historyObj ?>');
-		var CATEGORIES = JSON.parse('<?=json_encode($categories) ?>');
-			<?php if(isset($dealer) && $dealer) { $return = getShopowner();?>
-				shopowner = <?= $return; ?>;
-			<? } ?>
+	    <!--[if lt IE 9]>
+			  <link href="<?= ROOT_URL ?>styles/stylesheets/ie.css" media="all" rel="stylesheet"/>
+	    <![endif]-->
+	     
+	    <script src="<?= LIBS_URL ?>jquery/jquery-min.js"></script>
+		<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
+	    <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
+	    <script src="<?= ROOT_URL ?>js/function.js"></script>
+	    <script> var shopowner; var debug = false;	
+			var ROOT_URL = "<?= ROOT_URL ?>";
+			var COMMON_URL = "<?= COMMON_URL ?>";
+			var REAL_URL = "<?= REAL_URL ?>";
+			var version = "<?= VERSION ?>";
+			var IMG_URL = "<?= IMAGES_URL ?>";
+			var LIBS_URL = "<?= LIBS_URL ?>";
+			var historyObj = JSON.parse('<?= $historyObj ?>');
+			var CATEGORIES = JSON.parse('<?=json_encode($categories) ?>');
+				<?php if(isset($dealer) && $dealer) { $return = getShopowner();?>
+					shopowner = <?= $return; ?>;
+				<? } ?>
 		</script>
 	</head>
 	
@@ -68,11 +68,11 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
 			<script src="<?= LIBS_URL ?>jquery/jquery-ui.js"></script>
 			<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.5&sensor=false&region=DK"></script>-->
 	       
-      <script src="<?= LIBS_URL ?>jquery/jquery.ui.selectmenu.js"></script>
-      <script src="<?= LIBS_URL ?>jquery/jcarousellite.min.js"></script>
-      <script src="<?= LIBS_URL ?>jquery/jquery.slides.min.js"></script>        
-      <script src="<?= LIBS_URL ?>jquery/jquery.mousewheel.min.js" ></script>
-      <script src="<?= LIBS_URL ?>jquery/jquery.rotate.min.js" ></script>
+	    	<script src="<?= LIBS_URL ?>jquery/jquery.ui.selectmenu.js"></script>
+	    	<script src="<?= LIBS_URL ?>jquery/jcarousellite.min.js"></script>
+	    	<script src="<?= LIBS_URL ?>jquery/jquery.slides.min.js"></script>        
+	    	<script src="<?= LIBS_URL ?>jquery/jquery.mousewheel.min.js" ></script>
+	    	<script src="<?= LIBS_URL ?>jquery/jquery.rotate.min.js" ></script>
 			<script src="<?= LIBS_URL ?>jquery/jquery.meow.js" ></script>
 			<script src="<?= LIBS_URL ?>jquery/jquery.easing.js"></script>
 			<script src="<?= LIBS_URL ?>jquery/jquery.tools.min.js"></script>

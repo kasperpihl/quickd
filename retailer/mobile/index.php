@@ -36,6 +36,7 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
 	        	var shopowner; 
 				var IMG_URL = "<?= IMAGES_URL ?>";
 				var LIBS_URL = "<?= LIBS_URL ?>";
+				var historyObj = JSON.parse('<?= $historyObj ?>');
 				shopowner = <?= $return; ?>;
 			</script>
 			<script src="<?= LIBS_URL ?>jquery/jquery.easing.1.3.min.js"></script>

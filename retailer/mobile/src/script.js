@@ -13,7 +13,7 @@ $(document).bind('mobileinit', function() {
 	$.mobile.ajaxEnabled = false;
 });
 $(document).bind('pageinit', function() {
-    log('init');
+    log('init script.js');
     $('#user,#password').keydown(function(){
         if($('#user').hasClass('animated shake fail')) $('#user').removeClass('animated shake fail');
         if($('#password').hasClass('animated shake fail')) $('#password').removeClass('animated shake fail');

@@ -1,5 +1,4 @@
-<? require_once('../config.php');?>
-<? //if(!$uagent->DetectTierIphone()) header('Location: http://quickd.dk'); ?>
+<? require_once('../config.php'); ?>
 <!DOCTYPE html>
 <html>
     <head>
