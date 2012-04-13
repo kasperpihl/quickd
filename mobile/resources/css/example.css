@@ -3701,8 +3701,8 @@ SINGLE DEAL
   text-shadow: 0 1px 0 white;
   font-size: 14px;
   line-height: 21px;
-  -webkit-box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.7), 0 -5px 13px 7px black;
-  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.7), 0 -5px 13px 7px black; }
+  -webkit-box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.37), 0 -5px 13px 7px black;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.37), 0 -5px 13px 7px black; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-] strong {
     color: #141414; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-].shopping {
