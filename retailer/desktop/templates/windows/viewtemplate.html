@@ -10,16 +10,20 @@
 
 <div class="body-area spacing">
 	<!--<div class="scroll-list" style="padding: 8px;">-->
-	<% if (data.model.message && (data.model.message != false)) { %>
+	<% if (data.model.approved == "declined") { %>
 		<div class="field">
 			<span class="message">
-				Skabelonen er desværre blevet afvist:<br/><br/>
-				<span class="answer"><%= data.model.message %></span>
+        <% if (data.model.message) { %>
+				  Skabelonen er desværre blevet afvist:<br><br>
+				  <span class="answer"><%= data.model.message %></span>
+        <% }else{ %>
+          Skabelonen er desværre blevet afvist!
+        <% } %>
 			</span>
 		</div>
 	<%
 		}
-		if (data.model.approved == "waiting") {	
+		else if (data.model.approved == "waiting") {	
 	%>
 		<div class="field">
 			<span class="waiting">
@@ -31,9 +35,14 @@
 		else if (data.model.approved == "approved") {
 	%>
 		<div class="field">
-			<span class="approved" style="float: left;">
-				Skabelonen er godkendt!
-			</span>
+			<div class="approved" style="float: left;">
+				<% if (!data.model.message) { %>
+          <span class="approved_text">Skabelonen er godkendt!</span>
+        <% }else{ %>
+          <span class="approved_text">Skabelonen er godkendt:<br><br></span>
+          <span class="answer"><%= data.model.message %></span>
+        <% } %>
+			</div>
 			<button class="green" id="btn_start_deal_template">Planlæg deal</button>
 		</div>
 	<% } %>
