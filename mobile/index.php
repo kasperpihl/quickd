@@ -3,8 +3,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
         <title>QuickD</title>
 	<!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&sensor=true"></script>
