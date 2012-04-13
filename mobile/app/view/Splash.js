@@ -5,9 +5,10 @@ Ext.define('QuickD.view.Splash', {
     xtype: 'splash',
     config: {
         layout:'fit',
+        id:'quickd-splash-screen',
         items: [{
             xtype:'panel',
-            html:'SPLASH'
+            html:''
         }]
     }
 });
