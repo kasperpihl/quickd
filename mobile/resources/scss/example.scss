@@ -38,12 +38,7 @@ strong { font-weight: bold; }
 SPLASH SCREEN
 ******************************************************************/
 #quickd-splash-screen {
-    -webkit-animation: fade-in-splash 1s ease-in-out;
-}
-
-@-webkit-keyframes fade-in-splash {
-    0%   { background: black; }
-    100% { background: #eee; }
+    
 }
 
 /******************************************************************
