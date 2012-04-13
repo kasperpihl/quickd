@@ -3519,8 +3519,8 @@ audio {
 /******************************************************************
 CONVERT IMAGES TO COMPASS SPRITE MAPS
 ******************************************************************/
-.spr-sprite, #fedt-mand-spa .x-list-pullrefresh .x-list-pullrefresh-arrow, .venue-meta section.hours:before, .venue-meta section.location:before, .venue-meta section.feedback:before, #quickd-deals article[id*=deal_] .deal-content > footer .awesome-badge, #quickd-deals article[id*=deal_].category.fooddrink footer .price:before, #quickd-deals article[id*=deal_].category.fooddrink footer time:before, #quickd-deals article[id*=deal_].category.shopping footer .price:before, #quickd-deals article[id*=deal_].category.shopping footer time:before, #quickd-deals article[id*=deal_].category.experience footer .price:before, #quickd-deals article[id*=deal_].category.experience footer time:before {
-  background: url('../images/spr-s39183d3a9a.png') no-repeat; }
+.spr-sprite, #fedt-mand-spa .x-list-pullrefresh .x-list-pullrefresh-arrow, .venue-meta section.hours:before, .venue-meta section.location:before, .venue-meta section.feedback:before, #quickd-deals article[id*=deal_] .deal-content > footer .awesome-badge, #quickd-deals article[id*=deal_].category.fooddrink footer .price:before, #quickd-deals article[id*=deal_].category.fooddrink footer time:before, #quickd-deals article[id*=deal_].category.shopping footer .price:before, #quickd-deals article[id*=deal_].category.shopping footer time:before, #quickd-deals article[id*=deal_].category.experience footer .price:before, #quickd-deals article[id*=deal_].category.experience footer time:before, #quickd-deals article[id*=deal_].category.nightlife footer .price:before, #quickd-deals article[id*=deal_].category.nightlife footer time:before {
+  background: url('../images/spr-sbf4ee89314.png') no-repeat; }
 
 /******************************************************************
 BUTTONS
@@ -3883,7 +3883,7 @@ DEALS LIST
     #quickd-deals article[id*=deal_].category.fooddrink footer {
       color: #c09159; }
     #quickd-deals article[id*=deal_].category.fooddrink footer .price:before {
-      background-position: 0 -203px;
+      background-position: 0 -227px;
       height: 12px;
       width: 13px; }
     #quickd-deals article[id*=deal_].category.fooddrink footer time:before {
@@ -3893,21 +3893,21 @@ DEALS LIST
     #quickd-deals article[id*=deal_].category.fooddrink:before {
       background: #c09159; }
     #quickd-deals article[id*=deal_].category.shopping footer {
-      color: #a25d7a; }
+      color: #697299; }
     #quickd-deals article[id*=deal_].category.shopping footer .price:before {
-      background-position: 0 -179px;
+      background-position: 0 -191px;
       height: 12px;
       width: 13px; }
     #quickd-deals article[id*=deal_].category.shopping footer time:before {
-      background-position: 0 -155px;
+      background-position: 0 -179px;
       height: 12px;
       width: 12px; }
     #quickd-deals article[id*=deal_].category.shopping:before {
-      background: #a25d7a; }
+      background: #697299; }
     #quickd-deals article[id*=deal_].category.experience footer {
       color: #5da2a0; }
     #quickd-deals article[id*=deal_].category.experience footer .price:before {
-      background-position: 0 -191px;
+      background-position: 0 -215px;
       height: 12px;
       width: 13px; }
     #quickd-deals article[id*=deal_].category.experience footer time:before {
@@ -3916,3 +3916,15 @@ DEALS LIST
       width: 12px; }
     #quickd-deals article[id*=deal_].category.experience:before {
       background: #5da2a0; }
+    #quickd-deals article[id*=deal_].category.nightlife footer {
+      color: #a25d7a; }
+    #quickd-deals article[id*=deal_].category.nightlife footer .price:before {
+      background-position: 0 -203px;
+      height: 12px;
+      width: 13px; }
+    #quickd-deals article[id*=deal_].category.nightlife footer time:before {
+      background-position: 0 -155px;
+      height: 12px;
+      width: 12px; }
+    #quickd-deals article[id*=deal_].category.nightlife:before {
+      background: #a25d7a; }

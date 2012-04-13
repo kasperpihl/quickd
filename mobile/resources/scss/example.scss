@@ -386,11 +386,11 @@ DEALS LIST
         }
         
         &.category.shopping {
-            $color: #a25d7a;
+            $color: #697299;
             
             footer { color: $color; }
-            footer .price:before { @include spr-sprite('money-purple', true); }
-            footer time:before { @include spr-sprite('clock-purple', true); }
+            footer .price:before { @include spr-sprite('money-blue', true); }
+            footer time:before { @include spr-sprite('clock-blue', true); }
             &:before { background: $color; }
         }
         
@@ -400,6 +400,15 @@ DEALS LIST
             footer { color: $color; }
             footer .price:before { @include spr-sprite('money-green', true); }
             footer time:before { @include spr-sprite('clock-green', true); }
+            &:before { background: $color; }
+        }
+
+        &.category.nightlife {
+            $color: #a25d7a;
+            
+            footer { color: $color; }
+            footer .price:before { @include spr-sprite('money-purple', true); }
+            footer time:before { @include spr-sprite('clock-purple', true); }
             &:before { background: $color; }
         }
     }
