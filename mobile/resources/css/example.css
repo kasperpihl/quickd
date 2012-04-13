@@ -3800,6 +3800,8 @@ DEALS LIST
 ******************************************************************/
 #quickd-deals {
   background: url("../images/bg-pattern.png");
+  opacity: 0;
+  -webkit-animation: fade-in 0.2s 0.1s ease-in-out forwards;
   /* list item wrapping element */ }
   #quickd-deals .x-list {
     background: transparent; }
@@ -3810,7 +3812,9 @@ DEALS LIST
     margin: 10px 7px;
     background: white;
     -webkit-border-radius: 3px;
-    border-radius: 3px; }
+    border-radius: 3px;
+    opacity: 0;
+    -webkit-animation: fade-in 0.2s 0.2s ease-in-out forwards; }
     #quickd-deals .x-list-item:after {
       display: block;
       position: absolute;
@@ -3824,7 +3828,9 @@ DEALS LIST
       border: none;
       padding: 0; }
   #quickd-deals article[id*=deal_] {
-    position: relative; }
+    position: relative;
+    opacity: 0;
+    -webkit-animation: fade-in 0.1s 0.28s ease-in-out forwards; }
     #quickd-deals article[id*=deal_] img.deal_image {
       margin-left: 5px; }
     #quickd-deals article[id*=deal_] .deal-content {
@@ -3942,3 +3948,10 @@ DEALS LIST
       width: 12px; }
     #quickd-deals article[id*=deal_].category.nightlife:before {
       background: #a25d7a; }
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }

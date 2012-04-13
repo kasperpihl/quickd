@@ -278,6 +278,8 @@ DEALS LIST
 
 #quickd-deals {
     background: url($img-path + 'bg-pattern.png');
+    opacity: 0;
+    -webkit-animation: fade-in 0.2s 0.1s ease-in-out forwards;
 
     .x-scroll-view {  }
     .x-scroll-container {  }
@@ -288,6 +290,8 @@ DEALS LIST
         margin: 10px 7px;
         background: white;
         @include border-radius(3px);
+        opacity: 0;
+        -webkit-animation: fade-in 0.2s 0.2s ease-in-out forwards;
 
         // Shadow
         &:after {
@@ -314,6 +318,8 @@ DEALS LIST
 
     article[id*=deal_] {
         position: relative;
+        opacity: 0;
+        -webkit-animation: fade-in 0.1s 0.28s ease-in-out forwards;
 
         img.deal_image { margin-left: 5px; }
 
@@ -431,4 +437,9 @@ DEALS LIST
             &:before { background: $color; }
         }
     }
+}
+
+@-webkit-keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
