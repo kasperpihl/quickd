@@ -3747,6 +3747,8 @@ SINGLE DEAL
       margin-top: 52px; }
     .venue-meta section.hours {
       position: relative; }
+      .venue-meta section.hours ul {
+        width: 95%; }
       .venue-meta section.hours li {
         display: -webkit-box;
         display: box;

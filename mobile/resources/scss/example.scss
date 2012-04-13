@@ -226,6 +226,8 @@ SINGLE DEAL
         &.hours {
             position: relative;
 
+            ul { width: 95%; }
+
             li { 
                 @include display-box;
                 @include box-orient(horizontal);
