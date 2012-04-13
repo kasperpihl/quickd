@@ -4,7 +4,6 @@ class Session {
 	private $privileges;
 	
 	function __construct(){
-		session_start();
 		$this->check_login();
 	}
 	public function logged_user(){

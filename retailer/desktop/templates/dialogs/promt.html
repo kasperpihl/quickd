@@ -1,0 +1,7 @@
+<div id="alert_dialog" class="promt-dialog">
+    <h1><%=data.title?data.title:'Bekræft handling'%></h1>
+    <% if (data.msg) { %>
+      <p class="msg"><%=data.msg%></p>
+    <% } %>
+    <button class="blue" id="btn_confirm"><%=data.confirmText?data.confirmText:'OK'%></button>
+ </div>

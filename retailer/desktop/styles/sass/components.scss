@@ -1,0 +1,134 @@
+/******* 
+General layout components (buttons etc)
+********/
+@import "base";
+
+button, .button {
+	cursor:pointer;
+	color:black;
+	@include border-radius(4px);
+	display: inline-block;
+	line-height: normal;
+	padding: 4px 9px;
+	font-family: $font-family;
+
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	
+	border: 1px solid #ccc;
+	
+	&.green {
+		color:white;
+		border:1px solid #4E7A00;
+		text-shadow: 0.5px 0 2px black;
+		@include transition-property((background,background-image,color));
+		@include transition-duration(0.25s);
+		background-color: rgb(94,150,27); // Old browsers
+		@include background-image(linear-gradient(top,  rgba(94,150,27,1) 0%,rgba(58,107,9,1) 98%));
+		@include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575);
+		@include border-radius(8px);
+		@include showAnimation(whitePulse, 3s, infinite);
+		&:hover { 
+			background-color: rgb(94,150,27); // Old browsers
+			@include background-image(linear-gradient(top,  rgba(94,150,27,1) 0%,rgba(67,117,17,1) 98%));
+			@include box-shadow(0 0 10px white, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575);
+		}
+		&:active { 
+			background: #3A6B09;
+			@include box-shadow(inset 0px 1px 3px #363535);
+			@include stopAnimation();
+		}
+		&.disabled { background: #67A100;
+			&:hover {background: #67A100;}
+		}
+		
+		&.small {
+			@include border-radius(3px);
+		}
+		&.loading {position:relative;}
+		&.loading:before {
+			content:url(i/loader_green.gif);
+			display:block;
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin: 0 - image-width('loader_green.gif') / 2;
+			z-index:1;
+		}
+	}
+	&.grey {
+		color:black;
+		text-shadow: 0 1px 1px white;
+		float: right;
+		@include background(linear-gradient(top, rgba(252,252,252,1) 0%, rgba(165,165,165,1) 100%));
+		&.left { float: left; }
+	}
+	&.window-top {
+		padding:6px;padding-bottom: 3px;
+		position: relative;
+		float: left;
+		left: 5px;
+		top: 5px;
+		right:auto;
+	}
+	&.black {
+		color:white;
+		background-color: black;
+		@include box-shadow(0 0 3px black);
+		border: 1px solid black;
+		@include background(linear-gradient(top, rgba(51,51,51,1) 0%, rgba(0,0,0,1) 100%));
+		&:hover { @include background(linear-gradient(top, rgba(51,51,51,1) 0%, rgba(22,22,22,1) 100%)); }
+		&:active {
+			@include background(linear-gradient(top, rgba(0,0,0,1) 0%, rgba(51,51,51,1) 100%));
+			box-shadow: inset 0 0 2px rgba(0,0,0,1);
+		}
+	}
+	&.red {
+		color:white;
+		background-color:#FF2828;
+		@include background(linear-gradient(top, rgb(234,95,85),rgb(196, 63, 49)));
+		&:hover {
+			background-color: rgb(234,95,85); // Old browsers
+			@include background-image(linear-gradient(top, rgb(234,95,85),rgb(216, 83, 59)));
+		}
+		&:active {
+			background-color: rgb(196, 63, 49);
+			@include background(linear-gradient(top, rgb(196, 63, 49), rgb(234,95,85)));
+			@include box-shadow(inset 0px 1px 1px rgba(0,0,0,0.5));
+			cursor: pointer;
+		}
+	}
+	&.blue {
+		color: white;
+		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		background-color: #0064cd;
+		
+		@include background(linear-gradient(top, #049cdb, #0064cd));
+		border-color: rgba(0,0,0,0.1) rgba(0,0,0, 0.1) rgba(0,0,0,0.25);
+		box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 0 2px #757575;
+		border: 1px solid #302BBD;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		
+		&.feedback {
+			width: 200px;
+			font-size: 16px;
+		}
+
+		&:hover {
+			background-color: #006fe5;
+			@include background(linear-gradient(top, #049cdb, #006fe5));
+		}
+		&:active {
+			background-color: #0064cd;
+			@include background(linear-gradient(top, #0064cd, #049cdb));
+			@include box-shadow(inset 0px 1px 1px #363535);
+			cursor: pointer;
+		}
+	}
+	&.disabled, &.disabled:hover, &.disabled:active {
+		background:#BDBDBD;
+		border:#6e6e6e;
+		@include box-shadow(none);
+		cursor:default;
+	}
+}

@@ -1,0 +1,37 @@
+<div id="register_dialog">
+	<button class="grey" id="go_login_button">◄</button>
+    <div class="title" style="border-bottom: none;">
+		<span style="
+		    font-family: &quot;Helvetica&quot;;@;@H;@He;@Hel;@He;@H;@;
+		    color: #C9853C;
+		    position: absolute;
+		    text-shadow: 0 0 1px white;
+		    font-size: 12px;
+		    top: 45px;
+		    left: 212px;
+		    text-shadow: 0 1px 1px rgba(255, 255, 255, 1);
+	">Beta</span>
+		<img src="<%= ROOT_URL %>styles/stylesheets/i/quickd-logo-113x33.png" class="logo">
+    </div>
+   <!-- <div class="go_login" id="go_login_button">Allerede tilmeldt?
+        <a class="switch_window_link">Log ind her i stedet</a>
+    </div>-->
+    <div class="register_fields">
+		<form id="register-form" name="register-name">           
+            <div class="field">
+                <div class="label">E-mail</div>
+                <input name="user" type="text" id="register_username" autocomplete="off" title="Den email du ønsker at logge ind med"/>
+            </div>
+            <div class="field">
+                <div class="label">Adgangskode</div>
+                <input name="password" type="password" id="register_password" autocomplete="off" title="Indtast en adgangskode på mindst 6 tegn"/>
+            </div>
+            <div class="field">
+                <div class="label">Betanøgle</div>
+                <input name="betacode" type="text" id="betacode" autocomplete="off" title="Du er i invitationen blevet tildelt en betakode.<br /> Denne skal bruges for at registrere dig her"/>
+            </div>
+       </form>  
+    </div>
+    <button class="green register_button" id="register_button">Registrer</button>
+    
+</div>

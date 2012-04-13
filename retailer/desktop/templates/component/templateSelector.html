@@ -1,0 +1,31 @@
+ <% function printItem(item) { %>
+     <div class="list-item clearfix" id="<%= item.id %>">
+        <img src="<%= App.collections.images.getUrl(item.image, 'thumbnail') %>" title="Dealbillede" />
+        <div class="details">
+            <h2><%= item.title.trunc(30, true) %></h2> 
+        
+            <span class="address">
+               <%= item.description.trunc(40, true) %>
+            </span>
+            <span class="prices">
+               Før: <%= item.orig_price %> kr. / Nu: <%= item.deal_price %> kr.
+            </span>
+        </div>
+    </div>
+<% } %>
+<div id="cmp-<%=data.cid%>" class="template-selector scroll-list" style="<% if(data.width) print('width:'+data.width+'px;') %> <% if(data.height) print('max-height:'+data.height+'px;') %>">
+    
+    <div class="template-list" id="templateSelector-expanded" style="display:<%=data.expanded?'block':'none'%>;">
+        <%  
+            _.each(data.templates, printItem)
+            /* for (var i =0;i<3;i++) printItem(data.templates[i]); */
+        %>
+        
+    </div>
+    <div class="template-selected" id="templateSelector-collapsed" style="display:<%=!data.expanded?'block':'none'%>">
+        <% if (data.selected) printItem(data.selected); 
+        else { %><button class="blue select_template" id="btn_expand_template_list">Tryk for at vælge</button><% } %> 
+    </div>
+    
+ </div>
+

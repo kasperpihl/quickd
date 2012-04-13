@@ -138,16 +138,23 @@ try{
 			return [dealObj, msg('none',true)];
 		}
 		else{
+			var changed = false;
 			if(query.hasOwnProperty('status') && query.status == 'soldout'){
 				if(doc.status == 'soldout') return [null,msg('already_sold_out')];
 				var time = timestamp;
 				if(time > doc.start && time < doc.end){
 					doc.status = 'soldout';
-					doc.rev = doc.rev +1 ;
-					returnObj = {status:doc.status,rev:doc.rev};
-					return [doc, msg(returnObj,true)];
-				}
-				else return [null, msg('cant_sold_out_not_running')];
+					changed = true;
+				} else return [null, msg('cant_sold_out_not_running')];
+			}
+			if (query.hasOwnProperty('template') && query.template.hasOwnProperty('image') && query.template.image == '') {
+				doc.template.image = '';
+				changed = true;
+			}
+			if (changed) {
+				doc.rev = doc.rev +1 ;
+				returnObj = {status:doc.status,rev:doc.rev};
+				return [doc, msg(returnObj,true)];
 			}
 		}
 		return [null,msg('ja tak')];
@@ -363,7 +370,7 @@ try{
 					temp.image = query.image;
 					if(doc.images[query.image].app != 'approved') app = true;
 				}
-			}
+			} else temp.image = 0;
 			temp.rev = parseInt(temp.rev) +1;
 			returnArr.rev = temp.rev;
 		
@@ -461,6 +468,43 @@ try{
 		} 
 		
 		return [doc,msg(doc.images[index],true)];
+	}";
+	$updates->delImage = 
+	"function(doc,req){
+		".$msgFunc."
+		function addHistory(id,timestamp,action,rev,priority, type){
+			if(!doc.hasOwnProperty('history')) doc.history = new Array();
+			var historyObj = {id:id,timestamp: timestamp,action:action,type:type,rev:rev,priority:priority};
+			doc.history.push(historyObj);
+		}
+		var timestamp = parseInt(new Date().getTime()/1000);
+		if(!req.query.json) return [null,msg('json_must_be_specified')];
+		if(!doc) return [null, msg('user_not_exist')];
+		if(!doc.type || doc.type != 'user') return [null, msg('request_is_not_a_user')];
+		var query = JSON.parse(req.query.json);
+		if(!query.id) return [null, msg('no_id_defined')];
+		if(!doc.images) return [null, msg('user_has_no_images')];
+		if(!doc.images.hasOwnProperty(query.id)) return [null, msg('image_doesnt_exist')];
+		
+		if(doc.hasOwnProperty('templates')) {
+			var tmpl;
+			for(tmpl in doc.templates) {
+				if (doc.templates[tmpl].hasOwnProperty('image') && doc.templates[tmpl].image == query.id) {
+					doc.templates[tmpl].image = 0;
+					var rev = parseInt(doc.templates[tmpl].rev)+1;
+					addHistory(tmpl,timestamp,'edited',rev,1, 'template');
+				}
+			}
+		}
+
+		var rev = parseInt(doc.images[query.id].rev) +1;
+		delete doc.images[query.id];
+		
+		addHistory(query.id,timestamp,'deleted',rev,1,'image');
+		
+		return [doc,msg('image_deleted',true)];
+		
+		
 	}";
 	echo 'updates objektet klar<br/>';
 	$doc->updates = $updates;

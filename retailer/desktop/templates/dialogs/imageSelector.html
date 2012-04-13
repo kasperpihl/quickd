@@ -1,0 +1,63 @@
+<style>
+	#uploaded_toolbar{
+		width:220px;
+		float:left;
+		height:100%;
+	}
+	#uploaded_preview{
+		float:left;
+		width:400px;
+		height:100%;
+	}
+</style>
+<div id="imageSelector_dialog" class="image-selector">
+    <div class="wrapper">
+	    <div class="scroll-list content-area" id="gallery-view" <% if(data.view != 'gallery') print('style="display:none"'); %>>
+            <div id="uploader-<%=data.cid%>" class="dropable">		
+                <noscript>			
+                    <p>Please enable JavaScript to use file uploader.</p>
+                </noscript>
+                <div class="text"><%= data.dragable?"Træk nye billeder hertil":"Tryk og upload nyt billede"%></div>     
+            </div>
+	    	<% _.each(data.images,function(item,i){ %>
+	    		<div class="img-item <% if (data.selected && data.selected==item.n) print('selected')%>" id="<%='img_'+item.id%>">
+                	<img src="<%=IMG_URL + 'thumbnail/' + item.n+'?'+item.rev %>"/>
+                    <button class="blue btn_edit" id="btn_edit_<%=item.id%>">Tilpas</button>
+                </div>
+	     	<% }); %>
+            <div class="clearline"></div>	        
+	    </div>
+	    
+	    <div class="content-area" id="edit-view" <% if(data.view != 'edit') print('style="display:none"'); %>>
+	    	<div id="uploaded_view">
+	    		<div class="left_menu">
+	    			<div class="btn_rotate_right" id="btn_rotate_right" title="Roter til højre"></div>
+	    			<div class="btn_rotate_left" id="btn_rotate_left" title="Roter til venstre"></div>
+                </div>
+	    		<div class="controlpane">
+	    			
+	    			<div class="thumbnail_container">
+	    				<h1>Resultat</h1>
+	    				<div class="thumbnail" id="thumbnail_wrapper"></div>
+	    			</div>
+	    			<input type="hidden" id="x"/>
+	    			<input type="hidden" id="y"/>
+	    			<input type="hidden" id="w"/>
+					<input type="hidden" id="h"/>
+	    			<input type="hidden" id="preview_name"/>
+	    			
+
+                    <button class="blue btn_select" id="btn_select_img">Vælg billede</button>
+                    <button class="red btn_delete" id="btn_delete_img">Slet billede</button>
+                    <button class="btn_back" id="btn_edit_cancel">Gå tilbage</button>
+	    		</div>
+                <div class="contentpane" id="image_edit_contentpane">
+                	<div class="preview" id="preview_wrapper" style="margin-top: 60px;">
+                    	<button id="btn_edit_save">Gem</button>
+                    </div>
+                </div>		
+	    	</div>
+	    	
+	    </div>
+    </div>
+ </div>

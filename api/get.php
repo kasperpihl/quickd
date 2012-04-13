@@ -1,4 +1,4 @@
-<?php require_once('../config.php');
+<?php
 if(isset($_GET['type'])) {
 	if(isset($_GET['id']) && $_GET['id']) $id = $_GET['id'];
 	else $id = false;

@@ -1,0 +1,48 @@
+<form name="edit_account" id="edit_account">
+<div class="title">
+<div style="position: absolute; left: 0px;" id="shop_title_buttons">
+	<button  class="window-top black" value="Rediger" id="btn_edit_account">Rediger</button>
+	<button class="window-top black" id="btn_cancel_account" style="display: none;">Annuller</button>
+</div>
+<h1>Indstillinger</h1>
+</div>
+<div class="body-area spacing form">
+	<div class="field top">
+		<div class="label">Navn</div>
+		<div class="data"><input type="text" id="<%=data.prefix %>name" name="<%=data.prefix %>name" value="<%= data.attributes.name %>" oldValue="<%= data.attributes.name %>" class="readonly" readonly /></div>
+	</div>
+	
+	<!--<div class="field middle">
+		<div class="label">Adresse</div>
+		<div class="data">
+	    	<input type="text" id="<%=data.prefix %>address1" name="<%=data.prefix %>address1" value="<%= data.attributes.address1 %>" oldValue="<%= data.attributes.address1 %>" class="readonly" readonly />
+	        <div class="clearline"></div>
+	        <input type="text" id="<%=data.prefix %>address2" name="<%=data.prefix %>address2" value="<%= data.attributes.address2 %>" oldValue="<%= data.attributes.address2 %>" class="readonly" readonly />
+	    </div>
+	</div>-->
+	
+	<div class="field bottom">
+		<div class="label">Telefon</div>
+		<div class="data"><input type="text" id="user_phone" name="user_phone" value="<%= data.attributes.phone %>" oldValue="<%= data.attributes.phone %>" class="readonly" readonly /></div>
+	</div>
+	
+	<h2 class="form-header">Adgangskode</h2>
+    
+	<div class="field top">
+		<div class="label">Nuværende</div>
+		<div class="data"><input type="password" id="<%=data.prefix %>pass" name="<%=data.prefix %>pass" class="readonly" readonly /></div>
+        <div id="wrong_pass" class="errorTip" style="display:none">Det indtastede password er forkert</div>
+	</div>
+    
+	<div class="field bottom">
+		<div class="label">Ny</div>
+		<div class="data"><input type="password" id="<%=data.prefix %>pass_new" name="<%=data.prefix %>pass_new" class="readonly" readonly /></div>
+	</div>
+	<!--<div class="field bottom">
+		<div class="label">Gentag</div>
+		<div class="data"><input type="password" id="<%=data.prefix %>pass_again" name="<%=data.prefix %>pass_again" class="readonly" readonly /></div>
+	</div>-->
+</div>
+
+
+</form>

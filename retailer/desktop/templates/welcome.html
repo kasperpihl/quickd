@@ -1,0 +1,14 @@
+
+<div class="greeting" id="welcome_greeting">
+    <div class="welcome">
+    	<% if(data.name!="") { %>Velkommen, <span class="strong"><%=data.name %>!</span>
+   		<% } else { %>Velkommen til <span class="strong">QuickD!</span><% } %>
+    </div>
+    <% if(data.text=="text_add_shop") { %>
+      <div class="helptext" id="text_add_shop">
+  			<div class="howto">For at komme igang skal du oprette en butik</div>
+  	    <button id="btn_add_shop" class="green create_shop_btn">Opret butik</button>
+      </div>
+    <% } %>
+	 <div class="clearline"></div>
+</div>

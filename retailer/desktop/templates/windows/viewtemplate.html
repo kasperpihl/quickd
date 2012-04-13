@@ -1,0 +1,124 @@
+<form name="edit_template" id="edit_template">
+	<div class="title">
+		<div style="position: absolute; left: 0px;" id="template_title_buttons">
+			<button class="window-top black" id="btn_edit_template">Rediger</button>
+			<button class="window-top black" id="btn_cancel_template" style="display: none;">Annuller</button>
+		</div>
+
+		<h1>Skabelon</h1>
+	</div>
+
+<div class="body-area spacing">
+	<!--<div class="scroll-list" style="padding: 8px;">-->
+	<% if (data.model.approved == "declined") { %>
+		<div class="field">
+			<span class="message">
+        <% if (data.model.message) { %>
+				  Skabelonen er desværre blevet afvist:<br><br>
+				  <span class="answer"><%= data.model.message %></span>
+        <% }else{ %>
+          Skabelonen er desværre blevet afvist!
+        <% } %>
+			</span>
+		</div>
+	<%
+		}
+		else if (data.model.approved == "waiting") {	
+	%>
+		<div class="field">
+			<span class="waiting">
+				Skabelonen afventer godkendelse…
+			</span>
+		</div>
+	<%
+		}
+		else if (data.model.approved == "approved") {
+	%>
+		<div class="field">
+			<div class="approved" style="float: left;">
+				<% if (!data.model.message) { %>
+          <span class="approved_text">Skabelonen er godkendt!</span>
+        <% }else{ %>
+          <span class="approved_text">Skabelonen er godkendt:<br><br></span>
+          <span class="answer"><%= data.model.message %></span>
+        <% } %>
+			</div>
+			<button class="green" id="btn_start_deal_template">Planlæg deal</button>
+		</div>
+	<% } %>
+    <div class="field top">
+		<div class="label long">Titel</div>
+		<div class="data long"><input type="text" id="title" name="title" value="<%= data.model.title %>" oldValue="<%= data.model.title %>" class="readonly" readonly title="Indtast en titel<br>Titlen vil fungere som titel på de startede deals" /></div>
+	</div>
+	
+	<div class="field bottom">
+	    <div class="label long">Beskrivelse</div>
+	    <div class="data long"><textarea id="description" name="description" class="readonly" oldValue="<%= data.model.description %>" title="Indtast en fyldestgørende beskrivelse af tilbudet, som kunden vil kunne læse" readonly ><%= data.model.description %></textarea></div>
+	</div>
+    
+    <div class="field">
+  	  <div class="select-img-box clearfix">
+   	 	<div class="image-field" id="image-field">
+        	<img src="<%=App.collections.images.getUrl(data.model.image, 'thumbnail')%>" />
+        </div>
+   	     <button id="btn_select_image" class="blue"><%=(data.model.image?"Vælg nyt billede":"Vælg billede")%></button>
+   	     <input type="hidden" name="img_src" id="img_src" value="" />
+    	</div>
+    </div>
+  <div class="prices">  
+  	<div class="field top">
+      <div class="label">Normalpris:</div>
+      <div class="data">kr.
+          <input type="text" id="orig_price" name="orig_price" value="<%= data.model.orig_price %>" oldValue="<%= data.model.orig_price %>" class="big readonly" readonly />
+      </div>
+      <div class="clearline"></div>     
+  	</div>
+  	<div class="field middle">
+      <div class="label">Dealpris:</div>
+      <div class="data">kr.
+      	<input type="text" name="deal_price" id="deal_price" value="<%= data.model.deal_price %>" oldValue="<%= data.model.deal_price %>" class="big readonly" readonly /></div>
+      <div class="clearline"></div>
+  	</div>
+    <div class="field bottom">
+        <div class="label">Rabat:</div>
+        <div class="data discount" id="discount-field">
+         <%= Math.round((data.model.orig_price-data.model.deal_price)/data.model.orig_price *100) %>%
+        </div>
+        <div class="clearline"></div>
+        <div id="prices-error" />
+        <div id="prices-toolTip" />
+    </div>
+  </div>
+   <% if (CATEGORIES) { %>
+  	 <div class="field">
+    	  	<div class="label long">Kategori</div>
+    	  	<div class="data long categories" id="categories">
+    	  		<% if (!data.model.category) var cat='none';
+               else var cat = data.model.category; %>
+            <div class="category-show"><%=CATEGORIES[cat]? CATEGORIES[cat] : 'Ingen kategori' %></div>
+            <% if (cat == 'none') cat='fooddrink'; %>
+            <div class="category-edit">
+              <% _.each(CATEGORIES, function(name, key) { %>
+                <div class="category readonly <%=cat==key? 'selected': ''%>" id="cat_<%=key%>"><%=name%></div>
+              <% }); %>
+            </div>
+    	  	</div>
+
+      </div>
+    <% } %>
+	 
+	 
+
+	
+<!--	    <div class="field neutral">
+	    	<span class="label">Spar</span>
+	        <span class="data" id="discount-amount"><%= calcDiscount(data.model.orig_price,data.model.deal_price) %>%</span>
+	    </div> -->
+        <!--<div id="whitespace" />
+    </div>-->
+	<div class="lower" id="button_container">
+		<button id="btn_del_template" class="red" style="display: none;">Slet skabelon</button>	
+	</div>
+    <div class="clearline" />
+</div>
+</form>
