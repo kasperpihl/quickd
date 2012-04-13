@@ -3715,6 +3715,15 @@ SINGLE DEAL
     padding-bottom: 38px;
     margin-bottom: 33px;
     background: url(../images/stippled-line.png) repeat-x bottom left; }
+  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-]:after {
+    position: absolute;
+    display: block;
+    margin-left: -5%;
+    width: 105%;
+    height: 500px;
+    top: 100%;
+    background: url(../images/deal-bg.png) repeat;
+    content: ''; }
 #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml h1, #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml h2 {
   font-size: 33px;
   line-height: 34px;

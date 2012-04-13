@@ -179,6 +179,16 @@ SINGLE DEAL
                     margin-bottom: 33px;
                     background: url(../images/stippled-line.png) repeat-x bottom left;
                 }
+
+                &:after {
+                    position: absolute;
+                    display: block;
+                    margin-left: -5%;
+                    width: 105%; height: 500px;
+                    top: 100%;
+                    background: url(../images/deal-bg.png) repeat;
+                    content: '';
+                }
             }
 
             #{headings(1,2)} {
