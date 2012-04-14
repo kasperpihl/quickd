@@ -90,6 +90,8 @@ App.routers.Controller = Backbone.Router.extend({
 	},
 	clickedStartStop:function(time){
 		var obj;
+		log('lockButton',this.lockButton);
+		if(this.lockButton) return;
 		//time = 10;
 		switch(this.activeModel.get('type')){
 			case 'template':
@@ -101,9 +103,11 @@ App.routers.Controller = Backbone.Router.extend({
 			break;
 		}
 		var thisClass = this;
+		this.lockButton = true;
 		$.post(ROOT_URL+'ajax/deal.php?type=deals',obj,function(data){
-			log(data);
+			
 			if(data.success == 'true'){
+				setTimeout(function(){thisClass.lockButton = false;},1500);
 				if(data.data.id){
 					var model = new App.models.Deal(data.data);
 					App.collections.deals.add(model,{silent:true});
@@ -113,6 +117,14 @@ App.routers.Controller = Backbone.Router.extend({
 				else {
 					thisClass.activeModel.set(data.data);
 					thisClass.changedState(thisClass.activeModel);
+				}
+			}
+			else {
+				thisClass.lockButton = false;
+				switch(data.error){
+					case 'cant_sell_out_before_15':
+						alert('Kan ikke melde udsolgt før 15 minutter efter start');
+					break;
 				}
 			}
 		},'json');

@@ -143,6 +143,7 @@ try{
 				if(doc.status == 'soldout') return [null,msg('already_sold_out')];
 				var time = timestamp;
 				if(time > doc.start && time < doc.end){
+					if(time - doc.start < 60*15) return [null,msg('cant_sell_out_before_15')];
 					doc.status = 'soldout';
 					changed = true;
 				} else return [null, msg('cant_sold_out_not_running')];

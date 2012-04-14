@@ -842,7 +842,7 @@ div[data-role="page"] #deal .start-stop-deal.soldout.ui-btn-down-a {
   background-image: -o-linear-gradient(#c4c4c4, #c4c4c4 49%, #c4c4c4 51%, #c4c4c4);
   background-image: -ms-linear-gradient(#c4c4c4, #c4c4c4 49%, #c4c4c4 51%, #c4c4c4);
   background-image: linear-gradient(#c4c4c4, #c4c4c4 49%, #c4c4c4 51%, #c4c4c4);
-  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 3px, rgba(0, 0, 0, 0.4) 0 0 0 5px, rgba(255, 255, 255, 0.3) 0 1px 0 5px, 0 0 30px #ef3c24;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 3px, rgba(0, 0, 0, 0.4) 0 0 0 5px, rgba(255, 255, 255, 0.3) 0 1px 0 5px, 0 0 30px #ababab;
   -webkit-animation: none;
 }
 /* line 209, ../scss/quickd.scss */
