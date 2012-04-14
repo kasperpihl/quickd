@@ -10,8 +10,6 @@ App.routers.Controller = Backbone.Router.extend({
 		//this.navigate('skabeloner',{trigger:true});
 	},
 	changeTemplate:function(param){
-		log('skabeloner');
-		//return;
 		if(param) this.changedToTemplate(param);
 	},
 	initialize: function(shopowner){
