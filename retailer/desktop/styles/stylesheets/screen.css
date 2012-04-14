@@ -1799,7 +1799,7 @@ body {
   color: #2e73bc;
 }
 /* line 639, ../sass/screen.scss */
-#entry_view .footer .box_right a hover {
+#entry_view .footer .box_right a:hover {
   text-decoration: underline;
 }
 /* line 643, ../sass/screen.scss */
@@ -2035,7 +2035,7 @@ body {
 }
 /* line 705, ../sass/screen.scss */
 .promt-dialog h1 {
-  padding: 5px 0px 10px;
+  padding: 5px 0px 0px;
   line-height: 24px;
 }
 /* line 706, ../sass/screen.scss */

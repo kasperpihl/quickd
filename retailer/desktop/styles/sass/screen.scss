@@ -636,7 +636,7 @@ body {
 				font-weight: 900;
 				text-decoration: none;
 				color: #2e73bc;
-				&hover {text-decoration:underline;}
+				&:hover {text-decoration:underline;}
 			}
 		}
 		
@@ -702,7 +702,7 @@ body {
 }
 .promt-dialog {
 	padding:10px;
-	h1 {padding: 5px 0px 10px;line-height:24px;}
+	h1 {padding: 5px 0px 0px;line-height:24px;}
 	button {float:right;margin:5px 10px;}
 	&#confirm_close_dialog {
 		button {margin:10px 0px 10px 10px;float:left;}

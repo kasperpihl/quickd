@@ -323,8 +323,12 @@ define([
 		},
 		imgDelete: function(evt) {
 			if(!this.currentModel) return false;
-      var confirmer = new App.views.dialogs.PromtDialog({router:this.router, type: 'confirm', callbackCid:this.cid, title:'Slet billede', msg:'Er du sikker på, du ønsker at slette dette billede?<br/>Hvis billedet bliver brugt i deals vil det også blive slettet her.', confirmText:'Slet'}); 
-      this.router.bind('promtCallback:'+this.cid, this.deleteConfirmCallback);
+	    if (App.collections.deals.usesImage(this.currentModel.get('n'))) {
+	    	new App.views.dialogs.PromtDialog({router:this.router, type: 'promt', callbackCid:this.cid, title:'Slet billede', msg:'Det er ikke muligt at slette billedet, da det bruges af en igangværende eller planlagt deal.', confirmText:'Okay'}); 
+	    } else {
+		    var confirmer = new App.views.dialogs.PromtDialog({router:this.router, type: 'confirm', callbackCid:this.cid, title:'Slet billede', msg:'Er du sikker på, du ønsker at slette dette billede?<br/>Hvis billedet bliver brugt i deals vil det også blive slettet her.', confirmText:'Slet'}); 
+		    this.router.bind('promtCallback:'+this.cid, this.deleteConfirmCallback);
+		  }
 			return false;
 		},
     deleteConfirmCallback:function(obj) {
@@ -335,12 +339,16 @@ define([
               filename = this.currentModel.get('n');
           this.currentModel.destroy({data:id, 
             success:function(model, response) {
-              log("deleted", model, response, id);
-              App.collections.deals.updateImages(filename);
-              $('#img_'+id).remove();
+              if (response.success=='true') {
+	              App.collections.deals.updateImages(filename);
+	              $('#img_'+id).remove();
+	            } else if (response.error=='img_on_active_deal') {
+	            	new App.views.dialogs.PromtDialog({router:thisClass.router, type: 'promt', callbackCid:this.cid, title:'Slet billede', msg:'Det var ikke muligt at slette billedet, da det bruges af en igangværende eller planlagt deal.', confirmText:'Okay'}); 
+	            } else thisClass.router.showError("Der opstod en fejl", "Det var ikke muligt at slette billedet<br />Fejlmeddelelse: "+response.error);
             }, 
             error: function(model, response) { 
               log("error delete: ", model, response, id); 
+              thisClass.router.showError("Der opstod en fejl", "Det var ikke muligt at slette billedet<br />Fejlmeddelelse: "+response.error);
             }
           });
           thisClass.goGallery();

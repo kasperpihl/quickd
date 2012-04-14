@@ -462,15 +462,18 @@ class Shopowner {
 		else return $imgData;
 
 		// Find deals using images
-		
 		$deals = (object) Shopowner::get('deals');
 		if (isset($deals->success, $deals->results)&&$deals->success=='true') {
+			$now = time();
 			foreach($deals->results as $deal) {
 				$model = $deal->value;
 				$image = $model->template->image;
 				if ($image && $image == $imgData->n) {
-					$model->template->image = '';
-					Shopowner::updateDeal($model);
+					if ($model->end > $now) return array('success'=>'false', 'error'=>'img_on_active_deal');
+					else { 
+						$model->template->image = '';
+						Shopowner::updateDeal($model);
+					}
 				}
 			}
 		}	
