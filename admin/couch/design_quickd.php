@@ -13,18 +13,37 @@ try{
 			emit(end,doc);
 		}
 	}";
+	$views->getUsers = 
+	array('map'=>
+	"function(doc){
+		if(!doc.hasOwnProperty('user')) return;
+		//if(!doc.user.hasOwnProperty('userbeta')) return;
+		emit(doc._id,doc._id);
+	}");
 	$views->getBetaUser = 
 	array('map'=>
 	"function(doc){
 		if(!doc.hasOwnProperty('user')) return;
 		if(!doc.user.hasOwnProperty('userbeta')) return;
-		emit(doc.user.userbeta,doc.user);
+		emit(doc.user.userbeta,doc._id);
 	}");
 	$views->getDeals = array("map"=>$getDeals);
 	echo 'views objektet klar <br/>';
 	$doc->views = $views;
 	echo 'views sat<br/>';
 	
+	$updates = new stdClass();
+	$updates->setBetaUser =
+	"function(doc,req){
+		if(!req.query.hasOwnProperty('json')) return [null,'json_must_be_specified'];
+		var query = JSON.parse(req.query.json);
+
+		if (doc && doc.hasOwnProperty('user')) var user = doc.user;
+		if(!query.hasOwnProperty('userbeta')) return [null,'userbeta_must_be_specified'];
+		doc.user.userbeta = query.userbeta;
+		return[doc,'success'];
+	}";
+	$doc->updates = $updates;
 	echo 'Forlader _design/quickd';
 }
 catch(Exception $e){
