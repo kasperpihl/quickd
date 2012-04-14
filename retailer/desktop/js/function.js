@@ -223,19 +223,20 @@ $(function() {
 		me.css({position:'absolute',left:loginX,top:loginY});
 		return me;
 	}
-	$.fn.shakeBox = function(deleteField){
-		var me = $(this);
-		var x = me.position().left;
-		var dur = 50;
-		var distance = 30;
+	$.fn.shakeBox = function(emptyField){
+		var me = $(this),
+			dur = 50,
+			distance = 30,
+			position = me.css('position');
+		me.css('position','relative');
 		for (i=5;i>=1;i--){
-			var max = x-(i*2);
-			var min = (i == 1) ? x : x+(i*2);
+			var max = -(i*2);
+			var min = (i == 1) ? 0 : (i*2);
 			me.animate({left:max},{duration:dur}).animate({left:min},{duration:dur});
 		}
-		//me.effect("shake", { times:3 }, 500);
-		if(deleteField) me.find('input').filter(':last').val('').focus();
-		else me.find('input').filter(':last').focus().select();
+		me.css('position', position);
+		if(emptyField) me.find('input').filter(':last').val('').focus();
+		else me.find('input').filter(':nth-child(2)').focus().select();
 		return me;
 	}
 

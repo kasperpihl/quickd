@@ -33,6 +33,7 @@ define([
 			//_events['blur '+windowId+' #orig_price']= 'priceChanged';
 			_events['keyup '+windowId+' #deal_price, '+windowId+' #orig_price']= 'priceChanged';
 			_events['click '+windowId+' .category']= 'categoryChanged';
+			_events['click '+windowId+' .category-show']= 'editTemplate';
 			return _events;
 		},
 		updateContent:function(model,d1){

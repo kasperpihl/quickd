@@ -83,7 +83,7 @@ define([
 			});
 		},
 		shakeDialog:function(){
-			$('#shadow-wrapper').shakeBox(false);
+			$('#login .login_fields').shakeBox(false);
 		},
 		
 		handleClick: function(data){
