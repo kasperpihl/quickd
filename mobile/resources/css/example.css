@@ -3710,11 +3710,13 @@ SINGLE DEAL
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-] strong {
     color: #141414; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-].shopping {
-    border-color: #a25d7a; }
+    border-color: #697299; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-].experience {
     border-color: #5da2a0; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-].fooddrink {
     border-color: #c09159; }
+  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-].nightlife {
+    border-color: #a25d7a; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-] > section:not(.venue) {
     padding-bottom: 38px;
     margin-bottom: 33px;
@@ -3727,6 +3729,7 @@ SINGLE DEAL
     height: 500px;
     top: 100%;
     background: url(../images/deal-bg.png) repeat;
+    background-size: 50px 50px;
     content: ''; }
 #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml h1, #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml h2 {
   font-size: 33px;
