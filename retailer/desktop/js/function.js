@@ -127,11 +127,19 @@ function convertNumber(number, toString) {
 		return parseFloat(number.replace(',','.').replace(' ',''))
 	}
 }
-function convertToTimestring(number) {
+function convertToTimestring(number, returnSeparate) {
 	var numbers = number.split(/[\s\.,:]+/),
-			h = padNumber(parseInt(numbers[0], 10)),
-			m = padNumber(parseInt(numbers[1], 10));
-	return h+':'+m;
+			h = parseInt(numbers[0], 10),
+			m = parseInt(numbers[1], 10);
+	if (h>99) {
+		h=h%10000;
+		m = h%100;
+		h = Math.floor(h/100);
+	}
+	if (!m) m=0;
+	if (!h) h=0;
+	if (returnSeparate) return {h: h, m: m};
+	else return padNumber(h)+':'+padNumber(m);
 }
 
 function resizeBg(stopRecursion) {
@@ -437,6 +445,11 @@ $(function() {
 	   var number = convertNumber(val, false);
 	   return !isNaN(number) && number>0;
 	}, "Det indtastede er ikke et korrekt tal");
+
+	$.validator.addMethod('timeFormat', function(val, el) {
+	   var time = convertToTimestring(val, true);
+	   return time && time.h >= 0 && time.h < 24 && time.m >= 0 && time.m<60;
+	}, "Indtast venligst korrekt klokkeslæt");
 	
 	//console.log(loadedTemplates);
 	$.extend($.validator.messages, {

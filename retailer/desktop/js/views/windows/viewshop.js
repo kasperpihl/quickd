@@ -29,13 +29,37 @@ define([
 			var thisClass = this;
 			this.form = $(this.windowId).find('form');
 			if (this.form) {
-				this.form.formValidate({
-					submitKey: '#btn_edit_shop',
-					rules: {
+				var rules = {
 						shop_name: "required",
 						shop_phone: "digits",
 						//shop_website: "url",
-						shop_email: "email"
+						shop_email: "email",
+					},
+					inOpen, inClose, messages={};
+				for (var i=0;i<=7;i++) {
+					inOpen = this.inputPrefix+'open-day-'+i+'-open';
+					inClose = this.inputPrefix+'open-day-'+i+'-close';
+					rules[inOpen] = {
+						required: '#'+inClose+':filled',
+						timeFormat: true
+					};
+					rules[inClose] = {
+						required: '#'+inOpen+':filled',
+						timeFormat: true
+					};
+					messages[inOpen] = { required: 'Indtast venligst både åbnings- og lukketid' };
+					messages[inClose] = messages[inOpen];
+				}
+				this.form.formValidate({
+					submitKey: '#btn_edit_shop',
+					rules: rules,
+					messages: messages,
+					errorPlacement: function(error, element) {
+						var field = element.parents('.field');
+						if (field) {
+							if (element.hasClass('timeinput')) field.find('#open-days-error').html(error);
+							else error.appendTo(field);
+						} else error.insertAfter(element);
 					}
 				});
 				$(this.form).find('input, textarea').focus(function() {
