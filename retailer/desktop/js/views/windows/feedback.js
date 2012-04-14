@@ -59,7 +59,7 @@ define([
 			var thisClass = this;
 			var feedback = $('#feedback-textfield').val();
 			if (!feedback ||feedback=="") return;
-			if(feedback == this.feedback) alert('allerede sendt'); 
+			if(feedback == this.feedback) alert('Allerede sendt'); 
 			else {
 				this.feedback = feedback;
 				$('#feedback-text').removeClass('focused');

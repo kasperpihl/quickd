@@ -39,9 +39,15 @@ App.routers.Entry = Backbone.Router.extend({
 	},
 	doLogin: function(){
 		if(this.lockAction) return false;
+		var thisClass= this,
+			username = $('#login_username').val(),
+			password = $('#login_password').val();
+		if (!username || !password) {
+			thisClass.entryView.shakeDialog();
+			return false;
+		}
 		this.lockAction = true;
-		var thisClass = this;
-		var obj = {stuff:true,email:$('#login_username').val(),password:$('#login_password').val()};
+		var obj = {stuff:true,email:username,password:password};
 		if($('#stay_signed_in_check:checked').length > 0) obj.remember =true;
 		$.post(REAL_URL+'api/login',obj,function(response){
 			if(response.success == 'true'){
@@ -118,10 +124,9 @@ App.routers.Entry = Backbone.Router.extend({
 			$("#header-login").height("100%");
 		});
 		$("#position_wrapper").animate({marginTop: '-210px'}, 1200, 'easeOutQuart');
-		$("#login_fields").animate({left: '-50%'}, 400, 'easeInQuart', function() {
+		$("#login-wrapper").animate({left: '-100%'}, 400, 'easeInQuart', function() {
 			$(this).hide();
-			$("#registrer").css("display", "block");
-			$("#registrer").animate({right: '50%', marginRight: '-224px'}, 400, 'easeOutQuart', function() {
+			$("#register-wrapper").css({left: '100%', display:'block'}).animate({left: '0%'}, 400, 'easeOutQuart', function() {
 				$("#register_username").focus();
 			});
 			
@@ -136,14 +141,13 @@ App.routers.Entry = Backbone.Router.extend({
 		});
 		$("#position_wrapper").animate({marginTop: '-124px'}, 1200, 'easeOutQuart');
 		
-		$("#registrer").animate({right: '-50%', marginRight: '-203px'}, 400, 'easeInQuart', function() {
-			$("#login_fields").show().animate({left: '50%'}, 400, 'easeOutQuart');
-			$("#registrer").css("display", "none");
+		$("#register-wrapper").animate({left: '100%'}, 400, 'easeInQuart', function() {
+			$(this).hide();
+			$("#login-wrapper").css({left:'-100%', display:'block'}).animate({left: '0%'}, 400, 'easeOutQuart');
 			$("#login_username").focus();
 		});
 		this.navigate('login');
 	},
-
 	openConditionsView:function() {
 		var thisClass = this;
 		require(['views/dialogs/conditions'],function(){
