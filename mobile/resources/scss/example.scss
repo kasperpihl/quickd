@@ -38,12 +38,7 @@ strong { font-weight: bold; }
 SPLASH SCREEN
 ******************************************************************/
 #quickd-splash-screen {
-    -webkit-animation: fade-in-splash 1s ease-in-out;
-}
-
-@-webkit-keyframes fade-in-splash {
-    0%   { background: black; }
-    100% { background: #eee; }
+    
 }
 
 /******************************************************************
@@ -168,6 +163,7 @@ SINGLE DEAL
                 position: relative;
                 padding: 19px 10px 108px;
                 background: url(../images/deal-bg.png) repeat;
+                background-size: 50px 50px;
                 border-top: 4px solid red;
 
                 color: #575757;
@@ -283,6 +279,8 @@ DEALS LIST
 
 #quickd-deals {
     background: url($img-path + 'bg-pattern.png');
+    opacity: 0;
+    -webkit-animation: fade-in 0.2s 0.1s ease-in-out forwards;
 
     .x-scroll-view {  }
     .x-scroll-container {  }
@@ -293,6 +291,8 @@ DEALS LIST
         margin: 10px 7px;
         background: white;
         @include border-radius(3px);
+        opacity: 0;
+        -webkit-animation: fade-in 0.2s 0.2s ease-in-out forwards;
 
         // Shadow
         &:after {
@@ -319,6 +319,8 @@ DEALS LIST
 
     article[id*=deal_] {
         position: relative;
+        opacity: 0;
+        -webkit-animation: fade-in 0.1s 0.28s ease-in-out forwards;
 
         img.deal_image { margin-left: 5px; }
 
@@ -436,4 +438,9 @@ DEALS LIST
             &:before { background: $color; }
         }
     }
+}
+
+@-webkit-keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
