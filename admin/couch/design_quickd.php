@@ -13,6 +13,13 @@ try{
 			emit(end,doc);
 		}
 	}";
+	$views->getBetaUser = 
+	array('map'=>
+	"function(doc){
+		if(!doc.hasOwnProperty('user')) return;
+		if(!doc.user.hasOwnProperty('userbeta')) return;
+		emit(doc.user.userbeta,doc.user);
+	}");
 	$views->getDeals = array("map"=>$getDeals);
 	echo 'views objektet klar <br/>';
 	$doc->views = $views;

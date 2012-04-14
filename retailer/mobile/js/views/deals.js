@@ -30,6 +30,7 @@ App.views.Deals = Backbone.View.extend({
 			if(thisClass.dealSlider) thisClass.dealSlider.destroy();
 			$(thisClass.el).html(_.template(template,data));
 			thisClass.royalSlider(thisClass.activeTemplateId);
+			$('.scroll').delay(600).animate({opacity:1},600);
 		},'html');
 	},
 	update:function(){

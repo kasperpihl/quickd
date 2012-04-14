@@ -1,11 +1,17 @@
-<? require_once('../config.php'); ?>
+<? require_once('../config.php');
+$betakey = false;
+if(isset($_SESSION['betakey'])) $betakey = $_SESSION['betakey'];
+else if(isset($_COOKIE['betakey'])) $betakey = $_COOKIE['betakey'];
+else if(isset($_GET['betakey'])) $betakey = $_GET['betakey'];
+$user = validateBetakey($betakey);
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
         <title>QuickD</title>
-	<!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&sensor=true"></script>
+        <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&sensor=true"></script>
          Sencha Touch -->
         
 

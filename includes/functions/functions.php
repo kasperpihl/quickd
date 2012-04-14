@@ -5,6 +5,13 @@ function redirect($location = NULL){
 		exit;
 	}	
 }
+function validateBetakey($betakey){
+	global $db;
+	if(!$betakey) return false;
+	$result = $db->key($betakey)->getView('quickd','getBetaUser');
+	$result = $result->rows;
+	if(empty($result)) return false;
+}
 function getShopowner(){
 	global $dealer,$db;
 	if(!isset($dealer)) return array('success'=>'false','error_message'=>'not_logged_in');

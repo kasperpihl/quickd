@@ -65,7 +65,8 @@ App.routers.Controller = Backbone.Router.extend({
 			}
 			else if(model.get('state') == 'ended'){
 				App.utilities.countdown.stop();
-				App.views.controlPanel.changed(App.collections.templates.get(this.activeTemplateId));
+				this.activeModel = App.collections.templates.get(this.activeTemplateId);
+				App.views.controlPanel.changed(this.activeModel);
 			}
 			else if(model.get('status') == 'soldout'){
 				App.views.controlPanel.changed(model);
@@ -92,6 +93,7 @@ App.routers.Controller = Backbone.Router.extend({
 		var obj;
 		log('lockButton',this.lockButton);
 		if(this.lockButton) return;
+		var now = parseInt(new Date().getTime()/1000,10);
 		//time = 10;
 		switch(this.activeModel.get('type')){
 			case 'template':
@@ -99,6 +101,8 @@ App.routers.Controller = Backbone.Router.extend({
 			break;
 			case 'deal':
 				if(this.activeModel.get('status') == 'soldout') return alert('Denne skabelon kan først startes igen når tiden er udløbet');
+				if(now - parseInt(this.activeModel.get('end'),10) < 900) return alert('En deal kan ikke meldes udsolgt før efter 15 minutter');
+				if(!confirm('Er du sikker på du vil melde denne deal udsolgt?')) return false;
 				obj = {action: 'soldout',model: {id: this.activeModel.get('id'),status:'soldout'}};
 			break;
 		}
