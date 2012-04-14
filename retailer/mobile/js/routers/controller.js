@@ -97,11 +97,15 @@ App.routers.Controller = Backbone.Router.extend({
 		//time = 10;
 		switch(this.activeModel.get('type')){
 			case 'template':
+				var endTimeObj = new Date((time+now)*1000),
+					endTimeString = endTimeObj.getHours() + ':' + endTimeObj.getMinutes();
+
+				if(!confirm('Vil du køre en deal fra nu og frem til '+endTimeString+'?')) return;
 				obj = {action:'start',model:{mobile:'true',template_id:this.activeModel.get('id'),seconds: time}};
 			break;
 			case 'deal':
 				if(this.activeModel.get('status') == 'soldout') return alert('Denne skabelon kan først startes igen når tiden er udløbet');
-				if(now - parseInt(this.activeModel.get('end'),10) < 900) return alert('En deal kan ikke meldes udsolgt før efter 15 minutter');
+				if(now - parseInt(this.activeModel.get('start'),10) < 900) return alert('En deal kan ikke meldes udsolgt før efter 15 minutter');
 				if(!confirm('Er du sikker på du vil melde denne deal udsolgt?')) return false;
 				obj = {action: 'soldout',model: {id: this.activeModel.get('id'),status:'soldout'}};
 			break;
