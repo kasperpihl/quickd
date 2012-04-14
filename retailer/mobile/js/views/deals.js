@@ -5,6 +5,7 @@ App.views.Deals = Backbone.View.extend({
 		this.router = this.options.router;
 		this.activeTemplateId = (this.options.activeTemplateId) ? this.options.activeTemplateId : 0;
 		this.deals = App.collections.deals;
+		this.startedDeals = this.deals.startedDeals();
 		this.templates = App.collections.templates;
 		log(this.templates.toJSON());
 		this.templates.on("change:approved add remove",this.changed,this);
@@ -22,7 +23,8 @@ App.views.Deals = Backbone.View.extend({
 	 */
 	render: function(templateId){
 		var thisClass = this;
-		var data = {templates: this.templates.models };
+
+		var data = {startedDeals: this.startedDeals, templates: this.templates };
 		$.get(ROOT_URL+'templates/deals.html',function(template){
 			//log('test after templates');
 			if(thisClass.dealSlider) thisClass.dealSlider.destroy();
@@ -30,7 +32,6 @@ App.views.Deals = Backbone.View.extend({
 			thisClass.royalSlider(thisClass.activeTemplateId);
 		},'html');
 	},
-	
 	update:function(){
 		this.dealSlider.updateSliderSize();
 	},

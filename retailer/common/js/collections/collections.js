@@ -15,6 +15,16 @@ App.collections.Deals = Backbone.Collection.extend({
 			}
 		});
 	},
+	startedDeals:function(){
+		var now = parseInt((new Date()).getTime()/1000,10);
+		var startedDeals = [];
+		this.each(function(item){
+			if(item.get('start') > now) return false;
+			if(item.get('end') < now) return false;
+			startedDeals.push(parseInt(item.get('template_id'),10));
+		});
+		return startedDeals;
+	},
 	isStartedDeal:function(templateId){
 		var now = parseInt((new Date()).getTime()/1000,10);
 		var startedNow = this.filter(function(item){
