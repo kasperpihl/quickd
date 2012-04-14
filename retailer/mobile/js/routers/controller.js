@@ -125,6 +125,9 @@ App.routers.Controller = Backbone.Router.extend({
 					case 'cant_sell_out_before_15':
 						alert('Kan ikke melde udsolgt før 15 minutter efter start');
 					break;
+					case 'deal_already_planned':
+						alert('Denne skabelon er allerede planlagt i dette tidsrum');
+					break;
 				}
 			}
 		},'json');
