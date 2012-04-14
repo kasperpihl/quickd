@@ -35,6 +35,7 @@ class Shopowner {
 				$model['privileges'] = 1;
 			}
 			$model['password'] = $password?md5(MD5_STRING.$model['password']):'null';
+			$model['userbeta'] = strtoupper(substr(md5(time().rand(1,1000000).rand(1,1000000)),0,8));
 			if ($user && isset($user_id)) {
 				$model['edit_register'] = true;
 				$result = json_decode($db->updateDocFullAPI('dealer',$update,array('doc_id'=>$user_id, 'params'=>array('json'=>json_encode($model)))));

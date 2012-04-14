@@ -56,6 +56,7 @@ try{
 		user.privileges= privileges;
 		
 		if(query.hasOwnProperty('betacode')) user.betacode = query.betacode;
+		if(query.hasOwnProperty('userbeta')) user.userbeta = query.userbeta;
 		if(query.hasOwnProperty('hours')) user.hours = query.hours;
 		if (!doc) var doc = {_id: req.uuid, type:'user', user: user, history:historyArray};
 		return [doc,msg({id:req.uuid},true)];
