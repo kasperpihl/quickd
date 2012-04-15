@@ -2,6 +2,8 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
+Vinduer åbner oven i hinanden eller i forkert rækkefølge
+
 Opryd SASS-fil
 
 Start-deal database-error (?)
@@ -14,9 +16,6 @@ Gennemtest billede-upload
 
 Tilføj betingelser i dialogboks
 
-Redigering af brugerindstillinger virker ikke.
-	Password
-
 =====================================
 Lav prioritet
 
@@ -24,6 +23,8 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Redigering af brugerindstillinger virker ikke - Nyt Password
 
 (rettet Jeppe) retailer/skabeloner/*skabelon*: Klik på kategori og rabat går ikke i rediger-mode på samme måde som klik på titel, beskrivelse osv.
 

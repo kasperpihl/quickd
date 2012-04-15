@@ -17,7 +17,14 @@ if (isset($_POST['action']) && $_POST['action'] == 'test_username') {
 		if(!property_exists($codes,$betacode)) echo "false";
 		else echo 'true';
 	}
+} elseif (isset($_POST['action']) && $_POST['action'] == 'test_userpass') {
+	if(!isset($_POST['user_old_password']) || !$session->logged_dealer()) echo "false";
+	else {
+		$result = (object) Shopowner::testPassword($_POST['user_old_password']);
+		if(isset($result->success) && $result->success==='true') echo 'true';
+		else echo 'false';
+	}
 } else{
-	echo false;
+	echo 'false';
 }
 ?>

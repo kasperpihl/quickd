@@ -192,6 +192,18 @@ class Shopowner {
 		}
 
 	}
+	public static function testPassword($password) {
+		global $db, $session;
+		if (!$password) return array('success'=>'false','error'=>'no_password_to_test');
+		if(!$session->logged_dealer()) return array('success'=>'false','error'=>'not_logged_in');
+		$shopowner = $session->logged_dealer();
+		$result = $db->key($shopowner)->getView('dealer','getPassById');
+		if (!empty($result)&&!empty($result->rows)&&isset($result->rows[0], $result->rows[0]->value, $result->rows[0]->value->md5_password)) {
+			$old_pass = $result->rows[0]->value->md5_password;
+			if ($old_pass===md5(MD5_STRING.$password)) return array('success'=>'true');
+			else return array('success'=>'false', 'error'=>'passwords_no_match');
+		} else return array('success'=>'false','error'=>'no_user_pass_found'); 
+	}
 	public static function getShopowner(){
 		
 	}
@@ -248,8 +260,12 @@ class Shopowner {
 				$update = 'addEditShop';
 			break;
 			case 'shopowner':
-				$shopowner = json_decode($model);
-				
+				$data = json_decode($model);
+				if (isset($data->old_password, $data->new_password)) {
+					$data->old_password = md5(MD5_STRING.$data->old_password);
+					$data->new_password = md5(MD5_STRING.$data->new_password);
+					$model = json_encode($data);
+				}
 				$update = 'editUser';
 			break;
 			case 'templates':
@@ -542,7 +558,7 @@ class Shopowner {
 					return array('success'=>'true','data'=>$res);
 				}
 			}
-			catch(Exception $e){ echo json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); }
+			catch(Exception $e){ return array('success'=>'false','error'=>'database_error','e'=>$e->getMessage()); }
 		}
 	
 	}
