@@ -2,8 +2,6 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
-Vinduer åbner oven i hinanden eller i forkert rækkefølge
-
 Opryd SASS-fil
 
 Start-deal database-error (?)
@@ -23,6 +21,8 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Vinduer åbner oven i hinanden eller i forkert rækkefølge
 
 (rettet Jeppe) Redigering af brugerindstillinger virker ikke - Nyt Password
 

@@ -69,11 +69,14 @@ define([
 		},
 		openWindow:function(){
 			if (!this.created) { this.openOnCreate=true; return; }
-			var thisClass = this;
-			var act = $("#"+this.activity.id);
-			if (thisClass.parent && thisClass.activity.windows[thisClass.parent]) 
-					thisClass.activity.windows[thisClass.parent].removeLinkLoading(); 
-			$(thisClass.html).hide().appendTo(act).fadeIn(400,function(){ 				
+			var thisClass = this,
+					act = $("#"+this.activity.id),
+					$html = $(this.html).hide();
+			if (this.parent && this.activity.windows[thisClass.parent]) 
+					this.activity.windows[this.parent].removeLinkLoading(); 
+			if (!this.parent) $html.prependTo(act);
+			else $html.appendTo(act);
+			$html.fadeIn(400,function(){ 				
 				thisClass.setHandlers();
 				$(thisClass.windowId).click(function() {
 					if (thisClass.important && !thisClass.hasFocus) { 
@@ -82,9 +85,6 @@ define([
 					}
 				});
 				thisClass.onCreated();
-				//Remove loading
-				 
-				
 			});
 
 		},
