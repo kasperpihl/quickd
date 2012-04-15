@@ -14,9 +14,13 @@ Ext.define('QuickD.controller.Main', {
             splash: 'mainview > splash',
             noDeals: 'mainview > nodeals',
             dealShowSlider: 'mainview > dealshow > carousel',
-            mapShow: 'mainview > mapshow'
+            mapShow: 'mainview > mapshow',
+            adressButton: 'mainview > dealshow .location'
         },
         control: {
+            adressButton: {
+                tap: 'test'
+            },
             buttons:{
                 tap: 'buttonHandler'
             },
@@ -27,6 +31,9 @@ Ext.define('QuickD.controller.Main', {
                 activeitemchange: 'setNewDeal'
             }
         }
+    },
+    test:function(){
+        alert('hej');
     },
     addRemoveRecords:function(store,p2,p3,p4){
         if(this.lockRefresh) return;

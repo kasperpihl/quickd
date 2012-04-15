@@ -1,9 +1,14 @@
 <? require_once('../config.php');
 $betakey = false;
-if(isset($_SESSION['betakey'])) $betakey = $_SESSION['betakey'];
-else if(isset($_COOKIE['betakey'])) $betakey = $_COOKIE['betakey'];
-else if(isset($_GET['betakey'])) $betakey = $_GET['betakey'];
-$user = validateBetakey($betakey);
+if(!isset($_SESSION['userbeta'])){
+    if(isset($_COOKIE['betakey'])) $betakey = $_COOKIE['betakey'];
+    else if(isset($_GET['betakey'])){
+        $betakey = $_GET['betakey'];
+        redirect();
+    } 
+    $user = validateBetakey($betakey);
+}
+else $user = $_SESSION['userbeta'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,6 +30,7 @@ $user = validateBetakey($betakey);
         <script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
         <script src="<?= LIBS_URL ?>jquery/jquery.color.js"></script>
         <script> var IMG_URL = "<?= IMAGES_URL ?>";</script>
+        <script> var userbeta = "<?= $user ?>"; </script>
         
         <!-- Application -->
         <script type="text/javascript" src="app.js"></script>
