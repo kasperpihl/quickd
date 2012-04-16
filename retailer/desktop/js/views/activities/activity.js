@@ -194,7 +194,7 @@ define([
 					var newWindow = new App.views.windows[windowName](options);
 					var queue = false;
 					$.each(thisClass.windows, function(i, w) {
-						if (!newWindow.depth || w.depth && w.depth >= newWindow.depth) {
+						if (!newWindow.depth || newWindow.depth>1 && w.depth && w.depth >= newWindow.depth) {
 							thisClass.queue = newWindow;
 							thisClass.closeWindow(i, true, null, true);
 							queue = true;

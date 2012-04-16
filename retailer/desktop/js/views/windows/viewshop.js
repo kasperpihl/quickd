@@ -70,8 +70,6 @@ define([
 		editShop:function(obj){
 			var thisClass = this;
 			if(this.state == 'view'){
-				$("#btn_edit_shop").html("Gem").addClass("blue");
-				$("#btn_cancel_shop").css("display", "block");
 				$(this.windowId).formSetState('edit');
 				this.state = 'edit';
 				if (!this.form) this.setValidator();
@@ -97,8 +95,6 @@ define([
 				this.saveToModel({onChanged:function() {
 					thisClass.router.trigger('shopEdited',{event:'shopEdited'});
 				}, success:function(d,data){
-					$("#btn_edit_shop").html("Rediger").removeClass("blue");
-					$("#btn_cancel_shop").css("display", "none");
 					$open_hours.removeClass('edit').find('.notice').hide();
 					thisClass.state = 'view';
 				},error:function(d,data){log('error',d,data);} }, false, manual);
