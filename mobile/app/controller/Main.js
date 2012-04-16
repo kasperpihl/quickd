@@ -188,7 +188,7 @@ Ext.define('QuickD.controller.Main', {
     noLocation:function(){
         this.location.setLatitude(56.16294);
         this.location.setLongitude(10.20392);
-        alert('Vores beta kører kun i Aarhus, så vi placerer dig midt i Aarhus centrum');
+        alert('Vores beta kører kun i Aarhus, så vi placerer dig midt i Aarhus');
         this.onLocationUpdate();
     },
     onLocationError:function(error, test1, permDenied, test3, test4){
