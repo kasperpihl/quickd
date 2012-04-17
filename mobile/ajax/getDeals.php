@@ -30,7 +30,7 @@ foreach($results as $res){
 	$deal['category'] = isset($res->value->template->category)?$res->value->template->category:'';
 	$deal['discount'] = discount($deal['orig_price'],$deal['deal_price']);
 	$deal['image'] = isset($res->value->template->image) ? $res->value->template->image : STD_IMAGE;
-	if($giveme && $i == sizeof($results)) continue;
+	//if($giveme && $i == sizeof($results)) continue;
 	$deals[] = $deal;
 }
 echo json_encode($deals);
