@@ -14,8 +14,8 @@ else $user = $_SESSION['userbeta'];
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
         <title>QuickD</title>
-        <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&sensor=true"></script>
-         Sencha Touch -->
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&sensor=true"></script>
+         <!-- Sencha Touch -->
         
 
         <!-- Styling -->
@@ -23,7 +23,8 @@ else $user = $_SESSION['userbeta'];
       	<link rel="stylesheet" href="<?= ROOT_URL ?>resources/css/example.css" type="text/css" />
         <link rel="stylesheet" href="<?= ROOT_URL ?>resources/css/kasper.css" type="text/css" />
         
-        <script type="text/javascript" src="<?= ROOT_URL ?>touch/builds/sencha-touch-all-compat.js"></script>
+        <!--<script type="text/javascript" src="<?= ROOT_URL ?>touch/builds/sencha-touch-all-compat.js"></script>-->
+        <script type="text/javascript" src="<?= ROOT_URL ?>touch/sencha-touch-all.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
         <script src="<?= LIBS_URL ?>jquery/jquery.color.js"></script>

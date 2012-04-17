@@ -13,7 +13,6 @@ Ext.define('QuickD.view.Beta', {
             type: 'fadeIn',
             duration: 800
         },
-        opacity: 0.5,
         // Make it modal so you can click the mask to hide the overlay
         modal: true,
         hideOnMaskTap: false,
