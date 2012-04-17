@@ -141,7 +141,7 @@ Ext.define('QuickD.view.DealShow', {
             xtype: 'carousel',
             id: 'quickd-deal-slider',
             config:{
-                height:'170px',
+                height:'170px'
 
             },
             indicator: false,
@@ -174,21 +174,23 @@ Ext.define('QuickD.view.DealShow', {
     setSlider:function(records){
         var array   = [],
             slider  = this.down('#quickd-deal-slider');
-        
         slider.removeAll(true,true);
-        for(var key in records) slider.add({modelId:records[key].getId()}).setData(records[key].data);
+        for(var key in records){ 
+            slider.add({modelId:records[key].getId()}).setData(records[key].data);
+        }
     },
     loadDeal:function(record,index){
         var model;
+        log('rec',record);
         if(record.modelId) model = Ext.getStore('Deals').getById(record.modelId);
         else model = record;
         //var $deal = $('#deal-' + record.internalId + '-info');
         this.down('#quickd-show-topbar').setTitle('test');
         this.down('#quickd-deal-content').setData(model.getData());
-        var now = parseInt(new Date().getTime()/1000);
-
-        var time_left = parseInt(model.get('end'))-parseInt(now);
-        javascript_countdown.start(time_left)
+        var now = parseInt(new Date().getTime()/1000,10);
+        log(model);
+        var time_left = parseInt(model.get('end'),10)-parseInt(now,10);
+        javascript_countdown.start(time_left);
         if ($('#quickd-deal-content article[id*=deal-]').length > 0) this.addCustomScroll();
     },
     initialize: function() {

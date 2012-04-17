@@ -10,7 +10,7 @@ Ext.define('QuickD.store.Deals', {
         filters:[{
             filterFn: function(item) {
                 var time = parseInt(new Date().getTime()/1000,10);
-                log(item.get('start'),item.get('end'));
+                // log(item.get('start'),item.get('end'));
                 return (parseInt(item.get('end'),10) > time);
             }
         }],

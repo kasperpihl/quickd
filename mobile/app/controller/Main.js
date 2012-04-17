@@ -146,6 +146,11 @@ Ext.define('QuickD.controller.Main', {
         }
     },
     setNewDeal:function(container,newItem,oldItem){
+        /*if(!this.first){
+            this.first = true;
+            return;
+        }*/
+        log('setnewdeal',container,newItem,oldItem);
         //log(this.getMain().setShowAnimation('flip'));
         this.getDealShow().loadDeal(newItem);
     },
@@ -155,7 +160,6 @@ Ext.define('QuickD.controller.Main', {
     
     
     updatedStore:function(instance,data,options){
-        log('test',instance.getCount(),data);
         var count = instance.getCount();
         var string = count + (count == 1 ? ' deal' : ' deals');
         this.getDealList().getDockedComponent('quickd-list-topbar').setTitle(string);
