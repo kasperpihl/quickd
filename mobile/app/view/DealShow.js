@@ -141,7 +141,8 @@ Ext.define('QuickD.view.DealShow', {
             xtype: 'carousel',
             id: 'quickd-deal-slider',
             config:{
-                height:'170px'
+                height:'170px',
+
             },
             indicator: false,
             defaults:{

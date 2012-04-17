@@ -10,6 +10,7 @@ Ext.define('QuickD.model.Deal', {
                 'category',
                 'distance',
                 'discount',
+                'start',
                 'info',
                 'open_hours',
                 'orig_price',

@@ -13,6 +13,9 @@ $i = 0;
 foreach($results as $res){
 	$i++;
 	$deal = array();
+	$deal['start'] = (int)$res->value->start;
+	$deal['end'] = (int)$res->value->end;
+	if($deal['start'] > time()) continue;
 	$deal['lat'] = $dealLat = $res->value->shop->lat;
 	$deal['long'] = $dealLong = $res->value->shop->long;
 	$deal['id'] = $res->id;
@@ -25,7 +28,7 @@ foreach($results as $res){
 	$deal['address'] = $res->value->shop->address;
 	if(isset($res->value->shop->open_hours)) $deal['open_hours'] = $res->value->shop->open_hours;
 	if(isset($res->value->shop->other)) $deal['info'] = nl2br($res->value->shop->other);
-	$deal['end'] = $res->value->end;
+	
 	$deal['name'] = $res->value->shop->name;
 	$deal['category'] = isset($res->value->template->category)?$res->value->template->category:'';
 	$deal['discount'] = discount($deal['orig_price'],$deal['deal_price']);
