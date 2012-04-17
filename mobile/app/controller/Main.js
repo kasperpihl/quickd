@@ -135,8 +135,8 @@ Ext.define('QuickD.controller.Main', {
         });
         var self = this;
         setTimeout(function(){
-            self.getBetaView().show();
-        },2000);
+            //self.getBetaView().show();
+        },500);
     },
     handleMap: function(){
         this.changeToView('mapshow');

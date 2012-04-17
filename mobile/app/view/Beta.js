@@ -4,12 +4,15 @@ Ext.define('QuickD.view.Beta', {
     ],
     xtype: 'betaview',
     config: {
-        layout:'fit',
+        layout:'vbox',
         // We give it a left and top property to make it floating by default    
-        left: 0,
-        top: 0,
-        width: "90%",
-        height: "80%",
+        centered:true,
+        width: "80%",
+        height: "60%",
+        showAnimation: {
+            type: 'fadeIn',
+            duration: 800
+        },
         opacity: 0.5,
         // Make it modal so you can click the mask to hide the overlay
         modal: true,
@@ -20,7 +23,15 @@ Ext.define('QuickD.view.Beta', {
         id:'quickd-beta-screen',
         items: [{
             xtype:'panel',
-            html:'Ja tak'
+            html:'Dette er en lukket beta i Aarhus, indtast den betakode du har modtaget'
+        },{
+            xtype:'textfield'
+        },{
+            xtype:'button',
+            width:150,
+            ui:'confirm',
+            id:'usebeta',
+            text:'Brug nøgle'
         }]
     }
 }); 
