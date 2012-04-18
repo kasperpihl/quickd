@@ -11,6 +11,7 @@ Ext.define('QuickD.controller.Main', {
             buttons: 'toolbar > button',
             dealList: 'mainview > deallist',
             betaView: 'mainview > betaview',
+            useKeyButton: 'mainview > betaview button',
             dealShow: 'mainview > dealshow',
             splash: 'mainview > splash',
             noDeals: 'mainview > nodeals',
@@ -18,6 +19,9 @@ Ext.define('QuickD.controller.Main', {
             mapShow: 'mainview > mapshow'
         },
         control: {
+            useKeyButton:{
+                tap:'useBetaKey'
+            },
             adressButton: {
                 tap: 'test'
             },
@@ -38,6 +42,18 @@ Ext.define('QuickD.controller.Main', {
     init:function(){
         
     },
+    useBetaKey:function(){
+        Ext.Ajax.request({
+            url: ROOT_URL+'ajax/betakey.php',
+            params:{
+                betakey:'test'
+            },
+            method:'POST',
+            success:function(response){
+                log(response);
+            }
+        });
+    },
     start: function() {
         Ext.getStore('Deals').on({ 'refresh': this.updatedStore, scope: this,'updaterecord': this.addRemoveRecords,'addrecords':this.addRemoveRecords});
         //Ext.getStore('Deals').addListener('updaterecord', this.test, this);
@@ -54,7 +70,6 @@ Ext.define('QuickD.controller.Main', {
             }
         });
         this.location.updateLocation();
-
     },
     launch:function(){
 
@@ -146,10 +161,6 @@ Ext.define('QuickD.controller.Main', {
         }
     },
     setNewDeal:function(container,newItem,oldItem){
-        /*if(!this.first){
-            this.first = true;
-            return;
-        }*/
         log('setnewdeal',container,newItem,oldItem);
         //log(this.getMain().setShowAnimation('flip'));
         this.getDealShow().loadDeal(newItem);
@@ -157,8 +168,6 @@ Ext.define('QuickD.controller.Main', {
     constructor:function(){
         this.callParent(arguments);
     },
-    
-    
     updatedStore:function(instance,data,options){
         var count = instance.getCount();
         var string = count + (count == 1 ? ' deal' : ' deals');
@@ -182,11 +191,11 @@ Ext.define('QuickD.controller.Main', {
             scope: this
         });
         var self = this;
-        /*if(!userbeta){
+        if(!userbeta){
             setTimeout(function(){
                 self.getBetaView().show();
             },500);
-        }*/
+        }
     },
     handleMap: function(){
         this.changeToView('mapshow');

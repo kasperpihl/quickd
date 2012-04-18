@@ -11,11 +11,12 @@ function validateBetakey($betakey){
 	$result = $db->key($betakey)->getView('quickd','getBetaUser');
 	$result = $result->rows;
 	if(empty($result)) return false;
-	$betakey = $_SESSION['userbeta'] = $result[0]->key;
+	$betakey = $result[0]->key;
 	$user = $_SESSION['userbeta_id'] = $result[0]->value;
-	$expire=time()+60*60*24*30;
+	unset($_SESSION['userbeta_id']);
+	$expire=time()+86400*31*6;
 	setcookie('userbeta',$betakey,$expire,'/');
-	return $betakey;
+	return $user;
 }
 function getShopowner(){
 	global $dealer,$db;

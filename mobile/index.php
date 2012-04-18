@@ -1,12 +1,12 @@
 <? require_once('../config.php');
 $betakey = false;
-if(!isset($_SESSION['userbeta'])){
+if(!isset($_SESSION['userbeta_id'])){
     if(isset($_COOKIE['betakey'])) $betakey = $_COOKIE['betakey'];
     else if(isset($_GET['betakey'])) $betakey = $_GET['betakey'];
     $user = validateBetakey($betakey);
     if(isset($_GET['betakey'])) redirect();
 }
-else $user = $_SESSION['userbeta'];
+else $user = $_SESSION['userbeta_id'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@ else $user = $_SESSION['userbeta'];
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
         <title>QuickD</title>
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&sensor=true"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
          <!-- Sencha Touch -->
         
 
@@ -29,6 +29,7 @@ else $user = $_SESSION['userbeta'];
         <script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
         <script src="<?= LIBS_URL ?>jquery/jquery.color.js"></script>
         <script> 
+            var ROOT_URL = "<?= ROOT_URL ?>";
             var IMG_URL = "<?= IMAGES_URL ?>";
             var userbeta = "<?= $user ?>";
         </script>
