@@ -9,6 +9,9 @@ Start-deal database-error (?)
 Notifications - bedre beskeder - skal ikke stå venter på godkendelse, hvis den ikke skal godkendes f.eks.
 
 Gennemtest billede-upload
+	- Store billeder
+	- Annuller upload
+	- Pænere slet billede
 
 Tilføj betingelser i dialogboks
 
