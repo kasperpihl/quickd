@@ -166,7 +166,7 @@ define([
 			});
 		},
 		imgUploaded:function(id, filename, response){
-			//log("imgUploaded", id, filename, response);
+			log("imgUploaded", id, filename, response);
 			if (!response) {
 				log("Image is too big");
 				this.afterUpload();

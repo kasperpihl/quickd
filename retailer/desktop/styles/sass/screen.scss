@@ -1381,7 +1381,7 @@ form {
 	.title { padding:10px; }
 	.wrapper {position:relative;}
 	.content-area {
-		margin: 19px;margin-left:9px;
+		margin: 19px;margin-right:9px;
 		overflow-y: auto;
 		height: 520px;
 		position: absolute;
@@ -1518,10 +1518,10 @@ form {
 		&.loading {
 			background: #454343;margin: 19px;padding: 0px;@include border-radius(6px);font-size:12px;color:#D2D0D0;text-align:left;
 			.upload-spinner {
-				background: url(i/loader_black.gif) center center no-repeat;width:30px;height:30px;margin:5px;display:block;float:left;
+				background: url(i/loader_black.gif) center center no-repeat;width:30px;height:30px;margin:5px;display:inline-block;vertical-align:middle;
 			}
 			.upload-filename {
-				line-height:40px;
+				vertical-align:middle;
 			}
 			.upload-size {clear:both;margin-top:5px;text-align:center;display:block;}
 

@@ -634,7 +634,7 @@ qq.extend(qq.FileUploader.prototype, {
         
         var text; 
         if (loaded != total){
-            text = width+' from ' + this._formatSize(total);
+            text = width+' af ' + this._formatSize(total);
         } else {                                   
             text = this._formatSize(total);
         }          
