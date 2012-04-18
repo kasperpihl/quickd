@@ -1442,25 +1442,15 @@ form {
 		top: 0px;
 		z-index: 100;
 
-		.btn_rotate_left {
+		.btn_rotate_right, .btn_rotate_left {
 			position: absolute;
 			top: 0px;
-			left: 200px;
 			width: 43px;
 			height: 43px;
-			background-image: url('i/rotate_left.png');
 			cursor: pointer;
 		}
-
-		.btn_rotate_right {
-			position: absolute;
-			top: 0px;
-			left: 100px;
-			width: 43px;
-			height: 43px;
-			background-image: url('i/rotate_right.png');
-			cursor: pointer;
-		}
+		.btn_rotate_right { left: 200px;background-image: url('i/rotate_right.png');	}
+		.btn_rotate_left  {	left: 100px;background-image: url('i/rotate_left.png');		}
 	}
 
 	.controlpane {
@@ -1520,10 +1510,8 @@ form {
 			.upload-spinner {
 				background: url(i/loader_black.gif) center center no-repeat;width:30px;height:30px;margin:5px;display:inline-block;vertical-align:middle;
 			}
-			.upload-filename {
-				vertical-align:middle;
-			}
-			.upload-size {clear:both;margin-top:5px;text-align:center;display:block;}
+			.upload-filename { vertical-align:middle;display:inline-block;width:90px;	}
+			.upload-size {clear:both;margin:5px 0px;text-align:center;display:block;}
 
 			.progressbar {
 				border:1px solid white;
