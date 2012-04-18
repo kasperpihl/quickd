@@ -2,6 +2,7 @@
 @import "components.scss";
 
 h1, h2, h3, h4, h5, h6 { font-weight: bold; color: black; }
+input[type=text]::-ms-clear, input[type=password]::-ms-clear { display: none; }
 
 .copyright {
     position: absolute;

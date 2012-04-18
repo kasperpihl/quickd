@@ -6,8 +6,6 @@ Opryd SASS-fil
 
 Start-deal database-error (?)
 
-Meld udsolgt deal på forhandler mobil app
-
 Notifications - bedre beskeder - skal ikke stå venter på godkendelse, hvis den ikke skal godkendes f.eks.
 
 Gennemtest billede-upload
@@ -21,6 +19,8 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Kasper) Meld udsolgt deal på forhandler mobil app
 
 (rettet Jeppe) Vinduer åbner oven i hinanden eller i forkert rækkefølge
 
