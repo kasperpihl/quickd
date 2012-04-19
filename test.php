@@ -8,10 +8,12 @@ require_once(dirname(__FILE__).'/config.php');
 Log::printLog();
 echo "<br><br>";
 
-for ($i=0;$i<=200;$i++) {
-	Mail::create('randomMail', 'kasper@tornoe.org',array('name'=>'Mr. Nice Guy', 'number'=>$i));
-	echo "Created ".$i."<br />";
+if ($_GET['spam']) {
+	for ($i=0;$i<=200;$i++) {
+		Mail::create('randomMail', $_GET['spam'],array('name'=>'Mr. Nice Guy', 'number'=>$i));
+		echo "Created ".$i."<br />";
+	}
+	Mail::dequeueMails();
+	echo "<br><br>Done!";
 }
-Mail::dequeueMails();
-echo "<br><br>Done!";
 ?>
