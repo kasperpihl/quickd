@@ -5,11 +5,12 @@ require_once(dirname(__FILE__).'/config.php');
 	Log::add($i);
 	sleep(1);
 }*/
-
+$test = json_decode("{}");
+if (empty($test)) echo "-----------------------";
 
 for ($i=0;$i<=5;$i++) {
-	Mail::createMail('randomMail', 'jstougaard+1@gmail.com');
-	Mail::createMail('randomMail', 'jstougaard@gmail.com',array('name'=>'Mr. Nice Guy', 'number'=>$i));
+	Mail::create('randomMail', 'jstougaard+1@gmail.com');
+	Mail::create('randomMail', 'jstougaard@gmail.com',array('name'=>'Mr. Nice Guy', 'number'=>$i));
 }
 Mail::dequeueMails();
 echo "<br><br>Done!";
