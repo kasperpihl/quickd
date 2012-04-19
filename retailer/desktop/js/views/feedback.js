@@ -109,8 +109,8 @@ define([
 		sendFeedback:function(){
 			if (!this.shown) return;
 			var feedback = $('#feedback_text_area').val();
-			if(feedback == this.feedback) alert('allerede sendt'); 
-			else {
+			if(feedback == this.feedback) alert('Allerede sendt'); 
+			else if (feedback&&feedback!="") {
 				$('html').unbind('click');
 				this.animateFeedback('thanksmessage');
 				//this.closeFeedback('thanksmessage');

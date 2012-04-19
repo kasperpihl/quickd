@@ -35,6 +35,7 @@ class Shopowner {
 				$model['privileges'] = 1;
 			}
 			$model['password'] = $password?md5(MD5_STRING.$model['password']):'null';
+			$model['userbeta'] = strtoupper(substr(md5(time().rand(1,1000000).rand(1,1000000)),0,8));
 			if ($user && isset($user_id)) {
 				$model['edit_register'] = true;
 				$result = json_decode($db->updateDocFullAPI('dealer',$update,array('doc_id'=>$user_id, 'params'=>array('json'=>json_encode($model)))));
@@ -44,7 +45,7 @@ class Shopowner {
 				if ($type=='dealer') $result->data->hours = $model['hours'];
 				$result->data->email = $email;
 				$session->login($result->data->id,$model['privileges']);
-				if ($type!='dealer') Mail::sendBetaConfirmation($email);
+				if ($type!='dealer')  Mail::create('sendBetaConfirmation', $email); //Mail::sendBetaConfirmation($email);
 			}
 			
 			return $result;
@@ -111,7 +112,7 @@ class Shopowner {
 		    	//Send mail
 		    	if (isset($user_profile->first_name)) $name = $user_profile->first_name;
 		    	else $name = false;
-		    	Mail::sendBetaConfirmation($email, $name);
+		    	Mail::create('sendBetaConfirmation', $email, array('name'=>$name)); //Mail::sendBetaConfirmation($email, $name);
 		    }
 		    if($result && $result->success == 'true'){
 				$result->data->email = $email;
@@ -161,10 +162,10 @@ class Shopowner {
 			if($result->success != 'true') return json_encode($result);
 			switch($type){
 				case 'dealer':
-					Mail::sendNewPasswordForDealer($email,$url);
+					Mail::create('sendNewPasswordForDealer', $email, array('url'=>$url)); //Mail::sendNewPasswordForDealer($email,$url);
 				break;
 				case 'user':
-					Mail::sendNewPasswordForUser($email,$url);
+					Mail::create('sendNewPasswordForUser', $email, array('url'=>$url)); //Mail::sendNewPasswordForUser($email,$url);
 				break;
 			}
 			return $result;
@@ -190,6 +191,18 @@ class Shopowner {
 	
 		}
 
+	}
+	public static function testPassword($password) {
+		global $db, $session;
+		if (!$password) return array('success'=>'false','error'=>'no_password_to_test');
+		if(!$session->logged_dealer()) return array('success'=>'false','error'=>'not_logged_in');
+		$shopowner = $session->logged_dealer();
+		$result = $db->key($shopowner)->getView('dealer','getPassById');
+		if (!empty($result)&&!empty($result->rows)&&isset($result->rows[0], $result->rows[0]->value, $result->rows[0]->value->md5_password)) {
+			$old_pass = $result->rows[0]->value->md5_password;
+			if ($old_pass===md5(MD5_STRING.$password)) return array('success'=>'true');
+			else return array('success'=>'false', 'error'=>'passwords_no_match');
+		} else return array('success'=>'false','error'=>'no_user_pass_found'); 
 	}
 	public static function getShopowner(){
 		
@@ -247,8 +260,12 @@ class Shopowner {
 				$update = 'addEditShop';
 			break;
 			case 'shopowner':
-				$shopowner = json_decode($model);
-				
+				$data = json_decode($model);
+				if (isset($data->old_password, $data->new_password)) {
+					$data->old_password = md5(MD5_STRING.$data->old_password);
+					$data->new_password = md5(MD5_STRING.$data->new_password);
+					$model = json_encode($data);
+				}
 				$update = 'editUser';
 			break;
 			case 'templates':
@@ -356,8 +373,10 @@ class Shopowner {
 		if(!property_exists($model,'start') OR !property_exists($model,'end')) return array('success'=>'false','error'=>'start_and_end_time_must_be_specified');
 		/* Checking and setting time */
 		if(!property_exists($model,'template_id') OR !property_exists($model,'shop_id')) return array('success'=>'false','error'=>'shop_and_template_id_required');
-		$start_time = isset($model->seconds) ? (int)$model->start : strtotime($model->start);
-		$end_time = isset($model->seconds) ? (int)$model->end : strtotime($model->end);
+		//$start_time = isset($model->seconds) ? (int)$model->start : strtotime($model->start);
+		//$end_time = isset($model->seconds) ? (int)$model->end : strtotime($model->end);
+		$start_time = (int)$model->start;
+		$end_time   = (int)$model->end;
 		$template_id = $model->template_id;
 		$shop_id = $model->shop_id;
 		if(!$start_time OR !$end_time) return array('success'=>'false','error'=>'error_parsing_time'); 
@@ -462,15 +481,18 @@ class Shopowner {
 		else return $imgData;
 
 		// Find deals using images
-		
 		$deals = (object) Shopowner::get('deals');
 		if (isset($deals->success, $deals->results)&&$deals->success=='true') {
+			$now = time();
 			foreach($deals->results as $deal) {
 				$model = $deal->value;
 				$image = $model->template->image;
 				if ($image && $image == $imgData->n) {
-					$model->template->image = '';
-					Shopowner::updateDeal($model);
+					if ($model->end > $now) return array('success'=>'false', 'error'=>'img_on_active_deal');
+					else { 
+						$model->template->image = '';
+						Shopowner::updateDeal($model);
+					}
 				}
 			}
 		}	
@@ -538,7 +560,7 @@ class Shopowner {
 					return array('success'=>'true','data'=>$res);
 				}
 			}
-			catch(Exception $e){ echo json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); }
+			catch(Exception $e){ return array('success'=>'false','error'=>'database_error','e'=>$e->getMessage()); }
 		}
 	
 	}

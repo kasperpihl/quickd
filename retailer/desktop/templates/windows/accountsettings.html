@@ -1,8 +1,8 @@
 <form name="edit_account" id="edit_account">
 <div class="title">
 <div style="position: absolute; left: 0px;" id="shop_title_buttons">
-	<button  class="window-top black" value="Rediger" id="btn_edit_account">Rediger</button>
-	<button class="window-top black" id="btn_cancel_account" style="display: none;">Annuller</button>
+	<button  class="window-top black edit-btn" value="Rediger" id="btn_edit_account">Rediger</button>
+	<button class="window-top black cancel-btn" id="btn_cancel_account">Annuller</button>
 </div>
 <h1>Indstillinger</h1>
 </div>
@@ -30,13 +30,13 @@
     
 	<div class="field top">
 		<div class="label">Nuværende</div>
-		<div class="data"><input type="password" id="<%=data.prefix %>pass" name="<%=data.prefix %>pass" class="readonly" readonly /></div>
-        <div id="wrong_pass" class="errorTip" style="display:none">Det indtastede password er forkert</div>
+		<div class="data"><input type="password" id="<%=data.prefix %>old_password" name="<%=data.prefix %>pass" class="readonly" readonly /></div>
+    <div id="wrong_pass" class="errorTip" style="display:none">Det indtastede password er forkert</div>
 	</div>
     
 	<div class="field bottom">
 		<div class="label">Ny</div>
-		<div class="data"><input type="password" id="<%=data.prefix %>pass_new" name="<%=data.prefix %>pass_new" class="readonly" readonly /></div>
+		<div class="data"><input type="password" id="<%=data.prefix %>new_password" name="<%=data.prefix %>pass_new" class="readonly" readonly /></div>
 	</div>
 	<!--<div class="field bottom">
 		<div class="label">Gentag</div>

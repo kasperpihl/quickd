@@ -256,6 +256,7 @@ qq.FileUploaderBasic = function(o){
         params: {},
         button: null,
         dragDrop: null,
+        cancel: null,
         multiple: true,
         maxConnections: 3,
         // validation        
@@ -295,7 +296,7 @@ qq.FileUploaderBasic = function(o){
     }
                         
     this._preventLeaveInProgress();  
-	if(this._options.dragDrop) this._setupDragDrop();
+	//if(this._options.dragDrop) this._setupDragDrop();
 };
    
 qq.FileUploaderBasic.prototype = {
@@ -472,7 +473,7 @@ qq.FileUploaderBasic.prototype = {
         } while (bytes > 99);
         
         return Math.max(bytes, 0.1).toFixed(1) + ['kB', 'MB', 'GB', 'TB', 'PB', 'EB'][i];          
-    },
+    }/*,
 	_setupDragDrop: function(){
         var self = this,
             dropArea = this._options.dragDrop;                        
@@ -495,7 +496,7 @@ qq.FileUploaderBasic.prototype = {
             }
         });
                
-    }
+    }*/
 	
 };
     
@@ -539,6 +540,7 @@ qq.FileUploader = function(o){
             file: 'qq-upload-file',
             spinner: 'qq-upload-spinner',
             size: 'qq-upload-size',
+            progressbar: 'qq-upload-progressbar',
             cancel: 'qq-upload-cancel',
 
             // added to list item when upload completes
@@ -551,12 +553,12 @@ qq.FileUploader = function(o){
     qq.extend(this._options, o);       
 
     this._element = this._options.element;
-    this._element.innerHTML = this._options.template;        
+    if (this._options.template) this._element.innerHTML = this._options.template;        
     this._listElement = this._options.listElement || this._find(this._element, 'list');
     
     this._classes = this._options.classes;
         
-    this._button = this._createUploadButton(this._find(this._element, 'button'));        
+    this._button = this._options.button ? this._createUploadButton(this._options.button) : this._createUploadButton(this._find(this._element, 'button'));        
     
     this._bindCancelEvent();
     this._setupDragDrop();
@@ -579,7 +581,7 @@ qq.extend(qq.FileUploader.prototype, {
     },
     _setupDragDrop: function(){
         var self = this,
-            dropArea = this._find(this._element, 'drop');                        
+            dropArea = this._options.dragDrop ? this._options.dragDrop : this._find(this._element, 'drop');
 
         var dz = new qq.UploadDropZone({
             element: dropArea,
@@ -594,14 +596,14 @@ qq.extend(qq.FileUploader.prototype, {
                 qq.removeClass(dropArea, self._classes.dropActive);  
             },
             onDrop: function(e){
-                dropArea.style.display = 'none';
+                //dropArea.style.display = 'none';
                 qq.removeClass(dropArea, self._classes.dropActive);
                 self._uploadFileList(e.dataTransfer.files);    
             }
         });
                 
-        dropArea.style.display = 'none';
-
+        //dropArea.style.display = 'none';
+/*
         qq.attach(document, 'dragenter', function(e){     
             if (!dz._isValidFileDrag(e)) return; 
             
@@ -615,7 +617,7 @@ qq.extend(qq.FileUploader.prototype, {
             if ( ! relatedTarget || relatedTarget.nodeName == "HTML"){               
                 dropArea.style.display = 'none';                                            
             }
-        });                
+        });     */           
     },
     _onSubmit: function(id, fileName){
         qq.FileUploaderBasic.prototype._onSubmit.apply(this, arguments);
@@ -626,15 +628,17 @@ qq.extend(qq.FileUploader.prototype, {
 
         var item = this._getItemByFileId(id);
         var size = this._find(item, 'size');
-        size.style.display = 'inline';
+        var progress = this._classes.progressbar ? this._find(item, 'progressbar') : null;
+        var width = Math.round(loaded / total * 100) + '%';
+        size.style.display = 'block';
         
         var text; 
         if (loaded != total){
-            text = Math.round(loaded / total * 100) + '% from ' + this._formatSize(total);
+            text = width+' af ' + this._formatSize(total);
         } else {                                   
             text = this._formatSize(total);
         }          
-        
+        if (progress) progress.getElementsByTagName("span")[0].style.width = width;
         qq.setText(size, text);         
     },
     _onComplete: function(id, fileName, result){
@@ -644,7 +648,7 @@ qq.extend(qq.FileUploader.prototype, {
         var item = this._getItemByFileId(id);                
         qq.remove(this._find(item, 'cancel'));
         qq.remove(this._find(item, 'spinner'));
-        
+        qq.remove(this._find(item, 'progressbar'))
         if (result.success){
             qq.addClass(item, this._classes.success);    
         } else {
@@ -654,12 +658,13 @@ qq.extend(qq.FileUploader.prototype, {
     _addToList: function(id, fileName){
         var item = qq.toElement(this._options.fileTemplate);                
         item.qqFileId = id;
-
+        item.id = 'temp_img_'+id;
         var fileElement = this._find(item, 'file');        
         qq.setText(fileElement, this._formatFileName(fileName));
         this._find(item, 'size').style.display = 'none';        
 
-        this._listElement.appendChild(item);
+        //this._listElement.appendChild(item, this._listElement.firstChild);
+        this._listElement.insertBefore(item, this._element.nextSibling)
     },
     _getItemByFileId: function(id){
         var item = this._listElement.firstChild;        
@@ -1183,7 +1188,8 @@ qq.extend(qq.UploadHandlerXhr.prototype, {
     getName: function(id){        
         var file = this._files[id];
         // fix missing name in Safari 4
-        return file.fileName != null ? file.fileName : file.name;       
+        if (file) return file.fileName != null ? file.fileName : file.name;       
+        else return 'Unknown';
     },
     getSize: function(id){
         var file = this._files[id];

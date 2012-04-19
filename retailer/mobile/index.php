@@ -90,12 +90,12 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
                 
     	<?php else: ?>
     		<div id="deals" data-role="page" data-theme="a">
-        	<div id="deal" class="current">
+        	<div id="deal" class="current" >
             	<div data-role="header" data-position="fixed">
                     <h1>QuickD Mini</h1>
-                    <a class="button" id="logout" href="<?= REAL_URL ?>?logout" data-theme="b">Log ud</a>
+                    <a class="button" id="logout" href="<?= REAL_URL ?>?logout" data-ajax="false" data-theme="b">Log ud</a>
                 </div>
-                <div class="scroll">
+                <div class="scroll" style="opacity:0;">
                 	
                 	<article data-role="content" id="appContent">
             			

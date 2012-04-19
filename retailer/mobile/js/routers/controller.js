@@ -10,8 +10,6 @@ App.routers.Controller = Backbone.Router.extend({
 		//this.navigate('skabeloner',{trigger:true});
 	},
 	changeTemplate:function(param){
-		log('skabeloner');
-		//return;
 		if(param) this.changedToTemplate(param);
 	},
 	initialize: function(shopowner){
@@ -67,7 +65,8 @@ App.routers.Controller = Backbone.Router.extend({
 			}
 			else if(model.get('state') == 'ended'){
 				App.utilities.countdown.stop();
-				App.views.controlPanel.changed(App.collections.templates.get(this.activeTemplateId));
+				this.activeModel = App.collections.templates.get(this.activeTemplateId);
+				App.views.controlPanel.changed(this.activeModel);
 			}
 			else if(model.get('status') == 'soldout'){
 				App.views.controlPanel.changed(model);
@@ -92,20 +91,31 @@ App.routers.Controller = Backbone.Router.extend({
 	},
 	clickedStartStop:function(time){
 		var obj;
+		log('lockButton',this.lockButton);
+		if(this.lockButton) return;
+		var now = parseInt(new Date().getTime()/1000,10);
 		//time = 10;
 		switch(this.activeModel.get('type')){
 			case 'template':
+				var endTimeObj = new Date((time+now)*1000),
+					endTimeString = endTimeObj.getHours() + ':' + endTimeObj.getMinutes();
+
+				if(!confirm('Vil du køre en deal fra nu og frem til '+endTimeString+'?')) return;
 				obj = {action:'start',model:{mobile:'true',template_id:this.activeModel.get('id'),seconds: time}};
 			break;
 			case 'deal':
 				if(this.activeModel.get('status') == 'soldout') return alert('Denne skabelon kan først startes igen når tiden er udløbet');
+				if(now - parseInt(this.activeModel.get('start'),10) < 900) return alert('En deal kan ikke meldes udsolgt før efter 15 minutter');
+				if(!confirm('Er du sikker på du vil melde denne deal udsolgt?')) return false;
 				obj = {action: 'soldout',model: {id: this.activeModel.get('id'),status:'soldout'}};
 			break;
 		}
 		var thisClass = this;
+		this.lockButton = true;
 		$.post(ROOT_URL+'ajax/deal.php?type=deals',obj,function(data){
-			log(data);
+			
 			if(data.success == 'true'){
+				setTimeout(function(){thisClass.lockButton = false;},1500);
 				if(data.data.id){
 					var model = new App.models.Deal(data.data);
 					App.collections.deals.add(model,{silent:true});
@@ -115,6 +125,17 @@ App.routers.Controller = Backbone.Router.extend({
 				else {
 					thisClass.activeModel.set(data.data);
 					thisClass.changedState(thisClass.activeModel);
+				}
+			}
+			else {
+				thisClass.lockButton = false;
+				switch(data.error){
+					case 'cant_sell_out_before_15':
+						alert('Kan ikke melde udsolgt før 15 minutter efter start');
+					break;
+					case 'deal_already_planned':
+						alert('Denne skabelon er allerede planlagt i dette tidsrum');
+					break;
 				}
 			}
 		},'json');

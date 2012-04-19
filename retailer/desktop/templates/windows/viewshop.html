@@ -1,8 +1,8 @@
 <form name="edit_shop" id="edit_shop">
 	<div class="title">
 	<div style="position: absolute; left: 0px;" id="shop_title_buttons">
-		<button  class="window-top black" value="Rediger" id="btn_edit_shop">Rediger</button>
-		<button class="window-top black" id="btn_cancel_shop" style="display: none;">Annuller</button>
+		<button  class="window-top black edit-btn" value="Rediger" id="btn_edit_shop">Rediger</button>
+		<button class="window-top black cancel-btn" id="btn_cancel_shop">Annuller</button>
 	</div>
 	<h1>Butik</h1>
 	</div>
@@ -28,6 +28,7 @@
 		</div>
 		<div class="field">
 		    <div class="label long">Åbningstider</div>
+		    <div id="open-days-error"></div>
 		    <div class="data long" id="opening-times">
 		    	<% 
 		    		var hours = data.attributes.open_hours ? data.attributes.open_hours : {},
@@ -43,9 +44,9 @@
 		    				<span class="day"><%=day%>:</span>
 		    				<span class="data">
 			    				<label>Fra</label>
-			    				<input type="text" id="<%=data.prefix %>open-day-<%=key%>-open" name="<%=data.prefix %>open-day-<%=key%>-open" value="<%=open %>" oldValue="<%=open %>" class="readonly opentime" readonly />
+			    				<input type="text" id="<%=data.prefix %>open-day-<%=key%>-open" name="<%=data.prefix %>open-day-<%=key%>-open" value="<%=open %>" oldValue="<%=open %>" class="readonly timeinput opentime" readonly />
 			    				<label>Til</label>
-			    				<input type="text" id="<%=data.prefix %>open-day-<%=key%>-close" name="<%=data.prefix %>open-day-<%=key%>-close" value="<%=close %>" oldValue="<%=close %>" class="readonly closetime" readonly />
+			    				<input type="text" id="<%=data.prefix %>open-day-<%=key%>-close" name="<%=data.prefix %>open-day-<%=key%>-close" value="<%=close %>" oldValue="<%=close %>" class="readonly timeinput closetime" readonly />
 			    			</span>
 			    			<span class="closed" id="closed-<%=key%>">Lukket</span>
 		    			</li>

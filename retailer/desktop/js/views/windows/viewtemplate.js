@@ -33,6 +33,7 @@ define([
 			//_events['blur '+windowId+' #orig_price']= 'priceChanged';
 			_events['keyup '+windowId+' #deal_price, '+windowId+' #orig_price']= 'priceChanged';
 			_events['click '+windowId+' .category']= 'categoryChanged';
+			_events['click '+windowId+' .category-show']= 'editTemplate';
 			return _events;
 		},
 		updateContent:function(model,d1){
@@ -90,11 +91,7 @@ define([
 		editTemplate:function(obj){
 			//log("editTemplate", this.state);
 			if(this.state == 'view'){
-				$("#btn_edit_template").html("Gem").addClass("blue");
-				$("#btn_cancel_template").css("display", "block");
 				$("#btn_del_template").css("display", "block");
-				//$('#whitespace').css('height', '50px');
-				
 				$(this.windowId).formSetState('edit')
 					.find('#categories').addClass('edit');
 
@@ -121,8 +118,6 @@ define([
 				this.saveToModel({onChanged:function() {
 					thisClass.router.trigger('templateEdited',{event:'templateEdited'}); 
 				}, success:function(d,data){ 
-					$("#btn_edit_template").html("Rediger").removeClass("blue");
-					$("#btn_cancel_template").css("display", "none");
 					$("#btn_del_template").css("display", "none");
 					$(thisClass.windowId).find('#categories').removeClass('edit');
 					//$('#whitespace').css('height', '0px');

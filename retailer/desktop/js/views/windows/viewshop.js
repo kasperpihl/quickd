@@ -29,13 +29,37 @@ define([
 			var thisClass = this;
 			this.form = $(this.windowId).find('form');
 			if (this.form) {
-				this.form.formValidate({
-					submitKey: '#btn_edit_shop',
-					rules: {
+				var rules = {
 						shop_name: "required",
 						shop_phone: "digits",
 						//shop_website: "url",
-						shop_email: "email"
+						shop_email: "email",
+					},
+					inOpen, inClose, messages={};
+				for (var i=0;i<=7;i++) {
+					inOpen = this.inputPrefix+'open-day-'+i+'-open';
+					inClose = this.inputPrefix+'open-day-'+i+'-close';
+					rules[inOpen] = {
+						required: '#'+inClose+':filled',
+						timeFormat: true
+					};
+					rules[inClose] = {
+						required: '#'+inOpen+':filled',
+						timeFormat: true
+					};
+					messages[inOpen] = { required: 'Indtast venligst både åbnings- og lukketid' };
+					messages[inClose] = messages[inOpen];
+				}
+				this.form.formValidate({
+					submitKey: '#btn_edit_shop',
+					rules: rules,
+					messages: messages,
+					errorPlacement: function(error, element) {
+						var field = element.parents('.field');
+						if (field) {
+							if (element.hasClass('timeinput')) field.find('#open-days-error').html(error);
+							else error.appendTo(field);
+						} else error.insertAfter(element);
 					}
 				});
 				$(this.form).find('input, textarea').focus(function() {
@@ -46,8 +70,6 @@ define([
 		editShop:function(obj){
 			var thisClass = this;
 			if(this.state == 'view'){
-				$("#btn_edit_shop").html("Gem").addClass("blue");
-				$("#btn_cancel_shop").css("display", "block");
 				$(this.windowId).formSetState('edit');
 				this.state = 'edit';
 				if (!this.form) this.setValidator();
@@ -73,8 +95,6 @@ define([
 				this.saveToModel({onChanged:function() {
 					thisClass.router.trigger('shopEdited',{event:'shopEdited'});
 				}, success:function(d,data){
-					$("#btn_edit_shop").html("Rediger").removeClass("blue");
-					$("#btn_cancel_shop").css("display", "none");
 					$open_hours.removeClass('edit').find('.notice').hide();
 					thisClass.state = 'view';
 				},error:function(d,data){log('error',d,data);} }, false, manual);

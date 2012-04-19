@@ -1,35 +1,7 @@
-/* 
- * HTML5 ✰ Boilerplate
- *
- * What follows is the result of much research on cross-browser styling. 
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- *
- * Detailed information about this CSS: h5bp.com/css
- * 
- * ==|== normalize ==========================================================
- */
-
-
-/* =============================================================================
-   HTML5 display definitions
-   ========================================================================== */
-
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
 audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
 audio:not([controls]) { display: none; }
 [hidden] { display: none; }
-
-/* =============================================================================
-   Base
-   ========================================================================== */
-
-/*
- * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
- * 2. Force vertical scrollbar in non-IE
- * 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
- */
-
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
 body {
@@ -37,29 +9,19 @@ body {
   font-size: 13px;
   line-height: 1.231;
   font-family: "Helvetica";
-  background-color: white;
+  background-color: #EAEAEA;
 }
 
 #bgImage {
   position:absolute;
   top:0px; left:0px;
   width:100%; height: 100%; 
-  background: url('../img/cover-background.jpg') center center no-repeat;
+  background: url('../img/covermobile.jpg') center center no-repeat;
   background-size: cover; /* Does not work in IE8 and below – Polyfill needed */
   z-index: 1; 
-  box-shadow: 0 0 10px black;
+  padding-bottom:142px;
+  box-shadow: 0 0 10px black; 
   min-height: 444px;
-}
-
-#bgImage-hand {
-  position:absolute;
-  top:0px; left:0px;
-  width:100%; height: 100%; 
-  background: url('../img/cover-hand.png') center center no-repeat;
-  background-size: cover; /* Does not work in IE8 and below – Polyfill needed */
-  z-index: 2; 
-  min-height: 444px;
-  background-position-y: 0px;
 }
 
 html.backgroundsize #bgImage {
@@ -108,7 +70,7 @@ html.backgroundsize #bgImage {
 
 #container_left {
   position: absolute;
-  bottom: 15%;
+  bottom: 20%;
   left: 0px;
   margin-left: 40px;
 }
@@ -133,16 +95,15 @@ html.backgroundsize #bgImage {
 
 #intro h1 {
   color: white;
-  font-weight: 300;
+  font-weight: 600;
   margin: 0px;
-  font-size: 28px;
-  font-family: "Helvetica Neue";
-  text-shadow: rgba(0, 0, 0, 0.8) 0 1px 2px;
+  font-size: 2.5;
+  text-shadow: rgba(0, 0, 0, 0.8) 0 2px;
 }
 
 #intro h2 {
   color: white;
-  font-weight: 400;
+  font-weight: 100;
   font-size: 2em;
   margin: 0px;
   margin-bottom: 25px;
@@ -555,30 +516,6 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
 table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
 
-
-/* ==|== primary styles =====================================================
-   Author: 
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==|== non-semantic helper classes ========================================
-   Please define your styles before this section.
-   ========================================================================== */
-
 /* For image replacement */
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .ir br { display: none; }
@@ -599,43 +536,3 @@ td { vertical-align: top; }
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
-
-
-
-/* ==|== media queries ======================================================
-   PLACEHOLDER Media Queries for Responsive Design.
-   These override the primary ('mobile first') styles
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 480px) {
-  /* Style adjustments for viewports 480px and over go here */
-
-}
-
-@media only screen and (min-width: 768px) {
-  /* Style adjustments for viewports 768px and over go here */
-
-}
-
-
-
-/* ==|== print styles =======================================================
-   Print styles.
-   Inlined to avoid required HTTP connection: h5bp.com/r
-   ========================================================================== */
- 
-@media print {
-  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
-  a, a:visited { text-decoration: underline; }
-  a[href]:after { content: " (" attr(href) ")"; }
-  abbr[title]:after { content: " (" attr(title) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
-  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
-  thead { display: table-header-group; } /* h5bp.com/t */
-  tr, img { page-break-inside: avoid; }
-  img { max-width: 100% !important; }
-  @page { margin: 0.5cm; }
-  p, h2, h3 { orphans: 3; widows: 3; }
-  h2, h3 { page-break-after: avoid; }
-}

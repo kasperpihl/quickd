@@ -29,18 +29,26 @@ define([
 					submitKey:'#btn_edit_account',
 					rules: {
 						 user_phone: "digits",
-						 user_pass_new: {
+						 user_new_password: {
 							 minlength: 6
 						 },
-						 user_pass: {
-							 required: function(el) {
-								if ($('#user_pass_new').val() != "" && $('#user_pass_again').val() != "") return true;
-								else return false;
+						 user_old_password: {
+							 required: '#user_pass_new:filled',
+							 minlength: 6,
+							 remote: {
+								 url: ROOT_URL+"ajax/shopowner.php",
+	       						 type: "post",
+								 data: {
+									action: 'test_userpass' 
+								 }
 							 }
 						 }
 				   },
 				   messages: {
-					   user_pass: "Indtast nuværende password for verificere ændringer"
+					   user_pass: {
+					   	required: "Indtast nuværende password for at ændre",
+					   	remote: "Det indtastede password er forkert"
+					   }
 				   }
 			   });
 			   
@@ -52,8 +60,6 @@ define([
 		},
 		editAccount:function(obj){
 			if(this.state == 'view'){
-				$("#btn_edit_account").html("Gem").addClass("blue");
-				$("#btn_cancel_account").css("display", "block");
 				$(this.windowId).formSetState('edit');
 				this.state = 'edit';
 				if (!this.form) this.setValidator();
@@ -69,25 +75,24 @@ define([
 				var thisClass = this;
 				if ($('#wrong_pass').is(':visible')) $('#wrong_pass').slideUp();
 				this.saveToModel({onChanged:function() {
-					log("onChanged");
 					thisClass.router.trigger('settingsEdited',{event:'settingsEdited'});
 				}, success:function(d,data){  
-					log("success",data,d);
-					$("#btn_edit_account").html("Rediger").removeClass("blue");
-					$("#btn_cancel_account").css("display", "none");
 					thisClass.state = 'view';
+					thisClass.model.unset('old_password', {silent:true});
+					thisClass.model.unset('new_password', {silent:true});
 				},error:function(d, data) {
 					log("error", d, data);
-					if (data.success=='false'&&data.error_message) {
-						if (data.error_message=='wrong_password') {
-							$('#user_pass').val('');
-							$('#user_pass_new').val('');
-							$('#user_pass_again').val('');
+					if (data.success=='false'&&data.error) {
+						if (data.error=='passwords_no_match') {
+							$('#user_old_password').val('');
+							$('#user_new_password').val('');
 							$('#wrong_pass').slideDown();
 						}
 					} else {
 						this.important = false;
 					}
+					thisClass.model.unset('old_password', {silent:true});
+					thisClass.model.unset('new_password', {silent:true});
 				}  }  );
 			}
 			return false;
@@ -98,14 +103,5 @@ define([
 			this.router.trigger('unlock',{lock:'window',activityCid: this.activity.cid,depth:this.depth});
 			return false;
 		},
-		doEdit:function(obj) {
-			if (this.state=='view') {
-				$(this.windowId).formSetState('edit');
-				if (!this.form) this.setValidator();
-				obj.currentTarget.blur();
-				obj.currentTarget.focus();
-				this.state = 'edit';
-			}
-		}
 	});
 });

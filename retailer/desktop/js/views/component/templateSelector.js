@@ -57,7 +57,6 @@ define([
 			this.render();
 		},
 		expandList:function() {
-			log('expandClick');
 			var thisClass = this;
 			this.$collapsed.hide();
 			this.$expanded.slideDown('slow');
@@ -68,7 +67,8 @@ define([
 		collapseList:function() {
 			if (this.expanded) {
 				var thisClass = this;
-				if ($('#templateSelector-'+this.cid).is(':visible')) {
+				if (this.$el.is(':visible')) {
+					
 					this.$expanded.slideUp(function() {
 						thisClass.$collapsed.fadeIn('fast');
 						if (thisClass.onCollapse) thisClass.onCollapse();
