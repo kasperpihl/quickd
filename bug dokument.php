@@ -10,6 +10,8 @@ Notifications - bedre beskeder - skal ikke stå venter på godkendelse, hvis den
 
 Tilføj betingelser i dialogboks
 
+Farveskema i DealShow ikoner på mobilen
+
 =====================================
 Lav prioritet
 
