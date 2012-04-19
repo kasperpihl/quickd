@@ -68,16 +68,16 @@
       <div id="container_left">
         <div id="intro">
           <h1>En ny måde at handle på.</h1>
-          <h2>Snart i din by.</h2>
+          <h2>Nu i Aarhus.</h2>
         </div>
         <div id="signup">
-          <h1>Skriv dig op</h1>
+          <h1>Få en invitation</h1>
           <div class="text-area">
             <p id="start_text" style="display:<?=$registred?'none':'block'?>">
-              <strong>20. april</strong> åbner vi for en begrænset beta-test i Aarhus. Få en invitation ved at registrere dig med Facebook:
+              QuickD er i øjeblikket i beta. Skriv dig op med Facebook, så sender vi en invitation så snart der er plads til nye brugere.
             </p>
             <p id="response_text" style="display:<?=$registred?'block':'none'?>">
-              Tak for din registrering!<br />Du vil modtage en invitation til beta-testen  ved lanceringen <strong>den 20. april</strong>.
+              Tak for din registrering!<br />Vi sender en invitation så hurtigt som muligt.
             </p>
           </div>
           <?php if (!$registred) {   ?>
@@ -118,7 +118,7 @@
             </article>
             <article>
               <section class="right">
-                <h1>Vi sørger for super skarpe deals til dig.</h1>
+                <h1>Vi sørger for super skarpe tilbud til dig.</h1>
                 <p>
                   På QuickD kan forretningerne selv starte tilbud når de har lyst - direkte fra butikken. Men vi går ikke på kompromis med kvaliteten. Vi godkender alle tilbud og kræver, at de minimum er nedsat med 25% fra originalprisen.
                 </p>
