@@ -73,14 +73,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	Image positions
 */
 @-webkit-keyframes bluePulse {
-  /* line 358, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 287, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 359, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 288, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -89,7 +89,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 360, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 289, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -98,14 +98,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-moz-keyframes bluePulse {
-  /* line 358, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 287, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 359, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 288, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -114,7 +114,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 360, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 289, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -123,14 +123,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-ms-keyframes bluePulse {
-  /* line 358, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 287, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 359, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 288, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -139,7 +139,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 360, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 289, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -148,21 +148,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-webkit-keyframes whitePulse {
-  /* line 366, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 295, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 367, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 296, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 368, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 297, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -171,21 +171,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-moz-keyframes whitePulse {
-  /* line 366, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 295, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 367, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 296, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 368, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 297, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -194,21 +194,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-ms-keyframes whitePulse {
-  /* line 366, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 295, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 367, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 296, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 368, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 297, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;

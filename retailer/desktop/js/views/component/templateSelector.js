@@ -48,6 +48,7 @@ define([
 			'click #btn_expand_template_list': 'expandList'
 		},
 		handleClick:function(data) {
+			log('handleClick');
 			var id = data.currentTarget.id;
 			this.setSelected(id);
 		},
@@ -66,7 +67,8 @@ define([
 		collapseList:function() {
 			if (this.expanded) {
 				var thisClass = this;
-				if ($('#templateSelector-'+this.cid).is(':visible')) {
+				if (this.$el.is(':visible')) {
+					
 					this.$expanded.slideUp(function() {
 						thisClass.$collapsed.fadeIn('fast');
 						if (thisClass.onCollapse) thisClass.onCollapse();

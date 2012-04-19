@@ -83,9 +83,9 @@ function padNumber(i) {
 function getTimeString(timestamp, alt, roundTo) {
 	if (timestamp) var date=new Date(timestamp);
 	else var date = new Date();
-	var day=date.getDate();
-	var month=(date.getMonth()+1);
-	var year=date.getFullYear();
+	var day=date.getDate(),
+			month=(date.getMonth()+1),
+			year=date.getFullYear();
 	
 		
 	if (roundTo) {
@@ -113,6 +113,18 @@ function getTimeString(timestamp, alt, roundTo) {
 	} else return month+'-'+day+'-'+year+' '+h+':'+m;
 }
 
+function roundToMinutes(date, roundTo) {
+	if (!roundTo) var roundTo = 15;
+	if (!date) var date = new Date();
+	var h = date.getHours(),
+			m = date.getMinutes(),
+			m2 = m ? Math.ceil(m/roundTo)*roundTo : m,
+			h2 = Math.floor(m2/60);
+	if (h2) date.setHours(h+h2);
+	date.setMinutes(m2%60);
+	return date
+}
+
 function dateToAmr(dateString, format) {
 	if (!format) var format = ['dd-MM-yyyy HH:mm','dd-MM-yyyy '];
 	if (dateString) return Date.parseExact(dateString, format);
@@ -127,11 +139,19 @@ function convertNumber(number, toString) {
 		return parseFloat(number.replace(',','.').replace(' ',''))
 	}
 }
-function convertToTimestring(number) {
+function convertToTimestring(number, returnSeparate) {
 	var numbers = number.split(/[\s\.,:]+/),
-			h = padNumber(parseInt(numbers[0], 10)),
-			m = padNumber(parseInt(numbers[1], 10));
-	return h+':'+m;
+			h = parseInt(numbers[0], 10),
+			m = parseInt(numbers[1], 10);
+	if (h>99) {
+		h=h%10000;
+		m = h%100;
+		h = Math.floor(h/100);
+	}
+	if (!m) m=0;
+	if (!h) h=0;
+	if (returnSeparate) return {h: h, m: m};
+	else return padNumber(h)+':'+padNumber(m);
 }
 
 function resizeBg(stopRecursion) {
@@ -223,19 +243,20 @@ $(function() {
 		me.css({position:'absolute',left:loginX,top:loginY});
 		return me;
 	}
-	$.fn.shakeBox = function(deleteField){
-		var me = $(this);
-		var x = me.position().left;
-		var dur = 50;
-		var distance = 30;
+	$.fn.shakeBox = function(emptyField){
+		var me = $(this),
+			dur = 50,
+			distance = 30,
+			position = me.css('position');
+		me.css('position','relative');
 		for (i=5;i>=1;i--){
-			var max = x-(i*2);
-			var min = (i == 1) ? x : x+(i*2);
+			var max = -(i*2);
+			var min = (i == 1) ? 0 : (i*2);
 			me.animate({left:max},{duration:dur}).animate({left:min},{duration:dur});
 		}
-		//me.effect("shake", { times:3 }, 500);
-		if(deleteField) me.find('input').filter(':last').val('').focus();
-		else me.find('input').filter(':last').focus().select();
+		me.css('position', position);
+		if(emptyField) me.find('input').filter(':last').val('').focus();
+		else me.find('input').filter(':nth-child(2)').focus().select();
 		return me;
 	}
 
@@ -263,12 +284,17 @@ $(function() {
 		var parentHeight = parent.outerHeight();
 		var newY = Math.round((parentHeight/2)-(meHeight/2));
 		if (options && options.offset) newY += options.offset;
+		if (options && options.complete) var complete = options.complete;
+		else var complete = null;
 		//log(me);
 		//log(parent);
 		//if (me.attr('id') =='start_deal') log('parent: '+parentHeight+' me: '+meHeight+' newY: '+newY);
 		//if (options && options.animate) log("animating!");
-		if (options && options.animate && me.is(':visible')) me.css({position:'absolute', top:me.position().top}).animate({ top: newY }, {duration:1000, easing:'easeOutExpo',queue:false});
-		else me.css({position:'absolute',top:newY});
+		if (options && options.animate && me.is(':visible')) me.css({position:'absolute', top:me.position().top}).animate({ top: newY }, {duration:1000, easing:'easeOutExpo',queue:false, complete: complete});
+		else {
+			me.css({position:'absolute',top:newY});
+			if (complete) complete();
+		}
 		if (!noResize) {
 			$(window).resize(function(){
 				if (me.is(':visible')) me.verticalAlign(true);
@@ -290,8 +316,8 @@ $(function() {
 			if (option.submitKey && el.is('input') && el.attr('type')!='button' ) {
 				el.keypress(function(e) {
 					if(e.keyCode == 13) {
-						el.blur();
 						me.find(option.submitKey).click();
+						el.blur();
 					}
 				});
 			}
@@ -346,8 +372,9 @@ $(function() {
 		return me;
 	}
 	$.fn.formSetState = function(state, animate) {
-		var me = $(this);
-		var button = me.find('.edit-save-button').filter(':first');
+		var me = $(this),
+				editBtn = me.find('.edit-btn'),
+				cancelBtn = me.find('.cancel-btn');
 		if (state=='readonly' && animate) {
 			button.wrap('<div class="loader-small" />');
 			setTimeout(
@@ -365,13 +392,14 @@ $(function() {
 			me.find('input[type=text], input[type=password], textarea, .category').each(function(){
 				$(this).attr('readonly',1).addClass('readonly');
 			});
-			button.val('Rediger');
+			if (editBtn) editBtn.html("Rediger").removeClass("blue");
+			if (cancelBtn) cancelBtn.hide();
 		} else if(state=='edit') {
 			me.find('input[type=text], input[type=password], textarea, .category').each(function(){
 				$(this).removeAttr('readonly').removeClass('readonly');
 			});
-			//me.find('input[type=text]:first').focus();
-			button.val('Gem');
+			if (editBtn) editBtn.html("Gem").addClass("blue");
+			if (cancelBtn) cancelBtn.show();
 		}
 		return me;
 	}
@@ -436,6 +464,11 @@ $(function() {
 	   var number = convertNumber(val, false);
 	   return !isNaN(number) && number>0;
 	}, "Det indtastede er ikke et korrekt tal");
+
+	$.validator.addMethod('timeFormat', function(val, el) {
+	   var time = convertToTimestring(val, true);
+	   return time && time.h >= 0 && time.h < 24 && time.m >= 0 && time.m<60;
+	}, "Indtast venligst korrekt klokkeslæt");
 	
 	//console.log(loadedTemplates);
 	$.extend($.validator.messages, {

@@ -10,12 +10,17 @@ Ext.define('QuickD.controller.Main', {
             dealListToolbar: 'deallist > toolbar',
             buttons: 'toolbar > button',
             dealList: 'mainview > deallist',
+            betaView: 'mainview > betaview',
             dealShow: 'mainview > dealshow',
-            dealSort: 'mainview > dealsort',
+            splash: 'mainview > splash',
+            noDeals: 'mainview > nodeals',
             dealShowSlider: 'mainview > dealshow > carousel',
             mapShow: 'mainview > mapshow'
         },
         control: {
+            adressButton: {
+                tap: 'test'
+            },
             buttons:{
                 tap: 'buttonHandler'
             },
@@ -27,39 +32,17 @@ Ext.define('QuickD.controller.Main', {
             }
         }
     },
-    test:function(p1,p2,p3,p4){
-        log('params',p1,p2,p3,p4);
+    test:function(){
+        alert('hej');
     },
-    buttonHandler:function(t,t2,t3){
-        var id = t.getId();
-        switch (id){
-            case 'sortButton':
-                this.sortController.setState();
-                this.changeToView('dealsort');
-            break;
-            case 'mapButton':
-                this.changeToView('mapshow');
-            break;
-            case 'backFromMapButton':
-                this.getMain().animateActiveItem(this.getDealShow(), 'flip');
-            break;
-            case 'backFromSortButton':
-                var controller = this.getApplication().getController('SortController');
-                controller.filterChange();
-                this.getMain().animateActiveItem(this.getDealList(), 'flip');
-            break;
-            case 'backFromShowButton':
-                this.changeToView('deallist');
-            break;
-        }
+    init:function(){
+        
     },
-    setNewDeal:function(container,newItem,oldItem){
-        //log(this.getMain().setShowAnimation('flip'));
-        this.getDealShow().loadDeal(newItem);
-    },
-    init: function() {
-        Ext.getStore('Deals').addListener('refresh', this.updatedStore, this);
-
+    start: function() {
+        Ext.getStore('Deals').on({ 'refresh': this.updatedStore, scope: this,'updaterecord': this.addRemoveRecords,'addrecords':this.addRemoveRecords});
+        //Ext.getStore('Deals').addListener('updaterecord', this.test, this);
+        this.getMain().getAt(0).show();
+        this.getMain().setActiveItem(this.getDealList());
         this.animationController = this.getApplication().getController('AnimationController');
         
         this.location = Ext.create('Ext.util.GeoLocation', {
@@ -74,46 +57,60 @@ Ext.define('QuickD.controller.Main', {
 
     },
     launch:function(){
-        this.sortController = this.getApplication().getController('SortController');
+
+        //this.sortController = this.getApplication().getController('SortController');
         var test = this.getDealShow().query('#quickd-deal-content')[0].element;
         test.on('horizontalswipe',function(){ log('test'); });
         this.$container = $('#quickd-deals .x-scroll-container');
         this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
-      
         // Add deals bg
         this.$container.append($('<div id="deal-bg"></div>'));
         this.$dealsBg = this.$container.find('#deal-bg').hide();
+        this.start();
     },
-    
-    updatedStore:function(instance,data,options){
-        log('updatedStore');
-        var view = this.getDealShow();
-        
-        view.setSlider(instance.getData().items);
+    addRemoveRecords:function(store,p2,p3,p4){
+        if(this.lockRefresh) return;
+        this.lockRefresh = true;
+        var self = this;
+        setTimeout(function(){
+            self.lockRefresh = false;
+            self.updatedStore(store);
+        },150);
+        //log('params',p1,p2,p3,p4);*/
     },
-    onLocationUpdate:function(){
-        this.getMain().getAt(0).show();
-        this.getMain().setActiveItem(this.getDealList());
-        localStorage.setItem('lat',this.location.getLatitude());
-        localStorage.setItem('long',this.location.getLongitude());
-        Ext.getStore('Deals').load({
-            params: {
-                lat: this.location.getLatitude(),
-                long: this.location.getLongitude()
-            },
-            scope: this
-        });
-    },
-    handleMap: function(){
-        this.changeToView('mapshow');
+    buttonHandler:function(t,t2,t3){
+        var id = t.getId();
+        var main = this.getMain();
+        switch (id){
+            case 'sortButton':
+                this.sortController.setState();
+                this.changeToView('dealsort');
+            break;
+            case 'mapButton':
+                this.changeToView('mapshow');
+            break;
+            case 'backFromMapButton':
+                main.animateActiveItem(this.getDealShow(), {type:'reveal',direction:'down'});
+            break;
+            case 'backFromSortButton':
+                var controller = this.getApplication().getController('SortController');
+                controller.filterChange();
+                main.animateActiveItem(this.getDealList(), {type:'reveal',direction:'down'});
+            break;
+            case 'backFromShowButton':
+                this.changeToView('deallist');
+            break;
+        }
     },
     changeToView:function(view,options){
         var main    = this.getMain(),
             $deals  = $('#quickd-deals .x-list-container div.x-list-item'),
             button  = Ext.ComponentQuery.query('toolbar #sortButton'),
             self    = this;
-
         switch(view){
+            case 'betaview':
+                main.setActiveItem(this.getBetaView());
+            break;
             case 'dealsort':
                 main.animateActiveItem(this.getDealSort(), 'flip');
             break;
@@ -121,9 +118,8 @@ Ext.define('QuickD.controller.Main', {
                 var dealsOut    = this.animationController.dealsListOut($deals),
                     bgIn        = this.showSingleBackground(300);
 
-                button[0].hide();
+                //button[0].hide();
                 // Fetch data for selected deal.
-                log('changeToView');
                 this.getDealShow().down('#quickd-deal-slider').setActiveItem(options.index);
                 
                 $.when(dealsOut, bgIn).done(function() {
@@ -132,7 +128,7 @@ Ext.define('QuickD.controller.Main', {
                 });
             break;
             case 'deallist':
-                button[0].show();
+                //button[0].show();
                 main.setActiveItem(this.getDealList());
                 
                 // TODO: Why do we need a timeout here...?
@@ -144,10 +140,58 @@ Ext.define('QuickD.controller.Main', {
             break;
             case 'mapshow':
                 this.getMapShow().setRecord(this.activeDeal);
-                this.getMain().animateActiveItem(this.getMapShow(), 'flip');
+                main.animateActiveItem(this.getMapShow(), {type:'cover',direction:'up'});
+                main.setShowAnimation(null);
             break;
         }
     },
+    setNewDeal:function(container,newItem,oldItem){
+        /*if(!this.first){
+            this.first = true;
+            return;
+        }*/
+        log('setnewdeal',container,newItem,oldItem);
+        //log(this.getMain().setShowAnimation('flip'));
+        this.getDealShow().loadDeal(newItem);
+    },
+    constructor:function(){
+        this.callParent(arguments);
+    },
+    
+    
+    updatedStore:function(instance,data,options){
+        var count = instance.getCount();
+        var string = count + (count == 1 ? ' deal' : ' deals');
+        this.getDealList().getDockedComponent('quickd-list-topbar').setTitle(string);
+        var view = this.getDealShow();
+        view.setSlider(instance.getData().items);
+    },
+    onLocationUpdate:function(){
+        var lat = this.location.getLatitude();
+        var long = this.location.getLongitude();
+        if(distance(lat,long,56.16294,10.20392) > 10000){
+            return this.noLocation();
+        }
+        localStorage.setItem('lat',lat);
+        localStorage.setItem('long',long);
+        Ext.getStore('Deals').load({
+            params: {
+                lat: lat,
+                long: long
+            },
+            scope: this
+        });
+        var self = this;
+        /*if(!userbeta){
+            setTimeout(function(){
+                self.getBetaView().show();
+            },500);
+        }*/
+    },
+    handleMap: function(){
+        this.changeToView('mapshow');
+    },
+
     showSingleBackground: function(delay, duration) {
         var drf = new $.Deferred();
         this.$dealsBg.delay(delay).fadeIn(duration || 250, drf.resolve);
@@ -158,8 +202,15 @@ Ext.define('QuickD.controller.Main', {
         this.$dealsBg.delay(delay).fadeOut(duration || 200, drf.resolve);
         return drf.promise();
     },
+    noLocation:function(){
+        this.location.setLatitude(56.16294);
+        this.location.setLongitude(10.20392);
+        alert('Vores beta kører kun i Aarhus, så vi placerer dig midt i Aarhus');
+        this.onLocationUpdate();
+    },
     onLocationError:function(error, test1, permDenied, test3, test4){
-        this.getMain().getAt(1).setHtml('error location');
+        this.noLocation();
+        //this.getMain().getAt(0).getAt(0).setHtml('error location');
     },
     onDealSelect:function(list, index, node, record){
         this.activeDeal = record;

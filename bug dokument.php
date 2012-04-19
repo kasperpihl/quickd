@@ -6,16 +6,11 @@ Opryd SASS-fil
 
 Start-deal database-error (?)
 
-Meld udsolgt deal på forhandler mobil app
-
 Notifications - bedre beskeder - skal ikke stå venter på godkendelse, hvis den ikke skal godkendes f.eks.
-
-Gennemtest billede-upload
 
 Tilføj betingelser i dialogboks
 
-Redigering af brugerindstillinger virker ikke.
-	Password
+Farveskema i DealShow ikoner på mobilen
 
 =====================================
 Lav prioritet
@@ -25,7 +20,20 @@ Lav prioritet
 	
 =======================================
 
-(rettet Jeppe) Slet billede
+(rettet Jeppe) Gennemtest billede-upload
+	- Store billeder
+	- Annuller upload
+	- Pænere slet billede
+
+(rettet Kasper) Meld udsolgt deal på forhandler mobil app
+
+(rettet Jeppe) Vinduer åbner oven i hinanden eller i forkert rækkefølge
+
+(rettet Jeppe) Redigering af brugerindstillinger virker ikke - Nyt Password
+
+(rettet Jeppe) retailer/skabeloner/*skabelon*: Klik på kategori og rabat går ikke i rediger-mode på samme måde som klik på titel, beskrivelse osv.
+
+(rettet Jeppe) Slet billede <-- HVOR ER SHA1'en???!!?!
 
 (rettet Jeppe) Vis rabat ved oprettelse af templates
 
@@ -111,3 +119,5 @@ Lav prioritet
 
 
 (rettet Jeppe) deals vinduet skal virke med routeren
+
+?>

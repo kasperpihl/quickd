@@ -15,6 +15,16 @@ App.collections.Deals = Backbone.Collection.extend({
 			}
 		});
 	},
+	startedDeals:function(){
+		var now = parseInt((new Date()).getTime()/1000,10);
+		var startedDeals = [];
+		this.each(function(item){
+			if(item.get('start') > now) return false;
+			if(item.get('end') < now) return false;
+			startedDeals.push(parseInt(item.get('template_id'),10));
+		});
+		return startedDeals;
+	},
 	isStartedDeal:function(templateId){
 		var now = parseInt((new Date()).getTime()/1000,10);
 		var startedNow = this.filter(function(item){
@@ -25,6 +35,14 @@ App.collections.Deals = Backbone.Collection.extend({
 		});
 		if(startedNow.length > 0) return startedNow[0];
 		else return false;
+	},
+	usesImage: function(imgName) {
+		var now = parseInt((new Date()).getTime()/1000,10),
+				isUsed = this.any(function(deal) {
+					if (deal.get('end') > now && deal.get('template') && deal.get('template').image===imgName) return true;
+					else return false;
+				});
+		return isUsed;
 	},
 	model: App.models.Deal
 });

@@ -56,6 +56,7 @@ try{
 		user.privileges= privileges;
 		
 		if(query.hasOwnProperty('betacode')) user.betacode = query.betacode;
+		if(query.hasOwnProperty('userbeta')) user.userbeta = query.userbeta;
 		if(query.hasOwnProperty('hours')) user.hours = query.hours;
 		if (!doc) var doc = {_id: req.uuid, type:'user', user: user, history:historyArray};
 		return [doc,msg({id:req.uuid},true)];
@@ -84,6 +85,9 @@ try{
 			if(query.hasOwnProperty('md5_password')){
 				user.md5_password = query.md5_password;
 				if(user.hasOwnProperty('newPass')) delete user.newPass;
+			} else if (query.hasOwnProperty('old_password') && query.hasOwnProperty('new_password')) {
+				if (user.md5_password==query.old_password) user.md5_password = query.new_password;
+				else return [null, msg('passwords_no_match')];
 			}
 			return [doc,msg('',true)];
 		}
@@ -143,6 +147,7 @@ try{
 				if(doc.status == 'soldout') return [null,msg('already_sold_out')];
 				var time = timestamp;
 				if(time > doc.start && time < doc.end){
+					if(time - doc.start < 60*15) return [null,msg('cant_sell_out_before_15')];
 					doc.status = 'soldout';
 					changed = true;
 				} else return [null, msg('cant_sold_out_not_running')];
@@ -187,6 +192,7 @@ try{
 		addHistory(id,timestamp);
 		returnObj.shop = shop;
 		returnObj.template = template;
+		returnObj.rev = 1;
 		if(template.hasOwnProperty('image')){
 			if(doc.images.hasOwnProperty(template.image)) returnObj.image = doc.images[template.image].n;
 			

@@ -42,7 +42,7 @@ define([
 						 register_betacode: {
 							 required: true,
 							 remote: {
-								 url: "ajax/shopowner.php",
+								 url: ROOT_URL+"ajax/shopowner.php",
 	       						 type: "post",
 								 data: {
 									action: 'test_betacode' 
@@ -83,7 +83,7 @@ define([
 			});
 		},
 		shakeDialog:function(){
-			$('#shadow-wrapper').shakeBox(false);
+			$('#login .login_fields').shakeBox(false);
 		},
 		
 		handleClick: function(data){

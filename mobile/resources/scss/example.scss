@@ -35,6 +35,13 @@ GENERAL STYLES
 strong { font-weight: bold; }
 
 /******************************************************************
+SPLASH SCREEN
+******************************************************************/
+#quickd-splash-screen {
+    
+}
+
+/******************************************************************
 TOOLBAR STYLES
 ******************************************************************/
 @include sencha-toolbar-ui('sencha', rgba(black, 0.7), glossy);
@@ -156,6 +163,7 @@ SINGLE DEAL
                 position: relative;
                 padding: 19px 10px 108px;
                 background: url(../images/deal-bg.png) repeat;
+                background-size: 50px 50px;
                 border-top: 4px solid red;
 
                 color: #575757;
@@ -164,7 +172,7 @@ SINGLE DEAL
                 line-height: 21px;
 
                 @include box-shadow(
-                    0 -1px 0 rgba(255, 255, 255, 0.7), 
+                    0 -1px 0 rgba(255, 255, 255, 0.37), 
                     0 -5px 13px 7px black
                 );
 
@@ -178,6 +186,16 @@ SINGLE DEAL
                     padding-bottom: 38px;
                     margin-bottom: 33px;
                     background: url(../images/stippled-line.png) repeat-x bottom left;
+                }
+
+                &:after {
+                    position: absolute;
+                    display: block;
+                    margin-left: -5%;
+                    width: 105%; height: 500px;
+                    top: 100%;
+                    background: url(../images/deal-bg.png) repeat;
+                    content: '';
                 }
             }
 
@@ -226,6 +244,8 @@ SINGLE DEAL
         &.hours {
             position: relative;
 
+            ul { width: 95%; }
+
             li { 
                 @include display-box;
                 @include box-orient(horizontal);
@@ -259,6 +279,8 @@ DEALS LIST
 
 #quickd-deals {
     background: url($img-path + 'bg-pattern.png');
+    opacity: 0;
+    -webkit-animation: fade-in 0.2s 0.1s ease-in-out forwards;
 
     .x-scroll-view {  }
     .x-scroll-container {  }
@@ -269,6 +291,8 @@ DEALS LIST
         margin: 10px 7px;
         background: white;
         @include border-radius(3px);
+        opacity: 0;
+        -webkit-animation: fade-in 0.2s 0.2s ease-in-out forwards;
 
         // Shadow
         &:after {
@@ -295,6 +319,8 @@ DEALS LIST
 
     article[id*=deal_] {
         position: relative;
+        opacity: 0;
+        -webkit-animation: fade-in 0.1s 0.28s ease-in-out forwards;
 
         img.deal_image { margin-left: 5px; }
 
@@ -386,11 +412,11 @@ DEALS LIST
         }
         
         &.category.shopping {
-            $color: #a25d7a;
+            $color: #697299;
             
             footer { color: $color; }
-            footer .price:before { @include spr-sprite('money-purple', true); }
-            footer time:before { @include spr-sprite('clock-purple', true); }
+            footer .price:before { @include spr-sprite('money-blue', true); }
+            footer time:before { @include spr-sprite('clock-blue', true); }
             &:before { background: $color; }
         }
         
@@ -402,5 +428,19 @@ DEALS LIST
             footer time:before { @include spr-sprite('clock-green', true); }
             &:before { background: $color; }
         }
+
+        &.category.nightlife {
+            $color: #a25d7a;
+            
+            footer { color: $color; }
+            footer .price:before { @include spr-sprite('money-purple', true); }
+            footer time:before { @include spr-sprite('clock-purple', true); }
+            &:before { background: $color; }
+        }
     }
+}
+
+@-webkit-keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }

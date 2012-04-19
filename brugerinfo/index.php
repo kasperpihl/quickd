@@ -20,15 +20,18 @@
        More info: h5bp.com/b/378 -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
+
   <title>QuickD</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <? if( $uagent->DetectTierIphone()) { ?>
-  <meta name="viewport" content="width=750, user-scalable=1">
+    <link rel="stylesheet" href="<?= ROOT_URL ?>css/mobil.css">
+    <meta name="viewport" content="width=750, user-scalable=1">
+  <? }else{ ?>
+    <link rel="stylesheet" href="<?= ROOT_URL ?>css/style.css">
   <? } ?>
-
   <meta property="og:title" content="QuickD" />
   <meta property="og:description" content="En ny måde at handle på - snart i din by."/>
   <meta property="og:type" content="website" />
@@ -42,9 +45,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
   <!-- CSS: implied media=all -->
-  <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="<?= ROOT_URL ?>css/style.css">
-  <!-- end CSS-->
+  
 
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
@@ -54,7 +55,7 @@
   <script src="<?= ROOT_URL ?>js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 
-<body>
+<body onload="setTimeout(function() { if(Modernizr.touch && window.pageYOffset <= 1) window.scrollTo(0, 1) }, 100);">
   <div id="container">
     <div id="top"></div>
     <div id="bgImage"></div>

@@ -187,6 +187,23 @@ div[data-role="page"] {
    					-webkit-animation: none;
    				}
    			}
+   			&.soldout {
+   				@include background-image(linear-gradient(#ababab, #ababab 49%, #ababab 51%, #ababab));
+   				-webkit-animation: none;
+   				&.ui-btn-down-a {
+   					@include background-image(
+   						linear-gradient(
+   							lighten(#ababab, 10%), 
+   							lighten(#ababab, 10%) 49%, 
+   							lighten(#ababab, 10%) 51%, 
+   							lighten(#ababab, 10%)
+   						)
+   					);
+   					
+   					-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 3px, rgba(0, 0, 0, 0.4) 0 0 0 5px, rgba(255, 255, 255, 0.3) 0 1px 0 5px, 0 0 30px #ababab;
+   					-webkit-animation: none;
+   				}
+   			}
     	}
     	
     	.deal-description {

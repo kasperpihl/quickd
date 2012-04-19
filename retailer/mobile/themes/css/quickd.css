@@ -824,7 +824,28 @@ div[data-role="page"] #deal .start-stop-deal.stop.ui-btn-down-a {
   -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 3px, rgba(0, 0, 0, 0.4) 0 0 0 5px, rgba(255, 255, 255, 0.3) 0 1px 0 5px, 0 0 30px #ef3c24;
   -webkit-animation: none;
 }
-/* line 192, ../scss/quickd.scss */
+/* line 190, ../scss/quickd.scss */
+div[data-role="page"] #deal .start-stop-deal.soldout {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ababab), color-stop(49%, #ababab), color-stop(51%, #ababab), color-stop(100%, #ababab));
+  background-image: -webkit-linear-gradient(#ababab, #ababab 49%, #ababab 51%, #ababab);
+  background-image: -moz-linear-gradient(#ababab, #ababab 49%, #ababab 51%, #ababab);
+  background-image: -o-linear-gradient(#ababab, #ababab 49%, #ababab 51%, #ababab);
+  background-image: -ms-linear-gradient(#ababab, #ababab 49%, #ababab 51%, #ababab);
+  background-image: linear-gradient(#ababab, #ababab 49%, #ababab 51%, #ababab);
+  -webkit-animation: none;
+}
+/* line 193, ../scss/quickd.scss */
+div[data-role="page"] #deal .start-stop-deal.soldout.ui-btn-down-a {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c4c4c4), color-stop(49%, #c4c4c4), color-stop(51%, #c4c4c4), color-stop(100%, #c4c4c4));
+  background-image: -webkit-linear-gradient(#c4c4c4, #c4c4c4 49%, #c4c4c4 51%, #c4c4c4);
+  background-image: -moz-linear-gradient(#c4c4c4, #c4c4c4 49%, #c4c4c4 51%, #c4c4c4);
+  background-image: -o-linear-gradient(#c4c4c4, #c4c4c4 49%, #c4c4c4 51%, #c4c4c4);
+  background-image: -ms-linear-gradient(#c4c4c4, #c4c4c4 49%, #c4c4c4 51%, #c4c4c4);
+  background-image: linear-gradient(#c4c4c4, #c4c4c4 49%, #c4c4c4 51%, #c4c4c4);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 3px, rgba(0, 0, 0, 0.4) 0 0 0 5px, rgba(255, 255, 255, 0.3) 0 1px 0 5px, 0 0 30px #ababab;
+  -webkit-animation: none;
+}
+/* line 209, ../scss/quickd.scss */
 div[data-role="page"] #deal .deal-description {
   margin: 1em 1em 0;
   padding: 1em;
@@ -833,7 +854,7 @@ div[data-role="page"] #deal .deal-description {
   border-radius: 7px;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
 }
-/* line 201, ../scss/quickd.scss */
+/* line 218, ../scss/quickd.scss */
 div[data-role="page"] #deal .deal-description p {
   color: #777;
   padding-left: 95px;
@@ -841,64 +862,64 @@ div[data-role="page"] #deal .deal-description p {
   font-size: 0.9em;
   line-height: 1.1em;
 }
-/* line 210, ../scss/quickd.scss */
+/* line 227, ../scss/quickd.scss */
 div[data-role="page"] #deal .deal-options {
   margin: 1em;
 }
-/* line 213, ../scss/quickd.scss */
+/* line 230, ../scss/quickd.scss */
 div[data-role="page"] #deal .deal-options ul {
   margin: 0;
 }
-/* line 215, ../scss/quickd.scss */
+/* line 232, ../scss/quickd.scss */
 div[data-role="page"] #deal .deal-options input[type=datetime] {
   float: right;
   font-size: 0.8em;
 }
-/* line 224, ../scss/quickd.scss */
+/* line 241, ../scss/quickd.scss */
 div[data-role="page"] .left {
   float: left;
 }
-/* line 225, ../scss/quickd.scss */
+/* line 242, ../scss/quickd.scss */
 div[data-role="page"] .right {
   float: right;
 }
-/* line 226, ../scss/quickd.scss */
+/* line 243, ../scss/quickd.scss */
 div[data-role="page"] .text-right {
   text-align: right;
 }
-/* line 227, ../scss/quickd.scss */
+/* line 244, ../scss/quickd.scss */
 div[data-role="page"] .text-left {
   text-align: left;
 }
-/* line 228, ../scss/quickd.scss */
+/* line 245, ../scss/quickd.scss */
 div[data-role="page"] .text-center {
   text-align: center;
 }
-/* line 230, ../scss/quickd.scss */
+/* line 247, ../scss/quickd.scss */
 div[data-role="page"] img.left {
   margin-right: 1em;
 }
 
-/* line 235, ../scss/quickd.scss */
+/* line 252, ../scss/quickd.scss */
 #deals {
   background: transparent;
 }
 
-/* line 238, ../scss/quickd.scss */
+/* line 255, ../scss/quickd.scss */
 #deal-slider {
   width: 90%;
   margin-left: 5%;
   margin-bottom: 35px;
 }
-/* line 243, ../scss/quickd.scss */
+/* line 260, ../scss/quickd.scss */
 #deal-slider .royalSliderContainer {
   overflow: visible;
 }
-/* line 245, ../scss/quickd.scss */
+/* line 262, ../scss/quickd.scss */
 #deal-slider ul {
   border: none;
 }
-/* line 247, ../scss/quickd.scss */
+/* line 264, ../scss/quickd.scss */
 #deal-slider .royalSlide {
   color: #444;
   background: white;
@@ -920,7 +941,7 @@ div[data-role="page"] img.left {
   transition: all 0.15s ease-out;
   -webkit-backface-visibility: hidden;
 }
-/* line 256, ../scss/quickd.scss */
+/* line 273, ../scss/quickd.scss */
 #deal-slider .royalSlide.current {
   -webkit-transform: scale(1, 1);
   -moz-transform: scale(1, 1);
@@ -929,11 +950,11 @@ div[data-role="page"] img.left {
   transform: scale(1, 1);
   opacity: 1;
 }
-/* line 258, ../scss/quickd.scss */
+/* line 275, ../scss/quickd.scss */
 #deal-slider .royalSlide:last-child {
   margin-right: 0;
 }
-/* line 262, ../scss/quickd.scss */
+/* line 279, ../scss/quickd.scss */
 #deal-slider .royalSlide .deal img {
   -webkit-border-radius: 8px 0 0 8px;
   -moz-border-radius: 8px 0 0 8px;
@@ -941,14 +962,14 @@ div[data-role="page"] img.left {
   -o-border-radius: 8px 0 0 8px;
   border-radius: 8px 0 0 8px;
 }
-/* line 266, ../scss/quickd.scss */
+/* line 283, ../scss/quickd.scss */
 #deal-slider .royalSlide .deal h4 {
   color: inherit;
   text-shadow: none;
   margin: 0;
   padding-top: 17px;
 }
-/* line 273, ../scss/quickd.scss */
+/* line 290, ../scss/quickd.scss */
 #deal-slider .royalSlide .deal p {
   color: inherit;
   text-shadow: none;
@@ -957,7 +978,7 @@ div[data-role="page"] img.left {
   margin-top: 0.2em;
 }
 
-/* line 284, ../scss/quickd.scss */
+/* line 301, ../scss/quickd.scss */
 .time {
   padding: 4%;
   width: 82%;
@@ -971,12 +992,12 @@ div[data-role="page"] img.left {
   -o-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 293, ../scss/quickd.scss */
+/* line 310, ../scss/quickd.scss */
 .time time {
   font-size: 160%;
   font-weight: bold;
 }
-/* line 298, ../scss/quickd.scss */
+/* line 315, ../scss/quickd.scss */
 .time div.ui-slider {
   width: 80%;
   margin: 20px auto;
@@ -989,7 +1010,7 @@ div[data-role="page"] img.left {
   background-image: -ms-linear-gradient(#dddddd, #eeeeee);
   background-image: linear-gradient(#dddddd, #eeeeee);
 }
-/* line 308, ../scss/quickd.scss */
+/* line 325, ../scss/quickd.scss */
 .time div.ui-slider .ui-slider-handle {
   border-color: #333;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #555555), color-stop(100%, #333333));
@@ -1002,60 +1023,60 @@ div[data-role="page"] img.left {
   -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
-/* line 315, ../scss/quickd.scss */
+/* line 332, ../scss/quickd.scss */
 .time div.ui-slider .ui-slider-handle .ui-btn-inner {
   display: none;
 }
-/* line 320, ../scss/quickd.scss */
+/* line 337, ../scss/quickd.scss */
 .time.running div.ui-slider {
   display: none;
 }
-/* line 322, ../scss/quickd.scss */
+/* line 339, ../scss/quickd.scss */
 .time.running time {
   font-size: 200%;
 }
-/* line 327, ../scss/quickd.scss */
+/* line 344, ../scss/quickd.scss */
 .time input[type=number] {
   display: none;
 }
 
 @-webkit-keyframes login-pulse {
-  /* line 332, ../scss/quickd.scss */
+  /* line 349, ../scss/quickd.scss */
   0% {
     -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 3px, rgba(0, 0, 0, 0.4) 0 0 0 5px, rgba(255, 255, 255, 0.3) 0 1px 0 5px, 0 0 0 #aed32d;
   }
 
-  /* line 336, ../scss/quickd.scss */
+  /* line 353, ../scss/quickd.scss */
   100% {
     -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 3px, rgba(0, 0, 0, 0.4) 0 0 0 5px, rgba(255, 255, 255, 0.3) 0 1px 0 5px, 0 0 30px #aed32d;
   }
 }
 
 @-webkit-keyframes start-deal-pulse {
-  /* line 342, ../scss/quickd.scss */
+  /* line 359, ../scss/quickd.scss */
   0% {
     -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 3px, rgba(0, 0, 0, 0.4) 0 0 0 5px, rgba(255, 255, 255, 0.3) 0 1px 0 5px, 0 0 0 #009ac4;
   }
 
-  /* line 346, ../scss/quickd.scss */
+  /* line 363, ../scss/quickd.scss */
   100% {
     -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 3px, rgba(0, 0, 0, 0.4) 0 0 0 5px, rgba(255, 255, 255, 0.3) 0 1px 0 5px, 0 0 30px #009ac4;
   }
 }
 
 @-webkit-keyframes stop-deal-pulse {
-  /* line 352, ../scss/quickd.scss */
+  /* line 369, ../scss/quickd.scss */
   0% {
     -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 3px, rgba(0, 0, 0, 0.4) 0 0 0 5px, rgba(255, 255, 255, 0.3) 0 1px 0 5px, 0 0 0 #ef3c24;
   }
 
-  /* line 356, ../scss/quickd.scss */
+  /* line 373, ../scss/quickd.scss */
   100% {
     -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 3px, rgba(0, 0, 0, 0.4) 0 0 0 5px, rgba(255, 255, 255, 0.3) 0 1px 0 5px, 0 0 30px #ef3c24;
   }
 }
 
-/* line 361, ../scss/quickd.scss */
+/* line 378, ../scss/quickd.scss */
 .animated {
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
@@ -1069,7 +1090,7 @@ div[data-role="page"] img.left {
   animation: 1s ease;
 }
 
-/* line 374, ../scss/quickd.scss */
+/* line 391, ../scss/quickd.scss */
 .animated.hinge {
   -webkit-animation: 2s ease;
   -moz-animation: 2s ease;
@@ -1079,91 +1100,91 @@ div[data-role="page"] img.left {
 }
 
 @-webkit-keyframes shake {
-  /* line 383, ../scss/quickd.scss */
+  /* line 400, ../scss/quickd.scss */
   0%, 90%, 100% {
     -webkit-transform: translateX(0);
   }
 
-  /* line 384, ../scss/quickd.scss */
+  /* line 401, ../scss/quickd.scss */
   10%, 30%, 55% {
     -webkit-transform: translateX(-10px);
   }
 
-  /* line 385, ../scss/quickd.scss */
+  /* line 402, ../scss/quickd.scss */
   20%, 40%, 70% {
     -webkit-transform: translateX(10px);
   }
 }
 
 @-moz-keyframes shake {
-  /* line 389, ../scss/quickd.scss */
+  /* line 406, ../scss/quickd.scss */
   0%, 100% {
     -moz-transform: translateX(0);
   }
 
-  /* line 390, ../scss/quickd.scss */
+  /* line 407, ../scss/quickd.scss */
   10%, 35%, 70% {
     -moz-transform: translateX(-10px);
   }
 
-  /* line 391, ../scss/quickd.scss */
+  /* line 408, ../scss/quickd.scss */
   20%, 50%, 90% {
     -moz-transform: translateX(10px);
   }
 }
 
 @-ms-keyframes shake {
-  /* line 395, ../scss/quickd.scss */
+  /* line 412, ../scss/quickd.scss */
   0%, 100% {
     -ms-transform: translateX(0);
   }
 
-  /* line 396, ../scss/quickd.scss */
+  /* line 413, ../scss/quickd.scss */
   10%, 30%, 50%, 70%, 90% {
     -ms-transform: translateX(-10px);
   }
 
-  /* line 397, ../scss/quickd.scss */
+  /* line 414, ../scss/quickd.scss */
   20%, 40%, 60%, 80% {
     -ms-transform: translateX(10px);
   }
 }
 
 @-o-keyframes shake {
-  /* line 401, ../scss/quickd.scss */
+  /* line 418, ../scss/quickd.scss */
   0%, 100% {
     -o-transform: translateX(0);
   }
 
-  /* line 402, ../scss/quickd.scss */
+  /* line 419, ../scss/quickd.scss */
   10%, 30%, 50%, 70%, 90% {
     -o-transform: translateX(-10px);
   }
 
-  /* line 403, ../scss/quickd.scss */
+  /* line 420, ../scss/quickd.scss */
   20%, 40%, 60%, 80% {
     -o-transform: translateX(10px);
   }
 }
 
 @keyframes shake {
-  /* line 407, ../scss/quickd.scss */
+  /* line 424, ../scss/quickd.scss */
   0%, 100% {
     transform: translateX(0);
   }
 
-  /* line 408, ../scss/quickd.scss */
+  /* line 425, ../scss/quickd.scss */
   10%, 30%, 50%, 70%, 90% {
     transform: translateX(-10px);
   }
 
-  /* line 409, ../scss/quickd.scss */
+  /* line 426, ../scss/quickd.scss */
   20%, 40%, 60%, 80% {
     transform: translateX(10px);
   }
 }
 
-/* line 412, ../scss/quickd.scss */
+/* line 429, ../scss/quickd.scss */
 .shake {
   -webkit-animation-name: shake;
   -moz-animation-name: shake;
@@ -1178,13 +1199,13 @@ div[data-role="page"] img.left {
 }
 
 @-webkit-keyframes fadeInDown {
-  /* line 426, ../scss/quickd.scss */
+  /* line 443, ../scss/quickd.scss */
   0% {
     opacity: 0;
     -webkit-transform: translateY(-20px);
   }
 
-  /* line 431, ../scss/quickd.scss */
+  /* line 448, ../scss/quickd.scss */
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
@@ -1192,13 +1213,13 @@ div[data-role="page"] img.left {
 }
 
 @-moz-keyframes fadeInDown {
-  /* line 438, ../scss/quickd.scss */
+  /* line 455, ../scss/quickd.scss */
   0% {
     opacity: 0;
     -moz-transform: translateY(-20px);
   }
 
-  /* line 443, ../scss/quickd.scss */
+  /* line 460, ../scss/quickd.scss */
   100% {
     opacity: 1;
     -moz-transform: translateY(0);
@@ -1206,13 +1227,13 @@ div[data-role="page"] img.left {
 }
 
 @-ms-keyframes fadeInDown {
-  /* line 450, ../scss/quickd.scss */
+  /* line 467, ../scss/quickd.scss */
   0% {
     opacity: 0;
     -ms-transform: translateY(-20px);
   }
 
-  /* line 455, ../scss/quickd.scss */
+  /* line 472, ../scss/quickd.scss */
   100% {
     opacity: 1;
     -ms-transform: translateY(0);
@@ -1220,13 +1241,13 @@ div[data-role="page"] img.left {
 }
 
 @-o-keyframes fadeInDown {
-  /* line 462, ../scss/quickd.scss */
+  /* line 479, ../scss/quickd.scss */
   0% {
     opacity: 0;
     -ms-transform: translateY(-20px);
   }
 
-  /* line 467, ../scss/quickd.scss */
+  /* line 484, ../scss/quickd.scss */
   100% {
     opacity: 1;
     -ms-transform: translateY(0);
@@ -1234,20 +1255,20 @@ div[data-role="page"] img.left {
 }
 
 @keyframes fadeInDown {
-  /* line 474, ../scss/quickd.scss */
+  /* line 491, ../scss/quickd.scss */
   0% {
     opacity: 0;
     transform: translateY(-20px);
   }
 
-  /* line 479, ../scss/quickd.scss */
+  /* line 496, ../scss/quickd.scss */
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* line 485, ../scss/quickd.scss */
+/* line 502, ../scss/quickd.scss */
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
   -moz-animation-name: fadeInDown;
@@ -1257,126 +1278,126 @@ div[data-role="page"] img.left {
 }
 
 @-webkit-keyframes bounceInLeft {
-  /* line 493, ../scss/quickd.scss */
+  /* line 510, ../scss/quickd.scss */
   0% {
     opacity: 0;
     -webkit-transform: translateX(-2000px);
   }
 
-  /* line 498, ../scss/quickd.scss */
+  /* line 515, ../scss/quickd.scss */
   60% {
     opacity: 1;
     -webkit-transform: translateX(30px);
   }
 
-  /* line 503, ../scss/quickd.scss */
+  /* line 520, ../scss/quickd.scss */
   80% {
     -webkit-transform: translateX(-10px);
   }
 
-  /* line 507, ../scss/quickd.scss */
+  /* line 524, ../scss/quickd.scss */
   100% {
     -webkit-transform: translateX(0);
   }
 }
 
 @-moz-keyframes bounceInLeft {
-  /* line 513, ../scss/quickd.scss */
+  /* line 530, ../scss/quickd.scss */
   0% {
     opacity: 0;
     -moz-transform: translateX(-2000px);
   }
 
-  /* line 518, ../scss/quickd.scss */
+  /* line 535, ../scss/quickd.scss */
   60% {
     opacity: 1;
     -moz-transform: translateX(30px);
   }
 
-  /* line 523, ../scss/quickd.scss */
+  /* line 540, ../scss/quickd.scss */
   80% {
     -moz-transform: translateX(-10px);
   }
 
-  /* line 527, ../scss/quickd.scss */
+  /* line 544, ../scss/quickd.scss */
   100% {
     -moz-transform: translateX(0);
   }
 }
 
 @-ms-keyframes bounceInLeft {
-  /* line 533, ../scss/quickd.scss */
+  /* line 550, ../scss/quickd.scss */
   0% {
     opacity: 0;
     -ms-transform: translateX(-2000px);
   }
 
-  /* line 538, ../scss/quickd.scss */
+  /* line 555, ../scss/quickd.scss */
   60% {
     opacity: 1;
     -ms-transform: translateX(30px);
   }
 
-  /* line 543, ../scss/quickd.scss */
+  /* line 560, ../scss/quickd.scss */
   80% {
     -ms-transform: translateX(-10px);
   }
 
-  /* line 547, ../scss/quickd.scss */
+  /* line 564, ../scss/quickd.scss */
   100% {
     -ms-transform: translateX(0);
   }
 }
 
 @-o-keyframes bounceInLeft {
-  /* line 553, ../scss/quickd.scss */
+  /* line 570, ../scss/quickd.scss */
   0% {
     opacity: 0;
     -o-transform: translateX(-2000px);
   }
 
-  /* line 558, ../scss/quickd.scss */
+  /* line 575, ../scss/quickd.scss */
   60% {
     opacity: 1;
     -o-transform: translateX(30px);
   }
 
-  /* line 563, ../scss/quickd.scss */
+  /* line 580, ../scss/quickd.scss */
   80% {
     -o-transform: translateX(-10px);
   }
 
-  /* line 567, ../scss/quickd.scss */
+  /* line 584, ../scss/quickd.scss */
   100% {
     -o-transform: translateX(0);
   }
 }
 
 @keyframes bounceInLeft {
-  /* line 573, ../scss/quickd.scss */
+  /* line 590, ../scss/quickd.scss */
   0% {
     opacity: 0;
     transform: translateX(-2000px);
   }
 
-  /* line 578, ../scss/quickd.scss */
+  /* line 595, ../scss/quickd.scss */
   60% {
     opacity: 1;
     transform: translateX(30px);
   }
 
-  /* line 583, ../scss/quickd.scss */
+  /* line 600, ../scss/quickd.scss */
   80% {
     transform: translateX(-10px);
   }
 
-  /* line 587, ../scss/quickd.scss */
+  /* line 604, ../scss/quickd.scss */
   100% {
     transform: translateX(0);
   }
 }
 
-/* line 592, ../scss/quickd.scss */
+/* line 609, ../scss/quickd.scss */
 .bounceInLeft {
   -webkit-animation-name: bounceInLeft;
   -moz-animation-name: bounceInLeft;

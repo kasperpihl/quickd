@@ -11,7 +11,6 @@ define([
 		locked:false,
 		queue: false,
 		init:function(){
-			
 			this.router = this.options.router;
 			if(!this.activityName) console.log('Jeg mangler et aktivitetsnavn' + this.cid);
 			this.id = 'activity_'+this.activityName;
@@ -37,7 +36,7 @@ define([
 					if(!this.hasOwnProperty('route')) this.route = lang.urls[this.activityName];
 					if(!data.hasOwnProperty('isRouted')){
 						this.router.navigate(this.route,{trigger:false});
-					} 
+					}
 				} 
 				if(data.hasOwnProperty('isParentRoute')){
 					this.closeAllWindows();
@@ -195,7 +194,7 @@ define([
 					var newWindow = new App.views.windows[windowName](options);
 					var queue = false;
 					$.each(thisClass.windows, function(i, w) {
-						if (!newWindow.depth || w.depth && w.depth >= newWindow.depth) {
+						if (!newWindow.depth || newWindow.depth>1 && w.depth && w.depth >= newWindow.depth) {
 							thisClass.queue = newWindow;
 							thisClass.closeWindow(i, true, null, true);
 							queue = true;
