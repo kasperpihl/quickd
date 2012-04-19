@@ -21,6 +21,19 @@ Class Mail{
 			$line = $fQueue->pop();
 		}
 	}
+	private static function randomMail($to, $options=false){
+		if (!$options&&!isset($options['number'])) return false;
+		if ($options && isset($options['name'])) $greet = "Hej ".$options['name']."\n\n";
+		else $greet = "";
+		$subject = 'Mail-test QuickD';
+		$message = 
+			$greet .
+			'Dette er mail nr:'.$options['number']. "\n\n" .
+			'De bedste hilsner,'."\n".
+			'QuickD-teamet';
+		self::sendMail($to,$subject,$message);
+		return true;
+	}
 	private static function sendBetaConfirmation($to, $options=false){
 		$subject = 'Registrering til beta-lancering af QuickD';
 		if ($options && isset($options['name'])) $greet = "Hej ".$options['name']."\n\n";
@@ -37,7 +50,7 @@ Class Mail{
 		return true;
 	}
 	private static function sendNewPasswordForDealer($to, $options=false){
-		if (!$options&&!isset($options['url'])) return false;
+		if (!$options||!isset($options['url'])) return false;
 		if (isset($options['name'])) $greet = "Hej ".$options['name']."\n\n";
 		else $greet = "";
 		$subject = 'Glemt adgangskode til QuickD Forhandler';

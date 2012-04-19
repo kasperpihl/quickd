@@ -2098,7 +2098,7 @@ form {
 	.set_time {
 		.label {width:auto;}
 		.field { 
-			margin:5px 15px;float:left;
+			margin:15px 15px 5px;float:left;
 			.sublabel {color:#333;font-size:16px;text-align:left;clear:both;margin:0px 0px 5px 0px;}
 			.subdata {float:right;clear:both;
 				input{
@@ -2115,10 +2115,11 @@ form {
 				}
 			}
 		}
+		.time-slider {width:220px;clear:both;margin:10px 0px 5px 0px;}
 		.show_hours {
-			margin:15px 20px 5px 20px;
-			.hours { font-size:40px;text-align:center;color:black; text-shadow: 1px 1px 1px white;}
-			.sublabel {color:black;text-align:center;}
+			clear:both;text-align: center;
+			.hours { font-size:24px;color:black; text-shadow: 1px 1px 1px white;}
+			.sublabel {color:black;padding-left:5px;}
 		}
 	}
 	.starter { width:62%; margin: 20px auto; }

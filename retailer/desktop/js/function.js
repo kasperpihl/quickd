@@ -83,9 +83,9 @@ function padNumber(i) {
 function getTimeString(timestamp, alt, roundTo) {
 	if (timestamp) var date=new Date(timestamp);
 	else var date = new Date();
-	var day=date.getDate();
-	var month=(date.getMonth()+1);
-	var year=date.getFullYear();
+	var day=date.getDate(),
+			month=(date.getMonth()+1),
+			year=date.getFullYear();
 	
 		
 	if (roundTo) {
@@ -111,6 +111,18 @@ function getTimeString(timestamp, alt, roundTo) {
 		day = padNumber(day);
 		return day+'-'+month+'-'+year+' '+h+':'+m;
 	} else return month+'-'+day+'-'+year+' '+h+':'+m;
+}
+
+function roundToMinutes(date, roundTo) {
+	if (!roundTo) var roundTo = 15;
+	if (!date) var date = new Date();
+	var h = date.getHours(),
+			m = date.getMinutes(),
+			m2 = m ? Math.ceil(m/roundTo)*roundTo : m,
+			h2 = Math.floor(m2/60);
+	if (h2) date.setHours(h+h2);
+	date.setMinutes(m2%60);
+	return date
 }
 
 function dateToAmr(dateString, format) {

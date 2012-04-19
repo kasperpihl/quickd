@@ -8,17 +8,17 @@ define([
 	App.views.StartDeal = Backbone.View.extend({
 		el: '#activity_startdeals',
 		initialize:function(){
-			_.bindAll(this,'startDeal','render','updateTemplates', 'setTemplateSelected', 'setVerticalAlign','handleEvent');
+			_.bindAll(this,'startDeal','render','updateTemplates', 'setTemplateSelected', 'setVerticalAlign','handleEvent', 'updateEndTime');
 			this.templateName = 'startdeal';
 			this.elemId = 'start_deal';
 			this.dealTemplates = {};
 			this.showTimeType = 'type-now';
-			this.dateSelected = false;
 			this.vAligned = false;
 			this.router = this.options.router;
 			this.activity = this.options.activity;
-			this.timeStandard = 5;
-			this.timeMinInterval = 10;
+			this.timeStandard = 300;
+			this.timeMinInterval = 15;
+			this.start_time = roundToMinutes(null, this.timeMinInterval).getTime();
 			this.templateSelected = null;
 			this.render();
 			this.router.bind('appendWindow',this.handleEvent);
@@ -34,6 +34,8 @@ define([
 			this.expanded = false;
 			this.starting = false;
 			this.hours = null;
+			this.minutes = this.timeStandard;
+			this.updateHours(true);
 			//Setting jquery date pickers
 			this.$el.find('#deal_start_time').datetimepicker({
 				stepMinute: thisClass.timeMinInterval,
@@ -42,13 +44,14 @@ define([
 				minDate: getTimeString(false,true),
 				timeFormat: 'hh:mm',
 				onClose: function(dateText, inst) {
-					if (!thisClass.dateSelected) thisClass.dateSelected = true;
-					thisClass.updateHours(true);
+					thisClass.start_time = $(this).datetimepicker('getDate').getTime();
+					thisClass.updateEndTime();
+					//thisClass.updateHours(true);
 				},
 				onSelect: function (dateText){
-					var start = $(this).datetimepicker('getDate').getTime();
-					
-					var endDateField = $('#deal_end_time');
+					thisClass.start_time = $(this).datetimepicker('getDate').getTime();
+					thisClass.updateEndTime();
+					/*var endDateField = $('#deal_end_time');
 					endDateField.datetimepicker('option', 'minDate', new Date(start) );
 					
 					var dateAmr = dateToAmr(dateText);
@@ -59,14 +62,24 @@ define([
 						var hours = (thisClass.hours ? thisClass.hours : thisClass.timeStandard);
 						var end = testStartDate.getTime() + 1000*60*60*hours;
 						endDateField.val(getTimeString(end, true, thisClass.timeMinInterval));
-					}
+					}*/
 				
-					thisClass.updateHours();
+					//thisClass.updateHours();
 					
 				}
 			});
 			$('#btn_submit_start_deal', this.$el).on('click', this.startDeal);
-			this.$el.find('#treasure_read_more').click(function(){
+			this.slider = this.$el.find('#deal_time_slider').slider({
+				min:15,
+				max:600,
+				value: thisClass.timeStandard,
+				step:15,
+				slide: function(e, data) {
+					thisClass.minutes = data.value;
+					thisClass.updateHours();
+				}
+			});
+			/*this.$el.find('#treasure_read_more').click(function(){
 				thisClass.treasureDialog();
 			});
 			this.$el.find('#deal_end_time').datetimepicker({
@@ -94,7 +107,7 @@ define([
 					//$('#deal_start_time').datetimepicker('option', 'maxDate', new Date(end.getTime()) );
 					thisClass.updateHours();
 				}
-			});
+			});*/
 			//this.height = $('#start_deal').height();
 			
 			this.selectorView = new App.views.components.TemplateSelectorView({
@@ -192,16 +205,21 @@ define([
 				
 			}
 		},
-		updateHours:function(setHours) {
-			var start = $('#deal_start_time').datetimepicker('getDate');
-			var end = $('#deal_end_time').datetimepicker('getDate');
-			var diff = end.getTime() - start.getTime();
-	
-			var minutes = Math.round(diff/1000/60);
-			var m = padNumber(minutes%60);
-			var h = Math.round(minutes/60);
-			if (setHours) this.hours = h;
-			$('#deal_hours').html(h);
+		updateHours:function(hoursOnly) {
+			var m = this.minutes,
+					h = Math.floor(m/60);
+			m = m%60;
+			var v = hoursOnly ? h : h+':'+padNumber(m);
+			$('#deal_hours').html(v);
+			this.updateEndTime();
+		},
+		updateEndTime:function() {
+			var hours = this.minutes;
+			if (!this.start_time) this.start_time = roundToMinutes(null, this.timeMinInterval).getTime();
+			this.end_time = this.start_time + this.minutes * 60 * 1000;
+			$('#deal_end_time').html(getTimeString(this.end_time));
+			log("updateEndTime", hours, this.start_time, this.end_time, roundToMinutes(null, this.timeMinInterval));
+
 		},
 		resetStarter:function(doWait) {
 			//REMEMBER TO RESET!!
@@ -209,12 +227,12 @@ define([
 			var thisClass = this;
 			if (doWait) {
 				setTimeout(function() {
-					thisClass.dateSelected = false;
+					this.start_time = roundToMinutes(null, this.timeMinInterval).getTime();
 					if (thisClass.selectorView) thisClass.selectorView.resetSelected();
 					thisClass.render();
 				}, 1000);
 			} else {
-				thisClass.dateSelected = false;
+				this.start_time = roundToMinutes(null, this.timeMinInterval).getTime();
 				if (thisClass.selectorView) thisClass.selectorView.resetSelected();
 				thisClass.render();
 			}
