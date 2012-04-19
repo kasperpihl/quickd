@@ -23,6 +23,7 @@ $version = $_SESSION['version'] = (isset($_SESSION['version'])) ? $_SESSION['ver
 switch($root){
 	case 'test.quickd.com':
 	case '10.185.209.87':
+	case '192.168.1.4':
 	case 'localhost':
 		$dbLink = 'quickd:testanders@77.66.53.58';
 		if(strpos($_SERVER['REQUEST_URI'], 'retailer/')){

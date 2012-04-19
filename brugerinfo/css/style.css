@@ -37,18 +37,29 @@ body {
   font-size: 13px;
   line-height: 1.231;
   font-family: "Helvetica";
-  background-color: #EAEAEA;
+  background-color: white;
 }
 
 #bgImage {
   position:absolute;
   top:0px; left:0px;
   width:100%; height: 100%; 
-  background: url('../img/cover.jpg') center center no-repeat;
+  background: url('../img/cover-background.jpg') center center no-repeat;
   background-size: cover; /* Does not work in IE8 and below – Polyfill needed */
   z-index: 1; 
-  box-shadow: 0 0 10px black; 
+  box-shadow: 0 0 10px black;
   min-height: 444px;
+}
+
+#bgImage-hand {
+  position:absolute;
+  top:0px; left:0px;
+  width:100%; height: 100%; 
+  background: url('../img/cover-hand.png') center center no-repeat;
+  background-size: cover; /* Does not work in IE8 and below – Polyfill needed */
+  z-index: 2; 
+  min-height: 444px;
+  background-position-y: 0px;
 }
 
 html.backgroundsize #bgImage {
@@ -97,7 +108,7 @@ html.backgroundsize #bgImage {
 
 #container_left {
   position: absolute;
-  bottom: 20%;
+  bottom: 15%;
   left: 0px;
   margin-left: 40px;
 }
@@ -122,15 +133,16 @@ html.backgroundsize #bgImage {
 
 #intro h1 {
   color: white;
-  font-weight: 600;
+  font-weight: 300;
   margin: 0px;
-  font-size: 2.5;
-  text-shadow: rgba(0, 0, 0, 0.8) 0 2px;
+  font-size: 28px;
+  font-family: "Helvetica Neue";
+  text-shadow: rgba(0, 0, 0, 0.8) 0 1px 2px;
 }
 
 #intro h2 {
   color: white;
-  font-weight: 100;
+  font-weight: 400;
   font-size: 2em;
   margin: 0px;
   margin-bottom: 25px;
