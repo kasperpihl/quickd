@@ -25,7 +25,8 @@ Class Mail{
 		$message = "Hej<br/>randomMail".
 								"<br/>To: ".$to.
 								"<br/>Options: ".json_encode($options);
-		self::sendMail($to,"RandomMail!!",$message);
+		echo $message;
+		//self::sendMail($to,"RandomMail!!",$message);
 	}
 
 	public static function sendBetaConfirmation($mail, $name=false){
