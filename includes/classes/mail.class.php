@@ -14,6 +14,7 @@ Class Mail{
 		$fQueue->clearFile();
 		$line = $fQueue->pop();
 		while($line) {
+			echo $line."<br>";
 			$info = explode("|", $line);
 			if (count($info)<3||empty($info[0])||empty($info[1])) Log::add('Mail-error: '.$line);
 			else if (!method_exists('Mail', $info[0])) Log::add('Mail-error: Unkknown action - '.$info[0]);
