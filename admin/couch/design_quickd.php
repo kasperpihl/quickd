@@ -20,6 +20,12 @@ try{
 		//if(!doc.user.hasOwnProperty('userbeta')) return;
 		emit(doc._id,doc._id);
 	}");
+	$views->getUsersByMail = array("map" =>
+	"function (doc) {
+		if ( doc.type && doc.type == \"user\") {
+			emit(doc.user.email,doc.user);
+		}
+	}");
 	$views->getBetaUser = 
 	array('map'=>
 	"function(doc){
