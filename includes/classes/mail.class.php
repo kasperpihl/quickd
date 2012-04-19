@@ -10,18 +10,19 @@ Class Mail{
 	}
 
 	public static function dequeueMails() {
+		$time = date("h:m");
+		Log::add('- Mail sending started - '.$time);
 		$fQueue = new FileQueue(self::$queueFile);
-		$fQueue->printValues();
 		$fQueue->clearFile();
 		$line = $fQueue->pop();
 		while($line) {
-			echo $line."<br>";
 			$info = explode("|", $line);
 			if (count($info)<3||empty($info[0])||empty($info[1])) Log::add('Mail-error: '.$line);
 			else if (!method_exists('Mail', $info[0])) Log::add('Mail-error: Unkknown action - '.$info[0]);
 			else if (!call_user_func('Mail::'.$info[0], $info[1], json_decode($info[2], true))) Log::add('Mail-error: Missing options - '.$line);
 			$line = $fQueue->pop();
 		}
+		Log::add('- Mail sending ended - '.$time);
 	}
 	private static function randomMail($to, $options=false){
 		if (!$options&&!isset($options['number'])) return false;

@@ -8,7 +8,7 @@ require_once(dirname(__FILE__).'/config.php');
 Log::printLog();
 echo "<br><br>";
 
-if ($_GET['spam']) {
+if ($_GET['spam']&&false) {
 	for ($i=0;$i<=200;$i++) {
 		Mail::create('randomMail', $_GET['spam'],array('name'=>'Mr. Nice Guy', 'number'=>$i));
 		echo "Created ".$i."<br />";
