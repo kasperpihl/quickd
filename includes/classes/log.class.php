@@ -3,7 +3,8 @@ class Log{
 	private static $filename = LOG_FILE;
 	public static function add($message){
 		$string = date("j/n Y G:i:s") . ' ## ' .$message . "\n";
-		file_put_contents(self::$filename, $string,FILE_APPEND);
+		$r = file_put_contents(self::$filename, $string,FILE_APPEND);
+		return $r===false?false:true;
 	}
 	public static function clear(){
 		file_put_contents(self::$filename, '');
