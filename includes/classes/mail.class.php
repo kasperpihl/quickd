@@ -11,6 +11,7 @@ Class Mail{
 
 	public static function dequeueMails() {
 		$fQueue = new FileQueue(self::$queueFile);
+		$fQueue->printValues();
 		$fQueue->clearFile();
 		$line = $fQueue->pop();
 		while($line) {
