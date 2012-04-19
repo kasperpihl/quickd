@@ -14,7 +14,6 @@ Ext.define('QuickD.controller.Main', {
             useKeyButton: 'mainview > betaview button',
             dealShow: 'mainview > dealshow',
             splash: 'mainview > splash',
-            noDeals: 'mainview > nodeals',
             dealShowSlider: 'mainview > dealshow > carousel',
             mapShow: 'mainview > mapshow'
         },
@@ -43,14 +42,20 @@ Ext.define('QuickD.controller.Main', {
         
     },
     useBetaKey:function(){
+        var view = this.getBetaView().getComponent('betakeyField').getValue();
+        var self = this;
         Ext.Ajax.request({
             url: ROOT_URL+'ajax/betakey.php',
             params:{
-                betakey:'test'
+                betakey:view
             },
             method:'POST',
-            success:function(response){
-                log(response);
+            success:function(data){
+                if(data.responseText == 'true') self.getBetaView().hide();
+                else alert('Betakoden er desværre forkert');
+            },
+            error:function(data){
+                log('error beta',data);
             }
         });
     },
@@ -170,6 +175,9 @@ Ext.define('QuickD.controller.Main', {
     },
     updatedStore:function(instance,data,options){
         var count = instance.getCount();
+        if(count < 2){
+            this.getDealList().setHtml('Der er desværre ingen deals omkring dig lige nu tryk på knappen og vi hører dig');
+        }
         var string = count + (count == 1 ? ' deal' : ' deals');
         this.getDealList().getDockedComponent('quickd-list-topbar').setTitle(string);
         var view = this.getDealShow();

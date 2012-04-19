@@ -5,6 +5,11 @@ function redirect($location = NULL){
 	exit;
 
 }
+function unsetBetakey(){
+	unset($_SESSION['userbeta_id']);
+	$expire=time()-86400;
+	setcookie('userbeta','',$expire,'/');
+}
 function validateBetakey($betakey){
 	global $db;
 	if(!$betakey) return false;
@@ -13,7 +18,6 @@ function validateBetakey($betakey){
 	if(empty($result)) return false;
 	$betakey = $result[0]->key;
 	$user = $_SESSION['userbeta_id'] = $result[0]->value;
-	unset($_SESSION['userbeta_id']);
 	$expire=time()+86400*31*6;
 	setcookie('userbeta',$betakey,$expire,'/');
 	return $user;

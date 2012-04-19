@@ -22,7 +22,7 @@ else $user = $_SESSION['userbeta_id'];
         <link rel="stylesheet" href="<?= ROOT_URL ?>touch/resources/css/sencha-touch.css" type="text/css" /> 
       	<link rel="stylesheet" href="<?= ROOT_URL ?>resources/css/example.css" type="text/css" />
         <link rel="stylesheet" href="<?= ROOT_URL ?>resources/css/kasper.css" type="text/css" />
-        
+        <!--<script type="text/javascript" src="<?= ROOT_URL ?>touch/sencha-touch-debug.js"></script>-->
         <script type="text/javascript" src="<?= ROOT_URL ?>touch/builds/sencha-touch-all-compat.js"></script>
         <!--<script type="text/javascript" src="<?= ROOT_URL ?>touch/sencha-touch-all.js"></script>-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

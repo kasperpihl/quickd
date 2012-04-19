@@ -18,14 +18,6 @@ var myTemplate = new Ext.XTemplate(
 		humanReadableTime: humanReadableTime
 	}
 );
-Ext.define('QuickD.view.DealListView',{
-	extend: 'Ext.Panel',
-	config:{
-		height:'200',
-		items:[{xtype:'deallist'}]
-	}
-});
-
 Ext.define('QuickD.view.DealList', {
     extend: 'Ext.List',
     xtype: 'deallist',
