@@ -1,6 +1,33 @@
 <?php 
 Class Mail{
-	protected static $sender = 'mail@quickd.com';
+	private static $queueFile = 'mailQueue.txt';
+	
+	public static function createMail($action, $to, $options=array()) {
+		$fQueue = new FileQueue(self::$queueFile);
+		$options = $options ? json_encode($options) : "{}";
+		$fLine = $action."|".$to."|".$options;
+		$fQueue->push($fLine);
+	}
+
+	public static function dequeueMails() {
+		$fQueue = new FileQueue(self::$queueFile);
+		$fQueue->clearFile();
+		$line = $fQueue->pop();
+		while($line) {
+			$info = explode("|", $line);
+			if (count($info)<3) Log::addMessage('Mail-error: '.$line);
+			else if (!method_exists('Mail', $info[0])) Log::addMessage('Mail-error: Unkknown action - '.$info[0]);
+			else call_user_func('Mail::'.$info[0], $info[1], json_decode($info[2]));
+			$line = $fQueue->pop();
+		}
+	}
+	public static function randomMail($to, $options) {
+		$message = "Hej<br/>randomMail".
+								"<br/>To: ".$to.
+								"<br/>Options: ".json_encode($options);
+		self::sendMail($to,"RandomMail!!",$message);
+	}
+
 	public static function sendBetaConfirmation($mail, $name=false){
 		$subject = 'Registrering til beta-lancering af QuickD';
 		if ($name) $greet = "Hej ".$name."\n\n";
