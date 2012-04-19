@@ -119,10 +119,8 @@ define([
 					if (thisClass.expanded) thisClass.collapse();
 					else thisClass.setVerticalAlign();
 				},
-				onCollapse: this.setVerticalAlign,
-				onCreated: function() {
-					thisClass.setVerticalAlign();
-				}
+				onCollapse: thisClass.setVerticalAlign,
+				onCreated:	thisClass.setVerticalAlign
 			});
 			
 			return true;
@@ -169,14 +167,16 @@ define([
 						$('#stage-two').css({position:'relative',top: '0px'}).show();
 						//if(!thisClass.height) thisClass.height = $('#start_deal').outerHeight();
 					} else {
-						var wrapper = $('<div />').css({overflowY:'hidden',width:'100%'});
+						/*var wrapper = $('<div />').css({overflowY:'hidden',width:'100%'});
 						$('#stage-two').wrap(wrapper)
 							.css({position:'relative',top: -$('#stage-two').outerHeight()-20}).show()
 							.animate({ top: 0 }, {duration: 1000, easing:'easeOutExpo', complete: function() {
 								$(this).unwrap();
-							},queue:false});
+							},queue:false});*/
+						log("expanding");
+						$('#stage-two').fadeIn('slow');
 					}
-					thisClass.setVerticalAlign();
+					//thisClass.setVerticalAlign();
 					this.expanded = true;
 					
 			}
@@ -189,17 +189,19 @@ define([
 				$('#deal_templates').val("");
 
 				var height = this.selectorView?$('#set_template_block').outerHeight()-this.selectorView.collapsedHeight+this.selectorView.expandedHeight:0;
+				this.setVerticalAlign({meHeight:height});
 
-				var wrapper = $('<div />').css({overflowY:'hidden',width:'100%'});
+				/*var wrapper = $('<div />').css({overflowY:'hidden',width:'100%'});
 				$('#stage-two').wrap(wrapper)
 					.animate({ top: -$('#stage-two').outerHeight()-20 }, {duration: 1000, easing:'easeOutExpo', complete: function() {
 						if(!thisClass.expanded) $(this).hide();
 						$(this).unwrap();
-					},queue:false});
+					},queue:false});*/
+				$('#stage-two').fadeOut('slow');
 				if (doReset && this.selectorView) this.selectorView.resetSelected();
 				//$('#start_deal').verticalAlign(false, {animate:true, meHeight:$('#set_template_block').outerHeight()});
 				
-				this.setVerticalAlign({meHeight:height});
+				
 				this.expanded = false;
 				this.templateSelected=null;
 				
@@ -210,16 +212,14 @@ define([
 					h = Math.floor(m/60);
 			m = m%60;
 			var v = hoursOnly ? h : h+':'+padNumber(m);
-			$('#deal_hours').html(v);
+			$('#deal_hours').html($.trim(v));
 			this.updateEndTime();
 		},
 		updateEndTime:function() {
 			var hours = this.minutes;
 			if (!this.start_time) this.start_time = roundToMinutes(null, this.timeMinInterval).getTime();
 			this.end_time = this.start_time + this.minutes * 60 * 1000;
-			$('#deal_end_time').html(getTimeString(this.end_time));
-			log("updateEndTime", hours, this.start_time, this.end_time, roundToMinutes(null, this.timeMinInterval));
-
+			$('#deal_end_time').html(getTimeString(this.end_time, true));
 		},
 		resetStarter:function(doWait) {
 			//REMEMBER TO RESET!!
@@ -326,8 +326,8 @@ define([
 			var obj = {};
 			obj.shop_id = App.collections.shops.at(0).id;
 			obj.template_id = this.templateSelected;
-			obj.start = $('#deal_start_time').val();
-			obj.end = $('#deal_end_time').val();
+			obj.start = this.start_time/1000;
+			obj.end = this.end_time/1000;
 			var model = new App.models.Deal();
 			model.save(obj,{
 				success:function(m,data){

@@ -2098,7 +2098,7 @@ form {
 	.set_time {
 		.label {width:auto;}
 		.field { 
-			margin:15px 15px 5px;float:left;
+			margin:10px 15px 5px;float:left;
 			.sublabel {color:#333;font-size:16px;text-align:left;clear:both;margin:0px 0px 5px 0px;}
 			.subdata {float:right;clear:both;
 				input{
@@ -2114,13 +2114,14 @@ form {
 					@include box-shadow(0, 0, 3px, rgba(0,0,0,0.2));
 				}
 			}
+			&.select-hours {margin-top:8px;}
 		}
 		.time-slider {width:220px;clear:both;margin:10px 0px 5px 0px;}
 		.show_hours {
 			clear:both;text-align: center;
-			.hours { font-size:24px;color:black; text-shadow: 1px 1px 1px white;}
-			.sublabel {color:black;padding-left:5px;}
+			.hours { font-size:24px;padding:0px 5px;color:black; text-shadow: 1px 1px 1px white;}
 		}
+		.end_time {clear:both;text-align:center;font-size:14px;color:#333;margin-top:15px;}
 	}
 	.starter { width:62%; margin: 20px auto; }
 	.start_deal_btn { 

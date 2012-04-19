@@ -284,12 +284,17 @@ $(function() {
 		var parentHeight = parent.outerHeight();
 		var newY = Math.round((parentHeight/2)-(meHeight/2));
 		if (options && options.offset) newY += options.offset;
+		if (options && options.complete) var complete = options.complete;
+		else var complete = null;
 		//log(me);
 		//log(parent);
 		//if (me.attr('id') =='start_deal') log('parent: '+parentHeight+' me: '+meHeight+' newY: '+newY);
 		//if (options && options.animate) log("animating!");
-		if (options && options.animate && me.is(':visible')) me.css({position:'absolute', top:me.position().top}).animate({ top: newY }, {duration:1000, easing:'easeOutExpo',queue:false});
-		else me.css({position:'absolute',top:newY});
+		if (options && options.animate && me.is(':visible')) me.css({position:'absolute', top:me.position().top}).animate({ top: newY }, {duration:1000, easing:'easeOutExpo',queue:false, complete: complete});
+		else {
+			me.css({position:'absolute',top:newY});
+			if (complete) complete();
+		}
 		if (!noResize) {
 			$(window).resize(function(){
 				if (me.is(':visible')) me.verticalAlign(true);
