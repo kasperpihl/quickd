@@ -10,6 +10,8 @@ Class Mail{
 	}
 
 	public static function dequeueMails() {
+		$time = date("h:m");
+		Log::add('- Mail sending started - '.$time);
 		$fQueue = new FileQueue(self::$queueFile);
 		$fQueue->clearFile();
 		$line = $fQueue->pop();
@@ -20,6 +22,20 @@ Class Mail{
 			else if (!call_user_func('Mail::'.$info[0], $info[1], json_decode($info[2], true))) Log::add('Mail-error: Missing options - '.$line);
 			$line = $fQueue->pop();
 		}
+		Log::add('- Mail sending ended - '.$time);
+	}
+	private static function randomMail($to, $options=false){
+		if (!$options&&!isset($options['number'])) return false;
+		if ($options && isset($options['name'])) $greet = "Hej ".$options['name']."\n\n";
+		else $greet = "";
+		$subject = 'Mail-test QuickD';
+		$message = 
+			$greet .
+			'Dette er mail nr:'.$options['number']. "\n\n" .
+			'De bedste hilsner,'."\n".
+			'QuickD-teamet';
+		self::sendMail($to,$subject,$message);
+		return true;
 	}
 	private static function sendBetaConfirmation($to, $options=false){
 		$subject = 'Registrering til beta-lancering af QuickD';
@@ -37,7 +53,7 @@ Class Mail{
 		return true;
 	}
 	private static function sendNewPasswordForDealer($to, $options=false){
-		if (!$options&&!isset($options['url'])) return false;
+		if (!$options||!isset($options['url'])) return false;
 		if (isset($options['name'])) $greet = "Hej ".$options['name']."\n\n";
 		else $greet = "";
 		$subject = 'Glemt adgangskode til QuickD Forhandler';

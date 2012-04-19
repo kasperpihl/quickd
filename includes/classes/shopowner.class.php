@@ -373,8 +373,10 @@ class Shopowner {
 		if(!property_exists($model,'start') OR !property_exists($model,'end')) return array('success'=>'false','error'=>'start_and_end_time_must_be_specified');
 		/* Checking and setting time */
 		if(!property_exists($model,'template_id') OR !property_exists($model,'shop_id')) return array('success'=>'false','error'=>'shop_and_template_id_required');
-		$start_time = isset($model->seconds) ? (int)$model->start : strtotime($model->start);
-		$end_time = isset($model->seconds) ? (int)$model->end : strtotime($model->end);
+		//$start_time = isset($model->seconds) ? (int)$model->start : strtotime($model->start);
+		//$end_time = isset($model->seconds) ? (int)$model->end : strtotime($model->end);
+		$start_time = (int)$model->start;
+		$end_time   = (int)$model->end;
 		$template_id = $model->template_id;
 		$shop_id = $model->shop_id;
 		if(!$start_time OR !$end_time) return array('success'=>'false','error'=>'error_parsing_time'); 
