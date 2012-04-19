@@ -45,7 +45,7 @@ class Shopowner {
 				if ($type=='dealer') $result->data->hours = $model['hours'];
 				$result->data->email = $email;
 				$session->login($result->data->id,$model['privileges']);
-				if ($type!='dealer') Mail::sendBetaConfirmation($email);
+				if ($type!='dealer')  Mail::create('sendBetaConfirmation', $email); //Mail::sendBetaConfirmation($email);
 			}
 			
 			return $result;
@@ -112,7 +112,7 @@ class Shopowner {
 		    	//Send mail
 		    	if (isset($user_profile->first_name)) $name = $user_profile->first_name;
 		    	else $name = false;
-		    	Mail::sendBetaConfirmation($email, $name);
+		    	Mail::create('sendBetaConfirmation', $email, array('name'=>$name)); //Mail::sendBetaConfirmation($email, $name);
 		    }
 		    if($result && $result->success == 'true'){
 				$result->data->email = $email;
@@ -162,10 +162,10 @@ class Shopowner {
 			if($result->success != 'true') return json_encode($result);
 			switch($type){
 				case 'dealer':
-					Mail::sendNewPasswordForDealer($email,$url);
+					Mail::create('sendNewPasswordForDealer', $email, array('url'=>$url)); //Mail::sendNewPasswordForDealer($email,$url);
 				break;
 				case 'user':
-					Mail::sendNewPasswordForUser($email,$url);
+					Mail::create('sendNewPasswordForUser', $email, array('url'=>$url)); //Mail::sendNewPasswordForUser($email,$url);
 				break;
 			}
 			return $result;

@@ -4,4 +4,5 @@
 *.sublime-project
 *.sublime-workspace
 cdn/images/*
+files/*
 .DS_Store

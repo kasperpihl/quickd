@@ -3,13 +3,14 @@
 class FileQueue {
 	private $filename = "file.txt";
 	// use 0 for no limit
-	private $queueLimit = 5;
-	private $duplicates = true;
-	private $autosave = true;
+	private $queueLimit = 0;
 	private $objects;
 	
 	// Upon creation, load up our titles from the file
-	public function __construct() {
+	public function __construct($filename="file.txt", $duplicates=false, $autosave=true) {
+		$this->filename = FILE_DIR.$filename;
+		$this->duplicates = $duplicates;
+		$this->autosave = $autosave;
 		$this->objects = array();
 		$this->loadObjects();
 	}
@@ -20,11 +21,15 @@ class FileQueue {
 			$this->objects = file($this->filename, FILE_SKIP_EMPTY_LINES);
 		}
 	}
+
+	public function clearFile(){
+		file_put_contents($this->filename, '');
+	}
 	
 	// Add a title to the queue and if we are at our limit, drop one off the end.
 	public function push($string) {
 		if (!empty($string)) {
-			if(!$this->duplicates && !$this->objectExists($string)) return false;
+			if(!$this->duplicates && $this->objectExists($string)) return false;
 			array_unshift($this->objects, $string . "\n"); 
 			
 			if (count($this->objects) > $this->queueLimit && $this->queueLimit > 0) {

@@ -8,8 +8,6 @@ Start-deal database-error (?)
 
 Notifications - bedre beskeder - skal ikke stå venter på godkendelse, hvis den ikke skal godkendes f.eks.
 
-Gennemtest billede-upload
-
 Tilføj betingelser i dialogboks
 
 Farveskema i DealShow ikoner på mobilen
@@ -21,6 +19,11 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Gennemtest billede-upload
+	- Store billeder
+	- Annuller upload
+	- Pænere slet billede
 
 (rettet Kasper) Meld udsolgt deal på forhandler mobil app
 

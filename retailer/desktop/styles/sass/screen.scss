@@ -1381,7 +1381,7 @@ form {
 	.title { padding:10px; }
 	.wrapper {position:relative;}
 	.content-area {
-		margin: 19px;
+		margin: 19px;margin-right:9px;
 		overflow-y: auto;
 		height: 520px;
 		position: absolute;
@@ -1442,25 +1442,15 @@ form {
 		top: 0px;
 		z-index: 100;
 
-		.btn_rotate_left {
+		.btn_rotate_right, .btn_rotate_left {
 			position: absolute;
 			top: 0px;
-			left: 200px;
 			width: 43px;
 			height: 43px;
-			background-image: url('i/rotate_left.png');
 			cursor: pointer;
 		}
-
-		.btn_rotate_right {
-			position: absolute;
-			top: 0px;
-			left: 100px;
-			width: 43px;
-			height: 43px;
-			background-image: url('i/rotate_right.png');
-			cursor: pointer;
-		}
+		.btn_rotate_right { left: 200px;background-image: url('i/rotate_right.png');	}
+		.btn_rotate_left  {	left: 100px;background-image: url('i/rotate_left.png');		}
 	}
 
 	.controlpane {
@@ -1485,15 +1475,24 @@ form {
 			right: 10px;
 			opacity:0;
 		}
+		.remove_icon {
+			display:block;			
+			position:absolute;
+			top: 0px;
+			right: 0px;
+			opacity:0;
+			width:24px;
+			height:24px;
+			background: url(i/icon_delete.png) center center no-repeat;
+		}
 		&:hover {
-			.btn_edit { 
+			.btn_edit, .remove_icon { 
 				opacity:0.8;
 				&:hover { opacity:1; }
 			}
 		}
 
 		&.selected {box-shadow: 0 0 11px blue;}
-		&.loading { background: #454343 url(i/loader_black.gif) center 30px no-repeat;margin: 19px;padding: 0px;@include border-radius(6px); }
 		img {
 			-webkit-transition: -webkit-transform 0.5s ease-in;
 			height:100%;
@@ -1506,21 +1505,33 @@ form {
 		img:hover {
 			box-shadow: 0 0 11px blue;
 		}
-
-		.progressbar {
-			border:1px solid white;
-			width:140px;
-			height:20px;
-			margin:60px auto;
-			span {
-				display:block;
-				width:0px;
-				height:100%;
-				background:#5983DE;
-				@include transition-property(width);
-				@include transition-duration(0.8s);
+		&.loading {
+			background: #454343;margin: 19px;padding: 0px;@include border-radius(6px);font-size:12px;color:#D2D0D0;text-align:left;
+			.upload-spinner {
+				background: url(i/loader_black.gif) center center no-repeat;width:30px;height:30px;margin:5px;display:inline-block;vertical-align:middle;
 			}
+			.upload-filename { vertical-align:middle;display:inline-block;width:90px;	}
+			.upload-size {clear:both;margin:5px 0px;text-align:center;display:block;}
+
+			.progressbar {
+				border:1px solid white;
+				width:140px;
+				height:20px;
+				margin:10px auto;
+				span {
+					display:block;
+					width:0px;
+					height:100%;
+					background:#5983DE;
+					@include transition-property(width);
+					@include transition-duration(0.8s);
+				}
+			}
+
+			.remove_icon {opacity:0.8;top:-5px;right:-5px;}
+
 		}
+		
 	}
 	.controlbar {
 		margin:10px 20px;
