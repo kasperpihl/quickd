@@ -12,6 +12,8 @@ Gennemtest billede-upload
 
 Tilføj betingelser i dialogboks
 
+Farveskema i DealShow ikoner på mobilen
+
 =====================================
 Lav prioritet
 
