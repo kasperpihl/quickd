@@ -85,6 +85,9 @@ try{
 			if(query.hasOwnProperty('md5_password')){
 				user.md5_password = query.md5_password;
 				if(user.hasOwnProperty('newPass')) delete user.newPass;
+			} else if (query.hasOwnProperty('old_password') && query.hasOwnProperty('new_password')) {
+				if (user.md5_password==query.old_password) user.md5_password = query.new_password;
+				else return [null, msg('passwords_no_match')];
 			}
 			return [doc,msg('',true)];
 		}

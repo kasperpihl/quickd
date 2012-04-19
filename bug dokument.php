@@ -6,16 +6,13 @@ Opryd SASS-fil
 
 Start-deal database-error (?)
 
-Meld udsolgt deal på forhandler mobil app
-
 Notifications - bedre beskeder - skal ikke stå venter på godkendelse, hvis den ikke skal godkendes f.eks.
 
 Gennemtest billede-upload
 
 Tilføj betingelser i dialogboks
 
-Redigering af brugerindstillinger virker ikke.
-	Password
+Farveskema i DealShow ikoner på mobilen
 
 =====================================
 Lav prioritet
@@ -24,6 +21,12 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Kasper) Meld udsolgt deal på forhandler mobil app
+
+(rettet Jeppe) Vinduer åbner oven i hinanden eller i forkert rækkefølge
+
+(rettet Jeppe) Redigering af brugerindstillinger virker ikke - Nyt Password
 
 (rettet Jeppe) retailer/skabeloner/*skabelon*: Klik på kategori og rabat går ikke i rediger-mode på samme måde som klik på titel, beskrivelse osv.
 

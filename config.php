@@ -3,6 +3,8 @@ define("DS",DIRECTORY_SEPARATOR);
 define("HOME_DIR",dirname(__FILE__).DS);
 define("API_DIR",HOME_DIR.'api'.DS);
 define("CDN_DIR",HOME_DIR.'cdn'.DS);
+define("FILE_DIR",HOME_DIR.'files'.DS);
+define("LOG_FILE",FILE_DIR.'log.txt');
 define("IMAGES_DIR",CDN_DIR.'images'.DS);
 define("CLASSES_DIR",HOME_DIR.'includes'.DS.'classes'.DS);
 define('VERSION','v0.2');
@@ -21,7 +23,6 @@ $ending = '';
 $version = $_SESSION['version'] = (isset($_SESSION['version'])) ? $_SESSION['version'] : ($uagent->DetectTierIphone() ? 'mobile' : 'desktop');
 switch($root){
 	case 'test.quickd.com':
-	case '10.185.209.87':
 	case 'localhost':
 		$dbLink = 'quickd:testanders@77.66.53.58';
 		if(strpos($_SERVER['REQUEST_URI'], 'retailer/')){

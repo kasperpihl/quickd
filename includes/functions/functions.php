@@ -1,9 +1,9 @@
 <?php
 function redirect($location = NULL){
-	if($location != NULL){
-		header("Location: {$location}");
-		exit;
-	}	
+	if($location == NULL) $location = ROOT_URL;
+	header("Location: {$location}");
+	exit;
+
 }
 function validateBetakey($betakey){
 	global $db;
@@ -11,6 +11,11 @@ function validateBetakey($betakey){
 	$result = $db->key($betakey)->getView('quickd','getBetaUser');
 	$result = $result->rows;
 	if(empty($result)) return false;
+	$betakey = $_SESSION['userbeta'] = $result[0]->key;
+	$user = $_SESSION['userbeta_id'] = $result[0]->value;
+	$expire=time()+60*60*24*30;
+	setcookie('userbeta',$betakey,$expire,'/');
+	return $betakey;
 }
 function getShopowner(){
 	global $dealer,$db;

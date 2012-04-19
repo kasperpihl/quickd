@@ -6,7 +6,7 @@ var myTemplate = new Ext.XTemplate(
 			'<h1>{title}</h1>',
 			'<h2>{name}</h2>',
 			'<footer class="footer">',
-				'<span class="price">{deal_price},-</span> <time>{end:this.humanReadableTime}</time>',
+				'<span class="price">{discount}%</span> <time>{end:this.humanReadableTime}</time>',
 				'<span class="awesome-badge"><span class="value">{discount}%</span></span>',
 			'</footer>',
 		'</section>',

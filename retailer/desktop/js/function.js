@@ -299,8 +299,8 @@ $(function() {
 			if (option.submitKey && el.is('input') && el.attr('type')!='button' ) {
 				el.keypress(function(e) {
 					if(e.keyCode == 13) {
-						el.blur();
 						me.find(option.submitKey).click();
+						el.blur();
 					}
 				});
 			}
@@ -355,8 +355,9 @@ $(function() {
 		return me;
 	}
 	$.fn.formSetState = function(state, animate) {
-		var me = $(this);
-		var button = me.find('.edit-save-button').filter(':first');
+		var me = $(this),
+				editBtn = me.find('.edit-btn'),
+				cancelBtn = me.find('.cancel-btn');
 		if (state=='readonly' && animate) {
 			button.wrap('<div class="loader-small" />');
 			setTimeout(
@@ -374,13 +375,14 @@ $(function() {
 			me.find('input[type=text], input[type=password], textarea, .category').each(function(){
 				$(this).attr('readonly',1).addClass('readonly');
 			});
-			button.val('Rediger');
+			if (editBtn) editBtn.html("Rediger").removeClass("blue");
+			if (cancelBtn) cancelBtn.hide();
 		} else if(state=='edit') {
 			me.find('input[type=text], input[type=password], textarea, .category').each(function(){
 				$(this).removeAttr('readonly').removeClass('readonly');
 			});
-			//me.find('input[type=text]:first').focus();
-			button.val('Gem');
+			if (editBtn) editBtn.html("Gem").addClass("blue");
+			if (cancelBtn) cancelBtn.show();
 		}
 		return me;
 	}
