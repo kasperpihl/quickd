@@ -6,9 +6,12 @@ function redirect($location = NULL){
 
 }
 function unsetBetakey(){
-	unset($_SESSION['userbeta_id']);
+	unset($_SESSION['userbeta_email']);
 	$expire=time()-86400;
 	setcookie('userbeta','',$expire,'/');
+}
+function sendMeMail($email){
+
 }
 function validateBetakey($betakey){
 	global $db;
@@ -17,7 +20,9 @@ function validateBetakey($betakey){
 	$result = $result->rows;
 	if(empty($result)) return false;
 	$betakey = $result[0]->key;
-	$user = $_SESSION['userbeta_id'] = $result[0]->value;
+	$_SESSION['userbeta_id'] = $result[0]->value->id;
+	$user = $_SESSION['userbeta_email'] = $result[0]->value->email;
+	$_SESSION['sendmail'] = isset($result[0]->value->sendmail);
 	$expire=time()+86400*31*6;
 	setcookie('userbeta',$betakey,$expire,'/');
 	return $user;

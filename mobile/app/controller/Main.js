@@ -174,9 +174,14 @@ Ext.define('QuickD.controller.Main', {
         this.callParent(arguments);
     },
     updatedStore:function(instance,data,options){
-        var count = instance.getCount();
+        var html,count = instance.getCount();
         if(count < 2){
-            this.getDealList().setHtml('Der er desværre ingen deals omkring dig lige nu tryk på knappen og vi hører dig');
+            this.getDealList().showNoDeals('cafegemmestedet@gmail.com');
+        }
+        else{
+            html =
+                '';
+            this.getDealList().setHtml(html);
         }
         var string = count + (count == 1 ? ' deal' : ' deals');
         this.getDealList().getDockedComponent('quickd-list-topbar').setTitle(string);
@@ -199,11 +204,11 @@ Ext.define('QuickD.controller.Main', {
             scope: this
         });
         var self = this;
-        if(!userbeta){
+        /*if(!userbeta){
             setTimeout(function(){
                 self.getBetaView().show();
             },500);
-        }
+        }*/
     },
     handleMap: function(){
         this.changeToView('mapshow');

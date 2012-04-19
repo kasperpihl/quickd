@@ -1,12 +1,13 @@
 <? require_once('../config.php');
 $betakey = false;
-if(!isset($_SESSION['userbeta_id'])){
+if(!isset($_SESSION['userbeta_email'])){
     if(isset($_COOKIE['betakey'])) $betakey = $_COOKIE['betakey'];
     else if(isset($_GET['betakey'])) $betakey = $_GET['betakey'];
     $user = validateBetakey($betakey);
     if(isset($_GET['betakey'])) redirect();
 }
-else $user = $_SESSION['userbeta_id'];
+else $user = $_SESSION['userbeta_email'];
+$sendmail = (isset($_SESSION['sendmail']) && $_SESSION['sendmail']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,13 +26,14 @@ else $user = $_SESSION['userbeta_id'];
         <!--<script type="text/javascript" src="<?= ROOT_URL ?>touch/sencha-touch-debug.js"></script>-->
         <script type="text/javascript" src="<?= ROOT_URL ?>touch/builds/sencha-touch-all-compat.js"></script>
         <!--<script type="text/javascript" src="<?= ROOT_URL ?>touch/sencha-touch-all.js"></script>-->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
         <script src="<?= LIBS_URL ?>jquery/jquery.color.js"></script>
         <script> 
             var ROOT_URL = "<?= ROOT_URL ?>";
             var IMG_URL = "<?= IMAGES_URL ?>";
             var userbeta = "<?= $user ?>";
+            var sendmail = "<?= $sendmail ?>";
         </script>
         
         <!-- Application -->
