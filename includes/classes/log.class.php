@@ -12,12 +12,12 @@ class Log{
 		if (file_exists(self::$filename)) {
 			return file(self::$filename, FILE_SKIP_EMPTY_LINES);
 		}
-		return false;
+		return array();
 	}
 	public static function printLog(){
 		$log = self::get();
-		foreach ($this->objects as $value) {
-			echo "$value<br/>";
+		foreach ($log as $value) {
+			echo $value."<br/>";
 		}
 	}
 }

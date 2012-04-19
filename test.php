@@ -5,8 +5,8 @@ require_once(dirname(__FILE__).'/config.php');
 	Log::add($i);
 	sleep(1);
 }*/
-$test = json_decode("{}");
-if (empty($test)) echo "-----------------------";
+Log::printLog();
+echo "<br><br>";
 
 for ($i=0;$i<=5;$i++) {
 	Mail::create('randomMail', 'jstougaard+1@gmail.com');
