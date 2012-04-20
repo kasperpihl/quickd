@@ -49,7 +49,8 @@ Ext.define('QuickD.view.DealList', {
                 text:'Sorter'
             }*/]
         }],
-        store: 'Deals',
+        //store: 'Deals',
+        data:[],
         itemTpl: myTemplate
     },
     showNoDeals:function(mail){

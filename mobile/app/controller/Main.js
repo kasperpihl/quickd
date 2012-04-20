@@ -39,7 +39,7 @@ Ext.define('QuickD.controller.Main', {
         alert('hej');
     },
     init:function(){
-      
+        
     },
     prompt:function(pass){
         var res;
@@ -92,6 +92,7 @@ Ext.define('QuickD.controller.Main', {
         this.location.updateLocation();
     },
     launch:function(notInstalled){
+
         if(isIphone == 1 && !window.navigator.standalone){
             this.getMain().setActiveItem(this.getBetaView());
             return;
@@ -187,8 +188,8 @@ Ext.define('QuickD.controller.Main', {
     },
     updatedStore:function(instance,data,options){
         var html,count = instance.getCount();
-        if(count < 2){
-            this.getDealList().showNoDeals('cafegemmestedet@gmail.com');
+        if(count < 5){
+            this.getDealList().showNoDeals();
         }
         else{
             html =
@@ -219,6 +220,7 @@ Ext.define('QuickD.controller.Main', {
         log('address',this.getAddress(lat,long));
         if(!userbeta){    
             setTimeout(function(){
+                //if(isDesktop) alert('');
                 self.prompt();
             },1000);
         }

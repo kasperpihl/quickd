@@ -1,5 +1,5 @@
 <? require_once('../config.php');
-unsetBetakey();
+$isDesktop = (isset($_SESSION['desktop'])) ? $_SESSION['desktop'] : !$uagent->DetectTierIphone();
 $isIphone = (isset($_SESSION['iphone'])) ? $_SESSION['iphone'] : $uagent->DetectIphone();
 if(!isset($_SESSION['iphone'])) $_SESSION['iphone'] = $isIphone;
 $betakey = false;
@@ -33,6 +33,7 @@ $sendmail = (isset($_SESSION['sendmail']) && $_SESSION['sendmail']);
         <script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
         <script src="<?= LIBS_URL ?>jquery/jquery.color.js"></script>
         <script> 
+            var isDesktop = "<?= $isDesktop ?>";
             var isIphone = "<?= $isIphone ?>";
             var ROOT_URL = "<?= ROOT_URL ?>";
             var IMG_URL = "<?= IMAGES_URL ?>";
