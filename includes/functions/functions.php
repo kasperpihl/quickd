@@ -5,17 +5,27 @@ function redirect($location = NULL){
 	exit;
 
 }
+function unsetBetakey(){
+	unset($_SESSION['userbeta_email']);
+	$expire=time()-86400;
+	setcookie('userbeta','',$expire,'/');
+}
+function sendMeMail($email){
+
+}
 function validateBetakey($betakey){
 	global $db;
 	if(!$betakey) return false;
 	$result = $db->key($betakey)->getView('quickd','getBetaUser');
 	$result = $result->rows;
 	if(empty($result)) return false;
-	$betakey = $_SESSION['userbeta'] = $result[0]->key;
-	$user = $_SESSION['userbeta_id'] = $result[0]->value;
-	$expire=time()+60*60*24*30;
+	$betakey = $result[0]->key;
+	$_SESSION['userbeta_id'] = $result[0]->value->id;
+	$user = $_SESSION['userbeta_email'] = $result[0]->value->email;
+	$_SESSION['sendmail'] = isset($result[0]->value->sendmail);
+	$expire=time()+86400*31*6;
 	setcookie('userbeta',$betakey,$expire,'/');
-	return $betakey;
+	return $user;
 }
 function getShopowner(){
 	global $dealer,$db;
