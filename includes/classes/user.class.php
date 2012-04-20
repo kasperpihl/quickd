@@ -12,9 +12,9 @@ class User {
 		}
 		if (empty($user)) $this->doc_id = false;
 		else {
-			$this->user = $user[0];
+			$this->doc_id = $user[0]->id;
+			$this->user = $user[0]->value;
 			$this->name = isset($this->user->name) ? $this->user->name : null;
-			$this->doc_id = $this->user->id;
 		}
 	}
 
@@ -25,11 +25,14 @@ class User {
 		try{
 			$betakey = $this->calcBetaUserKey();
 			$model = array('userbeta'=>$betakey);
-			$result = json_decode($db->updateDocFullAPI('admin','inviteBetaUser',array('doc_id'=>$doc_id,'params'=>array('json'=>json_encode($model)))));
+			$result = json_decode($db->updateDocFullAPI('admin','inviteBetaUser',array('doc_id'=>$this->doc_id,'params'=>array('json'=>json_encode($model)))));
 			if (isset($result->success) && $result->success=='true') {
 				Mail::create('sendInvite', $this->email, array('betakey'=>$betakey));
-			} else if(isset($result->error)) Log::add('Invite error: '.$result->error);
-			
+				return array('success'=>'true');
+			} else if(isset($result->error)) {
+				Log::add('Invite error: '.$result->error);
+				return array('success'=>'false', 'error'=>$result->error);
+			} else return $result;
 		}
 		catch(Exception $e){
 			return array('success'=>'false','error'=>'database_error','e'=>$e->getMessage()); 
@@ -55,7 +58,8 @@ class User {
 	}
 
 	public function printUser() {
-		echo "Email=".$this->email;
+		echo "Email=".$this->email."<br/>";
 		print_r($this->user);
+		echo "<br/>";
 	}
 }
