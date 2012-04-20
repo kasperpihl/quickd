@@ -1,4 +1,5 @@
 <? require_once('../config.php');
+unsetBetakey();
 $isIphone = (isset($_SESSION['iphone'])) ? $_SESSION['iphone'] : $uagent->DetectIphone();
 if(!isset($_SESSION['iphone'])) $_SESSION['iphone'] = $isIphone;
 $betakey = false;

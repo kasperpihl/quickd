@@ -183,9 +183,10 @@ SINGLE DEAL
 
                 strong { color: #141414; }
 
-                &.shopping { border-color: #a25d7a; }
+                &.shopping { border-color: #697299; }
                 &.experience { border-color: #5da2a0; }
                 &.fooddrink { border-color: #c09159; }
+                &.nightlife { border-color: #a25d7a; }
 
                 > section:not(.venue) {
                     padding-bottom: 38px;
@@ -200,6 +201,7 @@ SINGLE DEAL
                     width: 105%; height: 500px;
                     top: 100%;
                     background: url(../images/deal-bg.png) repeat;
+                    background-size: 50px 50px;
                     content: '';
                 }
             }
