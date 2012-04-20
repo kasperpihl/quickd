@@ -10,7 +10,8 @@ echo "<br><br>";
 
 if ($_GET['spam']&&false) {
 	for ($i=0;$i<=200;$i++) {
-		Mail::create('randomMail', $_GET['spam'],array('name'=>'Mr. Nice Guy', 'number'=>$i));
+		Mail::create('sendInvite', 'ahrengot@gmail.com', array('betakey'=>b3df4ee1, 'name'=>'Fissekarl'));
+		//Mail::create('randomMail', $_GET['spam'],array('name'=>'Mr. Nice Guy', 'number'=>$i));
 		echo "Created ".$i."<br />";
 	}
 	
