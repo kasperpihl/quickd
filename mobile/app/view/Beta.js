@@ -18,7 +18,6 @@ Ext.define('QuickD.view.Beta', {
             duration: 500
         },
         // Make it modal so you can click the mask to hide the overlay
-        modal: true,
         hideOnMaskTap: false,
         hidden: true,
         styleHtmlContent: true,

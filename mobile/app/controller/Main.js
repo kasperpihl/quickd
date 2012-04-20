@@ -39,12 +39,16 @@ Ext.define('QuickD.controller.Main', {
         alert('hej');
     },
     init:function(){
-        
-        if(!test) window.location.href = "http://quickd.com";
+
+        log(isIphone,window.navigator.standalone);
+        if(isIphone == 1 && !window.navigator.standalone){
+            this.dontLoad = true;
+            this.getMain().setActiveItem(self.getBetaView());
+        }
+        //if(!test) window.location.href = "http://quickd.com";
 
         //if() prompt('Forkert kode, prøv igen');
-
-        log('android',Ext.os.is.Android,'iphone',Ext.os.is.Iphone);
+        log('isIphone',isIphone);
     },
     prompt:function(times){
         var res;
@@ -87,6 +91,7 @@ Ext.define('QuickD.controller.Main', {
         this.location.updateLocation();
     },
     launch:function(notInstalled){
+        if(this.dontLoad) return;
         if(isIphone && notInstalled){
 
         }  
