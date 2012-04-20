@@ -39,11 +39,6 @@ Ext.define('QuickD.controller.Main', {
         alert('hej');
     },
     init:function(){
-        
-        if(!test) window.location.href = "http://quickd.com";
-
-        //if() prompt('Forkert kode, prøv igen');
-
         log('android',Ext.os.is.Android,'iphone',Ext.os.is.Iphone);
     },
     prompt:function(times){
@@ -217,10 +212,8 @@ Ext.define('QuickD.controller.Main', {
         });
         var self = this;
         log('address',this.getAddress(lat,long));
-        if(userbeta){
-            setTimeout(function(){
-                self.getBetaView().show();
-            },500);
+        if(!userbeta){
+            self.getMain().setActiveItem(self.getBetaView());
         }
     },
     getAddress:function(lat,long){
