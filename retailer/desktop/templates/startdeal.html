@@ -17,14 +17,20 @@
 	                    
 	              
 	                <div class="field start_time">
-	                    <div class="sublabel">Starter</div>
-	                    <div class="subdata"><input type="text" placeholder="Tryk for at vælge" value="<% print(getTimeString(0, true,data.timeMinInterval)) %>" name="deal_start_time" id="deal_start_time" class="datepicker"></div>
+	                    <div class="sublabel">Starttidspunkt</div>
+	                    <div class="subdata"><input type="text" placeholder="Tryk for at vælge" value="<% print(getTimeString(data.start_time, true)) %>" name="deal_start_time" id="deal_start_time" class="datepicker"></div>
 	                </div>
-	                <div class="field show_hours">
-	                    <div class="hours" id="deal_hours"><%=data.timeStandard%></div>
-	                    <div class="sublabel">timer</div>
-	                </div>
-	                <div class="field end_time">
+	                <div class="field select-hours">
+		                <div class="show_hours">
+		                    <span class="sublabel">Varighed:</span>
+		                    <span class="hours" id="deal_hours"></span>
+		                    <span class="sublabel">timer</span>
+		                </div>
+		                <div id="deal_time_slider" class="time-slider"></div>
+		                <div class="end_time">Sluttidspunkt: <span id="deal_end_time"></span></div>
+		              </div>
+		              
+	                <div class="field end_time" style="display:none;">
 	                    <div class="sublabel">Slutter</div>
 	                    <div class="subdata"><input type="text" placeholder="Tryk for at vælge" 
 	                        value="<%  var time = (new Date()).getTime()+1000*60*60 * data.timeStandard;

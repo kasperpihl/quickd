@@ -16,10 +16,9 @@ body {
   position:absolute;
   top:0px; left:0px;
   width:100%; height: 100%; 
-  background: url('../img/covermobile.jpg') center center no-repeat;
+  background: url('../img/cover-background-mobile.jpg') center center no-repeat;
   background-size: cover; /* Does not work in IE8 and below – Polyfill needed */
   z-index: 1; 
-  padding-bottom:142px;
   box-shadow: 0 0 10px black; 
   min-height: 444px;
 }
@@ -65,20 +64,21 @@ html.backgroundsize #bgImage {
 }
 
 #logo {
-  margin: 40px;
+  margin: 25px;
 }
 
 #container_left {
   position: absolute;
   bottom: 20%;
   left: 0px;
-  margin-left: 40px;
+  margin-left: 25px;
 }
 
 #signup {
   position: relative;
-  width: 295px;
+  width: 355px;
   padding: 10px;
+  font-size: 15px;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 
@@ -97,14 +97,14 @@ html.backgroundsize #bgImage {
   color: white;
   font-weight: 600;
   margin: 0px;
-  font-size: 2.5;
+  font-size: 2.4em;
   text-shadow: rgba(0, 0, 0, 0.8) 0 2px;
 }
 
 #intro h2 {
   color: white;
   font-weight: 100;
-  font-size: 2em;
+  font-size: 2.3em;
   margin: 0px;
   margin-bottom: 25px;
   text-shadow: rgba(0, 0, 0, 0.8) 0 1px;
@@ -115,7 +115,7 @@ html.backgroundsize #bgImage {
   font-weight: 100;
   font-family: "Helvetica";
   margin-top: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 
   text-shadow: 0px 1px 1px white;
 }

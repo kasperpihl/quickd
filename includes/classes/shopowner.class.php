@@ -45,7 +45,7 @@ class Shopowner {
 				if ($type=='dealer') $result->data->hours = $model['hours'];
 				$result->data->email = $email;
 				$session->login($result->data->id,$model['privileges']);
-				if ($type!='dealer') Mail::sendBetaConfirmation($email);
+				if ($type!='dealer')  Mail::create('sendBetaConfirmation', $email); //Mail::sendBetaConfirmation($email);
 			}
 			
 			return $result;
@@ -112,7 +112,7 @@ class Shopowner {
 		    	//Send mail
 		    	if (isset($user_profile->first_name)) $name = $user_profile->first_name;
 		    	else $name = false;
-		    	Mail::sendBetaConfirmation($email, $name);
+		    	Mail::create('sendBetaConfirmation', $email, array('name'=>$name)); //Mail::sendBetaConfirmation($email, $name);
 		    }
 		    if($result && $result->success == 'true'){
 				$result->data->email = $email;
@@ -162,10 +162,10 @@ class Shopowner {
 			if($result->success != 'true') return json_encode($result);
 			switch($type){
 				case 'dealer':
-					Mail::sendNewPasswordForDealer($email,$url);
+					Mail::create('sendNewPasswordForDealer', $email, array('url'=>$url)); //Mail::sendNewPasswordForDealer($email,$url);
 				break;
 				case 'user':
-					Mail::sendNewPasswordForUser($email,$url);
+					Mail::create('sendNewPasswordForUser', $email, array('url'=>$url)); //Mail::sendNewPasswordForUser($email,$url);
 				break;
 			}
 			return $result;
@@ -373,8 +373,10 @@ class Shopowner {
 		if(!property_exists($model,'start') OR !property_exists($model,'end')) return array('success'=>'false','error'=>'start_and_end_time_must_be_specified');
 		/* Checking and setting time */
 		if(!property_exists($model,'template_id') OR !property_exists($model,'shop_id')) return array('success'=>'false','error'=>'shop_and_template_id_required');
-		$start_time = isset($model->seconds) ? (int)$model->start : strtotime($model->start);
-		$end_time = isset($model->seconds) ? (int)$model->end : strtotime($model->end);
+		//$start_time = isset($model->seconds) ? (int)$model->start : strtotime($model->start);
+		//$end_time = isset($model->seconds) ? (int)$model->end : strtotime($model->end);
+		$start_time = (int)$model->start;
+		$end_time   = (int)$model->end;
 		$template_id = $model->template_id;
 		$shop_id = $model->shop_id;
 		if(!$start_time OR !$end_time) return array('success'=>'false','error'=>'error_parsing_time'); 

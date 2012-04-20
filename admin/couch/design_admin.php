@@ -93,6 +93,22 @@ try{
 		
 		
 	}";
+	$updates->inviteBetaUser =
+	"function(doc,req){
+		function msg(message,success){
+			 if(!success) var obj = {success:'false',error:message};
+			 else var obj = {success:'true',data:message};
+			 return JSON.stringify(obj);
+		}
+		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
+		var query = JSON.parse(req.query.json);
+
+		if (doc && doc.hasOwnProperty('user')) var user = doc.user;
+		if(!query.hasOwnProperty('userbeta')) return [null,msg('userbeta_must_be_specified')];
+		doc.user.userbeta = query.userbeta;
+		doc.user.invited = true;
+		return[doc,msg('invited', true)];
+	}";
 	$updates->approve = $approve;
 	$updates->feedbackResponse = $feedbackResponse;
 	echo 'updates objektet klar<br/>';
@@ -148,12 +164,19 @@ try{
 			}
 		}
 	}";
+
 	$getStatistics = 
 	"function (doc) {
 		if ( doc.type && doc.type == \"user\") {
 			emit(doc.history[0].timestamp,doc.user);
 		}
 	}";
+	$views->getPendingUsers = array("map" =>
+		"function (doc) {
+			if (doc.type && doc.type==\"user\" && (!doc.hasOwnProperty('user') || !doc.user.hasOwnProperty('invited') || !doc.user.invited)) 
+				emit(doc.user.email, doc.user);
+		}"
+	);
 	$views->getStatistics = array("map"=>$getStatistics);
 	$views->getAdminsByMail = array("map"=>$getAdminsByMail);
 	$views->getStuff = array("map"=>$getStuff);

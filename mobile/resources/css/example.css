@@ -3520,7 +3520,7 @@ audio {
 CONVERT IMAGES TO COMPASS SPRITE MAPS
 ******************************************************************/
 .spr-sprite, #fedt-mand-spa .x-list-pullrefresh .x-list-pullrefresh-arrow, .venue-meta section.hours:before, .venue-meta section.location:before, .venue-meta section.feedback:before, #quickd-deals article[id*=deal_] .deal-content > footer .awesome-badge, #quickd-deals article[id*=deal_].category.fooddrink footer .price:before, #quickd-deals article[id*=deal_].category.fooddrink footer time:before, #quickd-deals article[id*=deal_].category.shopping footer .price:before, #quickd-deals article[id*=deal_].category.shopping footer time:before, #quickd-deals article[id*=deal_].category.experience footer .price:before, #quickd-deals article[id*=deal_].category.experience footer time:before, #quickd-deals article[id*=deal_].category.nightlife footer .price:before, #quickd-deals article[id*=deal_].category.nightlife footer time:before {
-  background: url('../images/spr-sbf4ee89314.png') no-repeat; }
+  background: url('../images/spr-s0dfef7407a.png') no-repeat; }
 
 /******************************************************************
 BUTTONS
@@ -3557,8 +3557,41 @@ strong {
   font-weight: bold; }
 
 /******************************************************************
-SPLASH SCREEN
+WEB APP INSTALL
 ******************************************************************/
+#quickd-install-webapp {
+  background: url(../images/install-webapp/install-bg.jpg) no-repeat;
+  background-size: cover; }
+  #quickd-install-webapp #install-webapp-dialogue {
+    position: absolute;
+    width: 270px;
+    height: 132px;
+    left: 50%;
+    bottom: 0; }
+    #quickd-install-webapp #install-webapp-dialogue div {
+      width: 100%;
+      height: 100%;
+      margin-left: -50%;
+      background: url(../images/install-webapp/install-dialogue.png) no-repeat;
+      background-size: 100%;
+      -webkit-transform: translateY(1000px) scale(1);
+      -webkit-animation: bounceInDown 1s forwards 0.7s; }
+
+@-webkit-keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(1000px) scale(0.5); }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(-30px) scale(1.05); }
+
+  80% {
+    -webkit-transform: translateY(10px) scale(0.9); }
+
+  100% {
+    -webkit-transform: translateY(0) scale(1); } }
+
 /******************************************************************
 TOOLBAR STYLES
 ******************************************************************/
@@ -3639,7 +3672,7 @@ TOOLBAR STYLES
 PULL REFRESH
 ******************************************************************/
 #fedt-mand-spa .x-list-pullrefresh .x-list-pullrefresh-arrow {
-  background-position: 0 -48px;
+  background-position: 0 -130px;
   width: 24px;
   height: 26px;
   background-size: initial;
@@ -3672,6 +3705,12 @@ SINGLE DEAL
   left: 0;
   width: 100%;
   height: 100%; }
+
+#quickd-deal-slider {
+  height: 170px; }
+
+#quickd-deal-content {
+  margin-top: 170px; }
 
 #deal-bg, #quickd-single .x-body > .x-inner {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #222222), color-stop(100%, #0c0c0c));
@@ -3710,11 +3749,13 @@ SINGLE DEAL
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-] strong {
     color: #141414; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-].shopping {
-    border-color: #a25d7a; }
+    border-color: #697299; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-].experience {
     border-color: #5da2a0; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-].fooddrink {
     border-color: #c09159; }
+  #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-].nightlife {
+    border-color: #a25d7a; }
   #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml article[id*=deal-] > section:not(.venue) {
     padding-bottom: 38px;
     margin-bottom: 33px;
@@ -3727,6 +3768,7 @@ SINGLE DEAL
     height: 500px;
     top: 100%;
     background: url(../images/deal-bg.png) repeat;
+    background-size: 50px 50px;
     content: ''; }
 #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml h1, #quickd-single .x-body > .x-inner #quickd-deal-content .x-innerhtml h2 {
   font-size: 33px;
@@ -3781,16 +3823,16 @@ SINGLE DEAL
       top: 12px;
       left: 10px; }
     .venue-meta section.hours:before {
-      background-position: 0 -74px;
+      background-position: 0 -156px;
       height: 25px;
       width: 24px; }
     .venue-meta section.location:before {
-      background-position: 0 -118px;
+      background-position: 0 -200px;
       height: 25px;
       width: 15px; }
     .venue-meta section.feedback:before {
       top: 16px;
-      background-position: 0 -99px;
+      background-position: 0 -181px;
       height: 19px;
       width: 25px; }
     .venue-meta section a, .venue-meta section a:hover, .venue-meta section a:visited {
@@ -3876,7 +3918,7 @@ DEALS LIST
           position: absolute;
           top: -3px;
           right: -3px;
-          background-position: 0 0;
+          background-position: 0 -82px;
           height: 48px;
           width: 54px; }
           #quickd-deals article[id*=deal_] .deal-content > footer .awesome-badge .value {
@@ -3904,11 +3946,11 @@ DEALS LIST
     #quickd-deals article[id*=deal_].category.fooddrink footer {
       color: #c09159; }
     #quickd-deals article[id*=deal_].category.fooddrink footer .price:before {
-      background-position: 0 -227px;
+      background-position: 0 -309px;
       height: 12px;
       width: 13px; }
     #quickd-deals article[id*=deal_].category.fooddrink footer time:before {
-      background-position: 0 -143px;
+      background-position: 0 -225px;
       height: 12px;
       width: 12px; }
     #quickd-deals article[id*=deal_].category.fooddrink:before {
@@ -3916,11 +3958,11 @@ DEALS LIST
     #quickd-deals article[id*=deal_].category.shopping footer {
       color: #697299; }
     #quickd-deals article[id*=deal_].category.shopping footer .price:before {
-      background-position: 0 -191px;
+      background-position: 0 -273px;
       height: 12px;
       width: 13px; }
     #quickd-deals article[id*=deal_].category.shopping footer time:before {
-      background-position: 0 -179px;
+      background-position: 0 -261px;
       height: 12px;
       width: 12px; }
     #quickd-deals article[id*=deal_].category.shopping:before {
@@ -3928,11 +3970,11 @@ DEALS LIST
     #quickd-deals article[id*=deal_].category.experience footer {
       color: #5da2a0; }
     #quickd-deals article[id*=deal_].category.experience footer .price:before {
-      background-position: 0 -215px;
+      background-position: 0 -297px;
       height: 12px;
       width: 13px; }
     #quickd-deals article[id*=deal_].category.experience footer time:before {
-      background-position: 0 -167px;
+      background-position: 0 -249px;
       height: 12px;
       width: 12px; }
     #quickd-deals article[id*=deal_].category.experience:before {
@@ -3940,11 +3982,11 @@ DEALS LIST
     #quickd-deals article[id*=deal_].category.nightlife footer {
       color: #a25d7a; }
     #quickd-deals article[id*=deal_].category.nightlife footer .price:before {
-      background-position: 0 -203px;
+      background-position: 0 -285px;
       height: 12px;
       width: 13px; }
     #quickd-deals article[id*=deal_].category.nightlife footer time:before {
-      background-position: 0 -155px;
+      background-position: 0 -237px;
       height: 12px;
       width: 12px; }
     #quickd-deals article[id*=deal_].category.nightlife:before {
@@ -3956,3 +3998,26 @@ DEALS LIST
 
   100% {
     opacity: 1; } }
+
+#quickd-deals #deal_no_deals .no-deal-content {
+  padding: 20px; }
+  #quickd-deals #deal_no_deals .no-deal-content h1 {
+    margin-top: -10px;
+    font-size: 73px;
+    font-weight: bold;
+    color: #222; }
+  #quickd-deals #deal_no_deals .no-deal-content strong {
+    color: #222; }
+  #quickd-deals #deal_no_deals .no-deal-content p {
+    color: #a5a5a5;
+    margin-bottom: 20px; }
+  #quickd-deals #deal_no_deals .no-deal-content a.facebook {
+    font: 0/0 serif;
+    text-shadow: none;
+    color: transparent;
+    display: block;
+    width: 211px;
+    height: 41px;
+    margin: 36px auto 40px;
+    background: url(../images/facebook-btn.png) no-repeat;
+    background-size: 100%; }

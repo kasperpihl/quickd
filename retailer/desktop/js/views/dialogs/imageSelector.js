@@ -8,7 +8,7 @@ define([
 	App.views.dialogs.ImageSelectorView = App.views.Dialog.extend({
 		el: '#content',
 		initialize:function(){
-			_.bindAll(this,'handleClick', 'imgUploaded', 'setJcrop', 'imgUploadProgress', 'imgBeforeSend', 'triggerUpload', 'goEdit', 'updateThumb', 'saveThumb','changedRevision','updatePreview', 'jcropOnSelect', 'imgDelete', 'deleteConfirmCallback');
+			_.bindAll(this,'handleClick', 'imgUploaded', 'setJcrop', 'triggerUpload', 'goEdit', 'updateThumb', 'saveThumb','changedRevision','updatePreview', 'jcropOnSelect', 'imgDelete', 'deleteConfirmCallback');
 			var thisClass = this;
 			this.init(this.options);
 			this.template ='imageSelector';
@@ -41,18 +41,44 @@ define([
 			this.createDialog(data,function(){
 				//$('#uploader-'+thisClass.cid).uploader({targetPath:ROOT_URL + "ajax/upload.php", allow:false, uploadField: thisClass.uploadField, imgUploaded:thisClass.imgUploaded,onProgress:thisClass.imgUploadProgress,beforesend:thisClass.beforeSend, afterUpload:thisClass.afterUpload});
 				var dropable = $('#uploader-'+thisClass.cid)[0];
-				if (thisClass.dragable) var dragDrop = dropable;
-				thisClass.uploader = new qq.FileUploaderBasic({
+				var dragDrop = thisClass.dragable?dropable:null;
+				thisClass.uploader = new qq.FileUploader({
 					element: dropable,
 					button: dropable,
 					dragDrop: dragDrop,
+					template: null,
+					listElement: $('#gallery-view')[0],
 					action: ROOT_URL+'ajax/upload.php',
 					//debug: true,
-					onSubmit: thisClass.imgBeforeSend,
-					onProgress: thisClass.imgUploadProgress,
 					onComplete: thisClass.imgUploaded,
+					onCancel: thisClass.imgUploadCancelled,
 					allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
 					sizeLimit: 8*1024*1024,
+					fileTemplate: '<div class="img-item loading">'+
+                '<span class="upload-spinner"></span>' +
+						 		'<span class="upload-filename"></span>' +
+                '<span class="upload-size"></span>' +
+								'<div class="progressbar"><span></span></div>'+
+								'<div class="remove_icon upload-cancel"/>'+
+							'</div>',
+					classes: {
+            // used to get elements from templates
+            button: 'dropable',
+            drop: 'dropable',
+            dropActive: 'dragover',
+            list: 'qq-uploader-list',
+                        
+            file: 'upload-filename',
+            spinner: 'upload-spinner',
+            size: 'upload-size',
+            progressbar: 'progressbar',
+            cancel: 'upload-cancel',
+
+            // added to list item when upload completes
+            // used in css to hide progress spinner
+            success: 'qq-upload-success',
+            fail: 'qq-upload-fail'
+        	}
 				});
 			});
       
@@ -63,13 +89,13 @@ define([
 			//_events['dblclick '+windowId+' .img-item'] = 'handleClick';
 			_events['click '+windowId+' .img-item'] = 'handleClick';
 			_events['click '+windowId+' .btn_edit'] = 'goEdit';
+			_events['click '+windowId+' .btn_delete'] = 'imgDelete';
 
 			_events['click '+windowId+' #btn_rotate_left'] = 'doRotation';
 			_events['click '+windowId+' #btn_rotate_right'] = 'doRotation';
 			_events['click '+windowId+' #btn_edit_cancel'] = 'goGallery';
 			_events['click '+windowId+' #btn_edit_save'] = 'saveThumb';
 			_events['click '+windowId+' #btn_select_img'] = 'handleClick';
-			_events['click '+windowId+' #btn_delete_img'] = 'imgDelete';
 			_events['click '+windowId+ '#uploader-field-'+this.cid] = 'doUpload';
 			_events['click '+windowId+' #uploader-'+this.cid] = 'triggerUpload';
 		
@@ -140,7 +166,7 @@ define([
 			});
 		},
 		imgUploaded:function(id, filename, response){
-			//log("imgUploaded", id, filename, response);
+			log("imgUploaded", id, filename, response);
 			if (!response) {
 				log("Image is too big");
 				this.afterUpload();
@@ -148,25 +174,18 @@ define([
 			var model = new App.models.Image(response.data);
 			this.collection.add(model);
 			var imgId = model.get('id');
-			
+
 			var img = $('<img />').attr('src', model.getUrl('thumbnail')).load(function() {
 				var button = $('<button class="blue btn_edit" id="btn_edit_'+imgId+'">Tilpas</button>');
 				$('#temp_img_'+id).removeClass('loading').html($(this)).append(button).attr('id', "img_"+imgId);
 
 			});
 		},
-		imgUploadProgress:function(id, filename, uploaded, total) {
-			//log("imgUploadProgress", id, filename, uploaded, total);
-			var width = uploaded/total * 100;
-			$('#temp_img_'+id).find('.progressbar span').width(width+'%');
-		},
-		imgBeforeSend:function(id, filename){
-			//log("beforeSend", id, filename);
-
-			$('#uploader-'+this.cid).after('<div class="img-item loading" id="temp_img_'+id+'"><div class="progressbar"><span></span></div></div>');
-		},
 		imgShowError:function(message){
 			log("error", message);
+		},
+		imgUploadCancelled:function(id, filename) {
+			log("cancelled", id, filename);
 		},
 		doUpload:function(event, doIt) {
 			if (!doIt) return false;
@@ -226,7 +245,7 @@ define([
 		jcropOnSelect:function(coords) {
 			if (!this.thumbEdited) {
 				$('#btn_edit_save').fadeIn();
-				$('#btn_select_img').html('Gem og vælg');
+				$('#btn_select_img').html('Gem og brug');
 				this.thumbEdited = true;
 			}
 			this.updateThumb(coords);
@@ -273,7 +292,7 @@ define([
 				this.currentModel.save({t:obj}, {success: function(d, data) {
 					if (data.success=='true') {
 						$('#btn_edit_save').fadeOut(function() { $(this).removeClass('loading').html('Gem') });
-						$('#btn_select_img').html('Vælg billede');
+						$('#btn_select_img').html('Brug billede');
 						if (onSave&&$.isFunction(onSave)) onSave();
 						thisClass.thumbEdited = false;
 						
@@ -283,7 +302,7 @@ define([
 				}});
 			} else {
 				$('#btn_edit_save').fadeOut(function() { $(this).removeClass('loading').html('Gem') });
-				$('#btn_select_img').html('Vælg billede');
+				$('#btn_select_img').html('Brug billede');
 				if (onSave&&$.isFunction(onSave)) onSave();
 				this.thumbEdited = false;
 			}
@@ -322,6 +341,12 @@ define([
 			}
 		},
 		imgDelete: function(evt) {
+			if (this.view=='gallery') {
+				evt.stopPropagation();
+				var id = evt.currentTarget.id,
+						imgId = id.substr(11);
+				this.currentModel = this.collection.get(imgId);
+			}
 			if(!this.currentModel) return false;
 	    if (App.collections.deals.usesImage(this.currentModel.get('n'))) {
 	    	new App.views.dialogs.PromtDialog({router:this.router, type: 'promt', callbackCid:this.cid, title:'Slet billede', msg:'Det er ikke muligt at slette billedet, da det bruges af en igangværende eller planlagt deal.', confirmText:'Okay'}); 

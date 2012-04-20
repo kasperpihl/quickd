@@ -4,6 +4,25 @@
 
 // left: 37, up: 38, right: 39, down: 40,
 // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+/*var isScrolledIn = false;
+$(window).scroll(function(e){
+  var scrollTop = $(this).scrollTop();
+  if(scrollTop > 50 && isScrolledIn == false){
+    isScrolledIn = true;
+    $("#scroll-up-btn").fadeIn(500);
+    $("#read-more-btn").fadeOut(500);
+  }
+  else if (scrollTop < 50 && isScrolledIn == true){ 
+    $("#scroll-up-btn").fadeOut(500);
+    $("#read-more-btn").fadeIn(500);
+    isScrolledIn = false;
+  }
+
+//  if ($(this).scrollTop() < -5) {
+//    $('#bgImage-hand').css('background-position-y', '+=5px');
+//  }
+});*/
+
 var keys = [37, 38, 39, 40];
 
 function preventDefault(e) {

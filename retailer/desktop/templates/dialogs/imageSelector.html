@@ -21,18 +21,19 @@
             </div>
 	    	<% _.each(data.images,function(item,i){ %>
 	    		<div class="img-item <% if (data.selected && data.selected==item.n) print('selected')%>" id="<%='img_'+item.id%>">
-                	<img src="<%=IMG_URL + 'thumbnail/' + item.n+'?'+item.rev %>"/>
-                    <button class="blue btn_edit" id="btn_edit_<%=item.id%>">Tilpas</button>
-                </div>
+           	<img src="<%=IMG_URL + 'thumbnail/' + item.n+'?'+item.rev %>"/>
+            <button class="blue btn_edit" id="btn_edit_<%=item.id%>">Tilpas</button>
+            <div class="remove_icon btn_delete" id="btn_delete_<%=item.id%>"></div>
+          </div>
 	     	<% }); %>
-            <div class="clearline"></div>	        
+            <div class="clearline"></div>      
 	    </div>
 	    
 	    <div class="content-area" id="edit-view" <% if(data.view != 'edit') print('style="display:none"'); %>>
 	    	<div id="uploaded_view">
 	    		<div class="left_menu">
-	    			<div class="btn_rotate_right" id="btn_rotate_right" title="Roter til højre"></div>
 	    			<div class="btn_rotate_left" id="btn_rotate_left" title="Roter til venstre"></div>
+	    			<div class="btn_rotate_right" id="btn_rotate_right" title="Roter til højre"></div>
                 </div>
 	    		<div class="controlpane">
 	    			
@@ -47,8 +48,8 @@
 	    			<input type="hidden" id="preview_name"/>
 	    			
 
-                    <button class="blue btn_select" id="btn_select_img">Vælg billede</button>
-                    <button class="red btn_delete" id="btn_delete_img">Slet billede</button>
+                    <button class="blue btn_select" id="btn_select_img">Brug billede</button>
+                    <!--<button class="red btn_delete" id="btn_delete_img">Slet billede</button>-->
                     <button class="btn_back" id="btn_edit_cancel">Gå tilbage</button>
 	    		</div>
                 <div class="contentpane" id="image_edit_contentpane">
