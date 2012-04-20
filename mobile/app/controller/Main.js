@@ -170,7 +170,6 @@ Ext.define('QuickD.controller.Main', {
         }
     },
     setNewDeal:function(container,newItem,oldItem){
-        log(container,newItem,oldItem);
         this.getDealShow().loadDeal(newItem);
     },
     constructor:function(){
@@ -190,12 +189,12 @@ Ext.define('QuickD.controller.Main', {
         var string = (count > 0 ? count : 'Ingen') + ' tilbud lige nu';
         this.getDealList().getDockedComponent('quickd-list-topbar').setTitle(string);
         var view = this.getDealShow();
-        log('instance getdata',instance.getData().items);
         view.setSlider(instance.getData().items);
     },
     onLocationUpdate:function(){
         var lat = this.location.getLatitude();
         var long = this.location.getLongitude();
+        this.getAddress(lat,long);
         if(distance(lat,long,56.16294,10.20392) > 10000){
             return this.noLocation();
         }
@@ -211,7 +210,6 @@ Ext.define('QuickD.controller.Main', {
         var self = this;
         if(!userbeta){    
             setTimeout(function(){
-                //if(isDesktop) alert('');
                 self.prompt();
             },1000);
         }
@@ -238,7 +236,7 @@ Ext.define('QuickD.controller.Main', {
             } else {        
                 city = 'Aarhus C';   
             }
-            this.city = city;
+            self.getDealList().setCity(city);
         });  
     },
     handleMap: function(){

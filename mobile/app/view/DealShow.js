@@ -165,7 +165,6 @@ Ext.define('QuickD.view.DealShow', {
         }]
     },
     setSlider:function(records){
-        log('setSlider');
         var array   = [],
             slider  = this.down('#quickd-deal-slider');
         slider.removeAll(true,true);
@@ -175,7 +174,6 @@ Ext.define('QuickD.view.DealShow', {
 
     },
     loadDeal:function(record,index){
-        log('loadDeal');
         var model;
         if(record.modelId) model = Ext.getStore('Deals').getById(record.modelId);
         else model = record;
