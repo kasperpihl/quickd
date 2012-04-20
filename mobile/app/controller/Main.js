@@ -21,9 +21,6 @@ Ext.define('QuickD.controller.Main', {
             useKeyButton:{
                 tap:'useBetaKey'
             },
-            adressButton: {
-                tap: 'test'
-            },
             buttons:{
                 tap: 'buttonHandler'
             },
@@ -68,19 +65,14 @@ Ext.define('QuickD.controller.Main', {
         });
     },
     start: function() {
-        var test = this.getDealShow().query('#quickd-deal-content')[0].element;
-        test.on('horizontalswipe',function(){ log('test'); });
         this.$container = $('#quickd-deals .x-scroll-container');
         this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
         // Add deals bg
         this.$container.append($('<div id="deal-bg"></div>'));
         this.$dealsBg = this.$container.find('#deal-bg').hide();
         Ext.getStore('Deals').on({ 'refresh': this.updatedStore, scope: this,'updaterecord': this.addRemoveRecords,'addrecords':this.addRemoveRecords});
-        //Ext.getStore('Deals').addListener('updaterecord', this.test, this);
-        //this.getMain().getAt(0).show();
         this.getMain().setActiveItem(this.getDealList());
         this.animationController = this.getApplication().getController('AnimationController');
-        
         this.location = Ext.create('Ext.util.GeoLocation', {
             autoUpdate: false,
             listeners: {
@@ -109,7 +101,6 @@ Ext.define('QuickD.controller.Main', {
             self.lockRefresh = false;
             self.updatedStore(store);
         },150);
-        //log('params',p1,p2,p3,p4);*/
     },
     buttonHandler:function(t,t2,t3){
         var id = t.getId();
@@ -179,16 +170,16 @@ Ext.define('QuickD.controller.Main', {
         }
     },
     setNewDeal:function(container,newItem,oldItem){
-        log('setnewdeal',container,newItem,oldItem);
-        //log(this.getMain().setShowAnimation('flip'));
+        log(container,newItem,oldItem);
         this.getDealShow().loadDeal(newItem);
     },
     constructor:function(){
         this.callParent(arguments);
     },
     updatedStore:function(instance,data,options){
+
         var html,count = instance.getCount();
-        if(count < 5){
+        if(count < 1){
             this.getDealList().showNoDeals();
         }
         else{
@@ -196,9 +187,10 @@ Ext.define('QuickD.controller.Main', {
                 '';
             this.getDealList().setHtml(html);
         }
-        var string = count + ' tilbud lige nu';
+        var string = (count > 0 ? count : 'Ingen') + ' tilbud lige nu';
         this.getDealList().getDockedComponent('quickd-list-topbar').setTitle(string);
         var view = this.getDealShow();
+        log('instance getdata',instance.getData().items);
         view.setSlider(instance.getData().items);
     },
     onLocationUpdate:function(){
@@ -217,7 +209,6 @@ Ext.define('QuickD.controller.Main', {
             scope: this
         });
         var self = this;
-        log('address',this.getAddress(lat,long));
         if(!userbeta){    
             setTimeout(function(){
                 //if(isDesktop) alert('');
@@ -226,26 +217,28 @@ Ext.define('QuickD.controller.Main', {
         }
     },
     getAddress:function(lat,long){
-        var city;
-        var geocoder = new google.maps.Geocoder(); 
-        var latlng = new google.maps.LatLng(parseFloat(lat),parseFloat(long));    
+        var city,
+            self = this,
+            geocoder = new google.maps.Geocoder(),
+            latlng = new google.maps.LatLng(parseFloat(lat),parseFloat(long));
+
         geocoder.geocode({'latLng': latlng}, function(results, status) {
             var found = false; 
-            log('test');
             if (status == google.maps.GeocoderStatus.OK) {        
                 if (results[0]) {          
                     var res = results[0].address_components;
                     for (var i in res){
-                        if(res[i].types[0] == 'subpolitical')
+                        if(res[i].types[0] == 'sublocality')
                             city = res[i].short_name;
                     }
-                    log('by',city);
+                    if(!city) city = 'Aarhus C';
                 } else {          
                     city = 'Aarhus C';     
                 }  
             } else {        
                 city = 'Aarhus C';   
-            }    
+            }
+            this.city = city;
         });  
     },
     handleMap: function(){

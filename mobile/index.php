@@ -1,4 +1,5 @@
 <? require_once('../config.php');
+$test = true;
 $isDesktop = (isset($_SESSION['desktop'])) ? $_SESSION['desktop'] : !$uagent->DetectTierIphone();
 $isIphone = (isset($_SESSION['iphone'])) ? $_SESSION['iphone'] : $uagent->DetectIphone();
 if(!isset($_SESSION['iphone'])) $_SESSION['iphone'] = $isIphone;
@@ -19,16 +20,21 @@ $sendmail = (isset($_SESSION['sendmail']) && $_SESSION['sendmail']);
 
         <title>QuickD</title>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-         <!-- Sencha Touch -->
+        <!--Sencha Touch -->
         
 
         <!-- Styling -->
         <link rel="stylesheet" href="<?= ROOT_URL ?>touch/resources/css/sencha-touch.css" type="text/css" /> 
       	<link rel="stylesheet" href="<?= ROOT_URL ?>resources/css/example.css" type="text/css" />
         <link rel="stylesheet" href="<?= ROOT_URL ?>resources/css/kasper.css" type="text/css" />
-        <!--<script type="text/javascript" src="<?= ROOT_URL ?>touch/sencha-touch-debug.js"></script>-->
-        <script type="text/javascript" src="<?= ROOT_URL ?>touch/builds/sencha-touch-all-compat.js"></script>
+        <?php if($test){ ?>
+            <script type="text/javascript" src="<?= ROOT_URL ?>touch/sencha-touch-debug.js"></script>
+            
+        <? } else{ ?>
+            <script type="text/javascript" src="<?= ROOT_URL ?>touch/builds/sencha-touch-all-compat.js"></script>
+        <? } ?>
         <!--<script type="text/javascript" src="<?= ROOT_URL ?>touch/sencha-touch-all.js"></script>-->
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
         <script src="<?= LIBS_URL ?>jquery/jquery.color.js"></script>

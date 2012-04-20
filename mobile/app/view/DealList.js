@@ -49,20 +49,10 @@ Ext.define('QuickD.view.DealList', {
                 text:'Sorter'
             }*/]
         }],
-        //store: 'Deals',
-        data:[],
+        store: 'Deals',
         itemTpl: myTemplate
     },
     showNoDeals:function(mail){
-        var dynamicText;
-        if(mail){
-            dynamicText = '<div>Vi sender en mail til <span class="sendmail">'+mail+'</span> når vi har en håndfuld tilbud i Aarhus N. Vi skynder os alt hvad vi kan</div>';
-        }
-        else {
-            dynamicText = 
-            '<div class="">Klik på knappen, og så sender vi en mail når vi har en håndfuld tilbud i Aarhus N</div>'+
-            '<button class="votefordeal">Stem på område</button>';
-        }
         var html = 
             '<div class="nodeals">' +
             '<h1 class="title">Der er desværre ingen tilbud omkring dig lige nu</h1>' +
@@ -75,15 +65,29 @@ Ext.define('QuickD.view.DealList', {
             this.addHandler();
         }
     },
+    voteForPlace:function(){
+        if(!this.hasVoted){
+            var self = this;
+            Ext.Ajax.request({
+                url: ROOT_URL+'ajax/sendmail.php',
+                success:function(data){
+                    alert(data);
+                },
+                error:function(data){
+                    alert('error beta',data);
+                }
+            });
+            var html = 
+                '<div class="thanks">'+
+                    '<div class="facebooklike"></div>'+
+                '</div>';
+            alert('tak for din stemme');
+        }
+    },
     addHandler:function(){
+        var self = this;
         $('.votefordeal').click(function(){
-            if(!this.hasVoted){
-                var html = 
-                    '<div class="thanks">'+
-                        '<div class="facebooklike"></div>'+
-                    '</div>';
-                alert('tak for din stemme');
-            }
+            self.voteForPlace();
         });
     }
 });
