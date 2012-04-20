@@ -27,7 +27,7 @@ class User {
 			$model = array('userbeta'=>$betakey);
 			$result = json_decode($db->updateDocFullAPI('admin','inviteBetaUser',array('doc_id'=>$this->doc_id,'params'=>array('json'=>json_encode($model)))));
 			if (isset($result->success) && $result->success=='true') {
-				Mail::create('sendInvite', $this->email, array('betakey'=>$betakey));
+				Mail::create('sendInvite', $this->email, array('betakey'=>$betakey, 'name'=>$this->name));
 				return array('success'=>'true');
 			} else if(isset($result->error)) {
 				Log::add('Invite error: '.$result->error);

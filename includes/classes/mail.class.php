@@ -26,12 +26,9 @@ Class Mail{
 		}
 		if ($time) Log::add('- Mail sending ended  - '.$time);
 	}
-	private static function sendMail($mail,$subject,$message){
-		$options = array(
-			'contentType' => 'text/html',
-			'encoding' => 'UTF-8',
-		);
-		Mailer::SmtpMail($mail,$subject,$message, $options);
+	private static function sendMail($mail,$subject,$message, $settings=array()){
+		
+		Mailer::SmtpMail($mail,$subject,$message, $settings);
 		return true;
 	}
 	private static function randomMail($to, $options=false){
@@ -50,7 +47,7 @@ Class Mail{
 		$message = 
 			self::greeting($options) .
 			'Tusind tak for din interesse i QuickD.'. "\n\n" .
-			'Du er nu skrevet op til beta-testen i Aarhus, og vi sender dig en invitation på åbningsdagen d. 20. april.'."\n\n".
+			'Du er nu skrevet op til beta-testen i Aarhus, og vi sender dig en invitation så snart vi har plads til flere brugere.'."\n\n".
 			'Hvis du har nogle spørgsmål, er du meget velkommen til at besvare denne mail.'. "\n\n".
 			'Vi glæder os helt vildt til at kunne lancere for dig!'."\n\n".
 			'De bedste hilsner,'."\n".
@@ -74,7 +71,7 @@ Class Mail{
 		
 	}
 	private static function sendNewPasswordForUser($to, $options=false) {
-		$subject = 'Glemt adgangskode til QuickD Forhandler';
+		$subject = 'Glemt adgangskode til QuickD';
 		$message = 
 			self::greeting($options).
 			'Det her er pinligt.'."\n\n".
@@ -87,32 +84,36 @@ Class Mail{
 	}
 	private static function sendInvite($to, $options=false) {
 		if (!$options||!isset($options['betakey'])) return false;
-		$subject = 'Glemt adgangskode til QuickD Forhandler';
+		$subject = 'Velkommen til QuickD';
 		$message = 
 			'<h2>Velkommen til QuickD</h2>'.
 			self::greeting($options).
 			"Så blev det endelig den 20. april, og vi har nu fornøjelsen af at byde dig velkommen som
 			én af de første til beta-testen af QuickD. Med QuickD kan du let finde gode tilbud omkring
-			dig, direkte fra din smartphone.\n\n
+			dig, direkte fra din smartphone.<br/><br/>
 			De sidste to uger har vi haft møder med ejerne fra nogle af de fedeste spisesteder, caféer
 			og barer i Aarhus. Der er blevet taget rigtig godt imod det produkt vi er ved at udvikle til jer,
 			og vi glæder os enormt meget til de næste par uger, hvor der vil begynde at tikke tilbud ind
-			i app'en.\n\n
+			i app'en.<br/><br/>
 			For at prøve QuickD, skal du bare besøge <b><a href='http://beta.quickd.com/".$options['betakey']."'>http://beta.quickd.com/".$options['betakey']."</a></b> fra din
-			smartphone - så er du igang.\n\n
+			smartphone - så er du igang.<br/><br/>
 			Alternativt kan du bruge <b>beta.quickd.com</b> og indtaste din personlige betanøgle, der er
-			<b>".$options['betakey']."</b>\n\n
+			<b>".$options['betakey']."</b><br/><br/>
 			Vi leder i øjeblikket efter ca. 25 personer, som er interesserede i at blive en del af vores
 			Facebook-\"inner circle\". Som en del heraf er du med til at beslutte hvilke forretninger vi
 			skal invitere i dit nærområde, stemme på de features du synes er vigtigst at få udviklet
 			først og komme med nye idéer til tegnebrættet. Vi kører efter “først til mølle”-princippet -
 			skriv til <a href='mailto:lasse@quickd.com'>lasse@quickd.com</a> hvis du er interesseret i at deltage. Og gør det med det samme,
-			inden pladserne bliver fyldt.\n\n
-			Vi håber, at du vil få nogle rigtig gode oplevelser ud af de tilbud, du finder med QuickD.\n\n
-			De bedste hilsener,\n
-			Kasper, Jeppe, Jens, Kristian, Lasse og Anders\n
+			inden pladserne bliver fyldt.<br/><br/>
+			Vi håber, at du vil få nogle rigtig gode oplevelser ud af de tilbud, du finder med QuickD.<br/><br/>
+			De bedste hilsener,<br/>
+			Kasper, Jeppe, Jens, Kristian, Lasse og Anders<br/>	
 			QuickD-teamet";
-		self::sendMail($to,$subject,$message);
+		$settings = array(
+			'contentType' => 'text/html',
+			'encoding' => 'UTF-8',
+		);
+		self::sendMail($to,$subject,$message,$settings);
 		return true;
 	}
 	
