@@ -4,5 +4,5 @@ if(!isset($_POST['betakey'])) echo die(json_encode(array('success'=>false,'error
 $betakey = $_POST['betakey'];
 $betakey = strtolower($betakey);
 $res = validateBetaKey($betakey);
-echo $res ? 'true' : 'false';
+echo $res ? $res : 'false';
 ?>

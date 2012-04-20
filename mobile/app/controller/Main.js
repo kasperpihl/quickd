@@ -100,7 +100,8 @@ Ext.define('QuickD.controller.Main', {
             },
             method:'POST',
             success:function(data){
-                if(data.responseText == 'true'){
+                if(data.responseText != 'false'){
+                    userbeta = data.responseText;
                     self.start();
                 }else{
                     self.prompt(key);

@@ -8,7 +8,7 @@ if(!isset($_SESSION['userbeta_email'])){
     if(isset($_COOKIE['betakey'])) $betakey = $_COOKIE['betakey'];
     else if(isset($_GET['betakey'])) $betakey = $_GET['betakey'];
     $user = validateBetakey($betakey);
-    if(isset($_GET['betakey'])) redirect();
+    if(isset($_GET['betakey']) && !$isIphone) redirect();
 }
 else $user = $_SESSION['userbeta_email'];
 $sendmail = (isset($_SESSION['sendmail']) && $_SESSION['sendmail']);
