@@ -17,8 +17,8 @@ if (isset($_GET['action']) && ($_GET['action']=='inviteUsers'||$_GET['action']==
 } else if (isset($_GET['action'], $_GET['email']) && $_GET['action'] == 'inviteUser') {
 	$qUser = new User($_GET['email']);
 	//$qUser->printUser();
-	print_r($qUser->inviteUser());
-	//redirect('statistics.php');
+	$qUser->inviteUser();
+	redirect('statistics.php');
 }
 
 $users = $db->getView('admin','getStatistics');

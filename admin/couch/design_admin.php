@@ -95,14 +95,19 @@ try{
 	}";
 	$updates->inviteBetaUser =
 	"function(doc,req){
-		if(!req.query.hasOwnProperty('json')) return [null,'json_must_be_specified'];
+		function msg(message,success){
+			 if(!success) var obj = {success:'false',error:message};
+			 else var obj = {success:'true',data:message};
+			 return JSON.stringify(obj);
+		}
+		if(!req.query.hasOwnProperty('json')) return [null,msg('json_must_be_specified')];
 		var query = JSON.parse(req.query.json);
 
 		if (doc && doc.hasOwnProperty('user')) var user = doc.user;
-		if(!query.hasOwnProperty('userbeta')) return [null,'userbeta_must_be_specified'];
+		if(!query.hasOwnProperty('userbeta')) return [null,msg('userbeta_must_be_specified')];
 		doc.user.userbeta = query.userbeta;
 		doc.user.invited = true;
-		return[doc,'success'];
+		return[doc,msg('invited', true)];
 	}";
 	$updates->approve = $approve;
 	$updates->feedbackResponse = $feedbackResponse;

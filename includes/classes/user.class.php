@@ -32,7 +32,7 @@ class User {
 			} else if(isset($result->error)) {
 				Log::add('Invite error: '.$result->error);
 				return array('success'=>'false', 'error'=>$result->error);
-			} else return $result;
+			} else return "Error: ".$result;
 		}
 		catch(Exception $e){
 			return array('success'=>'false','error'=>'database_error','e'=>$e->getMessage()); 

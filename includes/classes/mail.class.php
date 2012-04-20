@@ -24,10 +24,14 @@ Class Mail{
 			else if (!call_user_func('Mail::'.$info[0], $info[1], json_decode($info[2], true))) Log::add('Mail-error: Missing options - '.$line);
 			$line = $fQueue->pop();
 		}
-		if ($time) Log::add('- Mail sending ended - '.$time);
+		if ($time) Log::add('- Mail sending ended  - '.$time);
 	}
 	private static function sendMail($mail,$subject,$message){
-		Mailer::SmtpMail($mail,$subject,$message);
+		$options = array(
+			'contentType' => 'text/html',
+			'encoding' => 'UTF-8',
+		);
+		Mailer::SmtpMail($mail,$subject,$message, $options);
 		return true;
 	}
 	private static function randomMail($to, $options=false){
