@@ -85,9 +85,9 @@ Class Mail{
 	private static function sendInvite($to, $options=false) {
 		if (!$options||!isset($options['betakey'])) return false;
 		$subject = 'Velkommen til QuickD';
+		$greet = self::greeting($options);
 		$message = 
-			'<h2>Velkommen til QuickD</h2>'.
-			self::greeting($options).
+			($greet?$greet.'<br/><br/>':'').
 			"Så blev det endelig den 20. april, og vi har nu fornøjelsen af at byde dig velkommen som
 			én af de første til beta-testen af QuickD. Med QuickD kan du let finde gode tilbud omkring
 			dig, direkte fra din smartphone.<br/><br/>

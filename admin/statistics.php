@@ -41,8 +41,9 @@ $facebookUsers = array_filter($users,function($user){ return isset($user->value-
 echo 'Registrerede brugere: '.sizeof($users).'<br/>';
 echo 'Registreret med facebook: '.sizeOf($facebookUsers).'<br/><br/>';
 
-echo "<a href='statistics.php?action=inviteAll'>Inviter alle nye!</a><br/><br/>";
-echo "<a href='statistics.php?action=inviteUsers'>Inviter nye brugere!</a><br/><br/>";
+
+echo "<a href='statistics.php?action=inviteUsers' onclick=\"if (!confirm('Dette vil sende en invitations-mail til alle nye brugere')) return false;\" style='font-size:24px;background:#62AB1F;border:1px solid #34620B;padding:10px;color:white;text-decoration:none;'>Inviter nye brugere</a><br/><br/>";
+echo "<a href='statistics.php?action=inviteAll' onclick=\"if (!confirm('Dette vil sende en invitations-mail til alle ny-registrede')) return false;\">Inviter alle nye!</a><br/><br/>";
 
 if(!empty($users)){
 	echo '<table style="text-align:left;"><thead><th width="100px">Type</th><th width="200px">Email</th><th width="100px">Facebook</th><th width="100px">Oprettet</th><th width="100px">Inviteret</th></thead><tbody>';
