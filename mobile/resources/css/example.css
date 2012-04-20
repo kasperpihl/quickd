@@ -4004,3 +4004,11 @@ DEALS LIST
 
   100% {
     opacity: 1; } }
+
+/******************************************************************
+NO DEAL VIEW
+******************************************************************/
+#quickd-deals #deal_no_deal  {
+  background: green; }
+  #quickd-deals #deal_no_deal  .no-deal-content {
+    background: red; }
