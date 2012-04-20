@@ -38,14 +38,57 @@ Ext.define('QuickD.controller.Main', {
     init:function(){
         
     },
-    prompt:function(pass){
+    prompt:function(pass,canceled){
         var res;
         if(!pass){ 
-            res = prompt('Indtast din betanøgle, eller skriv dig op på quickd.com','');
+            if(canceled){
+                var message;
+                switch(canceled){
+                    case 1:
+                        message = 'Du skal altså bruge kode, smut ind på quickd.com og skriv dig op :-)';
+                    break;
+                    case 2: 
+                        message = 'Skriv dig nu bare op';
+                    break;
+                    case 3:
+                        message = 'Vi kan blive ved sådan her hele dagen!';
+                    break;
+                    case 4:
+                        message = 'Du tør ikke trykke på "OK"';
+                    break;
+                    case 5:
+                        message = 'Jeg vidste det..... jeg er ved at lære dig at kende';
+                    break;
+                    case 6:
+                        message = "Okay er du glad nu, lad være med at trykke på Annuller";
+                    break;
+                    case 7:
+                        message = 'Hvornår tror du selv der sker noget andet?';
+                    break;
+                    case 8:
+                        message = 'Haha jeg har en plan';
+                    break;
+                    case 9:
+                        message = 'Ja, det er genialt, hvorfor tænkte jeg ikke på det før. Tryk Annuller en gang til og du vil fortryde det';
+                    break;
+                    default:
+                        alert('HAH, prøv at trykke Annuller nu.');
+                        window.location.href="http://www.quickd.dk";
+                    break;
+                }
+                res = prompt(message,'');
+            }
+            else res = prompt('Indtast din betanøgle, eller skriv dig op på quickd.com','');
         } else{
             res = prompt('Forkert nøgle, prøv igen',pass);
         }
-        if(!res) window.location.href = "http://quickd.com";
+        if(!res){
+            canceled = canceled ? canceled+1 : 1;
+            var self = this;
+            setTimeout(function(){
+                self.prompt(false,canceled);
+            },2000);
+        }
         else this.useBetaKey(res);
     },
     useBetaKey:function(key){
@@ -57,7 +100,11 @@ Ext.define('QuickD.controller.Main', {
             },
             method:'POST',
             success:function(data){
-                if(data.responseText != 'true') self.prompt(key);
+                if(data.responseText == 'true'){
+                    self.start();
+                }else{
+                    self.prompt(key);
+                }
             },
             error:function(data){
                 log('error beta',data);
@@ -89,9 +136,14 @@ Ext.define('QuickD.controller.Main', {
             this.getMain().setActiveItem(this.getBetaView());
             return;
         }
-
+        if(!userbeta){    
+            this.prompt();
+        }
+        else {
+            this.start();
+        }
         //this.sortController = this.getApplication().getController('SortController');
-        this.start();
+        
     },
     addRemoveRecords:function(store,p2,p3,p4){
         if(this.lockRefresh) return;
@@ -207,12 +259,6 @@ Ext.define('QuickD.controller.Main', {
             },
             scope: this
         });
-        var self = this;
-        if(!userbeta){    
-            setTimeout(function(){
-                self.prompt();
-            },1000);
-        }
     },
     getAddress:function(lat,long){
         var city,
