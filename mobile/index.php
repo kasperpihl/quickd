@@ -1,4 +1,6 @@
 <? require_once('../config.php');
+$isIphone = (isset($_SESSION['iphone'])) ? $_SESSION['iphone'] : $uagent->DetectIphone();
+if(!isset($_SESSION['iphone'])) $_SESSION['iphone'] = $isIphone;
 $betakey = false;
 if(!isset($_SESSION['userbeta_email'])){
     if(isset($_COOKIE['betakey'])) $betakey = $_COOKIE['betakey'];
@@ -30,6 +32,7 @@ $sendmail = (isset($_SESSION['sendmail']) && $_SESSION['sendmail']);
         <script>window.jQuery || document.write('<script src="<?= LIBS_URL ?>jquery/jquery-1.7.min.js"><\/script>')</script>
         <script src="<?= LIBS_URL ?>jquery/jquery.color.js"></script>
         <script> 
+            var isIphone = "<?= $isIphone ?>";
             var ROOT_URL = "<?= ROOT_URL ?>";
             var IMG_URL = "<?= IMAGES_URL ?>";
             var userbeta = "<?= $user ?>";

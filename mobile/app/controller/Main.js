@@ -40,14 +40,24 @@ Ext.define('QuickD.controller.Main', {
     },
     init:function(){
         
+        if(!test) window.location.href = "http://quickd.com";
+
+        //if() prompt('Forkert kode, prøv igen');
+
+        log('android',Ext.os.is.Android,'iphone',Ext.os.is.Iphone);
     },
-    useBetaKey:function(){
-        var view = this.getBetaView().getComponent('betakeyField').getValue();
+    prompt:function(times){
+        var res;
+        if(!times){ 
+            res = prompt('Indtast din betanøgle, eller skriv dig op på quickd.com','');
+        }
+    },
+    useBetaKey:function(key){
         var self = this;
         Ext.Ajax.request({
             url: ROOT_URL+'ajax/betakey.php',
             params:{
-                betakey:view
+                betakey:key
             },
             method:'POST',
             success:function(data){
@@ -62,7 +72,7 @@ Ext.define('QuickD.controller.Main', {
     start: function() {
         Ext.getStore('Deals').on({ 'refresh': this.updatedStore, scope: this,'updaterecord': this.addRemoveRecords,'addrecords':this.addRemoveRecords});
         //Ext.getStore('Deals').addListener('updaterecord', this.test, this);
-        this.getMain().getAt(0).show();
+        //this.getMain().getAt(0).show();
         this.getMain().setActiveItem(this.getDealList());
         this.animationController = this.getApplication().getController('AnimationController');
         
@@ -76,8 +86,10 @@ Ext.define('QuickD.controller.Main', {
         });
         this.location.updateLocation();
     },
-    launch:function(){
+    launch:function(notInstalled){
+        if(isIphone && notInstalled){
 
+        }  
         //this.sortController = this.getApplication().getController('SortController');
         var test = this.getDealShow().query('#quickd-deal-content')[0].element;
         test.on('horizontalswipe',function(){ log('test'); });
@@ -183,7 +195,7 @@ Ext.define('QuickD.controller.Main', {
                 '';
             this.getDealList().setHtml(html);
         }
-        var string = count + (count == 1 ? ' deal' : ' deals');
+        var string = count + ' tilbud lige nu';
         this.getDealList().getDockedComponent('quickd-list-topbar').setTitle(string);
         var view = this.getDealShow();
         view.setSlider(instance.getData().items);
@@ -204,11 +216,35 @@ Ext.define('QuickD.controller.Main', {
             scope: this
         });
         var self = this;
-        /*if(!userbeta){
+        log('address',this.getAddress(lat,long));
+        if(userbeta){
             setTimeout(function(){
                 self.getBetaView().show();
             },500);
-        }*/
+        }
+    },
+    getAddress:function(lat,long){
+        var city;
+        var geocoder = new google.maps.Geocoder(); 
+        var latlng = new google.maps.LatLng(parseFloat(lat),parseFloat(long));    
+        geocoder.geocode({'latLng': latlng}, function(results, status) {
+            var found = false; 
+            log('test');
+            if (status == google.maps.GeocoderStatus.OK) {        
+                if (results[0]) {          
+                    var res = results[0].address_components;
+                    for (var i in res){
+                        if(res[i].types[0] == 'subpolitical')
+                            city = res[i].short_name;
+                    }
+                    log('by',city);
+                } else {          
+                    city = 'Aarhus C';     
+                }  
+            } else {        
+                city = 'Aarhus C';   
+            }    
+        });  
     },
     handleMap: function(){
         this.changeToView('mapshow');
