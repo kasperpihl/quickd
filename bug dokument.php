@@ -6,6 +6,8 @@ Opryd SASS-fil
 
 Start-deal database-error (?)
 
+Kære Jeppe, ved billedupload, får det nye billede ikke slet knappen på når det er uploaded
+
 Notifications - bedre beskeder - skal ikke stå venter på godkendelse, hvis den ikke skal godkendes f.eks.
 
 Tilføj betingelser i dialogboks

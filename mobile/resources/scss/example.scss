@@ -130,12 +130,17 @@ SINGLE DEAL
     top: 0; left: 0;
     width: 100%; height: 100%;
 }
+#quickd-deal-slider{
+    height:170px;
+}
+#quickd-deal-content{
+    margin-top: 170px;
+}
 
 #deal-bg, #quickd-single .x-body > .x-inner {
     @include background-image(linear-gradient(#222, #0c0c0c));
     color: white;
 }
-
 #quickd-single {
     .x-body > .x-inner {
         // carousel and info wrapper
@@ -178,9 +183,10 @@ SINGLE DEAL
 
                 strong { color: #141414; }
 
-                &.shopping { border-color: #a25d7a; }
+                &.shopping { border-color: #697299; }
                 &.experience { border-color: #5da2a0; }
                 &.fooddrink { border-color: #c09159; }
+                &.nightlife { border-color: #a25d7a; }
 
                 > section:not(.venue) {
                     padding-bottom: 38px;
@@ -195,6 +201,7 @@ SINGLE DEAL
                     width: 105%; height: 500px;
                     top: 100%;
                     background: url(../images/deal-bg.png) repeat;
+                    background-size: 50px 50px;
                     content: '';
                 }
             }
@@ -281,7 +288,27 @@ DEALS LIST
     background: url($img-path + 'bg-pattern.png');
     opacity: 0;
     -webkit-animation: fade-in 0.2s 0.1s ease-in-out forwards;
+    .nodeals{
+        text-align:center;
+        .title{
 
+        }
+        .badsmiley{
+
+        }
+        .votebtn{
+
+        }
+        .facebook{
+
+        }
+        .sendmail{
+            color:#505050;
+            font-weight:bold;
+            font-style:italic;
+        }
+
+    }
     .x-scroll-view {  }
     .x-scroll-container {  }
     .x-list { background: transparent; }
