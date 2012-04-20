@@ -69,7 +69,7 @@ Ext.define('QuickD.controller.Main', {
                         message = 'Haha jeg har en plan';
                     break;
                     case 9:
-                        message = 'Ja, det er genialt, hvorfor tænkte jeg ikke på det før. Tryk Annuller en gang til og du vil fortryde det';
+                        message = 'Ja, det er genialt. Tryk Annuller én gang til. I dare you!';
                     break;
                     default:
                         alert('HAH, prøv at trykke Annuller nu.');
