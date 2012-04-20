@@ -66,13 +66,13 @@ Ext.define('QuickD.controller.Main', {
                         message = 'Hvornår tror du selv der sker noget andet?';
                     break;
                     case 8:
-                        message = 'Haha jeg har en plan';
+                        message = 'Haha jeg har en plan.';
                     break;
                     case 9:
                         message = 'Ja, det er genialt. Tryk Annuller én gang til. I dare you!';
                     break;
                     default:
-                        alert('HAH, prøv at trykke Annuller nu.');
+                        alert('Gotcha');
                         return window.location = "http://www.quickd.dk";
                     break;
                 }
