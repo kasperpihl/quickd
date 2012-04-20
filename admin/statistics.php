@@ -2,18 +2,23 @@
 require_once('../config.php'); 
 require_admin();
 
-if (isset($_GET['action']) && $_GET['action']=='inviteUsers') {
+if (isset($_GET['action']) && $_GET['action']=='inviteUsers'||$_GET['action']=='inviteAll') {
 	$users = $db->getView('admin','getPendingUsers');
 	$users = $users->rows;
-	//$users = array_filter($users,function($user){ return ($user->value->privileges == 1); });
+	if ($_GET['action']=='inviteUsers') $users = array_filter($users,function($user){ return ($user->value->privileges == 1); });
 	if (!empty($users)) {
 		foreach($users as $user) {
 			$qUser = new User($user->value->email);
-			$qUser->printUser();
-			//print_r($qUser->inviteUser());
+			//$qUser->printUser();
+			$qUser->inviteUser();
 		}
 	}
-	//redirect('statistics.php');
+	redirect('statistics.php');
+} else if (isset($_GET['action'], $_GET['email']) && $_GET['action'] == 'inviteUser') {
+	$qUser = new User($_GET['email']);
+	//$qUser->printUser();
+	$qUser->inviteUser();
+	redirect('statistics.php');
 }
 
 $users = $db->getView('admin','getStatistics');
@@ -36,16 +41,26 @@ $facebookUsers = array_filter($users,function($user){ return isset($user->value-
 echo 'Registrerede brugere: '.sizeof($users).'<br/>';
 echo 'Registreret med facebook: '.sizeOf($facebookUsers).'<br/><br/>';
 
+echo "<a href='statistics.php?action=inviteAll'>Inviter alle nye!</a><br/><br/>";
 echo "<a href='statistics.php?action=inviteUsers'>Inviter nye brugere!</a><br/><br/>";
 
 if(!empty($users)){
-	echo '<table><thead><th>Type</th><th>Email</th><th>Facebook</th><th>Oprettet</th><th>Inviteret</th></thead><tbody>';
+	echo '<table style="text-align:left;"><thead><th width="100px">Type</th><th width="200px">Email</th><th width="100px">Facebook</th><th width="100px">Oprettet</th><th width="100px">Inviteret</th></thead><tbody>';
 	foreach($users as $user){
-		$fb = (isset($user->value->fb_info)) ? 'X' :'';
+		$val = $user->value;
+		$fb = (isset($val->fb_info)) ? 'X' :'';
 		echo '<tr>';
 		echo '<td>';
-		echo '<td>'.$user->value->email . '</td><td>'.$fb.'</td><td>'.date('j/n H:i',$user->key).'</td>';
-		echo '<td>'.((isset($user->value->invited) && $user->value->invited) ? 'Ja' : 'Nej').'</td>';
+			if ($val->privileges==1) echo 'Bruger';
+			else if ($val->privileges==3) echo 'Forhandler';
+			else if ($val->privileges==5) echo 'Admin';
+			else echo $val->privileges;
+		echo '</td>';
+		echo '<td>'.$val->email . '</td><td>'.$fb.'</td><td>'.date('j/n H:i',$user->key).'</td>';
+		echo '<td>';
+			if(isset($val->invited) && $val->invited) echo 'Ja';
+			else echo '<a href="statistics.php?action=inviteUser&email='.$val->email.'">Inviter</a>';
+		echo '</td>';
 		echo '</tr>';
 	}
 	echo '</tbody></table>';
