@@ -10,11 +10,13 @@ Class Mail{
 	}
 
 	public static function dequeueMails() {
-		$time = date("h:m");
-		Log::add('- Mail sending started - '.$time);
 		$fQueue = new FileQueue(self::$queueFile);
 		$fQueue->clearFile();
 		$line = $fQueue->pop();
+		if ($line) {
+			$time = date("H:i");
+			Log::add('- Mail sending started - '.$time);
+		}
 		while($line) {
 			$info = explode("|", $line);
 			if (count($info)<3||empty($info[0])||empty($info[1])) Log::add('Mail-error: '.$line);
@@ -22,7 +24,7 @@ Class Mail{
 			else if (!call_user_func('Mail::'.$info[0], $info[1], json_decode($info[2], true))) Log::add('Mail-error: Missing options - '.$line);
 			$line = $fQueue->pop();
 		}
-		Log::add('- Mail sending ended - '.$time);
+		if ($time) Log::add('- Mail sending ended - '.$time);
 	}
 	private static function sendMail($mail,$subject,$message){
 		Mailer::SmtpMail($mail,$subject,$message);
