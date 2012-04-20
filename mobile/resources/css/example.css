@@ -3846,12 +3846,6 @@ DEALS LIST
   opacity: 0;
   -webkit-animation: fade-in 0.2s 0.1s ease-in-out forwards;
   /* list item wrapping element */ }
-  #quickd-deals .nodeals {
-    text-align: center; }
-    #quickd-deals .nodeals .sendmail {
-      color: #505050;
-      font-weight: bold;
-      font-style: italic; }
   #quickd-deals .x-list {
     background: transparent; }
   #quickd-deals .x-list .x-list-item .x-list-item-label {
@@ -4005,10 +3999,22 @@ DEALS LIST
   100% {
     opacity: 1; } }
 
-/******************************************************************
-NO DEAL VIEW
-******************************************************************/
-#quickd-deals #deal_no_deal  {
-  background: green; }
-  #quickd-deals #deal_no_deal  .no-deal-content {
-    background: red; }
+#quickd-deals #deal_no_deals .no-deal-content {
+  padding: 20px; }
+  #quickd-deals #deal_no_deals .no-deal-content h1 {
+    font-size: 73px;
+    font-weight: bold;
+    color: #222; }
+  #quickd-deals #deal_no_deals .no-deal-content p {
+    color: #a5a5a5;
+    margin-bottom: 20px; }
+  #quickd-deals #deal_no_deals .no-deal-content a.facebook {
+    font: 0/0 serif;
+    text-shadow: none;
+    color: transparent;
+    display: block;
+    width: 211px;
+    height: 41px;
+    margin: 36px auto 40px;
+    background: url(../images/facebook-btn.png) no-repeat;
+    background-size: 100%; }

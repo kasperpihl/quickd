@@ -1,3 +1,5 @@
+@import "compass/typography/text/replacement";
+
 /******************************************************************
 VARIABLES
 ******************************************************************/
@@ -326,27 +328,8 @@ DEALS LIST
     background: url($img-path + 'bg-pattern.png');
     opacity: 0;
     -webkit-animation: fade-in 0.2s 0.1s ease-in-out forwards;
-    .nodeals{
-        text-align:center;
-        .title{
-
-        }
-        .badsmiley{
-
-        }
-        .votebtn{
-
-        }
-        .facebook{
-
-        }
-        .sendmail{
-            color:#505050;
-            font-weight:bold;
-            font-style:italic;
-        }
-
-    }
+    
+   
     .x-scroll-view {  }
     .x-scroll-container {  }
     .x-list { background: transparent; }
@@ -380,7 +363,6 @@ DEALS LIST
             padding: 0;
         }
     }
-
 
     article[id*=deal_] {
         position: relative;
@@ -510,15 +492,30 @@ DEALS LIST
     100% { opacity: 1; }
 }
 
-/******************************************************************
-NO DEAL VIEW
-******************************************************************/
 #quickd-deals {
-    #deal_no_deal {
-        background: green;
-
+    #deal_no_deals {
         .no-deal-content {
-            background: red;
+        padding: 20px;
+
+            h1 {
+                font-size: 73px;
+                font-weight: bold;
+                color: #222;
+            }
+
+            p {
+                color: #a5a5a5;
+                margin-bottom: 20px;
+            }
+
+            a.facebook {
+                @include squish-text();
+                display: block;
+                width: 211px; height: 41px;
+                margin: 36px auto 40px;
+                background: url(../images/facebook-btn.png) no-repeat;
+                background-size: 100%;
+            }
         }
     }
 }

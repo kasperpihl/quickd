@@ -65,17 +65,17 @@ Ext.define('QuickD.view.DealList', {
         }
         var html = 
         '<div class="x-list-item">' +
-        '<article id="deal_no_deal" style="z-index: 5;" class="clearfix">' +
-            '<section class="no-deal-content">' +
-                '<h1>Øv!...</h1>' +
-                '<p>&hellip; Der er desværre ingen tilbud i nærheden af din placering lige nu. Det er selvfølgeligt irriterende når du gerne vil igang med at bruge vores service. </p>' +
-                '<p>Vi har møder med nye forhandlere stort set hver dag og lover at sende en mail til <strong>joans32@gmail.com</strong> så snart der er en håndfuld tilbud i dit nærområde.</p>' +
-                '<p>Vi har samtidig registreret <strong>Aarhus N</strong> som din bydel. På den måde kan vi holde øje med hvilke områder der har den største efterspørgsel.</p>' +
-                '<p>I mellemtiden kan du følge med på vores Facebook-side hvor vi løbende offentliggør nyheder mv.</p>' +
-                '<p>Vi glæder os til at give dig nogle gode oplevelser og fede tilbud via QuickD.</p>' +
-                '<p><a class="facebook" href="http://www.facebook.com/pages/QuickD/203907689684007" target="_blank" rel="bookmark">Følg QuickD på Facebook</a></p>' +
-            '</section>' +
-        '</article>' +
+            '<article id="deal_no_deals" style="z-index: 5;" class="clearfix">' +
+                '<section class="no-deal-content">' +
+                    '<h1>&Oslash;v!..</h1>' +
+                    '<p>&hellip; Der er desværre ingen tilbud i nærheden af din placering lige nu hvilket selvfølgeligt er irriterende når du gerne vil igang med at bruge vores service. </p>' +
+                    '<p>Vi har møder med nye forhandlere stort set hver dag og lover at sende en mail til <strong>joans32@gmail.com</strong> så snart der er en håndfuld tilbud i dit nærområde.</p>' +
+                    '<p>Vi har samtidig registreret <strong>Aarhus N</strong> som din bydel. På den måde kan vi holde øje med hvilke områder der har den største efterspørgsel.</p>' +
+                    '<p>I mellemtiden kan du følge med på vores Facebook-side hvor vi løbende offentliggør nyheder mv.</p>' +
+                    '<p>Vi glæder os til at give dig nogle gode oplevelser og fede tilbud via QuickD.</p>' +
+                    '<p><a class="facebook" href="http://www.facebook.com/pages/QuickD/203907689684007" target="_blank" rel="bookmark">Følg QuickD på Facebook</a></p>' +
+                '</section>' +
+            '</article>' +
         '</div>';
         this.setHtml(html);
         if(!this.handlerIsAdded){
