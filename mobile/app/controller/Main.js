@@ -39,13 +39,17 @@ Ext.define('QuickD.controller.Main', {
         alert('hej');
     },
     init:function(){
-        log('android',Ext.os.is.Android,'iphone',Ext.os.is.Iphone);
+      
     },
-    prompt:function(times){
+    prompt:function(pass){
         var res;
-        if(!times){ 
+        if(!pass){ 
             res = prompt('Indtast din betanøgle, eller skriv dig op på quickd.com','');
+        } else{
+            res = prompt('Forkert nøgle, prøv igen',pass);
         }
+        if(!res) window.location.href = "http://quickd.com";
+        else this.useBetaKey(res);
     },
     useBetaKey:function(key){
         var self = this;
@@ -56,8 +60,7 @@ Ext.define('QuickD.controller.Main', {
             },
             method:'POST',
             success:function(data){
-                if(data.responseText == 'true') self.getBetaView().hide();
-                else alert('Betakoden er desværre forkert');
+                if(data.responseText != 'true') self.prompt(key);
             },
             error:function(data){
                 log('error beta',data);
@@ -65,6 +68,13 @@ Ext.define('QuickD.controller.Main', {
         });
     },
     start: function() {
+        var test = this.getDealShow().query('#quickd-deal-content')[0].element;
+        test.on('horizontalswipe',function(){ log('test'); });
+        this.$container = $('#quickd-deals .x-scroll-container');
+        this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
+        // Add deals bg
+        this.$container.append($('<div id="deal-bg"></div>'));
+        this.$dealsBg = this.$container.find('#deal-bg').hide();
         Ext.getStore('Deals').on({ 'refresh': this.updatedStore, scope: this,'updaterecord': this.addRemoveRecords,'addrecords':this.addRemoveRecords});
         //Ext.getStore('Deals').addListener('updaterecord', this.test, this);
         //this.getMain().getAt(0).show();
@@ -82,17 +92,12 @@ Ext.define('QuickD.controller.Main', {
         this.location.updateLocation();
     },
     launch:function(notInstalled){
-        if(isIphone && notInstalled){
+        if(isIphone == 1 && !window.navigator.standalone){
+            this.getMain().setActiveItem(this.getBetaView());
+            return;
+        }
 
-        }  
         //this.sortController = this.getApplication().getController('SortController');
-        var test = this.getDealShow().query('#quickd-deal-content')[0].element;
-        test.on('horizontalswipe',function(){ log('test'); });
-        this.$container = $('#quickd-deals .x-scroll-container');
-        this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
-        // Add deals bg
-        this.$container.append($('<div id="deal-bg"></div>'));
-        this.$dealsBg = this.$container.find('#deal-bg').hide();
         this.start();
     },
     addRemoveRecords:function(store,p2,p3,p4){
@@ -212,8 +217,10 @@ Ext.define('QuickD.controller.Main', {
         });
         var self = this;
         log('address',this.getAddress(lat,long));
-        if(!userbeta){
-            self.getMain().setActiveItem(self.getBetaView());
+        if(!userbeta){    
+            setTimeout(function(){
+                self.prompt();
+            },1000);
         }
     },
     getAddress:function(lat,long){
