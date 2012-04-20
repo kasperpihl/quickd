@@ -51,17 +51,6 @@ body {
   min-height: 444px;
 }
 
-#bgImage-hand {
-  position:absolute;
-  top:0px; left:0px;
-  width:100%; height: 100%; 
-  background: url('../img/cover-hand.png') center center no-repeat;
-  background-size: cover; /* Does not work in IE8 and below – Polyfill needed */
-  z-index: 2; 
-  min-height: 444px;
-  background-position-y: 0px;
-}
-
 html.backgroundsize #bgImage {
   background-size: cover;
   background-position: left bottom;

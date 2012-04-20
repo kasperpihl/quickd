@@ -55,7 +55,7 @@
   <script src="<?= ROOT_URL ?>js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 
-<body onload="setTimeout(function() { if(Modernizr.touch && window.pageYOffset <= 1) window.scrollTo(0, 1) }, 100);">
+<body>
   <div id="container">
     <div id="top"></div>
     <div id="bgImage"></div>
