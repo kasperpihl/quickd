@@ -73,7 +73,7 @@ Ext.define('QuickD.controller.Main', {
                     break;
                     default:
                         alert('HAH, prøv at trykke Annuller nu.');
-                        window.location.href="http://www.quickd.dk";
+                        return window.location = "http://www.quickd.dk";
                     break;
                 }
                 res = prompt(message,'');
