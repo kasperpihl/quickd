@@ -15,8 +15,6 @@ if ($_GET['spam']) {
 		//Mail::create('randomMail', $_GET['spam'],array('name'=>'Mr. Nice Guy', 'number'=>$i));
 		
 	}
-	
-	Mail::dequeueMails();
 	echo "<br><br>Done!";
 }
 ?>
