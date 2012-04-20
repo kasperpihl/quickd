@@ -1,5 +1,5 @@
 <?
-require_once(dirname(__FILE__).'/config.php');
+require_once(dirname(__FILE__).'/../config.php');
 //print_r(Log::get());
 /*for ($i = 0 ; $i < 10 ; $i++ ){
 	Log::add($i);
