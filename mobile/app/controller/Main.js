@@ -39,10 +39,7 @@ Ext.define('QuickD.controller.Main', {
         alert('hej');
     },
     init:function(){
-        if(isIphone == 1 && !window.navigator.standalone){
-            this.dontLoad = true;
-            this.getMain().setActiveItem(self.getBetaView());
-        }
+      
     },
     prompt:function(pass){
         var res;
@@ -95,7 +92,11 @@ Ext.define('QuickD.controller.Main', {
         this.location.updateLocation();
     },
     launch:function(notInstalled){
-        if(this.dontLoad) return;
+        if(isIphone == 1 && !window.navigator.standalone){
+            this.getMain().setActiveItem(this.getBetaView());
+            return;
+        }
+
         //this.sortController = this.getApplication().getController('SortController');
         this.start();
     },
