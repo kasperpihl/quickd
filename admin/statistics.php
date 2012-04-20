@@ -2,7 +2,7 @@
 require_once('../config.php'); 
 require_admin();
 
-if (isset($_GET['action']) && $_GET['action']=='inviteUsers'||$_GET['action']=='inviteAll') {
+if (isset($_GET['action']) && ($_GET['action']=='inviteUsers'||$_GET['action']=='inviteAll')) {
 	$users = $db->getView('admin','getPendingUsers');
 	$users = $users->rows;
 	if ($_GET['action']=='inviteUsers') $users = array_filter($users,function($user){ return ($user->value->privileges == 1); });
@@ -26,12 +26,12 @@ $users = $users->rows;
 //$users = array_filter($users,function($user){ return ($user->value->privileges == 1); });
 function cmp($a, $b)
 {
-    $aInvited = (isset($a->value->invited) && $a->value->invited==true);
-    $bInvited = (isset($b->value->invited) && $b->value->invited==true);
+    $aInvited = (isset($a->value->invited) && $a->value->invited);
+    $bInvited = (isset($b->value->invited) && $b->value->invited);
     if ($a->key == $b->key && $aInvited==$bInvited) {
         return 0;
-    }
-    return ($aInvited!=$bInvited&&$aInvited || $a->key < $b->key) ? 1 : -1;
+    } else if ($aInvited!=$bInvited) return $aInvited ? 1 : -1;
+    else return ($a->key < $b->key) ? 1 : -1;
 }
 
 
@@ -56,7 +56,7 @@ if(!empty($users)){
 			else if ($val->privileges==5) echo 'Admin';
 			else echo $val->privileges;
 		echo '</td>';
-		echo '<td>'.$val->email . '</td><td>'.$fb.'</td><td>'.date('j/n H:i',$user->key).'</td>';
+		echo '<td>'.$val->email . '</td><td>'.$fb.'</td><td>'.date('d/m H:i',$user->key).'</td>';
 		echo '<td>';
 			if(isset($val->invited) && $val->invited) echo 'Ja';
 			else echo '<a href="statistics.php?action=inviteUser&email='.$val->email.'">Inviter</a>';
