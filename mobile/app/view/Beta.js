@@ -19,6 +19,6 @@ Ext.define('QuickD.view.Beta', {
         styleHtmlContent: true,
         scrollable: true,
         id:'quickd-install-webapp',
-        html: '<div id="install-webapp-dialogue"></div>'
+        html: '<div id="install-webapp-dialogue"><div></div></div>'
     }
 }); 
