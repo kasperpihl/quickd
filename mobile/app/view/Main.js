@@ -5,7 +5,6 @@ Ext.define('QuickD.view.Main', {
         'Ext.Panel',
         'Ext.XTemplate',
         'QuickD.view.Splash',
-        'QuickD.view.NoDeals',
         'QuickD.view.DealList',
         'QuickD.view.DealShow',
         'QuickD.view.Beta',
@@ -18,7 +17,6 @@ Ext.define('QuickD.view.Main', {
         items: [
             {xtype:'splash'},
             {xtype:'betaview'},
-            {xtype:'nodeals'},
             {xtype:'deallist'},
             /*{xtype:'dealsort'},*/
             {xtype:'dealshow'},

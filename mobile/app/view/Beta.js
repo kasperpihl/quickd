@@ -11,7 +11,11 @@ Ext.define('QuickD.view.Beta', {
         height: "60%",
         showAnimation: {
             type: 'fadeIn',
-            duration: 800
+            duration: 500
+        },
+        hideAnimation: {
+            type: 'fadeOut',
+            duration: 500
         },
         // Make it modal so you can click the mask to hide the overlay
         modal: true,
@@ -24,7 +28,8 @@ Ext.define('QuickD.view.Beta', {
             xtype:'panel',
             html:'Dette er en lukket beta i Aarhus, indtast den betakode du har modtaget'
         },{
-            xtype:'textfield'
+            xtype:'textfield',
+            id:'betakeyField'
         },{
             xtype:'button',
             width:150,
