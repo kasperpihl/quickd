@@ -2121,7 +2121,9 @@ form {
 			clear:both;text-align: center;
 			.hours { font-size:24px;padding:0px 5px;color:black; text-shadow: 1px 1px 1px white;}
 		}
-		.end_time {clear:both;text-align:center;font-size:14px;color:#333;margin-top:15px;}
+		.end_time {clear:both;text-align:center;font-size:14px;color:#333;margin-top:15px;
+			#deal_end_time {color:#000;font-size:16px;}
+		}
 	}
 	.starter { width:62%; margin: 20px auto; }
 	.start_deal_btn { 

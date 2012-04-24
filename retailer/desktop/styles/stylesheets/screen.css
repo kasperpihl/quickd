@@ -70,14 +70,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	Image positions
 */
 @-webkit-keyframes bluePulse {
-  /* line 287, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 287, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 288, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 288, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -86,7 +86,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 289, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 289, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -95,14 +95,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-moz-keyframes bluePulse {
-  /* line 287, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 287, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 288, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 288, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -111,7 +111,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 289, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 289, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -120,14 +120,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-ms-keyframes bluePulse {
-  /* line 287, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 287, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 288, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 288, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -136,7 +136,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 289, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 289, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -145,21 +145,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-webkit-keyframes whitePulse {
-  /* line 295, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 295, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 296, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 296, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 297, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 297, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -168,21 +168,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-moz-keyframes whitePulse {
-  /* line 295, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 295, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 296, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 296, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 297, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 297, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -191,21 +191,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-ms-keyframes whitePulse {
-  /* line 295, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 295, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 296, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 296, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 297, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 297, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -430,7 +430,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   }
 }
 
-/* line 6, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 6, ../sass/components.scss */
 button, .button {
   cursor: pointer;
   color: black;
@@ -446,7 +446,7 @@ button, .button {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   border: 1px solid #ccc;
 }
-/* line 19, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 19, ../sass/components.scss */
 button.green, .button.green {
   color: white;
   border: 1px solid #4E7A00;
@@ -482,7 +482,7 @@ button.green, .button.green {
   -moz-animation: whitePulse 3s infinite;
   -ms-animation: whitePulse 3s infinite;
 }
-/* line 30, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 30, ../sass/components.scss */
 button.green:hover, .button.green:hover {
   background-color: #5e961b;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzVlOTYxYiIvPjxzdG9wIG9mZnNldD0iOTglIiBzdG9wLWNvbG9yPSIjNDM3NTExIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
@@ -497,7 +497,7 @@ button.green:hover, .button.green:hover {
   -moz-box-shadow: 0 0 10px white, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   box-shadow: 0 0 10px white, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
 }
-/* line 35, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 35, ../sass/components.scss */
 button.green:active, .button.green:active {
   background: #3A6B09;
   -webkit-box-shadow: inset 0px 1px 3px #363535;
@@ -507,15 +507,15 @@ button.green:active, .button.green:active {
   -moz-animation: none;
   -ms-animation: none;
 }
-/* line 40, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 40, ../sass/components.scss */
 button.green.disabled, .button.green.disabled {
   background: #67A100;
 }
-/* line 41, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 41, ../sass/components.scss */
 button.green.disabled:hover, .button.green.disabled:hover {
   background: #67A100;
 }
-/* line 44, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 44, ../sass/components.scss */
 button.green.small, .button.green.small {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -523,11 +523,11 @@ button.green.small, .button.green.small {
   -o-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 47, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 47, ../sass/components.scss */
 button.green.loading, .button.green.loading {
   position: relative;
 }
-/* line 48, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 48, ../sass/components.scss */
 button.green.loading:before, .button.green.loading:before {
   content: url(i/loader_green.gif);
   display: block;
@@ -537,7 +537,7 @@ button.green.loading:before, .button.green.loading:before {
   margin: -8px;
   z-index: 1;
 }
-/* line 58, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 58, ../sass/components.scss */
 button.grey, .button.grey {
   color: black;
   text-shadow: 0 1px 1px white;
@@ -550,11 +550,11 @@ button.grey, .button.grey {
   background: -ms-linear-gradient(top, #fcfcfc 0%, #a5a5a5 100%);
   background: linear-gradient(top, #fcfcfc 0%, #a5a5a5 100%);
 }
-/* line 63, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 63, ../sass/components.scss */
 button.grey.left, .button.grey.left {
   float: left;
 }
-/* line 65, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 65, ../sass/components.scss */
 button.window-top, .button.window-top {
   padding: 6px;
   padding-bottom: 3px;
@@ -564,7 +564,7 @@ button.window-top, .button.window-top {
   top: 5px;
   right: auto;
 }
-/* line 73, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 73, ../sass/components.scss */
 button.black, .button.black {
   color: white;
   background-color: black;
@@ -580,7 +580,7 @@ button.black, .button.black {
   background: -ms-linear-gradient(top, #333333 0%, #000000 100%);
   background: linear-gradient(top, #333333 0%, #000000 100%);
 }
-/* line 79, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 79, ../sass/components.scss */
 button.black:hover, .button.black:hover {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMzMzMzMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzE2MTYxNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #333333), color-stop(100%, #161616));
@@ -590,7 +590,7 @@ button.black:hover, .button.black:hover {
   background: -ms-linear-gradient(top, #333333 0%, #161616 100%);
   background: linear-gradient(top, #333333 0%, #161616 100%);
 }
-/* line 80, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 80, ../sass/components.scss */
 button.black:active, .button.black:active {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzMzMzMzMyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #000000), color-stop(100%, #333333));
@@ -601,7 +601,7 @@ button.black:active, .button.black:active {
   background: linear-gradient(top, #000000 0%, #333333 100%);
   box-shadow: inset 0 0 2px black;
 }
-/* line 85, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 85, ../sass/components.scss */
 button.red, .button.red {
   color: white;
   background-color: #FF2828;
@@ -613,7 +613,7 @@ button.red, .button.red {
   background: -ms-linear-gradient(top, #ea5f55, #c43f31);
   background: linear-gradient(top, #ea5f55, #c43f31);
 }
-/* line 89, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 89, ../sass/components.scss */
 button.red:hover, .button.red:hover {
   background-color: #ea5f55;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VhNWY1NSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Q4NTMzYiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
@@ -625,7 +625,7 @@ button.red:hover, .button.red:hover {
   background-image: -ms-linear-gradient(top, #ea5f55, #d8533b);
   background-image: linear-gradient(top, #ea5f55, #d8533b);
 }
-/* line 93, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 93, ../sass/components.scss */
 button.red:active, .button.red:active {
   background-color: #c43f31;
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M0M2YzMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VhNWY1NSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
@@ -640,7 +640,7 @@ button.red:active, .button.red:active {
   box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
-/* line 100, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 100, ../sass/components.scss */
 button.blue, .button.blue {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -658,12 +658,12 @@ button.blue, .button.blue {
   -webkit-user-select: none;
   -moz-user-select: none;
 }
-/* line 112, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 112, ../sass/components.scss */
 button.blue.feedback, .button.blue.feedback {
   width: 200px;
   font-size: 16px;
 }
-/* line 117, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 117, ../sass/components.scss */
 button.blue:hover, .button.blue:hover {
   background-color: #006fe5;
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzA0OWNkYiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwNmZlNSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
@@ -674,7 +674,7 @@ button.blue:hover, .button.blue:hover {
   background: -ms-linear-gradient(top, #049cdb, #006fe5);
   background: linear-gradient(top, #049cdb, #006fe5);
 }
-/* line 121, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 121, ../sass/components.scss */
 button.blue:active, .button.blue:active {
   background-color: #0064cd;
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNjRjZCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0OWNkYiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
@@ -689,7 +689,7 @@ button.blue:active, .button.blue:active {
   box-shadow: inset 0px 1px 1px #363535;
   cursor: pointer;
 }
-/* line 128, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/components.scss */
+/* line 128, ../sass/components.scss */
 button.disabled, button.disabled:hover, button.disabled:active, .button.disabled, .button.disabled:hover, .button.disabled:active {
   background: #BDBDBD;
   border: #6e6e6e;
@@ -4519,12 +4519,17 @@ form textarea:focus, form input:focus {
   color: #333;
   margin-top: 15px;
 }
-/* line 2126, ../sass/screen.scss */
+/* line 2125, ../sass/screen.scss */
+#start_deal .set_time .end_time #deal_end_time {
+  color: #000;
+  font-size: 16px;
+}
+/* line 2128, ../sass/screen.scss */
 #start_deal .starter {
   width: 62%;
   margin: 20px auto;
 }
-/* line 2127, ../sass/screen.scss */
+/* line 2129, ../sass/screen.scss */
 #start_deal .start_deal_btn {
   padding: 10px 20px;
   font-size: 24px;
@@ -4533,7 +4538,7 @@ form textarea:focus, form input:focus {
   display: block;
   position: relative;
 }
-/* line 2129, ../sass/screen.scss */
+/* line 2131, ../sass/screen.scss */
 #start_deal .start_deal_btn.disabled {
   -webkit-transition-property: none;
   -moz-transition-property: none;
@@ -4544,21 +4549,21 @@ form textarea:focus, form input:focus {
   background-size: auto;
 }
 
-/* line 2138, ../sass/screen.scss */
+/* line 2140, ../sass/screen.scss */
 div.ui-datepicker {
   font-size: 12px;
 }
 
-/* line 2140, ../sass/screen.scss */
+/* line 2142, ../sass/screen.scss */
 .template-selector {
   height: 100%;
 }
-/* line 2142, ../sass/screen.scss */
+/* line 2144, ../sass/screen.scss */
 .template-selector .template-selected {
   padding: 5px;
   font-size: 18px;
 }
-/* line 2143, ../sass/screen.scss */
+/* line 2145, ../sass/screen.scss */
 .template-selector .template-list {
   overflow-y: auto;
   margin: 0px;
@@ -4566,7 +4571,7 @@ div.ui-datepicker {
   width: 100%;
 }
 
-/* line 2146, ../sass/screen.scss */
+/* line 2148, ../sass/screen.scss */
 .template-selector .list-item, #selected_template_area .list-item {
   border-radius: inherit;
   height: 68px;
@@ -4587,30 +4592,30 @@ div.ui-datepicker {
   background: -ms-linear-gradient(#fdfdfd, #eeeeee);
   background: linear-gradient(#fdfdfd, #eeeeee);
 }
-/* line 2155, ../sass/screen.scss */
+/* line 2157, ../sass/screen.scss */
 .template-selector .list-item img, #selected_template_area .list-item img {
   width: 50px;
   float: left;
   margin: 9px;
 }
-/* line 2157, ../sass/screen.scss */
+/* line 2159, ../sass/screen.scss */
 .template-selector .list-item .details, #selected_template_area .list-item .details {
   float: left;
   padding: 10px 5px;
   width: 210px;
 }
-/* line 2158, ../sass/screen.scss */
+/* line 2160, ../sass/screen.scss */
 .template-selector .list-item h2, #selected_template_area .list-item h2 {
   color: #2F3E46;
 }
-/* line 2159, ../sass/screen.scss */
+/* line 2161, ../sass/screen.scss */
 .template-selector .list-item span, #selected_template_area .list-item span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 2165, ../sass/screen.scss */
+/* line 2167, ../sass/screen.scss */
 .template-selector .list-item:hover, #selected_template_area .list-item:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -4624,52 +4629,52 @@ div.ui-datepicker {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
-/* line 2170, ../sass/screen.scss */
+/* line 2172, ../sass/screen.scss */
 .template-selector .list-item.selected, #selected_template_area .list-item.selected {
   background: #e1e1e1;
   cursor: default;
 }
-/* line 2171, ../sass/screen.scss */
+/* line 2173, ../sass/screen.scss */
 .template-selector .list-item.selected:hover, #selected_template_area .list-item.selected:hover {
   background: #e1e1e1;
 }
 
-/* line 2175, ../sass/screen.scss */
+/* line 2177, ../sass/screen.scss */
 .jcrop-holder {
   text-align: left;
 }
 
-/* line 2176, ../sass/screen.scss */
+/* line 2178, ../sass/screen.scss */
 .jcrop-vline, .jcrop-hline {
   font-size: 0px;
   position: absolute;
   background: white url("i/Jcrop.gif") top left repeat;
 }
 
-/* line 2177, ../sass/screen.scss */
+/* line 2179, ../sass/screen.scss */
 .jcrop-vline {
   height: 100%;
   width: 1px !important;
 }
 
-/* line 2178, ../sass/screen.scss */
+/* line 2180, ../sass/screen.scss */
 .jcrop-hline {
   width: 100%;
   height: 1px !important;
 }
 
-/* line 2179, ../sass/screen.scss */
+/* line 2181, ../sass/screen.scss */
 .jcrop-vline.right {
   right: 0px;
   margin: 0px;
 }
 
-/* line 2180, ../sass/screen.scss */
+/* line 2182, ../sass/screen.scss */
 .jcrop-hline.bottom {
   bottom: 0px;
 }
 
-/* line 2181, ../sass/screen.scss */
+/* line 2183, ../sass/screen.scss */
 .jcrop-handle {
   font-size: 1px;
   width: 7px !important;
@@ -4678,18 +4683,18 @@ div.ui-datepicker {
   background-color: #333;
 }
 
-/* line 2188, ../sass/screen.scss */
+/* line 2190, ../sass/screen.scss */
 .jcrop-tracker {
   width: 100%;
   height: 100%;
 }
 
-/* line 2189, ../sass/screen.scss */
+/* line 2191, ../sass/screen.scss */
 .custom .jcrop-vline, .custom .jcrop-hline {
   background: yellow;
 }
 
-/* line 2190, ../sass/screen.scss */
+/* line 2192, ../sass/screen.scss */
 .custom .jcrop-handle {
   border-color: black;
   background-color: #C7BB00;
@@ -4700,20 +4705,20 @@ div.ui-datepicker {
   border-radius: 3px;
 }
 
-/* line 2196, ../sass/screen.scss */
+/* line 2198, ../sass/screen.scss */
 #notifications {
   position: fixed;
   top: 50px;
   right: 0;
   z-index: 15;
 }
-/* line 2202, ../sass/screen.scss */
+/* line 2204, ../sass/screen.scss */
 #notifications .meow {
   margin: 20px 20px 0 0;
   position: relative;
   cursor: pointer;
 }
-/* line 2206, ../sass/screen.scss */
+/* line 2208, ../sass/screen.scss */
 #notifications .meow .inner {
   background: #191919;
   zoom: 1;
@@ -4734,7 +4739,7 @@ div.ui-datepicker {
   width: 250px;
   min-height: 48px;
 }
-/* line 2222, ../sass/screen.scss */
+/* line 2224, ../sass/screen.scss */
 #notifications .meow .inner:after {
   content: "\0200";
   display: block;
@@ -4743,7 +4748,7 @@ div.ui-datepicker {
   line-height: 0;
   height: 0;
 }
-/* line 2230, ../sass/screen.scss */
+/* line 2232, ../sass/screen.scss */
 #notifications .meow .inner h1 {
   font-size: 14px;
   font-weight: bold;
@@ -4751,27 +4756,27 @@ div.ui-datepicker {
   padding: 0;
   line-height: 1;
 }
-/* line 2237, ../sass/screen.scss */
+/* line 2239, ../sass/screen.scss */
 #notifications .meow .inner .icon {
   width: 48px;
   height: 48px;
   float: left;
   margin-right: 6px;
 }
-/* line 2242, ../sass/screen.scss */
+/* line 2244, ../sass/screen.scss */
 #notifications .meow .inner .icon img {
   max-width: 48px;
   max-height: 48px;
 }
-/* line 2244, ../sass/screen.scss */
+/* line 2246, ../sass/screen.scss */
 #notifications .meow .inner .close {
   display: none;
 }
-/* line 2246, ../sass/screen.scss */
+/* line 2248, ../sass/screen.scss */
 #notifications .meow.hover .inner {
   border: 2px solid #fff;
 }
-/* line 2248, ../sass/screen.scss */
+/* line 2250, ../sass/screen.scss */
 #notifications .meow.hover .inner .close {
   display: block;
   position: absolute;
@@ -4797,13 +4802,13 @@ div.ui-datepicker {
   text-decoration: none;
 }
 
-/* line 2276, ../sass/screen.scss */
+/* line 2278, ../sass/screen.scss */
 .bubble_message #container {
   width: 500px;
   padding: 0 0 50px;
   margin: 0 auto;
 }
-/* line 2282, ../sass/screen.scss */
+/* line 2284, ../sass/screen.scss */
 .bubble_message h1 {
   margin: 1em 0 0;
   font-size: 2.5em;
@@ -4811,7 +4816,7 @@ div.ui-datepicker {
   line-height: 1.2;
   text-align: center;
 }
-/* line 2290, ../sass/screen.scss */
+/* line 2292, ../sass/screen.scss */
 .bubble_message h2 {
   margin: 0.5em 0 1.5em;
   font-size: 1.25em;
@@ -4819,11 +4824,11 @@ div.ui-datepicker {
   font-style: italic;
   text-align: center;
 }
-/* line 2298, ../sass/screen.scss */
+/* line 2300, ../sass/screen.scss */
 .bubble_message p {
   margin: 1em 0;
 }
-/* line 2302, ../sass/screen.scss */
+/* line 2304, ../sass/screen.scss */
 .bubble_message .content h2 {
   margin: 2em 0 0.75em;
   font-size: 2em;
@@ -4831,26 +4836,26 @@ div.ui-datepicker {
   font-style: normal;
   text-align: left;
 }
-/* line 2310, ../sass/screen.scss */
+/* line 2312, ../sass/screen.scss */
 .bubble_message blockquote {
   margin: 1em 0;
 }
-/* line 2314, ../sass/screen.scss */
+/* line 2316, ../sass/screen.scss */
 .bubble_message blockquote p {
   margin: 0;
   font-size: 2em;
 }
-/* line 2319, ../sass/screen.scss */
+/* line 2321, ../sass/screen.scss */
 .bubble_message .follow {
   clear: both;
   margin-top: 2em;
   font-size: 1.125em;
 }
-/* line 2325, ../sass/screen.scss */
+/* line 2327, ../sass/screen.scss */
 .bubble_message .follow span {
   font-weight: bold;
 }
-/* line 2330, ../sass/screen.scss */
+/* line 2332, ../sass/screen.scss */
 .bubble_message.msg {
   position: absolute;
   top: -224px;
@@ -4870,12 +4875,12 @@ div.ui-datepicker {
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 2348, ../sass/screen.scss */
+/* line 2350, ../sass/screen.scss */
 .bubble_message.msg p {
   font-size: 28px;
   line-height: 1.25em;
 }
-/* line 2350, ../sass/screen.scss */
+/* line 2352, ../sass/screen.scss */
 .bubble_message .msg:before {
   content: url(twitter-logo.gif);
   position: absolute;
@@ -4886,7 +4891,7 @@ div.ui-datepicker {
   /* reduce the damage in FF3.0 */
   display: block;
 }
-/* line 2361, ../sass/screen.scss */
+/* line 2363, ../sass/screen.scss */
 .bubble_message.msg:after {
   content: "";
   position: absolute;
@@ -4897,7 +4902,7 @@ div.ui-datepicker {
   display: block;
   width: 0;
 }
-/* line 2371, ../sass/screen.scss */
+/* line 2373, ../sass/screen.scss */
 .bubble_message.msg + p {
   padding-left: 15px;
   font: 14px Arial, sans-serif;
@@ -4905,7 +4910,7 @@ div.ui-datepicker {
 
 /* Import these at the end so they aren't overwritten */
 /* ==|== non-semantic helper classes ======================================== */
-/* line 2, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/helpers.scss */
+/* line 2, ../sass/helpers.scss */
 .ir {
   display: block;
   border: 0;
@@ -4917,18 +4922,18 @@ div.ui-datepicker {
   direction: ltr;
 }
 
-/* line 3, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/helpers.scss */
+/* line 3, ../sass/helpers.scss */
 .ir br {
   display: none;
 }
 
-/* line 4, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/helpers.scss */
+/* line 4, ../sass/helpers.scss */
 .hidden {
   display: none !important;
   visibility: hidden;
 }
 
-/* line 5, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/helpers.scss */
+/* line 5, ../sass/helpers.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -4939,7 +4944,7 @@ div.ui-datepicker {
   width: 1px;
 }
 
-/* line 6, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/helpers.scss */
+/* line 6, ../sass/helpers.scss */
 .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
   clip: auto;
   height: auto;
@@ -4949,38 +4954,38 @@ div.ui-datepicker {
   width: auto;
 }
 
-/* line 7, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/helpers.scss */
+/* line 7, ../sass/helpers.scss */
 .invisible {
   visibility: hidden;
 }
 
-/* line 8, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/helpers.scss */
+/* line 8, ../sass/helpers.scss */
 .clearfix:before, .clearfix:after {
   content: "";
   display: table;
 }
 
-/* line 9, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/helpers.scss */
+/* line 9, ../sass/helpers.scss */
 .clearfix:after {
   clear: both;
 }
 
-/* line 10, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/helpers.scss */
+/* line 10, ../sass/helpers.scss */
 .clearfix {
   zoom: 1;
 }
 
-/* line 11, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/helpers.scss */
+/* line 11, ../sass/helpers.scss */
 .left {
   float: left;
 }
 
-/* line 12, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/helpers.scss */
+/* line 12, ../sass/helpers.scss */
 .right {
   float: right;
 }
 
-/* line 14, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/helpers.scss */
+/* line 14, ../sass/helpers.scss */
 .clearline {
   content: '';
   display: block;

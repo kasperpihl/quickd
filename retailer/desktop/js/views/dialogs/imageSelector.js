@@ -169,17 +169,19 @@ define([
 			log("imgUploaded", id, filename, response);
 			if (!response) {
 				log("Image is too big");
-				this.afterUpload();
+				this.router.showError('Fejl ved upload', 'Billede var for stort og blev ikke uploadet')
+			} else {
+				var model = new App.models.Image(response.data);
+				this.collection.add(model);
+				var imgId = model.get('id');
+
+				var img = $('<img />').attr('src', model.getUrl('thumbnail')).load(function() {
+					$('#temp_img_'+id).removeClass('loading').html($(this))
+						.append('<button class="blue btn_edit" id="btn_edit_'+imgId+'">Tilpas</button>')
+						.append('<div class="remove_icon btn_delete" id="btn_delete_'+imgId+'"></div>')
+						.attr('id', "img_"+imgId);
+				});
 			}
-			var model = new App.models.Image(response.data);
-			this.collection.add(model);
-			var imgId = model.get('id');
-
-			var img = $('<img />').attr('src', model.getUrl('thumbnail')).load(function() {
-				var button = $('<button class="blue btn_edit" id="btn_edit_'+imgId+'">Tilpas</button>');
-				$('#temp_img_'+id).removeClass('loading').html($(this)).append(button).attr('id', "img_"+imgId);
-
-			});
 		},
 		imgShowError:function(message){
 			log("error", message);
