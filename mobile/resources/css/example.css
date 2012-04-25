@@ -3556,6 +3556,10 @@ GENERAL STYLES
 strong {
   font-weight: bold; }
 
+body {
+  background: url(../images/phone_startup.png) no-repeat;
+  background-size: cover; }
+
 /******************************************************************
 WEB APP INSTALL
 ******************************************************************/

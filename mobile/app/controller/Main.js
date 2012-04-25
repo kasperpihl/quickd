@@ -131,13 +131,13 @@ Ext.define('QuickD.controller.Main', {
         });
         this.location.updateLocation();
     },
-    launch:function(notInstalled){
+    launch:function(){
 
         if(isIphone == 1 && !window.navigator.standalone){
             this.getMain().setActiveItem(this.getBetaView());
             return;
         }
-        if(!userbeta){    
+        if(userbeta){    
             this.prompt();
         }
         else {
