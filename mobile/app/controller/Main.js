@@ -11,6 +11,7 @@ Ext.define('QuickD.controller.Main', {
             buttons: 'toolbar > button',
             dealList: 'mainview > deallist',
             betaView: 'mainview > betaview',
+            noDealsView: 'mainview > nodeals',
             useKeyButton: 'mainview > betaview button',
             dealShow: 'mainview > dealshow',
             splash: 'mainview > splash',
@@ -137,8 +138,8 @@ Ext.define('QuickD.controller.Main', {
             this.getMain().setActiveItem(this.getBetaView());
             return;
         }
-        if(userbeta){    
-            this.prompt();
+        if(!userbeta){    
+            this.getNoDealsView().show();
         }
         else {
             this.start();

@@ -8,6 +8,7 @@ Ext.define('QuickD.view.Main', {
         'QuickD.view.DealList',
         'QuickD.view.DealShow',
         'QuickD.view.Beta',
+        'QuickD.view.NoDeals',
         /*'QuickD.view.DealSort',*/
         'QuickD.view.MapShow'
     ],
@@ -18,6 +19,7 @@ Ext.define('QuickD.view.Main', {
             {xtype:'splash'},
             {xtype:'betaview'},
             {xtype:'deallist'},
+            {xtype:'nodeals'},
             /*{xtype:'dealsort'},*/
             {xtype:'dealshow'},
             {xtype:'mapshow'}
