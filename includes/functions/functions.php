@@ -23,7 +23,7 @@ function validateBetakey($betakey){
 	$_SESSION['userbeta_id'] = $result[0]->value->id;
 	$user = $_SESSION['userbeta_email'] = $result[0]->value->email;
 	$expire=time()+86400*31*6;
-	setcookie('userbeta',$betakey,$expire,'/');
+	setcookie('betakey',$betakey,$expire,'/');
 	return $user;
 }
 function getShopowner(){
