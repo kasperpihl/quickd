@@ -348,23 +348,54 @@ DEALS LIST
          -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
               box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
     }
+    .requestNewPassText{
+        margin-top: 30px;
+    }
+    #betakeyField{
+        background:none;
+    }
     input,
     textarea,
     select,
     .uneditable-input {
       display: inline-block;
-      width: 210px;
       height: 18px;
       padding: 4px;
       margin-bottom: 9px;
       font-size: 13px;
       line-height: 18px;
       color: #555555;
-      background-color: #ffffff;
       border: 1px solid #cccccc;
       -webkit-border-radius: 3px;
          -moz-border-radius: 3px;
               border-radius: 3px;
+    }
+    #loginWithFacebook{
+        background: #29447E url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);
+        background-repeat: no-repeat;
+        border-radius:0;
+        border: 0;
+        background-position: left -99px;
+        font-size: 14px;
+        line-height: 14px;
+        cursor: pointer;
+        display: inline-block;
+        padding: 0 0 0 1px;
+        text-decoration: none;
+        outline: none;
+
+        span {
+            background: #5F78AB url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);
+            border-top: solid 1px #879AC0;
+            border-bottom: solid 1px #1A356E;
+            color: white;
+            display: block;
+            font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+            font-weight: bold;
+            padding: 10px 0px 10px 0px;
+            margin: 1px 1px 0 38px;
+            text-shadow: none;
+        }
     }
 }
 #quickd-deals {
