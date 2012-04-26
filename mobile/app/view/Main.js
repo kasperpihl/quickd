@@ -25,6 +25,15 @@ Ext.define('QuickD.view.Main', {
             {xtype:'mapshow'}
         ]
     },
+    maskMe:function(message,noIndicator){
+        var maskObj = { xtype: 'loadmask'};
+        maskObj.message = (message) ? message : 'Loader';
+        maskObj.indicator = (noIndicator) ? false : true;
+        this.setMasked(maskObj);
+    },
+    unmaskMe:function(){
+        this.setMasked(false);
+    },
     applyLayout: function(config) {
       config = config || {};
         if (Ext.os.is.Android) {

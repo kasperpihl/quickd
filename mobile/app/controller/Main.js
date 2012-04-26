@@ -63,6 +63,8 @@ Ext.define('QuickD.controller.Main', {
     },
     useBetaKey:function(key){
         var self = this;
+        var main = this.getMain();
+        main.maskMe('Validerer betakode');
         Ext.Ajax.request({
             url: ROOT_URL+'ajax/betakey.php',
             params:{
@@ -70,13 +72,14 @@ Ext.define('QuickD.controller.Main', {
             },
             method:'POST',
             success:function(data){
-                log('response',data);
+                main.unmaskMe();
                 if(data.responseText != 'false'){
                     userbeta = data.responseText;
                     self.start(true);
                 }
             },
             error:function(data){
+                main.unmaskMe();
                 log('error beta',data);
             }
         });

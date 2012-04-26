@@ -29,6 +29,7 @@ Ext.define('QuickD.view.DealList', {
     config: {
         zIndex:1,
         id: 'quickd-deals',
+        loadingText: 'Henter tilbud omkring dig',
 		plugins:[
 			{ xclass: 'Ext.plugin.PullRefresh', id: 'fedt-mand-spa', pullRefreshText: 'Træk for satan!' }
 		],
