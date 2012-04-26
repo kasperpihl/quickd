@@ -56,8 +56,7 @@ define([
 		animateMenu: function() {
 			$('#menu').animate({'margin-left': '40px'}, 1000, 'easeInOutQuart');
 			if ($('#activities').hasClass('newbie'))
-				$('#activities').animate({left:'200px'}, 500, 'easeInOutQuart', function() { $(this).removeClass('newbie',300) });
-	
+				$('#activities').animate({left:'200px'}, 500, 'easeInOutQuart', function() { $(this).removeClass('newbie',300); });
 		},
 		lock:function(data){
 			if(data.lock == 'activity') this.locked = true;
@@ -90,12 +89,13 @@ define([
 		},
 		clickedActivity:function(obj){
 			/* Get activity (btn_templates) = templates */
-			var id = obj.currentTarget.id;
+			var activity,
+				id = obj.currentTarget.id;
 			if($('#'+id).hasClass('disabled')) return false;
 			if (id == 'logo_top') activity='welcome';
 			else {
 				//$('#'+id).addClass('selected');
-				var activity = id.substr(4);
+				activity = id.substr(4);
 			}
 			this.changeActivity({activity:activity,clicked:true});
 		},

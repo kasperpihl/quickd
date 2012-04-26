@@ -8,11 +8,10 @@ Ext.define('QuickD.controller.Main', {
         refs: {
             main: 'mainview',
             dealListToolbar: 'deallist > toolbar',
-            buttons: 'toolbar > button',
+            buttons: 'button',
             dealList: 'mainview > deallist',
             betaView: 'mainview > betaview',
             noDealsView: 'mainview > nodeals',
-            useKeyButton: 'mainview > betaview button',
             dealShow: 'mainview > dealshow',
             splash: 'mainview > splash',
             dealShowSlider: 'mainview > dealshow > carousel',
@@ -39,58 +38,28 @@ Ext.define('QuickD.controller.Main', {
     init:function(){
         
     },
-    prompt:function(pass,canceled){
-        var res;
-        if(!pass){ 
-            if(canceled){
-                var message;
-                switch(canceled){
-                    case 1:
-                        message = 'Du skal altså bruge kode, smut ind på quickd.com og skriv dig op :-)';
-                    break;
-                    case 2: 
-                        message = 'Skriv dig nu bare op';
-                    break;
-                    case 3:
-                        message = 'Vi kan blive ved sådan her hele dagen!';
-                    break;
-                    case 4:
-                        message = 'Du tør ikke trykke på "OK"';
-                    break;
-                    case 5:
-                        message = 'Jeg vidste det..... jeg er ved at lære dig at kende';
-                    break;
-                    case 6:
-                        message = "Okay er du glad nu, lad være med at trykke på Annuller";
-                    break;
-                    case 7:
-                        message = 'Hvornår tror du selv der sker noget andet?';
-                    break;
-                    case 8:
-                        message = 'Haha jeg har en plan.';
-                    break;
-                    case 9:
-                        message = 'Ja, det er genialt. Tryk Annuller én gang til. I dare you!';
-                    break;
-                    default:
-                        alert('Gotcha');
-                        return window.location = "http://www.quickd.dk";
-                    break;
-                }
-                res = prompt(message,'');
-            }
-            else res = prompt('Indtast din betanøgle, eller skriv dig op på quickd.com','');
-        } else{
-            res = prompt('Forkert nøgle, prøv igen',pass);
-        }
-        if(!res){
-            canceled = canceled ? canceled+1 : 1;
-            var self = this;
-            setTimeout(function(){
-                self.prompt(false,canceled);
-            },2000);
-        }
-        else this.useBetaKey(res);
+    doFacebookConnect:function(){
+        FB.login(function(response) {
+            log('response from facebook',response);
+          // if (response.authResponse) {
+          //   $('#btn_fb_signup').width($('#btn_fb_signup').outerWidth());
+          //   $('#btn_fb_signup').html(spinner);
+          //   $('#start_text').fadeOut('slow');
+          //   var f = $('#btn_fb_like').find('iframe');
+          //   if (f) f.attr('src', f.attr('src'));
+            
+          //   $.post(ROOT_URL+"api/fbconnect", {}, function(data) {
+          //       //console.log(data);
+          //       if (data.success == 'true') {
+          //           //Successfully logged in!!
+          //           showResponse();
+          //       }
+          //   }, 'json');
+            
+          // } else {
+
+          // }
+        }, {scope: 'email'});
     },
     useBetaKey:function(key){
         var self = this;
@@ -101,11 +70,10 @@ Ext.define('QuickD.controller.Main', {
             },
             method:'POST',
             success:function(data){
+                log('response',data);
                 if(data.responseText != 'false'){
                     userbeta = data.responseText;
-                    self.start();
-                }else{
-                    self.prompt(key);
+                    self.start(true);
                 }
             },
             error:function(data){
@@ -113,7 +81,8 @@ Ext.define('QuickD.controller.Main', {
             }
         });
     },
-    start: function() {
+    start: function(closePopup) {
+        if(closePopup) this.getNoDealsView().hide();
         this.$container = $('#quickd-deals .x-scroll-container');
         this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
         // Add deals bg
@@ -135,8 +104,8 @@ Ext.define('QuickD.controller.Main', {
     launch:function(){
 
         if(isIphone == 1 && !window.navigator.standalone){
-            this.getMain().setActiveItem(this.getBetaView());
-            return;
+            //return;
+            //this.getMain().setActiveItem(this.getBetaView());
         }
         if(!userbeta){    
             this.getNoDealsView().show();
@@ -160,6 +129,13 @@ Ext.define('QuickD.controller.Main', {
         var id = t.getId();
         var main = this.getMain();
         switch (id){
+            case 'useBetaKey':
+                var key = this.getNoDealsView().getComponent('betakeyField').getValue();
+                this.useBetaKey(key);
+            break;
+            case 'loginWithFacebook':
+                this.doFacebookConnect();
+            break;
             case 'sortButton':
                 this.sortController.setState();
                 this.changeToView('dealsort');

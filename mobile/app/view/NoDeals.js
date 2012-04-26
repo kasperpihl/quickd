@@ -1,14 +1,15 @@
 Ext.define('QuickD.view.NoDeals', {
-    extend: 'Ext.Panel',
+    extend: 'Ext.form.Panel',
     requires:[
+        'Ext.form.Panel'
     ],
     xtype: 'nodeals',
     config: {
         layout:'vbox',
         // We give it a left and top property to make it floating by default    
         centered:true,
-        width: "80%",
-        height: "60%",
+        width: "95%",
+        height:600,
         showAnimation: {
             type: 'fadeIn',
             duration: 500
@@ -32,10 +33,27 @@ Ext.define('QuickD.view.NoDeals', {
             id:'betakeyField'
         },{
             xtype:'button',
-            width:150,
+            width:100,
             ui:'confirm',
-            id:'usebeta',
+            id:'useBetaKey',
             text:'Brug nøgle'
+        },{
+            xtype:'panel',
+            html: 'Eller anmod om en betanøgle',
+            cls: 'requestNewPassText'
+        },{
+            xtype:'button',
+            ui: 'rounded',
+            text: 'Registrer med facebook',
+            cls:'useFacebook',
+            id:'loginWithFacebook',
+            width:200
+        },{
+            xtype:'button',
+            ui: 'rounded',
+            cls:'useEmail',
+            text: 'Brug email',
+            width:100
         }]
     }
 }); 
