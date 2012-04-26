@@ -10,8 +10,8 @@ Ext.define('QuickD.controller.Main', {
             dealListToolbar: 'deallist > toolbar',
             buttons: 'button',
             dealList: 'mainview > deallist',
-            betaView: 'mainview > betaview',
-            noDealsView: 'mainview > nodeals',
+            betaScreen: 'mainview > betascreen',
+            notApp: 'mainview > notapp',
             dealShow: 'mainview > dealshow',
             splash: 'mainview > splash',
             dealShowSlider: 'mainview > dealshow > carousel',
@@ -41,24 +41,24 @@ Ext.define('QuickD.controller.Main', {
     doFacebookConnect:function(){
         FB.login(function(response) {
             log('response from facebook',response);
-          // if (response.authResponse) {
-          //   $('#btn_fb_signup').width($('#btn_fb_signup').outerWidth());
-          //   $('#btn_fb_signup').html(spinner);
-          //   $('#start_text').fadeOut('slow');
-          //   var f = $('#btn_fb_like').find('iframe');
-          //   if (f) f.attr('src', f.attr('src'));
-            
-          //   $.post(ROOT_URL+"api/fbconnect", {}, function(data) {
-          //       //console.log(data);
-          //       if (data.success == 'true') {
-          //           //Successfully logged in!!
-          //           showResponse();
-          //       }
-          //   }, 'json');
-            
-          // } else {
+            if (response.authResponse) {
+                $('#btn_fb_signup').width($('#btn_fb_signup').outerWidth());
+                $('#btn_fb_signup').html(spinner);
+                $('#start_text').fadeOut('slow');
+                var f = $('#btn_fb_like').find('iframe');
+                if (f) f.attr('src', f.attr('src'));
+                
+                $.post(ROOT_URL+"api/fbconnect", {}, function(data) {
+                    //console.log(data);
+                    if (data.success == 'true') {
+                        //Successfully logged in!!
+                        showResponse();
+                    }
+                }, 'json');
+                
+            } else {
 
-          // }
+            }
         }, {scope: 'email'});
     },
     useBetaKey:function(key){
@@ -85,7 +85,7 @@ Ext.define('QuickD.controller.Main', {
         });
     },
     start: function(closePopup) {
-        if(closePopup) this.getNoDealsView().hide();
+        if(closePopup) this.getBetaScreen().hide();
         this.$container = $('#quickd-deals .x-scroll-container');
         this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
         // Add deals bg
@@ -107,11 +107,12 @@ Ext.define('QuickD.controller.Main', {
     launch:function(){
 
         if(isIphone == 1 && !window.navigator.standalone){
-            //return;
-            //this.getMain().setActiveItem(this.getBetaView());
+            
+            this.getMain().setActiveItem(this.getNotApp());
+            return;
         }
         if(!userbeta){    
-            this.getNoDealsView().show();
+            this.getBetaScreen().show();
         }
         else {
             this.start();
@@ -133,7 +134,7 @@ Ext.define('QuickD.controller.Main', {
         var main = this.getMain();
         switch (id){
             case 'useBetaKey':
-                var key = this.getNoDealsView().getComponent('betakeyField').getValue();
+                var key = this.getBetaScreen().getComponent('betakeyField').getValue();
                 this.useBetaKey(key);
             break;
             case 'loginWithFacebook':
@@ -225,46 +226,49 @@ Ext.define('QuickD.controller.Main', {
         view.setSlider(instance.getData().items);
     },
     onLocationUpdate:function(){
-        var lat = this.location.getLatitude();
-        var long = this.location.getLongitude();
-        this.getAddress(lat,long);
-        if(distance(lat,long,56.16294,10.20392) > 10000){
+        var lat1 = this.location.getLatitude();
+        var long1 = this.location.getLongitude();
+        this.getAddress(lat1,long1);
+        if(distance(lat1,long1,56.16294,10.20392) > 10000){
             return this.noLocation();
         }
-        localStorage.setItem('lat',lat);
-        localStorage.setItem('long',long);
+        localStorage.setItem('lat',lat1);
+        localStorage.setItem('long',long1);
         Ext.getStore('Deals').load({
             params: {
-                lat: lat,
-                long: long
+                lat: lat1,
+                long: long1
             },
             scope: this
         });
     },
     getAddress:function(lat,long){
-        var city,
-            self = this,
-            geocoder = new google.maps.Geocoder(),
-            latlng = new google.maps.LatLng(parseFloat(lat),parseFloat(long));
+        var city,self = this;
+        if(google){
+            var geocoder = new google.maps.Geocoder(),
+                latlng = new google.maps.LatLng(parseFloat(lat),parseFloat(long));
 
-        geocoder.geocode({'latLng': latlng}, function(results, status) {
-            var found = false; 
-            if (status == google.maps.GeocoderStatus.OK) {        
-                if (results[0]) {          
-                    var res = results[0].address_components;
-                    for (var i in res){
-                        if(res[i].types[0] == 'sublocality')
-                            city = res[i].short_name;
-                    }
-                    if(!city) city = 'Aarhus C';
-                } else {          
-                    city = 'Aarhus C';     
-                }  
-            } else {        
-                city = 'Aarhus C';   
-            }
-            self.getDealList().setCity(city);
-        });  
+            geocoder.geocode({'latLng': latlng}, function(results, status) {
+                var found = false; 
+                if (status == google.maps.GeocoderStatus.OK) {        
+                    if (results[0]) {          
+                        var res = results[0].address_components;
+                        for (var i in res){
+                            if(res[i].types[0] == 'sublocality')
+                                city = res[i].short_name;
+                        }
+                        if(!city) city = 'Aarhus C';
+                    } else {          
+                        city = 'Aarhus C';     
+                    }  
+                } else {        
+                    city = 'Aarhus C';   
+                }
+                self.getDealList().setCity(city);
+            });  
+        } else{
+            self.getDealList().setCity('Aarhus C');
+        }
     },
     handleMap: function(){
         this.changeToView('mapshow');

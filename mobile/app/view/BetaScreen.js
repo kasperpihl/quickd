@@ -1,15 +1,15 @@
-Ext.define('QuickD.view.NoDeals', {
+Ext.define('QuickD.view.BetaScreen', {
     extend: 'Ext.form.Panel',
     requires:[
         'Ext.form.Panel'
     ],
-    xtype: 'nodeals',
+    xtype: 'betascreen',
     config: {
         layout:'vbox',
         // We give it a left and top property to make it floating by default    
         centered:true,
-        width: "95%",
-        height:600,
+        width: 300,
+        height:300,
         showAnimation: {
             type: 'fadeIn',
             duration: 500
@@ -30,7 +30,9 @@ Ext.define('QuickD.view.NoDeals', {
             html:'Dette er en lukket beta i Aarhus, indtast den betakode du har modtaget'
         },{
             xtype:'textfield',
-            id:'betakeyField'
+            placeHolder:'Betanøgle',
+            id:'betakeyField',
+            width:'260px'
         },{
             xtype:'button',
             width:100,
@@ -47,13 +49,20 @@ Ext.define('QuickD.view.NoDeals', {
             text: 'Registrer med facebook',
             cls:'useFacebook',
             id:'loginWithFacebook',
-            width:200
+            width:260
         },{
             xtype:'button',
             ui: 'rounded',
             cls:'useEmail',
             text: 'Brug email',
-            width:100
+            width:100,
+            hidden:true
+        },{
+            xtype:'textfield',
+            label:'Email',
+            placeHolder:'eks. navn@quickd.com',
+            id:'emailField',
+            hidden:true
         }]
     }
 }); 
