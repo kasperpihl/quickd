@@ -1,7 +1,9 @@
 Ext.define('QuickD.view.BetaScreen', {
     extend: 'Ext.form.Panel',
     requires:[
-        'Ext.form.Panel'
+        'Ext.form.Panel',
+        'Ext.Label',
+        'Ext.form.FieldSet'
     ],
     xtype: 'betascreen',
     config: {
@@ -25,14 +27,26 @@ Ext.define('QuickD.view.BetaScreen', {
         styleHtmlContent: true,
         scrollable: true,
         id:'quickd-beta-screen',
-        items: [{
-            xtype:'panel',
-            html:'Dette er en lukket beta i Aarhus, indtast den betakode du har modtaget'
-        },{
-            xtype:'textfield',
-            placeHolder:'Betanøgle',
-            id:'betakeyField',
-            width:'260px'
+        items: [
+        {
+            xtype:'fieldset',
+            title:'Dette er en lukket beta i Aarhus',
+            instructions:'indtast den betakode du har modtaget',
+            items:[{
+                xtype:'textfield',
+                placeHolder:'Betanøgle',
+                id:'betakeyField',
+                width:'260px',
+                listeners:{
+                    focus:function(){ this.getParent().getParent().gotFocus(); }
+                }
+            },{
+                xtype: 'label',
+                html: 'Den indtastede betakode er forkert',
+                itemId: 'betaErrorText',
+                hidden: true,
+                cls: 'errorField'
+            }]
         },{
             xtype:'button',
             width:100,
@@ -40,7 +54,7 @@ Ext.define('QuickD.view.BetaScreen', {
             id:'useBetaKey',
             text:'Brug nøgle'
         },{
-            xtype:'panel',
+            xtype:'label',
             html: 'Eller anmod om en betanøgle',
             cls: 'requestNewPassText'
         },{
@@ -59,10 +73,23 @@ Ext.define('QuickD.view.BetaScreen', {
             hidden:true
         },{
             xtype:'textfield',
-            label:'Email',
             placeHolder:'eks. navn@quickd.com',
             id:'emailField',
             hidden:true
         }]
+    },
+    gotFocus:function(){
+        if(this.errorShown) this.removeError();
+        return;
+    },
+    removeError:function(){
+        if(!this.errorShown) return false;
+        this.errorShown = false;
+        var comp = this.down('#betaErrorText').hide();
+    },
+    showError:function(text){
+        if(this.errorShown) return false;
+        this.errorShown = true;
+        var comp = this.down('#betaErrorText').show();
     }
 }); 

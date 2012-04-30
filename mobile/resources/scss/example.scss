@@ -354,6 +354,11 @@ DEALS LIST
     #betakeyField{
         background:none;
     }
+    .errorField .x-innerhtml{
+        font-style:italic;
+        font-size:12px;
+        color:red;
+    }
     input,
     textarea,
     select,

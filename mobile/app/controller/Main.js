@@ -18,9 +18,6 @@ Ext.define('QuickD.controller.Main', {
             mapShow: 'mainview > mapshow'
         },
         control: {
-            useKeyButton:{
-                tap:'useBetaKey'
-            },
             buttons:{
                 tap: 'buttonHandler'
             },
@@ -76,6 +73,12 @@ Ext.define('QuickD.controller.Main', {
                 if(data.responseText != 'false'){
                     userbeta = data.responseText;
                     self.start(true);
+                }
+                else {
+                    var view = self.getBetaScreen();
+                    view.showError();
+                    view.down('#betakeyField').focus();
+
                 }
             },
             error:function(data){
@@ -134,7 +137,7 @@ Ext.define('QuickD.controller.Main', {
         var main = this.getMain();
         switch (id){
             case 'useBetaKey':
-                var key = this.getBetaScreen().getComponent('betakeyField').getValue();
+                var key = main.down('#betakeyField').getValue();
                 this.useBetaKey(key);
             break;
             case 'loginWithFacebook':
