@@ -70,14 +70,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	Image positions
 */
 @-webkit-keyframes bluePulse {
-  /* line 287, ../sass/_base.scss */
+  /* line 288, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 288, ../sass/_base.scss */
+  /* line 289, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -86,7 +86,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 289, ../sass/_base.scss */
+  /* line 290, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -95,14 +95,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-moz-keyframes bluePulse {
-  /* line 287, ../sass/_base.scss */
+  /* line 288, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 288, ../sass/_base.scss */
+  /* line 289, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -111,7 +111,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 289, ../sass/_base.scss */
+  /* line 290, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -120,14 +120,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-ms-keyframes bluePulse {
-  /* line 287, ../sass/_base.scss */
+  /* line 288, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 288, ../sass/_base.scss */
+  /* line 289, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -136,7 +136,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 289, ../sass/_base.scss */
+  /* line 290, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -145,21 +145,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-webkit-keyframes whitePulse {
-  /* line 295, ../sass/_base.scss */
+  /* line 296, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 296, ../sass/_base.scss */
+  /* line 297, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 297, ../sass/_base.scss */
+  /* line 298, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -168,21 +168,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-moz-keyframes whitePulse {
-  /* line 295, ../sass/_base.scss */
+  /* line 296, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 296, ../sass/_base.scss */
+  /* line 297, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 297, ../sass/_base.scss */
+  /* line 298, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -191,21 +191,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-ms-keyframes whitePulse {
-  /* line 295, ../sass/_base.scss */
+  /* line 296, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 296, ../sass/_base.scss */
+  /* line 297, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 297, ../sass/_base.scss */
+  /* line 298, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -287,14 +287,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	Image positions
 */
 @-webkit-keyframes bluePulse {
-  /* line 287, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 288, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 288, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 289, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -303,7 +303,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 289, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 290, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -312,14 +312,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-moz-keyframes bluePulse {
-  /* line 287, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 288, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 288, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 289, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -328,7 +328,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 289, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 290, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -337,14 +337,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-ms-keyframes bluePulse {
-  /* line 287, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 288, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 288, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 289, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -353,7 +353,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 289, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 290, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -362,21 +362,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-webkit-keyframes whitePulse {
-  /* line 295, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 296, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 296, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 297, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 297, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 298, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -385,21 +385,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-moz-keyframes whitePulse {
-  /* line 295, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 296, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 296, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 297, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 297, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 298, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -408,21 +408,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-ms-keyframes whitePulse {
-  /* line 295, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 296, ../sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 296, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 297, ../sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 297, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+  /* line 298, ../sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -1405,12 +1405,12 @@ body {
   width: 404px;
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
-/* line 232, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 233, ../sass/_base.scss */
 #entry_view .header #login .login_fields .field {
   margin: 10px auto;
   text-align: center;
 }
-/* line 236, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 237, ../sass/_base.scss */
 #entry_view .header #login .login_fields .field .input-wrapper, #entry_view .header #login .login_fields .field input {
   -webkit-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   -moz-transition: all linear 0.2s, box-shadow ease-out 0.2s;
@@ -1444,15 +1444,15 @@ body {
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
 }
-/* line 260, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 261, ../sass/_base.scss */
 #entry_view .header #login .login_fields .field .input-wrapper {
   padding: 0px;
 }
-/* line 261, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 262, ../sass/_base.scss */
 #entry_view .header #login .login_fields .field input:focus, #entry_view .header #login .login_fields .field .input-wrapper.focus {
   border: 1px solid #59CCD9;
 }
-/* line 264, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 265, ../sass/_base.scss */
 #entry_view .header #login .login_fields .field input.wrapped, #entry_view .header #login .login_fields .field input.wrapped:focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -1464,14 +1464,14 @@ body {
   z-index: 2;
   display: block;
 }
-/* line 273, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 274, ../sass/_base.scss */
 #entry_view .header #login .login_fields .field .label.long, #entry_view .header #login .login_fields .window .content .field .long input.label, .window .content #entry_view .header #login .login_fields .field .long input.label, #entry_view .header #login .login_fields .window .content .field .long textarea.label, .window .content #entry_view .header #login .login_fields .field .long textarea.label {
   margin-bottom: 5px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
   color: black;
 }
-/* line 274, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 275, ../sass/_base.scss */
 #entry_view .header #login .login_fields .field .label.hider {
   position: absolute;
   top: 26px;
@@ -1560,7 +1560,7 @@ body {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 66, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 67, ../sass/_base.scss */
 #entry_view .header #register .register_fields input[type="text"], #entry_view .header #register .register_fields input[type="password"] {
   width: 100%;
   border: 1px solid #CCC;
@@ -1579,21 +1579,21 @@ body {
   -moz-transition: border .2s linear, box-shadow .2s linear;
   -webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
 }
-/* line 78, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 79, ../sass/_base.scss */
 #entry_view .header #register .register_fields input[type="text"].errorTip, #entry_view .header #register .register_fields input[type="password"].errorTip {
   border: 1px solid #DD5555;
   -webkit-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-/* line 84, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 85, ../sass/_base.scss */
 #entry_view .header #register .register_fields input[type="text"]:focus:not(.errorTip), #entry_view .header #register .register_fields input[type="password"]:focus:not(.errorTip) {
   border: 1px solid #59CCD9;
   -webkit-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-/* line 88, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 89, ../sass/_base.scss */
 #entry_view .header #register .register_fields div.errorTip {
   position: absolute;
   width: 200px;
@@ -1614,7 +1614,7 @@ body {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 103, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 104, ../sass/_base.scss */
 #entry_view .header #register .register_fields button {
   float: left;
   line-height: 25px;
@@ -1649,7 +1649,7 @@ body {
   background-image: -ms-linear-gradient(top, #eae879 0%, #fd9a0f 100%);
   background-image: linear-gradient(top, #eae879 0%, #fd9a0f 100%);
 }
-/* line 127, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 128, ../sass/_base.scss */
 #entry_view .header #register .register_fields button:hover {
   background-color: #eae879;
   *zoom: 1;
@@ -1663,13 +1663,13 @@ body {
   background-image: -ms-linear-gradient(top, #eae879 0%, rgba(253, 154, 15, 0.7) 100%);
   background-image: linear-gradient(top, #eae879 0%, rgba(253, 154, 15, 0.7) 100%);
 }
-/* line 133, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 134, ../sass/_base.scss */
 #entry_view .header #register .register_fields button:active {
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
-/* line 137, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 138, ../sass/_base.scss */
 #entry_view .header #register .register_fields label {
   font-weight: bold;
   float: left;
@@ -1679,11 +1679,11 @@ body {
   margin-top: 15px;
   color: rgba(0, 0, 0, 0.6);
 }
-/* line 146, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 147, ../sass/_base.scss */
 #entry_view .header #register .register_fields label input[type="checkbox"] {
   margin-right: 7px;
 }
-/* line 150, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 151, ../sass/_base.scss */
 #entry_view .header #register .register_fields label a {
   font-weight: bold;
   font-size: 12px;
@@ -1691,11 +1691,11 @@ body {
   color: #2E73BC;
   text-decoration: none;
 }
-/* line 158, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 159, ../sass/_base.scss */
 #entry_view .header #register .register_fields label a:hover {
   text-decoration: underline;
 }
-/* line 162, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 163, ../sass/_base.scss */
 #entry_view .header #register .register_fields label small {
   color: rgba(0, 0, 0, 0.4);
   font-size: 12px;
@@ -1863,7 +1863,7 @@ body {
   font-weight: bold;
 }
 
-/* line 66, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 67, ../sass/_base.scss */
 #resetpassword_dialog input[type="text"], #resetpassword_dialog input[type="password"] {
   width: 100%;
   border: 1px solid #CCC;
@@ -1882,21 +1882,21 @@ body {
   -moz-transition: border .2s linear, box-shadow .2s linear;
   -webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
 }
-/* line 78, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 79, ../sass/_base.scss */
 #resetpassword_dialog input[type="text"].errorTip, #resetpassword_dialog input[type="password"].errorTip {
   border: 1px solid #DD5555;
   -webkit-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-/* line 84, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 85, ../sass/_base.scss */
 #resetpassword_dialog input[type="text"]:focus:not(.errorTip), #resetpassword_dialog input[type="password"]:focus:not(.errorTip) {
   border: 1px solid #59CCD9;
   -webkit-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-/* line 88, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 89, ../sass/_base.scss */
 #resetpassword_dialog div.errorTip {
   position: absolute;
   width: 200px;
@@ -1917,7 +1917,7 @@ body {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 103, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 104, ../sass/_base.scss */
 #resetpassword_dialog button {
   float: left;
   line-height: 25px;
@@ -1952,7 +1952,7 @@ body {
   background-image: -ms-linear-gradient(top, #eae879 0%, #fd9a0f 100%);
   background-image: linear-gradient(top, #eae879 0%, #fd9a0f 100%);
 }
-/* line 127, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 128, ../sass/_base.scss */
 #resetpassword_dialog button:hover {
   background-color: #eae879;
   *zoom: 1;
@@ -1966,13 +1966,13 @@ body {
   background-image: -ms-linear-gradient(top, #eae879 0%, rgba(253, 154, 15, 0.7) 100%);
   background-image: linear-gradient(top, #eae879 0%, rgba(253, 154, 15, 0.7) 100%);
 }
-/* line 133, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 134, ../sass/_base.scss */
 #resetpassword_dialog button:active {
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
-/* line 137, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 138, ../sass/_base.scss */
 #resetpassword_dialog label {
   font-weight: bold;
   float: left;
@@ -1982,11 +1982,11 @@ body {
   margin-top: 15px;
   color: rgba(0, 0, 0, 0.6);
 }
-/* line 146, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 147, ../sass/_base.scss */
 #resetpassword_dialog label input[type="checkbox"] {
   margin-right: 7px;
 }
-/* line 150, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 151, ../sass/_base.scss */
 #resetpassword_dialog label a {
   font-weight: bold;
   font-size: 12px;
@@ -1994,11 +1994,11 @@ body {
   color: #2E73BC;
   text-decoration: none;
 }
-/* line 158, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 159, ../sass/_base.scss */
 #resetpassword_dialog label a:hover {
   text-decoration: underline;
 }
-/* line 162, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 163, ../sass/_base.scss */
 #resetpassword_dialog label small {
   color: rgba(0, 0, 0, 0.4);
   font-size: 12px;
@@ -2211,12 +2211,12 @@ body {
   border-width: 20px 21px 0;
   border-color: #B5B5B5 transparent;
 }
-/* line 232, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 233, ../sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field {
   margin: 10px auto;
   text-align: center;
 }
-/* line 236, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 237, ../sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field .input-wrapper, #welcome_add_shop.bubble-dialog .field input {
   -webkit-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   -moz-transition: all linear 0.2s, box-shadow ease-out 0.2s;
@@ -2250,15 +2250,15 @@ body {
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
 }
-/* line 260, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 261, ../sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field .input-wrapper {
   padding: 0px;
 }
-/* line 261, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 262, ../sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field input:focus, #welcome_add_shop.bubble-dialog .field .input-wrapper.focus {
   border: 1px solid #59CCD9;
 }
-/* line 264, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 265, ../sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field input.wrapped, #welcome_add_shop.bubble-dialog .field input.wrapped:focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -2270,14 +2270,14 @@ body {
   z-index: 2;
   display: block;
 }
-/* line 273, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 274, ../sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field .label.long, #welcome_add_shop.bubble-dialog .window .content .field .long input.label, .window .content #welcome_add_shop.bubble-dialog .field .long input.label, #welcome_add_shop.bubble-dialog .window .content .field .long textarea.label, .window .content #welcome_add_shop.bubble-dialog .field .long textarea.label {
   margin-bottom: 5px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
   color: black;
 }
-/* line 274, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 275, ../sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field .label.hider {
   position: absolute;
   top: 14px;
@@ -2892,14 +2892,14 @@ form textarea:focus, form input:focus {
   cursor: pointer;
   font-size: 14px;
 }
-/* line 174, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 175, ../sass/_base.scss */
 .window .content .list-item img {
   width: 75px;
   float: left;
   margin: 0px;
   height: 75px;
 }
-/* line 180, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 181, ../sass/_base.scss */
 .window .content .list-item .deal-img {
   width: 75px;
   float: left;
@@ -2908,17 +2908,17 @@ form textarea:focus, form input:focus {
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-/* line 188, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 189, ../sass/_base.scss */
 .window .content .list-item .details {
   float: left;
   padding: 5px 0px;
   width: 180px;
 }
-/* line 189, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 190, ../sass/_base.scss */
 .window .content .list-item .prices {
   margin-top: 0px;
 }
-/* line 190, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 191, ../sass/_base.scss */
 .window .content .list-item h2 {
   color: #2F3E46;
   white-space: nowrap;
@@ -2926,19 +2926,19 @@ form textarea:focus, form input:focus {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 197, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 198, ../sass/_base.scss */
 .window .content .list-item span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 198, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 199, ../sass/_base.scss */
 .window .content .list-item span em {
   font-size: 14px;
   color: #545454;
 }
-/* line 205, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 206, ../sass/_base.scss */
 .window .content .list-item:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -2952,17 +2952,17 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
-/* line 219, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 220, ../sass/_base.scss */
 .window .content .list-item .details {
   color: #828282;
 }
-/* line 220, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 221, ../sass/_base.scss */
 .window .content .list-item span {
   padding: 5px 0px;
   clear: both;
   font-size: 0.8em;
 }
-/* line 221, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 222, ../sass/_base.scss */
 .window .content .list-item .address {
   clear: both;
   display: block;
@@ -3056,14 +3056,14 @@ form textarea:focus, form input:focus {
   font-size: 14px;
   height: auto;
 }
-/* line 174, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 175, ../sass/_base.scss */
 .window .content .list-item-deals img {
   width: 75px;
   float: left;
   margin: 0px;
   height: 75px;
 }
-/* line 180, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 181, ../sass/_base.scss */
 .window .content .list-item-deals .deal-img {
   width: 75px;
   float: left;
@@ -3072,17 +3072,17 @@ form textarea:focus, form input:focus {
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-/* line 188, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 189, ../sass/_base.scss */
 .window .content .list-item-deals .details {
   float: left;
   padding: 5px 0px;
   width: 180px;
 }
-/* line 189, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 190, ../sass/_base.scss */
 .window .content .list-item-deals .prices {
   margin-top: 0px;
 }
-/* line 190, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 191, ../sass/_base.scss */
 .window .content .list-item-deals h2 {
   color: #2F3E46;
   white-space: nowrap;
@@ -3090,19 +3090,19 @@ form textarea:focus, form input:focus {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 197, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 198, ../sass/_base.scss */
 .window .content .list-item-deals span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 198, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 199, ../sass/_base.scss */
 .window .content .list-item-deals span em {
   font-size: 14px;
   color: #545454;
 }
-/* line 205, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 206, ../sass/_base.scss */
 .window .content .list-item-deals:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -3116,17 +3116,17 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
-/* line 219, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 220, ../sass/_base.scss */
 .window .content .list-item-deals .details {
   color: #828282;
 }
-/* line 220, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 221, ../sass/_base.scss */
 .window .content .list-item-deals span {
   padding: 5px 0px;
   clear: both;
   font-size: 0.8em;
 }
-/* line 221, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
+/* line 222, ../sass/_base.scss */
 .window .content .list-item-deals .address {
   clear: both;
   display: block;
@@ -4351,64 +4351,99 @@ form textarea:focus, form input:focus {
   margin: 0px 20%;
 }
 /* line 2061, ../sass/screen.scss */
+#start_deal .type-selector {
+  margin: 10px 0px 0px 10px;
+}
+/* line 2063, ../sass/screen.scss */
+#start_deal .type-selector .option {
+  padding: 5px 15px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #AAAAAA;
+  margin: 5px 1px 0px 1px;
+  float: left;
+  position: relative;
+  top: 1px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;
+  -ms-border-top-left-radius: 10px;
+  -o-border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -ms-border-top-right-radius: 10px;
+  -o-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2E2YTZhNiIvPjxzdG9wIG9mZnNldD0iOTglIiBzdG9wLWNvbG9yPSIjYzhjOGM4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a6a6a6), color-stop(98%, #c8c8c8));
+  background-image: -webkit-linear-gradient(top, #a6a6a6 0%, #c8c8c8 98%);
+  background-image: -moz-linear-gradient(top, #a6a6a6 0%, #c8c8c8 98%);
+  background-image: -o-linear-gradient(top, #a6a6a6 0%, #c8c8c8 98%);
+  background-image: -ms-linear-gradient(top, #a6a6a6 0%, #c8c8c8 98%);
+  background-image: linear-gradient(top, #a6a6a6 0%, #c8c8c8 98%);
+  color: #838383;
+}
+/* line 2071, ../sass/screen.scss */
+#start_deal .type-selector .option:hover {
+  background: #ccc;
+}
+/* line 2072, ../sass/screen.scss */
+#start_deal .type-selector .option.selected, #start_deal .type-selector .option.selected:hover {
+  z-index: 2;
+  cursor: default;
+  color: #333;
+  background: #e8e8e8;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE8E8E8', endColorstr='#FFC4C4C4');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y1ZjVmNSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U4ZThlOCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f5f5f5), color-stop(100%, #e8e8e8));
+  background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: -moz-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: -o-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: -ms-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image: linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid #e8e8e8;
+}
+/* line 2085, ../sass/screen.scss */
 #start_deal .head {
   font-size: 32px;
   text-align: left;
   margin: 20px 0px;
 }
-/* line 2066, ../sass/screen.scss */
+/* line 2090, ../sass/screen.scss */
 #start_deal .block {
   clear: both;
   position: relative;
-  background-color: #FFF;
+  background-color: #e8e8e8;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE8E8E8', endColorstr='#FFC4C4C4');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U4ZThlOCIvPjxzdG9wIG9mZnNldD0iOTglIiBzdG9wLWNvbG9yPSIjYzRjNGM0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e8e8e8), color-stop(98%, #c4c4c4));
+  background-image: -webkit-linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
+  background-image: -moz-linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
+  background-image: -o-linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
+  background-image: -ms-linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
+  background-image: linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
   border: 1px solid #e3e3e3;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
   border-radius: 8px;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
   padding: 10px;
-  margin: 10px 0px;
+  margin: 0px;
   opacity: 0.92;
 }
-/* line 2074, ../sass/screen.scss */
-#start_deal .block.noOne {
-  background-color: #e8e8e8 url("i/first.png") no-repeat top left;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE8E8E8', endColorstr='#FFC4C4C4');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U4ZThlOCIvPjxzdG9wIG9mZnNldD0iOTglIiBzdG9wLWNvbG9yPSIjYzRjNGM0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e8e8e8), color-stop(98%, #c4c4c4));
-  background-image: -webkit-linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
-  background-image: -moz-linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
-  background-image: -o-linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
-  background-image: -ms-linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
-  background-image: linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
-  margin-bottom: 0px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
-}
-/* line 2082, ../sass/screen.scss */
-#start_deal .block.noTwo {
-  background-color: #e8e8e8 url("i/first.png") no-repeat top left;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE8E8E8', endColorstr='#FFC4C4C4');
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U4ZThlOCIvPjxzdG9wIG9mZnNldD0iOTglIiBzdG9wLWNvbG9yPSIjYzRjNGM0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e8e8e8), color-stop(98%, #c4c4c4));
-  background-image: -webkit-linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
-  background-image: -moz-linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
-  background-image: -o-linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
-  background-image: -ms-linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
-  background-image: linear-gradient(top, #e8e8e8 0%, #c4c4c4 98%);
-  margin-bottom: 0px;
-  height: 90px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
-}
-/* line 2090, ../sass/screen.scss */
-#start_deal .block.noThree {
-  background: white url("i/third.png") no-repeat top left;
-}
-/* line 2093, ../sass/screen.scss */
+/* line 2103, ../sass/screen.scss */
 #start_deal .label {
   width: 200px;
   float: left;
@@ -4416,56 +4451,33 @@ form textarea:focus, form input:focus {
   padding: 30px 0px 30px 20px;
   text-shadow: 1px 1px 1px white;
 }
-/* line 2094, ../sass/screen.scss */
+/* line 2104, ../sass/screen.scss */
 #start_deal .data {
   float: right;
   min-width: 320px;
   width: auto !important;
   width: 320px;
 }
-/* line 2096, ../sass/screen.scss */
-#start_deal .select_template {
-  padding: 10px;
-  margin: 20px 10px;
-  font-size: 16px;
-  float: right;
-}
-/* line 2097, ../sass/screen.scss */
-#start_deal #selected_template_area {
-  padding: 0px;
-  margin: 10px;
-  float: right;
-  border: thin solid #ccc;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
-  border-radius: 8px;
-}
-/* line 2099, ../sass/screen.scss */
-#start_deal .set_time .label {
-  width: auto;
-}
-/* line 2100, ../sass/screen.scss */
-#start_deal .set_time .field {
-  margin: 10px 15px 5px;
-  float: left;
-}
-/* line 2102, ../sass/screen.scss */
-#start_deal .set_time .field .sublabel {
+/* line 2105, ../sass/screen.scss */
+#start_deal label, #start_deal .sublabel {
   color: #333;
   font-size: 16px;
   text-align: left;
   clear: both;
   margin: 0px 0px 5px 0px;
 }
-/* line 2103, ../sass/screen.scss */
-#start_deal .set_time .field .subdata {
+/* line 2106, ../sass/screen.scss */
+#start_deal .field {
+  margin: 10px 15px 5px;
+  float: left;
+}
+/* line 2108, ../sass/screen.scss */
+#start_deal .field .subdata {
   float: right;
   clear: both;
 }
-/* line 2104, ../sass/screen.scss */
-#start_deal .set_time .field .subdata input {
+/* line 2109, ../sass/screen.scss */
+#start_deal .field input {
   width: 160px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
@@ -4482,36 +4494,71 @@ form textarea:focus, form input:focus {
   -moz-box-shadow: inset 0 0 3px black;
   box-shadow: inset 0 0 3px black;
 }
-/* line 2112, ../sass/screen.scss */
-#start_deal .set_time .field .subdata input:focus {
+/* line 2117, ../sass/screen.scss */
+#start_deal .field input:focus {
   border: 1px solid #888;
   -webkit-box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
   box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
 }
-/* line 2117, ../sass/screen.scss */
+/* line 2122, ../sass/screen.scss */
+#start_deal .select_template {
+  padding: 10px;
+  margin: 20px 10px;
+  font-size: 16px;
+  float: right;
+}
+/* line 2123, ../sass/screen.scss */
+#start_deal #selected_template_area {
+  padding: 0px;
+  margin: 10px;
+  float: right;
+  border: thin solid #ccc;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+}
+/* line 2124, ../sass/screen.scss */
+#start_deal #time_block {
+  position: relative;
+}
+/* line 2125, ../sass/screen.scss */
+#start_deal .set_time {
+  height: 90px;
+}
+/* line 2127, ../sass/screen.scss */
+#start_deal .set_time .label {
+  width: auto;
+}
+/* line 2128, ../sass/screen.scss */
+#start_deal .set_time .start_time label {
+  display: block;
+}
+/* line 2130, ../sass/screen.scss */
 #start_deal .set_time .field.select-hours {
   margin-top: 8px;
 }
-/* line 2119, ../sass/screen.scss */
+/* line 2132, ../sass/screen.scss */
 #start_deal .set_time .time-slider {
   width: 220px;
   clear: both;
   margin: 10px 0px 5px 0px;
 }
-/* line 2120, ../sass/screen.scss */
+/* line 2133, ../sass/screen.scss */
 #start_deal .set_time .show_hours {
   clear: both;
   text-align: center;
 }
-/* line 2122, ../sass/screen.scss */
+/* line 2135, ../sass/screen.scss */
 #start_deal .set_time .show_hours .hours {
   font-size: 24px;
   padding: 0px 5px;
   color: black;
   text-shadow: 1px 1px 1px white;
 }
-/* line 2124, ../sass/screen.scss */
+/* line 2137, ../sass/screen.scss */
 #start_deal .set_time .end_time {
   clear: both;
   text-align: center;
@@ -4519,17 +4566,95 @@ form textarea:focus, form input:focus {
   color: #333;
   margin-top: 15px;
 }
-/* line 2125, ../sass/screen.scss */
+/* line 2138, ../sass/screen.scss */
 #start_deal .set_time .end_time #deal_end_time {
   color: #000;
   font-size: 16px;
 }
-/* line 2128, ../sass/screen.scss */
+/* line 2141, ../sass/screen.scss */
+#start_deal .regular_deal {
+  height: 90px;
+}
+/* line 2143, ../sass/screen.scss */
+#start_deal .regular_deal .field {
+  margin: 5px 0px;
+  clear: both;
+  float: right;
+}
+/* line 2145, ../sass/screen.scss */
+#start_deal .regular_deal .field.regular-days label {
+  line-height: 30px;
+  vertical-align: top;
+}
+/* line 2146, ../sass/screen.scss */
+#start_deal .regular_deal .field.regular-days #day-selector {
+  display: inline-block;
+}
+/* line 2147, ../sass/screen.scss */
+#start_deal .regular_deal .field.regular-days .day-block {
+  float: left;
+  margin: 1px;
+  border: 1px solid #ccc;
+  background: #EAEAEA;
+  padding: 5px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 2151, ../sass/screen.scss */
+#start_deal .regular_deal .field.regular-days .day-block:hover {
+  background-color: #CECECE;
+}
+/* line 2152, ../sass/screen.scss */
+#start_deal .regular_deal .field.regular-days .day-block.selected {
+  background-color: #5e961b;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzVlOTYxYiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNhNmIwOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5e961b), color-stop(100%, #3a6b09));
+  background-image: -webkit-linear-gradient(top, #5e961b 0%, #3a6b09 100%);
+  background-image: -moz-linear-gradient(top, #5e961b 0%, #3a6b09 100%);
+  background-image: -o-linear-gradient(top, #5e961b 0%, #3a6b09 100%);
+  background-image: -ms-linear-gradient(top, #5e961b 0%, #3a6b09 100%);
+  background-image: linear-gradient(top, #5e961b 0%, #3a6b09 100%);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
+  border: 1px solid #4E7A00;
+  color: white;
+}
+/* line 2161, ../sass/screen.scss */
+#start_deal .regular_deal .field.regular-time {
+  float: right;
+  margin-right: 5px;
+}
+/* line 2163, ../sass/screen.scss */
+#start_deal .regular_deal .field.regular-time label {
+  padding: 0px 5px 0px 20px;
+}
+/* line 2164, ../sass/screen.scss */
+#start_deal .regular_deal .field.regular-time .hint {
+  padding-right: 21px;
+  margin-top: -1px;
+  text-align: right;
+  font-size: 12px;
+  color: #666;
+}
+/* line 2166, ../sass/screen.scss */
+#start_deal .regular_deal input {
+  width: 100px;
+}
+/* line 2168, ../sass/screen.scss */
 #start_deal .starter {
   width: 62%;
   margin: 20px auto;
 }
-/* line 2129, ../sass/screen.scss */
+/* line 2169, ../sass/screen.scss */
 #start_deal .start_deal_btn {
   padding: 10px 20px;
   font-size: 24px;
@@ -4538,7 +4663,7 @@ form textarea:focus, form input:focus {
   display: block;
   position: relative;
 }
-/* line 2131, ../sass/screen.scss */
+/* line 2171, ../sass/screen.scss */
 #start_deal .start_deal_btn.disabled {
   -webkit-transition-property: none;
   -moz-transition-property: none;
@@ -4549,21 +4674,21 @@ form textarea:focus, form input:focus {
   background-size: auto;
 }
 
-/* line 2140, ../sass/screen.scss */
+/* line 2180, ../sass/screen.scss */
 div.ui-datepicker {
   font-size: 12px;
 }
 
-/* line 2142, ../sass/screen.scss */
+/* line 2182, ../sass/screen.scss */
 .template-selector {
   height: 100%;
 }
-/* line 2144, ../sass/screen.scss */
+/* line 2184, ../sass/screen.scss */
 .template-selector .template-selected {
   padding: 5px;
   font-size: 18px;
 }
-/* line 2145, ../sass/screen.scss */
+/* line 2185, ../sass/screen.scss */
 .template-selector .template-list {
   overflow-y: auto;
   margin: 0px;
@@ -4571,7 +4696,7 @@ div.ui-datepicker {
   width: 100%;
 }
 
-/* line 2148, ../sass/screen.scss */
+/* line 2188, ../sass/screen.scss */
 .template-selector .list-item, #selected_template_area .list-item {
   border-radius: inherit;
   height: 68px;
@@ -4592,30 +4717,30 @@ div.ui-datepicker {
   background: -ms-linear-gradient(#fdfdfd, #eeeeee);
   background: linear-gradient(#fdfdfd, #eeeeee);
 }
-/* line 2157, ../sass/screen.scss */
+/* line 2197, ../sass/screen.scss */
 .template-selector .list-item img, #selected_template_area .list-item img {
   width: 50px;
   float: left;
   margin: 9px;
 }
-/* line 2159, ../sass/screen.scss */
+/* line 2199, ../sass/screen.scss */
 .template-selector .list-item .details, #selected_template_area .list-item .details {
   float: left;
   padding: 10px 5px;
   width: 210px;
 }
-/* line 2160, ../sass/screen.scss */
+/* line 2200, ../sass/screen.scss */
 .template-selector .list-item h2, #selected_template_area .list-item h2 {
   color: #2F3E46;
 }
-/* line 2161, ../sass/screen.scss */
+/* line 2201, ../sass/screen.scss */
 .template-selector .list-item span, #selected_template_area .list-item span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 2167, ../sass/screen.scss */
+/* line 2207, ../sass/screen.scss */
 .template-selector .list-item:hover, #selected_template_area .list-item:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -4629,52 +4754,52 @@ div.ui-datepicker {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
-/* line 2172, ../sass/screen.scss */
+/* line 2212, ../sass/screen.scss */
 .template-selector .list-item.selected, #selected_template_area .list-item.selected {
   background: #e1e1e1;
   cursor: default;
 }
-/* line 2173, ../sass/screen.scss */
+/* line 2213, ../sass/screen.scss */
 .template-selector .list-item.selected:hover, #selected_template_area .list-item.selected:hover {
   background: #e1e1e1;
 }
 
-/* line 2177, ../sass/screen.scss */
+/* line 2217, ../sass/screen.scss */
 .jcrop-holder {
   text-align: left;
 }
 
-/* line 2178, ../sass/screen.scss */
+/* line 2218, ../sass/screen.scss */
 .jcrop-vline, .jcrop-hline {
   font-size: 0px;
   position: absolute;
   background: white url("i/Jcrop.gif") top left repeat;
 }
 
-/* line 2179, ../sass/screen.scss */
+/* line 2219, ../sass/screen.scss */
 .jcrop-vline {
   height: 100%;
   width: 1px !important;
 }
 
-/* line 2180, ../sass/screen.scss */
+/* line 2220, ../sass/screen.scss */
 .jcrop-hline {
   width: 100%;
   height: 1px !important;
 }
 
-/* line 2181, ../sass/screen.scss */
+/* line 2221, ../sass/screen.scss */
 .jcrop-vline.right {
   right: 0px;
   margin: 0px;
 }
 
-/* line 2182, ../sass/screen.scss */
+/* line 2222, ../sass/screen.scss */
 .jcrop-hline.bottom {
   bottom: 0px;
 }
 
-/* line 2183, ../sass/screen.scss */
+/* line 2223, ../sass/screen.scss */
 .jcrop-handle {
   font-size: 1px;
   width: 7px !important;
@@ -4683,18 +4808,18 @@ div.ui-datepicker {
   background-color: #333;
 }
 
-/* line 2190, ../sass/screen.scss */
+/* line 2230, ../sass/screen.scss */
 .jcrop-tracker {
   width: 100%;
   height: 100%;
 }
 
-/* line 2191, ../sass/screen.scss */
+/* line 2231, ../sass/screen.scss */
 .custom .jcrop-vline, .custom .jcrop-hline {
   background: yellow;
 }
 
-/* line 2192, ../sass/screen.scss */
+/* line 2232, ../sass/screen.scss */
 .custom .jcrop-handle {
   border-color: black;
   background-color: #C7BB00;
@@ -4705,20 +4830,20 @@ div.ui-datepicker {
   border-radius: 3px;
 }
 
-/* line 2198, ../sass/screen.scss */
+/* line 2238, ../sass/screen.scss */
 #notifications {
   position: fixed;
   top: 50px;
   right: 0;
   z-index: 15;
 }
-/* line 2204, ../sass/screen.scss */
+/* line 2244, ../sass/screen.scss */
 #notifications .meow {
   margin: 20px 20px 0 0;
   position: relative;
   cursor: pointer;
 }
-/* line 2208, ../sass/screen.scss */
+/* line 2248, ../sass/screen.scss */
 #notifications .meow .inner {
   background: #191919;
   zoom: 1;
@@ -4739,7 +4864,7 @@ div.ui-datepicker {
   width: 250px;
   min-height: 48px;
 }
-/* line 2224, ../sass/screen.scss */
+/* line 2264, ../sass/screen.scss */
 #notifications .meow .inner:after {
   content: "\0200";
   display: block;
@@ -4748,7 +4873,7 @@ div.ui-datepicker {
   line-height: 0;
   height: 0;
 }
-/* line 2232, ../sass/screen.scss */
+/* line 2272, ../sass/screen.scss */
 #notifications .meow .inner h1 {
   font-size: 14px;
   font-weight: bold;
@@ -4756,27 +4881,27 @@ div.ui-datepicker {
   padding: 0;
   line-height: 1;
 }
-/* line 2239, ../sass/screen.scss */
+/* line 2279, ../sass/screen.scss */
 #notifications .meow .inner .icon {
   width: 48px;
   height: 48px;
   float: left;
   margin-right: 6px;
 }
-/* line 2244, ../sass/screen.scss */
+/* line 2284, ../sass/screen.scss */
 #notifications .meow .inner .icon img {
   max-width: 48px;
   max-height: 48px;
 }
-/* line 2246, ../sass/screen.scss */
+/* line 2286, ../sass/screen.scss */
 #notifications .meow .inner .close {
   display: none;
 }
-/* line 2248, ../sass/screen.scss */
+/* line 2288, ../sass/screen.scss */
 #notifications .meow.hover .inner {
   border: 2px solid #fff;
 }
-/* line 2250, ../sass/screen.scss */
+/* line 2290, ../sass/screen.scss */
 #notifications .meow.hover .inner .close {
   display: block;
   position: absolute;
@@ -4802,13 +4927,17 @@ div.ui-datepicker {
   text-decoration: none;
 }
 
-/* line 2278, ../sass/screen.scss */
+/* line 2315, ../sass/screen.scss */
+.bubble_message {
+  font-size: 18px;
+}
+/* line 2318, ../sass/screen.scss */
 .bubble_message #container {
   width: 500px;
   padding: 0 0 50px;
   margin: 0 auto;
 }
-/* line 2284, ../sass/screen.scss */
+/* line 2324, ../sass/screen.scss */
 .bubble_message h1 {
   margin: 1em 0 0;
   font-size: 2.5em;
@@ -4816,7 +4945,7 @@ div.ui-datepicker {
   line-height: 1.2;
   text-align: center;
 }
-/* line 2292, ../sass/screen.scss */
+/* line 2332, ../sass/screen.scss */
 .bubble_message h2 {
   margin: 0.5em 0 1.5em;
   font-size: 1.25em;
@@ -4824,11 +4953,11 @@ div.ui-datepicker {
   font-style: italic;
   text-align: center;
 }
-/* line 2300, ../sass/screen.scss */
+/* line 2340, ../sass/screen.scss */
 .bubble_message p {
   margin: 1em 0;
 }
-/* line 2304, ../sass/screen.scss */
+/* line 2344, ../sass/screen.scss */
 .bubble_message .content h2 {
   margin: 2em 0 0.75em;
   font-size: 2em;
@@ -4836,29 +4965,29 @@ div.ui-datepicker {
   font-style: normal;
   text-align: left;
 }
-/* line 2312, ../sass/screen.scss */
+/* line 2352, ../sass/screen.scss */
 .bubble_message blockquote {
   margin: 1em 0;
 }
-/* line 2316, ../sass/screen.scss */
+/* line 2356, ../sass/screen.scss */
 .bubble_message blockquote p {
   margin: 0;
-  font-size: 2em;
+  font-size: 18px;
 }
-/* line 2321, ../sass/screen.scss */
+/* line 2361, ../sass/screen.scss */
 .bubble_message .follow {
   clear: both;
   margin-top: 2em;
   font-size: 1.125em;
 }
-/* line 2327, ../sass/screen.scss */
+/* line 2367, ../sass/screen.scss */
 .bubble_message .follow span {
   font-weight: bold;
 }
-/* line 2332, ../sass/screen.scss */
+/* line 2372, ../sass/screen.scss */
 .bubble_message.msg {
   position: absolute;
-  top: -224px;
+  top: -100px;
   left: 167px;
   width: 240px;
   -webkit-box-shadow: 0 0 40px black;
@@ -4867,42 +4996,32 @@ div.ui-datepicker {
   padding: 15px;
   padding-top: 0px;
   padding-bottom: 0px;
-  margin: 100px 0 0.5em;
+  margin: 0;
   color: #333;
   background: #eee;
   /* css3 */
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 2350, ../sass/screen.scss */
+/* line 2388, ../sass/screen.scss */
 .bubble_message.msg p {
-  font-size: 28px;
+  font-size: 18px;
   line-height: 1.25em;
 }
-/* line 2352, ../sass/screen.scss */
-.bubble_message .msg:before {
-  content: url(twitter-logo.gif);
-  position: absolute;
-  top: -60px;
-  left: 0;
-  width: 155px;
-  height: 36px;
-  /* reduce the damage in FF3.0 */
-  display: block;
-}
-/* line 2363, ../sass/screen.scss */
+/* line 2390, ../sass/screen.scss */
 .bubble_message.msg:after {
   content: "";
   position: absolute;
-  top: 102px;
   left: 114px;
   border: 13px solid transparent;
   border-top-color: #eee;
   display: block;
   width: 0;
 }
-/* line 2373, ../sass/screen.scss */
+/* line 2399, ../sass/screen.scss */
 .bubble_message.msg + p {
   padding-left: 15px;
   font: 14px Arial, sans-serif;

@@ -2058,6 +2058,30 @@ form {
 	color:#000;width:600px;
 	margin:0px 20%;
 	
+	.type-selector {
+		margin:10px 0px 0px 10px;
+		.option {
+			padding:5px 15px;text-align:center;cursor:pointer;border:1px solid #AAAAAA;
+			margin:5px 1px 0px 1px;float:left;position:relative;top:1px;
+			@include border-top-radius(10px);
+			@include background-image(linear-gradient(top, rgb(166,166,166) 0%,rgb(200,200,200) 98%));
+			color:#838383;
+			//@include box-shadow(inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05));
+
+			&:hover  {background:#ccc; }
+			&.selected, &.selected:hover {
+				z-index:2;cursor:default;
+				color:#333;
+				background: rgb(232,232,232); // Old browsers
+				@include filter-gradient(#e8e8e8, #c4c4c4, vertical); // IE6-9
+				@include background-image(linear-gradient(top, rgb(245,245,245) 0%,rgb(232,232,232) 100%));
+				@include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2));
+				border-bottom:1px solid #e8e8e8;
+			}
+
+		}
+	}
+
 	.head {
 		font-size: 32px;
 		text-align:left;
@@ -2065,57 +2089,46 @@ form {
 	}
 	.block {
 		clear:both; position:relative;
-		background-color:#FFF;
+		background-color: rgb(232,232,232); // Old browsers
+		@include filter-gradient(#e8e8e8, #c4c4c4, vertical); // IE6-9
+		@include background-image(linear-gradient(top, rgb(232,232,232) 0%,rgb(196,196,196) 98%));
 		border: 1px solid #e3e3e3;
 		@include border-radius($default-border-radius);
+		@include box-shadow(0 0 3px rgba(0, 0, 0, 0.8));
 		padding:10px;
-		margin: 10px 0px;
+		margin: 0px;
 		opacity: 0.92;
-		&.noOne { 
-			background-color: rgb(232,232,232) url("i/first.png") no-repeat top left; // Old browsers
-			@include filter-gradient(#e8e8e8, #c4c4c4, vertical); // IE6-9
-			@include background-image(linear-gradient(top, rgba(232,232,232,1) 0%,rgba(196,196,196,1) 98%));
-			margin-bottom: 0px;
-			//height: 90px;
-			box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);		
-		}
-		&.noTwo { 
-			background-color: rgb(232,232,232) url("i/first.png") no-repeat top left; // Old browsers
-			@include filter-gradient(#e8e8e8, #c4c4c4, vertical); // IE6-9
-			@include background-image(linear-gradient(top, rgba(232,232,232,1) 0%,rgba(196,196,196,1) 98%));
-			margin-bottom: 0px;
-			height: 90px;
-			box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);		
-	    }
-		&.noThree { background: #FFF url('i/third.png') no-repeat top left; }
 	}
 	
 	.label {width:200px;float:left;font-size:22px;padding:30px 0px 30px 20px; text-shadow: 1px 1px 1px white;}
 	.data {float:right;@include min-width(320px);}
-	
+	label, .sublabel {color:#333;font-size:16px;text-align:left;clear:both;margin:0px 0px 5px 0px;}
+	.field { 
+		margin:10px 15px 5px;float:left;
+		.subdata {float:right;clear:both;}
+		input{
+			width:160px;font-family: $input-font-family;font-size:18px;text-align:center;padding:5px;
+			@include border-radius($default-border-radius);
+			border:1px solid #D7D7D7;
+			outline: none;
+			@include box-shadow(inset 0 0 3px black);
+		}
+		
+		input:focus {
+			border:1px solid #888;
+			@include box-shadow(0, 0, 3px, rgba(0,0,0,0.2));
+		}
+	}
 	.select_template { padding:10px;margin:20px 10px;font-size:16px;float:right;}
 	#selected_template_area { padding:0px; margin:10px; float:right; border:thin solid #ccc; @include border-radius($default-border-radius); }
+	#time_block {position:relative;}
 	.set_time {
+		height:90px;
 		.label {width:auto;}
-		.field { 
-			margin:10px 15px 5px;float:left;
-			.sublabel {color:#333;font-size:16px;text-align:left;clear:both;margin:0px 0px 5px 0px;}
-			.subdata {float:right;clear:both;
-				input{
-					width:160px;font-family: $input-font-family;font-size:18px;text-align:center;padding:5px;
-					@include border-radius($default-border-radius);
-					border:1px solid #D7D7D7;
-					outline: none;
-					@include box-shadow(inset 0 0 3px black);
-				}
-				
-				input:focus {
-					border:1px solid #888;
-					@include box-shadow(0, 0, 3px, rgba(0,0,0,0.2));
-				}
-			}
-			&.select-hours {margin-top:8px;}
-		}
+		.start_time label {display:block;}
+		
+		.field.select-hours {margin-top:8px;}
+		
 		.time-slider {width:220px;clear:both;margin:10px 0px 5px 0px;}
 		.show_hours {
 			clear:both;text-align: center;
@@ -2124,6 +2137,33 @@ form {
 		.end_time {clear:both;text-align:center;font-size:14px;color:#333;margin-top:15px;
 			#deal_end_time {color:#000;font-size:16px;}
 		}
+	}
+	.regular_deal {
+		height:90px;
+		.field {margin:5px 0px;clear:both;float:right; }
+		.field.regular-days {
+			label {line-height:30px;vertical-align: top;}
+			#day-selector {display:inline-block;}
+			.day-block {
+				float:left;margin:1px;border:1px solid #ccc;background:#EAEAEA;padding:5px;cursor:pointer;
+				@include user-select(none);
+				@include border-radius(5px);
+				&:hover { background-color:#CECECE; }
+				&.selected { 
+					background-color: rgb(94,150,27); // Old browsers
+					@include background-image(linear-gradient(top,  rgb(94,150,27) 0%,rgb(58,107,9) 100%));
+					@include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575);
+					border: 1px solid #4E7A00;
+					color:white;
+				}
+			}
+		}
+		.field.regular-time {
+			float:right;margin-right:5px;
+			label {padding: 0px 5px 0px 20px;}
+			.hint {padding-right:21px;margin-top:-1px;text-align:right;font-size:12px;color:#666;}
+		}
+		input {width:100px;}
 	}
 	.starter { width:62%; margin: 20px auto; }
 	.start_deal_btn { 
@@ -2273,7 +2313,7 @@ div.ui-datepicker {font-size:12px;}
 }
 
 .bubble_message {
-
+	font-size:18px;
 	
 	#container {
 	    width:500px; 
@@ -2315,7 +2355,7 @@ div.ui-datepicker {font-size:12px;}
 	
 	blockquote p {
 	    margin:0; 
-	    font-size:2em;
+	    font-size:18px;
 	}
 	
 	.follow {
@@ -2331,39 +2371,25 @@ div.ui-datepicker {font-size:12px;}
 
 	&.msg {
 		position:absolute;
-		top: -224px;
+		top: -100px;
 		left: 167px;
 		width: 240px;
 		@include box-shadow(0 0 40px black);
 		padding:15px;
 		padding-top: 0px;
 		padding-bottom: 0px;
-		margin:100px 0 0.5em;
+		margin:0;
 		color:#333;
 		background:#eee;
 		/* css3 */
-		-webkit-border-radius:10px;
-		-moz-border-radius:10px;
-		border-radius:10px;
+		@include border-radius(10px);
 	}
 	
-	&.msg p {font-size:28px; line-height:1.25em;}
-	
-	.msg:before {
-		content:url(twitter-logo.gif);
-		position:absolute;
-		top:-60px;
-		left:0;
-		width:155px;
-		height:36px;
-	    /* reduce the damage in FF3.0 */
-	    display:block; 
-	}
+	&.msg p {font-size:18px; line-height:1.25em;}
 	
 	&.msg:after {
 		content:"";
 		position:absolute;
-		top:102px;
 		left:114px;
 		border:13px solid transparent;
 		border-top-color:#eee;

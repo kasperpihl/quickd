@@ -81,7 +81,7 @@ define([
 				this.expanded = false;
 			}
 		},
-		setSelected:function(id) {
+		setSelected:function(id, options) {
 			this.selected = this.collection.get(id).toJSON();
 			var el = $($('#'+id).outerHTML()).removeClass('selected');
 			this.$expanded.children('.list-item.selected').removeClass('selected');
@@ -89,7 +89,8 @@ define([
 			this.$collapsed.html(el);
 			this.collapseList();
 			this.collapsedHeight = this.$collapsed.getHiddenDimensions(true).outerHeight;
-			this.router.trigger('templateSelected', {templateId: id, parent:this.parent});
+			var silent = options&&options.silent?true:false;
+			this.router.trigger('templateSelected', {templateId: id, parent:this.parent, silent:silent});
 		},
 		resetSelected:function() {
 			if (this.selected) {

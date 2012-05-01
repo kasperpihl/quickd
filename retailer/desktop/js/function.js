@@ -140,6 +140,7 @@ function convertNumber(number, toString) {
 	}
 }
 function convertToTimestring(number, returnSeparate) {
+	if (!number) return 0;
 	var numbers = number.split(/[\s\.,:]+/),
 			h = parseInt(numbers[0], 10),
 			m = parseInt(numbers[1], 10);
