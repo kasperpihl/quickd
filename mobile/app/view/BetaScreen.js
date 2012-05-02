@@ -12,6 +12,7 @@ Ext.define('QuickD.view.BetaScreen', {
         centered:true,
         width: 300,
         height:300,
+        scrollable:false,
         showAnimation: {
             type: 'fadeIn',
             duration: 500
@@ -24,19 +25,18 @@ Ext.define('QuickD.view.BetaScreen', {
         modal: true,
         hideOnMaskTap: false,
         hidden: true,
-        styleHtmlContent: true,
-        scrollable: true,
+        styleHtmlContent: false,
         id:'quickd-beta-screen',
         items: [
         {
             xtype:'fieldset',
             title:'Dette er en lukket beta i Aarhus',
-            instructions:'indtast den betakode du har modtaget',
+            instructions:'Indtast den betakode du har modtaget',
             items:[{
                 xtype:'textfield',
                 placeHolder:'Betanøgle',
                 id:'betakeyField',
-                width:'260px',
+                width:'265px',
                 listeners:{
                     focus:function(){ this.getParent().getParent().gotFocus(); }
                 }

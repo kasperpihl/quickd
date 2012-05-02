@@ -38,23 +38,20 @@ Ext.define('QuickD.controller.Main', {
     doFacebookConnect:function(){
         FB.login(function(response) {
             log('response from facebook',response);
-            if (response.authResponse) {
-                $('#btn_fb_signup').width($('#btn_fb_signup').outerWidth());
-                $('#btn_fb_signup').html(spinner);
-                $('#start_text').fadeOut('slow');
-                var f = $('#btn_fb_like').find('iframe');
-                if (f) f.attr('src', f.attr('src'));
-                
+            if (response.authResponse) {        
                 $.post(ROOT_URL+"api/fbconnect", {}, function(data) {
                     //console.log(data);
                     if (data.success == 'true') {
                         //Successfully logged in!!
-                        showResponse();
+                        alert('SUCCESS');
+                    }
+                    else {
+                        alert('FALSE');
                     }
                 }, 'json');
                 
             } else {
-
+                alert('fejl');
             }
         }, {scope: 'email'});
     },
