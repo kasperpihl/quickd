@@ -1,8 +1,8 @@
-Ext.define('QuickD.view.Beta', {
+Ext.define('QuickD.view.NotApp', {
     extend: 'Ext.Panel',
     requires:[
     ],
-    xtype: 'betaview',
+    xtype: 'notapp',
     config: {
         layout:'fit',
         showAnimation: {

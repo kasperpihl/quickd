@@ -8,7 +8,7 @@ function redirect($location = NULL){
 function unsetBetakey(){
 	unset($_SESSION['userbeta_email']);
 	$expire=time()-86400;
-	setcookie('userbeta','',$expire,'/');
+	setcookie('betakey','',$expire,'/');
 }
 function sendMeMail($email){
 

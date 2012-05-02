@@ -57,8 +57,6 @@ switch($root){
 	break; 
 }
 $historyObj = json_encode(array('pushState'=>true,'root'=>$histRoot));
-
-
 define('ROOT_URL','http://'.$root.$end);
 define('REAL_URL','http://'.$root.$histRoot);
 define('DEALER_RESET_URL',REAL_URL.'reset/');
