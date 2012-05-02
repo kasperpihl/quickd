@@ -66,6 +66,7 @@ Ext.define('QuickD.controller.Main', {
             },
             method:'POST',
             success:function(data){
+
                 main.unmaskMe();
                 if(data.responseText != 'false'){
                     userbeta = data.responseText;
@@ -78,9 +79,10 @@ Ext.define('QuickD.controller.Main', {
 
                 }
             },
-            error:function(data){
-                main.unmaskMe();
+            failure:function(data){
                 log('error beta',data);
+                main.unmaskMe();
+                
             }
         });
     },
