@@ -29,7 +29,7 @@ define([
 			var thisClass = this;
 			var tpl = _.template(template, {data: this});
 			$(this.appendTo).html(tpl);
-			this.$el = $(this.componentId);
+			this.$cmp = $(this.componentId);
 			this.$collapsed = $('#templateSelector-collapsed');
 			this.$expanded = $('#templateSelector-expanded');
 			if (this.expanded) {
@@ -67,7 +67,7 @@ define([
 		collapseList:function() {
 			if (this.expanded) {
 				var thisClass = this;
-				if (this.$el.is(':visible')) {
+				if (this.$cmp.is(':visible')) {
 					
 					this.$expanded.slideUp(function() {
 						thisClass.$collapsed.fadeIn('fast');

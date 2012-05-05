@@ -155,6 +155,49 @@ function convertToTimestring(number, returnSeparate) {
 	else return padNumber(h)+':'+padNumber(m);
 }
 
+function makeRegularHours(object){
+    var daysLang = {
+        0:{ min:'Man', max:'Mandag'},
+        1:{ min: 'Tir',max: 'Tirsdag'},
+        2:{ min: 'Ons',max: 'Onsdag'},
+        3:{ min: 'Tor',max: 'Torsdag'},
+        4:{ min: 'Fre',max: 'Fredag'},
+        5:{ min: 'Lør',max: 'Lørdag'},
+        6:{ min: 'Søn',max: 'Søndag'},
+        closed: 'Lukket'
+    };
+
+    var times,closed,html='',min=0;
+    for(var i = 0 ; i <= 7 ; i++ ){
+        var close,open;
+        if(i < 7){ 
+            var temp = object[i];
+            open = (temp.hasOwnProperty('open') && temp.open) ? temp.open : false;
+            close = (temp.hasOwnProperty('close') && temp.close) ? temp.close : false;
+        }
+        if(i === 0) times = {open:open,close:close};
+        else{
+            if(i < 7 && open == times.open && close == times.close) continue;
+            var last = i-1;
+            var days,time;
+            if(last == min) days = daysLang[last].max;
+            else days = daysLang[min].min + '-' + daysLang[last].max;
+            if(!times.open || !times.close) time = daysLang.closed;
+            else time = times.open + ' &ndash; ' + times.close;
+            html += '<li><span class="day">'+days+'</span><span class="leader"></span><time>'+time+'</time></li>';
+            if(i < 7){
+                times.open = open;
+                times.close = close;
+                min = i;
+            }
+
+
+        }
+        
+    }
+    return html;
+}
+
 function resizeBg(stopRecursion) {
 	var img = $('#bgImage');
 	var content = $('#content');

@@ -551,6 +551,8 @@ try{
 			
 			obj.id = doc._id;
 			obj.type = 'deal';
+			obj.deal_type =  doc.deal_type?doc.deal_type:'instant';
+			if (doc.hasOwnProperty('times')) obj.times = doc.times;
 			obj.status = doc.status;
 			obj.start = doc.start;
 			obj.end = doc.end;
@@ -613,6 +615,7 @@ try{
 				start:start,
 				title: doc.template.title
 			}
+			if (doc.hasOwnProperty('times')) obj.times = doc.times;
 			if(doc.template.hasOwnProperty('image')) obj.image = doc.template.image;
 			emit([doc.shopowner_id,doc.template.id],obj);
 		}

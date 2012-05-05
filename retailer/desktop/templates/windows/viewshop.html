@@ -31,12 +31,11 @@
 		    <div id="open-days-error"></div>
 		    <div class="data long" id="opening-times">
 		    	<% 
-		    		var hours = data.attributes.open_hours ? data.attributes.open_hours : {},
-		    				days = ['Man', 'Tirs', 'Ons', 'Tors', 'Fre', 'Lør', 'Søn']; 
+		    		var hours = data.attributes.open_hours ? data.attributes.open_hours : {};
 		    	%>
 		    	<% if(_.isEmpty(hours)) { %><div class="notice">Du har endnu ikke indtastet åbningstider</div><% } %>
 		    	<ul>
-		    		<% _.each(days, function(day, key) { 
+		    		<% _.each(lang.days.short, function(day, key) { 
 		    				var open = hours[key] ? hours[key]['open'] : "",
 		    						close = hours[key] ? hours[key]['close'] : "";
 		    		%>

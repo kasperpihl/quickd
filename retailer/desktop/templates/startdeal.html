@@ -38,13 +38,13 @@
 	   	</div>
 
 	   	<div class="block regular_deal" id="regular_deal_block" style="display:none;">
-	   		<% var days = ['Man', 'Tirs', 'Ons', 'Tors', 'Fre', 'Lør', 'Søn']; %>
+	   		
 	   		<div class="label">Vælg tider</div>
 	      <div class="data">
 	      		<div class="field regular-days">
 		      		<label>Hver:</label>
 				    	<ul id="day-selector">
-				    		<% _.each(days, function(day, key) { 	%>
+				    		<% _.each(lang.days.short, function(day, key) { 	%>
 				    			<li id="day-<%=key%>" class="day-block <% if(key<2) print('selected'); %>"><%=day%></li>
 				    		<% }); %>
 				    	</ul>

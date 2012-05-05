@@ -1,8 +1,8 @@
 <?php 
   require_once('../config.php'); 
   $registred = false;
-  if (!$session->logged_user()) {
-    $fb = (object) Shopowner::fb_connect();
+  if (!$session->get('subscribed', true)) {
+    $fb = (object) Shopowner::fb_connect(true);
     if (isset($fb->success)&&$fb->success==='true') $registred = true;
   } else $registred = true;
 ?>

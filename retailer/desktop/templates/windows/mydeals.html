@@ -47,13 +47,16 @@
         
             <div class="tab-block" id="deals-tab-current" <% if (data.tabId=="deals-tab-current") print("style='display:block'")%>>
                 <h1>Nuværende</h1>
-                <% printItems(data.current, 'current', data.tabId); %>
+                <% printItems(data.current, 'current'); %>
+                <hr>
+                <h1>Faste</h1>
+                <% printItems(data.regular, 'regular'); %>
                 <hr>
                 <h1>Planlagte</h1>
-                <% printItems(data.planned, 'planned', data.tabId); %>
+                <% printItems(data.planned, 'planned'); %>
             </div>
             <div class="tab-block" id="deals-tab-ended" <% if (data.tabId=="deals-tab-ended") print("style='display:block'")%>>
-                <% printItems(data.ended, 'ended', data.tabId); %>
+                <% printItems(data.ended, 'ended'); %>
             </div>
     </div>
     <div class="content-wrapper" id="view-deal-details" <% if(data.view=='deal-list') print('style="display:none"') %> >

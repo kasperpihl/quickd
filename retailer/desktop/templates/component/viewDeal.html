@@ -24,14 +24,23 @@
     <div class="field">
       <div class="description" id="deal_description"><%=deal.description?deal.description:''%></div>
     </div>
-    <div class="field">
-      <h3>Aktiv fra</h3>
-      <span id="deal_starting_time"><%=getTimeString(parseInt(data.start)*1000, 'simple')%></span>
-    </div>
-    <div class="field">
-      <h3>Aktiv til</h3>
-      <span id="deal_ending_time"><%=getTimeString(parseInt(data.end)*1000, 'simple')%></span>
-    </div>
+    <% if(data.type=='regular') { %>
+      <div class="field">
+        <h3>Tilbuddet gælder</h3>
+        <div class="times">
+          
+        </div>
+      </div>
+    <% }  else { %>
+      <div class="field">
+        <h3>Aktiv fra</h3>
+        <span id="deal_starting_time"><%=getTimeString(parseInt(data.start)*1000, 'simple')%></span>
+      </div>
+      <div class="field">
+        <h3>Aktiv til</h3>
+        <span id="deal_ending_time"><%=getTimeString(parseInt(data.end)*1000, 'simple')%></span>
+      </div>
+    <% } %>
   </div>
   <button class="red remove-btn" id="btn_remove_deal" style="display:<%=data.status=='soldout'&&data.state!='ended' ? 'none' : 'block'%>">
     <%=data.state=='current'? 'Meld udsolgt' : 'Slet'%>
