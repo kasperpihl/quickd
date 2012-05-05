@@ -80,7 +80,7 @@
               Tak for din registrering!<br />Vi sender en invitation så hurtigt som muligt.
             </p>
           </div>
-          <?php if (!$registred) {   ?>
+          <?php if (!$registred) { ?>
             <div id="btn_fb_signup"><div class="fb-bg"><span class="fb_btn_text">Registrer med Facebook</span></div></div>
           <?php } ?>
           <div id="btn_fb_like" style="display:<?=$registred?'block':'none'?>">
