@@ -28,7 +28,8 @@ App.models.Deal = Backbone.Model.extend({
 	setState:function(start, end) {
 		if (!start) start = this.get("start");
 		if (!end)   end = this.get("end");
-		if (start && end) {
+		if (this.get('deal_type') && this.get('deal_type')=='regular') this.set({state:"regular"});
+		else if (start && end) {
 			var now = (new Date()).getTime()/1000;
 			if (end < now) this.set({state: "ended"}, {silent: true});
 			else if (start < now) this.set({state: "current"}, {silent: true});

@@ -125,7 +125,7 @@ html.backgroundsize #bgImage {
   font-weight: 300;
   margin: 0px;
   font-size: 28px;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
   text-shadow: rgba(0, 0, 0, 0.8) 0 1px 2px;
 }
 

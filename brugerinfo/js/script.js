@@ -117,7 +117,6 @@ function doEmailSignup() {
     $("#email").after('<span class="error">Indtast venligst en gyldig email.</span>');
   } else {
     $.post(ROOT_URL+"api/subscribe", {email: email}, function(data) {
-        //log(data);
         if (data.success == 'true'||(data.success=='false'&& data.error == 'user_exists') ) {
             //Successfully logged in!!
             showResponse();
@@ -159,7 +158,7 @@ function doFBSubscribe() {
         var f = $('#btn_fb_like').find('iframe');
         if (f) f.attr('src', f.attr('src'));
         
-        $.post(ROOT_URL+"api/fbconnect", {}, function(data) {
+        $.post(ROOT_URL+"api/fbconnect", {subscribe:true}, function(data) {
             //console.log(data);
             if (data.success == 'true') {
                 //Successfully logged in!!

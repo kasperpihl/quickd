@@ -59,11 +59,16 @@ class Session {
 	public function unsets($key){
 		unset($_SESSION[$key]);
 	}
-	public function set($key,$value){
+	public function set($key,$value,$cookie=false){
+		if ($cookie) {
+			$expire=time()+60*60*24*30;
+			setcookie($key,$value,$expire,'/');
+		}
 		return $_SESSION[$key] = $value;
 	}
-	public function get($key){
+	public function get($key,$cookie=false){
 		if(isset($_SESSION[$key])){ return $_SESSION[$key]; }
+		elseif ($cookie && isset($_COOKIE[$key])) return $_COOKIE[$key];
 		return false;
 	}
 	public function logout($type="all"){

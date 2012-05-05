@@ -12,12 +12,8 @@ class Shopowner {
 				
 				$privileges = $user->data->value->privileges;
 				$user_id = $user->data->id;
-				if ($type==='subscribe') {
-					$session->login($user->data->id,$privileges);
-					return array('success'=>'true', 'data'=>$user);
-				} else if ($type==='dealer'&&$privileges>=2) {
-					return array('success'=>'false','error'=>'user_exists');
-				}
+				if ($type==='subscribe') $session->set('subscribed', $user->data->id, true);
+				return array('success'=>'false','error'=>'user_exists');
 			}
 			$update = 'registerUser';
 			if ($type==='dealer') {
@@ -55,7 +51,7 @@ class Shopowner {
 		}
 	}
 
-	public static function fb_connect() {
+	public static function fb_connect($subscribe=false) {
 		global $db,$session,$facebook;
 
 		// Get User ID
@@ -76,7 +72,8 @@ class Shopowner {
 	    		//Fb user already exists
 	    		$fb = $user->data->value->fb_info;
 	    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60) {
-	    			$session->login($user->data->id,$user->data->value->privileges);
+	    			if ($subscribe) $session->set($user->data->id, true);
+	    			else $session->login($user->data->id,$user->data->value->privileges);
 	    			return  array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no');
 	    		}
 	    			
@@ -115,10 +112,11 @@ class Shopowner {
 		    	Mail::create('sendBetaConfirmation', $email, array('name'=>$name)); //Mail::sendBetaConfirmation($email, $name);
 		    }
 		    if($result && $result->success == 'true'){
-				$result->data->email = $email;
-				$session->login($result->data->id,$model->privileges);
-			}
-			return $result;
+					$result->data->email = $email;
+					if ($subscribe) $session->set($user->data->id, true);
+		    	else $session->login($result->data->id,$model->privileges);
+				}
+				return $result;
 		    
 		  } catch (FacebookApiException $e) {
 		    return array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','e'=>$e->getMessage(),'data'=>$user_profile);
