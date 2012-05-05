@@ -333,8 +333,15 @@ DEALS LIST
     .x-form-inner{
 
     }
+    .x-field-input{
+        padding-right:0;
+    }
     .x-form-fieldset{
         margin-bottom:0;
+    }
+    #useBetaKey{
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
     }
     input,textarea {
       -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -367,10 +374,13 @@ DEALS LIST
     #requestKeyButton{
         background:none;
         border:none;
-        font-weight:0;
-        color:blue;
+        color:grey;
+        padding:0;
+        font-size:15px;
+
         .x-button-label{
-            font-weight:0;
+            font-weight:400;
+            text-align:center;
         }
     }
     #betakeyField, .x-body, .x-form-fieldset-inner{
@@ -378,12 +388,8 @@ DEALS LIST
     }
     .x-form-fieldset-instructions{
         margin-top: 0.2em;
-    }
-    .errorField .x-innerhtml{
         font-style:italic;
         font-size:12px;
-        text-align:center;
-        margin-top:0.2em;
         color:red;
     }
     .x-field{
