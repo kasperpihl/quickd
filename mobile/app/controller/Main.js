@@ -2,7 +2,8 @@ Ext.define('QuickD.controller.Main', {
     extend: 'Ext.app.Controller',
     requires: [
         'Ext.util.GeoLocation',
-        'QuickD.controller.AnimationController'
+        'QuickD.controller.AnimationController',
+        'Ext.MessageBox'
     ],
     config: {
         refs: {
@@ -74,8 +75,9 @@ Ext.define('QuickD.controller.Main', {
                 }
                 else {
                     var view = self.getBetaScreen();
+                    //view.down('#betakeyField').focus();
                     view.showError();
-                    view.down('#betakeyField').focus();
+                    
 
                 }
             },
@@ -131,6 +133,30 @@ Ext.define('QuickD.controller.Main', {
             self.updatedStore(store);
         },150);
     },
+    requestKey:function(buttonId,value,opt){
+        //alert('req'+buttonId+value);
+        if(buttonId != 'ok') return;
+        if(!validate(value)) Ext.Msg.prompt('Anmod om betanøgle','Indtast en rigtig email',this.requestKey,this);
+        var main = this.getMain();
+        main.maskMe('Anmoder om adgang');
+        Ext.Ajax.request({
+            url: ROOT_URL+'ajax/requestBetakey.php',
+            params:{
+                email:value
+            },
+            method:'POST',
+            success:function(data){
+
+                log(data.responseText);
+                main.unmaskMe();
+            },
+            failure:function(data){
+                log('error beta',data);
+                main.unmaskMe();
+                
+            }
+        });
+    },
     buttonHandler:function(t,t2,t3){
         var id = t.getId();
         var main = this.getMain();
@@ -138,6 +164,9 @@ Ext.define('QuickD.controller.Main', {
             case 'useBetaKey':
                 var key = main.down('#betakeyField').getValue();
                 this.useBetaKey(key);
+            break;
+            case 'requestKeyButton':
+                Ext.Msg.prompt('Anmod om betanøgle','Indtast din email og tryk ok',this.requestKey,this);
             break;
             case 'loginWithFacebook':
                 this.doFacebookConnect();

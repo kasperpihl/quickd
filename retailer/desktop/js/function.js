@@ -8,7 +8,7 @@ function timeAgo(time) {
             return;
     }
 
-    return day_diff == 0 && (
+    return day_diff === 0 && (
 		diff < 120 && "Lige nu" ||
 		diff < 3600 && Math.floor( diff / 60 ) + " minutter siden" ||
 		diff < 7200 && "1 time siden" ||

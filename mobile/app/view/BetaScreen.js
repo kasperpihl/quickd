@@ -43,8 +43,8 @@ Ext.define('QuickD.view.BetaScreen', {
             },{
                 xtype: 'label',
                 html: 'Den indtastede betakode er forkert',
-                itemId: 'betaErrorText',
-                hidden: true,
+                id: 'betaErrorText',
+                hidden:true,
                 cls: 'errorField'
             }]
         },{
@@ -55,27 +55,17 @@ Ext.define('QuickD.view.BetaScreen', {
             text:'Brug nøgle'
         },{
             xtype:'label',
-            html: 'Eller anmod om en betanøgle',
-            cls: 'requestNewPassText'
+            html: 'Anmod om betanøgle',
+            cls: 'requestNewPassText',
+            listeners:{
+                tap:function(){
+                    alert('YEAH');
+                }
+            }
         },{
             xtype:'button',
-            ui: 'rounded',
-            text: 'Registrer med facebook',
-            cls:'useFacebook',
-            id:'loginWithFacebook',
-            width:260
-        },{
-            xtype:'button',
-            ui: 'rounded',
-            cls:'useEmail',
-            text: 'Brug email',
-            width:100,
-            hidden:true
-        },{
-            xtype:'textfield',
-            placeHolder:'eks. navn@quickd.com',
-            id:'emailField',
-            hidden:true
+            id: 'requestKeyButton',
+            text: 'Anmod om betanøgle'
         }]
     },
     gotFocus:function(){
@@ -85,11 +75,15 @@ Ext.define('QuickD.view.BetaScreen', {
     removeError:function(){
         if(!this.errorShown) return false;
         this.errorShown = false;
-        var comp = this.down('#betaErrorText').hide();
+        this.down('fieldset').setInstructions('Indtast den betakode du har modtaget');
+        var comp = this.down('#betaErrorText');
+        comp.hide();
     },
     showError:function(text){
         if(this.errorShown) return false;
         this.errorShown = true;
-        var comp = this.down('#betaErrorText').show();
+        this.down('fieldset').setInstructions('');
+        var comp = this.down('#betaErrorText');
+        comp.show();
     }
 }); 

@@ -364,10 +364,16 @@ DEALS LIST
             text-align:center;
         }
     }
-    .requestNewPassText{
-        margin-top: 30px;
+    #requestKeyButton{
+        background:none;
+        border:none;
+        font-weight:0;
+        color:blue;
+        .x-button-label{
+            font-weight:0;
+        }
     }
-    #betakeyField{
+    #betakeyField, .x-body, .x-form-fieldset-inner{
         background:none;
     }
     .x-form-fieldset-instructions{
@@ -376,6 +382,8 @@ DEALS LIST
     .errorField .x-innerhtml{
         font-style:italic;
         font-size:12px;
+        text-align:center;
+        margin-top:0.2em;
         color:red;
     }
     .x-field{
@@ -392,6 +400,7 @@ DEALS LIST
     .uneditable-input {
       display: inline-block;
       height: 40px;
+      background:white;
       font-size: 15px;
       line-height: 18px;
       color: #555555;

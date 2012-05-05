@@ -8,16 +8,19 @@ class Shopowner {
 			$password = isset($model['password']) ? $model['password'] : null;
 			if(($password && strlen($password) < 6) || (!$password && $type=='dealer')) return array('success'=>'false','error'=>'password_must_be_6_long');
 			$user = (object) json_decode(self::checkEmail($email));
+			return $user;
 			if(!$email || $user->success=='true') {
 				
 				$privileges = $user->data->value->privileges;
 				$user_id = $user->data->id;
-				if ($type==='subscribe') {
+				$userbeta = isset($user->data->value->userbeta) ? $user->data->value->userbeta : false;
+				if ($type==='subscribe' && !$userbeta) {
 					$session->login($user->data->id,$privileges);
 					return array('success'=>'true', 'data'=>$user);
 				} else if ($type==='dealer'&&$privileges>=2) {
 					return array('success'=>'false','error'=>'user_exists');
 				}
+				else return array('success'=>'false','error'=>'user_exists');
 			}
 			$update = 'registerUser';
 			if ($type==='dealer') {
