@@ -126,4 +126,15 @@ function isValidEmail($email){
 	//return eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $email);
 	return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
+
+function objectToArray($d) {
+	if (is_object($d)) $d = get_object_vars($d);
+	if (is_array($d)) return array_map(__FUNCTION__, $d);
+	else return $d;
+}
+
+function arrayToObject($d) {
+	if (is_array($d)) return (object) array_map(__FUNCTION__, $d);
+	else return $d;
+}
 ?>

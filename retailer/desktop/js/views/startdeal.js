@@ -223,7 +223,7 @@ define([
 		timeToSecs:function(timestring) {
 			var time = convertToTimestring(timestring, true);
  			if(time && time.h >= 0 && time.h < 24 && time.m >= 0 && time.m<60) {
- 				return time.h*60*60 + (time.m+1)*60;
+ 				return time.h*60*60 + (time.m)*60 + 59;
  			} else return false;
 		},
 		resetStarter:function(doWait) {

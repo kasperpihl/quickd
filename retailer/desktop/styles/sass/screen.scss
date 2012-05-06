@@ -1318,11 +1318,11 @@ form {
 	}
 	.empty-block {
 		text-align:center;
-		padding: 40px;
+		padding: 20px;
 		h2 {
-			margin-top:20px;
 			font-weight:normal;
 			font-size:150%;
+			color:#666;
 		}
 	}
 }
@@ -2037,7 +2037,12 @@ form {
 			@include background-image(linear-gradient(top, rgba(239,239,239,1) 1%,rgba(219,219,219,1) 100%));
 		}
 	}
-	h1 {padding:10px 5px;font-size:18px;font-weight:normal;}
+	h1 {padding:10px 5px 3px 5px;font-size:18px;font-weight:normal;color:#666;
+		 @include display-box;
+     @include box-orient(horizontal);
+		span {display:block;}
+		span.leader {border-bottom:thin dashed #999;@include box-flex(1);margin-left:5px;}
+	}
 	hr {margin:15px auto;width:80%;}
 }
 
