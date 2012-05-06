@@ -194,7 +194,7 @@ function makeRegularHours(object){
 }
 function convertToTime(secs) {
 	var h = Math.floor(secs/60/60),
-			m = (secs/60-1)%60;
+			m = Math.floor(secs/60)%60;
 	return h+':'+padNumber(m);
 } 
 

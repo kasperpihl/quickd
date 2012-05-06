@@ -3191,13 +3191,13 @@ form textarea:focus, form input:focus {
 /* line 1319, ../sass/screen.scss */
 .window .tab-area .empty-block {
   text-align: center;
-  padding: 40px;
+  padding: 20px;
 }
 /* line 1322, ../sass/screen.scss */
 .window .tab-area .empty-block h2 {
-  margin-top: 20px;
   font-weight: normal;
   font-size: 150%;
+  color: #666;
 }
 
 /* line 1333, ../sass/screen.scss */
@@ -4304,41 +4304,63 @@ form textarea:focus, form input:focus {
 }
 /* line 2040, ../sass/screen.scss */
 #view-deals h1 {
-  padding: 10px 5px;
+  padding: 10px 5px 3px 5px;
   font-size: 18px;
   font-weight: normal;
+  color: #666;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
 }
-/* line 2041, ../sass/screen.scss */
+/* line 2043, ../sass/screen.scss */
+#view-deals h1 span {
+  display: block;
+}
+/* line 2044, ../sass/screen.scss */
+#view-deals h1 span.leader {
+  border-bottom: thin dashed #999;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  margin-left: 5px;
+}
+/* line 2046, ../sass/screen.scss */
 #view-deals hr {
   margin: 15px auto;
   width: 80%;
 }
 
-/* line 2046, ../sass/screen.scss */
+/* line 2051, ../sass/screen.scss */
 #edit_shop #opening-times {
   margin-left: 10px;
 }
-/* line 2048, ../sass/screen.scss */
+/* line 2053, ../sass/screen.scss */
 #edit_shop #opening-times .notice {
   color: #858585;
   padding: 5px;
 }
-/* line 2049, ../sass/screen.scss */
+/* line 2054, ../sass/screen.scss */
 #edit_shop #opening-times ul {
   list-style-type: none;
   float: left;
 }
-/* line 2050, ../sass/screen.scss */
+/* line 2055, ../sass/screen.scss */
 #edit_shop #opening-times li {
   padding: 5px;
   text-align: left;
 }
-/* line 2052, ../sass/screen.scss */
+/* line 2057, ../sass/screen.scss */
 #edit_shop #opening-times li span.day {
   width: 40px;
   display: inline-block;
 }
-/* line 2053, ../sass/screen.scss */
+/* line 2058, ../sass/screen.scss */
 #edit_shop #opening-times li span.data {
   position: relative;
   display: none;
@@ -4346,14 +4368,14 @@ form textarea:focus, form input:focus {
   margin: 0;
   padding: 0;
 }
-/* line 2055, ../sass/screen.scss */
+/* line 2060, ../sass/screen.scss */
 #edit_shop #opening-times li span.data label {
   width: 20px;
   font-size: 11px;
   text-align: right;
   color: #858585;
 }
-/* line 2056, ../sass/screen.scss */
+/* line 2061, ../sass/screen.scss */
 #edit_shop #opening-times li span.data input {
   width: 40px;
   margin-right: 5px;
@@ -4361,36 +4383,36 @@ form textarea:focus, form input:focus {
   display: inline;
   text-align: right;
 }
-/* line 2058, ../sass/screen.scss */
+/* line 2063, ../sass/screen.scss */
 #edit_shop #opening-times li span.closed {
   color: #858585;
   font-size: 12px;
   display: inline;
 }
-/* line 2060, ../sass/screen.scss */
+/* line 2065, ../sass/screen.scss */
 #edit_shop #opening-times li.selected span.data {
   display: inline-block;
 }
-/* line 2061, ../sass/screen.scss */
+/* line 2066, ../sass/screen.scss */
 #edit_shop #opening-times li.selected span.closed {
   display: none;
 }
-/* line 2066, ../sass/screen.scss */
+/* line 2071, ../sass/screen.scss */
 #edit_shop #opening-times.edit li span.data {
   display: inline-block;
 }
 
-/* line 2071, ../sass/screen.scss */
+/* line 2076, ../sass/screen.scss */
 #start_deal {
   color: #000;
   width: 600px;
   margin: 0px 20%;
 }
-/* line 2075, ../sass/screen.scss */
+/* line 2080, ../sass/screen.scss */
 #start_deal .type-selector {
   margin: 10px 0px 0px 10px;
 }
-/* line 2077, ../sass/screen.scss */
+/* line 2082, ../sass/screen.scss */
 #start_deal .type-selector .option {
   padding: 5px 15px;
   text-align: center;
@@ -4420,11 +4442,11 @@ form textarea:focus, form input:focus {
   background-image: linear-gradient(top, #a6a6a6 0%, #c8c8c8 98%);
   color: #838383;
 }
-/* line 2085, ../sass/screen.scss */
+/* line 2090, ../sass/screen.scss */
 #start_deal .type-selector .option:hover {
   background: #ccc;
 }
-/* line 2086, ../sass/screen.scss */
+/* line 2091, ../sass/screen.scss */
 #start_deal .type-selector .option.selected, #start_deal .type-selector .option.selected:hover {
   z-index: 2;
   cursor: default;
@@ -4445,13 +4467,13 @@ form textarea:focus, form input:focus {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid #e8e8e8;
 }
-/* line 2099, ../sass/screen.scss */
+/* line 2104, ../sass/screen.scss */
 #start_deal .head {
   font-size: 32px;
   text-align: left;
   margin: 20px 0px;
 }
-/* line 2104, ../sass/screen.scss */
+/* line 2109, ../sass/screen.scss */
 #start_deal .block {
   clear: both;
   position: relative;
@@ -4479,7 +4501,7 @@ form textarea:focus, form input:focus {
   margin: 0px;
   opacity: 0.92;
 }
-/* line 2117, ../sass/screen.scss */
+/* line 2122, ../sass/screen.scss */
 #start_deal .label {
   width: 200px;
   float: left;
@@ -4487,14 +4509,14 @@ form textarea:focus, form input:focus {
   padding: 30px 0px 30px 20px;
   text-shadow: 1px 1px 1px white;
 }
-/* line 2118, ../sass/screen.scss */
+/* line 2123, ../sass/screen.scss */
 #start_deal .data {
   float: right;
   min-width: 320px;
   width: auto !important;
   width: 320px;
 }
-/* line 2119, ../sass/screen.scss */
+/* line 2124, ../sass/screen.scss */
 #start_deal label, #start_deal .sublabel {
   color: #333;
   font-size: 16px;
@@ -4502,17 +4524,17 @@ form textarea:focus, form input:focus {
   clear: both;
   margin: 0px 0px 5px 0px;
 }
-/* line 2120, ../sass/screen.scss */
+/* line 2125, ../sass/screen.scss */
 #start_deal .field {
   margin: 10px 15px 5px;
   float: left;
 }
-/* line 2122, ../sass/screen.scss */
+/* line 2127, ../sass/screen.scss */
 #start_deal .field .subdata {
   float: right;
   clear: both;
 }
-/* line 2123, ../sass/screen.scss */
+/* line 2128, ../sass/screen.scss */
 #start_deal .field input {
   width: 160px;
   font-family: Arial, Helvetica, sans-serif;
@@ -4530,21 +4552,21 @@ form textarea:focus, form input:focus {
   -moz-box-shadow: inset 0 0 3px black;
   box-shadow: inset 0 0 3px black;
 }
-/* line 2131, ../sass/screen.scss */
+/* line 2136, ../sass/screen.scss */
 #start_deal .field input:focus {
   border: 1px solid #888;
   -webkit-box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
   box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.2);
 }
-/* line 2136, ../sass/screen.scss */
+/* line 2141, ../sass/screen.scss */
 #start_deal .select_template {
   padding: 10px;
   margin: 20px 10px;
   font-size: 16px;
   float: right;
 }
-/* line 2137, ../sass/screen.scss */
+/* line 2142, ../sass/screen.scss */
 #start_deal #selected_template_area {
   padding: 0px;
   margin: 10px;
@@ -4556,45 +4578,45 @@ form textarea:focus, form input:focus {
   -o-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 2138, ../sass/screen.scss */
+/* line 2143, ../sass/screen.scss */
 #start_deal #time_block {
   position: relative;
 }
-/* line 2139, ../sass/screen.scss */
+/* line 2144, ../sass/screen.scss */
 #start_deal .set_time {
   height: 90px;
 }
-/* line 2141, ../sass/screen.scss */
+/* line 2146, ../sass/screen.scss */
 #start_deal .set_time .label {
   width: auto;
 }
-/* line 2142, ../sass/screen.scss */
+/* line 2147, ../sass/screen.scss */
 #start_deal .set_time .start_time label {
   display: block;
 }
-/* line 2144, ../sass/screen.scss */
+/* line 2149, ../sass/screen.scss */
 #start_deal .set_time .field.select-hours {
   margin-top: 8px;
 }
-/* line 2146, ../sass/screen.scss */
+/* line 2151, ../sass/screen.scss */
 #start_deal .set_time .time-slider {
   width: 220px;
   clear: both;
   margin: 10px 0px 5px 0px;
 }
-/* line 2147, ../sass/screen.scss */
+/* line 2152, ../sass/screen.scss */
 #start_deal .set_time .show_hours {
   clear: both;
   text-align: center;
 }
-/* line 2149, ../sass/screen.scss */
+/* line 2154, ../sass/screen.scss */
 #start_deal .set_time .show_hours .hours {
   font-size: 24px;
   padding: 0px 5px;
   color: black;
   text-shadow: 1px 1px 1px white;
 }
-/* line 2151, ../sass/screen.scss */
+/* line 2156, ../sass/screen.scss */
 #start_deal .set_time .end_time {
   clear: both;
   text-align: center;
@@ -4602,31 +4624,31 @@ form textarea:focus, form input:focus {
   color: #333;
   margin-top: 15px;
 }
-/* line 2152, ../sass/screen.scss */
+/* line 2157, ../sass/screen.scss */
 #start_deal .set_time .end_time #deal_end_time {
   color: #000;
   font-size: 16px;
 }
-/* line 2155, ../sass/screen.scss */
+/* line 2160, ../sass/screen.scss */
 #start_deal .regular_deal {
   height: 90px;
 }
-/* line 2157, ../sass/screen.scss */
+/* line 2162, ../sass/screen.scss */
 #start_deal .regular_deal .field {
   margin: 5px 0px;
   clear: both;
   float: right;
 }
-/* line 2159, ../sass/screen.scss */
+/* line 2164, ../sass/screen.scss */
 #start_deal .regular_deal .field.regular-days label {
   line-height: 30px;
   vertical-align: top;
 }
-/* line 2160, ../sass/screen.scss */
+/* line 2165, ../sass/screen.scss */
 #start_deal .regular_deal .field.regular-days #day-selector {
   display: inline-block;
 }
-/* line 2161, ../sass/screen.scss */
+/* line 2166, ../sass/screen.scss */
 #start_deal .regular_deal .field.regular-days .day-block {
   float: left;
   margin: 1px;
@@ -4643,11 +4665,11 @@ form textarea:focus, form input:focus {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 2165, ../sass/screen.scss */
+/* line 2170, ../sass/screen.scss */
 #start_deal .regular_deal .field.regular-days .day-block:hover {
   background-color: #CECECE;
 }
-/* line 2166, ../sass/screen.scss */
+/* line 2171, ../sass/screen.scss */
 #start_deal .regular_deal .field.regular-days .day-block.selected {
   background-color: #5e961b;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzVlOTYxYiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNhNmIwOSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
@@ -4664,16 +4686,16 @@ form textarea:focus, form input:focus {
   border: 1px solid #4E7A00;
   color: white;
 }
-/* line 2175, ../sass/screen.scss */
+/* line 2180, ../sass/screen.scss */
 #start_deal .regular_deal .field.regular-time {
   float: right;
   margin-right: 5px;
 }
-/* line 2177, ../sass/screen.scss */
+/* line 2182, ../sass/screen.scss */
 #start_deal .regular_deal .field.regular-time label {
   padding: 0px 5px 0px 20px;
 }
-/* line 2178, ../sass/screen.scss */
+/* line 2183, ../sass/screen.scss */
 #start_deal .regular_deal .field.regular-time .hint {
   padding-right: 21px;
   margin-top: -1px;
@@ -4681,16 +4703,16 @@ form textarea:focus, form input:focus {
   font-size: 12px;
   color: #666;
 }
-/* line 2180, ../sass/screen.scss */
+/* line 2185, ../sass/screen.scss */
 #start_deal .regular_deal input {
   width: 100px;
 }
-/* line 2182, ../sass/screen.scss */
+/* line 2187, ../sass/screen.scss */
 #start_deal .starter {
   width: 62%;
   margin: 20px auto;
 }
-/* line 2183, ../sass/screen.scss */
+/* line 2188, ../sass/screen.scss */
 #start_deal .start_deal_btn {
   padding: 10px 20px;
   font-size: 24px;
@@ -4699,7 +4721,7 @@ form textarea:focus, form input:focus {
   display: block;
   position: relative;
 }
-/* line 2185, ../sass/screen.scss */
+/* line 2190, ../sass/screen.scss */
 #start_deal .start_deal_btn.disabled {
   -webkit-transition-property: none;
   -moz-transition-property: none;
@@ -4710,21 +4732,21 @@ form textarea:focus, form input:focus {
   background-size: auto;
 }
 
-/* line 2194, ../sass/screen.scss */
+/* line 2199, ../sass/screen.scss */
 div.ui-datepicker {
   font-size: 12px;
 }
 
-/* line 2196, ../sass/screen.scss */
+/* line 2201, ../sass/screen.scss */
 .template-selector {
   height: 100%;
 }
-/* line 2198, ../sass/screen.scss */
+/* line 2203, ../sass/screen.scss */
 .template-selector .template-selected {
   padding: 5px;
   font-size: 18px;
 }
-/* line 2199, ../sass/screen.scss */
+/* line 2204, ../sass/screen.scss */
 .template-selector .template-list {
   overflow-y: auto;
   margin: 0px;
@@ -4732,7 +4754,7 @@ div.ui-datepicker {
   width: 100%;
 }
 
-/* line 2202, ../sass/screen.scss */
+/* line 2207, ../sass/screen.scss */
 .template-selector .list-item, #selected_template_area .list-item {
   border-radius: inherit;
   height: 68px;
@@ -4753,30 +4775,30 @@ div.ui-datepicker {
   background: -ms-linear-gradient(#fdfdfd, #eeeeee);
   background: linear-gradient(#fdfdfd, #eeeeee);
 }
-/* line 2211, ../sass/screen.scss */
+/* line 2216, ../sass/screen.scss */
 .template-selector .list-item img, #selected_template_area .list-item img {
   width: 50px;
   float: left;
   margin: 9px;
 }
-/* line 2213, ../sass/screen.scss */
+/* line 2218, ../sass/screen.scss */
 .template-selector .list-item .details, #selected_template_area .list-item .details {
   float: left;
   padding: 10px 5px;
   width: 210px;
 }
-/* line 2214, ../sass/screen.scss */
+/* line 2219, ../sass/screen.scss */
 .template-selector .list-item h2, #selected_template_area .list-item h2 {
   color: #2F3E46;
 }
-/* line 2215, ../sass/screen.scss */
+/* line 2220, ../sass/screen.scss */
 .template-selector .list-item span, #selected_template_area .list-item span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 2221, ../sass/screen.scss */
+/* line 2226, ../sass/screen.scss */
 .template-selector .list-item:hover, #selected_template_area .list-item:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -4790,52 +4812,52 @@ div.ui-datepicker {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
-/* line 2226, ../sass/screen.scss */
+/* line 2231, ../sass/screen.scss */
 .template-selector .list-item.selected, #selected_template_area .list-item.selected {
   background: #e1e1e1;
   cursor: default;
 }
-/* line 2227, ../sass/screen.scss */
+/* line 2232, ../sass/screen.scss */
 .template-selector .list-item.selected:hover, #selected_template_area .list-item.selected:hover {
   background: #e1e1e1;
 }
 
-/* line 2231, ../sass/screen.scss */
+/* line 2236, ../sass/screen.scss */
 .jcrop-holder {
   text-align: left;
 }
 
-/* line 2232, ../sass/screen.scss */
+/* line 2237, ../sass/screen.scss */
 .jcrop-vline, .jcrop-hline {
   font-size: 0px;
   position: absolute;
   background: white url("i/Jcrop.gif") top left repeat;
 }
 
-/* line 2233, ../sass/screen.scss */
+/* line 2238, ../sass/screen.scss */
 .jcrop-vline {
   height: 100%;
   width: 1px !important;
 }
 
-/* line 2234, ../sass/screen.scss */
+/* line 2239, ../sass/screen.scss */
 .jcrop-hline {
   width: 100%;
   height: 1px !important;
 }
 
-/* line 2235, ../sass/screen.scss */
+/* line 2240, ../sass/screen.scss */
 .jcrop-vline.right {
   right: 0px;
   margin: 0px;
 }
 
-/* line 2236, ../sass/screen.scss */
+/* line 2241, ../sass/screen.scss */
 .jcrop-hline.bottom {
   bottom: 0px;
 }
 
-/* line 2237, ../sass/screen.scss */
+/* line 2242, ../sass/screen.scss */
 .jcrop-handle {
   font-size: 1px;
   width: 7px !important;
@@ -4844,18 +4866,18 @@ div.ui-datepicker {
   background-color: #333;
 }
 
-/* line 2244, ../sass/screen.scss */
+/* line 2249, ../sass/screen.scss */
 .jcrop-tracker {
   width: 100%;
   height: 100%;
 }
 
-/* line 2245, ../sass/screen.scss */
+/* line 2250, ../sass/screen.scss */
 .custom .jcrop-vline, .custom .jcrop-hline {
   background: yellow;
 }
 
-/* line 2246, ../sass/screen.scss */
+/* line 2251, ../sass/screen.scss */
 .custom .jcrop-handle {
   border-color: black;
   background-color: #C7BB00;
@@ -4866,20 +4888,20 @@ div.ui-datepicker {
   border-radius: 3px;
 }
 
-/* line 2252, ../sass/screen.scss */
+/* line 2257, ../sass/screen.scss */
 #notifications {
   position: fixed;
   top: 50px;
   right: 0;
   z-index: 15;
 }
-/* line 2258, ../sass/screen.scss */
+/* line 2263, ../sass/screen.scss */
 #notifications .meow {
   margin: 20px 20px 0 0;
   position: relative;
   cursor: pointer;
 }
-/* line 2262, ../sass/screen.scss */
+/* line 2267, ../sass/screen.scss */
 #notifications .meow .inner {
   background: #191919;
   zoom: 1;
@@ -4900,7 +4922,7 @@ div.ui-datepicker {
   width: 250px;
   min-height: 48px;
 }
-/* line 2278, ../sass/screen.scss */
+/* line 2283, ../sass/screen.scss */
 #notifications .meow .inner:after {
   content: "\0200";
   display: block;
@@ -4909,7 +4931,7 @@ div.ui-datepicker {
   line-height: 0;
   height: 0;
 }
-/* line 2286, ../sass/screen.scss */
+/* line 2291, ../sass/screen.scss */
 #notifications .meow .inner h1 {
   font-size: 14px;
   font-weight: bold;
@@ -4917,27 +4939,27 @@ div.ui-datepicker {
   padding: 0;
   line-height: 1;
 }
-/* line 2293, ../sass/screen.scss */
+/* line 2298, ../sass/screen.scss */
 #notifications .meow .inner .icon {
   width: 48px;
   height: 48px;
   float: left;
   margin-right: 6px;
 }
-/* line 2298, ../sass/screen.scss */
+/* line 2303, ../sass/screen.scss */
 #notifications .meow .inner .icon img {
   max-width: 48px;
   max-height: 48px;
 }
-/* line 2300, ../sass/screen.scss */
+/* line 2305, ../sass/screen.scss */
 #notifications .meow .inner .close {
   display: none;
 }
-/* line 2302, ../sass/screen.scss */
+/* line 2307, ../sass/screen.scss */
 #notifications .meow.hover .inner {
   border: 2px solid #fff;
 }
-/* line 2304, ../sass/screen.scss */
+/* line 2309, ../sass/screen.scss */
 #notifications .meow.hover .inner .close {
   display: block;
   position: absolute;
@@ -4963,17 +4985,17 @@ div.ui-datepicker {
   text-decoration: none;
 }
 
-/* line 2329, ../sass/screen.scss */
+/* line 2334, ../sass/screen.scss */
 .bubble_message {
   font-size: 18px;
 }
-/* line 2332, ../sass/screen.scss */
+/* line 2337, ../sass/screen.scss */
 .bubble_message #container {
   width: 500px;
   padding: 0 0 50px;
   margin: 0 auto;
 }
-/* line 2338, ../sass/screen.scss */
+/* line 2343, ../sass/screen.scss */
 .bubble_message h1 {
   margin: 1em 0 0;
   font-size: 2.5em;
@@ -4981,7 +5003,7 @@ div.ui-datepicker {
   line-height: 1.2;
   text-align: center;
 }
-/* line 2346, ../sass/screen.scss */
+/* line 2351, ../sass/screen.scss */
 .bubble_message h2 {
   margin: 0.5em 0 1.5em;
   font-size: 1.25em;
@@ -4989,11 +5011,11 @@ div.ui-datepicker {
   font-style: italic;
   text-align: center;
 }
-/* line 2354, ../sass/screen.scss */
+/* line 2359, ../sass/screen.scss */
 .bubble_message p {
   margin: 1em 0;
 }
-/* line 2358, ../sass/screen.scss */
+/* line 2363, ../sass/screen.scss */
 .bubble_message .content h2 {
   margin: 2em 0 0.75em;
   font-size: 2em;
@@ -5001,26 +5023,26 @@ div.ui-datepicker {
   font-style: normal;
   text-align: left;
 }
-/* line 2366, ../sass/screen.scss */
+/* line 2371, ../sass/screen.scss */
 .bubble_message blockquote {
   margin: 1em 0;
 }
-/* line 2370, ../sass/screen.scss */
+/* line 2375, ../sass/screen.scss */
 .bubble_message blockquote p {
   margin: 0;
   font-size: 18px;
 }
-/* line 2375, ../sass/screen.scss */
+/* line 2380, ../sass/screen.scss */
 .bubble_message .follow {
   clear: both;
   margin-top: 2em;
   font-size: 1.125em;
 }
-/* line 2381, ../sass/screen.scss */
+/* line 2386, ../sass/screen.scss */
 .bubble_message .follow span {
   font-weight: bold;
 }
-/* line 2386, ../sass/screen.scss */
+/* line 2391, ../sass/screen.scss */
 .bubble_message.msg {
   position: absolute;
   top: -100px;
@@ -5042,12 +5064,12 @@ div.ui-datepicker {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 2402, ../sass/screen.scss */
+/* line 2407, ../sass/screen.scss */
 .bubble_message.msg p {
   font-size: 18px;
   line-height: 1.25em;
 }
-/* line 2404, ../sass/screen.scss */
+/* line 2409, ../sass/screen.scss */
 .bubble_message.msg:after {
   content: "";
   position: absolute;
@@ -5057,7 +5079,7 @@ div.ui-datepicker {
   display: block;
   width: 0;
 }
-/* line 2413, ../sass/screen.scss */
+/* line 2418, ../sass/screen.scss */
 .bubble_message.msg + p {
   padding-left: 15px;
   font: 14px Arial, sans-serif;
