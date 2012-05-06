@@ -1,4 +1,45 @@
+function makeRegularHours(object){
+    var times,closed,html='',min=0,nexted=false;
+    for(var i = 0 ; i <= 7 ; i++ ){
+        var start=false,end=false;
+        if(i < 7){ 
+            var temp = _.clone(_.last(object[i])),
+                    next =object[(i+1)%7][0];
+            if (nexted && object[i].length<=1 || i===0 && object[0].length==1 && temp.start===0 && _.last(object[6]).end==24*60*60) temp = false;
+            else {
+                if (temp && temp.end==24*60*60 && next.start===0) {
+                    nexted = true;
+                    temp.end = next.end;
+                }
 
+                start = (temp && temp.hasOwnProperty('start') && !_.isNaN(temp.start)) ? temp.start : false;
+                end = (temp && temp.hasOwnProperty('end') && !_.isNaN(temp.end)) ? temp.end : false;
+            }   
+        }
+        if(i === 0) times = {start:start,end:end};
+        else{
+            if(i < 7 && start == times.start && end == times.end) continue;
+            var last = i-1;
+            var days,time;
+            if(last == min) days = lang.days.long[last];
+            else days = lang.days.short[min] + '-' + lang.days.long[last];
+            if(times.start!==false && times.end!==false) {
+                time = convertToTime(times.start) + ' &ndash; ' + convertToTime(times.end);
+                html += '<li><span class="day">'+days+':</span><span class="leader"></span><time>'+time+'</time>'+(nexted?'<span class="hint">Næste dag</span>':'')+'</li>';
+            }
+            if(i < 7){
+                times.start = start;
+                times.end = end;
+                min = i;
+                nexted=false;
+            }
+
+
+        }
+        
+    }
+    return html;
+}
 function makeOpeningHours(object){
     var daysLang = {
         0:{ min:'Man', max:'Mandag'},
