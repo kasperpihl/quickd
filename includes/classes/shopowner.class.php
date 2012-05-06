@@ -8,7 +8,6 @@ class Shopowner {
 			$password = isset($model['password']) ? $model['password'] : null;
 			if(($password && strlen($password) < 6) || (!$password && $type=='dealer')) return array('success'=>'false','error'=>'password_must_be_6_long');
 			$user = (object) json_decode(self::checkEmail($email));
-			return $user;
 			if(!$email || $user->success=='true') {
 				
 				$privileges = $user->data->value->privileges;

@@ -610,7 +610,10 @@ DEALS LIST
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-
+.x-layout-card-item{
+    background: url($img-path + 'install-webapp/install-bg.jpg') no-repeat;
+    background-size: cover;
+}
 #quickd-deals {
     #deal_no_deals {
         .no-deal-content {

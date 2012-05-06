@@ -4,5 +4,5 @@ if(!isset($_POST['email'])) echo die(json_encode(array('success'=>false,'error'=
 $model = array(
 	'email'=>$_POST['email']);
 $result = Shopowner::register($model);
-print_r($result);
+echo json_encode($result);
 ?>

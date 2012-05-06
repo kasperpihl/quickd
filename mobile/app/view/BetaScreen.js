@@ -11,8 +11,8 @@ Ext.define('QuickD.view.BetaScreen', {
         layout:'vbox',
         // We give it a left and top property to make it floating by default    
         centered:true,
-        width: 300,
-        height:300,
+        width: 260,
+        height:280,
         scrollable:false,
         showAnimation: {
             type: 'fadeIn',
@@ -43,7 +43,7 @@ Ext.define('QuickD.view.BetaScreen', {
                 xtype:'textfield',
                 placeHolder:'Indtast din betanøgle',
                 id:'betakeyField',
-                width:'265px',
+                width:'225px',
                 listeners:{
                     focus:function(){ this.getParent().getParent().gotFocus(); }
                 }
@@ -69,6 +69,9 @@ Ext.define('QuickD.view.BetaScreen', {
     gotFocus:function(){
         if(this.errorShown) this.removeError();
         return;
+    },
+    showSignedUpText:function(){
+        Ext.Msg.alert('Tak for din tilmelding til QuickD','Så snart vi har plads i vores beta, sender vi en mail med din nøgle');
     },
     removeError:function(){
         if(!this.errorShown) return false;

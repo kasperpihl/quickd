@@ -111,7 +111,6 @@ Ext.define('QuickD.controller.Main', {
     launch:function(){
 
         if(isIphone == 1 && !window.navigator.standalone){
-            
             this.getMain().setActiveItem(this.getNotApp());
             return;
         }
@@ -136,8 +135,10 @@ Ext.define('QuickD.controller.Main', {
     requestKey:function(buttonId,value,opt){
         //alert('req'+buttonId+value);
         if(buttonId != 'ok') return;
-        if(!validate(value)) Ext.Msg.prompt('Anmod om betanøgle','Indtast en rigtig email',this.requestKey,this);
+        if(!value) return;
+        if(!validate(value)) return Ext.Msg.prompt('Anmod om betanøgle','Indtast en rigtig email',this.requestKey,this);
         var main = this.getMain();
+        var betascreen = this.getBetaScreen();
         main.maskMe('Anmoder om adgang');
         Ext.Ajax.request({
             url: ROOT_URL+'ajax/requestBetakey.php',
@@ -146,8 +147,12 @@ Ext.define('QuickD.controller.Main', {
             },
             method:'POST',
             success:function(data){
-
-                log(data.responseText);
+                var response = JSON.parse(data.responseText);
+                var test = false;
+                if(response.success === 'true') test = true;
+                else if(response.success === 'false' && response.error === 'user_exists') test = true;
+                if(test) betascreen.showSignedUpText();
+                else Ext.Msg.alert('En fejl skete','Vi beklager en fejl skete, vi løber som små vilddyr for at få den rettet');
                 main.unmaskMe();
             },
             failure:function(data){
@@ -163,6 +168,7 @@ Ext.define('QuickD.controller.Main', {
         switch (id){
             case 'useBetaKey':
                 var key = main.down('#betakeyField').getValue();
+                if(!key) return;
                 this.useBetaKey(key);
             break;
             case 'requestKeyButton':
