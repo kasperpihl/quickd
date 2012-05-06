@@ -76,7 +76,6 @@ define([
 			_.each(deals, function(deal) {
 				if(deal.state && thisClass.deals[deal.state]) thisClass.deals[deal.state].push(deal);
 			});
-			log("deals", this.deals)
 			return this.deals;
 		},
 		stateChanged: function(id) {

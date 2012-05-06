@@ -330,7 +330,7 @@ class Shopowner {
 					if (!$doc->shopowner_id ||$doc->shopowner_id!=$shopowner) return json_encode(array('success'=>'false', 'error'=>'user_not_authorized'));
 					if (!$doc->type ||$doc->type!='deal') return json_encode(array('success'=>'false', 'error'=>'doc_not_a_deal'));
 					$time = time();
-					if (!$doc->start || !$doc->end || $doc->start > $time || $doc->end < $time) {
+					if ($doc->deal_type=='regular' || !$doc->start || !$doc->end || $doc->start > $time || $doc->end < $time) {
 						$db->deleteDoc($doc);
 						return json_encode(array('success'=>'true','data'=>'deleted')); 
 					} else return json_encode(array('success'=>'false', 'error'=>'cannot_delete_active'));

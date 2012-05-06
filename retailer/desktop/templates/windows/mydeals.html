@@ -8,18 +8,24 @@
                 <img src="<%=deal.template.image ? IMG_URL+'thumbnail/'+deal.template.image : App.collections.images.getUrl(0, 'thumbnail')%>" />
                 <div class="details">
                     <h2><%= deal.template.title?deal.template.title.trunc(30, true):"Ingen titel" %></h2> 
-                    <span class="time">
-                        <% if(type=='planned') print("Starter"); else print("Startet"); %>: 
-                        <em><% print(getTimeString(deal.start*1000, 'simple')); %></em>
-                    </span>
-                    <span class="time">
-                        <% if(type=='ended') print("Sluttede"); else print("Slutter"); %>: 
-                        <em><% print(getTimeString(deal.end*1000, 'simple')); %></em>
-                    </span>
-                    <% if (type!='planned') { %>
-                      <!--  <span class="hits">
-                           <em>122</em> listevisninger / <em>23</em> dealvisninger
-                        </span> -->
+                    <% if (type=='regular') { %>
+                        <div class="times">
+                            <%=deal.times?makeRegularHours(deal.times) : 'N/A' %>
+                        </div>
+                    <% } else { %>
+                        <span class="time">
+                            <% if(type=='planned') print("Starter"); else print("Startet"); %>: 
+                            <em><% print(getTimeString(deal.start*1000, 'simple')); %></em>
+                        </span>
+                        <span class="time">
+                            <% if(type=='ended') print("Sluttede"); else print("Slutter"); %>: 
+                            <em><% print(getTimeString(deal.end*1000, 'simple')); %></em>
+                        </span>
+                        <% if (type!='planned') { %>
+                          <!--  <span class="hits">
+                               <em>122</em> listevisninger / <em>23</em> dealvisninger
+                            </span> -->
+                        <% } %>
                     <% } %>
                     <span class="soldout" style="display:<%=deal.status=='soldout' ? 'block' : 'none' %>">Udsolgt</span>
 

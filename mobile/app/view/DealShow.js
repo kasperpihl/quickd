@@ -16,8 +16,8 @@ function makeOpeningHours(object){
         var close,open;
         if(i < 7){ 
             var temp = object[i];
-            open = (temp.hasOwnProperty('open') && temp.open) ? temp.open : false;
-            close = (temp.hasOwnProperty('close') && temp.close) ? temp.close : false;
+            open = (temp.hasOwnProperty('open') && (temp.open||temp.open===0)) ? temp.open : false;
+            close = (temp.hasOwnProperty('close') && (temp.close||temp.close===0)) ? temp.close : false;
         }
         if(i === 0) times = {open:open,close:close};
         else{
@@ -26,7 +26,7 @@ function makeOpeningHours(object){
             var days,time;
             if(last == min) days = daysLang[last].max;
             else days = daysLang[min].min + '-' + daysLang[last].max;
-            if(!times.open || !times.close) time = daysLang.closed;
+            if(times.open===false || times.close===false) time = daysLang.closed;
             else time = times.open + ' &ndash; ' + times.close;
             html += '<li><span class="day">'+days+'</span><span class="leader"></span><time>'+time+'</time></li>';
             if(i < 7){

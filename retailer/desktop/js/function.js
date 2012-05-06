@@ -125,11 +125,6 @@ function roundToMinutes(date, roundTo) {
 	return date
 }
 
-function dateToAmr(dateString, format) {
-	if (!format) var format = ['dd-MM-yyyy HH:mm','dd-MM-yyyy '];
-	if (dateString) return Date.parseExact(dateString, format);
-}
-
 function convertNumber(number, toString) {
 	if (toString) {
 		number = parseFloat(number);
@@ -156,39 +151,39 @@ function convertToTimestring(number, returnSeparate) {
 }
 
 function makeRegularHours(object){
-    var daysLang = {
-        0:{ min:'Man', max:'Mandag'},
-        1:{ min: 'Tir',max: 'Tirsdag'},
-        2:{ min: 'Ons',max: 'Onsdag'},
-        3:{ min: 'Tor',max: 'Torsdag'},
-        4:{ min: 'Fre',max: 'Fredag'},
-        5:{ min: 'Lør',max: 'Lørdag'},
-        6:{ min: 'Søn',max: 'Søndag'},
-        closed: 'Lukket'
-    };
-
-    var times,closed,html='',min=0;
+    var times,closed,html='',min=0,nexted=false;
     for(var i = 0 ; i <= 7 ; i++ ){
-        var close,open;
+        var start=false,end=false;
         if(i < 7){ 
-            var temp = object[i];
-            open = (temp.hasOwnProperty('open') && temp.open) ? temp.open : false;
-            close = (temp.hasOwnProperty('close') && temp.close) ? temp.close : false;
+            var temp = _.clone(_.last(object[i])),
+            		next =object[(i+1)%7][0];
+            if (nexted && object[i].length<=1 || i==0 && object[0].length==1 && temp.start==0 && _.last(object[6]).end==24*60*60) temp = false;
+            else {
+            	if (temp && temp.end==24*60*60 && next.start===0) {
+	            	nexted = true;
+	            	temp.end = next.end;
+	          	}
+
+	            start = (temp && temp.hasOwnProperty('start') && !_.isNaN(temp.start)) ? temp.start : false;
+	            end = (temp && temp.hasOwnProperty('end') && !_.isNaN(temp.end)) ? temp.end : false;
+            }   
         }
-        if(i === 0) times = {open:open,close:close};
+        if(i === 0) times = {start:start,end:end};
         else{
-            if(i < 7 && open == times.open && close == times.close) continue;
+            if(i < 7 && start == times.start && end == times.end) continue;
             var last = i-1;
             var days,time;
-            if(last == min) days = daysLang[last].max;
-            else days = daysLang[min].min + '-' + daysLang[last].max;
-            if(!times.open || !times.close) time = daysLang.closed;
-            else time = times.open + ' &ndash; ' + times.close;
-            html += '<li><span class="day">'+days+'</span><span class="leader"></span><time>'+time+'</time></li>';
+            if(last == min) days = lang.days.long[last];
+            else days = lang.days.short[min] + '-' + lang.days.long[last];
+            if(times.start!==false && times.end!==false) {
+            	time = convertToTime(times.start) + ' &ndash; ' + convertToTime(times.end);
+            	html += '<li><span class="day">'+days+':</span><span class="leader"></span><time>'+time+'</time>'+(nexted?'<span class="hint">Næste dag</span>':'')+'</li>';
+            }
             if(i < 7){
-                times.open = open;
-                times.close = close;
+                times.start = start;
+                times.end = end;
                 min = i;
+                nexted=false;
             }
 
 
@@ -197,6 +192,11 @@ function makeRegularHours(object){
     }
     return html;
 }
+function convertToTime(secs) {
+	var h = Math.floor(secs/60/60),
+			m = (secs/60-1)%60;
+	return h+':'+padNumber(m);
+} 
 
 function resizeBg(stopRecursion) {
 	var img = $('#bgImage');
