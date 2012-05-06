@@ -620,19 +620,6 @@ try{
 			emit([doc.shopowner_id,doc.template.id],obj);
 		}
 	}");
-	$getRegularDeals = array("map"=>
-	"function(doc){
-		if(!doc.hasOwnProperty('type') || doc.type != 'deal') return;
-		if(!doc.hasOwnProperty('deal_type') || doc.deal_type != 'regular') return;
-		if(!doc.hasOwnProperty('times')) return;
-		for (var i in doc.times){
-			if(doc.times[i].length == 0) continue;
-			for(var j in doc.times[i]){
-				emit(i,doc.times[i][j]);
-			}
-		}
-		
-	}");
 	$getCheckDeals = array(
 	'map'=>
 	"function(doc){
