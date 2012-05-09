@@ -7,6 +7,7 @@ define([
 		depth: 2,
 		deals: {
 			current: [],
+			regular: [],
 			planned: [],
 			ended: []
 		},
@@ -16,8 +17,6 @@ define([
 			_.bindAll(this,'updateContent', 'stateChanged', 'viewDeal', 'changeTab', 'onDealAdded', 'onDealChanged', 'removeDeal', 'confirmRemoveCallback');
 			this.template = 'mydeals';
 			this.tabId = 'deals-tab-current';
-			
-			
 			this.collection = App.collections.deals;
 			if (this.options.dealId) this.currentDeal = this.collection.get(this.options.dealId);
 			else this.currentDeal = null;
@@ -70,6 +69,7 @@ define([
 			var deals = this.collection.toJSON();
 			this.deals = {
 				current: [],
+				regular: [],
 				planned: [],
 				ended: []
 			};

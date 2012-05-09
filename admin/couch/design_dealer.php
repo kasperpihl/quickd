@@ -131,8 +131,11 @@ try{
 			dealObj.status = 'running';
 			dealObj.created = query.created;
 			dealObj.type = 'deal';
+			if (query.hasOwnProperty('deal_type')) dealObj.deal_type = query.deal_type;
+			else dealObj.deal_type = 'instant';
 			dealObj.start = query.start;
 			dealObj.end = query.end;
+			if(query.hasOwnProperty('times')) dealObj.times = query.times;
 			dealObj.rev = 1;
 			dealObj.shopowner_id = query.shopowner_id;
 			dealObj.template = query.template;
@@ -548,6 +551,8 @@ try{
 			
 			obj.id = doc._id;
 			obj.type = 'deal';
+			obj.deal_type =  doc.deal_type?doc.deal_type:'instant';
+			if (doc.hasOwnProperty('times')) obj.times = doc.times;
 			obj.status = doc.status;
 			obj.start = doc.start;
 			obj.end = doc.end;
@@ -600,6 +605,7 @@ try{
 			var obj = {
 				id: doc._id,
 				type: doc.type,
+				deal_type: doc.deal_type?doc.deal_type:'instant',
 				rev: doc.rev,
 				status: doc.status,
 				template_id: doc.template.id,
@@ -609,6 +615,7 @@ try{
 				start:start,
 				title: doc.template.title
 			}
+			if (doc.hasOwnProperty('times')) obj.times = doc.times;
 			if(doc.template.hasOwnProperty('image')) obj.image = doc.template.image;
 			emit([doc.shopowner_id,doc.template.id],obj);
 		}
@@ -617,7 +624,7 @@ try{
 	'map'=>
 	"function(doc){
 		if(doc.hasOwnProperty('type') && doc.type == 'deal'){
-			emit([doc.shopowner_id,parseInt(doc.end)],{id:doc._id,template_id:doc.template.id,shop_id:doc.shop.id,start:doc.start,end:doc.end});
+			emit([doc.shopowner_id,parseInt(doc.end)],{id:doc._id,deal_type:doc.deal_type?doc.deal_type:'instant',template_id:doc.template.id,shop_id:doc.shop.id,start:doc.start,end:doc.end,times:doc.times?doc.times:null});
 		}
 	}");
 	$getShops = "function (doc) {
@@ -695,6 +702,8 @@ try{
 			var obj = {};
 			obj.id = doc._id;
 			obj.type = 'deal';
+			obj.deal_type = doc.deal_type ? doc.deal_type : 'instant';
+			if (doc.hasOwnProperty('times')) obj.times = doc.times;
 			obj.start = doc.start;
 			obj.end = doc.end;
 			obj.template = doc.template;

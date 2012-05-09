@@ -16,8 +16,8 @@ function makeOpeningHours(object){
         var close,open;
         if(i < 7){ 
             var temp = object[i];
-            open = (temp.hasOwnProperty('open') && temp.open) ? temp.open : false;
-            close = (temp.hasOwnProperty('close') && temp.close) ? temp.close : false;
+            open = (temp.hasOwnProperty('open') && (temp.open||temp.open===0)) ? temp.open : false;
+            close = (temp.hasOwnProperty('close') && (temp.close||temp.close===0)) ? temp.close : false;
         }
         if(i === 0) times = {open:open,close:close};
         else{
@@ -26,7 +26,7 @@ function makeOpeningHours(object){
             var days,time;
             if(last == min) days = daysLang[last].max;
             else days = daysLang[min].min + '-' + daysLang[last].max;
-            if(!times.open || !times.close) time = daysLang.closed;
+            if(times.open===false || times.close===false) time = daysLang.closed;
             else time = times.open + ' &ndash; ' + times.close;
             html += '<li><span class="day">'+days+'</span><span class="leader"></span><time>'+time+'</time></li>';
             if(i < 7){
@@ -160,14 +160,7 @@ Ext.define('QuickD.view.DealShow', {
             id: 'quickd-deal-content',
             tpl: showDealTemplate,
             config: {
-                draggable:{
-                    direction: 'horizontal',
-                    listeners:{
-                        dragstart: function(l1,l2,l3){
-                            log(l1,l2,l3);
-                        }
-                    }
-                }
+                
             }
         }]
     },
@@ -176,19 +169,18 @@ Ext.define('QuickD.view.DealShow', {
             slider  = this.down('#quickd-deal-slider');
         slider.removeAll(true,true);
         for(var key in records){ 
-            slider.add({modelId:records[key].getId()}).setData(records[key].data);
+            var test = slider.add({modelId:records[key].getId()}).setData(records[key].data);
         }
+
     },
     loadDeal:function(record,index){
         var model;
-        log('rec',record);
         if(record.modelId) model = Ext.getStore('Deals').getById(record.modelId);
         else model = record;
         //var $deal = $('#deal-' + record.internalId + '-info');
         this.down('#quickd-show-topbar').setTitle('test');
         this.down('#quickd-deal-content').setData(model.getData());
         var now = parseInt(new Date().getTime()/1000,10);
-        log(model);
         var time_left = parseInt(model.get('end'),10)-parseInt(now,10);
         javascript_countdown.start(time_left);
         if ($('#quickd-deal-content article[id*=deal-]').length > 0) this.addCustomScroll();

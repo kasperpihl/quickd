@@ -8,22 +8,16 @@ Ext.define('QuickD.controller.Main', {
         refs: {
             main: 'mainview',
             dealListToolbar: 'deallist > toolbar',
-            buttons: 'toolbar > button',
+            buttons: 'button',
             dealList: 'mainview > deallist',
-            betaView: 'mainview > betaview',
-            useKeyButton: 'mainview > betaview button',
+            betaScreen: 'mainview > betascreen',
+            notApp: 'mainview > notapp',
             dealShow: 'mainview > dealshow',
             splash: 'mainview > splash',
             dealShowSlider: 'mainview > dealshow > carousel',
             mapShow: 'mainview > mapshow'
         },
         control: {
-            useKeyButton:{
-                tap:'useBetaKey'
-            },
-            adressButton: {
-                tap: 'test'
-            },
             buttons:{
                 tap: 'buttonHandler'
             },
@@ -41,18 +35,30 @@ Ext.define('QuickD.controller.Main', {
     init:function(){
         
     },
-    prompt:function(pass){
-        var res;
-        if(!pass){ 
-            res = prompt('Indtast din betanøgle, eller skriv dig op på quickd.com','');
-        } else{
-            res = prompt('Forkert nøgle, prøv igen',pass);
-        }
-        if(!res) window.location.href = "http://quickd.com";
-        else this.useBetaKey(res);
+    doFacebookConnect:function(){
+        FB.login(function(response) {
+            log('response from facebook',response);
+            if (response.authResponse) {        
+                $.post(ROOT_URL+"api/fbconnect", {}, function(data) {
+                    //console.log(data);
+                    if (data.success == 'true') {
+                        //Successfully logged in!!
+                        alert('SUCCESS');
+                    }
+                    else {
+                        alert('FALSE');
+                    }
+                }, 'json');
+                
+            } else {
+                alert('fejl');
+            }
+        }, {scope: 'email'});
     },
     useBetaKey:function(key){
         var self = this;
+        var main = this.getMain();
+        main.maskMe('Validerer betakode');
         Ext.Ajax.request({
             url: ROOT_URL+'ajax/betakey.php',
             params:{
@@ -60,27 +66,34 @@ Ext.define('QuickD.controller.Main', {
             },
             method:'POST',
             success:function(data){
-                if(data.responseText != 'true') self.prompt(key);
+                main.unmaskMe();
+                if(data.responseText != 'false'){
+                    userbeta = data.responseText;
+                    self.start(true);
+                }
+                else {
+                    var view = self.getBetaScreen();
+                    view.showError();
+                    view.down('#betakeyField').focus();
+
+                }
             },
             error:function(data){
+                main.unmaskMe();
                 log('error beta',data);
             }
         });
     },
-    start: function() {
-        var test = this.getDealShow().query('#quickd-deal-content')[0].element;
-        test.on('horizontalswipe',function(){ log('test'); });
+    start: function(closePopup) {
+        if(closePopup) this.getBetaScreen().hide();
         this.$container = $('#quickd-deals .x-scroll-container');
         this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
         // Add deals bg
         this.$container.append($('<div id="deal-bg"></div>'));
         this.$dealsBg = this.$container.find('#deal-bg').hide();
         Ext.getStore('Deals').on({ 'refresh': this.updatedStore, scope: this,'updaterecord': this.addRemoveRecords,'addrecords':this.addRemoveRecords});
-        //Ext.getStore('Deals').addListener('updaterecord', this.test, this);
-        //this.getMain().getAt(0).show();
         this.getMain().setActiveItem(this.getDealList());
         this.animationController = this.getApplication().getController('AnimationController');
-        
         this.location = Ext.create('Ext.util.GeoLocation', {
             autoUpdate: false,
             listeners: {
@@ -91,15 +104,21 @@ Ext.define('QuickD.controller.Main', {
         });
         this.location.updateLocation();
     },
-    launch:function(notInstalled){
+    launch:function(){
 
         if(isIphone == 1 && !window.navigator.standalone){
-            this.getMain().setActiveItem(this.getBetaView());
+            
+            this.getMain().setActiveItem(this.getNotApp());
             return;
         }
-
+        if(!userbeta){    
+            this.getBetaScreen().show();
+        }
+        else {
+            this.start();
+        }
         //this.sortController = this.getApplication().getController('SortController');
-        this.start();
+        
     },
     addRemoveRecords:function(store,p2,p3,p4){
         if(this.lockRefresh) return;
@@ -109,12 +128,18 @@ Ext.define('QuickD.controller.Main', {
             self.lockRefresh = false;
             self.updatedStore(store);
         },150);
-        //log('params',p1,p2,p3,p4);*/
     },
     buttonHandler:function(t,t2,t3){
         var id = t.getId();
         var main = this.getMain();
         switch (id){
+            case 'useBetaKey':
+                var key = main.down('#betakeyField').getValue();
+                this.useBetaKey(key);
+            break;
+            case 'loginWithFacebook':
+                this.doFacebookConnect();
+            break;
             case 'sortButton':
                 this.sortController.setState();
                 this.changeToView('dealsort');
@@ -179,16 +204,15 @@ Ext.define('QuickD.controller.Main', {
         }
     },
     setNewDeal:function(container,newItem,oldItem){
-        log('setnewdeal',container,newItem,oldItem);
-        //log(this.getMain().setShowAnimation('flip'));
         this.getDealShow().loadDeal(newItem);
     },
     constructor:function(){
         this.callParent(arguments);
     },
     updatedStore:function(instance,data,options){
+
         var html,count = instance.getCount();
-        if(count < 5){
+        if(count < 1){
             this.getDealList().showNoDeals();
         }
         else{
@@ -196,57 +220,55 @@ Ext.define('QuickD.controller.Main', {
                 '';
             this.getDealList().setHtml(html);
         }
-        var string = count + ' tilbud lige nu';
+        var string = (count > 0 ? count : 'Ingen') + ' tilbud lige nu';
         this.getDealList().getDockedComponent('quickd-list-topbar').setTitle(string);
         var view = this.getDealShow();
         view.setSlider(instance.getData().items);
     },
     onLocationUpdate:function(){
-        var lat = this.location.getLatitude();
-        var long = this.location.getLongitude();
-        if(distance(lat,long,56.16294,10.20392) > 10000){
+        var lat1 = this.location.getLatitude();
+        var long1 = this.location.getLongitude();
+        this.getAddress(lat1,long1);
+        if(distance(lat1,long1,56.16294,10.20392) > 10000){
             return this.noLocation();
         }
-        localStorage.setItem('lat',lat);
-        localStorage.setItem('long',long);
+        localStorage.setItem('lat',lat1);
+        localStorage.setItem('long',long1);
         Ext.getStore('Deals').load({
             params: {
-                lat: lat,
-                long: long
+                lat: lat1,
+                long: long1
             },
             scope: this
         });
-        var self = this;
-        log('address',this.getAddress(lat,long));
-        if(!userbeta){    
-            setTimeout(function(){
-                //if(isDesktop) alert('');
-                self.prompt();
-            },1000);
-        }
     },
     getAddress:function(lat,long){
-        var city;
-        var geocoder = new google.maps.Geocoder(); 
-        var latlng = new google.maps.LatLng(parseFloat(lat),parseFloat(long));    
-        geocoder.geocode({'latLng': latlng}, function(results, status) {
-            var found = false; 
-            log('test');
-            if (status == google.maps.GeocoderStatus.OK) {        
-                if (results[0]) {          
-                    var res = results[0].address_components;
-                    for (var i in res){
-                        if(res[i].types[0] == 'subpolitical')
-                            city = res[i].short_name;
-                    }
-                    log('by',city);
-                } else {          
-                    city = 'Aarhus C';     
-                }  
-            } else {        
-                city = 'Aarhus C';   
-            }    
-        });  
+        var city,self = this;
+        if(google){
+            var geocoder = new google.maps.Geocoder(),
+                latlng = new google.maps.LatLng(parseFloat(lat),parseFloat(long));
+
+            geocoder.geocode({'latLng': latlng}, function(results, status) {
+                var found = false; 
+                if (status == google.maps.GeocoderStatus.OK) {        
+                    if (results[0]) {          
+                        var res = results[0].address_components;
+                        for (var i in res){
+                            if(res[i].types[0] == 'sublocality')
+                                city = res[i].short_name;
+                        }
+                        if(!city) city = 'Aarhus C';
+                    } else {          
+                        city = 'Aarhus C';     
+                    }  
+                } else {        
+                    city = 'Aarhus C';   
+                }
+                self.getDealList().setCity(city);
+            });  
+        } else{
+            self.getDealList().setCity('Aarhus C');
+        }
     },
     handleMap: function(){
         this.changeToView('mapshow');

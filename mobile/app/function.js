@@ -7,6 +7,26 @@ window.log=function(){
 		(typeof console.log==="object" ? log.apply.call(console.log,console,a) : console.log.apply(console,a))
 	}
 };
+/**
+	Initializing FB class to facebook connect
+*/
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/da_DK/all.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '286675801401479',
+        status     : true, 
+        cookie     : true,
+        xfbml      : true,
+        oauth      : true
+      });
+    };
+}(document, 'script', 'facebook-jssdk'));
 function priceIt(price){
 	return price + 'Dkr';
 }

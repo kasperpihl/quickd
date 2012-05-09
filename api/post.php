@@ -29,7 +29,8 @@ else if($action){
 			$result = Shopowner::resetPassword($model);
 		break;
 		case 'fbconnect':
-			$result = Shopowner::fb_connect();
+			$subscribe = isset($_POST['subscribe']) ? $_POST['subscribe'] : false;
+			$result = Shopowner::fb_connect($subscribe);
 		break;
 	}
 }

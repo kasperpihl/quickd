@@ -117,11 +117,15 @@ Class Mail{
 		return true;
 	}
 	
-	public static function sendAdminMail($action,$doc_id=false){
+	public static function createAdminMail($type,$doc_id=false){
 		global $live;
 		if(!$live) return;
-		return;
-		switch($action){
+		self::create('sendAdminMail', 'admin@quickd.com', array('type'=>$type, 'doc_id'=>$doc_id));
+	}
+
+	public static function sendAdminMail($to, $options) {
+		if (!isset($options['type'])) return false;
+		switch($options['type']){
 			case 'newTemplate':
 				$subject = 'Ny skabelon oprettet';
 				$message = 
@@ -141,7 +145,8 @@ Class Mail{
 				return false;
 			break;
 		}
-		self::sendMail('admin@quickd.com',$subject,$message);
+		self::sendMail($to,$subject,$message);
+		return true;
 	}
 
 	private static function greeting($options) {

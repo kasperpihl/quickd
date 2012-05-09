@@ -7,7 +7,8 @@ Ext.define('QuickD.view.Main', {
         'QuickD.view.Splash',
         'QuickD.view.DealList',
         'QuickD.view.DealShow',
-        'QuickD.view.Beta',
+        'QuickD.view.BetaScreen',
+        'QuickD.view.NotApp',
         /*'QuickD.view.DealSort',*/
         'QuickD.view.MapShow'
     ],
@@ -16,12 +17,22 @@ Ext.define('QuickD.view.Main', {
         layout: 'card',
         items: [
             {xtype:'splash'},
-            {xtype:'betaview'},
+            {xtype:'betascreen'},
             {xtype:'deallist'},
+            {xtype:'notapp'},
             /*{xtype:'dealsort'},*/
             {xtype:'dealshow'},
             {xtype:'mapshow'}
         ]
+    },
+    maskMe:function(message,noIndicator){
+        var maskObj = { xtype: 'loadmask'};
+        maskObj.message = (message) ? message : 'Loader';
+        maskObj.indicator = (noIndicator) ? false : true;
+        this.setMasked(maskObj);
+    },
+    unmaskMe:function(){
+        this.setMasked(false);
     },
     applyLayout: function(config) {
       config = config || {};

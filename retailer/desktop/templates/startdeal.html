@@ -1,6 +1,6 @@
 
 <div id="start_deal">
-  <div class="noOne set_template block" id="set_template_block">
+  <div class="set_template block" id="set_template_block">
 	  <div class="label">Vælg skabelon</div>
 	  <div class="data" >
       <div id="select-template-list"></div>
@@ -9,62 +9,58 @@
     </div>
     <div class="clearline"></div>
 	</div>
-    <div id="stage-two" style="display:none">
-    	<div id="time-picker">
-	        <div class="noTwo set_time block" id="set_time_block">
-	            <div class="label">Tid</div>
-	            <div class="data">
-	                    
-	              
-	                <div class="field start_time">
-	                    <div class="sublabel">Starttidspunkt</div>
-	                    <div class="subdata"><input type="text" placeholder="Tryk for at vælge" value="<% print(getTimeString(data.start_time, true)) %>" name="deal_start_time" id="deal_start_time" class="datepicker"></div>
-	                </div>
-	                <div class="field select-hours">
-		                <div class="show_hours">
-		                    <span class="sublabel">Varighed:</span>
-		                    <span class="hours" id="deal_hours"></span>
-		                    <span class="sublabel">timer</span>
-		                </div>
-		                <div id="deal_time_slider" class="time-slider"></div>
-		                <div class="end_time">Sluttidspunkt: <span id="deal_end_time"></span></div>
-		              </div>
-		              
-	                <div class="field end_time" style="display:none;">
-	                    <div class="sublabel">Slutter</div>
-	                    <div class="subdata"><input type="text" placeholder="Tryk for at vælge" 
-	                        value="<%  var time = (new Date()).getTime()+1000*60*60 * data.timeStandard;
-	                            print(getTimeString(time,true,data.timeMinInterval));
-	                        %>" name="deal_end_time" id="deal_end_time" class="datepicker">
-	                    </div>
-	                </div>
-	                    
-	                	<blockquote id="bubble_msg" class="bubble_message msg" style="display: none;">
-	                		<p style="font-size: 18px;">
-	                			En deal baseret på den valgte skabelon er allerede planlagt i tidsrummet.
-	                		</p>
-	                	</blockquote>
-	            </div>
-	            <div class="clearline"></div>
-	       	</div>
-			<!--<div class="noThree set_treasure block" id="set_treasure_block">
-				<div class="label" style="width:auto;">Skattejagt</div>
-				<div class="data" style="float:left;">
-		    		<div class="field treasure">
-		        		<input type="checkbox" id="check_treasure"/> Tilmeld denne deal til vores skattejagt
-		        		
-		        	</div>
-		        	<div class="field read_more">
-		        		<span id="treasure_read_more">Hvad er, og hvordan kan skattejagten hjælpe din forretning?</span>
-		        	</div>
-				</div>
+  <div id="stage-two" style="display:none">
+  	<div id="time_block">
+	  	<div class="type-selector" id="deal-type-selector">
+				<div class="option first selected" id="type_instant">Impuls tilbud</div>
+				<div class="option last" id="type_regular">Fast tilbud</div>
 				<div class="clearline"></div>
-				
-			</div>-->
-		</div>
-		
-        <div class="starter" id="starter_button">
-            <button id="btn_submit_start_deal" class="green start_deal_btn">Planlæg deal</button>
-        </div>
+			</div>
+			<blockquote id="bubble_msg" class="bubble_message msg" style="display: none;">	</blockquote>
+	    <div class="block set_time" id="instant_deal_block" style="display:block">
+	        <div class="label">Tid</div>
+	        <div class="data">
+	            <div class="field start_time">
+	                <label>Starttidspunkt</label>
+	                <div class="subdata"><input type="text" placeholder="Tryk for at vælge" value="<% print(getTimeString(data.start_time, true)) %>" name="deal_start_time" id="deal_start_time" class="datepicker"></div>
+	            </div>
+	            <div class="field select-hours">
+	              <div class="show_hours">
+	                  <label>Varighed:</label>
+	                  <span class="hours" id="deal_hours"></span>
+	                  <label>timer</label>
+	              </div>
+	              <div id="deal_time_slider" class="time-slider"></div>
+	              <div class="end_time">Sluttidspunkt: <span id="deal_end_time"></span></div>
+	            </div>
+	        </div>
+	        <div class="clearline"></div>
+	   	</div>
+
+	   	<div class="block regular_deal" id="regular_deal_block" style="display:none;">
+	   		
+	   		<div class="label">Vælg tider</div>
+	      <div class="data">
+	      		<div class="field regular-days">
+		      		<label>Hver:</label>
+				    	<ul id="day-selector">
+				    		<% _.each(lang.days.short, function(day, key) { 	%>
+				    			<li id="day-<%=key%>" class="day-block <% if(key<2) print('selected'); %>"><%=day%></li>
+				    		<% }); %>
+				    	</ul>
+				    </div>
+				    <div class="field regular-time" id="regular-time-field">
+				    	<label>Fra:</label>
+				    	<input type="text" placeholder="12:00" name="regular-deal-start-time" id="regular-deal-start-time" />
+				    	<label>Til:</label>
+				    	<input type="text" placeholder="15:00" name="regular-deal-end-time" id="regular-deal-end-time" />
+				    	<div class="hint" style="display:none">Næste dag</div>
+				    </div>
+	      </div>
+	   	</div>
+	  </div>
+    <div class="starter" id="starter_button">
+        <button id="btn_submit_start_deal" class="green start_deal_btn">Planlæg tilbud</button>
     </div>
+  </div>
 </div>

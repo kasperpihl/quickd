@@ -6,17 +6,18 @@ define([
 ],function(){
 	App.routers.Dashboard = Backbone.Router.extend({
 		routes: {
-			'oversigt':				'openOverview',
-			'oversigt/:path':		'openOverview',
-			'oversigt/:path/:id':	'openOverview',
-			'skabeloner':			'openTemplates',
-			'skabeloner/:path':		'openTemplates',
-			'administration':		'openAdministration',
+			'oversigt':							'openOverview',
+			'oversigt/:path':				'openOverview',
+			'oversigt/:path/:id':		'openOverview',
+			'skabeloner':						'openTemplates',
+			'skabeloner/:path':			'openTemplates',
+			'administration':				'openAdministration',
 			'administration/:path':	'openAdministration',
-			'start':				'openStartDeals',
-			'start/:id':			'openStartDeals',
-			'hjem':					'openHomeView',
-			'*index':				'indexing' 
+			'start':								'openStartDeals',
+			'start/:id':						'openStartDeals',
+			'start/:id/:type': 			'openStartDeals',
+			'hjem':									'openHomeView',
+			'*index':								'indexing' 
 		},
 		start: function(options){
 			this.route = '';
@@ -57,7 +58,7 @@ define([
 		openHomeView:function(){
 			App.views.dashboard.changeActivity({activity:'welcome'});
 		},	
-		openStartDeals:function(param){
+		openStartDeals:function(param, type){
 			var options = {activity:'startdeals',route:lang.urls.startdeals,isRouted:true};
 			if(param){
 				options.route = lang.urls.startdeals + '/' + param;
@@ -66,6 +67,10 @@ define([
 			}
 			else {
 				options.isParentRoute = true;
+			}
+			if(type){
+				options.type = type;
+				options.route += '/'+type;
 			}
 			App.views.dashboard.changeActivity(options);
 		},

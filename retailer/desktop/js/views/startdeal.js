@@ -8,12 +8,11 @@ define([
 	App.views.StartDeal = Backbone.View.extend({
 		el: '#activity_startdeals',
 		initialize:function(){
-			_.bindAll(this,'startDeal','render','updateTemplates', 'setTemplateSelected', 'setVerticalAlign','handleEvent', 'updateEndTime');
+			_.bindAll(this,'startDeal','render','updateTemplates', 'setTemplateSelected', 'setVerticalAlign','handleEvent', 'updateEndTime', 'setDealType', 'convertTimes');
 			this.templateName = 'startdeal';
 			this.elemId = 'start_deal';
 			this.dealTemplates = {};
 			this.showTimeType = 'type-now';
-			this.vAligned = false;
 			this.router = this.options.router;
 			this.activity = this.options.activity;
 			this.timeStandard = 300;
@@ -25,19 +24,26 @@ define([
 			this.router.bind('templatesUpdated',this.updateTemplates);
 			this.router.bind('templateSelected',this.setTemplateSelected);
 		},
-		
+		events: {
+			'click #deal-type-selector .option': 'setDealType',
+			'click #btn_submit_start_deal': 'startDeal',
+			'click #day-selector .day-block': 'selectDay',
+			'blur #regular_deal_block input': 'convertTimes'
+		},
 		render: function(){
 			var thisClass = this;
 			$(this.el).html(_.template(template,{data:this}));
-			this.$el = $('#start_deal');
+			this.$cmp = $('#start_deal');
 			this.first = true;
+			this.dealType = 'instant';
 			this.expanded = false;
 			this.starting = false;
 			this.hours = null;
+			this.vAligned = false;
 			this.minutes = this.timeStandard;
 			this.updateHours(true);
 			//Setting jquery date pickers
-			this.$el.find('#deal_start_time').datetimepicker({
+			this.$cmp.find('#deal_start_time').datetimepicker({
 				stepMinute: thisClass.timeMinInterval,
 				hourGrid: 4,
 				minuteGrid: thisClass.timeMinInterval,
@@ -46,30 +52,13 @@ define([
 				onClose: function(dateText, inst) {
 					thisClass.start_time = $(this).datetimepicker('getDate').getTime();
 					thisClass.updateEndTime();
-					//thisClass.updateHours(true);
 				},
 				onSelect: function (dateText){
 					thisClass.start_time = $(this).datetimepicker('getDate').getTime();
 					thisClass.updateEndTime();
-					/*var endDateField = $('#deal_end_time');
-					endDateField.datetimepicker('option', 'minDate', new Date(start) );
-					
-					var dateAmr = dateToAmr(dateText);
-					var testStartDate = dateAmr;
-					if (endDateField.val() !== '') var testEndDate = dateToAmr(endDateField.val());
-					else var testEndDate = new Date(0);
-					if (!thisClass.dateSelected || endDateField.val() === '' || testStartDate > testEndDate) {
-						var hours = (thisClass.hours ? thisClass.hours : thisClass.timeStandard);
-						var end = testStartDate.getTime() + 1000*60*60*hours;
-						endDateField.val(getTimeString(end, true, thisClass.timeMinInterval));
-					}*/
-				
-					//thisClass.updateHours();
-					
 				}
 			});
-			$('#btn_submit_start_deal', this.$el).on('click', this.startDeal);
-			this.slider = this.$el.find('#deal_time_slider').slider({
+			this.slider = this.$cmp.find('#deal_time_slider').slider({
 				min:15,
 				max:600,
 				value: thisClass.timeStandard,
@@ -79,37 +68,6 @@ define([
 					thisClass.updateHours();
 				}
 			});
-			/*this.$el.find('#treasure_read_more').click(function(){
-				thisClass.treasureDialog();
-			});
-			this.$el.find('#deal_end_time').datetimepicker({
-				stepMinute: thisClass.timeMinInterval,
-				hourGrid: 4,
-				minuteGrid: thisClass.timeMinInterval,
-				timeFormat: 'hh:mm',
-				minDate: getTimeString(false,true),
-				onClose: function(dateText, inst) {
-					dateAmr = dateToAmr(dateText);
-					var startDateTextBox = $('#deal_start_time');
-					if (startDateTextBox.val() != '') {
-						var testStartDate = dateToAmr(startDateTextBox.val());
-						var testEndDate = dateAmr;
-						if (testStartDate > testEndDate)
-							startDateTextBox.val(dateText);
-					}
-					else {
-						startDateTextBox.val(dateText);
-					}
-					thisClass.updateHours(true);
-				},
-				onSelect: function (selectedDateTime){
-					//var end = $(this).datetimepicker('getDate');
-					//$('#deal_start_time').datetimepicker('option', 'maxDate', new Date(end.getTime()) );
-					thisClass.updateHours();
-				}
-			});*/
-			//this.height = $('#start_deal').height();
-			
 			this.selectorView = new App.views.components.TemplateSelectorView({
 				router:this.router,
 				appendTo: '#select-template-list',
@@ -122,26 +80,49 @@ define([
 				onCollapse: thisClass.setVerticalAlign,
 				onCreated:	thisClass.setVerticalAlign
 			});
-			
 			return true;
 		},
 		handleEvent:function(options){
 			if (options.window && options.window==='startWithTemplate'){
-					var thisClass = this;
+					var thisClass = this,
+							obj = {};
 					this.templateSelected = options.id;
-					if (this.selectorView) this.selectorView.setSelected(options.id);
+					if (options.type) {
+						this.setDealType(options.type, true);
+						obj = {silent:true};
+					}
+					if (this.selectorView) this.selectorView.setSelected(options.id, obj);
+					
 			}
 		},
 		setVerticalAlign:function(options) {
-			if (!this.$el.is(':visible')) {
-				this.$el.css({'position':'absolute','visibility':'hidden','display':'block'});
-				this.$el.verticalAlign(this.vAligned, options);
-				this.$el.css({'visibility':'visible'});
+			if (!this.$cmp.is(':visible')) {
+				this.$cmp.css({'position':'absolute','visibility':'hidden','display':'block'});
+				this.$cmp.verticalAlign(this.vAligned, options);
+				this.$cmp.css({'visibility':'visible'});
 			} else {
 				var o = $.extend({}, options, {animate:true});
-				this.$el.verticalAlign(this.vAligned, o);
+				this.$cmp.verticalAlign(this.vAligned, o);
 			}
 			this.vAligned = true;
+		},
+		setDealType:function(obj, notEvent) {
+			if (notEvent) {
+				var dealType = obj,
+						$selector = $('#deal-type-selector');
+			} else {
+				var $selector = $(obj.currentTarget).parents('.type-selector'),
+						id = obj.currentTarget.id,
+						dealType = id=='type_regular'?'regular':'instant';
+			}
+			if (this.dealType!=dealType) {
+				$('#'+this.dealType+'_deal_block').css('display', 'none');
+				$('#'+dealType+'_deal_block').css('display', 'block');
+				$selector.find('.option').toggleClass('selected');
+				this.dealType = dealType;
+				this.activity.route = lang.urls.startdeals+'/'+this.templateSelected+'/'+this.dealType;
+				this.router.navigate(this.activity.route);
+			}
 		},
 		updateTemplates:function(data) {
 			this.dealTemplates = data;
@@ -150,9 +131,11 @@ define([
 			if (data && data.parent === this.cid && data.templateId) {
 				var id = data.templateId;
 				this.templateSelected = id;
-				var route = lang.urls.startdeals+'/'+this.templateSelected;
-				this.activity.route = route;
-				this.router.navigate(route);
+				if (!data.silent) {
+					var route = lang.urls.startdeals+'/'+this.templateSelected;
+					this.activity.route = route;
+					this.router.navigate(route);
+				}
 				this.expand();
 			}
 		},
@@ -163,7 +146,7 @@ define([
 					var time = (new Date()).getTime()+1000*60*60 * this.timeStandard;
 					$('#deal_end_time').val(getTimeString(time,true,this.timeMinInterval));
 					var set_template = $('#set_template_block');
-					if (!this.$el.is(':visible')) {
+					if (!this.$cmp.is(':visible')) {
 						$('#stage-two').css({position:'relative',top: '0px'}).show();
 						//if(!thisClass.height) thisClass.height = $('#start_deal').outerHeight();
 					} else {
@@ -221,6 +204,28 @@ define([
 			this.end_time = this.start_time + this.minutes * 60 * 1000;
 			$('#deal_end_time').html(getTimeString(this.end_time, true));
 		},
+		selectDay:function(evt) {
+			var $this = $(evt.currentTarget);
+			$this.toggleClass('selected');
+		},
+		convertTimes:function(evt) {
+			var $this = $(evt.currentTarget);
+			if ($this.val()) {
+				var newVal = convertToTimestring($this.val()),
+						start = this.timeToSecs($('#regular-deal-start-time').val()),
+						end = this.timeToSecs($('#regular-deal-end-time').val())
+				$this.val(newVal);
+				if (start&&end&&end <= start) {
+					$('#regular-time-field').find('.hint').fadeIn('fast');
+				} else $('#regular-time-field').find('.hint').fadeOut('fast');
+			}
+		},
+		timeToSecs:function(timestring) {
+			var time = convertToTimestring(timestring, true);
+ 			if(time && time.h >= 0 && time.h < 24 && time.m >= 0 && time.m<60) {
+ 				return time.h*60*60 + (time.m)*60 + 59;
+ 			} else return false;
+		},
 		resetStarter:function(doWait) {
 			//REMEMBER TO RESET!!
 			if (!this.expanded) return;
@@ -243,13 +248,13 @@ define([
 	
 			var thisClass = this;
 			//$('#start_deal').css('position', 'relative');
-			$('#set_time_block').css('z-index',1).unwrap();
+			$('#time_block').css('z-index',1).unwrap();
 			$('#set_template_block').css('z-index',2);
 			//$('#set_treasure_block').css('z-index',1);
 			
-			var els = [$('#starter_button'),$('#set_time_block'),$('#set_template_block')];
+			var els = [$('#starter_button'),$('#time_block'),$('#set_template_block')];
 			var i = 0;
-			var pos = $('#btn_overview').offset().top-this.$el.offset().top-50;
+			var pos = $('#btn_overview').offset().top-this.$cmp.offset().top-50;
 			$(els).each(function() {
 				var me = $(this);
 				i++;
@@ -259,7 +264,7 @@ define([
 							
 							var el = $('#select-template-list');
 							el.css({position:'absolute', zIndex:3, top: el.offset().top, left:el.offset().left, width:el.width()}).appendTo('#content');
-							thisClass.$el.fadeOut(500);
+							thisClass.$cmp.fadeOut(500);
 							el.animate({ left: 0, top: $('#btn_overview').offset().top, opacity:0.2 }, 1000, 'easeInOutSine', function() {
 								$(this).remove();
 								if (callback) callback();
@@ -268,43 +273,36 @@ define([
 					});
 			});
 		},
-		fadeOutError:function() {
-			$("#bubble_msg").fadeOut("slow");
-			$("#set_template_block").animate({opacity:1}, {duration:200, queue:false});
-		},
-		showError:function() {
+		showError:function(msg) {
 			this.errorMsg = true;
-			var thisClass = this;
-			$("#bubble_msg").delay(250).fadeIn('slow', function() {
-				$("#time-picker").click(function() {
-					thisClass.fadeOutError();
+			this.starting = false;
+			var thisClass = this,
+					$bubble = $("#bubble_msg");
+			if (msg) $bubble.html('<p>'+msg+'</p>');
+			$bubble.css('top','-'+(parseInt($bubble.outerHeight())+10)+'px');
+			this.shakeADeal();
+			$bubble.delay(250).fadeIn('slow', function() {
+				$("#start_deal").click(function() {
+					thisClass.hideError(true);
 				});
-				
-				$("#set_template_block").click(function() {
-					thisClass.fadeOutError();
-				});
-				
-				//window.setTimeout(function(){
-				//	thisClass.fadeOutError();
-				//}, 10000);
 			});
 			
 			window.setTimeout(function(){
 				$("#set_template_block").animate({opacity:0.5}, {duration:200, queue:false});
 			}, 250);
-			
-			//$("#bubble_msg").delay(250).animate({opacity: 1}, {duration: 50, queue: false}).delay(8000).animate({opacity: 0}, {duration: 50, queue: false});
-			
-			/*window.setTimeout(function(){
-				$("#bubble_msg").animate({opacity: 1}, {duration: 500, queue: false}).delay(8000).animate({opacity: 0}, {duration: 500, queue: false});
-			}, 250);*/
 		},
-		hideError:function(){
-			$("#bubble_msg").hide();
+		hideError:function(fade){
+			if (fade) {
+				$("#bubble_msg").fadeOut("slow");
+				$("#set_template_block").animate({opacity:1}, {duration:200, queue:false});
+			} else {
+				$("#bubble_msg").hide();
+				$("#set_template_block").css('opacity', '1');
+			}
 			this.errorMsg = false;
 		},
 		shakeADeal:function() {
-			$("#time-picker").effect("shake", { times:2, queue:false }, 50);
+			$("#time_block").effect("shake", { times:2, queue:false }, 50);
 		},
 		treasureDialog:function(){
 			var thisClass = this;
@@ -320,18 +318,47 @@ define([
 			if (this.starting) return false;
 			this.starting = true;
 			if(this.errorMsg) this.hideError();
-			var thisClass = this;
-			
-			$('#btn_submit_start_deal').html('Planlægger...').addClass('disabled');
-			var obj = {};
+			var thisClass = this,
+					obj = {};
+			if (this.dealType=='regular') {
+				var time = {
+						start: this.timeToSecs($('#regular-deal-start-time').val()),
+						end: this.timeToSecs($('#regular-deal-end-time').val())
+					},
+					$selector = $('#day-selector'),
+					$days = $selector.find('.day-block');
+				if( $selector.find('.day-block.selected').size()==0) return thisClass.showError('Vælg venligst mindst én ugedag, som tilbuddet skal køre på');
+				else	if (!time.start || !time.end) return thisClass.showError('Indtast venligst kun gyldige klokkeslæt');
+				else {
+					obj.deal_type = 'regular';
+					obj.times = {0:[],1:[],2:[],3:[],4:[],5:[],6:[]};
+					if (time.end<=time.start) {
+						time[0] = {start: time.start, end: 24*60*60 }
+						time[1] = {start: 0, end: time.end }
+					} else time[0] = {start:time.start, end:time.end};
+					$days.each(function(d) {
+						if ($(this).hasClass('selected')) {
+							obj.times[d].push(time[0]);
+							if (time[1]) obj.times[(d+1)%7].push(time[1]);
+						}
+					});
+				}
+			} else {
+				obj.deal_type = 'instant';
+				obj.start = this.start_time/1000;
+				obj.end = this.end_time/1000;
+			}
 			obj.shop_id = App.collections.shops.at(0).id;
 			obj.template_id = this.templateSelected;
-			obj.start = this.start_time/1000;
-			obj.end = this.end_time/1000;
+			log("save this?", obj)
+
+			
+			
+			$('#btn_submit_start_deal').html('Planlægger...').addClass('disabled');
 			var model = new App.models.Deal();
 			model.save(obj,{
 				success:function(m,data){
-					
+					log("success",m,data);
 					if(data.success && data.success == 'true'){
 						log("start response", model,m);
 						App.collections.deals.add(model);
@@ -348,8 +375,7 @@ define([
 						thisClass.starting = false;
 						
 						if (data.error == 'deal_already_planned'){
-							thisClass.shakeADeal();
-							thisClass.showError();
+							thisClass.showError('En deal baseret på den valgte skabelon er allerede planlagt i tidsrummet.');
 						} else {
 							thisClass.router.showError("Der opstod en fejl", "Din deal blev ikke startet<br />Fejlmeddelelse: "+data.error);
 						}
@@ -358,7 +384,7 @@ define([
 					
 				},
 				error:function(m,data){
-					log(m,data);
+					log('error', m,data);
 					thisClass.router.showError("Der opstod en fejl", "Din deal blev ikke startet<br />Fejlmeddelelse: "+data.error);
 				}
 			});

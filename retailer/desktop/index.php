@@ -28,6 +28,7 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
 		<script src="<?= LIBS_URL ?>underscore/underscore-min.js"></script>
 	    <script src="<?= LIBS_URL ?>backbone/backbone-min.js"></script>
 	    <script src="<?= ROOT_URL ?>js/function.js"></script>
+	    <script src="<?= ROOT_URL ?>js/lang.js"></script>
 	    <script> var shopowner; var debug = false;	
 			var ROOT_URL = "<?= ROOT_URL ?>";
 			var COMMON_URL = "<?= COMMON_URL ?>";

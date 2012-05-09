@@ -8,7 +8,7 @@ function redirect($location = NULL){
 function unsetBetakey(){
 	unset($_SESSION['userbeta_email']);
 	$expire=time()-86400;
-	setcookie('userbeta','',$expire,'/');
+	setcookie('betakey','',$expire,'/');
 }
 function sendMeMail($email){
 
@@ -22,9 +22,8 @@ function validateBetakey($betakey){
 	$betakey = $result[0]->key;
 	$_SESSION['userbeta_id'] = $result[0]->value->id;
 	$user = $_SESSION['userbeta_email'] = $result[0]->value->email;
-	$_SESSION['sendmail'] = isset($result[0]->value->sendmail);
 	$expire=time()+86400*31*6;
-	setcookie('userbeta',$betakey,$expire,'/');
+	setcookie('betakey',$betakey,$expire,'/');
 	return $user;
 }
 function getShopowner(){
@@ -126,5 +125,16 @@ function calcMax($lat,$long){
 function isValidEmail($email){
 	//return eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $email);
 	return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+function objectToArray($d) {
+	if (is_object($d)) $d = get_object_vars($d);
+	if (is_array($d)) return array_map(__FUNCTION__, $d);
+	else return $d;
+}
+
+function arrayToObject($d) {
+	if (is_array($d)) return (object) array_map(__FUNCTION__, $d);
+	else return $d;
 }
 ?>

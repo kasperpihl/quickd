@@ -29,7 +29,7 @@ define([
 			var thisClass = this;
 			var tpl = _.template(template, {data: this});
 			$(this.appendTo).html(tpl);
-			this.$el = $(this.componentId);
+			this.$cmp = $(this.componentId);
 			this.$collapsed = $('#templateSelector-collapsed');
 			this.$expanded = $('#templateSelector-expanded');
 			if (this.expanded) {
@@ -67,7 +67,7 @@ define([
 		collapseList:function() {
 			if (this.expanded) {
 				var thisClass = this;
-				if (this.$el.is(':visible')) {
+				if (this.$cmp.is(':visible')) {
 					
 					this.$expanded.slideUp(function() {
 						thisClass.$collapsed.fadeIn('fast');
@@ -81,7 +81,7 @@ define([
 				this.expanded = false;
 			}
 		},
-		setSelected:function(id) {
+		setSelected:function(id, options) {
 			this.selected = this.collection.get(id).toJSON();
 			var el = $($('#'+id).outerHTML()).removeClass('selected');
 			this.$expanded.children('.list-item.selected').removeClass('selected');
@@ -89,7 +89,8 @@ define([
 			this.$collapsed.html(el);
 			this.collapseList();
 			this.collapsedHeight = this.$collapsed.getHiddenDimensions(true).outerHeight;
-			this.router.trigger('templateSelected', {templateId: id, parent:this.parent});
+			var silent = options&&options.silent?true:false;
+			this.router.trigger('templateSelected', {templateId: id, parent:this.parent, silent:silent});
 		},
 		resetSelected:function() {
 			if (this.selected) {

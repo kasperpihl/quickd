@@ -12,12 +12,8 @@ class Shopowner {
 				
 				$privileges = $user->data->value->privileges;
 				$user_id = $user->data->id;
-				if ($type==='subscribe') {
-					$session->login($user->data->id,$privileges);
-					return array('success'=>'true', 'data'=>$user);
-				} else if ($type==='dealer'&&$privileges>=2) {
-					return array('success'=>'false','error'=>'user_exists');
-				}
+				if ($type==='subscribe') $session->set('subscribed', $user->data->id, true);
+				return array('success'=>'false','error'=>'user_exists');
 			}
 			$update = 'registerUser';
 			if ($type==='dealer') {
@@ -55,7 +51,7 @@ class Shopowner {
 		}
 	}
 
-	public static function fb_connect() {
+	public static function fb_connect($subscribe=false) {
 		global $db,$session,$facebook;
 
 		// Get User ID
@@ -76,7 +72,8 @@ class Shopowner {
 	    		//Fb user already exists
 	    		$fb = $user->data->value->fb_info;
 	    		if (isset($fb->lastUpdate) && $fb->lastUpdate >= time()-7*24*60*60) {
-	    			$session->login($user->data->id,$user->data->value->privileges);
+	    			if ($subscribe) $session->set($user->data->id, true);
+	    			else $session->login($user->data->id,$user->data->value->privileges);
 	    			return  array('success'=>'true', 'id'=>$fb->id, 'updated'=>'no');
 	    		}
 	    			
@@ -115,10 +112,11 @@ class Shopowner {
 		    	Mail::create('sendBetaConfirmation', $email, array('name'=>$name)); //Mail::sendBetaConfirmation($email, $name);
 		    }
 		    if($result && $result->success == 'true'){
-				$result->data->email = $email;
-				$session->login($result->data->id,$model->privileges);
-			}
-			return $result;
+					$result->data->email = $email;
+					if ($subscribe) $session->set($user->data->id, true);
+		    	else $session->login($result->data->id,$model->privileges);
+				}
+				return $result;
 		    
 		  } catch (FacebookApiException $e) {
 		    return array('success'=>'false','error'=>'facebook_error','function'=>'fb_connect','e'=>$e->getMessage(),'data'=>$user_profile);
@@ -293,7 +291,7 @@ class Shopowner {
 				$result = $db->updateDocFullAPI('dealer',$update,array('doc_id'=>$doc_id,'params'=>array('json'=>$model)));
 				$result = json_decode($result);
 				if(isset($result->data,$result->data->mail)){ 
-					Mail::sendAdminMail($result->data->mail,$doc_id);
+					Mail::createAdminMail($result->data->mail,$doc_id);
 					unset($result->data->mail);
 				}
 				return $result;
@@ -332,7 +330,7 @@ class Shopowner {
 					if (!$doc->shopowner_id ||$doc->shopowner_id!=$shopowner) return json_encode(array('success'=>'false', 'error'=>'user_not_authorized'));
 					if (!$doc->type ||$doc->type!='deal') return json_encode(array('success'=>'false', 'error'=>'doc_not_a_deal'));
 					$time = time();
-					if (!$doc->start || !$doc->end || $doc->start > $time || $doc->end < $time) {
+					if ($doc->deal_type=='regular' || !$doc->start || !$doc->end || $doc->start > $time || $doc->end < $time) {
 						$db->deleteDoc($doc);
 						return json_encode(array('success'=>'true','data'=>'deleted')); 
 					} else return json_encode(array('success'=>'false', 'error'=>'cannot_delete_active'));
@@ -368,34 +366,60 @@ class Shopowner {
 		if (property_exists($model, 'status') && $model->status=='soldout') {
 			self::updateDeal($model);
 		}
-
 		/* Checking initial conditions to continue */
-		if(!property_exists($model,'start') OR !property_exists($model,'end')) return array('success'=>'false','error'=>'start_and_end_time_must_be_specified');
-		/* Checking and setting time */
-		if(!property_exists($model,'template_id') OR !property_exists($model,'shop_id')) return array('success'=>'false','error'=>'shop_and_template_id_required');
-		//$start_time = isset($model->seconds) ? (int)$model->start : strtotime($model->start);
-		//$end_time = isset($model->seconds) ? (int)$model->end : strtotime($model->end);
-		$start_time = (int)$model->start;
-		$end_time   = (int)$model->end;
-		$template_id = $model->template_id;
-		$shop_id = $model->shop_id;
-		if(!$start_time OR !$end_time) return array('success'=>'false','error'=>'error_parsing_time'); 
-		$model->hours = ceil(($model->end-$model->start)/3600);
+		if(!property_exists($model,'deal_type')) $model->deal_type = 'instant';
+		if(!property_exists($model,'template_id') || !property_exists($model,'shop_id')) return array('success'=>'false','error'=>'shop_and_template_id_required');
+
+		if ($model->deal_type=='instant') {
+			if(!property_exists($model,'start') || !property_exists($model,'end') || !intval($model->start) || !intval($model->end)) return array('success'=>'false','error'=>'start_and_end_time_must_be_specified');
+			$model->start = intval($model->start);
+			$model->end  = intval($model->end);
+			$model->hours = ceil(($model->end - $model->start)/3600);
+		} else if ($model->deal_type=='regular') {
+			if (!property_exists($model,'times') || empty($model->times)) return array('success'=>'false','error'=>'times_must_be_specified');
+			$validTimes = true;
+			foreach ($model->times as $times) {
+				foreach ($times as $time) if (!isset($time->start, $time->end) || $time->start > $time->end) $validTimes = false;
+			}
+			if (!$validTimes) return array('success'=>'false', 'error'=>'times_not_valid', 'data'=>$model);
+			//return array('success'=>'false', 'error'=>'times_not_valid', 'data'=>$model->times->{2}[0]->end);
+			$model->start = time();
+			$model->end = time()*10;
+		}
 		try{
-			$deals = $db->startkey(array($dealer,$start_time))->endkey(array($dealer,'z'))->getView('dealer','getCheckDeals');
+			$deals = $db->startkey(array($dealer,$model->start))->endkey(array($dealer,'z'))->getView('dealer','getCheckDeals');
 			$deals = $deals->rows;
 			if(!empty($deals)){
 				$test = true;
+				$dealDeal = 'none';
+				//return array('success'=>'false','error'=>'testing','data'=>$deals); 
 				foreach($deals as $deal){
 					$deal = $deal->value;
-					if($deal->template_id != $template_id) continue;
-					if($deal->shop_id != $shop_id) continue;
-					if($deal->start > $end_time) continue;
+					if (!isset($deal->deal_type)) $deal->deal_type = 'instant';
+					if($deal->template_id != $model->template_id) continue;
+					if($deal->shop_id != $model->shop_id) continue;
+					if ($deal->deal_type != $model->deal_type) continue;
+					if($deal->deal_type == 'instant' && ($deal->start > $model->end || $deal->end > $model->start)) continue;
+					if ($deal->deal_type == 'regular' && property_exists($deal, 'times')) {
+						$continue = true;
+						foreach($model->times as $d=>$times) {
+							foreach($times as $i=>$time) {
+								if (!isset($time->start, $time->end) || $time->start > $time->end) $continue = false;
+								else if (isset($deal->times->$d) && !empty($deal->times->$d)) {
+									foreach($deal->times->$d as $dTime)
+										if( !($time->start >= $dTime->end  || $time->end <= $dTime->start)) $continue = false;
+								}
+							}
+						}
+						if ($continue) continue;
+					}
+					$testDeal = $deal;
 					$test = false;
 					break;
 				}
-				if(!$test) return array('success'=>'false','error'=>'deal_already_planned'); 
+				if(!$test) return array('success'=>'false','error'=>'deal_already_planned','data'=>$testDeal); 
 			}		
+			//Validate user shop and template
 			$dealResult = json_decode($db->updateDocFullAPI('dealer','checkDeal',array('doc_id'=>$dealer,'params'=>array('json'=>json_encode($model)))));
 			if($dealResult->success != 'true') return $dealResult;
 			$deal = $dealResult->data;
@@ -404,8 +428,10 @@ class Shopowner {
 				unset($deal->image);
 			} 
 			$deal->shopowner_id = $dealer;
-			$deal->start = $start_time;
-			$deal->end = $end_time;
+			$deal->deal_type = $model->deal_type;
+			$deal->start = $model->start;
+			$deal->end = $model->end;
+			if (property_exists($model, 'times')) $deal->times = $model->times;
 			$makeDeal = json_decode($db->updateDocFullAPI('dealer','startStopDeal',array('params'=>array('json'=>json_encode($deal)))));
 			if($makeDeal->success != 'true') return $makeDeal;
 			if(property_exists($model, 'mobile') && $model->mobile == 'true'){

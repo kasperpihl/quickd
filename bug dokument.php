@@ -6,8 +6,6 @@ Opryd SASS-fil
 
 Start-deal database-error (?)
 
-Kære Jeppe, ved billedupload, får det nye billede ikke slet knappen på når det er uploaded
-
 Notifications - bedre beskeder - skal ikke stå venter på godkendelse, hvis den ikke skal godkendes f.eks.
 
 Tilføj betingelser i dialogboks
@@ -21,6 +19,8 @@ Lav prioritet
 	Knapperne i menuen bliver først trykket ind på callback fra animationen når de skifter. Det skal ske i det man trykker
 	
 =======================================
+
+(rettet Jeppe) Kære Jeppe, ved billedupload, får det nye billede ikke slet knappen på når det er uploaded
 
 (rettet Jeppe) Gennemtest billede-upload
 	- Store billeder
