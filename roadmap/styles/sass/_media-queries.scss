@@ -1,0 +1,80 @@
+/* ==|== media queries ======================================================
+   PLACEHOLDER Media Queries for Responsive Design.
+   These override the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+  /* Style adjustments for viewports 480px and over go here */
+
+}
+
+@media only screen and (min-width: 320px) {
+  .jumbotron {
+    position: relative;
+    
+    h1 {
+      margin-bottom: 9px;
+      font-size: 31px;
+      font-weight: bold;
+      letter-spacing: -1px;
+      line-height: 1em;
+    }
+
+    p {
+      margin-bottom: 0.7em;
+      font-weight: 300;
+      color: gray;
+    }
+  }
+    /* Masthead (docs home) */
+  .masthead {
+    padding-top: 36px;
+    margin-bottom: 72px;
+    
+    h1, p { text-align: center; }
+        
+    p {
+      margin-left: 5%;
+      margin-right: 5%;
+      font-size: 18px;
+      line-height: 1.35em;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .jumbotron h1 { font-size: 51px; }
+  .masthead p { font-size: 22px; }
+}
+
+@media only screen and (min-width: 1024px) {
+  .jumbotron h1 { font-size: 65px; }
+  .masthead p { font-size: 25px; }
+}
+
+@media only screen and (min-width: 1475px) {
+  .jumbotron h1 { font-size: 81px; }
+  .masthead p { font-size: 30px; }
+}
+
+
+/* ==|== print styles =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+ 
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
