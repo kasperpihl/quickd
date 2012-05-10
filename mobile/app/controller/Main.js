@@ -246,6 +246,9 @@ Ext.define('QuickD.controller.Main', {
     constructor:function(){
         this.callParent(arguments);
     },
+    testHours:function(){
+
+    },
     updatedStore:function(instance,data,options){
 
         var html,count = instance.getCount();

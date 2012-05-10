@@ -40,6 +40,11 @@ function makeRegularHours(object){
     }
     return html;
 }
+function convertToTime(secs) {
+    var h = Math.floor(secs/60/60),
+            m = Math.floor(secs/60)%60;
+    return h+':'+padNumber(m);
+} 
 function makeOpeningHours(object){
     var daysLang = {
         0:{ min:'Man', max:'Mandag'},
