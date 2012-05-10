@@ -202,7 +202,7 @@ define([
 			var hours = this.minutes;
 			if (!this.start_time) this.start_time = roundToMinutes(null, this.timeMinInterval).getTime();
 			this.end_time = this.start_time + this.minutes * 60 * 1000;
-			$('#deal_end_time').html(getTimeString(this.end_time, true));
+			$('#deal_end_time').html(getTimeString(this.end_time, 'simple'));
 		},
 		selectDay:function(evt) {
 			var $this = $(evt.currentTarget);
@@ -331,16 +331,11 @@ define([
 				else	if (!time.start || !time.end) return thisClass.showError('Indtast venligst kun gyldige klokkeslæt');
 				else {
 					obj.deal_type = 'regular';
-					obj.times = {0:[],1:[],2:[],3:[],4:[],5:[],6:[]};
-					if (time.end<=time.start) {
-						time[0] = {start: time.start, end: 24*60*60 }
-						time[1] = {start: 0, end: time.end }
-					} else time[0] = {start:time.start, end:time.end};
+					obj.times = {};
+					if (time.end<=time.start) time = {start: time.start, end: 24*60*60 + time.end }
 					$days.each(function(d) {
-						if ($(this).hasClass('selected')) {
-							obj.times[d].push(time[0]);
-							if (time[1]) obj.times[(d+1)%7].push(time[1]);
-						}
+						if ($(this).hasClass('selected')) obj.times[d] = time;
+						else obj.times[d] = false;
 					});
 				}
 			} else {

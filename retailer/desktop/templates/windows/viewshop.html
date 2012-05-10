@@ -1,3 +1,4 @@
+<% log("shop", data); %>
 <form name="edit_shop" id="edit_shop">
 	<div class="title">
 	<div style="position: absolute; left: 0px;" id="shop_title_buttons">
@@ -26,6 +27,23 @@
 			<div class="label">Email</div>
 			<div class="data"><input type="text" id="<%=data.prefix %>email" name="<%=data.prefix %>email" attri="email" value="<%= data.attributes.email %>" oldValue="<%= data.attributes.email %>" class="readonly" readonly /></div>
 		</div>
+
+		<div class="field">
+			<div class="label long">Butiksbillede</div>
+			<div class="data long">
+				<div class="uploader-area" id="shop-img-uploader-<%=data.cid%>">
+						<div class="drop-area <%=data.attributes.shop_img?'overlay':''%>">		
+		            <div class="text"><%= data.dragable?"Træk nyt billede hertil": "Tryk og upload nyt billede"%></div>     
+		        </div>
+		        <div class="img-area">
+			        <% if (data.attributes.shop_img) { %>
+			        	<img src="<%=IMG_URL+'shop_img/'+data.attributes.shop_img%>" />
+			      	<% } %>
+			      </div>
+	      </div>
+			</div>
+		</div>
+
 		<div class="field">
 		    <div class="label long">Åbningstider</div>
 		    <div id="open-days-error"></div>

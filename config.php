@@ -81,6 +81,10 @@ $imageSizes = array(
 	'preview'=>array(
 		'w'=>500,
 		'h'=>500
+	),
+	'shop_img'=>array(
+		'w'=>640,
+		'h'=>320
 	)
 );
 $categories = array(

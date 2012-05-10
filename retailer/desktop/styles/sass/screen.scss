@@ -1137,7 +1137,8 @@ form {
 		.long {
 			float:none;
 			clear:both; 
-			width:96%;
+			width:auto;
+			min-width:96%;
 			input { @extend .long; }
 			textarea { @extend .long; height:100px; outline:none; }
 		}
@@ -2047,6 +2048,68 @@ form {
 }
 
 #edit_shop {
+	.uploader-area {
+			width:250px;height:125px;position:relative;overflow:hidden;
+			margin:0px auto;cursor: pointer;
+			.drop-area {
+				@include stretch();
+				z-index:5;
+				background-color: #E0E0E0;
+				background-color:rgba(200,200,200,0.3);
+				background-image: url(i/transparent-noise.png);
+				background-repeat: repeat;
+				&:hover, &.qq-upload-drop-area-active { background-color:rgba(200,200,200,0.5); }
+				&:active { border:1px solid blue; }
+				&.overlay {opacity:0;
+					background-color: #E0E0E0;
+					background-color:rgba(255,255,255,0.1);
+					&:hover, &.qq-upload-drop-area-active {opacity:1;}
+				}
+				.text{
+					position:absolute;bottom:0;left:0;right:0;height:30px;
+					background-color: #E0E0E0;
+					background-color:rgba(200,200,200,0.5);
+					color: rgba(0, 0, 0, 0.7);
+					font-size: 18px;
+					text-align: center;
+					line-height: 31px;
+					@include text-shadow(0 0 4px #ccc);
+				}
+				input {width:auto;left:0; }
+			}
+			.img-item {
+				@include stretch();z-index:6;
+				color:white;
+				padding:10px;
+				background-color: #E0E0E0;
+				background-color:rgba(0,0,0,0.4);
+				.qq-upload-spinner {
+					background: url(i/loader_black.gif) center center no-repeat;width:30px;height:30px;margin:5px;margin-left:10px;display:inline-block;vertical-align:middle;
+				}
+				.qq-upload-file { vertical-align:middle;display:inline-block;width:180px;	}
+				.qq-upload-size {clear:both;margin:5px 0px;text-align:center;display:block;}
+				.qq-upload-cancel {display:none;}
+				.qq-upload-progressbar {
+					border:1px solid white;
+					width:200px;
+					height:20px;
+					margin:10px auto;
+					span {
+						display:block;
+						width:0px;
+						height:100%;
+						background:#5983DE;
+						@include transition-property(width);
+						@include transition-duration(0.8s);
+					}
+				}
+		}
+		.img-area {
+			@include stretch();z-index:2;
+			img { width:100%; }
+		}
+	}
+	
 
 	#opening-times {
 		margin-left:10px;
@@ -2255,8 +2318,8 @@ div.ui-datepicker {font-size:12px;}
 }	
 
 #notifications {
-	position: fixed;
-	top: 50px;
+	position: absolute;
+	top: 5px;
 	right: 0;
 	z-index:15;
   
