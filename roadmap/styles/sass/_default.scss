@@ -1,0 +1,124 @@
+/* ==|== primary styles =====================================================
+   Author: J-Town
+   ========================================================================== */
+$h: 50px;
+$r: 15px;
+
+
+#container {
+	width: 80%;
+	margin: 0 auto;
+
+	> header {
+		text-align: center;
+	}
+
+	> footer {
+		color: gray;
+		margin: 3em 0 5em 0;
+
+		ul { margin: 0; }
+		li { list-style: none; float: left; margin-left: 1em; }
+	}
+}
+
+.idea-list {
+	margin: 0;
+
+	li.idea { list-style: none; margin-bottom: 1.5em; }
+	li:last-child { margin-bottom: 0; }
+
+	.idea > article {
+		position: relative;
+		@include border-radius($r);
+		border: thin solid #ccc;
+
+
+		.content {
+			position: relative;
+			margin-left: $h;
+			
+			.title {
+				position: relative;
+				line-height: $h;
+				border-left: thin dashed #ddd;
+				margin-left: 10px;
+			}
+			
+			.progress {
+				position: absolute;
+				top: 0; left: 0;
+				background: pink;
+				@include border-radius(0 $r $r 0);
+				height: $h;
+			}
+		}
+
+
+		.like {
+			display: block;
+			background: teal;
+			width: $h; height: $h;
+			float: left;
+
+			@include border-radius($r 0 0 $r);
+			@include transition(all 0.2s ease-out);
+
+			&:hover {
+				background: #BADA55;
+			}
+		}
+
+
+		> footer {
+			position: absolute;
+			bottom: -24px;
+			text-align: center;
+			font-style: italic;
+			color: gray;
+			width: 100%;
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+	
+	li.idea.awaiting-moderation {
+		margin-bottom: 3.5em;
+		color: gray;
+
+		> article > footer {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+form {
+	margin-bottom: 5em;
+
+	p { position: relative; height: $h; margin-bottom: 1.5em; }
+	
+	input {
+		position: absolute;
+		top: 0; left: 0; bottom: 0; right: 0;
+		outline: none;
+		border: thin solid #ccc;
+		font-size: 1.5em;
+		color: #333;
+		padding: 0 1em;
+		
+		@include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075));
+		@include border-radius(0.2em);
+		@include transition(all 0.2s ease-in-out);
+
+		&:focus {
+			border-color: rgba(82, 168, 236, 0.8);
+			@include box-shadow(
+				inset 0 1px 1px rgba(0, 0, 0, 0.075),
+				0 0 8px rgba(82, 168, 236, 0.6),
+				0 0 15px rgba(82, 168, 236, 0.2)
+			);
+		}
+	}
+}
+
