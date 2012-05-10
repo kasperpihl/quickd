@@ -31,6 +31,7 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
 	    <script src="<?= ROOT_URL ?>js/lang.js"></script>
 	    <script> var shopowner; var debug = false;	
 			var ROOT_URL = "<?= ROOT_URL ?>";
+			var API_URL = "<?= API_URL ?>";
 			var COMMON_URL = "<?= COMMON_URL ?>";
 			var REAL_URL = "<?= REAL_URL ?>";
 			var version = "<?= VERSION ?>";
@@ -67,8 +68,7 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
 
 			<script src="<?= LIBS_URL ?>modernizr/modernizr-2.0.6.custom.js"></script>
 			<script src="<?= LIBS_URL ?>jquery/jquery-ui.js"></script>
-			<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.5&sensor=false&region=DK"></script>-->
-	       
+			<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.5&sensor=false&region=DK"></script>-->
 	    	<script src="<?= LIBS_URL ?>jquery/jquery.ui.selectmenu.js"></script>
 	    	<script src="<?= LIBS_URL ?>jquery/jcarousellite.min.js"></script>
 	    	<script src="<?= LIBS_URL ?>jquery/jquery.slides.min.js"></script>        

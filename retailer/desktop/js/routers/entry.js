@@ -49,7 +49,9 @@ App.routers.Entry = Backbone.Router.extend({
 		this.lockAction = true;
 		var obj = {stuff:true,email:username,password:password};
 		if($('#stay_signed_in_check:checked').length > 0) obj.remember =true;
-		$.post(REAL_URL+'api/login',obj,function(response){
+		log('url',API_URL+'login');
+		$.post(API_URL+'login',obj,function(response){
+			log('log',response);
 			if(response.success == 'true'){
 				thisClass.animateDashboard();
 				thisClass.lockAction = false;
@@ -71,7 +73,7 @@ App.routers.Entry = Backbone.Router.extend({
 		this.lockAction = true;
 		var thisClass = this;
 		//log($('#register_password').val(),'hej');
-		$.post(REAL_URL+'api/register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#register_betacode').val()},function(response){
+		$.post(API_URL+'register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#register_betacode').val()},function(response){
 			
 			//log('reg',response);
 			if(response.success == 'true'){
@@ -103,7 +105,7 @@ App.routers.Entry = Backbone.Router.extend({
 		if(this.lockAction) return false;
 		this.lockAction = true;
 		var thisClass = this;
-		$.post(REAL_URL+'api/reset',{model:{email:email,type:'dealer'}},function(data){
+		$.post(API_URL+'reset',{model:{email:email,type:'dealer'}},function(data){
 			//log(data);
 			if(data.success == 'true'){
 				if(thisClass.resetPassView) thisClass.resetPassView.success();

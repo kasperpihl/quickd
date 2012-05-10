@@ -1,6 +1,5 @@
 App.models.Deal = Backbone.Model.extend({
-	urlRoot: REAL_URL+'api/shopowner/deals',
-	
+	urlRoot: API_URL+'retailer/deals',
 	initialize:function(obj) {
 		this.setState();
 		//log("deal init", obj, this.state);
@@ -55,7 +54,7 @@ App.models.Deal = Backbone.Model.extend({
 	}
 });
 App.models.Image = Backbone.Model.extend({
-	urlRoot: REAL_URL+'api/shopowner/images',
+	urlRoot: API_URL+'retailer/images',
 	parse:function(response){
 		return response.data;
 	},
@@ -81,19 +80,19 @@ App.models.Image = Backbone.Model.extend({
 	}
 });
 App.models.Feedback = Backbone.Model.extend({
-	urlRoot: REAL_URL+'api/shopowner/feedback',
+	urlRoot: API_URL+'retailer/feedback',
 	parse:function(response){
 		return response.data;
 	}
 });
 App.models.Shop = Backbone.Model.extend({
-	urlRoot: REAL_URL+'api/shopowner/shops',
+	urlRoot: API_URL+'retailer/shops',
 	parse:function(response){
 		return response.data;
 	}
 });
 App.models.Shopowner = Backbone.Model.extend({
-	url: REAL_URL+'api/shopowner',
+	url: API_URL+'retailer',
 	getNotifications:function(){
 		
 	},
@@ -103,7 +102,7 @@ App.models.Shopowner = Backbone.Model.extend({
 	}
 });
 App.models.Template = Backbone.Model.extend({
-	urlRoot: REAL_URL+'api/shopowner/templates',
+	urlRoot: API_URL+'retailer/templates',
 	parse: function(response) {
 		return response.data;
 	},

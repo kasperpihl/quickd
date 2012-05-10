@@ -1,5 +1,5 @@
 App.collections.Deals = Backbone.Collection.extend({
-	url: REAL_URL+'api/shopowner/deals',
+	url: API_URL+'retailer/deals',
 	parse: function(response) {
 		return response.data;
 	},
@@ -47,7 +47,7 @@ App.collections.Deals = Backbone.Collection.extend({
 	model: App.models.Deal
 });
 App.collections.Images = Backbone.Collection.extend({
-	url: REAL_URL+'api/shopowner/images',
+	url: API_URL+'retailer/images',
 	parse: function(response){
 		return response.results;
 	},
@@ -66,21 +66,21 @@ App.collections.Images = Backbone.Collection.extend({
 	model: App.models.Image
 });
 App.collections.Feedback = Backbone.Collection.extend({
-	url: REAL_URL+'api/shopowner/feedback',
+	url: API_URL+'retailer/feedback',
 	parse: function(response){
 		return response.data;
 	},
 	model: App.models.Image
 });
 App.collections.Shops = Backbone.Collection.extend({
-	url: REAL_URL+'api/shopowner/shops',
+	url: API_URL+'retailer/shops',
 	parse: function(response) {
 		return response.data;
 	},
 	model: App.models.Shop
 });
 App.collections.Templates = Backbone.Collection.extend({
-	url: REAL_URL+'api/shopowner/templates',
+	url: API_URL+'retailer/templates',
 	parse: function(response) {
 		return response.data;
 	},
