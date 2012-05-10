@@ -47,7 +47,7 @@ class Shopowner {
 			return $result;
 		}
 		catch(Exception $e){
-			return array('success'=>'false','error'=>'database_error','function'=>'shopowner_register','e'=>$e->getMessage()); 
+			return array('success'=>'false','error'=>'database_error','function'=>'retailer_register','e'=>$e->getMessage()); 
 		}
 	}
 
@@ -257,7 +257,7 @@ class Shopowner {
 			case 'shops':
 				$update = 'addEditShop';
 			break;
-			case 'shopowner':
+			case 'retailer':
 				$data = json_decode($model);
 				if (isset($data->old_password, $data->new_password)) {
 					$data->old_password = md5(MD5_STRING.$data->old_password);
@@ -552,7 +552,7 @@ class Shopowner {
 				case 'shops':
 					$view = 'getShops';
 					break;
-				case 'shopowner':
+				case 'retailer':
 
 					$view = 'getShopowner';
 					$id = true;

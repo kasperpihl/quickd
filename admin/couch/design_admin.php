@@ -5,6 +5,10 @@ try{
 	echo '<br/><br/>Hentede _design/admin dokumentet <br/>';
 	
 	$updates = new stdClass();
+	$addEditAPI = 
+	"function(doc,req){
+		if(!req.query.json) return [null,msg('json_must_be_specified')];
+	}";
 	$feedbackResponse = 
 	"function(doc,req){
 		function msg(message,success){
