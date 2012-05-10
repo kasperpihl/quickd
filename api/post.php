@@ -34,5 +34,5 @@ else if($action){
 		break;
 	}
 }
-echo json_encode($result);
+
 ?>
