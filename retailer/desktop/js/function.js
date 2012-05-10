@@ -151,22 +151,13 @@ function convertToTimestring(number, returnSeparate) {
 }
 
 function makeRegularHours(object){
-    var times,closed,html='',min=0,nexted=false;
+    var times,html='',min=0;
     for(var i = 0 ; i <= 7 ; i++ ){
-        var start=false,end=false;
+        var start,end;
         if(i < 7){ 
-            var temp = _.clone(_.last(object[i])),
-            		next =object[(i+1)%7][0];
-            if (nexted && object[i].length<=1 || i==0 && object[0].length==1 && temp.start==0 && _.last(object[6]).end==24*60*60) temp = false;
-            else {
-            	if (temp && temp.end==24*60*60 && next.start===0) {
-	            	nexted = true;
-	            	temp.end = next.end;
-	          	}
-
-	            start = (temp && temp.hasOwnProperty('start') && !_.isNaN(temp.start)) ? temp.start : false;
-	            end = (temp && temp.hasOwnProperty('end') && !_.isNaN(temp.end)) ? temp.end : false;
-            }   
+            var temp = object[i];
+            start = (temp && temp.hasOwnProperty('start') && (temp.start||temp.start===0)) ? temp.start : false;
+            end = (temp && temp.hasOwnProperty('end') && (temp.end||temp.end===0)) ? temp.end : false;
         }
         if(i === 0) times = {start:start,end:end};
         else{
@@ -177,22 +168,20 @@ function makeRegularHours(object){
             else days = lang.days.short[min] + '-' + lang.days.long[last];
             if(times.start!==false && times.end!==false) {
             	time = convertToTime(times.start) + ' &ndash; ' + convertToTime(times.end);
-            	html += '<li><span class="day">'+days+':</span><span class="leader"></span><time>'+time+'</time>'+(nexted?'<span class="hint">Næste dag</span>':'')+'</li>';
+            	html += '<li><span class="day">'+days+':</span><span class="leader"></span><time>'+time+'</time>'+((times.end>24*60*60)?'<span class="hint">Næste dag</span>':'')+'</li>';
             }
             if(i < 7){
                 times.start = start;
                 times.end = end;
                 min = i;
-                nexted=false;
             }
-
-
         }
         
     }
     return html;
 }
 function convertToTime(secs) {
+	if (secs>24*60*60) secs = secs-24*60*60;
 	var h = Math.floor(secs/60/60),
 			m = Math.floor(secs/60)%60;
 	return h+':'+padNumber(m);

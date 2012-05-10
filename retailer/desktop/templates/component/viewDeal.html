@@ -1,5 +1,6 @@
 <div class="deal-view" id='view-<%=data.id%>'>
   <% 
+      log(data);
       var deal = data.template;  
       var imgSrc = deal.image ? IMG_URL+'thumbnail/'+deal.image : App.collections.images.getUrl(0, 'thumbnail');
       var discount = deal.orig_price ? Math.round((deal.orig_price-deal.deal_price) / deal.orig_price * 100)+'%' : ''; 

@@ -56,19 +56,29 @@ class Images {
 		list($width_old, $height_old) = $info;
 
 		# Calculating proportionality
-		if ($proportional) {
+		if ($proportional===true||$proportional=='proportional') {
 			if($width  == 0) $factor = $height/$height_old;
 			elseif($height == 0) $factor = $width/$width_old;
 			else $factor = min( $width / $width_old, $height / $height_old );
 			
 			$final_width  = round( $width_old * $factor );
 			$final_height = round( $height_old * $factor );
-		}
-		else {
+		} elseif ($proportional=='cut') {
+			$useWidth = (($width_old*$height) > ($height_old*$width)) ? false : true; 
+			if( $useWidth==true ){
+				$width_old = $width_old;
+				$height_old = $height*$width_old/$width;
+			}else{
+				$height_old = $height_old;
+				$width_old =  $width*$height_old/$height;
+			}
+			$final_width  = $width;
+			$final_height = $height;
+		} else {
 			$final_width  = $width;
 			$final_height = $height;
 		}
-
+		//return array('success'=>false,'error'=>'w: '.$width_old.' h: '.$height_old);
 		# Loading image to memory according to type
 		$image = $this->getImage($file,$info);
 		if(!$image) return array('success'=>false,'error'=>'could_not_get_image: '.$output);
