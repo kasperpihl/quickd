@@ -110,10 +110,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* line 36, ../sass/screen.scss */
 #apiTestSuite {
+  #display: none;
   text-align: center;
 }
 
-/* line 42, ../sass/screen.scss */
+/* line 43, ../sass/screen.scss */
 input,
 textarea,
 select,
@@ -133,23 +134,23 @@ select,
   border-radius: 3px;
 }
 
-/* line 57, ../sass/screen.scss */
+/* line 58, ../sass/screen.scss */
 textarea {
   height: 200px;
 }
 
-/* line 60, ../sass/screen.scss */
+/* line 61, ../sass/screen.scss */
 textarea {
   overflow: auto;
   vertical-align: top;
 }
 
-/* line 64, ../sass/screen.scss */
+/* line 65, ../sass/screen.scss */
 input, button, select, textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 68, ../sass/screen.scss */
+/* line 69, ../sass/screen.scss */
 input,
 textarea {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -162,7 +163,7 @@ textarea {
   transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
-/* line 81, ../sass/screen.scss */
+/* line 82, ../sass/screen.scss */
 input,
 button,
 select,
@@ -170,7 +171,7 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 88, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 label,
 input,
 button,
@@ -181,7 +182,7 @@ textarea {
   line-height: 18px;
 }
 
-/* line 94, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 input:focus,
 textarea:focus {
   border-color: rgba(82, 168, 236, 0.8);
@@ -193,14 +194,14 @@ textarea:focus {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 }
 
-/* line 104, ../sass/screen.scss */
+/* line 105, ../sass/screen.scss */
 .input-append .add-on:last-child, .input-append .btn:last-child {
   -webkit-border-radius: 0 3px 3px 0;
   -moz-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
 }
 
-/* line 109, ../sass/screen.scss */
+/* line 110, ../sass/screen.scss */
 .input-prepend .add-on, .input-append .add-on, .input-prepend .btn, .input-append .btn {
   margin-left: -1px;
   -webkit-border-radius: 0;
@@ -208,7 +209,7 @@ textarea:focus {
   border-radius: 0;
 }
 
-/* line 115, ../sass/screen.scss */
+/* line 116, ../sass/screen.scss */
 .input-prepend input, .input-append input, .input-prepend select, .input-append select, .input-prepend .uneditable-input, .input-append .uneditable-input {
   position: relative;
   margin-bottom: 0;
@@ -218,13 +219,13 @@ textarea:focus {
   border-radius: 0 3px 3px 0;
 }
 
-/* line 123, ../sass/screen.scss */
+/* line 124, ../sass/screen.scss */
 .btn {
   border-color: #CCC;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
 
-/* line 127, ../sass/screen.scss */
+/* line 128, ../sass/screen.scss */
 .btn {
   display: inline-block;
   padding: 4px 10px 4px;
@@ -258,7 +259,7 @@ textarea:focus {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* line 163, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 .btn:hover,
 .btn:active,
 .btn.active,
@@ -268,18 +269,18 @@ textarea:focus {
   *background-color: #d9d9d9;
 }
 
-/* line 169, ../sass/screen.scss */
+/* line 170, ../sass/screen.scss */
 .btn:active,
 .btn.active {
   background-color: #cccccc \9;
 }
 
-/* line 173, ../sass/screen.scss */
+/* line 174, ../sass/screen.scss */
 .btn:first-child {
   *margin-left: 0;
 }
 
-/* line 177, ../sass/screen.scss */
+/* line 178, ../sass/screen.scss */
 .btn:hover {
   color: #333333;
   text-decoration: none;
@@ -294,14 +295,14 @@ textarea:focus {
   transition: background-position 0.1s linear;
 }
 
-/* line 192, ../sass/screen.scss */
+/* line 193, ../sass/screen.scss */
 .btn:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
 
-/* line 199, ../sass/screen.scss */
+/* line 200, ../sass/screen.scss */
 .btn.active,
 .btn:active {
   background-color: #e6e6e6;
@@ -313,7 +314,7 @@ textarea:focus {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-/* line 210, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
 .btn.disabled,
 .btn[disabled] {
   cursor: default;
@@ -326,13 +327,13 @@ textarea:focus {
   box-shadow: none;
 }
 
-/* line 220, ../sass/screen.scss */
+/* line 221, ../sass/screen.scss */
 select {
   width: 220px;
   background-color: white;
 }
 
-/* line 224, ../sass/screen.scss */
+/* line 225, ../sass/screen.scss */
 select, input[type="file"] {
   height: 28px;
   line-height: 28px;

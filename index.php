@@ -1,4 +1,6 @@
-<?php print_r($_COOKIE); ?>
+<?php
+print_r(date('D G',1336689668));
+ die();print_r($_COOKIE); ?>
 <html>
 	<head>
 		<title>QuickD testside</title>

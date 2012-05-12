@@ -52,8 +52,8 @@ App.controller.Router = Backbone.Router.extend({
 		'test':'testApi',
 		'check':'checkApi'
 	},
-	callApi:function(method,url,parameters){
-		
+	callApi:function(method,request,parameters){
+		var url = API_URL + request;
 		log(url);
 		$.ajax(url,{
 			dataType: 'html',
@@ -61,9 +61,6 @@ App.controller.Router = Backbone.Router.extend({
 			success:App.view.testApi.gotResponse,
 			data:parameters
 		});
-		localStorage.setItem('api_method',method);
-		localStorage.setItem('api_request',url);
-		localStorage.setItem('api_parameters',parameters);
 	},
 	testApi:function(){
 
@@ -92,6 +89,9 @@ App.view.TestApi = Backbone.View.extend({
 		var url = API_URL + request;
 		log(url);
 		var parameters = $('#apiDataString').val().split(/\n/);
+		localStorage.setItem('api_method',method);
+		localStorage.setItem('api_request',request);
+		localStorage.setItem('api_parameters',parameters);
 		var obj = {};
 		for (var i = 0; i < parameters.length ; i++){
 			var index;
@@ -114,10 +114,14 @@ App.view.TestApi = Backbone.View.extend({
 		}
 
 		$('#response').html('1. Contacting api: '+url+ '<br>Success<br><br>');
-		this.router.callApi(method,url,obj);
+		this.router.callApi(method,request,obj);
 	},
 	render:function(){
-
+		if(localStorage.getItem('api_method')) $('#method').val(localStorage.getItem('api_method'));
+		if(localStorage.getItem('api_request')) $('#apiRequestTxt').val(localStorage.getItem('api_request'));
+		if(localStorage.getItem('api_parameters')) $('#apiDataString').val(localStorage.getItem('api_parameters'));
+		
+		
 	}
 });
 App.view.Api = Backbone.View.extend({
