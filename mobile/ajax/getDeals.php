@@ -1,15 +1,16 @@
 <?php 
 require_once('../../config.php');
-/*if(!isset($_GET['lat'],$_GET['long'])) echo die(json_encode(array('success'=>'false','error'=>'lat_long_not_specified')));
+if(!isset($_GET['lat'],$_GET['long'])) echo die(json_encode(array('success'=>'false','error'=>'lat_long_not_specified')));
 $lat = (float)$_GET['lat'];
-$long = (float)$_GET['long'];*/
-$lat=0;$long=0;
+$long = (float)$_GET['long'];
+/*$lat=0;$long=0;*/
 $results = $db->startkey(time())->getView('quickd','getDeals');
 $results = $results->rows;
 $deals = array();
 $now_day = (intval(date('N')) -1);
 $now = time();
 $midnight = mktime(0,0,0);
+echo "Now: ".$now." midnight: ".$midnight." Today: ".$now_day;
 foreach($results as $res){
 	$deal = array();
 	$deal['start'] = (int)$res->value->start;
@@ -17,14 +18,16 @@ foreach($results as $res){
 	$deal['deal_type'] = $res->value->deal_type ? $res->value->deal_type : 'instant';
 	if ($deal['deal_type']=='regular') {
 		$deal['times'] = objectToArray($res->value->times);
-		if ($deal['times'] && (isset($deal['times'][$now_day]) && $today=$deal['times'][$now_day] || isset($deal['times'][($now_day-1)%7]) && $next=$deal['times'][($now_day-1)%7])) {
-				if ($today && $now >= intval($today['start'])+$midnight && $now <= $today['end']+$midnight ) {
-					$deal['start'] = $midnight + $today['start'];
-					$deal['end'] = $midnight + $today['end'];
-				} else if ($prev && $now <= $prev['end']-24*60*60+$midnight) {
-					$deal['start'] = $midnight - 24*60*60 + $prev['start'];
-					$deal['end'] = $midnight - 24*60*60 + $prev['end'];
-				} else continue;
+		if ( $deal['times']) {
+			$today = isset($deal['times'][$now_day]) ? $deal['times'][$now_day] : false;
+			$prev  = isset($deal['times'][(($now_day-1)%7 + 7) % 7]) ? $deal['times'][(($now_day-1)%7 + 7) % 7] : false;
+			if ($today && $now >= intval($today['start'])+$midnight && $now <= intval($today['end'])+$midnight ) {
+				$deal['start'] = $midnight + $today['start'];
+				$deal['end'] = $midnight + $today['end'];
+			} else if ($prev && $now <= $prev['end']-24*60*60+$midnight) {
+				$deal['start'] = $midnight - 24*60*60 + $prev['start'];
+				$deal['end'] = $midnight - 24*60*60 + $prev['end'];
+			} else continue;
 		} else continue;
 	}	else if($deal['start'] > time()) continue;
 	$deal['lat'] = $dealLat = $res->value->shop->lat;

@@ -2121,7 +2121,7 @@ form {
 			span.data {
 				position:relative;display:none;float:none;margin:0;padding:0;
 				label {width:20px;font-size:11px;text-align:right;color:#858585;}
-				input {width:40px;margin-right:5px;clear:none;display:inline;text-align:right;}
+				input {width:40px;min-width:0;margin-right:5px;clear:none;display:inline;text-align:right;}
 			}
 			span.closed {color:#858585;font-size:12px;display:inline;		}
 			&.selected {
@@ -2247,7 +2247,7 @@ form {
 		}
 		input {width:100px;}
 	}
-	.starter { width:62%; margin: 20px auto; }
+	.starter { width:62%; margin: 0px auto;padding:20px 0px; }
 	.start_deal_btn { 
 		padding:10px 20px;font-size:24px;width:100%;margin:0px auto;display:block;position:relative;
 		&.disabled {
