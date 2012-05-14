@@ -1,16 +1,15 @@
 <?php 
 require_once('../../config.php');
-if(!isset($_GET['lat'],$_GET['long'])) echo die(json_encode(array('success'=>'false','error'=>'lat_long_not_specified')));
+/*if(!isset($_GET['lat'],$_GET['long'])) echo die(json_encode(array('success'=>'false','error'=>'lat_long_not_specified')));
 $lat = (float)$_GET['lat'];
-$long = (float)$_GET['long'];
-/*$lat=0;$long=0;*/
+$long = (float)$_GET['long'];*/
+$lat=0;$long=0;
 $results = $db->startkey(time())->getView('quickd','getDeals');
 $results = $results->rows;
 $deals = array();
 $now_day = (intval(date('N')) -1);
 $now = time();
 $midnight = mktime(0,0,0);
-echo "Now: ".$now." midnight: ".$midnight." Today: ".$now_day;
 foreach($results as $res){
 	$deal = array();
 	$deal['start'] = (int)$res->value->start;
@@ -42,7 +41,8 @@ foreach($results as $res){
 	$deal['address'] = $res->value->shop->address;
 	if(isset($res->value->shop->open_hours)) $deal['open_hours'] = $res->value->shop->open_hours;
 	if(isset($res->value->shop->other)) $deal['info'] = nl2br($res->value->shop->other);
-	
+	if(isset($res->value->shop->shop_img)) $deal['shop_img'] = $res->value->shop->shop_img;
+
 	$deal['name'] = $res->value->shop->name;
 	$deal['category'] = isset($res->value->template->category)?$res->value->template->category:'';
 	$deal['discount'] = discount($deal['orig_price'],$deal['deal_price']);
