@@ -2,6 +2,14 @@ RewriteEngine On
 RewriteRule ^api/shopowner/upload/(template_img|shop_img)/([0-9]{1,3})$ upload.php?type=$1&id=$2 [NC,L,QSA]
 RewriteRule ^api/shopowner/upload/(template_img|shop_img)$ upload.php?type=$1 [NC,L,QSA]
 
+
+#Temp fix for API
+RewriteRule ^1/(login|reset|register|subscribe|fbconnect|logout) ajax.php?action=$1 [NC,L]
+RewriteRule ^1/retailer/(templates|shops|feedback|images)/([0-9]{1,3})$ ajax.php?type=$1&id=$2 [NC,L]
+RewriteRule ^1/retailer/deals/([0-9a-fA-F]{32})$ ajax.php?type=deals&id=$1 [NC,L]
+RewriteRule ^1/retailer/(deals|templates|shops|feedback|images|all)$ ajax.php?type=$1 [NC,L]
+RewriteRule ^1/retailer ajax.php?type=retailer [NC,L]
+
 # ----------------------------------------------------------------------
 # Gzip compression
 # ----------------------------------------------------------------------
