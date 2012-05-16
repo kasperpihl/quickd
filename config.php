@@ -56,6 +56,7 @@ switch($root){
 		$end = '/'.$ending;
 		$histRoot = '/';
 		$cdnUrl = $_SERVER['SERVER_ADDR'].'/';
+		define('API_URL','http://api.quickd.com/1/');
 	break; 
 }
 $historyObj = json_encode(array('pushState'=>true,'root'=>$histRoot));
