@@ -25,4 +25,5 @@ switch($_SERVER['REQUEST_METHOD']){
 		echo json_encode($result);
 	break;
 }
+echo json_encode($result);
 ?>
