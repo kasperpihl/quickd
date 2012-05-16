@@ -114,9 +114,9 @@ Ext.define('QuickD.controller.Main', {
             this.getMain().setActiveItem(this.getNotApp());
             return;
         }
-        if(!userbeta){    
+        /*if(!userbeta){    
             this.getBetaScreen().show();
-        }
+        }*/
         else {
             this.start();
         }
