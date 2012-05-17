@@ -4920,6 +4920,7 @@ div.ui-datepicker {
   width: 50px;
   float: left;
   margin: 9px;
+  max-height: 50px;
 }
 /* line 2281, ../sass/screen.scss */
 .template-selector .list-item .details, #selected_template_area .list-item .details {
