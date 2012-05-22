@@ -1,59 +1,36 @@
-// List following and followers from several accounts
+(function() {
+  var follow, process, users;
 
-var users = ['sencha',
-        'aconran',
-        'adityabansod',
-        'ambisinister',
-        'arnebech',
-        'ariyahidayat',
-        'arthurakay',
-        'bmoeskau',
-        'darrellmeyer',
-        'davidfoelber',
-        'DavidKaneda',
-        'donovanerba',
-        'edspencer',
-        'evantrimboli',
-        'ExtAnimal',
-        'jamieavins',
-        'jarrednicholls',
-        'jayrobinson',
-        'lojjic',
-        'luckymethod',
-        'merrells',
-        'mmullany',
-        'philogb',
-        'philstrong',
-        'rdougan',
-        'SubtleGradient',
-        '__ted__',
-        'tmaintz',
-        'WesleyMoy',
-        'whereisthysting'];
+  users = ['sencha', 'aconran', 'adityabansod', 'ambisinister', 'arnebech', 'ariyahidayat', 'arthurakay', 'bmoeskau', 'darrellmeyer', 'davidfoelber', 'DavidKaneda', 'donovanerba', 'edspencer', 'evantrimboli', 'ExtAnimal', 'jamieavins', 'jarrednicholls', 'jayrobinson', 'lojjic', 'luckymethod', 'merrells', 'mmullany', 'philogb', 'philstrong', 'rdougan', 'SubtleGradient', '__ted__', 'tmaintz', 'WesleyMoy', 'whereisthysting'];
 
-function follow(user, callback) {
-    var page = require('webpage').create();
-    page.open('http://mobile.twitter.com/' + user, function (status) {
-        if (status === 'fail') {
-            console.log(user + ': ?');
-        } else {
-            var data = page.evaluate(function () {
-                return document.querySelector('div.timeline-following').innerText;
-            });
-            console.log(user + ': ' + data);
-        }
-        callback.apply();
+  follow = function(user, callback) {
+    var page;
+    page = require('webpage').create();
+    return page.open('http://mobile.twitter.com/' + user, function(status) {
+      var data;
+      if (status === 'fail') {
+        console.log(user + ': ?');
+      } else {
+        data = page.evaluate(function() {
+          return document.querySelector('div.timeline-following').innerText;
+        });
+        console.log(user + ': ' + data);
+      }
+      return callback.apply();
     });
-}
+  };
 
-function process() {
+  process = function() {
+    var user;
     if (users.length > 0) {
-        var user = users[0];
-        users.splice(0, 1);
-        follow(user, process);
+      user = users[0];
+      users.splice(0, 1);
+      return follow(user, process);
     } else {
-        phantom.exit();
+      return phantom.exit();
     }
-}
+  };
 
-process();
+  process();
+
+}).call(this);

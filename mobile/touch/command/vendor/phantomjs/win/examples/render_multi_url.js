@@ -1,60 +1,49 @@
-// Render Multiple URLs to file
-// FIXME: For now it is fine with pure domain names: don't think it would work with paths and stuff like that
+(function() {
+  var arrayOfUrls, renderUrlToFile;
 
-// Extend the Array Prototype with a 'foreach'
-Array.prototype.forEach = function (action) {
-    var i, len;
-    for ( i = 0, len = this.length; i < len; ++i ) {
-        action(i, this[i], len);
+  Array.prototype.forEach = function(action) {
+    var i, j, _len, _results;
+    _results = [];
+    for (j = 0, _len = this.length; j < _len; j++) {
+      i = this[j];
+      _results.push(action(j, i, _len));
     }
-};
+    return _results;
+  };
 
-/** 
- * Render a given url to a given file
- * @param url URL to render
- * @param file File to render to
- * @param callback Callback function
- */
-function renderUrlToFile(url, file, callback) {
-    var page = require('webpage').create();
-    page.viewportSize = { width: 800, height : 600 };
-    page.settings.userAgent = "Phantom.js bot";
-    
-    page.open(url, function(status){
-       if ( status !== "success") {
-           console.log("Unable to render '"+url+"'");
-       } else {
-           page.render(file);
-       }
-       delete page;
-       callback(url, file);
+  renderUrlToFile = function(url, file, callback) {
+    var page;
+    page = require('webpage').create();
+    page.viewportSize = {
+      width: 800,
+      height: 600
+    };
+    page.settings.userAgent = 'Phantom.js bot';
+    return page.open(url, function(status) {
+      if (status !== 'success') {
+        console.log("Unable to render '" + url + "'");
+      } else {
+        page.render(file);
+      }
+      delete page;
+      return callback(url, file);
     });
-}
+  };
 
-// Read the passed args
-var arrayOfUrls;
-if ( phantom.args.length > 0 ) {
+  if (phantom.args.length > 0) {
     arrayOfUrls = phantom.args;
-} else {
-    // Default (no args passed)
-    console.log("Usage: phantomjs render_multi_url.js [domain.name1, domain.name2, ...]");
-    arrayOfUrls = [
-      'www.google.com',
-      'www.bbc.co.uk',
-      'www.phantomjs.org'  
-    ];
-}
+  } else {
+    console.log('Usage: phantomjs render_multi_url.coffee [domain.name1, domain.name2, ...]');
+    arrayOfUrls = ['www.google.com', 'www.bbc.co.uk', 'www.phantomjs.org'];
+  }
 
-// For each URL
-arrayOfUrls.forEach(function(pos, url, total){
-    var file_name = "./" + url + ".png";
-    
-    // Render to a file
-    renderUrlToFile("http://"+url, file_name, function(url, file){
-        console.log("Rendered '"+url+"' at '"+file+"'");
-        if ( pos === total-1 ) {
-            // Close Phantom if it's the last URL
-            phantom.exit();
-        }
+  arrayOfUrls.forEach(function(pos, url, total) {
+    var file_name;
+    file_name = "./" + url + ".png";
+    return renderUrlToFile("http://" + url, file_name, function(url, file) {
+      console.log("Rendered '" + url + "' at '" + file + "'");
+      if (pos === total - 1) return phantom.exit();
     });
-});
+  });
+
+}).call(this);

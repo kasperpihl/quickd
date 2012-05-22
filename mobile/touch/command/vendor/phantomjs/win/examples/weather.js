@@ -1,57 +1,53 @@
-// Get weather info for given address (or for the default one, "Mountain View")
+(function() {
+  var address, page;
 
-var page = require('webpage').create(),
-    address = "Mountain View"; //< default value
+  page = require('webpage').create();
 
-// Route "console.log()" calls from within the Page context to the main Phantom context (i.e. current "this")
-page.onConsoleMessage = function(msg) {
-    console.log(msg);
-};
+  address = 'Mountain View';
 
-// Print usage message, if no twitter ID is passed
-if (phantom.args.length < 1) {
-    console.log("Usage: weather.js [address]");
-} else {
+  page.onConsoleMessage = function(msg) {
+    return console.log(msg);
+  };
+
+  if (phantom.args.length < 1) {
+    console.log('Usage: weather.coffee [address]');
+  } else {
     address = phantom.args.join(' ');
-}
+  }
 
-// Heading
-console.log("*** Loading weather information for '" + address + "' ***\n");
+  console.log("*** Loading weather information for '" + address + "' ***\n");
 
-// Open Google "secret" Weather API and, onPageLoad, do...
-page.open(encodeURI('http://www.google.com/ig/api?weather=' + address), function (status) {
-    // Check for page load success
-    if (status !== "success") {
-        console.log("Unable to access network");
+  page.open(encodeURI("http://www.google.com/ig/api?weather=" + address), function(status) {
+    if (status !== 'success') {
+      console.log('Unable to access network');
     } else {
-        // Execute some DOM inspection within the page context
-        page.evaluate(function() {
-            if (document.querySelectorAll('problem_cause').length > 0) {
-                console.log('No data available for ' + address);
+      page.evaluate(function() {
+        var data, forecasts, i, _i, _len, _results;
+        if (document.querySelectorAll('problem_cause').length > 0) {
+          return console.log("No data available for " + address);
+        } else {
+          data = function(s, e) {
+            var el;
+            e = e || document;
+            el = e.querySelector(s);
+            if (el) {
+              return el.attributes.data.value;
             } else {
-                function data (s, e) {
-                    var el;
-                    e = e || document;
-                    el = e.querySelector(s);
-                    return el ? el.attributes.data.value : undefined;
-                };
-
-                console.log('City: ' + data('weather > forecast_information > city'));
-                console.log('Current condition: ' + data('weather > current_conditions > condition'));
-                console.log('Temperature: ' + data('weather > current_conditions > temp_f') + ' F');
-                console.log(data('weather > current_conditions > humidity'));
-                console.log(data('weather > current_conditions > wind_condition'));
-                console.log('');
-
-                var forecasts = document.querySelectorAll('weather > forecast_conditions');
-                for (var i = 0; i < forecasts.length; ++i) {
-                    var f = forecasts[i];
-                    console.log(data('day_of_week', f) + ': ' +
-                        data('low', f) + '-' + data('high', f) + ' F  ' +
-                        data('condition', f));
-                }
+              return;
             }
-        });
+          };
+          console.log("City: " + (data('weather > forecast_information > city')) + "\nCurrent condition: " + (data('weather > current_conditions > condition')) + "\nTemperature: " + (data('weather > current_conditions > temp_f')) + " F\n" + (data('weather > current_conditions > humidity')) + "\n" + (data('weather > current_conditions > wind_condition')) + "\n");
+          forecasts = document.querySelectorAll('weather > forecast_conditions');
+          _results = [];
+          for (_i = 0, _len = forecasts.length; _i < _len; _i++) {
+            i = forecasts[_i];
+            _results.push(console.log(("" + (data('day_of_week', i)) + ": ") + ("" + (data('low', i)) + "-") + ("" + (data('high', i)) + " F  ") + ("" + (data('condition', i)))));
+          }
+          return _results;
+        }
+      });
     }
-    phantom.exit();
-});
+    return phantom.exit();
+  });
+
+}).call(this);

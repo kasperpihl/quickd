@@ -1,36 +1,38 @@
-// Get twitter status for given account (or for the default one, "sencha")
+(function() {
+  var page, twitterId;
 
-var page = require('webpage').create(),
-    twitterId = "sencha"; //< default value
+  page = require('webpage').create();
 
-// Route "console.log()" calls from within the Page context to the main Phantom context (i.e. current "this")
-page.onConsoleMessage = function(msg) {
-    console.log(msg);
-};
+  twitterId = 'sencha';
 
-// Print usage message, if no twitter ID is passed
-if (phantom.args.length < 1) {
-    console.log("Usage: tweets.js [twitter ID]");
-} else {
+  page.onConsoleMessage = function(msg) {
+    return console.log(msg);
+  };
+
+  if (phantom.args.length < 1) {
+    console.log('Usage: tweets.coffee [twitter ID]');
+  } else {
     twitterId = phantom.args[0];
-}
+  }
 
-// Heading
-console.log("*** Latest tweets from @" + twitterId + " ***\n");
+  console.log("*** Latest tweets from @" + twitterId + " ***\n");
 
-// Open Twitter Mobile and, onPageLoad, do...
-page.open(encodeURI("http://mobile.twitter.com/" + twitterId), function (status) {
-    // Check for page load success
-    if (status !== "success") {
-        console.log("Unable to access network");
+  page.open(encodeURI("http://mobile.twitter.com/" + twitterId), function(status) {
+    if (status !== 'success') {
+      console.log('Unable to access network');
     } else {
-        // Execute some DOM inspection within the page context
-        page.evaluate(function() {
-            var list = document.querySelectorAll('span.status');
-            for (var i = 0; i < list.length; ++i) {
-                console.log((i + 1) + ": " + list[i].innerHTML.replace(/<.*?>/g, ''));
-            }
-        });
+      page.evaluate(function() {
+        var i, j, list, _len, _results;
+        list = document.querySelectorAll('span.status');
+        _results = [];
+        for (j = 0, _len = list.length; j < _len; j++) {
+          i = list[j];
+          _results.push(console.log("" + (j + 1) + ": " + (i.innerHTML.replace(/<.*?>/g, ''))));
+        }
+        return _results;
+      });
     }
-    phantom.exit();
-});
+    return phantom.exit();
+  });
+
+}).call(this);

@@ -1,77 +1,68 @@
-/**
- * Wait until the test condition is true or a timeout occurs. Useful for waiting
- * on a server response or for a ui change (fadeIn, etc.) to occur.
- *
- * @param testFx javascript condition that evaluates to a boolean,
- * it can be passed in as a string (e.g.: "1 == 1" or "$('#bar').is(':visible')" or
- * as a callback function.
- * @param onReady what to do when testFx condition is fulfilled,
- * it can be passed in as a string (e.g.: "1 == 1" or "$('#bar').is(':visible')" or
- * as a callback function.
- * @param timeOutMillis the max amount of time to wait. If not specified, 3 sec is used.
- */
-function waitFor(testFx, onReady, timeOutMillis) {
-    var maxtimeOutMillis = timeOutMillis ? timeOutMillis : 3001, //< Default Max Timeout is 3s
-        start = new Date().getTime(),
-        condition = false,
-        interval = setInterval(function() {
-            if ( (new Date().getTime() - start < maxtimeOutMillis) && !condition ) {
-                // If not time-out yet and condition not yet fulfilled
-                condition = (typeof(testFx) === "string" ? eval(testFx) : testFx()); //< defensive code
-            } else {
-                if(!condition) {
-                    // If condition still not fulfilled (timeout but condition is 'false')
-                    console.log("'waitFor()' timeout");
-                    phantom.exit(1);
-                } else {
-                    // Condition fulfilled (timeout and/or condition is 'true')
-                    console.log("'waitFor()' finished in " + (new Date().getTime() - start) + "ms.");
-                    typeof(onReady) === "string" ? eval(onReady) : onReady(); //< Do what it's supposed to do once the condition is fulfilled
-                    clearInterval(interval); //< Stop this interval
-                }
-            }
-        }, 100); //< repeat check every 100ms
-};
+(function() {
+  var page, waitFor;
 
+  waitFor = function(testFx, onReady, timeOutMillis) {
+    var condition, f, interval, start;
+    if (timeOutMillis == null) timeOutMillis = 3000;
+    start = new Date().getTime();
+    condition = false;
+    f = function() {
+      if ((new Date().getTime() - start < timeOutMillis) && !condition) {
+        return condition = (typeof testFx === 'string' ? eval(testFx) : testFx());
+      } else {
+        if (!condition) {
+          console.log("'waitFor()' timeout");
+          return phantom.exit(1);
+        } else {
+          console.log("'waitFor()' finished in " + (new Date().getTime() - start) + "ms.");
+          if (typeof onReady === 'string') {
+            eval(onReady);
+          } else {
+            onReady();
+          }
+          return clearInterval(interval);
+        }
+      }
+    };
+    return interval = setInterval(f, 100);
+  };
 
-if (phantom.args.length === 0 || phantom.args.length > 2) {
-    console.log('Usage: run-jasmine.js URL');
+  if (phantom.args.length !== 1) {
+    console.log('Usage: run-jasmine.coffee URL');
     phantom.exit();
-}
+  }
 
-var page = require('webpage').create();
+  page = require('webpage').create();
 
-// Route "console.log()" calls from within the Page context to the main Phantom context (i.e. current "this")
-page.onConsoleMessage = function(msg) {
-    console.log(msg);
-};
+  page.onConsoleMessage = function(msg) {
+    return console.log(msg);
+  };
 
-page.open(phantom.args[0], function(status){
-    if (status !== "success") {
-        console.log("Unable to access network");
-        phantom.exit();
+  page.open(phantom.args[0], function(status) {
+    if (status !== 'success') {
+      console.log('Unable to access network');
+      return phantom.exit();
     } else {
-        waitFor(function(){
-            return page.evaluate(function(){
-                if (document.body.querySelector('.finished-at')) {
-                    return true;
-                }
-                return false;
-            });
-        }, function(){
-            page.evaluate(function(){
-                console.log(document.body.querySelector('.description').innerText);
-                list = document.body.querySelectorAll('div.jasmine_reporter > div.suite.failed');
-                for (i = 0; i < list.length; ++i) {
-                    el = list[i];
-                    desc = el.querySelectorAll('.description');
-                    console.log('');
-                    for (j = 0; j < desc.length; ++j) {
-                        console.log(desc[j].innerText);
-                    }
-                }
-            });
-            phantom.exit();
+      return waitFor(function() {
+        return page.evaluate(function() {
+          if (document.body.querySelector('.finished-at')) return true;
+          return false;
         });
+      }, function() {
+        page.evaluate(function() {
+          var el, list, _i, _len, _results;
+          console.log(document.body.querySelector('.description').innerText);
+          list = document.body.querySelectorAll('.failed > .description, .failed > .messages > .resultMessage');
+          _results = [];
+          for (_i = 0, _len = list.length; _i < _len; _i++) {
+            el = list[_i];
+            _results.push(console.log(el.innerText));
+          }
+          return _results;
+        });
+        return phantom.exit();
+      });
     }
-});
+  });
+
+}).call(this);
