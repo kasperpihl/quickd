@@ -1,20 +1,42 @@
 define([
-'views/windows/window'
+'views/windows/window',
+'jquery/fileuploader'
 ],function(){
 	App.views.windows.ViewShop = App.views.Window.extend({
 		el: '#activity_administration',
 		initialize: function(){
+			_.bindAll(this,'editShop', 'cancelEdit', 'imgUploadStarted', 'imgUploaded', 'imgUploadCancelled');
 			this.template = 'viewshop';
 			this.init(this.options);
-			_.bindAll(this,'editShop', 'cancelEdit');
 			this.state='view';
 			this.depth = 2;
 			this.width = 400;
 			this.confirmClose=true;
 			this.inputPrefix = 'shop_';
 			this.model = App.collections.shops.models[0];
+			if (BrowserDetect.dragAndDrop())  this.dragable = true;
+			else this.dragable = false;
 			var thisClass = this;
-			this.createWindow(true,{attributes:this.model.attributes, prefix:this.inputPrefix});
+			this.createWindow(true,{attributes:this.model.attributes, prefix:this.inputPrefix, dragable:this.dragable, cid:this.cid}, function() {
+				thisClass.uploaderEl = $('#shop-img-uploader-'+thisClass.cid);
+				var dropable = thisClass.uploaderEl.find('.drop-area')[0];
+				var dragDrop = thisClass.dragable?dropable:null;
+				thisClass.uploader = new qq.FileUploader({
+					element: thisClass.uploaderEl[0],
+					button: dropable,
+					dragDrop: dragDrop,
+					multiple:false,
+					template: null,
+					listElement: thisClass.uploaderEl[0],
+					action: REAL_URL+'api/shopowner/upload/shop_img/'+thisClass.model.get('id'),
+					onSubmit: thisClass.imgUploadStarted,
+					onComplete: thisClass.imgUploaded,
+					onCancel: thisClass.imgUploadCancelled,
+					allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
+					sizeLimit: 8*1024*1024,
+					
+				});
+			});
 			
 		},
 		events: {
@@ -24,6 +46,32 @@ define([
 			'focus #opening-times input': 'showTimes',
 			'blur #opening-times input': 'hideTimes',
 			'click #opening-times .day, #opening-times .overlay': 'selectDay'
+		},
+		imgUploadStarted:function(id, filename, response) {
+			this.uploaderEl.find('.drop-area').hide();
+		},
+		imgUploaded: function(id, filename, response) {
+			log("imgUploaded", id, filename, response)
+			if (!response) {
+				log("Image is too big");
+				this.router.showError('Fejl ved upload', 'Billede var for stort og blev ikke uploadet')
+			} else if (response.success && response.success!='false') {
+				var model = new App.models.Image(response.data),
+						thisClass = this;
+				this.model.save({shop_img: model.get('n')});
+				var img = $('<img />').attr('src', model.getUrl('shop_img')).load(function() {
+					thisClass.uploaderEl.find('.img-item').remove();
+					thisClass.uploaderEl.find('.drop-area').addClass('overlay').show();
+					thisClass.uploaderEl.find('.img-area').html(img);
+				});
+			} else {
+				this.router.showError('Fejl ved upload', 'Der opstod en fejl ved upload af billedet<br/>Fejlbesked: '+response.error);
+			}
+		},
+		imgUploadCancelled: function(id, filename, response) {
+			log("imgUploadCancelled", id, filename, response);
+			this.uploader.find('.img-item').fadeOut('slow', function() {$(this).remove(); });
+			this.uploader.find('.drop-area').show();
 		},
 		setValidator: function() {
 			var thisClass = this;

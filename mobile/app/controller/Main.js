@@ -2,7 +2,8 @@ Ext.define('QuickD.controller.Main', {
     extend: 'Ext.app.Controller',
     requires: [
         'Ext.util.GeoLocation',
-        'QuickD.controller.AnimationController'
+        'QuickD.controller.AnimationController',
+        'Ext.MessageBox'
     ],
     config: {
         refs: {
@@ -66,6 +67,7 @@ Ext.define('QuickD.controller.Main', {
             },
             method:'POST',
             success:function(data){
+
                 main.unmaskMe();
                 if(data.responseText != 'false'){
                     userbeta = data.responseText;
@@ -73,14 +75,16 @@ Ext.define('QuickD.controller.Main', {
                 }
                 else {
                     var view = self.getBetaScreen();
+                    //view.down('#betakeyField').focus();
                     view.showError();
-                    view.down('#betakeyField').focus();
+                    
 
                 }
             },
-            error:function(data){
-                main.unmaskMe();
+            failure:function(data){
                 log('error beta',data);
+                main.unmaskMe();
+                
             }
         });
     },
@@ -107,7 +111,6 @@ Ext.define('QuickD.controller.Main', {
     launch:function(){
 
         if(isIphone == 1 && !window.navigator.standalone){
-            
             this.getMain().setActiveItem(this.getNotApp());
             return;
         }
@@ -129,13 +132,47 @@ Ext.define('QuickD.controller.Main', {
             self.updatedStore(store);
         },150);
     },
+    requestKey:function(buttonId,value,opt){
+        //alert('req'+buttonId+value);
+        if(buttonId != 'ok') return;
+        if(!value) return;
+        if(!validate(value)) return Ext.Msg.prompt('Anmod om betanøgle','Indtast en rigtig email',this.requestKey,this);
+        var main = this.getMain();
+        var betascreen = this.getBetaScreen();
+        main.maskMe('Anmoder om adgang');
+        Ext.Ajax.request({
+            url: ROOT_URL+'ajax/requestBetakey.php',
+            params:{
+                email:value
+            },
+            method:'POST',
+            success:function(data){
+                var response = JSON.parse(data.responseText);
+                var test = false;
+                if(response.success === 'true') test = true;
+                else if(response.success === 'false' && response.error === 'user_exists') test = true;
+                if(test) betascreen.showSignedUpText();
+                else Ext.Msg.alert('En fejl skete','Vi beklager en fejl skete, vi løber som små vilddyr for at få den rettet');
+                main.unmaskMe();
+            },
+            failure:function(data){
+                log('error beta',data);
+                main.unmaskMe();
+                
+            }
+        });
+    },
     buttonHandler:function(t,t2,t3){
         var id = t.getId();
         var main = this.getMain();
         switch (id){
             case 'useBetaKey':
                 var key = main.down('#betakeyField').getValue();
+                if(!key) return;
                 this.useBetaKey(key);
+            break;
+            case 'requestKeyButton':
+                Ext.Msg.prompt('Anmod om betanøgle','Indtast din email og tryk ok',this.requestKey,this);
             break;
             case 'loginWithFacebook':
                 this.doFacebookConnect();
@@ -208,6 +245,9 @@ Ext.define('QuickD.controller.Main', {
     },
     constructor:function(){
         this.callParent(arguments);
+    },
+    testHours:function(){
+
     },
     updatedStore:function(instance,data,options){
 

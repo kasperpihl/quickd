@@ -385,13 +385,14 @@ qq.FileUploaderBasic.prototype = {
         this._button.reset();   
     },  
     _uploadFileList: function(files){
-        for (var i=0; i<files.length; i++){
+        var length = this._options.multiple ? files.length : 1;
+        for (var i=0; i<length; i++){
             if ( !this._validateFile(files[i])){
                 return;
             }            
         }
         
-        for (var i=0; i<files.length; i++){
+        for (var i=0; i<length; i++){
             this._uploadFile(files[i]);        
         }        
     },       
@@ -514,6 +515,7 @@ qq.FileUploader = function(o){
         element: null,
         // if set, will be used instead of qq-upload-list in template
         listElement: null,
+        useList: true,
                 
         template: '<div class="qq-uploader">' + 
                 '<div class="qq-upload-drop-area"><span>Drop files here to upload</span></div>' +
@@ -522,13 +524,14 @@ qq.FileUploader = function(o){
              '</div>',
 
         // template for one item in file list
-        fileTemplate: '<li>' +
-                '<span class="qq-upload-file"></span>' +
+        fileTemplate: 
+            '<div class="img-item">'+
                 '<span class="qq-upload-spinner"></span>' +
+                '<span class="qq-upload-file"></span>' +
                 '<span class="qq-upload-size"></span>' +
-                '<a class="qq-upload-cancel" href="#">Cancel</a>' +
-                '<span class="qq-upload-failed-text">Failed</span>' +
-            '</li>',        
+                '<div class="qq-upload-progressbar"><span></span></div>'+
+                '<div class="qq-upload-cancel">Cancel</div>'+
+            '</div>',      
         
         classes: {
             // used to get elements from templates
@@ -553,9 +556,9 @@ qq.FileUploader = function(o){
     qq.extend(this._options, o);       
 
     this._element = this._options.element;
-    if (this._options.template) this._element.innerHTML = this._options.template;        
+    if (this._options.template) this._element.innerHTML = this._options.template;
     this._listElement = this._options.listElement || this._find(this._element, 'list');
-    
+    this._useList = this._options.useList;
     this._classes = this._options.classes;
         
     this._button = this._options.button ? this._createUploadButton(this._options.button) : this._createUploadButton(this._find(this._element, 'button'));        
@@ -663,8 +666,8 @@ qq.extend(qq.FileUploader.prototype, {
         qq.setText(fileElement, this._formatFileName(fileName));
         this._find(item, 'size').style.display = 'none';        
 
-        //this._listElement.appendChild(item, this._listElement.firstChild);
-        this._listElement.insertBefore(item, this._element.nextSibling)
+        if (this._useList) this._listElement.appendChild(item, this._listElement.firstChild);
+        else this._listElement.insertBefore(item, this._element.nextSibling)
     },
     _getItemByFileId: function(id){
         var item = this._listElement.firstChild;        
@@ -803,7 +806,6 @@ qq.UploadButton = function(o){
     
     // make button suitable container for input
     qq.css(this._element, {
-        position: 'relative',
         overflow: 'hidden',
         // Make sure browse button is in the right side
         // in Internet Explorer

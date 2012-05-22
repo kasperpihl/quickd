@@ -7,6 +7,8 @@ Ext.define('QuickD.model.Deal', {
                 'title',
                 'description',
                 'name',
+                'deal_type',
+                'times',
                 'category',
                 'distance',
                 'discount',

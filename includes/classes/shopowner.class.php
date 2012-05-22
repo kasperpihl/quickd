@@ -47,7 +47,7 @@ class Shopowner {
 			return $result;
 		}
 		catch(Exception $e){
-			return array('success'=>'false','error'=>'database_error','function'=>'shopowner_register','e'=>$e->getMessage()); 
+			return array('success'=>'false','error'=>'database_error','function'=>'retailer_register','e'=>$e->getMessage()); 
 		}
 	}
 
@@ -255,9 +255,13 @@ class Shopowner {
 		$doc_id = $shopowner;
 		switch($type){
 			case 'shops':
-				$update = 'addEditShop';
+				$data = json_decode($model);
+				if (isset($data->img_type)&&$data->img_type == 'shop_img') {
+					$update = null;
+					return Shopowner::updateImage($model);
+				} else $update = 'addEditShop';
 			break;
-			case 'shopowner':
+			case 'retailer':
 				$data = json_decode($model);
 				if (isset($data->old_password, $data->new_password)) {
 					$data->old_password = md5(MD5_STRING.$data->old_password);
@@ -297,11 +301,11 @@ class Shopowner {
 				return $result;
 			}
 			catch(Exception $e){
-				return json_encode(array('success'=>'false','error'=>'database_error','e'=>$e->getMessage())); 
+				return array('success'=>'false','error'=>'database_error','e'=>$e->getMessage()); 
 			}
 			
 		}
-		else return json_encode(array('success'=>'false','error'=>'no_matching_save_function')); 
+		else return array('success'=>'false','error'=>'no_matching_save_function'); 
 		
 	}
 	public static function delete($type,$id){
@@ -327,13 +331,13 @@ class Shopowner {
 			try{
 				if ($update == 'delDeal') {
 					$doc = $db->getDoc($id);
-					if (!$doc->shopowner_id ||$doc->shopowner_id!=$shopowner) return json_encode(array('success'=>'false', 'error'=>'user_not_authorized'));
-					if (!$doc->type ||$doc->type!='deal') return json_encode(array('success'=>'false', 'error'=>'doc_not_a_deal'));
+					if (!$doc->shopowner_id ||$doc->shopowner_id!=$shopowner) return array('success'=>'false', 'error'=>'user_not_authorized');
+					if (!$doc->type ||$doc->type!='deal') return array('success'=>'false', 'error'=>'doc_not_a_deal');
 					$time = time();
 					if ($doc->deal_type=='regular' || !$doc->start || !$doc->end || $doc->start > $time || $doc->end < $time) {
 						$db->deleteDoc($doc);
-						return json_encode(array('success'=>'true','data'=>'deleted')); 
-					} else return json_encode(array('success'=>'false', 'error'=>'cannot_delete_active'));
+						return array('success'=>'true','data'=>'deleted'); 
+					} else return array('success'=>'false', 'error'=>'cannot_delete_active');
 				} else {
 					$json = json_encode(array('id'=>$id));
 					$result = $db->updateDocFullAPI('dealer',$update,array('doc_id'=>$doc_id,'params'=>array('json'=>$json)));
@@ -378,11 +382,10 @@ class Shopowner {
 		} else if ($model->deal_type=='regular') {
 			if (!property_exists($model,'times') || empty($model->times)) return array('success'=>'false','error'=>'times_must_be_specified');
 			$validTimes = true;
-			foreach ($model->times as $times) {
-				foreach ($times as $time) if (!isset($time->start, $time->end) || $time->start > $time->end) $validTimes = false;
+			foreach ($model->times as $time) {
+				if ($time && (!isset($time->start, $time->end) || $time->start > $time->end)) $validTimes = false;
 			}
 			if (!$validTimes) return array('success'=>'false', 'error'=>'times_not_valid', 'data'=>$model);
-			//return array('success'=>'false', 'error'=>'times_not_valid', 'data'=>$model->times->{2}[0]->end);
 			$model->start = time();
 			$model->end = time()*10;
 		}
@@ -402,22 +405,18 @@ class Shopowner {
 					if($deal->deal_type == 'instant' && ($deal->start > $model->end || $deal->end > $model->start)) continue;
 					if ($deal->deal_type == 'regular' && property_exists($deal, 'times')) {
 						$continue = true;
-						foreach($model->times as $d=>$times) {
-							foreach($times as $i=>$time) {
-								if (!isset($time->start, $time->end) || $time->start > $time->end) $continue = false;
-								else if (isset($deal->times->$d) && !empty($deal->times->$d)) {
-									foreach($deal->times->$d as $dTime)
-										if( !($time->start >= $dTime->end  || $time->end <= $dTime->start)) $continue = false;
-								}
+						foreach($model->times as $d=>$time) {
+							if ($time && isset($deal->times->$d) && $deal->times->$d) {
+									$dTime = $deal->times->$d;
+									if(isset($dTime->start, $dTime->end) && !($time->start >= $dTime->end  || $time->end <= $dTime->start)) $continue = false;
 							}
 						}
 						if ($continue) continue;
 					}
-					$testDeal = $deal;
 					$test = false;
 					break;
 				}
-				if(!$test) return array('success'=>'false','error'=>'deal_already_planned','data'=>$testDeal); 
+				if(!$test) return array('success'=>'false','error'=>'deal_already_planned'); 
 			}		
 			//Validate user shop and template
 			$dealResult = json_decode($db->updateDocFullAPI('dealer','checkDeal',array('doc_id'=>$dealer,'params'=>array('json'=>json_encode($model)))));
@@ -476,7 +475,7 @@ class Shopowner {
 		$imgData = json_decode($model);
 		if (isset($imgData->new, $imgData->filename)) {
 			//New image!
-			$image = new MyImages(array('filename'=>$imgData->filename));
+			$image = new MyImages((array) $imgData);
 			if ($image->getErrors()) return array('success'=>false, 'error'=>$image->getErrors());
 			else return array('success'=>true, 'data'=>$image->getImgData());
 		} else {
@@ -527,6 +526,7 @@ class Shopowner {
 		if ($image->getErrors()) return $image->getErrors();
 		else return true;
 	}
+
 	public static function get($type,$id=''){
 		global $db,$session;
 		if(!$session->logged_dealer()) return array('success'=>'false','error'=>'not_logged_in');
@@ -552,7 +552,7 @@ class Shopowner {
 				case 'shops':
 					$view = 'getShops';
 					break;
-				case 'shopowner':
+				case 'retailer':
 
 					$view = 'getShopowner';
 					$id = true;

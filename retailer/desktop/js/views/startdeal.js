@@ -32,15 +32,15 @@ define([
 		},
 		render: function(){
 			var thisClass = this;
-			$(this.el).html(_.template(template,{data:this}));
-			this.$cmp = $('#start_deal');
 			this.first = true;
-			this.dealType = 'instant';
+			this.dealType = 'regular';
 			this.expanded = false;
 			this.starting = false;
 			this.hours = null;
 			this.vAligned = false;
 			this.minutes = this.timeStandard;
+			$(this.el).html(_.template(template,{data:this}));
+			this.$cmp = $('#start_deal');
 			this.updateHours(true);
 			//Setting jquery date pickers
 			this.$cmp.find('#deal_start_time').datetimepicker({
@@ -202,7 +202,7 @@ define([
 			var hours = this.minutes;
 			if (!this.start_time) this.start_time = roundToMinutes(null, this.timeMinInterval).getTime();
 			this.end_time = this.start_time + this.minutes * 60 * 1000;
-			$('#deal_end_time').html(getTimeString(this.end_time, true));
+			$('#deal_end_time').html(getTimeString(this.end_time, 'simple'));
 		},
 		selectDay:function(evt) {
 			var $this = $(evt.currentTarget);
@@ -252,14 +252,16 @@ define([
 			$('#set_template_block').css('z-index',2);
 			//$('#set_treasure_block').css('z-index',1);
 			
-			var els = [$('#starter_button'),$('#time_block'),$('#set_template_block')];
-			var i = 0;
-			var pos = $('#btn_overview').offset().top-this.$cmp.offset().top-50;
+			var els = [$('#starter_button'),$('#time_block'),$('#set_template_block')],
+					i = 0,
+					thisHeight = this.$cmp.outerHeight(),
+					pos = thisHeight - ($('#btn_overview').offset().top+50-this.$cmp.offset().top);
+			this.$cmp.height(thisHeight);
 			$(els).each(function() {
 				var me = $(this);
 				i++;
-				me.css({position:'absolute', top: me.position().top, left:(me.position().left+parseInt(me.css('marginLeft'))), width:me.width()})
-					.animate({ top: pos, height:90 }, 800, 'easeInOutSine', function() {
+				me.css({position:'absolute', bottom: thisHeight-(me.position().top+parseInt(me.outerHeight())), left:(me.position().left+parseInt(me.css('marginLeft'))), width:me.width()})
+					.animate({ bottom: pos}, 800, 'easeInOutSine', function() {
 						if (i == els.length) {
 							
 							var el = $('#select-template-list');
@@ -331,16 +333,11 @@ define([
 				else	if (!time.start || !time.end) return thisClass.showError('Indtast venligst kun gyldige klokkeslæt');
 				else {
 					obj.deal_type = 'regular';
-					obj.times = {0:[],1:[],2:[],3:[],4:[],5:[],6:[]};
-					if (time.end<=time.start) {
-						time[0] = {start: time.start, end: 24*60*60 }
-						time[1] = {start: 0, end: time.end }
-					} else time[0] = {start:time.start, end:time.end};
+					obj.times = {};
+					if (time.end<=time.start) time = {start: time.start, end: 24*60*60 + time.end }
 					$days.each(function(d) {
-						if ($(this).hasClass('selected')) {
-							obj.times[d].push(time[0]);
-							if (time[1]) obj.times[(d+1)%7].push(time[1]);
-						}
+						if ($(this).hasClass('selected')) obj.times[d] = time;
+						else obj.times[d] = false;
 					});
 				}
 			} else {

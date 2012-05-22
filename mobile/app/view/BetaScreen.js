@@ -3,15 +3,16 @@ Ext.define('QuickD.view.BetaScreen', {
     requires:[
         'Ext.form.Panel',
         'Ext.Label',
-        'Ext.form.FieldSet'
+        'Ext.form.FieldSet',
+        'Ext.Img'
     ],
     xtype: 'betascreen',
     config: {
         layout:'vbox',
         // We give it a left and top property to make it floating by default    
         centered:true,
-        width: 300,
-        height:300,
+        width: 260,
+        height:280,
         scrollable:false,
         showAnimation: {
             type: 'fadeIn',
@@ -30,66 +31,56 @@ Ext.define('QuickD.view.BetaScreen', {
         items: [
         {
             xtype:'fieldset',
-            title:'Dette er en lukket beta i Aarhus',
-            instructions:'Indtast den betakode du har modtaget',
+            
+            instructions:'',
             items:[{
+                xtype:'image',
+                src: ROOT_URL+'resources/images/keys.png',
+                width:90,
+                margin:'0 auto',
+                mode:'image'
+            },{
                 xtype:'textfield',
-                placeHolder:'Betanøgle',
+                placeHolder:'Indtast din betanøgle',
                 id:'betakeyField',
-                width:'265px',
+                width:'225px',
                 listeners:{
                     focus:function(){ this.getParent().getParent().gotFocus(); }
                 }
-            },{
-                xtype: 'label',
-                html: 'Den indtastede betakode er forkert',
-                itemId: 'betaErrorText',
-                hidden: true,
-                cls: 'errorField'
             }]
         },{
             xtype:'button',
-            width:100,
+
+            padding: '7 0 7 0',
+            margin:'6px 0',
+            
             ui:'confirm',
             id:'useBetaKey',
-            text:'Brug nøgle'
-        },{
-            xtype:'label',
-            html: 'Eller anmod om en betanøgle',
-            cls: 'requestNewPassText'
+            text:'Log ind'
         },{
             xtype:'button',
-            ui: 'rounded',
-            text: 'Registrer med facebook',
-            cls:'useFacebook',
-            id:'loginWithFacebook',
-            width:260
-        },{
-            xtype:'button',
-            ui: 'rounded',
-            cls:'useEmail',
-            text: 'Brug email',
-            width:100,
-            hidden:true
-        },{
-            xtype:'textfield',
-            placeHolder:'eks. navn@quickd.com',
-            id:'emailField',
-            hidden:true
+            right:0,
+            left:0,
+            bottom:10,
+            id: 'requestKeyButton',
+            text: 'Anmod om en betanøgle'
         }]
     },
     gotFocus:function(){
         if(this.errorShown) this.removeError();
         return;
     },
+    showSignedUpText:function(){
+        Ext.Msg.alert('Tak for din tilmelding til QuickD','Så snart vi har plads i vores beta, sender vi en mail med din nøgle');
+    },
     removeError:function(){
         if(!this.errorShown) return false;
         this.errorShown = false;
-        var comp = this.down('#betaErrorText').hide();
+        this.down('fieldset').setInstructions('');
     },
     showError:function(text){
         if(this.errorShown) return false;
         this.errorShown = true;
-        var comp = this.down('#betaErrorText').show();
+        this.down('fieldset').setInstructions('Den indtastede betakode er forkert');
     }
 }); 

@@ -1,18 +1,20 @@
 <?php
 require_once('../../config.php');
-print_r(CLASSES_DIR.'thread.class.php');
-require_once(CLASSES_DIR.'thread.class.php');
-// test to see if threading is available
-if( ! Thread::available() ) {
-    die( 'Threads not supported' );
-}
-function paralel() {
-	Mail::sendBetaConfirmation('kasper@tornoe.org','Anders');
-	sleep(1);
-}
-Mail::sendBetaConfirmation('kasper@tornoe.org','Anders');
-$t1 = new Thread( 'paralel' );
-$t1->start();
+$model = array('img_type'=>'shop_img', 'new'=>true, 'filename'=>'jeppe_1336603091_952.jpg');
+			if (isset($_GET['id'])) {
+				$shop = Shopowner::get('shops', $_GET['id']);
+				if ($shop&&isset($shop['success'])&&$shop['success']=='true') {
+					$model['id'] = $shop['data']->id;
+					if (isset($shop['data']->shop_img)) {
+						$image = new MyImages(array('imagedata'=>array('n'=>$shop['data']->shop_img)));
+						$image->delete(array('shop_img'));
+					}
+				}
+			}
+			$result = Shopowner::save('shops', json_encode($model));
+			echo json_encode($result);
+//echo json_encode(Shopowner::save('shops', json_encode(array('img_type'=>'shop_img', 'new'=>true, 'filename'=>'jeppe_1336590943_699.jpg'))));
+
 /*print_r($test);
 print_r(Mail::sendAdminMail('newTemplate','Anders'));
 //$doc = $db->key('kasper')->limit(1)->getView('dealer','getPassById');

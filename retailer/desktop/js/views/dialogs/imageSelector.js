@@ -8,7 +8,7 @@ define([
 	App.views.dialogs.ImageSelectorView = App.views.Dialog.extend({
 		el: '#content',
 		initialize:function(){
-			_.bindAll(this,'handleClick', 'imgUploaded', 'setJcrop', 'triggerUpload', 'goEdit', 'updateThumb', 'saveThumb','changedRevision','updatePreview', 'jcropOnSelect', 'imgDelete', 'deleteConfirmCallback');
+			_.bindAll(this,'handleClick', 'imgUploaded', 'setJcrop', 'triggerUpload', 'goEdit', 'updateThumb', 'saveThumb', 'changedRevision','updatePreview', 'jcropOnSelect', 'imgDelete', 'deleteConfirmCallback');
 			var thisClass = this;
 			this.init(this.options);
 			this.template ='imageSelector';
@@ -36,7 +36,7 @@ define([
 
 			var data = {images:this.collection.toJSON(), view:this.view, cid: this.cid, dragable:this.dragable};
 			var thisClass = this;
-			
+			log(REAL_URL+'api/shopowner/upload/template_img');
 			if (this.options.selected) data.selected = this.options.selected;
 			this.createDialog(data,function(){
 				//$('#uploader-'+thisClass.cid).uploader({targetPath:ROOT_URL + "ajax/upload.php", allow:false, uploadField: thisClass.uploadField, imgUploaded:thisClass.imgUploaded,onProgress:thisClass.imgUploadProgress,beforesend:thisClass.beforeSend, afterUpload:thisClass.afterUpload});
@@ -48,7 +48,8 @@ define([
 					dragDrop: dragDrop,
 					template: null,
 					listElement: $('#gallery-view')[0],
-					action: ROOT_URL+'ajax/upload.php',
+					useList: false,
+					action: REAL_URL+'api/shopowner/upload/template_img',
 					//debug: true,
 					onComplete: thisClass.imgUploaded,
 					onCancel: thisClass.imgUploadCancelled,

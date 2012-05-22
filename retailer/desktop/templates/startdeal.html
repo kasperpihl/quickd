@@ -12,12 +12,12 @@
   <div id="stage-two" style="display:none">
   	<div id="time_block">
 	  	<div class="type-selector" id="deal-type-selector">
-				<div class="option first selected" id="type_instant">Impuls tilbud</div>
-				<div class="option last" id="type_regular">Fast tilbud</div>
+				<div class="option first <%=data.dealType=='regular'? '' : 'selected'%>" id="type_instant">Impuls tilbud</div>
+				<div class="option last <%=data.dealType=='regular'? 'selected' : ''%>" id="type_regular">Fast tilbud</div>
 				<div class="clearline"></div>
 			</div>
 			<blockquote id="bubble_msg" class="bubble_message msg" style="display: none;">	</blockquote>
-	    <div class="block set_time" id="instant_deal_block" style="display:block">
+	    <div class="block set_time" id="instant_deal_block" style="display:<%=data.dealType=='regular'? 'none' : 'block'%>">
 	        <div class="label">Tid</div>
 	        <div class="data">
 	            <div class="field start_time">
@@ -37,7 +37,7 @@
 	        <div class="clearline"></div>
 	   	</div>
 
-	   	<div class="block regular_deal" id="regular_deal_block" style="display:none;">
+	   	<div class="block regular_deal" id="regular_deal_block" style="display:<%=data.dealType=='regular'? 'block' : 'none'%>;">
 	   		
 	   		<div class="label">Vælg tider</div>
 	      <div class="data">
@@ -51,9 +51,9 @@
 				    </div>
 				    <div class="field regular-time" id="regular-time-field">
 				    	<label>Fra:</label>
-				    	<input type="text" placeholder="12:00" name="regular-deal-start-time" id="regular-deal-start-time" />
+				    	<input type="text" value="12:00" name="regular-deal-start-time" id="regular-deal-start-time" />
 				    	<label>Til:</label>
-				    	<input type="text" placeholder="15:00" name="regular-deal-end-time" id="regular-deal-end-time" />
+				    	<input type="text" value="15:00" name="regular-deal-end-time" id="regular-deal-end-time" />
 				    	<div class="hint" style="display:none">Næste dag</div>
 				    </div>
 	      </div>

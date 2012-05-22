@@ -6,6 +6,7 @@ class MyImages extends Images {
 		global $imageSizes;
 		$this->sizes = $imageSizes;
 		$this->errors = array();
+		$this->type = isset($options['img_type'])?$options['img_type']:'template_img';
 		
 		if(isset($options['index'])){
 			$index = $options['index'];
@@ -28,12 +29,15 @@ class MyImages extends Images {
 			$filename = $options['filename'];
 			$this->imagedata = array('n'=>$filename,'r'=>0,'rev'=>1);
 			$this->originalimage = $this->getDir('original');
-			$this->previewimage = $this->getDir('preview');
-			$this->generatePreviewImage();
-			$this->generateThumbs();
-			//$res = Shopowner::save('images', $this->imagedata);
-			//if($res->success == 'true'){ $this->imagedata['id'] = $res->data->id;}
-			//else $this->errors[] =  array('success'=>'false','error'=>'error_sending_to_db', 'data'=>$res, 'image'=>$this->imagedata);
+			if ($this->type=='shop_img') {
+				$this->previewimage = $this->getDir('shop_img');
+				if (!isset($this->sizes['shop_img'])) $this->sizes['shop_img'] = array('w'=>640, 'h'=>320);
+				$this->generateResizedPreview($this->sizes['shop_img']['w'], $this->sizes['shop_img']['h'], 'cut');
+			} else {
+				$this->previewimage = $this->getDir('preview');
+				$this->generatePreviewImage();
+				$this->generateThumbs();
+			}
 		} else $this->errors[] = array('success'=>'false','error'=>'filename_or_indexname_must_be_set');
 		
 	}
@@ -75,6 +79,22 @@ class MyImages extends Images {
 			$image = $this->setThumbnail($this->previewimage,$target,$options);
 			if(!$image['success'] || $image['success']==='false') $this->errors[] = $image;
 		}
+	}
+	public function generateResizedPreview($width, $height, $proportional) {
+		$image = $this->smartResizeImage(
+			$this->originalimage,
+			$width,
+			$height,
+			$proportional,
+			$this->previewimage
+		);
+		if(!$image['success']){ $this->errors[] = $image; return false;}
+		$previewinfo = $this->getInfoFromFile($this->previewimage);
+		if(!$previewinfo) return false;
+		list($previewwidth,$previewheight) = $previewinfo;
+		$this->imagedata['w'] = $previewwidth;
+		$this->imagedata['h'] = $previewheight;
+		return true;
 	}
 	private function calculateAutoThumbnailFromFile($file){
 		$info = $this->getInfoFromFile($file);
@@ -133,13 +153,15 @@ class MyImages extends Images {
 		$this->generateThumbs();
 	}
 
-	public function delete() {
+	public function delete($dirs=array()) {
 		foreach($this->sizes['thumbs'] as $path => $options){
 			$name = $this->getDir($path);
 			if (file_exists($name)) unlink($name);
 		}
 		if (file_exists($this->previewimage)) unlink($this->previewimage);
 		if (file_exists($this->originalimage)) unlink($this->originalimage);
+		foreach ($dirs as $dir) if (file_exists($this->getDir($dir))) unlink($this->getDir($dir));
 	}
 }
+
 ?>

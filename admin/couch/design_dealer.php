@@ -289,6 +289,7 @@ try{
 			if(query.hasOwnProperty('website')) shop.website = query.website;
 			if(query.hasOwnProperty('phone')) shop.phone = query.phone;
 			if(query.hasOwnProperty('other')) shop.other = query.other;
+			if(query.hasOwnProperty('shop_img')) shop.shop_img = query.shop_img;
 			if (query.hasOwnProperty('open_hours')) {
 				var hours = query.open_hours;
 				shop.open_hours = {};

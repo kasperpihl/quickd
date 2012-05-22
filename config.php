@@ -34,12 +34,14 @@ switch($root){
 		else if(strpos($_SERVER['REQUEST_URI'], 'brugerinfo/')) $string = 'brugerinfo/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'mobile/')) $string = 'mobile/';
 		else if(strpos($_SERVER['REQUEST_URI'], 'admin/')) $string = 'admin/';
+		else if(strpos($_SERVER['REQUEST_URI'], 'api/')) $string = 'api/';
 		else $string = '/';
 		$arr = explode($string,$_SERVER['REQUEST_URI']);
 		$histRoot = $arr[0].$string;
 		$end = $arr[0].$string.$ending;
 		if(isset($arr[1])) $restUrl = $arr[1];
 		$cdnUrl = $root . $arr[0] . 'cdn/';
+		define("API_URL","http://".$root.$arr[0].'api/1/');
 		
 	break;
 	default:
@@ -79,6 +81,10 @@ $imageSizes = array(
 	'preview'=>array(
 		'w'=>500,
 		'h'=>500
+	),
+	'shop_img'=>array(
+		'w'=>640,
+		'h'=>320
 	)
 );
 $categories = array(

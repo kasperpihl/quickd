@@ -135,17 +135,218 @@ input, textarea, select {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -185,21 +386,6 @@ input, textarea, select {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -242,9 +428,6 @@ body.x-desktop {
 
 body {
   font-size: 104%; }
-
-body.x-ios {
-  -webkit-backface-visibility: hidden; }
 
 body.x-android.x-phone {
   font-size: 116%; }
@@ -561,17 +744,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -611,21 +995,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -727,17 +1096,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -777,21 +1347,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -893,17 +1448,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -943,21 +1699,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -1095,17 +1836,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -1147,21 +2089,6 @@ input, textarea {
  * Makes an element stretch to its parent's bounds.
  */
 /**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
- */
-/**
  * Bevels the text based on its background.
  *
  * @param {color} $bg-color Background color of element.
@@ -1194,8 +2121,6 @@ input, textarea {
  */
 /**
  * @var {string} $button-gradient Default gradient for buttons.
- *
- * See {@link Global_CSS#background-gradient background-gradient}.
  */
 /**
  * @var {string} $toolbar-icon-size Default size (width and height) for toolbar icons.
@@ -1208,8 +2133,6 @@ input, textarea {
  */
 /**
  * Includes default button styles.
- *
- * See {@link Global_CSS#background-gradient background-gradient}.
  */
 /**
  * Creates a theme UI for buttons.
@@ -1307,17 +2230,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -1357,21 +2481,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -1556,17 +2665,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -1606,21 +2916,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -1751,17 +3046,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -1801,21 +3297,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -1935,17 +3416,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -1985,21 +3667,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -2059,8 +3726,6 @@ input, textarea {
 /**
  * @var {string} $list-header-gradient
  * Gradient style for list header rows (in grouped lists).
- *
- * See {@link Global_CSS#background-gradient background-gradient}.
  */
 /**
  * @var {measurement} $list-disclosure-size
@@ -2154,17 +3819,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -2204,21 +4070,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -2320,17 +4171,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -2370,21 +4422,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -2480,8 +4517,6 @@ input, textarea {
 /**
  * Includes default form styles.
  *
- * See {@link Global_CSS#background-gradient background-gradient}.
- *
  * @member Ext.form.Panel
  */
 /**
@@ -2565,17 +4600,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -2615,21 +4851,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -2758,17 +4979,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -2808,21 +5230,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -2958,17 +5365,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -3008,21 +5616,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -3127,17 +5720,218 @@ input, textarea {
  * The minimum row height for items like toolbars and list items.
  */
 /**
- * @class Global_CSS
+ * Background noise recipe
+ * 
+ * This recipe use a sass function to generate a .png file
+ * 
+ * Inspired by a jQuery plugin "Noisy" by Daniel Rapp @DanielRapp
+ * @link https://github.com/DanielRapp/Noisy
+ * 
+ * Converted using Sass by Aaron Russell @aaronrussell & Philipp Bosch @philippbosch
+ * @link https://gist.github.com/1021332
+ * 
+ * Ported to a sass gem by Antti Salonen @antsa
+ * @link https://github.com/antsa/sassy_noise
+ * 
+ * Mixin:        background-noise
+ * Function:     background_noise
+ * 
+ * @author Daniel Rapp @DanielRapp
+ * @author Aaron Russell @aaronrussell
+ * @author Philipp Bosch @philippbosch
+ * @author Antti Salonen @antsa
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx
  */
 /**
- * Add a background gradient to a selector.
+ *
+ * @class Gradients
+ * @author David Kaneda http://www.davidkaneda.com/
+ *
+ */
+/**
+ * Adds a background gradient into a specified selector.
+ *
+ *     @include background-gradient(#444, 'glossy');
+ *
+ * You can also use color-stops if you want full control of the gradient:
+ *
+ *     @include background-gradient(#444, color-stops(#333, #222, #111));
+ *
+ * @param {color} $bg-color
+ * The base color of the gradient.
+ *
+ * @param {string/list} $type
+ * The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or linear:
+ *
+ *     @include background-gradient(red, 'glossy');
+ *
+ * It can also accept a list of color-stop values:;
+ *
+ *     @include background-gradient(black, color-stops(#333, #111, #000));
+ *
+ * @param {string} $direction
+ * The direction of the gradient.
+ */
+/**
+ * Blueprint grid background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/#blueprint-grid
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Background overlay inspired by Google Chrome modal overlay
+ * 
+ * @author Maxime Thirouin @MoOx maxime.thirouin@gmail.com
+ */
+/**
+ * Striped background pattern
+ * 
+ * @link http://lea.verou.me/css3patterns/
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com @davidkaneda for the sass mixin
+ */
+/**
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#tartan
+ *
+ * @author Marta Armada http://swwweet.com/ for the original pattern
+ * @author Maxime Thirouin maxime.thirouin@gmail.com @MoOx for the sass mixin
+ */
+/**
+ * Carbon Fiber background pattern
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author David Kaneda http://www.davidkaneda.com/ for the Sass mixin
+ *
+ * @link http://lea.verou.me/css3patterns/
+ *
+ */
+/**
+ * Striped background patterns
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#horizontal-stripes
+ * @link http://lea.verou.me/css3patterns/#vertical-stripes
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Cicada background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#cicada-stripes
+ *
+ * @author Randy Merril http://forthedeveloper.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Tablecloth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#tablecloth
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Lined paper background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#lined-paper
+ *
+ * @author Sarah Backhouse http://www.jadu.net/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Madras background pattern
+ *
+ * Before compass 0.11.5, you need to add
+ * Compass::BrowserSupport.add_support("repeating-linear-gradient", "webkit", "moz", "o", "ms")
+ * To your configuration (config.rb)
+ * @see https://github.com/chriseppstein/compass/issues/401
+ *
+ * @link http://lea.verou.me/css3patterns/#madras
+ *
+ * @author Divya Manian http://nimbupani.com/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ * Checkerboard background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#checkerboard
+ * @link http://lea.verou.me/css3patterns/#diagonal-checkerboard
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Houndstooth background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#houndstooth
+ *
+ * @author Antoine Bernier http://abernier.name for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * Polkadot background pattern
+ *
+ * @link http://lea.verou.me/css3patterns/#polka-dot
+ *
+ * @author Lea Verou http://lea.verou.me/ for the original pattern
+ * @author Mason Wendell mason@canarypromo.com @canarymason for the sass mixin
+ */
+/**
+ *
+ * @class Color
+ * @author David Kaneda - http://www.davidkaneda.com
+ *
+ */
+/**
+ * Returns the brightness (out of 100) of a specified color.
+ * @todo explain why this is useful
+ * @param {color} $color The color you want the brightness value of
+ * @return {measurement}
+ */
+/**
+ * Returns the luminosity for a specified color
+ * @param {color} The color to check
+ * @return {measurement}
+ */
+/**
+ * Returns the contrast ratio between two colors
+ * @param {color1} The color to check
+ * @return {measurement}
+ */
+/**
+ * Colors the text of an element based on lightness of its background.
  *
  *     .my-element {
- *       @include background-gradient(green, 'recessed')
+ *       @include color-by-background(#fff); // Colors text black.
  *     }
  *
- * @param {color} $bg-color The base color of the gradient.
- * @param {string} $type The style of the gradient, one of five pre-defined options: matte, bevel, glossy, recessed, or flat.
+ *     .my-element {
+ *       @include color-by-background(#fff, 40%); // Colors text gray.
+ *     }
+ *
+ * @param {color} $bg-color Background color of element.
+ * @param {percent} $contrast Contrast of text color to its background.
+ *
+ */
+/**
+ * @class Global_CSS
  */
 /**
  * Includes a base64-encoded icon for use within tab bars and buttons (With the component parameter iconMask: true).
@@ -3177,21 +5971,6 @@ input, textarea {
  */
 /**
  * Makes an element stretch to its parent's bounds.
- */
-/**
- * Colors the text of an element based on lightness of its background.
- *
- *     .my-element {
- *       @include color-by-background(#fff); // Colors text black.
- *     }
- *
- *     .my-element {
- *       @include color-by-background(#fff, 40%); // Colors text gray.
- *     }
- *
- * @param {color} $bg-color Background color of element.
- * @param {percent} $contrast Contrast of text color to its background.
- *
  */
 /**
  * Bevels the text based on its background.
@@ -3336,10 +6115,11 @@ audio {
     padding: 0 .3em; }
 
 .x-toolbar-dark {
+  background-image: none;
   background-color: #1468a2;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #63b4ec), color-stop(2%, #177cc2), color-stop(100%, #105483));
-  background-image: -webkit-linear-gradient(#63b4ec, #177cc2 2%, #105483);
-  background-image: linear-gradient(#63b4ec, #177cc2 2%, #105483);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1e93e4), color-stop(3%, #1676b9), color-stop(100%, #11598c));
+  background-image: -webkit-linear-gradient(top, #1e93e4, #1676b9 3%, #11598c);
+  background-image: linear-gradient(top, #1e93e4, #1676b9 3%, #11598c);
   border-color: black; }
   .x-toolbar-dark .x-title {
     color: white;
@@ -3383,19 +6163,21 @@ audio {
     .x-toolbar-dark .x-field-select .x-component-outer:before, .x-toolbar
     .x-toolbar-dark .x-field-select .x-component-outer:before.x-button-back:after, .x-toolbar
     .x-toolbar-dark .x-field-select .x-component-outer:before.x-button-forward:after {
+      background-image: none;
       background-color: #11598c;
-      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4ca9e9), color-stop(2%, #156eac), color-stop(100%, #0d456c));
-      background-image: -webkit-linear-gradient(#4ca9e9, #156eac 2%, #0d456c);
-      background-image: linear-gradient(#4ca9e9, #156eac 2%, #0d456c); }
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1985d0), color-stop(3%, #1468a2), color-stop(100%, #0e4b75));
+      background-image: -webkit-linear-gradient(top, #1985d0, #1468a2 3%, #0e4b75);
+      background-image: linear-gradient(top, #1985d0, #1468a2 3%, #0e4b75); }
     .x-toolbar-dark .x-button .x-button-icon.x-icon-mask, .x-toolbar .x-toolbar-dark .x-button .x-button-icon.x-icon-mask,
     .x-toolbar-dark .x-field-select .x-component-outer .x-button-icon.x-icon-mask, .x-toolbar
     .x-toolbar-dark .x-field-select .x-component-outer .x-button-icon.x-icon-mask,
     .x-toolbar-dark .x-field-select .x-component-outer:before .x-button-icon.x-icon-mask, .x-toolbar
     .x-toolbar-dark .x-field-select .x-component-outer:before .x-button-icon.x-icon-mask {
+      background-image: none;
       background-color: white;
-      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #ffffff), color-stop(100%, #dff0fb));
-      background-image: -webkit-linear-gradient(#ffffff, #ffffff 2%, #dff0fb);
-      background-image: linear-gradient(#ffffff, #ffffff 2%, #dff0fb); }
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(3%, #ffffff), color-stop(100%, #e8f4fc));
+      background-image: -webkit-linear-gradient(top, #ffffff, #ffffff 3%, #e8f4fc);
+      background-image: linear-gradient(top, #ffffff, #ffffff 3%, #e8f4fc); }
     .x-toolbar-dark .x-button.x-button-pressing, .x-toolbar-dark .x-button.x-button-pressing:after, .x-toolbar-dark .x-button.x-button-pressed, .x-toolbar-dark .x-button.x-button-pressed:after, .x-toolbar-dark .x-button.x-button-active, .x-toolbar-dark .x-button.x-button-active:after, .x-toolbar .x-toolbar-dark .x-button.x-button-pressing, .x-toolbar .x-toolbar-dark .x-button.x-button-pressing:after, .x-toolbar .x-toolbar-dark .x-button.x-button-pressed, .x-toolbar .x-toolbar-dark .x-button.x-button-pressed:after, .x-toolbar .x-toolbar-dark .x-button.x-button-active, .x-toolbar .x-toolbar-dark .x-button.x-button-active:after,
     .x-toolbar-dark .x-field-select .x-component-outer.x-button-pressing,
     .x-toolbar-dark .x-field-select .x-component-outer.x-button-pressing:after,
@@ -3421,19 +6203,21 @@ audio {
     .x-toolbar-dark .x-field-select .x-component-outer:before.x-button-pressed:after, .x-toolbar
     .x-toolbar-dark .x-field-select .x-component-outer:before.x-button-active, .x-toolbar
     .x-toolbar-dark .x-field-select .x-component-outer:before.x-button-active:after {
+      background-image: none;
       background-color: #0f517e;
       background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0a3351), color-stop(10%, #0c4267), color-stop(65%, #0f517e), color-stop(100%, #0f5280));
-      background-image: -webkit-linear-gradient(#0a3351, #0c4267 10%, #0f517e 65%, #0f5280);
-      background-image: linear-gradient(#0a3351, #0c4267 10%, #0f517e 65%, #0f5280); }
+      background-image: -webkit-linear-gradient(top, #0a3351, #0c4267 10%, #0f517e 65%, #0f5280);
+      background-image: linear-gradient(top, #0a3351, #0c4267 10%, #0f517e 65%, #0f5280); }
   .x-toolbar-dark .x-form-label {
     color: white;
     text-shadow: rgba(0, 0, 0, 0.5) 0 -0.08em 0; }
 
 .x-toolbar-light {
+  background-image: none;
   background-color: #1985d0;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #90caf2), color-stop(2%, #2897e5), color-stop(100%, #1571b0));
-  background-image: -webkit-linear-gradient(#90caf2, #2897e5 2%, #1571b0);
-  background-image: linear-gradient(#90caf2, #2897e5 2%, #1571b0);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4ca9e9), color-stop(3%, #1e93e4), color-stop(100%, #1676b9));
+  background-image: -webkit-linear-gradient(top, #4ca9e9, #1e93e4 3%, #1676b9);
+  background-image: linear-gradient(top, #4ca9e9, #1e93e4 3%, #1676b9);
   border-color: black; }
   .x-toolbar-light .x-title {
     color: white;
@@ -3453,32 +6237,36 @@ audio {
     .x-toolbar-light .x-button.x-button-back:before, .x-toolbar-light .x-button.x-button-forward:before, .x-toolbar .x-toolbar-light .x-button.x-button-back:before, .x-toolbar .x-toolbar-light .x-button.x-button-forward:before, .x-toolbar-light .x-field-select .x-component-outer.x-button-back:before, .x-toolbar-light .x-field-select .x-component-outer.x-button-forward:before, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-back:before, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-forward:before, .x-toolbar-light .x-field-select .x-component-outer:before.x-button-back:before, .x-toolbar-light .x-field-select .x-component-outer:before.x-button-forward:before, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-back:before, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-forward:before {
       background: #0b3c5e; }
     .x-toolbar-light .x-button, .x-toolbar-light .x-button.x-button-back:after, .x-toolbar-light .x-button.x-button-forward:after, .x-toolbar .x-toolbar-light .x-button, .x-toolbar .x-toolbar-light .x-button.x-button-back:after, .x-toolbar .x-toolbar-light .x-button.x-button-forward:after, .x-toolbar-light .x-field-select .x-component-outer, .x-toolbar-light .x-field-select .x-component-outer.x-button-back:after, .x-toolbar-light .x-field-select .x-component-outer.x-button-forward:after, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-back:after, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-forward:after, .x-toolbar-light .x-field-select .x-component-outer:before, .x-toolbar-light .x-field-select .x-component-outer:before.x-button-back:after, .x-toolbar-light .x-field-select .x-component-outer:before.x-button-forward:after, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-back:after, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-forward:after {
+      background-image: none;
       background-color: #1676b9;
-      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7abfef), color-stop(2%, #1a8bd9), color-stop(100%, #126299));
-      background-image: -webkit-linear-gradient(#7abfef, #1a8bd9 2%, #126299);
-      background-image: linear-gradient(#7abfef, #1a8bd9 2%, #126299); }
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #359ee7), color-stop(3%, #1985d0), color-stop(100%, #1468a2));
+      background-image: -webkit-linear-gradient(top, #359ee7, #1985d0 3%, #1468a2);
+      background-image: linear-gradient(top, #359ee7, #1985d0 3%, #1468a2); }
     .x-toolbar-light .x-button .x-button-icon.x-icon-mask, .x-toolbar .x-toolbar-light .x-button .x-button-icon.x-icon-mask, .x-toolbar-light .x-field-select .x-component-outer .x-button-icon.x-icon-mask, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer .x-button-icon.x-icon-mask, .x-toolbar-light .x-field-select .x-component-outer:before .x-button-icon.x-icon-mask, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before .x-button-icon.x-icon-mask {
+      background-image: none;
       background-color: white;
-      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #ffffff), color-stop(100%, #dff0fb));
-      background-image: -webkit-linear-gradient(#ffffff, #ffffff 2%, #dff0fb);
-      background-image: linear-gradient(#ffffff, #ffffff 2%, #dff0fb); }
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(3%, #ffffff), color-stop(100%, #e8f4fc));
+      background-image: -webkit-linear-gradient(top, #ffffff, #ffffff 3%, #e8f4fc);
+      background-image: linear-gradient(top, #ffffff, #ffffff 3%, #e8f4fc); }
     .x-toolbar-light .x-button.x-button-pressing, .x-toolbar-light .x-button.x-button-pressing:after, .x-toolbar-light .x-button.x-button-pressed, .x-toolbar-light .x-button.x-button-pressed:after, .x-toolbar-light .x-button.x-button-active, .x-toolbar-light .x-button.x-button-active:after, .x-toolbar .x-toolbar-light .x-button.x-button-pressing, .x-toolbar .x-toolbar-light .x-button.x-button-pressing:after, .x-toolbar .x-toolbar-light .x-button.x-button-pressed, .x-toolbar .x-toolbar-light .x-button.x-button-pressed:after, .x-toolbar .x-toolbar-light .x-button.x-button-active, .x-toolbar .x-toolbar-light .x-button.x-button-active:after, .x-toolbar-light .x-field-select .x-component-outer.x-button-pressing, .x-toolbar-light .x-field-select .x-component-outer.x-button-pressing:after, .x-toolbar-light .x-field-select .x-component-outer.x-button-pressed, .x-toolbar-light .x-field-select .x-component-outer.x-button-pressed:after, .x-toolbar-light .x-field-select .x-component-outer.x-button-active, .x-toolbar-light .x-field-select .x-component-outer.x-button-active:after, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-pressing, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-pressing:after, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-pressed, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-pressed:after, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-active, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer.x-button-active:after, .x-toolbar-light .x-field-select .x-component-outer:before.x-button-pressing, .x-toolbar-light .x-field-select .x-component-outer:before.x-button-pressing:after, .x-toolbar-light .x-field-select .x-component-outer:before.x-button-pressed, .x-toolbar-light .x-field-select .x-component-outer:before.x-button-pressed:after, .x-toolbar-light .x-field-select .x-component-outer:before.x-button-active, .x-toolbar-light .x-field-select .x-component-outer:before.x-button-active:after, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-pressing, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-pressing:after, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-pressed, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-pressed:after, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-active, .x-toolbar .x-toolbar-light .x-field-select .x-component-outer:before.x-button-active:after {
+      background-image: none;
       background-color: #156eac;
       background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0f517e), color-stop(10%, #125f95), color-stop(65%, #156eac), color-stop(100%, #156fae));
-      background-image: -webkit-linear-gradient(#0f517e, #125f95 10%, #156eac 65%, #156fae);
-      background-image: linear-gradient(#0f517e, #125f95 10%, #156eac 65%, #156fae); }
+      background-image: -webkit-linear-gradient(top, #0f517e, #125f95 10%, #156eac 65%, #156fae);
+      background-image: linear-gradient(top, #0f517e, #125f95 10%, #156eac 65%, #156fae); }
   .x-toolbar-light .x-form-label {
     color: white;
     text-shadow: rgba(0, 0, 0, 0.5) 0 -0.08em 0; }
 
 .x-toolbar-neutral {
+  background-image: none;
   background-color: #e0e0e0;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #f2f2f2), color-stop(100%, #cecece));
-  background-image: -webkit-linear-gradient(#ffffff, #f2f2f2 2%, #cecece);
-  background-image: linear-gradient(#ffffff, #f2f2f2 2%, #cecece);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(3%, #ededed), color-stop(100%, #d3d3d3));
+  background-image: -webkit-linear-gradient(top, #ffffff, #ededed 3%, #d3d3d3);
+  background-image: linear-gradient(top, #ffffff, #ededed 3%, #d3d3d3);
   border-color: #616161; }
   .x-toolbar-neutral .x-title {
-    color: black;
+    color: #070707;
     text-shadow: rgba(255, 255, 255, 0.25) 0 0.08em 0; }
   .x-toolbar-neutral.x-docked-top {
     border-bottom-color: #616161; }
@@ -3495,23 +6283,37 @@ audio {
     .x-toolbar-neutral .x-button.x-button-back:before, .x-toolbar-neutral .x-button.x-button-forward:before, .x-toolbar .x-toolbar-neutral .x-button.x-button-back:before, .x-toolbar .x-toolbar-neutral .x-button.x-button-forward:before, .x-toolbar-neutral .x-field-select .x-component-outer.x-button-back:before, .x-toolbar-neutral .x-field-select .x-component-outer.x-button-forward:before, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer.x-button-back:before, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer.x-button-forward:before, .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-back:before, .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-forward:before, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-back:before, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-forward:before {
       background: #a0a0a0; }
     .x-toolbar-neutral .x-button, .x-toolbar-neutral .x-button.x-button-back:after, .x-toolbar-neutral .x-button.x-button-forward:after, .x-toolbar .x-toolbar-neutral .x-button, .x-toolbar .x-toolbar-neutral .x-button.x-button-back:after, .x-toolbar .x-toolbar-neutral .x-button.x-button-forward:after, .x-toolbar-neutral .x-field-select .x-component-outer, .x-toolbar-neutral .x-field-select .x-component-outer.x-button-back:after, .x-toolbar-neutral .x-field-select .x-component-outer.x-button-forward:after, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer.x-button-back:after, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer.x-button-forward:after, .x-toolbar-neutral .x-field-select .x-component-outer:before, .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-back:after, .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-forward:after, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer:before, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-back:after, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-forward:after {
+      background-image: none;
       background-color: #d3d3d3;
-      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #e5e5e5), color-stop(100%, #c1c1c1));
-      background-image: -webkit-linear-gradient(#ffffff, #e5e5e5 2%, #c1c1c1);
-      background-image: linear-gradient(#ffffff, #e5e5e5 2%, #c1c1c1); }
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fafafa), color-stop(3%, #e0e0e0), color-stop(100%, #c7c7c7));
+      background-image: -webkit-linear-gradient(top, #fafafa, #e0e0e0 3%, #c7c7c7);
+      background-image: linear-gradient(top, #fafafa, #e0e0e0 3%, #c7c7c7); }
     .x-toolbar-neutral .x-button .x-button-icon.x-icon-mask, .x-toolbar .x-toolbar-neutral .x-button .x-button-icon.x-icon-mask, .x-toolbar-neutral .x-field-select .x-component-outer .x-button-icon.x-icon-mask, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer .x-button-icon.x-icon-mask, .x-toolbar-neutral .x-field-select .x-component-outer:before .x-button-icon.x-icon-mask, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer:before .x-button-icon.x-icon-mask {
+      background-image: none;
       background-color: black;
-      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4d4d4d), color-stop(2%, #121212), color-stop(100%, #000000));
-      background-image: -webkit-linear-gradient(#4d4d4d, #121212 2%, #000000);
-      background-image: linear-gradient(#4d4d4d, #121212 2%, #000000); }
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #262626), color-stop(3%, #0d0d0d), color-stop(100%, #000000));
+      background-image: -webkit-linear-gradient(top, #262626, #0d0d0d 3%, #000000);
+      background-image: linear-gradient(top, #262626, #0d0d0d 3%, #000000); }
     .x-toolbar-neutral .x-button.x-button-pressing, .x-toolbar-neutral .x-button.x-button-pressing:after, .x-toolbar-neutral .x-button.x-button-pressed, .x-toolbar-neutral .x-button.x-button-pressed:after, .x-toolbar-neutral .x-button.x-button-active, .x-toolbar-neutral .x-button.x-button-active:after, .x-toolbar .x-toolbar-neutral .x-button.x-button-pressing, .x-toolbar .x-toolbar-neutral .x-button.x-button-pressing:after, .x-toolbar .x-toolbar-neutral .x-button.x-button-pressed, .x-toolbar .x-toolbar-neutral .x-button.x-button-pressed:after, .x-toolbar .x-toolbar-neutral .x-button.x-button-active, .x-toolbar .x-toolbar-neutral .x-button.x-button-active:after, .x-toolbar-neutral .x-field-select .x-component-outer.x-button-pressing, .x-toolbar-neutral .x-field-select .x-component-outer.x-button-pressing:after, .x-toolbar-neutral .x-field-select .x-component-outer.x-button-pressed, .x-toolbar-neutral .x-field-select .x-component-outer.x-button-pressed:after, .x-toolbar-neutral .x-field-select .x-component-outer.x-button-active, .x-toolbar-neutral .x-field-select .x-component-outer.x-button-active:after, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer.x-button-pressing, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer.x-button-pressing:after, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer.x-button-pressed, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer.x-button-pressed:after, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer.x-button-active, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer.x-button-active:after, .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-pressing, .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-pressing:after, .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-pressed, .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-pressed:after, .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-active, .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-active:after, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-pressing, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-pressing:after, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-pressed, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-pressed:after, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-active, .x-toolbar .x-toolbar-neutral .x-field-select .x-component-outer:before.x-button-active:after {
+      background-image: none;
       background-color: #cccccc;
       background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #b2b2b2), color-stop(10%, #bfbfbf), color-stop(65%, #cccccc), color-stop(100%, #cdcdcd));
-      background-image: -webkit-linear-gradient(#b2b2b2, #bfbfbf 10%, #cccccc 65%, #cdcdcd);
-      background-image: linear-gradient(#b2b2b2, #bfbfbf 10%, #cccccc 65%, #cdcdcd); }
+      background-image: -webkit-linear-gradient(top, #b2b2b2, #bfbfbf 10%, #cccccc 65%, #cdcdcd);
+      background-image: linear-gradient(top, #b2b2b2, #bfbfbf 10%, #cccccc 65%, #cdcdcd); }
   .x-toolbar-neutral .x-form-label {
-    color: black;
+    color: #070707;
     text-shadow: rgba(255, 255, 255, 0.25) 0 0.08em 0; }
+
+.x-toolbar.x-toolbar-neutral .x-toolbar-inner .x-button.x-button-pressing {
+  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 24, color-stop(0%, rgba(122, 191, 239, 0.7)), color-stop(100%, rgba(122, 191, 239, 0)));
+  background-image: -webkit-radial-gradient(rgba(122, 191, 239, 0.7), rgba(122, 191, 239, 0) 24px);
+  background-image: radial-gradient(rgba(122, 191, 239, 0.7), rgba(122, 191, 239, 0) 24px); }
+  .x-toolbar.x-toolbar-neutral .x-toolbar-inner .x-button.x-button-pressing .x-button-icon.x-button-mask {
+    background-image: none;
+    background-color: white;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e6e6e6), color-stop(10%, #f2f2f2), color-stop(65%, #ffffff), color-stop(100%, #ffffff));
+    background-image: -webkit-linear-gradient(top, #e6e6e6, #f2f2f2 10%, #ffffff 65%, #ffffff);
+    background-image: linear-gradient(top, #e6e6e6, #f2f2f2 10%, #ffffff 65%, #ffffff); }
 
 .x-navigation-bar .x-container {
   overflow: visible; }
@@ -3532,20 +6334,23 @@ BUTTONS
   .x-button.x-button-sencha.x-button-back:before, .x-button.x-button-sencha.x-button-forward:before, .x-toolbar .x-button.x-button-sencha.x-button-back:before, .x-toolbar .x-button.x-button-sencha.x-button-forward:before, .x-button.x-button-sencha-round.x-button-back:before, .x-button.x-button-sencha-round.x-button-forward:before, .x-toolbar .x-button.x-button-sencha-round.x-button-back:before, .x-toolbar .x-button.x-button-sencha-round.x-button-forward:before, .x-button.x-button-sencha-small.x-button-back:before, .x-button.x-button-sencha-small.x-button-forward:before, .x-toolbar .x-button.x-button-sencha-small.x-button-back:before, .x-toolbar .x-button.x-button-sencha-small.x-button-forward:before {
     background: #174b1e; }
   .x-button.x-button-sencha, .x-button.x-button-sencha.x-button-back:after, .x-button.x-button-sencha.x-button-forward:after, .x-toolbar .x-button.x-button-sencha, .x-toolbar .x-button.x-button-sencha.x-button-back:after, .x-toolbar .x-button.x-button-sencha.x-button-forward:after, .x-button.x-button-sencha-round, .x-button.x-button-sencha-round.x-button-back:after, .x-button.x-button-sencha-round.x-button-forward:after, .x-toolbar .x-button.x-button-sencha-round, .x-toolbar .x-button.x-button-sencha-round.x-button-back:after, .x-toolbar .x-button.x-button-sencha-round.x-button-forward:after, .x-button.x-button-sencha-small, .x-button.x-button-sencha-small.x-button-back:after, .x-button.x-button-sencha-small.x-button-forward:after, .x-toolbar .x-button.x-button-sencha-small, .x-toolbar .x-button.x-button-sencha-small.x-button-back:after, .x-toolbar .x-button.x-button-sencha-small.x-button-forward:after {
+    background-image: none;
     background-color: #2e9a3e;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4bc95e), color-stop(50%, #34ae46), color-stop(51%, #2e9a3e), color-stop(100%, #288636));
-    background-image: -webkit-linear-gradient(#4bc95e, #34ae46 50%, #2e9a3e 51%, #288636);
-    background-image: linear-gradient(#4bc95e, #34ae46 50%, #2e9a3e 51%, #288636); }
+    background-image: -webkit-linear-gradient(top, #4bc95e, #34ae46 50%, #2e9a3e 51%, #288636);
+    background-image: linear-gradient(top, #4bc95e, #34ae46 50%, #2e9a3e 51%, #288636); }
   .x-button.x-button-sencha .x-button-icon.x-icon-mask, .x-toolbar .x-button.x-button-sencha .x-button-icon.x-icon-mask, .x-button.x-button-sencha-round .x-button-icon.x-icon-mask, .x-toolbar .x-button.x-button-sencha-round .x-button-icon.x-icon-mask, .x-button.x-button-sencha-small .x-button-icon.x-icon-mask, .x-toolbar .x-button.x-button-sencha-small .x-button-icon.x-icon-mask {
+    background-image: none;
     background-color: white;
-    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #ffffff), color-stop(100%, #e4f7e6));
-    background-image: -webkit-linear-gradient(#ffffff, #ffffff 2%, #e4f7e6);
-    background-image: linear-gradient(#ffffff, #ffffff 2%, #e4f7e6); }
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(3%, #ffffff), color-stop(100%, #ebf9ed));
+    background-image: -webkit-linear-gradient(top, #ffffff, #ffffff 3%, #ebf9ed);
+    background-image: linear-gradient(top, #ffffff, #ffffff 3%, #ebf9ed); }
   .x-button.x-button-sencha.x-button-pressing, .x-button.x-button-sencha.x-button-pressing:after, .x-button.x-button-sencha.x-button-pressed, .x-button.x-button-sencha.x-button-pressed:after, .x-button.x-button-sencha.x-button-active, .x-button.x-button-sencha.x-button-active:after, .x-toolbar .x-button.x-button-sencha.x-button-pressing, .x-toolbar .x-button.x-button-sencha.x-button-pressing:after, .x-toolbar .x-button.x-button-sencha.x-button-pressed, .x-toolbar .x-button.x-button-sencha.x-button-pressed:after, .x-toolbar .x-button.x-button-sencha.x-button-active, .x-toolbar .x-button.x-button-sencha.x-button-active:after, .x-button.x-button-sencha-round.x-button-pressing, .x-button.x-button-sencha-round.x-button-pressing:after, .x-button.x-button-sencha-round.x-button-pressed, .x-button.x-button-sencha-round.x-button-pressed:after, .x-button.x-button-sencha-round.x-button-active, .x-button.x-button-sencha-round.x-button-active:after, .x-toolbar .x-button.x-button-sencha-round.x-button-pressing, .x-toolbar .x-button.x-button-sencha-round.x-button-pressing:after, .x-toolbar .x-button.x-button-sencha-round.x-button-pressed, .x-toolbar .x-button.x-button-sencha-round.x-button-pressed:after, .x-toolbar .x-button.x-button-sencha-round.x-button-active, .x-toolbar .x-button.x-button-sencha-round.x-button-active:after, .x-button.x-button-sencha-small.x-button-pressing, .x-button.x-button-sencha-small.x-button-pressing:after, .x-button.x-button-sencha-small.x-button-pressed, .x-button.x-button-sencha-small.x-button-pressed:after, .x-button.x-button-sencha-small.x-button-active, .x-button.x-button-sencha-small.x-button-active:after, .x-toolbar .x-button.x-button-sencha-small.x-button-pressing, .x-toolbar .x-button.x-button-sencha-small.x-button-pressing:after, .x-toolbar .x-button.x-button-sencha-small.x-button-pressed, .x-toolbar .x-button.x-button-sencha-small.x-button-pressed:after, .x-toolbar .x-button.x-button-sencha-small.x-button-active, .x-toolbar .x-button.x-button-sencha-small.x-button-active:after {
+    background-image: none;
     background-color: #2a8e39;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1f6729), color-stop(10%, #257b31), color-stop(65%, #2a8e39), color-stop(100%, #2b903a));
-    background-image: -webkit-linear-gradient(#1f6729, #257b31 10%, #2a8e39 65%, #2b903a);
-    background-image: linear-gradient(#1f6729, #257b31 10%, #2a8e39 65%, #2b903a); }
+    background-image: -webkit-linear-gradient(top, #1f6729, #257b31 10%, #2a8e39 65%, #2b903a);
+    background-image: linear-gradient(top, #1f6729, #257b31 10%, #2a8e39 65%, #2b903a); }
 
 /******************************************************************
 GENERAL STYLES
@@ -3600,13 +6405,14 @@ WEB APP INSTALL
 TOOLBAR STYLES
 ******************************************************************/
 .x-toolbar-sencha {
+  background-image: none;
   background-color: rgba(0, 0, 0, 0.7);
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(38, 38, 38, 0.7)), color-stop(50%, rgba(13, 13, 13, 0.7)), color-stop(51%, rgba(0, 0, 0, 0.7)), color-stop(100%, rgba(0, 0, 0, 0.7)));
-  background-image: -webkit-linear-gradient(rgba(38, 38, 38, 0.7), rgba(13, 13, 13, 0.7) 50%, rgba(0, 0, 0, 0.7) 51%, rgba(0, 0, 0, 0.7));
-  background-image: linear-gradient(rgba(38, 38, 38, 0.7), rgba(13, 13, 13, 0.7) 50%, rgba(0, 0, 0, 0.7) 51%, rgba(0, 0, 0, 0.7));
+  background-image: -webkit-linear-gradient(top, rgba(38, 38, 38, 0.7), rgba(13, 13, 13, 0.7) 50%, rgba(0, 0, 0, 0.7) 51%, rgba(0, 0, 0, 0.7));
+  background-image: linear-gradient(top, rgba(38, 38, 38, 0.7), rgba(13, 13, 13, 0.7) 50%, rgba(0, 0, 0, 0.7) 51%, rgba(0, 0, 0, 0.7));
   border-color: rgba(0, 0, 0, 0.7); }
   .x-toolbar-sencha .x-title {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(217, 217, 217, 0.7);
     text-shadow: rgba(0, 0, 0, 0.5) 0 -0.08em 0; }
   .x-toolbar-sencha.x-docked-top {
     border-bottom-color: rgba(0, 0, 0, 0.7); }
@@ -3619,26 +6425,29 @@ TOOLBAR STYLES
   .x-toolbar-sencha .x-button, .x-toolbar .x-toolbar-sencha .x-button, .x-toolbar-sencha .x-field-select .x-component-outer, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer, .x-toolbar-sencha .x-field-select .x-component-outer:before, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before {
     border: 1px solid rgba(0, 0, 0, 0.7);
     border-top-color: rgba(0, 0, 0, 0.7);
-    color: rgba(255, 255, 255, 0.7); }
+    color: rgba(217, 217, 217, 0.7); }
     .x-toolbar-sencha .x-button.x-button-back:before, .x-toolbar-sencha .x-button.x-button-forward:before, .x-toolbar .x-toolbar-sencha .x-button.x-button-back:before, .x-toolbar .x-toolbar-sencha .x-button.x-button-forward:before, .x-toolbar-sencha .x-field-select .x-component-outer.x-button-back:before, .x-toolbar-sencha .x-field-select .x-component-outer.x-button-forward:before, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer.x-button-back:before, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer.x-button-forward:before, .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-back:before, .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-forward:before, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-back:before, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-forward:before {
       background: rgba(0, 0, 0, 0.7); }
     .x-toolbar-sencha .x-button, .x-toolbar-sencha .x-button.x-button-back:after, .x-toolbar-sencha .x-button.x-button-forward:after, .x-toolbar .x-toolbar-sencha .x-button, .x-toolbar .x-toolbar-sencha .x-button.x-button-back:after, .x-toolbar .x-toolbar-sencha .x-button.x-button-forward:after, .x-toolbar-sencha .x-field-select .x-component-outer, .x-toolbar-sencha .x-field-select .x-component-outer.x-button-back:after, .x-toolbar-sencha .x-field-select .x-component-outer.x-button-forward:after, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer.x-button-back:after, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer.x-button-forward:after, .x-toolbar-sencha .x-field-select .x-component-outer:before, .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-back:after, .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-forward:after, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-back:after, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-forward:after {
+      background-image: none;
       background-color: rgba(0, 0, 0, 0.7);
       background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(38, 38, 38, 0.7)), color-stop(50%, rgba(13, 13, 13, 0.7)), color-stop(51%, rgba(0, 0, 0, 0.7)), color-stop(100%, rgba(0, 0, 0, 0.7)));
-      background-image: -webkit-linear-gradient(rgba(38, 38, 38, 0.7), rgba(13, 13, 13, 0.7) 50%, rgba(0, 0, 0, 0.7) 51%, rgba(0, 0, 0, 0.7));
-      background-image: linear-gradient(rgba(38, 38, 38, 0.7), rgba(13, 13, 13, 0.7) 50%, rgba(0, 0, 0, 0.7) 51%, rgba(0, 0, 0, 0.7)); }
+      background-image: -webkit-linear-gradient(top, rgba(38, 38, 38, 0.7), rgba(13, 13, 13, 0.7) 50%, rgba(0, 0, 0, 0.7) 51%, rgba(0, 0, 0, 0.7));
+      background-image: linear-gradient(top, rgba(38, 38, 38, 0.7), rgba(13, 13, 13, 0.7) 50%, rgba(0, 0, 0, 0.7) 51%, rgba(0, 0, 0, 0.7)); }
     .x-toolbar-sencha .x-button .x-button-icon.x-icon-mask, .x-toolbar .x-toolbar-sencha .x-button .x-button-icon.x-icon-mask, .x-toolbar-sencha .x-field-select .x-component-outer .x-button-icon.x-icon-mask, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer .x-button-icon.x-icon-mask, .x-toolbar-sencha .x-field-select .x-component-outer:before .x-button-icon.x-icon-mask, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before .x-button-icon.x-icon-mask {
+      background-image: none;
       background-color: rgba(255, 255, 255, 0.7);
-      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.7)), color-stop(2%, rgba(255, 255, 255, 0.7)), color-stop(100%, rgba(237, 237, 237, 0.7)));
-      background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7) 2%, rgba(237, 237, 237, 0.7));
-      background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7) 2%, rgba(237, 237, 237, 0.7)); }
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.7)), color-stop(3%, rgba(255, 255, 255, 0.7)), color-stop(100%, rgba(242, 242, 242, 0.7)));
+      background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7) 3%, rgba(242, 242, 242, 0.7));
+      background-image: linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7) 3%, rgba(242, 242, 242, 0.7)); }
     .x-toolbar-sencha .x-button.x-button-pressing, .x-toolbar-sencha .x-button.x-button-pressing:after, .x-toolbar-sencha .x-button.x-button-pressed, .x-toolbar-sencha .x-button.x-button-pressed:after, .x-toolbar-sencha .x-button.x-button-active, .x-toolbar-sencha .x-button.x-button-active:after, .x-toolbar .x-toolbar-sencha .x-button.x-button-pressing, .x-toolbar .x-toolbar-sencha .x-button.x-button-pressing:after, .x-toolbar .x-toolbar-sencha .x-button.x-button-pressed, .x-toolbar .x-toolbar-sencha .x-button.x-button-pressed:after, .x-toolbar .x-toolbar-sencha .x-button.x-button-active, .x-toolbar .x-toolbar-sencha .x-button.x-button-active:after, .x-toolbar-sencha .x-field-select .x-component-outer.x-button-pressing, .x-toolbar-sencha .x-field-select .x-component-outer.x-button-pressing:after, .x-toolbar-sencha .x-field-select .x-component-outer.x-button-pressed, .x-toolbar-sencha .x-field-select .x-component-outer.x-button-pressed:after, .x-toolbar-sencha .x-field-select .x-component-outer.x-button-active, .x-toolbar-sencha .x-field-select .x-component-outer.x-button-active:after, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer.x-button-pressing, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer.x-button-pressing:after, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer.x-button-pressed, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer.x-button-pressed:after, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer.x-button-active, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer.x-button-active:after, .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-pressing, .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-pressing:after, .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-pressed, .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-pressed:after, .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-active, .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-active:after, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-pressing, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-pressing:after, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-pressed, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-pressed:after, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-active, .x-toolbar .x-toolbar-sencha .x-field-select .x-component-outer:before.x-button-active:after {
+      background-image: none;
       background-color: rgba(0, 0, 0, 0.7);
       background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.7)), color-stop(10%, rgba(0, 0, 0, 0.7)), color-stop(65%, rgba(0, 0, 0, 0.7)), color-stop(100%, rgba(1, 1, 1, 0.7)));
-      background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0.7) 65%, rgba(1, 1, 1, 0.7));
-      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0.7) 65%, rgba(1, 1, 1, 0.7)); }
+      background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0.7) 65%, rgba(1, 1, 1, 0.7));
+      background-image: linear-gradient(top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0.7) 65%, rgba(1, 1, 1, 0.7)); }
   .x-toolbar-sencha .x-form-label {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(217, 217, 217, 0.7);
     text-shadow: rgba(0, 0, 0, 0.5) 0 -0.08em 0; }
 
 .x-toolbar-sencha .x-title {
@@ -3849,8 +6658,13 @@ DEALS LIST
   background: #EEE;
   border: 1px solid #000;
   padding: 0; }
+  #quickd-beta-screen .x-field-input {
+    padding-right: 0; }
   #quickd-beta-screen .x-form-fieldset {
     margin-bottom: 0; }
+  #quickd-beta-screen #useBetaKey {
+    border-radius: 3px;
+    -webkit-border-radius: 3px; }
   #quickd-beta-screen input, #quickd-beta-screen textarea {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -3874,13 +6688,19 @@ DEALS LIST
     margin: 0em 0em 0.6em; }
     #quickd-beta-screen .x-form-fieldset-title .x-innerhtml {
       text-align: center; }
-  #quickd-beta-screen .requestNewPassText {
-    margin-top: 30px; }
-  #quickd-beta-screen #betakeyField {
+  #quickd-beta-screen #requestKeyButton {
+    background: none;
+    border: none;
+    color: grey;
+    padding: 0;
+    font-size: 15px; }
+    #quickd-beta-screen #requestKeyButton .x-button-label {
+      font-weight: 400;
+      text-align: center; }
+  #quickd-beta-screen #betakeyField, #quickd-beta-screen .x-body, #quickd-beta-screen .x-form-fieldset-inner {
     background: none; }
   #quickd-beta-screen .x-form-fieldset-instructions {
-    margin-top: 0.2em; }
-  #quickd-beta-screen .errorField .x-innerhtml {
+    margin-top: 0.2em;
     font-style: italic;
     font-size: 12px;
     color: red; }
@@ -3896,6 +6716,7 @@ DEALS LIST
   #quickd-beta-screen .uneditable-input {
     display: inline-block;
     height: 40px;
+    background: white;
     font-size: 15px;
     line-height: 18px;
     color: #555555;
@@ -4085,6 +6906,10 @@ DEALS LIST
 
   100% {
     opacity: 1; } }
+
+.x-layout-card-item {
+  background: url("../images/install-webapp/install-bg.jpg") no-repeat;
+  background-size: cover; }
 
 #quickd-deals #deal_no_deals .no-deal-content {
   padding: 20px; }
