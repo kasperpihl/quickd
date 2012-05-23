@@ -11,6 +11,11 @@
             "files": [
                 {
                     "path": "touch/src/event/",
+                    "name": "Controller.js",
+                    "clsName": "Ext.event.Controller"
+                },
+                {
+                    "path": "touch/src/event/",
                     "name": "ListenerStack.js",
                     "clsName": "Ext.event.ListenerStack"
                 },
@@ -18,11 +23,6 @@
                     "path": "touch/src/event/publisher/",
                     "name": "Publisher.js",
                     "clsName": "Ext.event.publisher.Publisher"
-                },
-                {
-                    "path": "touch/src/event/",
-                    "name": "Controller.js",
-                    "clsName": "Ext.event.Controller"
                 },
                 {
                     "path": "touch/src/event/",
@@ -125,29 +125,9 @@
                     "clsName": "Ext.ComponentQuery"
                 },
                 {
-                    "path": "touch/src/mixin/",
-                    "name": "Mixin.js",
-                    "clsName": "Ext.mixin.Mixin"
-                },
-                {
                     "path": "touch/src/behavior/",
                     "name": "Behavior.js",
                     "clsName": "Ext.behavior.Behavior"
-                },
-                {
-                    "path": "touch/src/",
-                    "name": "ComponentManager.js",
-                    "clsName": "Ext.ComponentManager"
-                },
-                {
-                    "path": "touch/src/mixin/",
-                    "name": "Observable.js",
-                    "clsName": "Ext.mixin.Observable"
-                },
-                {
-                    "path": "touch/src/fx/easing/",
-                    "name": "Abstract.js",
-                    "clsName": "Ext.fx.easing.Abstract"
                 },
                 {
                     "path": "touch/src/",
@@ -156,8 +136,53 @@
                 },
                 {
                     "path": "touch/src/mixin/",
+                    "name": "Mixin.js",
+                    "clsName": "Ext.mixin.Mixin"
+                },
+                {
+                    "path": "touch/src/fx/easing/",
+                    "name": "Abstract.js",
+                    "clsName": "Ext.fx.easing.Abstract"
+                },
+                {
+                    "path": "touch/src/",
+                    "name": "ComponentManager.js",
+                    "clsName": "Ext.ComponentManager"
+                },
+                {
+                    "path": "touch/src/mixin/",
                     "name": "Traversable.js",
                     "clsName": "Ext.mixin.Traversable"
+                },
+                {
+                    "path": "touch/src/",
+                    "name": "XTemplateCompiler.js",
+                    "clsName": "Ext.XTemplateCompiler"
+                },
+                {
+                    "path": "touch/src/",
+                    "name": "DateExtras.js",
+                    "clsName": "Ext.DateExtras"
+                },
+                {
+                    "path": "touch/src/util/",
+                    "name": "Format.js",
+                    "clsName": "Ext.util.Format"
+                },
+                {
+                    "path": "touch/src/",
+                    "name": "Template.js",
+                    "clsName": "Ext.Template"
+                },
+                {
+                    "path": "touch/src/",
+                    "name": "XTemplate.js",
+                    "clsName": "Ext.XTemplate"
+                },
+                {
+                    "path": "touch/src/mixin/",
+                    "name": "Observable.js",
+                    "clsName": "Ext.mixin.Observable"
                 },
                 {
                     "path": "touch/src/",
@@ -168,6 +193,11 @@
                     "path": "touch/src/",
                     "name": "AbstractComponent.js",
                     "clsName": "Ext.AbstractComponent"
+                },
+                {
+                    "path": "touch/src/util/",
+                    "name": "SizeMonitor.js",
+                    "clsName": "Ext.util.SizeMonitor"
                 },
                 {
                     "path": "touch/src/fx/easing/",
@@ -198,36 +228,6 @@
                     "path": "touch/src/behavior/",
                     "name": "Translatable.js",
                     "clsName": "Ext.behavior.Translatable"
-                },
-                {
-                    "path": "touch/src/",
-                    "name": "XTemplateCompiler.js",
-                    "clsName": "Ext.XTemplateCompiler"
-                },
-                {
-                    "path": "touch/src/",
-                    "name": "DateExtras.js",
-                    "clsName": "Ext.DateExtras"
-                },
-                {
-                    "path": "touch/src/util/",
-                    "name": "Format.js",
-                    "clsName": "Ext.util.Format"
-                },
-                {
-                    "path": "touch/src/",
-                    "name": "Template.js",
-                    "clsName": "Ext.Template"
-                },
-                {
-                    "path": "touch/src/",
-                    "name": "XTemplate.js",
-                    "clsName": "Ext.XTemplate"
-                },
-                {
-                    "path": "touch/src/util/",
-                    "name": "SizeMonitor.js",
-                    "clsName": "Ext.util.SizeMonitor"
                 },
                 {
                     "path": "touch/src/util/",
@@ -306,6 +306,16 @@
                 },
                 {
                     "path": "touch/src/fx/animation/",
+                    "name": "Pop.js",
+                    "clsName": "Ext.fx.animation.Pop"
+                },
+                {
+                    "path": "touch/src/fx/animation/",
+                    "name": "PopOut.js",
+                    "clsName": "Ext.fx.animation.PopOut"
+                },
+                {
+                    "path": "touch/src/fx/animation/",
                     "name": "Slide.js",
                     "clsName": "Ext.fx.animation.Slide"
                 },
@@ -318,16 +328,6 @@
                     "path": "touch/src/fx/animation/",
                     "name": "Fade.js",
                     "clsName": "Ext.fx.animation.Fade"
-                },
-                {
-                    "path": "touch/src/fx/animation/",
-                    "name": "Pop.js",
-                    "clsName": "Ext.fx.animation.Pop"
-                },
-                {
-                    "path": "touch/src/fx/animation/",
-                    "name": "PopOut.js",
-                    "clsName": "Ext.fx.animation.PopOut"
                 },
                 {
                     "path": "touch/src/fx/animation/",
@@ -370,24 +370,9 @@
                     "clsName": "Ext.fx.layout.card.Abstract"
                 },
                 {
-                    "path": "touch/src/fx/easing/",
-                    "name": "EaseOut.js",
-                    "clsName": "Ext.fx.easing.EaseOut"
-                },
-                {
                     "path": "touch/src/fx/layout/card/",
                     "name": "Style.js",
                     "clsName": "Ext.fx.layout.card.Style"
-                },
-                {
-                    "path": "touch/src/scroll/indicator/",
-                    "name": "Abstract.js",
-                    "clsName": "Ext.scroll.indicator.Abstract"
-                },
-                {
-                    "path": "touch/src/fx/easing/",
-                    "name": "Bounce.js",
-                    "clsName": "Ext.fx.easing.Bounce"
                 },
                 {
                     "path": "touch/src/util/",
@@ -395,29 +380,39 @@
                     "clsName": "Ext.util.Sorter"
                 },
                 {
-                    "path": "touch/src/fx/easing/",
-                    "name": "Momentum.js",
-                    "clsName": "Ext.fx.easing.Momentum"
-                },
-                {
                     "path": "touch/src/util/",
                     "name": "Filter.js",
                     "clsName": "Ext.util.Filter"
                 },
                 {
+                    "path": "touch/src/fx/easing/",
+                    "name": "EaseOut.js",
+                    "clsName": "Ext.fx.easing.EaseOut"
+                },
+                {
                     "path": "touch/src/scroll/indicator/",
-                    "name": "CssTransform.js",
-                    "clsName": "Ext.scroll.indicator.CssTransform"
+                    "name": "Abstract.js",
+                    "clsName": "Ext.scroll.indicator.Abstract"
+                },
+                {
+                    "path": "touch/src/scroll/indicator/",
+                    "name": "ScrollPosition.js",
+                    "clsName": "Ext.scroll.indicator.ScrollPosition"
+                },
+                {
+                    "path": "touch/src/fx/easing/",
+                    "name": "Bounce.js",
+                    "clsName": "Ext.fx.easing.Bounce"
+                },
+                {
+                    "path": "touch/src/fx/easing/",
+                    "name": "Momentum.js",
+                    "clsName": "Ext.fx.easing.Momentum"
                 },
                 {
                     "path": "touch/src/",
                     "name": "LoadMask.js",
                     "clsName": "Ext.LoadMask"
-                },
-                {
-                    "path": "touch/src/layout/",
-                    "name": "Fit.js",
-                    "clsName": "Ext.layout.Fit"
                 },
                 {
                     "path": "touch/src/layout/",
@@ -430,14 +425,29 @@
                     "clsName": "Ext.layout.VBox"
                 },
                 {
-                    "path": "touch/src/fx/layout/card/",
-                    "name": "Slide.js",
-                    "clsName": "Ext.fx.layout.card.Slide"
+                    "path": "touch/src/layout/",
+                    "name": "HBox.js",
+                    "clsName": "Ext.layout.HBox"
                 },
                 {
-                    "path": "touch/src/fx/layout/card/",
-                    "name": "Cover.js",
-                    "clsName": "Ext.fx.layout.card.Cover"
+                    "path": "touch/src/util/",
+                    "name": "AbstractMixedCollection.js",
+                    "clsName": "Ext.util.AbstractMixedCollection"
+                },
+                {
+                    "path": "touch/src/util/",
+                    "name": "Sortable.js",
+                    "clsName": "Ext.util.Sortable"
+                },
+                {
+                    "path": "touch/src/util/",
+                    "name": "MixedCollection.js",
+                    "clsName": "Ext.util.MixedCollection"
+                },
+                {
+                    "path": "touch/src/",
+                    "name": "ItemCollection.js",
+                    "clsName": "Ext.ItemCollection"
                 },
                 {
                     "path": "touch/src/fx/layout/card/",
@@ -446,18 +456,33 @@
                 },
                 {
                     "path": "touch/src/fx/layout/card/",
+                    "name": "Cover.js",
+                    "clsName": "Ext.fx.layout.card.Cover"
+                },
+                {
+                    "path": "touch/src/fx/layout/card/",
+                    "name": "Slide.js",
+                    "clsName": "Ext.fx.layout.card.Slide"
+                },
+                {
+                    "path": "touch/src/fx/layout/card/",
                     "name": "Fade.js",
                     "clsName": "Ext.fx.layout.card.Fade"
                 },
                 {
-                    "path": "touch/src/fx/layout/card/",
-                    "name": "Pop.js",
-                    "clsName": "Ext.fx.layout.card.Pop"
+                    "path": "touch/src/layout/",
+                    "name": "Fit.js",
+                    "clsName": "Ext.layout.Fit"
                 },
                 {
                     "path": "touch/src/fx/layout/card/",
                     "name": "Scroll.js",
                     "clsName": "Ext.fx.layout.card.Scroll"
+                },
+                {
+                    "path": "touch/src/fx/layout/card/",
+                    "name": "Pop.js",
+                    "clsName": "Ext.fx.layout.card.Pop"
                 },
                 {
                     "path": "touch/src/fx/layout/card/",
@@ -475,9 +500,14 @@
                     "clsName": "Ext.layout.Card"
                 },
                 {
+                    "path": "touch/src/layout/",
+                    "name": "Layout.js",
+                    "clsName": "Ext.layout.Layout"
+                },
+                {
                     "path": "touch/src/scroll/indicator/",
-                    "name": "ScrollPosition.js",
-                    "clsName": "Ext.scroll.indicator.ScrollPosition"
+                    "name": "CssTransform.js",
+                    "clsName": "Ext.scroll.indicator.CssTransform"
                 },
                 {
                     "path": "touch/src/scroll/indicator/",
@@ -508,36 +538,6 @@
                     "path": "touch/src/behavior/",
                     "name": "Scrollable.js",
                     "clsName": "Ext.behavior.Scrollable"
-                },
-                {
-                    "path": "touch/src/util/",
-                    "name": "Sortable.js",
-                    "clsName": "Ext.util.Sortable"
-                },
-                {
-                    "path": "touch/src/util/",
-                    "name": "AbstractMixedCollection.js",
-                    "clsName": "Ext.util.AbstractMixedCollection"
-                },
-                {
-                    "path": "touch/src/util/",
-                    "name": "MixedCollection.js",
-                    "clsName": "Ext.util.MixedCollection"
-                },
-                {
-                    "path": "touch/src/",
-                    "name": "ItemCollection.js",
-                    "clsName": "Ext.ItemCollection"
-                },
-                {
-                    "path": "touch/src/layout/",
-                    "name": "HBox.js",
-                    "clsName": "Ext.layout.HBox"
-                },
-                {
-                    "path": "touch/src/layout/",
-                    "name": "Layout.js",
-                    "clsName": "Ext.layout.Layout"
                 },
                 {
                     "path": "touch/src/",
@@ -581,13 +581,13 @@
                 },
                 {
                     "path": "touch/src/app/",
-                    "name": "Profile.js",
-                    "clsName": "Ext.app.Profile"
+                    "name": "Route.js",
+                    "clsName": "Ext.app.Route"
                 },
                 {
                     "path": "touch/src/app/",
-                    "name": "Route.js",
-                    "clsName": "Ext.app.Route"
+                    "name": "Profile.js",
+                    "clsName": "Ext.app.Profile"
                 },
                 {
                     "path": "touch/src/app/",
@@ -610,29 +610,19 @@
                     "clsName": "Ext.util.LineSegment"
                 },
                 {
-                    "path": "touch/src/plugin/",
-                    "name": "PullRefresh.js",
-                    "clsName": "Ext.plugin.PullRefresh"
-                },
-                {
-                    "path": "touch/src/",
-                    "name": "Button.js",
-                    "clsName": "Ext.Button"
-                },
-                {
                     "path": "touch/src/",
                     "name": "Label.js",
                     "clsName": "Ext.Label"
                 },
                 {
-                    "path": "touch/src/",
-                    "name": "Img.js",
-                    "clsName": "Ext.Img"
-                },
-                {
                     "path": "touch/src/util/",
                     "name": "Geolocation.js",
                     "clsName": "Ext.util.Geolocation"
+                },
+                {
+                    "path": "touch/src/",
+                    "name": "Img.js",
+                    "clsName": "Ext.Img"
                 },
                 {
                     "path": "touch/src/data/identifier/",
@@ -651,13 +641,33 @@
                 },
                 {
                     "path": "touch/src/",
-                    "name": "Spacer.js",
-                    "clsName": "Ext.Spacer"
+                    "name": "Map.js",
+                    "clsName": "Ext.Map"
                 },
                 {
-                    "path": "touch/src/carousel/",
-                    "name": "Indicator.js",
-                    "clsName": "Ext.carousel.Indicator"
+                    "path": "touch/src/",
+                    "name": "Button.js",
+                    "clsName": "Ext.Button"
+                },
+                {
+                    "path": "touch/src/plugin/",
+                    "name": "PullRefresh.js",
+                    "clsName": "Ext.plugin.PullRefresh"
+                },
+                {
+                    "path": "touch/src/data/",
+                    "name": "SortTypes.js",
+                    "clsName": "Ext.data.SortTypes"
+                },
+                {
+                    "path": "touch/src/data/",
+                    "name": "Types.js",
+                    "clsName": "Ext.data.Types"
+                },
+                {
+                    "path": "touch/src/mixin/",
+                    "name": "Sortable.js",
+                    "clsName": "Ext.mixin.Sortable"
                 },
                 {
                     "path": "touch/src/mixin/",
@@ -670,19 +680,9 @@
                     "clsName": "Ext.util.Inflector"
                 },
                 {
-                    "path": "touch/src/mixin/",
-                    "name": "Sortable.js",
-                    "clsName": "Ext.mixin.Sortable"
-                },
-                {
-                    "path": "touch/src/data/",
-                    "name": "Error.js",
-                    "clsName": "Ext.data.Error"
-                },
-                {
-                    "path": "touch/src/dataview/",
-                    "name": "ListItemHeader.js",
-                    "clsName": "Ext.dataview.ListItemHeader"
+                    "path": "touch/src/",
+                    "name": "Title.js",
+                    "clsName": "Ext.Title"
                 },
                 {
                     "path": "touch/src/dataview/",
@@ -690,19 +690,24 @@
                     "clsName": "Ext.dataview.IndexBar"
                 },
                 {
-                    "path": "touch/src/data/",
-                    "name": "SortTypes.js",
-                    "clsName": "Ext.data.SortTypes"
+                    "path": "touch/src/dataview/",
+                    "name": "ListItemHeader.js",
+                    "clsName": "Ext.dataview.ListItemHeader"
                 },
                 {
                     "path": "touch/src/",
-                    "name": "Title.js",
-                    "clsName": "Ext.Title"
+                    "name": "Spacer.js",
+                    "clsName": "Ext.Spacer"
                 },
                 {
-                    "path": "touch/src/",
-                    "name": "Decorator.js",
-                    "clsName": "Ext.Decorator"
+                    "path": "touch/src/util/",
+                    "name": "HashMap.js",
+                    "clsName": "Ext.util.HashMap"
+                },
+                {
+                    "path": "touch/src/dataview/element/",
+                    "name": "Container.js",
+                    "clsName": "Ext.dataview.element.Container"
                 },
                 {
                     "path": "touch/src/data/",
@@ -710,9 +715,9 @@
                     "clsName": "Ext.data.Connection"
                 },
                 {
-                    "path": "touch/src/dataview/element/",
-                    "name": "Container.js",
-                    "clsName": "Ext.dataview.element.Container"
+                    "path": "touch/src/data/",
+                    "name": "Request.js",
+                    "clsName": "Ext.data.Request"
                 },
                 {
                     "path": "touch/src/mixin/",
@@ -725,19 +730,14 @@
                     "clsName": "Ext.field.Input"
                 },
                 {
+                    "path": "touch/src/",
+                    "name": "Decorator.js",
+                    "clsName": "Ext.Decorator"
+                },
+                {
                     "path": "touch/src/data/",
                     "name": "Batch.js",
                     "clsName": "Ext.data.Batch"
-                },
-                {
-                    "path": "touch/src/data/writer/",
-                    "name": "Writer.js",
-                    "clsName": "Ext.data.writer.Writer"
-                },
-                {
-                    "path": "touch/src/util/",
-                    "name": "HashMap.js",
-                    "clsName": "Ext.util.HashMap"
                 },
                 {
                     "path": "touch/src/dataview/component/",
@@ -745,14 +745,29 @@
                     "clsName": "Ext.dataview.component.DataItem"
                 },
                 {
+                    "path": "touch/src/data/writer/",
+                    "name": "Writer.js",
+                    "clsName": "Ext.data.writer.Writer"
+                },
+                {
+                    "path": "touch/src/data/",
+                    "name": "Error.js",
+                    "clsName": "Ext.data.Error"
+                },
+                {
                     "path": "touch/src/data/",
                     "name": "ResultSet.js",
                     "clsName": "Ext.data.ResultSet"
                 },
                 {
-                    "path": "touch/src/data/",
-                    "name": "Request.js",
-                    "clsName": "Ext.data.Request"
+                    "path": "touch/src/carousel/",
+                    "name": "Item.js",
+                    "clsName": "Ext.carousel.Item"
+                },
+                {
+                    "path": "touch/src/carousel/",
+                    "name": "Indicator.js",
+                    "clsName": "Ext.carousel.Indicator"
                 },
                 {
                     "path": "touch/src/",
@@ -761,33 +776,18 @@
                 },
                 {
                     "path": "app/view/",
-                    "name": "NotApp.js",
-                    "clsName": "QuickD.view.NotApp"
-                },
-                {
-                    "path": "touch/src/",
-                    "name": "Toolbar.js",
-                    "clsName": "Ext.Toolbar"
-                },
-                {
-                    "path": "touch/src/",
-                    "name": "Map.js",
-                    "clsName": "Ext.Map"
-                },
-                {
-                    "path": "app/view/",
-                    "name": "MapShow.js",
-                    "clsName": "QuickD.view.MapShow"
-                },
-                {
-                    "path": "app/view/",
                     "name": "Splash.js",
                     "clsName": "QuickD.view.Splash"
                 },
                 {
-                    "path": "touch/src/form/",
-                    "name": "FieldSet.js",
-                    "clsName": "Ext.form.FieldSet"
+                    "path": "app/view/",
+                    "name": "NotApp.js",
+                    "clsName": "QuickD.view.NotApp"
+                },
+                {
+                    "path": "touch/src/data/",
+                    "name": "Field.js",
+                    "clsName": "Ext.data.Field"
                 },
                 {
                     "path": "touch/src/util/",
@@ -800,29 +800,29 @@
                     "clsName": "Ext.data.Errors"
                 },
                 {
+                    "path": "touch/src/data/",
+                    "name": "StoreManager.js",
+                    "clsName": "Ext.data.StoreManager"
+                },
+                {
+                    "path": "touch/src/",
+                    "name": "Toolbar.js",
+                    "clsName": "Ext.Toolbar"
+                },
+                {
+                    "path": "app/view/",
+                    "name": "MapShow.js",
+                    "clsName": "QuickD.view.MapShow"
+                },
+                {
                     "path": "touch/src/",
                     "name": "Sheet.js",
                     "clsName": "Ext.Sheet"
                 },
                 {
-                    "path": "touch/src/carousel/",
-                    "name": "Item.js",
-                    "clsName": "Ext.carousel.Item"
-                },
-                {
-                    "path": "touch/src/carousel/",
-                    "name": "Carousel.js",
-                    "clsName": "Ext.carousel.Carousel"
-                },
-                {
-                    "path": "app/view/",
-                    "name": "DealShow.js",
-                    "clsName": "QuickD.view.DealShow"
-                },
-                {
-                    "path": "touch/src/data/",
-                    "name": "StoreManager.js",
-                    "clsName": "Ext.data.StoreManager"
+                    "path": "touch/src/",
+                    "name": "Ajax.js",
+                    "clsName": "Ext.Ajax"
                 },
                 {
                     "path": "touch/src/",
@@ -835,9 +835,9 @@
                     "clsName": "Ext.data.ModelManager"
                 },
                 {
-                    "path": "touch/src/",
-                    "name": "Ajax.js",
-                    "clsName": "Ext.Ajax"
+                    "path": "touch/src/form/",
+                    "name": "FieldSet.js",
+                    "clsName": "Ext.form.FieldSet"
                 },
                 {
                     "path": "touch/src/data/association/",
@@ -851,28 +851,18 @@
                 },
                 {
                     "path": "touch/src/data/association/",
-                    "name": "BelongsTo.js",
-                    "clsName": "Ext.data.association.BelongsTo"
+                    "name": "HasOne.js",
+                    "clsName": "Ext.data.association.HasOne"
                 },
                 {
                     "path": "touch/src/data/association/",
-                    "name": "HasOne.js",
-                    "clsName": "Ext.data.association.HasOne"
+                    "name": "BelongsTo.js",
+                    "clsName": "Ext.data.association.BelongsTo"
                 },
                 {
                     "path": "touch/src/dataview/element/",
                     "name": "List.js",
                     "clsName": "Ext.dataview.element.List"
-                },
-                {
-                    "path": "touch/src/data/",
-                    "name": "Types.js",
-                    "clsName": "Ext.data.Types"
-                },
-                {
-                    "path": "touch/src/data/",
-                    "name": "Field.js",
-                    "clsName": "Ext.data.Field"
                 },
                 {
                     "path": "touch/src/field/",
@@ -920,11 +910,6 @@
                     "clsName": "QuickD.view.BetaScreen"
                 },
                 {
-                    "path": "touch/src/data/writer/",
-                    "name": "Json.js",
-                    "clsName": "Ext.data.writer.Json"
-                },
-                {
                     "path": "touch/src/dataview/component/",
                     "name": "Container.js",
                     "clsName": "Ext.dataview.component.Container"
@@ -945,9 +930,9 @@
                     "clsName": "QuickD.view.DealList"
                 },
                 {
-                    "path": "app/view/",
-                    "name": "Main.js",
-                    "clsName": "QuickD.view.Main"
+                    "path": "touch/src/data/writer/",
+                    "name": "Json.js",
+                    "clsName": "Ext.data.writer.Json"
                 },
                 {
                     "path": "touch/src/data/reader/",
@@ -963,16 +948,6 @@
                     "path": "touch/src/data/proxy/",
                     "name": "Proxy.js",
                     "clsName": "Ext.data.proxy.Proxy"
-                },
-                {
-                    "path": "touch/src/data/proxy/",
-                    "name": "Client.js",
-                    "clsName": "Ext.data.proxy.Client"
-                },
-                {
-                    "path": "touch/src/data/proxy/",
-                    "name": "Memory.js",
-                    "clsName": "Ext.data.proxy.Memory"
                 },
                 {
                     "path": "touch/src/data/proxy/",
@@ -995,6 +970,16 @@
                     "clsName": "QuickD.model.Deal"
                 },
                 {
+                    "path": "touch/src/data/proxy/",
+                    "name": "Client.js",
+                    "clsName": "Ext.data.proxy.Client"
+                },
+                {
+                    "path": "touch/src/data/proxy/",
+                    "name": "Memory.js",
+                    "clsName": "Ext.data.proxy.Memory"
+                },
+                {
                     "path": "touch/src/data/",
                     "name": "Store.js",
                     "clsName": "Ext.data.Store"
@@ -1003,6 +988,21 @@
                     "path": "app/store/",
                     "name": "Deals.js",
                     "clsName": "QuickD.store.Deals"
+                },
+                {
+                    "path": "touch/src/carousel/",
+                    "name": "Carousel.js",
+                    "clsName": "Ext.carousel.Carousel"
+                },
+                {
+                    "path": "app/view/",
+                    "name": "DealShow.js",
+                    "clsName": "QuickD.view.DealShow"
+                },
+                {
+                    "path": "app/view/",
+                    "name": "Main.js",
+                    "clsName": "QuickD.view.Main"
                 },
                 {
                     "path": "touch/src/data/",
