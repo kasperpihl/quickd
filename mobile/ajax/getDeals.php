@@ -45,7 +45,7 @@ foreach($results as $res){
 	$deal['name'] = $res->value->shop->name;
 	$deal['category'] = isset($res->value->template->category)?$res->value->template->category:'';
 	$deal['discount'] = discount($deal['orig_price'],$deal['deal_price']);
-	$deal['image'] = isset($res->value->template->image) ? $res->value->template->image : STD_IMAGE;
+	$deal['image'] = (isset($res->value->template->image) && $res->value->template->image) ? $res->value->template->image : STD_IMAGE;
 	$deals[] = $deal;
 }
 echo json_encode($deals);
