@@ -255,6 +255,7 @@ Ext.define('QuickD.view.DealShow', {
         }).resize();
 
         $el.find('img').load(function() { self.updateScroll(); } );
+        self.updateScroll();
     },
     updateScroll: function() {
         if (this.easyScroll) {
