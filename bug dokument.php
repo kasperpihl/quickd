@@ -2,6 +2,8 @@ Midlertidig dokument til at skrive fejl og mangler samt fjerne sætte dem som ud
 
 Bugs:
 
+Start deal - templates styling fucked
+
 Opryd SASS-fil
 
 Start-deal database-error (?)

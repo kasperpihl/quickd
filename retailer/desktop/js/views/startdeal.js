@@ -32,15 +32,15 @@ define([
 		},
 		render: function(){
 			var thisClass = this;
-			$(this.el).html(_.template(template,{data:this}));
-			this.$cmp = $('#start_deal');
 			this.first = true;
-			this.dealType = 'instant';
+			this.dealType = 'regular';
 			this.expanded = false;
 			this.starting = false;
 			this.hours = null;
 			this.vAligned = false;
 			this.minutes = this.timeStandard;
+			$(this.el).html(_.template(template,{data:this}));
+			this.$cmp = $('#start_deal');
 			this.updateHours(true);
 			//Setting jquery date pickers
 			this.$cmp.find('#deal_start_time').datetimepicker({
@@ -252,14 +252,16 @@ define([
 			$('#set_template_block').css('z-index',2);
 			//$('#set_treasure_block').css('z-index',1);
 			
-			var els = [$('#starter_button'),$('#time_block'),$('#set_template_block')];
-			var i = 0;
-			var pos = $('#btn_overview').offset().top-this.$cmp.offset().top-50;
+			var els = [$('#starter_button'),$('#time_block'),$('#set_template_block')],
+					i = 0,
+					thisHeight = this.$cmp.outerHeight(),
+					pos = thisHeight - ($('#btn_overview').offset().top+50-this.$cmp.offset().top);
+			this.$cmp.height(thisHeight);
 			$(els).each(function() {
 				var me = $(this);
 				i++;
-				me.css({position:'absolute', top: me.position().top, left:(me.position().left+parseInt(me.css('marginLeft'))), width:me.width()})
-					.animate({ top: pos, height:90 }, 800, 'easeInOutSine', function() {
+				me.css({position:'absolute', bottom: thisHeight-(me.position().top+parseInt(me.outerHeight())), left:(me.position().left+parseInt(me.css('marginLeft'))), width:me.width()})
+					.animate({ bottom: pos}, 800, 'easeInOutSine', function() {
 						if (i == els.length) {
 							
 							var el = $('#select-template-list');
