@@ -7,7 +7,7 @@ define("FILE_DIR",HOME_DIR.'files'.DS);
 define("LOG_FILE",FILE_DIR.'log.txt');
 define("IMAGES_DIR",CDN_DIR.'images'.DS);
 define("CLASSES_DIR",HOME_DIR.'includes'.DS.'classes'.DS);
-define('VERSION','v0.2');
+define('VERSION','0.2');
 define('MIN_DISCOUNT',25);
 define('DEALS_PR_PAGE',10);
 define('MAX_DIST',25000);
@@ -23,8 +23,6 @@ $ending = '';
 $version = $_SESSION['version'] = (isset($_SESSION['version'])) ? $_SESSION['version'] : ($uagent->DetectTierIphone() ? 'mobile' : 'desktop');
 switch($root){
 	case 'test.quickd.com':
-	case '10.185.209.87':
-	case '192.168.1.4':
 	case 'localhost':
 		$dbLink = 'quickd:testanders@77.66.53.58';
 		if(strpos($_SERVER['REQUEST_URI'], 'retailer/')){
@@ -62,7 +60,7 @@ switch($root){
 $historyObj = json_encode(array('pushState'=>true,'root'=>$histRoot));
 define('ROOT_URL','http://'.$root.$end);
 define('REAL_URL','http://'.$root.$histRoot);
-define('DEALER_RESET_URL',REAL_URL.'reset/');
+define('DEALER_RESET_URL','http://retailer.quickd.com/reset/');
 define("CDN_URL", 'http://'.$cdnUrl);
 define("IMAGES_URL",CDN_URL.'images/');
 define("LIBS_URL",CDN_URL.'libs/');

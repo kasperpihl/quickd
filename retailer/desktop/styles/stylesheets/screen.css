@@ -287,14 +287,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	Image positions
 */
 @-webkit-keyframes bluePulse {
-  /* line 288, ../sass/_base.scss */
+  /* line 288, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 289, ../sass/_base.scss */
+  /* line 289, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -303,7 +303,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 290, ../sass/_base.scss */
+  /* line 290, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -312,14 +312,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-moz-keyframes bluePulse {
-  /* line 288, ../sass/_base.scss */
+  /* line 288, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 289, ../sass/_base.scss */
+  /* line 289, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -328,7 +328,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 290, ../sass/_base.scss */
+  /* line 290, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -337,14 +337,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-ms-keyframes bluePulse {
-  /* line 288, ../sass/_base.scss */
+  /* line 288, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   from {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
     box-shadow: 0px 0px 9px transparent;
   }
 
-  /* line 289, ../sass/_base.scss */
+  /* line 289, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   50% {
     -webkit-box-shadow: 0px 0px 30px #236fba;
     -moz-box-shadow: 0px 0px 30px #236fba;
@@ -353,7 +353,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     text-shadow: 0 0 10px white;
   }
 
-  /* line 290, ../sass/_base.scss */
+  /* line 290, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   to {
     -webkit-box-shadow: 0px 0px 9px transparent;
     -moz-box-shadow: 0px 0px 9px transparent;
@@ -362,21 +362,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-webkit-keyframes whitePulse {
-  /* line 296, ../sass/_base.scss */
+  /* line 296, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 297, ../sass/_base.scss */
+  /* line 297, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 298, ../sass/_base.scss */
+  /* line 298, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -385,21 +385,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-moz-keyframes whitePulse {
-  /* line 296, ../sass/_base.scss */
+  /* line 296, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 297, ../sass/_base.scss */
+  /* line 297, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 298, ../sass/_base.scss */
+  /* line 298, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -408,21 +408,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 @-ms-keyframes whitePulse {
-  /* line 296, ../sass/_base.scss */
+  /* line 296, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   from {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 297, ../sass/_base.scss */
+  /* line 297, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   50% {
     -webkit-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     box-shadow: 0 0 15px #bde8a2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
   }
 
-  /* line 298, ../sass/_base.scss */
+  /* line 298, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
   to {
     -webkit-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
     -moz-box-shadow: 0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575;
@@ -1405,12 +1405,12 @@ body {
   width: 404px;
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
-/* line 233, ../sass/_base.scss */
+/* line 233, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #login .login_fields .field {
   margin: 10px auto;
   text-align: center;
 }
-/* line 237, ../sass/_base.scss */
+/* line 237, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #login .login_fields .field .input-wrapper, #entry_view .header #login .login_fields .field input {
   -webkit-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   -moz-transition: all linear 0.2s, box-shadow ease-out 0.2s;
@@ -1444,15 +1444,15 @@ body {
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
 }
-/* line 261, ../sass/_base.scss */
+/* line 261, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #login .login_fields .field .input-wrapper {
   padding: 0px;
 }
-/* line 262, ../sass/_base.scss */
+/* line 262, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #login .login_fields .field input:focus, #entry_view .header #login .login_fields .field .input-wrapper.focus {
   border: 1px solid #59CCD9;
 }
-/* line 265, ../sass/_base.scss */
+/* line 265, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #login .login_fields .field input.wrapped, #entry_view .header #login .login_fields .field input.wrapped:focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -1464,14 +1464,14 @@ body {
   z-index: 2;
   display: block;
 }
-/* line 274, ../sass/_base.scss */
+/* line 274, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #login .login_fields .field .label.long, #entry_view .header #login .login_fields .window .content .field .long input.label, .window .content #entry_view .header #login .login_fields .field .long input.label, #entry_view .header #login .login_fields .window .content .field .long textarea.label, .window .content #entry_view .header #login .login_fields .field .long textarea.label {
   margin-bottom: 5px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
   color: black;
 }
-/* line 275, ../sass/_base.scss */
+/* line 275, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #login .login_fields .field .label.hider {
   position: absolute;
   top: 26px;
@@ -1560,7 +1560,7 @@ body {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 67, ../sass/_base.scss */
+/* line 67, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #register .register_fields input[type="text"], #entry_view .header #register .register_fields input[type="password"] {
   width: 100%;
   border: 1px solid #CCC;
@@ -1579,21 +1579,21 @@ body {
   -moz-transition: border .2s linear, box-shadow .2s linear;
   -webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
 }
-/* line 79, ../sass/_base.scss */
+/* line 79, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #register .register_fields input[type="text"].errorTip, #entry_view .header #register .register_fields input[type="password"].errorTip {
   border: 1px solid #DD5555;
   -webkit-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-/* line 85, ../sass/_base.scss */
+/* line 85, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #register .register_fields input[type="text"]:focus:not(.errorTip), #entry_view .header #register .register_fields input[type="password"]:focus:not(.errorTip) {
   border: 1px solid #59CCD9;
   -webkit-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-/* line 89, ../sass/_base.scss */
+/* line 89, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #register .register_fields div.errorTip {
   position: absolute;
   width: 200px;
@@ -1614,7 +1614,7 @@ body {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 104, ../sass/_base.scss */
+/* line 104, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #register .register_fields button {
   float: left;
   line-height: 25px;
@@ -1649,7 +1649,7 @@ body {
   background-image: -ms-linear-gradient(top, #eae879 0%, #fd9a0f 100%);
   background-image: linear-gradient(top, #eae879 0%, #fd9a0f 100%);
 }
-/* line 128, ../sass/_base.scss */
+/* line 128, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #register .register_fields button:hover {
   background-color: #eae879;
   *zoom: 1;
@@ -1663,13 +1663,13 @@ body {
   background-image: -ms-linear-gradient(top, #eae879 0%, rgba(253, 154, 15, 0.7) 100%);
   background-image: linear-gradient(top, #eae879 0%, rgba(253, 154, 15, 0.7) 100%);
 }
-/* line 134, ../sass/_base.scss */
+/* line 134, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #register .register_fields button:active {
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
-/* line 138, ../sass/_base.scss */
+/* line 138, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #register .register_fields label {
   font-weight: bold;
   float: left;
@@ -1679,11 +1679,11 @@ body {
   margin-top: 15px;
   color: rgba(0, 0, 0, 0.6);
 }
-/* line 147, ../sass/_base.scss */
+/* line 147, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #register .register_fields label input[type="checkbox"] {
   margin-right: 7px;
 }
-/* line 151, ../sass/_base.scss */
+/* line 151, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #register .register_fields label a {
   font-weight: bold;
   font-size: 12px;
@@ -1691,11 +1691,11 @@ body {
   color: #2E73BC;
   text-decoration: none;
 }
-/* line 159, ../sass/_base.scss */
+/* line 159, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #register .register_fields label a:hover {
   text-decoration: underline;
 }
-/* line 163, ../sass/_base.scss */
+/* line 163, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #entry_view .header #register .register_fields label small {
   color: rgba(0, 0, 0, 0.4);
   font-size: 12px;
@@ -1863,7 +1863,7 @@ body {
   font-weight: bold;
 }
 
-/* line 67, ../sass/_base.scss */
+/* line 67, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #resetpassword_dialog input[type="text"], #resetpassword_dialog input[type="password"] {
   width: 100%;
   border: 1px solid #CCC;
@@ -1882,21 +1882,21 @@ body {
   -moz-transition: border .2s linear, box-shadow .2s linear;
   -webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
 }
-/* line 79, ../sass/_base.scss */
+/* line 79, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #resetpassword_dialog input[type="text"].errorTip, #resetpassword_dialog input[type="password"].errorTip {
   border: 1px solid #DD5555;
   -webkit-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-/* line 85, ../sass/_base.scss */
+/* line 85, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #resetpassword_dialog input[type="text"]:focus:not(.errorTip), #resetpassword_dialog input[type="password"]:focus:not(.errorTip) {
   border: 1px solid #59CCD9;
   -webkit-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-/* line 89, ../sass/_base.scss */
+/* line 89, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #resetpassword_dialog div.errorTip {
   position: absolute;
   width: 200px;
@@ -1917,7 +1917,7 @@ body {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 104, ../sass/_base.scss */
+/* line 104, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #resetpassword_dialog button {
   float: left;
   line-height: 25px;
@@ -1952,7 +1952,7 @@ body {
   background-image: -ms-linear-gradient(top, #eae879 0%, #fd9a0f 100%);
   background-image: linear-gradient(top, #eae879 0%, #fd9a0f 100%);
 }
-/* line 128, ../sass/_base.scss */
+/* line 128, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #resetpassword_dialog button:hover {
   background-color: #eae879;
   *zoom: 1;
@@ -1966,13 +1966,13 @@ body {
   background-image: -ms-linear-gradient(top, #eae879 0%, rgba(253, 154, 15, 0.7) 100%);
   background-image: linear-gradient(top, #eae879 0%, rgba(253, 154, 15, 0.7) 100%);
 }
-/* line 134, ../sass/_base.scss */
+/* line 134, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #resetpassword_dialog button:active {
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
-/* line 138, ../sass/_base.scss */
+/* line 138, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #resetpassword_dialog label {
   font-weight: bold;
   float: left;
@@ -1982,11 +1982,11 @@ body {
   margin-top: 15px;
   color: rgba(0, 0, 0, 0.6);
 }
-/* line 147, ../sass/_base.scss */
+/* line 147, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #resetpassword_dialog label input[type="checkbox"] {
   margin-right: 7px;
 }
-/* line 151, ../sass/_base.scss */
+/* line 151, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #resetpassword_dialog label a {
   font-weight: bold;
   font-size: 12px;
@@ -1994,11 +1994,11 @@ body {
   color: #2E73BC;
   text-decoration: none;
 }
-/* line 159, ../sass/_base.scss */
+/* line 159, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #resetpassword_dialog label a:hover {
   text-decoration: underline;
 }
-/* line 163, ../sass/_base.scss */
+/* line 163, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #resetpassword_dialog label small {
   color: rgba(0, 0, 0, 0.4);
   font-size: 12px;
@@ -2211,12 +2211,12 @@ body {
   border-width: 20px 21px 0;
   border-color: #B5B5B5 transparent;
 }
-/* line 233, ../sass/_base.scss */
+/* line 233, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field {
   margin: 10px auto;
   text-align: center;
 }
-/* line 237, ../sass/_base.scss */
+/* line 237, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field .input-wrapper, #welcome_add_shop.bubble-dialog .field input {
   -webkit-transition: all linear 0.2s, box-shadow ease-out 0.2s;
   -moz-transition: all linear 0.2s, box-shadow ease-out 0.2s;
@@ -2250,15 +2250,15 @@ body {
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
 }
-/* line 261, ../sass/_base.scss */
+/* line 261, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field .input-wrapper {
   padding: 0px;
 }
-/* line 262, ../sass/_base.scss */
+/* line 262, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field input:focus, #welcome_add_shop.bubble-dialog .field .input-wrapper.focus {
   border: 1px solid #59CCD9;
 }
-/* line 265, ../sass/_base.scss */
+/* line 265, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field input.wrapped, #welcome_add_shop.bubble-dialog .field input.wrapped:focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -2270,14 +2270,14 @@ body {
   z-index: 2;
   display: block;
 }
-/* line 274, ../sass/_base.scss */
+/* line 274, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field .label.long, #welcome_add_shop.bubble-dialog .window .content .field .long input.label, .window .content #welcome_add_shop.bubble-dialog .field .long input.label, #welcome_add_shop.bubble-dialog .window .content .field .long textarea.label, .window .content #welcome_add_shop.bubble-dialog .field .long textarea.label {
   margin-bottom: 5px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
   color: black;
 }
-/* line 275, ../sass/_base.scss */
+/* line 275, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 #welcome_add_shop.bubble-dialog .field .label.hider {
   position: absolute;
   top: 14px;
@@ -2893,14 +2893,14 @@ form textarea:focus, form input:focus {
   cursor: pointer;
   font-size: 14px;
 }
-/* line 175, ../sass/_base.scss */
+/* line 175, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item img {
   width: 75px;
   float: left;
   margin: 0px;
   height: 75px;
 }
-/* line 181, ../sass/_base.scss */
+/* line 181, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item .deal-img {
   width: 75px;
   float: left;
@@ -2909,17 +2909,17 @@ form textarea:focus, form input:focus {
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-/* line 189, ../sass/_base.scss */
+/* line 189, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item .details {
   float: left;
   padding: 5px 0px;
   width: 180px;
 }
-/* line 190, ../sass/_base.scss */
+/* line 190, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item .prices {
   margin-top: 0px;
 }
-/* line 191, ../sass/_base.scss */
+/* line 191, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item h2 {
   color: #2F3E46;
   white-space: nowrap;
@@ -2927,19 +2927,19 @@ form textarea:focus, form input:focus {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 198, ../sass/_base.scss */
+/* line 198, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 199, ../sass/_base.scss */
+/* line 199, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item span em {
   font-size: 14px;
   color: #545454;
 }
-/* line 206, ../sass/_base.scss */
+/* line 206, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -2953,17 +2953,17 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
-/* line 220, ../sass/_base.scss */
+/* line 220, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item .details {
   color: #828282;
 }
-/* line 221, ../sass/_base.scss */
+/* line 221, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item span {
   padding: 5px 0px;
   clear: both;
   font-size: 0.8em;
 }
-/* line 222, ../sass/_base.scss */
+/* line 222, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item .address {
   clear: both;
   display: block;
@@ -3057,14 +3057,14 @@ form textarea:focus, form input:focus {
   font-size: 14px;
   height: auto;
 }
-/* line 175, ../sass/_base.scss */
+/* line 175, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item-deals img {
   width: 75px;
   float: left;
   margin: 0px;
   height: 75px;
 }
-/* line 181, ../sass/_base.scss */
+/* line 181, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item-deals .deal-img {
   width: 75px;
   float: left;
@@ -3073,17 +3073,17 @@ form textarea:focus, form input:focus {
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-/* line 189, ../sass/_base.scss */
+/* line 189, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item-deals .details {
   float: left;
   padding: 5px 0px;
   width: 180px;
 }
-/* line 190, ../sass/_base.scss */
+/* line 190, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item-deals .prices {
   margin-top: 0px;
 }
-/* line 191, ../sass/_base.scss */
+/* line 191, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item-deals h2 {
   color: #2F3E46;
   white-space: nowrap;
@@ -3091,19 +3091,19 @@ form textarea:focus, form input:focus {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 198, ../sass/_base.scss */
+/* line 198, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item-deals span {
   padding-top: 4px;
   clear: both;
   display: block;
   font-size: 12px;
 }
-/* line 199, ../sass/_base.scss */
+/* line 199, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item-deals span em {
   font-size: 14px;
   color: #545454;
 }
-/* line 206, ../sass/_base.scss */
+/* line 206, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item-deals:hover {
   background-color: #efefef;
   *zoom: 1;
@@ -3117,17 +3117,17 @@ form textarea:focus, form input:focus {
   background-image: -ms-linear-gradient(top, #efefef 1%, #dbdbdb 100%);
   background-image: linear-gradient(top, #efefef 1%, #dbdbdb 100%);
 }
-/* line 220, ../sass/_base.scss */
+/* line 220, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item-deals .details {
   color: #828282;
 }
-/* line 221, ../sass/_base.scss */
+/* line 221, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item-deals span {
   padding: 5px 0px;
   clear: both;
   font-size: 0.8em;
 }
-/* line 222, ../sass/_base.scss */
+/* line 222, D:/Dokumenter/web/www/quickd/retailer/desktop/styles/sass/_base.scss */
 .window .content .list-item-deals .address {
   clear: both;
   display: block;
@@ -4516,6 +4516,7 @@ form textarea:focus, form input:focus {
 /* line 2124, ../sass/screen.scss */
 #edit_shop #opening-times li span.data input {
   width: 40px;
+  min-width: 0;
   margin-right: 5px;
   clear: none;
   display: inline;
@@ -4848,7 +4849,8 @@ form textarea:focus, form input:focus {
 /* line 2250, ../sass/screen.scss */
 #start_deal .starter {
   width: 62%;
-  margin: 20px auto;
+  margin: 0px auto;
+  padding: 20px 0px;
 }
 /* line 2251, ../sass/screen.scss */
 #start_deal .start_deal_btn {
@@ -4918,6 +4920,7 @@ div.ui-datepicker {
   width: 50px;
   float: left;
   margin: 9px;
+  max-height: 50px;
 }
 /* line 2281, ../sass/screen.scss */
 .template-selector .list-item .details, #selected_template_area .list-item .details {

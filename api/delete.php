@@ -6,5 +6,4 @@ if($type&&$id){
   //$result = array('success'=>'false','error'=>'testing', 'data'=>array('type'=>$type, 'id'=>$id));
   $result = Shopowner::delete($type,$id);
 }
-echo json_encode($result);
 ?>
