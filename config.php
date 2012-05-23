@@ -11,7 +11,7 @@ define('VERSION','0.2');
 define('MIN_DISCOUNT',25);
 define('DEALS_PR_PAGE',10);
 define('MAX_DIST',25000);
-define('STD_IMAGE','hej');
+define('STD_IMAGE','noimage.png');
 define("BETA_MODE",1);
 require_once(HOME_DIR.'includes/includes.php');
 $uagent = new uagent_info();

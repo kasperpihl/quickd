@@ -1,9 +1,8 @@
 <?php 
 require_once('../../config.php');
-/*if(!isset($_GET['lat'],$_GET['long'])) echo die(json_encode(array('success'=>'false','error'=>'lat_long_not_specified')));
+if(!isset($_GET['lat'],$_GET['long'])) echo die(json_encode(array('success'=>'false','error'=>'lat_long_not_specified')));
 $lat = (float)$_GET['lat'];
-$long = (float)$_GET['long'];*/
-$lat=0;$long=0;
+$long = (float)$_GET['long'];
 $results = $db->startkey(time())->getView('quickd','getDeals');
 $results = $results->rows;
 $deals = array();

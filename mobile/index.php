@@ -1,5 +1,5 @@
 <? require_once('../config.php');
-$live = true;
+//$live = true;
 //die(unsetBetakey());
 $isDesktop = (isset($_SESSION['desktop'])) ? $_SESSION['desktop'] : !$uagent->DetectTierIphone();
 $isIphone = (isset($_SESSION['iphone'])) ? $_SESSION['iphone'] : $uagent->DetectIphone();
