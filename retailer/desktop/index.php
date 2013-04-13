@@ -38,6 +38,8 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
 					shopowner = <?= $return; ?>;
 				<? } ?>
 		</script>
+		
+		<script src="<?= LIBS_URL ?>modernizr/modernizr-2.0.6.custom.js"></script>
 	</head>
 	
 	
@@ -68,7 +70,6 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
 			</script>
 		<![endif]-->
 
-		<script src="<?= LIBS_URL ?>modernizr/modernizr-2.0.6.custom.js"></script>
 		<script src="<?= LIBS_URL ?>jquery/jquery-ui.js"></script>
 		<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.5&sensor=false&region=DK"></script>-->
     	<script src="<?= LIBS_URL ?>jquery/jquery.ui.selectmenu.js"></script>
