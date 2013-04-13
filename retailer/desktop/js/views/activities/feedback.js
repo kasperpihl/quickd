@@ -6,7 +6,7 @@ define([
 		activityName: 'feedback',
 		initialize: function(){
 			this.init();
-			this.appendWindow('Feedback', {router:this.router});
+			this.appendWindow('Feedback', {router:this.router,clickId:'btn_view_feedback'});
 		}
 	});
 });

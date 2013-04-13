@@ -17,18 +17,13 @@ define([
 			App.collections.feedback.bind('add',this.feedbackChanged);
 			//App.models.feedback.bind('reset',this.feedbackChanged);
 		},
-		events: function() {
-			var _events = {};
-			var windowId = "#window-"+this.cid;
-			_events['click '+windowId+' #feedback-send-btn']= 'sendFeedback';
-			_events['click '+windowId+' #feedback-textfield']= 'showTextfield';
-			return _events;
+		events:{
+			'click #feedback-window #feedback-send-btn': 'sendFeedback',
+			'click #feedback-window #feedback-textfield': 'showTextfield'
 		},
 		onCreated: function() {
 			var thisClass = this;
 			$('#feedback-messages').scrollTo('max', 500, {easing: 'easeOutExpo'});
-			
-			
 		},
 		showTextfield: function(obj) {
 			var thisClass = this;
@@ -38,7 +33,7 @@ define([
 				$('#feedback-messages').addClass('focused');
 				setTimeout(function() {	$('#feedback-messages').scrollTo('max', 190); }, 90);
 				this.textFocused = true;
-				$('html').click(function(obj) { 
+				$('html').click(function(obj) {
 					if (thisClass.textFocused) {
 						$('#feedback-text').removeClass('focused');
 						$('#feedback-messages').removeClass('focused');
@@ -49,15 +44,17 @@ define([
 			}
 		},
 		feedbackChanged: function(event,d){
-
 			if(debug) log('feedback har ændret',event, d.attributes);
 			this.setContent(this.collection.toJSON(), function() {	$('#feedback-messages').scrollTo('max'); });
 		},
 		sendFeedback:function(obj){
+			log('send feedback');
 			obj.stopPropagation();
 			var thisClass = this;
 			var feedback = $('#feedback-textfield').val();
+
 			if (!feedback ||feedback=="") return;
+			log('der var feedback');
 			if(feedback == this.feedback) alert('Allerede sendt'); 
 			else {
 				this.feedback = feedback;

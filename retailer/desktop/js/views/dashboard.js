@@ -2,7 +2,6 @@ define([
 'text!templates/dashboard.html',
 'order!raphael/raphael-min',
 'order!jquery/jquery.analogueclock',
-'views/feedback',
 'views/notifications',
 'views/activities/activity',
 'views/activities/administration',

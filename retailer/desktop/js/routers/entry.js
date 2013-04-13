@@ -57,7 +57,7 @@ App.routers.Entry = Backbone.Router.extend({
 				thisClass.lockAction = false;
 				setTimeout(function(){
 					thisClass.model.set(response.dealer);
-					thisClass.startDashboard(response.stuff);		
+					thisClass.startDashboard(response.stuff);
 				},200);
 			}
 			else{
@@ -73,9 +73,8 @@ App.routers.Entry = Backbone.Router.extend({
 		this.lockAction = true;
 		var thisClass = this;
 		//log($('#register_password').val(),'hej');
-		$.post(API_URL+'register',{email:$('#register_username').val(),password:$('#register_password').val(),betacode:$('#register_betacode').val()},function(response){
-			
-			//log('reg',response);
+		$.post(API_URL+'register',{email:$('#register_username').val(),password:$('#register_password').val()},function(response){
+			log('reg',response);
 			if(response.success == 'true'){
 				$("#footer-login").fadeOut();
 				$("#header-login").fadeOut();
@@ -85,7 +84,6 @@ App.routers.Entry = Backbone.Router.extend({
 					thisClass.model.set(response.data);
 					thisClass.startDashboard();
 				}, 200);
-				
 			}
 			else{
 				setTimeout(function(){
@@ -93,7 +91,6 @@ App.routers.Entry = Backbone.Router.extend({
 				},400);
 				var $errorCont = $('#error_container');
 				if      (response.error == 'user_exists') $errorCont.html('Brugeren findes allerede');
-				else if (response.error == 'wrong_betacode') $errorCont.html('Betanøglen er ugyldig');
 				else if (response.error == 'email_not_valid') $errorCont.html('Den indtastede email er ugyldig');
 				else if (response.error == "password_must_be_6_long") $errorCont.html('Det valgte password er for kort');
 				$errorCont.show();

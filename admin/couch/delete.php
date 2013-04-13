@@ -1,6 +1,6 @@
 <?php require_once('../../config.php');
 require_admin();
-function setBetaUserKeys(){
+/*function setBetaUserKeys(){
 	global $db;
 	$array = $db->getView('quickd','getUsers');
 	$usedKeys = array();
@@ -15,7 +15,7 @@ function setBetaUserKeys(){
 		print_r($result.'<br/>');
 	}
 }
-setBetaUserKeys();
+setBetaUserKeys();*/
 // print_r($array);
 //$db->deleteDocs($ret);
 ?>

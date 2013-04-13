@@ -38,30 +38,11 @@ define([
 						 register_password: {
 							 required:true,
 							 minlength:6
-						 },
-						 register_betacode: {
-							 required: true,
-							 remote: {
-								 url: ROOT_URL+"ajax/shopowner.php",
-	       						 type: "post",
-								 data: {
-									action: 'test_betacode' 
-								 }
-							 }
-						 },
-						 register_accept_terms: {
-						 	required:true
 						 }
 				   },
 				   messages: {
 					   register_username: {
 						   remote: jQuery.validator.format("Den indtastede email er allerede registreret<br /> Log ind eller vælg en anden")
-					   },
-					   register_betacode: {
-						   remote: jQuery.validator.format("Den indtastede betakode er ugyldig")
-					   },
-					   register_accept_terms: {
-					   	required: jQuery.validator.format('Betingelser skal godkendes')
 					   }
 				   },
 				   errorPlacement: function(error, element) {
@@ -105,7 +86,7 @@ define([
 				case 'do_register_button':
 					if (this.form && this.form.valid()) {
 						this.router.doRegister();
-					} 
+					}
 					//else this.form.submit();
 				break;
 				case 'cancel_register_button':

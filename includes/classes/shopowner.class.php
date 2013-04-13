@@ -17,14 +17,14 @@ class Shopowner {
 			}
 			$update = 'registerUser';
 			if ($type==='dealer') {
-				if(BETA_MODE&&$type=='dealer'){
+				/*if(BETA_MODE&&$type=='dealer'){
 					if(!isset($model['betacode'])) return array('success'=>'false','error'=>'betacode_must_be_included');
 					$betakoder = $db->getDoc('configuration');
 					$betakoder = $betakoder->betakoder;
 					
 					if(!property_exists($betakoder,$model['betacode'])) return array('success'=>'false','error'=>'wrong_betacode');
 					$model['name'] = $betakoder->$model['betacode'];
-				}
+				}*/
 				$model['hours'] = 25;
 				$model['privileges'] = 3;
 			} else {
