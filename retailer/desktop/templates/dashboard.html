@@ -5,18 +5,14 @@
         	<a href="<%= REAL_URL %>?logout" class="logout header_btn">Log ud</a>
             <span class="username"><%= data.email %></span>
         </div>
-        <div class="account_value">
-        	<div class="hours"><div id="analogueclock"></div><span id="hours_show"><%= data.hours %> timer</span></div>
-            <div class="refill_btn blue button" id="btn_refill">Tank op</div>
-        </div>
+        <div id="analogueclock"></div>
    </div>
 </div>
 <div id="workspace">	
     <nav id="menu">
     	<ul>
-    		<li id="btn_startdeals" class="menu_icon"><a>Planlæg tilbud</a></li>
-    		<li id="btn_templates" class="menu_icon"><a>Skabeloner</a></li>
-    		<li id="btn_overview" class="menu_icon"><a>Oversigt</a></li>
+    		<li id="btn_offers" class="menu_icon"><a>Mine tilbud</a></li>
+    		<li id="btn_feedback" class="menu_icon"><a>Feedback</a></li>
     		<li id="btn_administration" class="menu_icon"><a>Administration</a></li>
     	</ul>
     </nav>

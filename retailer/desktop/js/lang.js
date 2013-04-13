@@ -1,14 +1,11 @@
 var lang = {
 	urls:{
 		'templates': 			'skabeloner',
-		'overview':				'oversigt',
-		'startdeals':			'start',
 		'administration':		'administration',
 		'administrationUser':	'administration/bruger',
 		'administrationShop':	'administration/butik',
 		'templatesAdd':			'skabeloner/tilfoej',
-		'overviewDeals':		'oversigt/deals',
-		'overviewFeedback':		'oversigt/feedback'	
+		'feedback':				'feedback'
 	},
 	ui: {
 		templates:{

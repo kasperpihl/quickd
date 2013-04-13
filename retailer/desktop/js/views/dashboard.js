@@ -6,10 +6,8 @@ define([
 'views/notifications',
 'views/activities/activity',
 'views/activities/administration',
-'views/activities/welcome',
-'views/activities/overview',
+'views/activities/feedback',
 'views/activities/templates',
-'views/activities/startdeals',
 'views/activities/welcome'
 ],function(template){
 	App.views.Dashboard = Backbone.View.extend({
@@ -27,14 +25,12 @@ define([
 			this.locked = false;
 			this.windowsLocked = false;
 		},
-		
 		dashboardLoaded: function(){
 			var thisClass = this;
 			App.views.notifications = new App.views.Notifications({router:this.router});
 			new App.views.activities.Welcome({router:this.router});
-			new App.views.activities.Overview({router:this.router});
+			new App.views.activities.Feedback({router:this.router});
 			new App.views.activities.Templates({router:this.router});
-			new App.views.activities.StartDeals({router:this.router});
 			new App.views.activities.Administration({router:this.router});
 			$('#dashboard').show();
 			$('#menu').verticalAlign();
@@ -74,7 +70,6 @@ define([
 			setTimeout(function(){
 				$hoursEl.removeClass('green');
 			},3000);
-			
 		},
 		render: function(){
 			// This is rendering the structure of the dashboard
@@ -105,7 +100,6 @@ define([
 			if(this.router.activity == options.activity) options.dontChange = true;			
 			this.router.activity = options.activity;
 			this.router.trigger('clickedActivity',options);
-			
 		},
 		openRefill:function() {
 			var thisClass = this;
@@ -113,7 +107,6 @@ define([
 				thisClass.refillView = new App.views.dialogs.Refill({router:thisClass.router});
 				thisClass.refillView.openDialog();
 			});
-			
 		},
 		openConditions:function() {
 			var thisClass = this;
