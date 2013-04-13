@@ -17,40 +17,52 @@ define([
 		initialize: function(){
 			this.router = this.options.router;
 			this.router.activity = false;
+			
 			this.activityRoutes = {};
+			
 			this.model = App.models.shopowner;
 			this.model.on('change:hours',this.renderHours,this);
+			
 			_.bindAll(this,'render','clickedActivity','dashboardLoaded','lock','unlock','changeActivity');
+			
 			this.render();
+			
 			this.locked = false;
 			this.windowsLocked = false;
 		},
 		dashboardLoaded: function(){
-			var thisClass = this;
 			App.views.notifications = new App.views.Notifications({router:this.router});
+			
 			new App.views.activities.Welcome({router:this.router});
 			new App.views.activities.Feedback({router:this.router});
 			new App.views.activities.Templates({router:this.router});
 			new App.views.activities.Administration({router:this.router});
+			
 			$('#dashboard').show();
 			$('#menu').verticalAlign();
+			
 			$('#analogueclock').analogueClock({
 				radius: 8,
 				strokeW: 2,
 				color: "rgb(69,69,69)"
 			});
-			if(App.collections.shops.length > 0 ) this.animateMenu();
-			else {
+			
+			if(App.collections.shops.length > 0 ) {
+				this.animateMenu();
+			} else {
 				App.collections.shops.bind('add',this.animateMenu);
 			}
-			//new App.views.Feedback({router:this.router});
+			
 			this.router.bind('lock',this.lock);
 			this.router.bind('unlock',this.unlock);
 		},
 		animateMenu: function() {
 			$('#menu').animate({'margin-left': '40px'}, 1000, 'easeInOutQuart');
-			if ($('#activities').hasClass('newbie'))
-				$('#activities').animate({left:'200px'}, 500, 'easeInOutQuart', function() { $(this).removeClass('newbie',300); });
+			if ($('#activities').hasClass('newbie')) {
+				$('#activities').animate({left:'200px'}, 500, 'easeInOutQuart', function() { 
+					$(this).removeClass('newbie',300); 
+				});
+			}
 		},
 		lock:function(data){
 			if(data.lock == 'activity') this.locked = true;
@@ -80,23 +92,37 @@ define([
 			'click #btn_read_conditions': 'openConditions'
 		},
 		clickedActivity:function(obj){
-			/* Get activity (btn_templates) = templates */
 			var activity,
 				id = obj.currentTarget.id;
+			
 			if($('#'+id).hasClass('disabled')) return false;
-			if (id == 'logo_top') activity='welcome';
-			else {
-				//$('#'+id).addClass('selected');
+			
+			if (id == 'logo_top') {
+				activity = 'welcome';
+			} else {
 				activity = id.substr(4);
 			}
-			this.changeActivity({activity:activity,clicked:true});
+			
+			this.changeActivity({
+				activity: activity,
+				clicked: true
+			});
 		},
 		changeActivity:function(options){
-			if(options.hasOwnProperty('clicked') && (options.activity == this.router.activity || this.locked)) return false;
-			if(!this.router.activity) options.first = true;
-			if(this.router.activity == options.activity) options.dontChange = true;
+			if( options.hasOwnProperty('clicked') && (options.activity == this.router.activity || this.locked) ) {
+				return false;
+			}
+			
+			if( !this.router.activity ) {
+				options.first = true;
+			}
+			
+			if( this.router.activity == options.activity ) {
+				options.dontChange = true;
+			}
+			
 			this.router.activity = options.activity;
-			this.router.trigger('clickedActivity',options);
+			this.router.trigger('clickedActivity', options);
 		},
 		openConditions:function() {
 			var thisClass = this;
