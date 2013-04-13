@@ -36,26 +36,6 @@ Ext.define('QuickD.controller.Main', {
     init:function(){
         
     },
-    doFacebookConnect:function(){
-        FB.login(function(response) {
-            log('response from facebook',response);
-            if (response.authResponse) {        
-                $.post(ROOT_URL+"api/fbconnect", {}, function(data) {
-                    //console.log(data);
-                    if (data.success == 'true') {
-                        //Successfully logged in!!
-                        alert('SUCCESS');
-                    }
-                    else {
-                        alert('FALSE');
-                    }
-                }, 'json');
-                
-            } else {
-                alert('fejl');
-            }
-        }, {scope: 'email'});
-    },
     useBetaKey:function(key){
         var self = this;
         var main = this.getMain();

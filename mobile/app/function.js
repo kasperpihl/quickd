@@ -26,7 +26,6 @@ function humanReadableTime(stamp){
 	if(time < 2700) return 'Over ' + (parseInt(minutes/10,10)*10) + ' minutter tilbage';
 	if(time < 3600) return 'Næsten 1 time tilbage';
 	else return (minutes < 45 ? 'Over ' + hours : 'Næsten ' + (hours+1))  + ' ' + (time < 6300 ? 'time' : 'timer') + ' tilbage';
-
 }
 /**
  * Convert metre value to human readable format
@@ -84,7 +83,7 @@ function roundToNearest(val, roundTo) {
 if (typeof(Number.prototype.toRad) === "undefined") {
   Number.prototype.toRad = function() {
     return this * Math.PI / 180;
-  }
+  };
 }
 function distance(lat1,lon1,lat2,lon2){
 	lat1 = parseFloat(lat1);
