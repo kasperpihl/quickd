@@ -71,7 +71,6 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
 		<![endif]-->
 
 		<script src="<?= LIBS_URL ?>jquery/jquery-ui.js"></script>
-		<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.5&sensor=false&region=DK"></script>-->
     	<script src="<?= LIBS_URL ?>jquery/jquery.ui.selectmenu.js"></script>
     	<script src="<?= LIBS_URL ?>jquery/jcarousellite.min.js"></script>
     	<script src="<?= LIBS_URL ?>jquery/jquery.slides.min.js"></script>        
@@ -85,7 +84,6 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
 		<script src="<?= LIBS_URL ?>jquery/date.js"></script>
 		<script src="<?= LIBS_URL ?>jquery/jquery.validate.js"></script>
 		<script src="<?= LIBS_URL ?>jquery/jquery.tools.min.js"></script>
-		<!--<script src="animate.js"></script>-->
 		
 		<script src="<?= LIBS_URL ?>require/require.js" data-main="<?= ROOT_URL ?>js/main"></script>
 	</body>
