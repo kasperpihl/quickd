@@ -7,6 +7,7 @@ if(isset($_GET['logout'])){
 	redirect(REAL_URL);
 	exit;
 }
-if($version == 'mobile')  require_once('mobile/index.php');
-else require_once('desktop/index.php');
+/*if($version == 'mobile')  require_once('mobile/index.php');
+else */
+require_once('desktop/index.php');
 ?>

@@ -5,7 +5,6 @@ define([
 	App.views.windows.Feedback = App.views.Window.extend({
 		el: '#activity_overview',
 		width: 420,
-		depth: 2,
 		initialize: function(){
 			_.bindAll(this,'feedbackChanged', 'sendFeedback', 'showTextfield', 'onCreated');
 			this.template = 'feedback';

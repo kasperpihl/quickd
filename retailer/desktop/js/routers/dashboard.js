@@ -6,16 +6,11 @@ define([
 ],function(){
 	App.routers.Dashboard = Backbone.Router.extend({
 		routes: {
-			'oversigt':							'openOverview',
-			'oversigt/:path':				'openOverview',
-			'oversigt/:path/:id':		'openOverview',
+			'feedback':							'openFeedback',
 			'skabeloner':						'openTemplates',
 			'skabeloner/:path':			'openTemplates',
 			'administration':				'openAdministration',
 			'administration/:path':	'openAdministration',
-			'start':								'openStartDeals',
-			'start/:id':						'openStartDeals',
-			'start/:id/:type': 			'openStartDeals',
 			'hjem':									'openHomeView',
 			'*index':								'indexing' 
 		},
@@ -57,26 +52,10 @@ define([
 		},
 		openHomeView:function(){
 			App.views.dashboard.changeActivity({activity:'welcome'});
-		},	
-		openStartDeals:function(param, type){
-			var options = {activity:'startdeals',route:lang.urls.startdeals,isRouted:true};
-			if(param){
-				options.route = lang.urls.startdeals + '/' + param;
-				options.window = 'startWithTemplate';
-				options.id = param;
-			}
-			else {
-				options.isParentRoute = true;
-			}
-			if(type){
-				options.type = type;
-				options.route += '/'+type;
-			}
-			App.views.dashboard.changeActivity(options);
 		},
 		openTemplates:function(param){
 			var options = {activity: 'templates',route:lang.urls.templates,isRouted:true};
-			if(param){ 
+			if(param){
 				options.route = lang.urls.templates + '/' +param;
 			}
 			if(param == 'tilfoej'){
@@ -91,20 +70,8 @@ define([
 			}
 			App.views.dashboard.changeActivity(options);
 		},
-		openOverview:function(param,id){
-			var options = {activity: 'overview',route:lang.urls.overview,isRouted:true};
-			if(param){
-				options.route = lang.urls.overview + '/' + param;
-				options.window = param;
-			}
-			else {
-				options.isParentRoute = true;
-			}
-			if(id){
-				options.id = id;
-				options.route += '/'+id;
-			}
-			
+		openFeedback:function(){
+			var options = {activity: 'feedback',route:lang.urls.feedback,isRouted:true};
 			App.views.dashboard.changeActivity(options);
 		},
 		openAdministration:function(param){
