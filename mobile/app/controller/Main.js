@@ -11,8 +11,6 @@ Ext.define('QuickD.controller.Main', {
             dealListToolbar: 'deallist > toolbar',
             buttons: 'button',
             dealList: 'mainview > deallist',
-            betaScreen: 'mainview > betascreen',
-            notApp: 'mainview > notapp',
             dealShow: 'mainview > dealshow',
             splash: 'mainview > splash',
             dealShowSlider: 'mainview > dealshow > carousel',
@@ -30,54 +28,25 @@ Ext.define('QuickD.controller.Main', {
             }
         }
     },
-    test:function(){
-        alert('hej');
-    },
-    init:function(){
-        
-    },
-    useBetaKey:function(key){
-        var self = this;
-        var main = this.getMain();
-        main.maskMe('Validerer betakode');
-        Ext.Ajax.request({
-            url: ROOT_URL+'ajax/betakey.php',
-            params:{
-                betakey:key
-            },
-            method:'POST',
-            success:function(data){
-
-                main.unmaskMe();
-                if(data.responseText != 'false'){
-                    userbeta = data.responseText;
-                    self.start(true);
-                }
-                else {
-                    var view = self.getBetaScreen();
-                    //view.down('#betakeyField').focus();
-                    view.showError();
-                    
-
-                }
-            },
-            failure:function(data){
-                log('error beta',data);
-                main.unmaskMe();
-                
-            }
-        });
-    },
-    start: function(closePopup) {
-        if(closePopup) this.getBetaScreen().hide();
+    launch:function(){
         this.$container = $('#quickd-deals .x-scroll-container');
         this.$dealsWrap = $('#quickd-deals .x-scroll-view .x-scroll-container .x-scroll-scroller.x-list-inner');
+        
         // Add deals bg
         this.$container.append($('<div id="deal-bg"></div>'));
         this.$dealsBg = this.$container.find('#deal-bg').hide();
-        Ext.getStore('Deals').on({ 'refresh': this.updatedStore, scope: this,'updaterecord': this.addRemoveRecords,'addrecords':this.addRemoveRecords});
+        
+        Ext.getStore('Deals').on({ 
+            'refresh': this.updatedStore, 
+            scope: this,
+            'updaterecord': this.addRemoveRecords,
+            'addrecords':this.addRemoveRecords
+        });
+        
         this.getMain().setActiveItem(this.getDealList());
+        
         this.animationController = this.getApplication().getController('AnimationController');
+        
         this.location = Ext.create('Ext.util.GeoLocation', {
             autoUpdate: false,
             listeners: {
@@ -86,22 +55,8 @@ Ext.define('QuickD.controller.Main', {
                 scope: this
             }
         });
-        this.location.updateLocation();
-    },
-    launch:function(){
-
-        if(isIphone == 1 && !window.navigator.standalone){
-            this.getMain().setActiveItem(this.getNotApp());
-            return;
-        }
-        if(!userbeta){    
-            this.getBetaScreen().show();
-        }
-        else {
-            this.start();
-        }
-        //this.sortController = this.getApplication().getController('SortController');
         
+        this.location.updateLocation();
     },
     addRemoveRecords:function(store,p2,p3,p4){
         if(this.lockRefresh) return;
@@ -112,51 +67,10 @@ Ext.define('QuickD.controller.Main', {
             self.updatedStore(store);
         },150);
     },
-    requestKey:function(buttonId,value,opt){
-        //alert('req'+buttonId+value);
-        if(buttonId != 'ok') return;
-        if(!value) return;
-        if(!validate(value)) return Ext.Msg.prompt('Anmod om betanøgle','Indtast en rigtig email',this.requestKey,this);
-        var main = this.getMain();
-        var betascreen = this.getBetaScreen();
-        main.maskMe('Anmoder om adgang');
-        Ext.Ajax.request({
-            url: ROOT_URL+'ajax/requestBetakey.php',
-            params:{
-                email:value
-            },
-            method:'POST',
-            success:function(data){
-                var response = JSON.parse(data.responseText);
-                var test = false;
-                if(response.success === 'true') test = true;
-                else if(response.success === 'false' && response.error === 'user_exists') test = true;
-                if(test) betascreen.showSignedUpText();
-                else Ext.Msg.alert('En fejl skete','Vi beklager en fejl skete, vi løber som små vilddyr for at få den rettet');
-                main.unmaskMe();
-            },
-            failure:function(data){
-                log('error beta',data);
-                main.unmaskMe();
-                
-            }
-        });
-    },
     buttonHandler:function(t,t2,t3){
         var id = t.getId();
         var main = this.getMain();
         switch (id){
-            case 'useBetaKey':
-                var key = main.down('#betakeyField').getValue();
-                if(!key) return;
-                this.useBetaKey(key);
-            break;
-            case 'requestKeyButton':
-                Ext.Msg.prompt('Anmod om betanøgle','Indtast din email og tryk ok',this.requestKey,this);
-            break;
-            case 'loginWithFacebook':
-                this.doFacebookConnect();
-            break;
             case 'sortButton':
                 this.sortController.setState();
                 this.changeToView('dealsort');
@@ -183,9 +97,6 @@ Ext.define('QuickD.controller.Main', {
             button  = Ext.ComponentQuery.query('toolbar #sortButton'),
             self    = this;
         switch(view){
-            case 'betaview':
-                main.setActiveItem(this.getBetaView());
-            break;
             case 'dealsort':
                 main.animateActiveItem(this.getDealSort(), 'flip');
             break;
@@ -193,8 +104,6 @@ Ext.define('QuickD.controller.Main', {
                 var dealsOut    = this.animationController.dealsListOut($deals),
                     bgIn        = this.showSingleBackground(300);
 
-                //button[0].hide();
-                // Fetch data for selected deal.
                 this.getDealShow().down('#quickd-deal-slider').setActiveItem(options.index);
                 
                 $.when(dealsOut, bgIn).done(function() {
@@ -203,7 +112,6 @@ Ext.define('QuickD.controller.Main', {
                 });
             break;
             case 'deallist':
-                //button[0].show();
                 main.setActiveItem(this.getDealList());
                 
                 // TODO: Why do we need a timeout here...?
@@ -225,9 +133,6 @@ Ext.define('QuickD.controller.Main', {
     },
     constructor:function(){
         this.callParent(arguments);
-    },
-    testHours:function(){
-
     },
     updatedStore:function(instance,data,options){
 

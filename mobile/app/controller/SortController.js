@@ -15,15 +15,11 @@ Ext.define('QuickD.controller.SortController', {
             }
         }
     },
-    test:function(t,t2,t3){
-        log('testfunc',t,t2,t3)
-    },
     checkboxHandler:function(f){
-
         var name = f.getName();
         var checked = f.getChecked();
         this.changedStateObj[name] = checked;
-        for (var name in this.changedStateObj){
+        for (var name in this.changedStateObj) {
             if(this.changedStateObj[name] != this.unchangedStateObj[name]){
                 if(!this.changedSorting){ 
                     this.getUpdateButton().setText('Opdater');
@@ -36,8 +32,6 @@ Ext.define('QuickD.controller.SortController', {
             this.changedSorting = false;
             this.getUpdateButton().setText('Tilbage');
         }
-
-        //log('checkboxHandler',this.changedStateObj,this.unchangedStateObj);
     },
     filterChange:function(){
         var store = Ext.getStore('Deals');
@@ -47,14 +41,17 @@ Ext.define('QuickD.controller.SortController', {
             store.clearFilter();
             var self = this;
             var filter = this.changedStateObj;
-            store.filter({filterFn: function(item) { return (filter[item.get("category")] == true); }});
+            store.filter({
+                filterFn: function(item) { 
+                    return ( filter[item.get("category")] == true ); 
+                }
+            });
         }
     },
     init: function() {
         this.unchangedStateObj = {};
         this.changedStateObj = {};
         this.changedSorting = false;
-        //log('init SortController');
     },
     setState:function(){
         var checkBoxes = Ext.ComponentQuery.query('dealsort checkboxfield');
@@ -65,7 +62,6 @@ Ext.define('QuickD.controller.SortController', {
         }
         this.getUpdateButton().setText('Tilbage');
         this.changedSorting = false;
-        //log(this.unchangedStateObj,this.changedStateObj);
     },
     launch:function(){
         this.setState();

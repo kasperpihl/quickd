@@ -7,9 +7,6 @@ Ext.define('QuickD.view.Main', {
         'QuickD.view.Splash',
         'QuickD.view.DealList',
         'QuickD.view.DealShow',
-        'QuickD.view.BetaScreen',
-        'QuickD.view.NotApp',
-        /*'QuickD.view.DealSort',*/
         'QuickD.view.MapShow'
     ],
     config:{
@@ -17,10 +14,7 @@ Ext.define('QuickD.view.Main', {
         layout: 'card',
         items: [
             {xtype:'splash'},
-            {xtype:'betascreen'},
             {xtype:'deallist'},
-            {xtype:'notapp'},
-            /*{xtype:'dealsort'},*/
             {xtype:'dealshow'},
             {xtype:'mapshow'}
         ]
