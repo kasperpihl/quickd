@@ -341,10 +341,10 @@ $include-button-highlights: $include-highlights !default;
   }
 
   .x-button.x-button-#{$ui-label}-round {
-    @extend .x-button-round;
+    @extend .x-button-round !optional;
   }
 
   .x-button.x-button-#{$ui-label}-small {
-    @extend .x-button-small;
+    @extend .x-button-small !optional;
   }
 }
