@@ -9284,7 +9284,7 @@ nav#menu {
   -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
-/* line 15, ../sass/_menu.scss */
+/* line 16, ../sass/_menu.scss */
 nav#menu li a {
   display: block;
   padding: 17px 15px;
@@ -9293,7 +9293,7 @@ nav#menu li a {
   font-size: 15px;
   text-decoration: none;
   color: white;
-  background: url('/styles/stylesheets/i/transparent-noise.png?1365867266') repeat;
+  background: url(i/transparent-noise.png) repeat;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -9329,8 +9329,9 @@ nav#menu li.selected a {
   -moz-box-shadow: inset 0 1px 0 black;
   box-shadow: inset 0 1px 0 black;
   background-color: rgba(255, 255, 255, 0.06);
+  text-shadow: 0 1px 1px black, 0 0 7px rgba(255, 255, 255, 0.5);
 }
-/* line 58, ../sass/_menu.scss */
+/* line 59, ../sass/_menu.scss */
 nav#menu li:first-child a {
   -webkit-border-radius: 8px 8px 0 0;
   -moz-border-radius: 8px 8px 0 0;
@@ -9338,7 +9339,7 @@ nav#menu li:first-child a {
   -o-border-radius: 8px 8px 0 0;
   border-radius: 8px 8px 0 0;
 }
-/* line 59, ../sass/_menu.scss */
+/* line 60, ../sass/_menu.scss */
 nav#menu li:last-child a {
   -webkit-border-radius: 0 0 8px 8px;
   -moz-border-radius: 0 0 8px 8px;
@@ -9346,7 +9347,7 @@ nav#menu li:last-child a {
   -o-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
 }
-/* line 60, ../sass/_menu.scss */
+/* line 61, ../sass/_menu.scss */
 nav#menu li:last-child a.selected {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }

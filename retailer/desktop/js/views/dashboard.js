@@ -41,7 +41,7 @@ define([
 			$('#menu').verticalAlign();
 			
 			$('#analogueclock').analogueClock({
-				radius: 8,
+				radius: 50,
 				strokeW: 2,
 				color: "rgb(69,69,69)"
 			});
