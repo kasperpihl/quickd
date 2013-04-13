@@ -1,4 +1,4 @@
-@import "compass/typography/text/replacement";
+@import "compass/typography";
 
 /******************************************************************
 VARIABLES
@@ -205,6 +205,7 @@ SINGLE DEAL
         #quickd-deal-content .x-innerhtml {
             .deal-wrap {
                 position: absolute;
+                width: 100%;
             }
 
             article[id*=deal-] {
