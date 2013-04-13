@@ -24,7 +24,7 @@ $version = $_SESSION['version'] = (isset($_SESSION['version'])) ? $_SESSION['ver
 switch($root){
 	case 'test.quickd.com':
 	case 'localhost':
-		$dbLink = 'quickd:testanders@77.66.53.58';
+		$dbLink = 'quickd:ka2jae2n@77.66.53.59';
 		if(strpos($_SERVER['REQUEST_URI'], 'retailer/')){
 		 	$string = 'retailer/';
 		 	$ending = $version. '/';
