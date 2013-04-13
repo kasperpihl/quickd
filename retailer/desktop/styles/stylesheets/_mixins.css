@@ -1,13 +1,13 @@
 /*
 Syntax error: Undefined mixin 'box-shadow'.
-        on line 56 of /Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_screen.scss, in `box-shadow'
-        from line 56 of /Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_screen.scss
-        from line 7 of /Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/ie.scss
+        on line 237 of /Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_mixins.scss, in `box-shadow'
+        from line 237 of /Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_mixins.scss, in `bluePulseRules'
+        from line 241 of /Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_mixins.scss
 
 Backtrace:
-/Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_screen.scss:56:in `box-shadow'
-/Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_screen.scss:56
-/Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/ie.scss:7
+/Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_mixins.scss:237:in `box-shadow'
+/Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_mixins.scss:237:in `bluePulseRules'
+/Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_mixins.scss:241
 /Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:253:in `visit_mixin'
 /Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
 /Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
@@ -23,9 +23,24 @@ Backtrace:
 /Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
 /Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
 /Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
-/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:227:in `visit_import'
-/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:227:in `map'
-/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:227:in `visit_import'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:268:in `visit_mixin'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:268:in `map'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:268:in `visit_mixin'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:268:in `visit_mixin'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:70:in `perform_arguments'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:263:in `visit_mixin'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:109:in `visit_children'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:108:in `visit_children'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:356:in `visit_directive'
 /Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
 /Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
 /Applications/CodeKit.app/Contents/Resources/engines/compass/bin/../../scss/lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
@@ -68,4 +83,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'box-shadow'.\A         on line 56 of /Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_screen.scss, in `box-shadow'\A         from line 56 of /Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_screen.scss\A         from line 7 of /Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/ie.scss"; }
+  content: "Syntax error: Undefined mixin 'box-shadow'.\A         on line 237 of /Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_mixins.scss, in `box-shadow'\A         from line 237 of /Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_mixins.scss, in `bluePulseRules'\A         from line 241 of /Users/Ahrengot/Documents/privat/work/QuickD/retailer/desktop/styles/sass/_mixins.scss"; }

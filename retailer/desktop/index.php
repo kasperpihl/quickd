@@ -19,7 +19,7 @@ if(strpos($_SERVER['REQUEST_URI'], $thisfolder )){
 	    <link href="<?= LIBS_URL ?>jquery/css/jquery.ui.selectmenu.css" media="all" rel="stylesheet"/>
 	    <link href="<?= LIBS_URL ?>jquery/css/jquery.ui.datepicker.css" media="all" rel="stylesheet"/>
 	        
-		<link href="<?= ROOT_URL ?>styles/stylesheets/screen.css" media="all" rel="stylesheet"/>
+		<link href="<?= ROOT_URL ?>styles/stylesheets/combined.css" rel="stylesheet"/>
 	    <!--[if lt IE 9]>
 			  <link href="<?= ROOT_URL ?>styles/stylesheets/ie.css" media="all" rel="stylesheet"/>
 	    <![endif]-->

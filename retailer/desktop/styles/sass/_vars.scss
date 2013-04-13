@@ -1,0 +1,42 @@
+$experimental-support-for-svg: true;
+
+$background-color:#F6F6F6;
+$standard-green: #18AB34;
+$font-family: Arial, Helvetica, sans-serif;
+$input-font-family: $font-family;
+
+$default-border-radius: 8px;
+
+$header-height: 45px;
+$header-font-color: white;
+$header-font-size: 16px;
+$header-discrete-border: 0px solid #999999;
+
+$footer-height: 30px;
+
+$menu-width:200px;
+$menu-font-color: white;
+$menu-font-size: 15px;
+$menu-discrete-border: 1px solid #A09F9E;
+$menu-outer-border: 1px solid #404040;
+$menu-inner-border: 1px solid #C9C9C8;
+
+$window-font-family: $font-family;
+$window-font-size: 14px;
+$window-font-color: black;
+$window-border: 1px solid #efefef;
+$window-title-font-size: 1.5em;
+$window-bottom-bg: $standard-green;
+$window-bottom-font-color: white;
+$window-border-radius: 8px;
+$window-background: #fff;
+
+$default-list-item-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+
+/*
+	Image positions
+*/
+
+$register-shop-btn: 0px;
+$register-shop-btn-hover: -39px;
+$register-shop-btn-active: -78px;

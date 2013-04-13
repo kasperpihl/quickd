@@ -4,7 +4,7 @@
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
  * <![endif]--> */
 
-@import "base";
+@import "screen";
 
 /* Gradient backgrounds */
 .dialog {
@@ -74,7 +74,7 @@
  
   @include filter-gradient(#373737, #121212, vertical);
   
-  .menu_icon{
+  li a {
     border-bottom: 1px solid #5D5D5D;
     
     &:hover {

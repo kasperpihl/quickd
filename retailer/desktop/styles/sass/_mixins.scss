@@ -1,0 +1,261 @@
+@mixin big-shadow {
+	@include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 25px rgba(0,0,0,0.3));
+}
+
+@mixin small-shadow {
+	@include box-shadow(0 0 12px rgba(0,0,0,0.3)); 
+}
+
+@mixin window-ready-state {
+	@include big-shadow;
+	opacity: 1;
+}
+
+@mixin entryview_input {
+
+	input[type="text"], input[type="password"] {
+		width: 100%;
+		border: 1px solid #CCC;
+		@include border-radius(3px);
+		@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.2));
+		color: rgba(0,0,0,0.8);
+		font-size: 13px;
+		outline: none;
+		padding: 6px;
+		-moz-transition: border .2s linear, box-shadow .2s linear;
+		-webkit-transition: border .2s linear, -webkit-box-shadow .2s linear;
+
+		&.errorTip {
+			border: 1px solid #DD5555;
+			@include box-shadow(0 0px 3px rgba(224, 48, 52, 0.7), inset 0 1px 2px rgba(0,0,0,0.2));
+		}
+	}
+
+	input[type="text"]:focus:not(.errorTip), input[type="password"]:focus:not(.errorTip) {
+		border: 1px solid #59CCD9;
+		@include box-shadow(0 0px 3px rgba(134, 218, 227, 0.7), inset 0 1px 2px rgba(0,0,0,0.2));
+	}
+	div.errorTip {
+		position:absolute;
+		width:200px;
+		background-color:#000;
+		border:1px solid #fff;
+		opacity:0.7;
+		padding:5px 10px;
+		color:#fff;
+		text-align:left;
+		font-size:14px;
+		z-index: 50;
+		@include box-shadow(0 0 5px #000);
+		@include border-radius(5px);
+	}
+
+	button {
+		float: left;
+		line-height: 25px;
+		padding-left: 8px;
+		padding-right: 8px;
+		margin-top: 10px;
+		cursor: pointer;
+		@include border-radius(3px);
+		outline: none;
+		font-weight: bold;
+		font-size: 13px;
+		color: #2E2826;
+		@include text-shadow(0 1px 1px rgba(255,255,255,0.8));
+		@include box-shadow(inset 0 1px 1px rgba(255,255,255,0.8));
+
+		display: inline-block;
+		border: 1px solid #FD9A0F;
+
+		// needs latest Compass, add '@import "compass"' to your scss
+		background-color: rgb(234,232,121); // Old browsers
+		@include filter-gradient(#eae879, #fd9a0f, vertical); // IE6-9
+		@include background-image(linear-gradient(top,  rgba(234,232,121,1) 0%,rgba(253,154,15,1) 100%));
+	}
+
+	button:hover {
+		background-color: rgb(234,232,121); // Old browsers
+		@include filter-gradient(#eae879, #fd9a0f, vertical); // IE6-9
+		@include background-image(linear-gradient(top,  rgba(234,232,121,1) 0%,rgba(253,154,15,0.7) 100%));
+	}
+
+	button:active {
+		@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.5));
+	}
+
+	label {
+		font-weight: bold;
+		float: left;
+		clear: both;
+		font-size: 13px;
+		margin-bottom: 5px;
+		margin-top: 15px;
+		color: rgba(0,0,0,0.6);
+
+		input[type="checkbox"] {
+			margin-right: 7px;
+		}
+
+		a {
+			font-weight: bold;
+			font-size: 12px;
+			margin-left: 4px;
+			color: #2E73BC;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		small {
+			color: rgba(0,0,0,0.4);
+			font-size: 12px;
+			margin-left: 7px;
+			font-weight: normal;
+		}
+	}
+}
+
+@mixin default-list-item {
+		padding:0px;
+		margin:0px 1px;
+		img {
+			width: 75px;
+			float: left;
+			margin: 0px;
+			height: 75px;
+		}
+		.deal-img {
+			width: 75px;
+			float: left;
+			margin: 0px;
+			height: 75px;
+			background-size:100% 100%;
+			background-repeat:no-repeat;
+		}
+		.details {	float:left;padding:5px 0px;width:180px;}
+		.prices {margin-top:0px;}
+		h2 {
+			color: #2F3E46;
+			white-space: nowrap;
+			width: 90%;
+			overflow: hidden;
+			text-overflow: ellipsis;				
+		}
+		span {padding-top:4px;clear:both;display:block;font-size:12px;
+			em { font-size:14px;color:#545454; }
+		}
+		
+		background:#EEE;
+		@include filter-gradient(#fdfdfd, #eee, vertical);
+		@include background(linear-gradient(#fdfdfd,#eee));
+		
+		&:hover {
+			background-color: rgb(239,239,239); // Old browsers
+			@include filter-gradient(#efefef, #dbdbdb, vertical); // IE6-9
+			@include background-image(linear-gradient(top, rgba(239,239,239,1) 1%,rgba(219,219,219,1) 100%));
+		}
+		
+		display:block;
+		margin:0px;
+		height: 75px;
+		padding: 0px;
+		border:0px;
+		border-bottom:1px solid #dfdfdf;
+		cursor:pointer;
+		font-size:14px;
+		.details {	color:#828282;}
+		span {padding:5px 0px;clear:both; font-size: 0.8em; }
+		.address {clear:both;display:block;}
+}
+
+@mixin white-gradient {
+	background:#FFF;
+	@include background-image(linear-gradient(#ffffff 48%,#e2e2e2 100%));
+}
+
+
+
+@mixin big-input($input-width, $input-height) {
+	.field {
+		 margin:10px auto;
+		 text-align:center;
+
+		.input-wrapper,input {
+			@include transition(all linear 0.2s, box-shadow ease-out 0.2s);
+			@include box-shadow(inset 0 1px 3px rgba(0, 0, 0, 0.1));
+			@include border-radius($default-border-radius);
+			
+			display: inline-block;
+			background: white url('i/loader.gif') no-repeat;
+			background-position: -30px center;
+			
+			border: 1px solid #C7C7C7;
+			font-family: $input-font-family;
+			font-family: "Helvetica Neue", $input-font-family;
+			font-size: 18px;
+			vertical-align:middle;
+			width:$input-width;
+			height:$input-height;
+			color: black;
+			position:relative;
+			margin:0 auto;
+			padding: 0px 5px 0px 16px;
+			outline:none;
+			
+			@include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.6));
+		}
+		.input-wrapper{ padding:0px; }
+		input:focus, .input-wrapper.focus {
+			border: 1px solid #59CCD9;
+		}
+		input.wrapped, input.wrapped:focus {
+			// @include transition(none);
+			@include box-shadow(none);
+			background:transparent;
+			border:none;
+			width:$input-width - 30;
+			margin:0px;
+			z-index:2;display:block;
+		}
+		.label.long { margin-bottom:5px;font-family:$window-font-family;text-align:left; color: black;}
+		.label.hider {
+			position:absolute;
+			top: ($input-height - 18)/2;
+			left: 20px;
+			z-index:1;
+			font-size:18px;
+			color:#bfbfbf;
+			text-shadow: 0 0 1px white;
+		}
+	}
+}
+
+@mixin bluePulseRules {
+	from { @include box-shadow(0px 0px 9px transparent); }
+	50% { @include box-shadow(0px 0px 30px #236FBA); opacity: 0.8;  text-shadow: 0 0 10px white; }
+	to {@include box-shadow(0px 0px 9px transparent); }
+}
+@-webkit-keyframes bluePulse { @include bluePulseRules;}
+@-moz-keyframes bluePulse    { @include bluePulseRules; }
+@-ms-keyframes bluePulse     { @include bluePulseRules; }
+@mixin whitePulseRules {
+	from { @include box-shadow(0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575); }
+	50% { @include box-shadow(0 0 15px #BDE8A2, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575); }
+	to {@include box-shadow(0 0 10px transparent, inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 2px #757575); }
+}
+@-webkit-keyframes whitePulse { @include whitePulseRules;}
+@-moz-keyframes whitePulse    { @include whitePulseRules; }
+@-ms-keyframes whitePulse     { @include whitePulseRules; }
+@mixin showAnimation($name, $duration, $count) {
+	-webkit-animation: $name $duration $count;
+     -moz-animation:   $name $duration $count;
+     -ms-animation:    $name $duration $count;
+}
+@mixin stopAnimation {
+	-webkit-animation: none;
+	-moz-animation: none;
+	-ms-animation: none;
+}

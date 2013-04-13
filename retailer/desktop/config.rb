@@ -5,7 +5,7 @@ http_path = "/"
 css_dir = "styles/stylesheets"
 sass_dir = "styles/sass"
 images_dir = "styles/stylesheets/i"
-javascripts_dir = "js"
+javascripts_dir = "../js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
