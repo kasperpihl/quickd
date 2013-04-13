@@ -1,7 +1,5 @@
 define([
 'text!templates/dashboard.html',
-'order!raphael/raphael-min',
-'order!jquery/jquery.analogueclock',
 'views/notifications',
 'views/activities/activity',
 'views/activities/administration',
@@ -39,12 +37,6 @@ define([
 			
 			$('#dashboard').show();
 			$('#menu').verticalAlign();
-			
-			$('#analogueclock').analogueClock({
-				radius: 50,
-				strokeW: 2,
-				color: "rgb(69,69,69)"
-			});
 			
 			if(App.collections.shops.length > 0 ) {
 				this.animateMenu();
